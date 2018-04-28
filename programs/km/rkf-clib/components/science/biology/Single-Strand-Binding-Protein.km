@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Single-Strand-Binding-Protein.km,v 1.8 2001/09/25 19:22:21 kbarker Exp $ 
+;; 
+
+(Single-Strand-Binding-Protein has
+         (superclasses (DNA-Regulatory-Protein))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A protein which binds to single-stranded DNA during DNA
+                        replication to prevent it from reforming the double 
+                        helix Alberts:ECB:197."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+; (every Single-Strand-Binding-Protein has  
+;        (purpose 
+; 	((a Agent-Role with            ;; Maintainer?? weak role name
+; 	    (in-event 
+; 	     ((a Maintain-Event with
+; 		 (event ((a Make-Accessible)))
+; 		 (object ((a DNA-Sequence)))
+; 		 (base ((a DNA-Polymerase-Replication-Enzyme)))
+; 		 (by-means-of
+; 		  ((a Attach with
+; 		      (object ((the DNA-Sequence object of
+; 				    (the Maintain-Event in-event of
+; 					 (the Agent-Role purpose of Self)))
+; 			       ))
+; 		      (prevents
+; 		       ((a DNA-Strand-Annealing)))
+; 		      )))
+; 		 )))
+; 	    )))
+;        )

@@ -1,0 +1,14 @@
+;; $Id: H5IO6.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(H5IO6 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H5IO6 has
+	(has-chemical-name ("orthoperiodic acid"))
+	(has-part ((a H-Plus)(a IO6-Minus-5)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 5 H-Plus)
+			(:pair 1 IO6-Minus-5)))))))
+)
+(every H5IO6 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a IO6-Minus-5))))
+

@@ -1,0 +1,43 @@
+; 
+;;    $Id: Attack.km,v 1.14 2002/09/19 21:18:39 kbarker Exp $
+;; 
+
+(Attack has 
+  (superclasses (Engagement-Military-Task))
+  (description ("an offensive operation that destroys or defeats enemy forces, seizes and secures terrain, or both"))
+)
+
+(every Attack has
+  (agent ((a Military-Unit)))
+  (object ((a Military-Unit)))
+  (object ((set-constraint
+              (((the number of 
+                     (the value of (the allegiance of TheValues))) <= 1)
+               and
+               (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+  )))
+
+  (enemy ((the object of Self)))
+
+
+#| COAs only every use subclasses of Attack, never Attack itself
+  (required-force-ratio 
+     ((a Required-Force-Ratio-Value with
+         (value ((:pair 3 NIL))))))
+
+  (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                            (value ((:pair 0.9 NIL))))))
+  (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                            (value ((:pair 0.5 NIL))))))
+|#
+  (text-active-verbseq-sg ("attacks"))
+  (text-active-verbseq-pl ("attack"))
+)
+

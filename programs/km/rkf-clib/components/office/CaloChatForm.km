@@ -1,0 +1,18 @@
+;;
+;;    $Id: CaloChatForm.km,v 1.3 2005/01/28 21:10:19 billj Exp $
+;; 
+
+(CaloChatForm has
+	      (superclasses (ChatElement))      
+	      (required-slot          ()) 
+	      (primary-slot     	    ())  
+	      (secondary-slot         ())
+)
+
+(every CaloChatForm has
+       (hasFormField ((a CaloChatFormField)))
+       (hasFormParam ((a String)))
+       )
+
+(hasFormField has (instance-of (Interface-Slot)) (domain (CaloChatForm)) (range (CaloChatFormField)) (cardinality (N-to-N))(inverse (isFormFieldOf)))
+(hasFormParam has (instance-of (Interface-Slot)) (domain (CaloChatForm)) (range (String)) (cardinality (N-to-N)))

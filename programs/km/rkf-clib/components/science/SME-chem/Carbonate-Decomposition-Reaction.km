@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Carbonate-Decomposition-Reaction.km,v 1.1 2008/04/14 21:14:59 tecuci Exp $ 
+;; 
+
+
+(Carbonate-Decomposition-Reaction has
+   (superclasses (Decomposition-Reaction)))
+
+(Carbonate-Decomposition-Reaction now-has (user-description ("Metal carbonates decompose to form metal oxides and carbon dioxide when heated.")))
+
+(every Carbonate-Decomposition-Reaction has-definition
+   (instance-of (Decomposition-Reaction))
+   (raw-material ((a Carbonate-Substance))))
+
+(every Carbonate-Decomposition-Reaction has
+   (result (
+         (a CO2-Substance)
+         ;TODO: recognize chemical
+         (a Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part (
+                           (a O-Minus-2) 
+                           (the Cation has-part of (the has-basic-structural-unit of (the raw-material of Self)))))))))
+         ))
+   )

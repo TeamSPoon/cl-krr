@@ -1,0 +1,169 @@
+;; 
+;; $Id: Person.km,v 1.24 2005/10/03 20:46:36 billj Exp $
+;; 
+
+;; NB: Basic information about the Person class is defined in the 
+;; NB: core directory. This file contains only office-specific
+;; NB: "interface" info
+
+(every Person has
+  ;; person-family-name interface
+  (identifier ((a Text-Field uniquely-called "family name" with
+                  (information-content ((the person-family-name of Self)))
+  )))
+  ;; person-given-name interface
+  (identifier ((forall (the person-given-name of Self)
+                (a Text-Field uniquely-called "given name" with
+                   (information-content (It)))
+  )))
+  ;; person-nickname interface
+  (identifier ((forall (the person-nickname of Self)
+                (a Text-Field uniquely-called "nickname" with
+                   (information-content (It)))
+  )))
+
+  ;; person-sex interface
+  (sex ((a Sex-Value with (value ((the person-sex of Self))))))
+
+  ;; person-age interface
+  (age ((a Duration-Value with 
+           (value ((forall (the person-age of Self)
+                    where (It isa Number)
+                    (:pair It *year)
+                   )
+                   (forall (the person-age of Self)
+                    where (It isa Age-Constant)
+                    (:pair It Person)
+                   )
+           ))
+  )))
+
+  ;; redundant interface slots from different sources
+  (person-family-name ((the hasFamilyName of Self)))
+  (hasFamilyName ((the person-family-name of Self)))
+  (person-given-name ((the hasGivenName of Self)))
+  (hasGivenName ((the person-given-name of Self)))
+  (person-nickname ((the hasNickname of Self)))
+  (hasNickname ((the person-nickname of Self)))
+  (person-sex ((the hasGender of Self)))
+  (hasGender ((the person-sex of Self)))
+
+)
+
+(person-family-name has (instance-of (Interface-Slot)) (domain (Person)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(person-given-name has (instance-of (Interface-Slot)) (domain (Person)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+(person-nickname has (instance-of (Interface-Slot)) (domain (Person)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+(person-sex has (instance-of (Interface-Slot)) (domain (Person)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(person-age has (instance-of (Interface-Slot)) (domain (Person)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+
+(Person has
+  (test-case ('(
+                (*Aramilek has (instance-of (Person))
+                               (person-family-name ("Geblu"))
+                               (person-given-name ("Aramilek"))
+                               (person-age (*old))
+                )
+                (*Beviyukp has (instance-of (Person))
+                               (person-family-name ("Faughth"))
+                               (person-given-name ("Beviyukp" "Mary"))
+                               (person-age (12 *young))
+                               (person-sex (*female))
+                               (person-nickname ("Bev"))
+                )
+))))
+
+
+;; Interface slots for IRIS slots on the IRIS class Human
+
+;; Local
+;; -----
+(hasAliasFamilyName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-N)))
+(hasAliasFullName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-N)))
+(hasAliasGivenName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-N)))
+(hasAliasMiddleName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-N)))
+(hasAnniversaryDate has (instance-of (Interface-Slot)) (domain (Person)) (range (Time-Instant)) (cardinality (N-to-1))(inverse (isAnniversaryDateOf)))
+;; hasConcept     ;; ??
+(hasDeliverable has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isDeliverableOf)))
+(hasEmploymentStatus has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-1))(inverse (isEmploymentStatusOf)))
+(hasEthnicity has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isEthnicityOf)))
+(hasFamilyName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))
+(hasFieldOfOccupation has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isFieldOfOccupationOf)))
+(hasFullName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-N)))
+(hasFullOccupationalTitle has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))
+(hasGender has (instance-of (Interface-Slot)) (domain (Person)) (range (Sex-Constant)) (cardinality (N-to-N))(inverse (isGenderOf)))    ;; card?
+(hasGivenName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))       ;; card?
+(hasHairColor has (instance-of (Interface-Slot)) (domain (Person)) (range (Color-Constant)) (cardinality (N-to-N))(inverse (isHairColorOf)))
+(hasHeight has (instance-of (Interface-Slot)) (domain (Person)) (range (Length-Value)) (cardinality (N-to-1))(inverse (isHeightOf)))
+(hasHobby has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isHobbyOf)))
+(hasHomePageAddress has (instance-of (Interface-Slot)) (domain (Person Organization Event Role)) (range (String)) (cardinality (N-to-N)))
+(hasHonorificSuffix has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-N)))
+(hasMessage has (instance-of (Interface-Slot)) (domain (Person)) (range (Electronic-Message)) (cardinality (N-to-N))(inverse (isMessageOf)))
+(hasMiddleName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))
+(hasNamePrefix has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))
+(hasNationality has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-1))(inverse (isNationalityOf)))      ;; card?
+(hasNationOfResidence has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-1))(inverse (isNationOfResidenceOf)));; card?
+(hasNeighborhoodOfResidence has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-1))(inverse (isNeighborhoodOfResidenceOf))) ;; card?
+(hasNickname has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-N)))
+(hasOccupation has (instance-of (Interface-Slot)) (domain (Person)) (range (Job-Role)) (cardinality (N-to-N))(inverse (isOccupationOf)))
+(hasOccupationalRank has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isOccupationalRankOf)))
+(hasOnlinePresenceStatus has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isOnlinePresenceStatusOf)))
+(hasPicture has (instance-of (Interface-Slot)) (domain (Person)) (range (StillImage)) (inverse (isPictureOf)) (cardinality (N-to-N)))
+(hasPolicy has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N)))
+(hasPreferredFullName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))
+(hasPriorLastName has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))   ;; card?
+(hasProject has (instance-of (Interface-Slot)) (domain (Person Organization Agent-Role Event Document)) (range (Project)) (cardinality (N-to-N))(inverse (isProjectOf)))
+(hasReligion has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isReligionOf)))
+(hasRepresentative has   (instance-of (Interface-Slot))  (domain (Person))  #|(range (Thing))|#  (inverse (isRepresentativeFor))  (cardinality (N-to-N)))
+(hasResidencyStatus has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isResidencyStatusOf)))
+(hasRoomNumber has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))      ;; card?
+   ;; Iris has this as integer, should be String
+(hasSchedule has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isScheduleOf)))
+(hasSecurityClassification has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isSecurityClassificationOf)))
+(hasSentParticipant has (instance-of (Interface-Slot)) (domain (Person)) (range (Participant)) (cardinality (N-to-N))(inverse (isSentParticipantOf)))
+(hasSkill has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))           ;; card?
+(hasSocialSecurityNumber has (instance-of (Interface-Slot)) (domain (Person)) (range (String)) (cardinality (N-to-1)))    ;; card? (me, eg.)
+(hasStateOfResidence has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-1))(inverse (isStateOfResidenceOf)))        ;; card?
+(hasTask has (instance-of (Interface-Slot)) (domain (Person Organization Agent-Role Event Document)) (range (Task)) (cardinality (N-to-N))(inverse (isTaskOf)))
+;(isAudienceMemberOf has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N)))
+(isCareOfContactFor has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N)))
+;; Semex_RepresentsPDI     ;; ??
+
+;; Inherited
+;; ---------
+;; isSourceOfRelation      ;; ??
+;; isTargetOfRelation      ;; ??
+;; hasAnnotation                   ;; description (on classes); identifier (on instances)
+(hasBehavior has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isBehaviorOf)))
+   ;; should be inherited in CLib too
+(hasBirthDate has (instance-of (Interface-Slot)) (domain (Person)) (range (Time-Instant)) (cardinality (N-to-1))(inverse (isBirthDateOf)))
+   ;; should be inherited in CLib too
+(hasContactInformation has (instance-of (Interface-Slot)) (domain (Person Role Organization Event EmploymentRecord Calendar-Entry)) (range (ContactDataStructure)) (inverse (isContactInformationFor)) (cardinality (N-to-N)))
+   ;; range is an office directory class! (This is bad for us)
+(hasDeathDate has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-1))(inverse (isDeathDateOf)))
+   ;; should be inherited in CLib too
+;; hasDepiction                    ;; identifier can have a URI for a file (such as a picture)
+;; hasEvent                        ;; inverse of calendar attendee?
+;; hasGeoPosition                  ;; location ((a Place with (latitude ...) (longitude ...)))
+;; hasInstanceDisplayName          ;; ??
+;; hasInstanceNameSynonym          ;; ??
+;; hasInstanceNameWordNetMapping   ;; wn20-synset?
+(hasInterest has (instance-of (Interface-Slot)) (domain (Person)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isInterestOf)))
+   ;; should not be inherited in iris
+;; hasLocation                     ;; location (plus all locative slots)
+;; hasPart                         ;; has-part
+;; hasStatusFlag                   ;; ??
+;; hasUserDataExtensions           ;; ??
+;; isBoundFromUserDataObject       ;; ??
+;; isContainedIn                   ;; is-inside? content-of?
+;; isDescribedBy                   ;; ??
+;; isDifferentFrom                 ;; ??
+;; isEquivalentTo                  ;; ??
+;; isIntentionalObjectOf           ;; ??
+;; isLocationOf                    ;; is-at-of? (other locative inverses?)
+;; isPartOf                        ;; is-part-of
+;; isRelatedTo                     ;; ??
+;; isRequiredResourceOf            ;; <none>
+;; Semex_FromDocument              ;; ??
+;; Semex_isMentionedInDocument     ;; ??
+(isMentionedIn has (instance-of (Interface-Slot)) (domain (Person)) (range (InformationObject)) (inverse (hasMentionOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+

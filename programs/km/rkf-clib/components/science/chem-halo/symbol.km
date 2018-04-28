@@ -1,0 +1,14 @@
+;;
+;; $Id: symbol.km,v 1.4 2006/09/29 18:57:37 jchaw Exp $
+;;
+
+(symbol has
+    (instance-of (CLIB-Slot-Group))
+    (domain      (Atom))
+    (range       (String))
+    ; (inherit-with-overrides (t))
+    (inverse (symbol-of))
+    (cardinality (N-to-1))
+)
+
+(symbol-of has (instance-of (CLIB-Slot-Group)))

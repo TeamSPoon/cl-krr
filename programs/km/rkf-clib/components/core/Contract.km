@@ -1,0 +1,26 @@
+;;
+;;   $Id: Contract.km,v 1.16 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Contract has 
+  (superclasses  (Decrease))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Contract has-definition
+  (instance-of (Decrease))
+  (from-value ((a Volume-Value)))
+)
+
+(every Contract has
+  (from-value ((a Volume-Value with (volume-of ((the base of Self))))))
+  (base ((a Tangible-Entity with (volume ((the from-value of Self))))))
+)
+
+(Contract has (wn20-synset ((:set
+			     (:triple "shrink" 4 "v")
+			     (:triple "contract" 4 "v")
+			     (:triple "contract" 6 "v")
+))))
+
+(every Contract has (text-nominalization ("contraction")))

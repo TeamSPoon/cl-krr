@@ -1,0 +1,64 @@
+<!--- $Id: Replenish.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<kml>
+
+<concept name=Replenish><system-documentation name=Replenish>
+<superconcept name=Increase>
+
+<definition>
+
+  An increase in the amount of some <conceptref name=Entity> 
+  which is playing the role of a <conceptref name=Resource>
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the entity replenished
+  </slotdescription>
+
+  <slotdescription name=base>
+     the <conceptref name=Resource> that the entity is playing
+  </slotdescription>
+
+  <slotdescription name=property-slot>
+     the <slot>property</slot> of the object that increases
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=from-value>
+    the initial value of the <slot>property-slot</slot> before the replenishment
+  </slotdescription>
+
+  <slotdescription name=to-value>
+    the final value of the <slot>property-slot</slot> after the replenishment
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John's car runs on ethanol. He re-filled the tank.</text>
+    <slotdescription name=object>the ethanol in the tank</slotdescription>
+    <slotdescription name=base>the fuel (a resource) used in John's engine's operation</slotdescription>
+    <slotdescription name=property-slot>volume</slotdescription>
+    <slotdescription name=to-value>full</slotdescription> 
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Consume>
+     The act of consuming a resource
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

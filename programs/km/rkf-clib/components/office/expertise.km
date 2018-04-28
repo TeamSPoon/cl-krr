@@ -1,0 +1,13 @@
+
+(expertise has
+ 	   (instance-of (Interface-Slot))
+ 	   (domain (MeetingExpert Person))
+ 	   (range (Thing)) ; String, though redundant given Thing, was added 2005-05-11 for a MOKB xsd string issue.  String removed 2005-08-23 bc of km issue causing owl translator problem.
+ 	   (fluent-status (*Inertial-Fluent))
+ 	   (cardinality (N-to-N))
+ 	   (inverse (is-expertise-of)))
+
+;; This component was created as part of an effort in May of 2005
+;; related to the Multimodal Dialogue (MMD) Ontology being led by John
+;; Niekrasz.
+

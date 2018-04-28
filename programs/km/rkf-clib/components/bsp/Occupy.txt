@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Occupy.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Occupy 
+  superclass: Tactical-Mission-Task   
+  superclass: Move 
+  object: Military-Unit <---->  Actor 
+  destination: Place <--> Acted on 
+ 
+  resulting-state: Be-Controlled 
+                                object:  Place 
+                                agent: MU called "friendly forces" object of Self  
+ 
+  prevents: Occupy with 
+                        object: MU called "enemy forces" 
+ 
+  subevent: mustnt-be-a Combat with 
+                                           object: MU called "friendly forces" object of Self 
+                                           object: MU called "enemy forces"  
+ 
+Occupy (A). 
+======. 
+1. Occupy is a tactical mission task that involves moving a friendly force into an area so that it can control that area. 
+2. Both the force's movement to and occupation of the area occur without enemy opposition. 
+3. A unit can control an area without occupying it, but not vice versa. 
+4. Units typically occupy assembly areas, objectives, and defensive positions. 

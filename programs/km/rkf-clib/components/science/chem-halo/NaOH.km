@@ -1,0 +1,23 @@
+;;
+;; $Id: NaOH.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(NaOH has (superclasses (Ionic-Compound)))
+
+(every NaOH has	
+       (has-chemical-name ("sodium hydroxide"))
+       (has-part 
+	((a Na-Plus) (a OH-Minus)))
+       (atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Na)
+			 (:pair 1 O)
+			 (:pair 1 H)))))))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Na-Plus)
+			 (:pair 1 OH-Minus)))))))
+       )(every NaOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a OH-Minus))))
+

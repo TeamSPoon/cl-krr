@@ -1,0 +1,110 @@
+;; 
+;;    $Id: Acid-Base-Exchange-w-Gas-c.km,v 1.6 2003/02/17 16:18:08 porter Exp $ 
+;; 
+
+(Acid-Base-Exchange-w-Gas-c has (superclasses (Reaction)))
+
+(every Acid-Base-Exchange-w-Gas-c has-definition
+       (instance-of (Reaction [Acid-Base-Exchange-w-Gas-c-instance-of-1]))
+       (raw-material (;; the raw material
+		      ;; has to be Water with XS, where X is not H
+		      (a Acid)
+		      (constraint
+		       (not (TheValue isa H2S-Substance)))
+		      (a Ionic-Compound-Substance with
+			 ;(instance-of (
+			;	       (constraint
+			;		(TheValue /= H2S-Substance))))
+			 (has-basic-structural-unit
+			  ((a Ionic-Compound with
+			      (has-part ((a S-Minus-2)
+					 )))))))))
+
+(every Acid-Base-Exchange-w-Gas-c has
+       (result (
+		(if (not
+		     (the H2S-Substance raw-material of Self))
+		    then
+		  (:set
+		   (a Ionic-Compound-Substance with
+		      (has-basic-structural-unit
+		       ((a Ionic-Compound with
+			   (has-part ((
+				       an instance of
+					  (forall (the raw-material of Self)
+						  where
+						  ((the Anion has-part of
+							(the has-basic-structural-unit
+							     of
+							     It))
+						   isa S-Minus-2)
+						  (the instance-of
+						       of
+						       (the Cation has-part of
+							    (the has-basic-structural-unit
+								 of
+								 It)))))
+				      (an instance of
+					  (the instance-of
+					       of
+					       (the Anion has-part of
+						    (the has-basic-structural-unit
+							 of
+							 (the Acid raw-material of Self))))))))))
+                 [Acid-Base-Exchange-w-Gas-c-result-1]
+                )
+		   (a H2S-Substance))))))
+						      
+(comment [Acid-Base-Exchange-w-Gas-c-instance-of-1]
+  "Therefore, this is an acid-base exchange reaction (with gas)"
+
+  "By definition, a reaction between an acid and a sulfide is an acid-base exchange reaction (with gas)" 
+)  
+
+(comment [Acid-Base-Exchange-w-Gas-c-result-1]
+  (:seq "The products of the reaction of"
+        (andify (the text-gen of (the raw-material of Self)))
+        "are thus"
+        (andify (the text-gen of (the result of Self)))
+  )
+  "When an acid reacts with a sulfide, the products are H2S and a salt formed by the acid's anion and the bicarbonate metal"
+)
+
+(Acid-Base-Exchange-w-Gas-c
+ has
+ (test-case ('(
+	       ((the number of
+		    (allof
+		     (the result of
+			  (a Reaction with
+			     (raw-material ((a HCl-Substance)
+					    (a Ionic-Compound-Substance with
+					       (has-basic-structural-unit 
+						(
+						 (a Ionic-Compound with
+						    (atomic-chemical-formula 
+						     (
+						      (a Chemical-Formula with
+							 (term ((:seq 
+								 (:pair 2 Na)
+								 (:pair 1 S)))))))
+						    (has-chemical-formula 
+						     (
+						      (a Chemical-Formula with
+							 (term ((:seq
+								 (:pair 2 Na-Plus)
+								 (:pair 1 S-Minus-2)))))))
+						    ))))))))
+		     where
+		     (
+		      (It isa H2S-Substance)
+		      or
+		      ((the elements of
+			    (the term of
+				 (the has-chemical-formula of
+				      (the has-basic-structural-unit of
+					   It))))
+		       = (:set (:pair 1 Cl-Minus) (:pair 1 Na-Plus))))))
+	       = 
+	       2)
+))))

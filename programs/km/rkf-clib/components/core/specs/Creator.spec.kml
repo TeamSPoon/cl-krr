@@ -1,0 +1,46 @@
+<!--- $Id: Creator.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+<concept name=Creator>
+<system-documentation name=Creator>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    A Creator is the <conceptref name=Role> played by an entity 
+    which is the <slot>agent</slot> of a <conceptref name=Create>.
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the entity that's playing the role of creator
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Create> event that the entity is engaged in
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+
+     <text>The artist created a sculpture.</text>
+     <comment>
+     In this example, the role of Creator is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Create> with
+         object=sculpture</slotdescription>
+     <slotdescription name=played-by>the artist</slotdescription>
+     </comment>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+
+

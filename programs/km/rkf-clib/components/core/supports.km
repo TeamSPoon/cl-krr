@@ -1,0 +1,25 @@
+;; 
+;;    $Id: supports.km,v 1.8 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(supports has
+	 (instance-of 		(Causal-Relation))
+	 (superslots 		())
+	 (subslots 		())
+	 (domain 		(Event))
+	 (range 		(Event))
+	 (inverse 		(supported-by))
+	 (fluent-status 	(*Inertial-Fluent))
+         (original-slot      (t))	
+	 (cardinality 		(N-to-N)))
+
+(supported-by has
+	(instance-of (Causal-Relation)))
+
+(supported-by has
+  (combine-values-by-appending (t)))
+
+
+
+(supports has (text-gloss ("supports")))
+(supported-by has (text-gloss ("is supported by")))

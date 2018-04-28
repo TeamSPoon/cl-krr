@@ -1,0 +1,16 @@
+;;
+;; $Id: Cr.km,v 1.4 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Cr has (superclasses (Metal-Atom VIB-Element)))
+(every Cr has
+       (atomic-symbol (Cr))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 24 NIL))))))
+       (has-ion ((a Cr-Plus-3)))
+       (chemical-period (4)))
+
+(every Cr has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("chromium"))
+)

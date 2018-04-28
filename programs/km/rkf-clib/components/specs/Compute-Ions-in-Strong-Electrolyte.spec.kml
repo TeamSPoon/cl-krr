@@ -1,0 +1,42 @@
+<!--- $Id: Compute-Ions-in-Strong-Electrolyte.spec.kml,v 1.2 2002/11/22 21:29:16 tecuci Exp $ --->
+
+<kml>
+<concept name=Compute-Ions-in Strong-Electrolyte>
+
+<superconcept name=Method>
+
+  <definition>
+    Compute-Ions-in Strong-Electrolyte is the <conceptref name=Method> to compute the amount of <conceptref name=Ion>s in a certain <conceptref name=Strong-Electrolyte>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=input>
+     The quantity of Strong-Electrolyte and the type(s) of Ion(s) whose amount is sought-after.
+   </slotdescription>
+   <slotdescription name=output>
+     One or more quantity value(s) to denote the computed amount(s).
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>One mole of Na2CO3 contains 2 mole of Na+ and 1 mole of CO3-2.</text>
+     <slotdescription name=input>1 mole of Na2CO3, Na+, CO3-2</slotdescription>
+     <slotdescription name=output> 2 mole Na+, 1 mole CO3-2.</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Compute-Quantity-of-Chemical> Compute-Quantity-of-Chemical computes the quantity of a type of Chemical in a compound.
+  </neighbor>
+
+  <neighbor name=Compute-Quantity-from-Concentration-and-Volume>
+  Compute-Quantity-from-Concentration-and-Volume computes the quantity of a solute given its concentration and the volume of the solution.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

@@ -1,0 +1,14 @@
+;; 
+;;    $Id: H2-Substance.km,v 1.8 2008/11/03 03:11:26 tecuci Exp $ 
+;; 
+
+(H2-Substance has (superclasses (Non-Metal)))
+	
+(every H2-Substance has
+  (has-basic-structural-unit ((a H2))))
+(every H2-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a H2))))
+
+(H2-Substance has (wn20-synset ((:set
+				 (:triple "hydrogen" 0 "n")))))

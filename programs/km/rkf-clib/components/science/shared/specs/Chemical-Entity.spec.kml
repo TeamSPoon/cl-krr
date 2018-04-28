@@ -1,0 +1,48 @@
+<!--- $Id: Chemical-Entity.spec.kml,v 1.1 2008/11/11 21:58:14 tecuci Exp $ --->
+<kml>
+
+<concept name=Chemical-Entity><system-documentation name=Chemical-Entity>
+<superconcept name=Physical-Object>
+
+<definition>
+
+  A physical object that is the basic building blocks of chemicals. A
+  Chemical-Entity can be, for example, a <conceptref name=Compound>,
+  an <conceptref name=Atom>, or an <conceptref name=Ion>.
+
+</definition>
+
+<neighborlist>
+
+  <neighbor name=Ionic-Compound> 
+    A type of chemical entity composed of
+    an ionic molecule, containing a Cation and an Anion
+  </neighbor>
+
+  <neighbor name=Molecular-Compound> 
+    A compound that does not contain ions
+  </neighbor>
+
+  <neighbor name=Molecule>
+    A stable chemical entity that carries no charge, and has at least
+    2 atoms or ions
+  </neighbor>
+
+  <neighbor name=Ion>
+    A Chemical-Entity with a positive or a negative charge
+  </neighbor>
+
+  <neighbor name=Atom>
+    The smallest particle that maintains its chemical identity through
+    all chemical and physical changes
+  </neighbor>
+
+  <neighbor name=Subatomic-Particle>
+    One of the constituents of an atom
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

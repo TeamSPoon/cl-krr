@@ -1,0 +1,10 @@
+;; $Id: diagram-ordinal-position.km,v 1.1 2005/02/23 04:49:03 billj Exp $ 
+
+(diagram-ordinal-position has (instance-of (Interface-Slot))(domain (Project Diagram-Object))(range (Integer))(description ("Describes where in a(n) (implicit) sequence that a given Diagram-Object or Project occurs.  This slot is a short term solution to a Y2 challenge question. "))(fluent-status (*Inertial-Fluent))(cardinality (N-to-1)))
+
+;; A longer term solution should probably make use of CLib terms such
+;; as Sequence, first-element, next-element.  There will need to be a
+;; new, arity 3 predicate created which given a Sequence $S and and
+;; element $E of that sequence, returns the position(s) of $E in $S.
+;; Also :seq may be a part of the solution.
+	

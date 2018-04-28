@@ -1,0 +1,104 @@
+;;
+;; $Id: Solution.km,v 1.10 2007/03/13 20:05:08 kbarker Exp $
+;;
+
+(Solution has (superclasses (Mixture)))
+
+(Solution has (user-description ("A solution is a mixture of substances that has a uniform composition; a homogeneous mixture.")))
+
+(every Solution has
+       (has-solute  ((a Chemical)))
+       (has-solvent ((a Chemical)))
+       ;; The computation of the pH.
+       (solute-species
+	((forall (the has-solute of Self)
+		 where (It isa Nonelectrolyte)
+		 It)))
+       (solute-species
+	((forall (the has-solute of Self)
+		 where (It isa Strong-Electrolyte)
+		 (the has-part of (the has-basic-structural-unit of It)))))
+       (solute-species
+	((forall (the has-solute of Self)
+		 where (It isa Weak-Electrolyte)
+		 (:set (the has-part of (the has-basic-structural-unit of It))
+			It))))
+       
+
+       ;; This alone should provide exhaustive coverage. Reason is that if we 
+       ;; know only the [H+] we can compute compute pH. If we know only the 
+       ;; [OH-], we can still compute the pH. Once we know the PH we can 
+       ;; get the pOH value.
+       
+
+       (volume ((if (not (the volume of Self))
+		    then
+		    (the output of 
+			 (a Compute-Volume-from-Concentration-and-Quantity with
+			    (input ((the quantity of (the first of (the has-solute of Self)))
+				    (the concentration of (the first of (the has-solute of Self)))))))
+                 [Solution-volume-1]
+       )))
+
+       )
+
+
+(comment [Solution-volume-1]
+  (:seq "The volume of"
+        (the text-gen of Self)
+        "is therefore"
+        (the1 of (the value of (the volume of Self)))
+        (the2 of (the value of (the volume of Self)))
+  )
+  "The volume of a solution can be computed from the quantity and concentration of its solute"
+  (:triple (a Compute-Volume-from-Concentration-and-Quantity with
+              (input ((the quantity of (the first of (the has-solute of Self)))
+                      (the concentration of (the first of (the has-solute of Self))))))
+           output
+           *
+  )
+)
+
+
+(every Solution now-has
+  (text-phrase ((if (has-value
+                         (the has-chemical-name of
+                              (the has-basic-structural-unit of
+                                   (the has-solute of Self))))
+                 then (:seq (andify (the text-phrase of
+                                         (the has-basic-structural-unit of
+                                              (the has-solute of Self))))
+                            "solution"
+                      )
+                 else (the text-base-phrase of Self)
+               ))
+  )
+
+  (text-base-phrase ((if (has-value
+                         (the has-chemical-name of
+                              (the has-basic-structural-unit of
+                                   (the has-solute of Self))))
+                 then (:seq (andify (the text-base-phrase of
+                                         (the has-basic-structural-unit of
+                                              (the has-solute of Self))))
+                            "solution"
+                      )
+                 else (the text-def-head of Self)
+               ))
+  )
+
+  (text-def-head ((:seq (the text-def-determiner of (the has-basic-structural-unit of (the has-solute of Self)))
+                        (the text-head of Self)))
+  )
+
+  (text-head ((if (has-value
+                      (the has-chemical-name of
+                           (the has-basic-structural-unit of
+                                (the has-solute of Self))))
+               then (:seq (the text-head of (the has-solute of Self))
+                          "solution")
+               else Self))
+  )
+
+)
+

@@ -1,0 +1,42 @@
+; 
+;;    $Id: Be-Closed.km,v 1.17 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Closed has
+  (superclasses         (Be-Blocked))
+  (required-slot        (object))
+  (primary-slot         ())
+  (secondary-slot       ())
+  (caused-by-class      (Close))
+  (defeated-by-class    (Open))
+  (cmap-correspondence  (
+                         (:seq object "path that's closed")
+                        )))
+
+(every Be-Closed has
+;;With "Loose Speak", we'd like the user to be able to say that any of
+;;following are objects of Be-Closed: a container, the container's portal,
+;;the portal's portal-covering.  
+  (object               ((exactly 1 Spatial-Entity)))
+  (instrument           ((a Tangible-Entity with
+                            (plays ((a Portal-Covering))))))
+  (resulting-state-of   ((must-be-a Close with
+                           (object ((the object of Self))))))
+  (defeated-by          ((must-be-a Open with
+                           (object ((the object of Self)))))))
+
+(every Be-Closed has
+   (text-particle ("closed"))
+)
+
+
+(Be-Closed has (test-case ()))
+
+(Be-Closed has (wn20-synset ((:set (:triple "closed" 3 "a")
+                                   (:triple "shut" 1 "a")
+                                   (:triple "unopen" 1 "a")
+                                   (:triple "closed" 4 "a")
+                                   (:triple "shut" 2 "a")
+                                   (:triple "closed" 6 "a")
+))))
+

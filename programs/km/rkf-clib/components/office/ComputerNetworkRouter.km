@@ -1,0 +1,14 @@
+;;
+;; $Id: ComputerNetworkRouter.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(ComputerNetworkRouter has 
+  (superclasses (ComputerNetworkPeripheral)))
+
+(ComputerNetworkRouter has
+		       (wn20-synset ((:set (:triple "router" 2 "n")))))
+
+(ComputerNetworkRouter has
+  (feature-slot ((the feature-slot of ComputerNetworkPeripheral)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = ComputerNetworkRouter)))))
+

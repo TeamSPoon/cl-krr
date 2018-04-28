@@ -1,0 +1,18 @@
+;; $Id: Cu-Plus.km,v 1.5 2008/05/14 20:16:55 kunal Exp $ 
+(Cu-Plus has (superclasses (Metal-Cation)))
+(every Cu-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("copper(I)"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cu)))))))
+        (is-ion-of ((a Cu)))
+)
+
+(every Cu-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("copper(I)"))
+)
+
+(Cu-Plus has (wn20-synset ((:triple "Cu+" 0 "n"))))

@@ -1,0 +1,103 @@
+<!--- $Id: Slide.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+<kml>
+
+<concept name=Slide><system-documentation name=Slide>
+<superconcept name=Move>
+
+<definition>
+
+  An <slot>object</slot> <conceptref name=Move>s along a
+  <slot>path</slot> while maintaining contact with it.  The path
+  is typically: <ul>
+      <li> an object with a dominant axis, such as a rope.
+      <li> a surface, such as a desktop.  
+</ul>
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that's sliding.
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot> moves
+     along.  Typically, this is an object or surface along which the
+     <slot>object</slot> is sliding.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the Slide to occur.
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the Place where Slide started.
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the Place where Slide ended.
+  </slotdescription>
+
+  <musing>
+    The other relationships used for <conceptref name=Move> can
+    be used for Slide, too.
+  </musing>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The hockey puck slid across the ice into the goal.</text>
+    <slotdescription name=object>the hockey puck</slotdescription>
+    <slotdescription name=path>the ice</slotdescription>
+    <slotdescription name=destination>inside the goal</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>John slid (himself) along the rope.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>John</slotdescription>
+    <slotdescription name=path>the rope</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>John rolled the ball toward the 10 pin.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the ball</slotdescription>
+    <slotdescription name=toward>the 10 pin</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+    Slide is a type of Move with two extra properties: the object 
+    moves along some object or surface, and throughout the move the 
+    object touches it.
+  </neighbor>
+
+  <neighbor name=Move-Through>
+    Slide is a type of Move-Through with one extra property: 
+    throughout the move the object touches the path it's moving along.
+  </neighbor>
+
+  <neighbor name=Traverse>
+    Traverse involves some entity moving itself, while Slide can be
+    used to describe one entity causing another entity to move.  
+    Also, Slide requires that the moving object is always touching 
+    the path.
+  </neighbor>
+
+
+
+</neighborlist>
+
+</kml>
+
+

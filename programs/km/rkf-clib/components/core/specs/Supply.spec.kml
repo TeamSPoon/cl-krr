@@ -1,0 +1,73 @@
+<!--- $Id: Supply.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<kml>
+
+<concept name=Supply>
+<system-documentation name=Supply>
+<superconcept name=Relinquish>
+
+  <definition> 
+
+   Supply is a type of <conceptref name=Relinquish> which enables the 
+   <conceptref name=Replenish>ment of a <conceptref name=Resource>
+
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the <conceptref name=Tangible-Entity> that is relinquished, 
+       and that serves to replenish a resource
+  </slotdescription>
+
+  <slotdescription name=agent>
+       the <conceptref name=Tangible-Entity> that relinquishes the 
+       <slot>object</slot>.
+       The <slot>agent</slot> is also the <slot>donor</slot>
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=recipient>
+       the <conceptref name=Tangible-Entity> that receives the 
+       <slot>object</slot> when it is relinquished
+  </slotdescription>
+
+</primaryslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The Indians supplied Lewis and Clark with food and tents.</text>
+    <slotdescription name=agent>Indians</slotdescription>
+    <comment>
+     The <slot>agent</slot> is also the <slot>donor</slot>
+    </comment>
+    <slotdescription name=object>food and tents</slotdescription>
+  </examplesentence>
+  <comment>
+    Descriptions of the food and tents, e.g. the events in which they
+    serve as resources, can be specified as features of the 
+    <conceptref name=Replenish> action which this supply action 
+    <slot>enables</slot>    
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Give>
+       In a give action, a donor relinquishes an object and the
+       recipient takes possession of it. In contrast, in a supply 
+       action, the donor relinquishes an object in order to enable
+       it to replenish a resource; the recipient does not necessarily
+       gain possession, at least not immediately.
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

@@ -1,0 +1,11 @@
+
+;; 
+;;  $Id: Tactical-Command-Post-Company.km,v 1.3 2004/01/28 15:12:13 jfan Exp $
+;; 
+
+(Tactical-Command-Post-Company has
+   (superclasses (Tactical-Command-Post-Unit Military-Company)))
+
+(every Tactical-Command-Post-Company has-definition
+   (instance-of (Tactical-Command-Post-Unit Military-Company)))
+

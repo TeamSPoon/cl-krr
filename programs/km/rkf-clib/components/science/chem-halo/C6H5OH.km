@@ -1,0 +1,14 @@
+;; $Id: C6H5OH.km,v 1.2 2006/01/23 23:33:41 jfan Exp $ 
+(C6H5OH has (superclasses (Ionic-Compound)))
+(every C6H5OH has
+	(has-chemical-name ("phenol"))
+	(has-part ((a H-Plus)(a C6H5O-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 C6H5O-Minus)))))))
+)
+(every C6H5OH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C6H5O-Minus))))
+

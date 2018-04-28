@@ -1,0 +1,14 @@
+;;
+;; $Id: Apple-Macintosh.km,v 1.2 2005/06/13 22:00:52 billj Exp $
+;;
+
+(Apple-Macintosh has 
+  (superclasses (Computer))
+  (feature-slot ((the feature-slot of Computer)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Apple-Macintosh))
+  ))
+)
+
+(*Apple-Computer-Inc has (instance-of (Corporation)))
+

@@ -1,0 +1,51 @@
+;; 
+;;    $Id: Triphosphate.km,v 1.13 2001/06/01 23:26:54 pnav Exp $ 
+;; 
+
+(Triphosphate has
+             (superclasses (Phosphoryl-Group)) 
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (description ("A compound containing a three phosphate groups in a
+                            chain. Souther. ")) 
+	     (cmap-correspondence ()))
+
+(every Triphosphate has
+       (has-part 
+	((a Monophosphate called "Phosphate-1" with
+	    (object-of (
+	      (a Be-Attached-To with
+		 (object
+		   (((the has-part of Self) called "Phosphate-2")))
+		 (site 
+		   ((the Phosphorus-Atom has-part of 
+			 ((the Monophosphate has-part of Self)
+			  called "Phosphate-1"))
+		    ((the Oxygen-Atom has-part of
+                          ((the Monophosphate has-part of Self)
+                           called "Phosphate-2"))
+		     called "Oxygen-1")))
+		 (instrument ((a Phosphoanhydride-Bond))) ))) )
+	 (a Monophosphate called "Phosphate-2" with
+            (object-of (
+              (a Be-Attached-To with
+                 (object
+                   (((the has-part of Self) called "Phosphate-2")))
+                 (site
+                   ((the Phosphorus-Atom has-part of
+                         ((the Monophosphate has-part of Self)
+                          called "Phosphate-1" ))
+                    ((the Oxygen-Atom has-part of
+                          ((the Monophosphate has-part of Self)
+                           called "Phosphate-2"))
+                     called "Oxygen-1")))
+                 (instrument ((a Phosphoanhydride-Bond))) ))) )
+	 (a Monophosphate called "Phosphate-3") 
+	)))
+  
+
+
+
+
+

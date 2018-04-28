@@ -1,0 +1,24 @@
+;; 
+;;    $Id: DNA-Polymerase-Repair-Enzyme.km,v 1.1 2001/05/18 13:14:27 souther Exp $ 
+;; 
+
+(DNA-Polymerase-Repair-Enzyme has
+                (superclasses (DNA-Polymerase))
+                (required-slot ())
+                (primary-slot ())
+                (secondary-slot ())
+		(description ("Enzyme that catalyzes the repair of a DNA
+                               molecule either because of damage or because
+                               of wrong base incorporation.  Also used to
+                               replace the RNA primer during DNA replication.
+                               Souther.  see Alberts:ECB:196."))
+                (cmap-correspondence ()))
+
+(every DNA-Polymerase-Repair-Enzyme has
+       (purpose ((a Catalyst with
+		    (in-event ((a DNA-Repair))))
+                  )))
+                                 
+
+
+

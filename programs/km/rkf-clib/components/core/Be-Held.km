@@ -1,0 +1,44 @@
+;; 
+;;    $Id: Be-Held.km,v 1.16 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Held has
+  (superclasses   	(Be-Obstructed))
+  (required-slot  	(object agent))
+  (primary-slot   	())
+  (caused-by-class      (Hold))
+  (defeated-by-class    (Let-Go-Of))
+  (cmap-correspondence 	(
+			 (:seq object "the object being held")
+			 (:seq agent "the holder")
+		 	)))
+
+; Any Move of an object in a Be-Held state must be by the agent of the 
+; Be-Held and only this agent can Let-Go-Of the object.
+; These constraints are encoded in Move and Let-Go-Of, but not here.
+
+(every Be-Held has
+  (agent  ((a Tangible-Entity)))
+  (object ((a Tangible-Entity)))
+
+  (resulting-state-of ((must-be-a Hold with
+			 (object ((the object of Self)))
+			 (agent  ((the agent of Self))))))
+  (defeated-by ((must-be-a Let-Go-Of with
+	         (object ((the object of Self)))
+	         (agent  ((the agent of Self)))))))
+
+(every Be-Held has
+   (text-particle ("held"))
+)
+
+
+
+
+;; automatically added WN synsets
+(Be-Held has (wn16-synset ((:set  
+                                      (:triple "held" 1 "a")
+))))
+
+(Be-Held has (wn20-synset ((:set (:triple "held" 1 "a")
+))))

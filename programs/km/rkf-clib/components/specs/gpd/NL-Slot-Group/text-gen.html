@@ -1,0 +1,546 @@
+<html><head></head><body>
+
+<h2>Overview</h2>
+The text generation facility builds English glosses of varying form
+and detail for instances in the clib. For a given instance, it may
+be able to generate a word, a definite or indefinite noun phrase, an
+existential-there sentence, or an active or passive finite sentence.<p>
+
+This facility is implemented as a grammar distributed through the clib
+ontology. This allows classes in the ontology to override more general
+grammar rules to produce glosses more appropriate to more specific
+ontology classes. For example, for most Event instances, it is 
+appropriate for the agent slot to appear as the subject of the active
+sentence and the object slot to appear as its direct object. For 
+Create Events, the result slot is a more appropriate direct object and
+for Transfer Events, the donor slot is a more appropriate subject.</p><p>
+
+The grammar rules, then, appear as axioms on special text generation
+slots that appear on classes throughout the ontology. Most of these
+rules appear in the top-level classes Entity, Event, Role and
+Property-Value. Some subclasses of Event redefine the more general rules.</p><p>
+
+In addition to text generation slots for grammar rules, there are
+some "pre-terminal" text slots. These should appear on most classes
+in the ontology to specify words that should be used in generation.
+For example, most subclasses under Event specify the singular and
+plural forms of active and passive verb sequences appropriate to the
+Event. Slots in the ontology also store such lexical information,
+including prepositions, nouns and/or verbs appropriate to the slot
+in different contexts.</p><p>
+
+</p><h2>Text Generation Slots</h2>
+Using or modifying the clib's text generation facility requires
+familiarity with the slots used in the generation grammar.<p>
+
+The first table below lists the slots most useful for a user of
+text generation. The slots are the ones most often used to produce
+text glosses for instances.</p><p>
+
+The second table shows the full suite of text generation slots, grouped
+according to where you're likely to find them being used in the 
+ontology. The second table includes detail you'd need to modify the
+clib's distributed grammar.</p><p>
+
+</p><h3>A note on KM's <tt>make-phrase</tt> and <tt>make-sentence</tt></h3>
+Some of the text generation slots get filled with strings, 
+ready-to-display. Some of them are filled by instances or sequences
+that need to be "stringified" for display. KM's <tt>make-phrase</tt> and
+<tt>make-sentence</tt> functions should be used for stringifying non-string
+fillers. It's safe to use them on strings, too.<p>
+
+The <tt>make-phrase</tt> function takes any KM object as its sole argument and
+turns it into a string. The <tt>make-sentence</tt> function does the exact
+same thing, but makes the first character of the resulting string
+upper case and puts a period at the end. Some of the top-level text
+generation slots call <tt>make-sentence</tt> for you. Two warnings if you call 
+it yourself:
+</p><ol>
+<li><tt>make-sentence</tt> always converts the first character to upper case,
+even if the first character in the string does not correspond to the
+first "letter" in the "sentence" (for example, if you're including
+punctuation or html tags at the beginning of your string, <tt>make-sentence</tt>
+won't capitalize the first letter)
+</li><li><tt>make-sentence</tt> always puts a period at the end of the string, even
+if there is already sentence-ending punctuation at the end.
+</li></ol>
+
+<h3>User-level text generation slots</h3>
+
+<table border="1">
+<tbody><tr><td><b><i>slot</i></b></td>
+    <td><b><i>description</i></b></td>
+    <td><b><i>top-level domains</i></b></td>
+    <td><b><i>return format</i></b></td>
+    <td><b><i>example</i></b></td>
+</tr>
+
+<!-- ============= text-gen ============= -->
+<tr><td valign="top"><tt>text-gen</tt></td>
+    <td valign="top">general top-level gloss for instances; the syntactic structure
+        depends on the class of the instance (see examples)</td>
+    <td valign="top">Event, Entity, Property-Value, Role, Time-Instant</td>
+    <td valign="top">string</td>
+    <td valign="top"><pre>KM&gt; (the text-gen of (a Move-Into))
+("The object gets moved into the container through the portal.")
+
+KM&gt; (the text-gen of (a Move-Into with (agent ((a Person)))))
+("The person moves the object into the container through the portal.")
+
+KM&gt; (the text-gen of _Device15)
+("the 1 inch long device made of metal")
+
+KM&gt; (the text-gen of (the length of _Device15))
+("1 inch long")
+
+KM&gt; (the text-gen of _Container19)
+("the container containing the device")
+
+KM&gt; (the text-gen of _Time-Instant21)
+("Tuesday, December 16, 2003, 15:27:00 CST")</pre></td>
+</tr>
+
+<!-- ============= text-description ============= -->
+<tr><td valign="top"><tt>text-description</tt></td>
+    <td valign="top">a different top-level description of an instance; text-description
+    is identical to some other text generation slot, but differs depending on the class;
+    for Events, it is the text-nom-sentence; for Entities, Roles and Property-Values,
+    it is the text-sentence</td>
+    <td valign="top">Event, Entity, Role, Property-Value</td>
+    <td valign="top">string</td>
+    <td valign="top"><pre>KM&gt; (the text-description of (a Teach))
+("The teaching of the information is by the teacher to the pupil.")
+
+KM&gt; (the text-description of (a Artifact))
+("The artifact is result of the creation of an artifact.")
+
+KM&gt; (the text-description of (a Barrier))
+("The barrier is used in the blocking.")</pre></td>
+</tr>
+
+<!-- ============= text-definition-sentence ============= -->
+<tr><td valign="top"><tt>text-definition-sentence</tt></td>
+    <td valign="top">sentence describing an instance's class in terms of its superclasses</td>
+    <td valign="top">Event, Entity, Role</td>
+    <td valign="top">string</td>
+    <td valign="top"><pre>KM&gt; (the text-definition-sentence of (a Lose))
+("The loss of an entity is a transfer.")
+
+KM&gt; (the text-definition-sentence of (a Artifact))
+("An artifact is an inanimate-object that is result of the creation of an artifact.")
+
+KM&gt; (the text-definition-sentence of (a Barrier))
+("A barrier is a role that is played in the blocking.")</pre></td>
+</tr>
+
+<!-- ============= text-existential-there ============= -->
+<tr><td valign="top"><tt>text-existential-there</tt></td>
+    <td valign="top">an "existential-there" sentence</td>
+    <td valign="top">Event, Entity, Role, Property-Value</td>
+    <td valign="top">string</td>
+    <td valign="top"><pre>KM&gt; (the text-existential-there of (a Produce))
+("There is the production of an entity.")
+
+KM&gt; (the text-existential-there of _Device15)
+("There is a device.")
+
+KM&gt; (the text-existential-there of (a Barrier))
+("There is a barrier.")
+
+KM&gt; (the text-existential-there of (the length of _Device15))
+("There is a length of 1 inch.")</pre></td>
+</tr>
+
+<!-- ============= text-nom-sentence ============= -->
+<tr><td valign="top"><tt>text-nom-sentence</tt></td>
+    <td valign="top">a finite sentence for Events in which the Event is
+    represented as a nominalization with object in the subject position 
+    and arguments appear as complement of "be"</td>
+    <td valign="top">Event only</td>
+    <td valign="top">string</td>
+    <td valign="top"><pre>KM&gt; (the text-nom-sentence of (a Produce))
+("The production of the result is out of the tangible-entity.")
+
+KM&gt; (the text-nom-sentence of (a Teach))
+("The teaching of the information is by the teacher to the pupil.")</pre></td>
+</tr>
+
+<!-- ============= text-passive-sentence ============= -->
+<tr><td valign="top"><tt>text-passive-sentence</tt></td>
+    <td valign="top">a passive sentence for Events (used to force a
+    passive construction even if a potential subject exists)</td>
+    <td valign="top">Event only</td>
+    <td valign="top">:seq</td>
+    <td valign="top"><pre>KM&gt; (make-sentence (the text-passive-sentence of (a Produce)))
+("The result gets produced out of the raw-material.")
+
+KM&gt; (make-sentence (the text-passive-sentence of (a Teach)))
+("The information gets communicated to the pupil.")</pre></td>
+</tr>
+
+<!-- ============= text-sentence ============= -->
+<tr><td valign="top"><tt>text-sentence</tt></td>
+    <td valign="top">a finite sentence for Events, Entities, Roles,
+    and Property-Values;
+    since the default text-gen of Entities and Roles is a noun phrase,
+    text-sentence can be used to force a finite sentence; text-sentence
+    is equivalent to text-gen for Events and text-description for
+    Entities and Roles</td>
+    <td valign="top">Event, Entity, Role, Property-Value</td>
+    <td valign="top">:seq</td>
+    <td valign="top"><pre>KM&gt; (make-sentence (the text-gen of (a Move-Into)))
+("The object gets moved into the container through the portal.")
+
+KM&gt; (the text-sentence of (a Artifact))
+("The artifact is result of the creation of an artifact.")
+
+KM&gt; (the text-sentence of (a Barrier))
+("The barrier is used in the blocking.")
+
+KM&gt; (the text-sentence of (the length of _Device15))
+("the length of the device = 1 inch")</pre></td>
+</tr>
+
+<!-- ============= text-def-head ============= -->
+<tr><td valign="top"><tt>text-def-head</tt></td>
+    <td valign="top">definite noun phrase with no premodifiers or postmodifiers</td>
+    <td valign="top">Event, Entity, Role</td>
+    <td valign="top">:seq</td>
+    <td valign="top"><pre>KM&gt; (make-phrase (the text-def-head of (a Come-Together)))
+("the coming together")
+
+KM&gt; (make-phrase (the text-def-head of _Device15))
+("the device")
+
+KM&gt; (make-phrase (the text-def-head of _Container19))
+("the container")</pre></td>
+</tr>
+
+<!-- ============= text-indef-head ============= -->
+<tr><td valign="top"><tt>text-indef-head</tt></td>
+    <td valign="top">indefinite noun phrase with no premodifiers or postmodifiers</td>
+    <td valign="top">Event, Entity, Role</td>
+    <td valign="top">:seq</td>
+    <td valign="top"><pre>KM&gt; (make-phrase (the text-indef-head of (a Come-Together)))
+("a coming together")
+
+KM&gt; (make-phrase (the text-indef-head of _Device15))
+("a device")
+
+KM&gt; (make-phrase (the text-indef-head of _Container19))
+("a container")</pre></td>
+</tr>
+
+<!-- ============= text-phrase ============= -->
+<tr><td valign="top"><tt>text-phrase</tt></td>
+    <td valign="top">definite noun phrase with premodifiers and postmodifiers</td>
+    <td valign="top">Event, Entity, Role, Property-Value</td>
+    <td valign="top">:seq</td>
+    <td valign="top"><pre>KM&gt; (make-phrase (the text-phrase of (a Produce)))
+("the production of the result out of the tangible-entity")
+
+KM&gt; (make-phrase (the text-phrase of _Device15))
+("the 1 inch long device made of metal")
+
+KM&gt; (make-phrase (the text-phrase of _Container19))
+("the container containing the device")
+
+KM&gt; (make-phrase (the text-phrase of (the length of _Device15)))
+("1 inch long")</pre></td>
+</tr>
+
+<!-- ============= text-indef-phrase ============= -->
+<tr><td valign="top"><tt>text-indef-phrase</tt></td>
+    <td valign="top">for Entities and Roles, an indefinite noun phrase with premodifiers 
+    but no postmodifiers; for Events, this actually gives a definite noun phrase with
+    a nominalization as head and an indefinite object</td>
+    <td valign="top">Event, Entity, Role</td>
+    <td valign="top">:seq</td>
+    <td valign="top"><pre>KM&gt; (make-phrase (the text-indef-phrase of (a Produce)))
+("the production of an entity")
+
+KM&gt; (make-phrase (the text-indef-phrase of _Device15))
+("a 1 inch long device")
+
+KM&gt; (make-phrase (the text-indef-phrase of _Container59))
+("a container")</pre></td>
+</tr>
+
+</tbody></table>
+
+<h3>Programmer-level text generation slots</h3>
+
+<table border="1">
+<tbody><tr><td><b><i>slot</i></b></td>
+    <td><b><i>description</i></b></td>
+    <td><b><i>main files</i></b></td>
+    <td><b><i>used to construct</i></b></td>
+    <td><b><i>format</i></b></td>
+</tr>
+
+<tr><td colspan="5"><b>Rule Slots</b></td></tr>
+
+<tr><td valign="top"><tt>text-active-phrase</tt></td>
+    <td valign="top">the active verb sequence, conjoined and prefaced by "do/does" if multiple</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-active-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-active-sentence</tt></td>
+    <td valign="top">subject, active verb sequence, object, arguments</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-active-verbseq</tt></td>
+    <td valign="top">plural or singular verb sequence, depending on the number of the subject</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-active-phrase</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-arguments</tt></td>
+    <td valign="top">the verb arguments; fillers of the slots in text-argslots, prefaced with
+    each slot's text-slot if available</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-active-sentence; text-passive-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-base-phrase</tt></td>
+    <td valign="top">base noun phrase including definite determiner, premodifiers and noun head;
+    also includes postmod object for Event nominalizations</td>
+    <td valign="top">Event.km; Entity.km; Role.km</td>
+    <td valign="top">text-phrase; text-sentence (Entity.km, Role.km); text-nom-sentence (Event.km)</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-def-determiner</tt></td>
+    <td valign="top">definite determiner for noun phrases; "the" for Events and Property-Values;
+    NIL for named instances; NIL for anonymous Substances with no is-possessed-by; 
+    "the" or is-possessed-by for Entities and Roles</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km; Substance.km</td>
+    <td valign="top">text-base-phrase; text-def-head</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-def-head</tt></td>
+    <td valign="top">definite noun phrase with definite determiner but no premodifiers or postmodifiers</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top">text-sentence (Entity.km, Role.km); text-nom-sentence and text-indef-phrase (Event.km);
+    also often used for arguments of verbs and noun phrase postmodifiers</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-definition-sentence</tt></td>
+    <td valign="top">sentence describing an instance's class in terms of its superclasses</td>
+    <td valign="top">Event.km; Entity.km; Role.km</td>
+    <td valign="top"></td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-description</tt></td>
+    <td valign="top">sentence describing an instance</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top"></td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-dobj-phrase</tt></td>
+    <td valign="top">the text-def-head of the filler of the slot chosen for direct object
+    of a verb (may also be the name of the slot itself if the filler is too generic)</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-active-sentence; text-passive-sentence; text-base-phrase</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-dobj</tt></td>
+    <td valign="top">the instance to be used for direct object of the verb (usually the
+    filler of the object slot, sometimes the result</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-dobj-phrase; text-indef-phrase</td>
+    <td valign="top">Instance</td>
+</tr>
+<tr><td valign="top"><tt>text-existential-there</tt></td>
+    <td valign="top">existential-there sentence describing an instance</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top"></td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-gen</tt></td>
+    <td valign="top">general purpose sentence describing an instance</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km; Time-Instant.km</td>
+    <td valign="top"></td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-head</tt></td>
+    <td valign="top">noun head for noun phrases, including possibly postmodifying "called" tag</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top">text-def-head; text-indef-head; text-base-phrase; text-indef-phrase;
+    also text-phrase and text-sentence for Property-Values</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-indef-determiner</tt></td>
+    <td valign="top">indefinite determiner for noun phrases; NIL for Substances;
+    "a" or "an" for all others, depending on the first letter of the text-head;
+    should override text-indef-determiner locally for exceptions</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km; Substance.km</td>
+    <td valign="top">text-indef-head; text-indef-phrase</td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-indef-head</tt></td>
+    <td valign="top">indefinite noun phrase with indefinite determiner but no premodifiers or postmodifiers</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top">text-sentence (Entity.km, Role.km); text-existential-there 
+    text-definition-sentence; text-indef-phrase</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-indef-phrase</tt></td>
+    <td valign="top">indefinite noun phrase with indefinite determiner and premodifiers but no postmodifiers</td>
+    <td valign="top">Event.km; Entity.km; Role.km</td>
+    <td valign="top">text-existential-there; text-definition-sentence; text-indef-phrase (Event.km)</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-nom-sentence</tt></td>
+    <td valign="top">finite sentence with Event nominalization in subject position</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-description; text-passive-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-number</tt></td>
+    <td valign="top">the number of the text-subj (active) or text-dobj (passive)</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-description; text-passive-sentence</td>
+    <td valign="top">Number</td>
+</tr>
+<tr><td valign="top"><tt>text-passive-phrase</tt></td>
+    <td valign="top">the passive verb sequence, conjoined and bracketed by "has/have ... done to it/them" 
+    if multiple</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-passive-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-passive-sentence</tt></td>
+    <td valign="top">object, passive verb sequence, arguments</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-passive-verbseq</tt></td>
+    <td valign="top">plural or singular verb sequence, depending on the number of the subject</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-passive-phrase; text-passive-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-phrase</tt></td>
+    <td valign="top">base noun phrase + postmodifiers</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top">text-gen (Entity.km, Role.km, Property-Value.km)</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-postmods</tt></td>
+    <td valign="top">fillers of the text-postmodslots with prepended text-slot markers;
+    for Property-Values, the only postmods are postposed adjectives on cardinal values
+    (e.g. "1 meter long")</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top">text-definition-sentence; text-phrase; text-nom-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-premods</tt></td>
+    <td valign="top">fillers of the text-premodslots, used for noun phrase premodifiers;
+    for Property-Values, the text-premods slot is used for mathematical variables
+    (e.g. "x = ") or property-of information (e.g. "the length of the stick = ")</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top">text-base-phrase; text-indef-phrase; text-nom-sentence; 
+    text-sentence (for Property-Values)</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-sentence</tt></td>
+    <td valign="top">a finite sentence for Events, Entities, Roles and Property-Values</td>
+    <td valign="top">Event.km; Entity.km; Role.km; Property-Value.km</td>
+    <td valign="top">text-gen (Event.km); text-description (Entity.km, Role.km, Property-Value.km)</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-subj-phrase</tt></td>
+    <td valign="top">the text-def-head of the filler of the slot chosen for subject
+    of a verb (may also be the name of the slot itself if the filler is too generic)</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-active-sentence</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-subj</tt></td>
+    <td valign="top">the instance to be used for subject of the verb (usually the
+    filler of the agent slot, sometimes the instrument</td>
+    <td valign="top">Event.km</td>
+    <td valign="top">text-subj-phrase</td>
+    <td valign="top">Instance</td>
+</tr>
+
+<tr><td colspan="5"><b>Preterminal Slots</b></td></tr>
+
+<tr><td valign="top"><tt>text-active-verbseq-pl</tt></td>
+    <td valign="top">active plural form of the verb</td>
+    <td valign="top">subclasses of Event</td>
+    <td valign="top">text-active-verbseq</td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-active-verbseq-sg</tt></td>
+    <td valign="top">active singular form of the verb</td>
+    <td valign="top">subclasses of Event</td>
+    <td valign="top">text-active-verbseq</td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-argslots</tt></td>
+    <td valign="top">list of slots to be used in generating verb arguments</td>
+    <td valign="top">subclasses of Event</td>
+    <td valign="top">text-arguments</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-gloss</tt></td>
+    <td valign="top">verb phrase for slots</td>
+    <td valign="top">instances of Relation</td>
+    <td valign="top">Viewpoints</td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-nominalization</tt></td>
+    <td valign="top">nominalization of the verb</td>
+    <td valign="top">subclasses of Event</td>
+    <td valign="top">text-head</td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-particle</tt></td>
+    <td valign="top">used to identify words that can appear between the verb
+    and its arguments; useful for States and phrasal verbs</td>
+    <td valign="top">subclasses of State, some Actions</td>
+    <td valign="top">text-arguments</td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-passive-verbseq-pl</tt></td>
+    <td valign="top">passive plural form of the verb</td>
+    <td valign="top">subclasses of Event</td>
+    <td valign="top">text-passive-verbseq</td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-passive-verbseq-sg</tt></td>
+    <td valign="top">passive singular form of the verb</td>
+    <td valign="top">subclasses of Event</td>
+    <td valign="top">text-passive-verbseq</td>
+    <td valign="top">string</td>
+</tr>
+<tr><td valign="top"><tt>text-postmodslots</tt></td>
+    <td valign="top">list of slots to be used in generating noun phrase postmodifiers</td>
+    <td valign="top">subclasses of Event, Entity, Role</td>
+    <td valign="top">text-postmods</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-premodslots</tt></td>
+    <td valign="top">list of slots to be used in generating noun phrase premodifiers</td>
+    <td valign="top">subclasses of Event, Entity, Role</td>
+    <td valign="top">text-premods</td>
+    <td valign="top">:seq</td>
+</tr>
+<tr><td valign="top"><tt>text-slot</tt></td>
+    <td valign="top">for each Relation, the name of a slot containing the Relation's marker
+    (often a preposition)</td>
+    <td valign="top">instances of Relation</td>
+    <td valign="top">text-postmods, text-base-phrase, text-arguments</td>
+    <td valign="top">text-[relation]</td>
+</tr>
+
+</tbody></table>
+
+
+
+</body></html>

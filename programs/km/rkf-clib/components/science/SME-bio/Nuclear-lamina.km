@@ -1,0 +1,52 @@
+
+;;; ---------- Definition of prototype for Nuclear-lamina ----------
+
+(Nuclear-lamina has (superclasses (Subcellular-Entity)))
+
+(_Nuclear-lamina559 has 
+  (instance-of (Nuclear-lamina))
+  (prototype-of (Nuclear-lamina))
+  (prototype-scope (Nuclear-lamina))
+  (prototype-participants (_Atom564
+                           _Protein563
+                           _Nuclear-lamina559))
+  (prototype-participant-of (_Nuclear-lamina559))
+  (has-clones (_Placeholder-Class558560))
+  (has-built-clones (_Placeholder-Class558560))
+  (has-basic-structural-unit (_Protein563))
+  (edge-coordinate ((:seq encloses _Protein563 200 439)
+                    (:seq has-basic-structural-unit _Protein563 197 426)))
+  (edge-visibility ((:seq encloses _Protein563 t)
+                    (:seq has-basic-structural-unit _Protein563 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 70 457)))
+  (node-visibility (t)))
+
+(_Atom564 has 
+  (instance-of (Atom))
+  (has-clones (_Atom562))
+  (is-basic-structural-unit-of (_Protein563))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 0 0)))
+  (prototype-participant-of (_Nuclear-lamina559)))
+
+(_Protein563 has 
+  (has-basic-structural-unit (_Atom564))
+  (instance-of (Protein))
+  (edge-coordinate ((:seq is-inside _Nuclear-lamina559 484 426)
+                    (:seq has-basic-structural-unit _Atom564 200 439)))
+  (edge-visibility ((:seq is-inside _Nuclear-lamina559 f)
+                    (:seq has-basic-structural-unit _Atom564 f)))
+  (internally-expanded (t))
+  (is-basic-structural-unit-of (_Nuclear-lamina559))
+  (node-coordinate ((:pair 331 420)))
+  (node-visibility (t))
+  (prototype-participant-of (_Nuclear-lamina559)))
+
+(explanation (:triple _Nuclear-lamina559 has-basic-structural-unit _Protein563) ((added-at Nuclear-lamina "User defined")))
+(explanation (:triple _Atom564 instance-of Atom) ((a Atom (@ _Protein563 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein563 instance-of Protein) ((added-at Nuclear-lamina "User defined")))
+(explanation (:triple _Protein563 has-basic-structural-unit _Atom564) ((a Atom (@ _Protein563 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+

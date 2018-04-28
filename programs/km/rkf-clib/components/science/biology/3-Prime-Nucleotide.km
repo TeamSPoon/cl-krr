@@ -1,0 +1,29 @@
+;; 
+;;    $Id: 3-Prime-Nucleotide.km,v 1.14 2001/06/12 19:17:57 souther Exp $ 
+;; 
+
+(3-Prime-Nucleotide has
+     (superclasses (Nucleoside-Monophosphate))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("Nucleotide at the end of a sequence whose 3' end either
+                    bears a free hydroxyl group (free sequences like DNA 
+                    strands or DNA strand fragments) or whose 3' end
+                    is attached to a neighboring sequence (internal sequences
+                    like introns or regulatory sequences).  Souther. "))
+     (cmap-correspondence ()))
+
+(every 3-Prime-Nucleotide has
+       (is-part-of ((a Nucleotide-Sequence)))
+;
+;       (object-of
+;	   ((mustnt-be-a Be-Attached-To with
+;			 (object ((a Nucleotide-Sequence)))
+;			 (site   (((the Carbon-Atom has-part of
+;					(the Pentose has-part of Self))
+;				   called "Carbon-3")))
+;			 (instrument ((a Phosphodiester-Bond))))
+;			 ))
+;
+       )

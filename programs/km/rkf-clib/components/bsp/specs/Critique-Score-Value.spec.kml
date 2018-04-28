@@ -1,0 +1,30 @@
+<!--- $Id: Critique-Score-Value.spec.kml,v 1.1 2005/08/01 20:56:41 jchaw Exp $ --->
+<kml>
+<property-doc name=critique-score/Critique-Score-Value>
+<system-documentation name=Critique-Score-Value>
+<gpd-documentation name=CritiqueScores>
+
+<from name=Critique-Group>
+<to name=Critique-Score-Value>
+
+<description> 
+For critiquing a COA, the criterion to which a pattern applies and the importance of that pattern
+</description>
+
+<value-description>
+  <scalar-value-description>
+   a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>rating-verypoor, rating-poor, rating-good, rating-verygood</scalars>
+<scale name=*critique-score-scale>rating-verypoor..rating-poor..rating-good..rating-verygood</scale>
+    <p>
+    <examplesentence>
+      <text>COA-1 scores high on mission accomplishment but only moderate on maneuver.</text>
+      <slotdescription name=value>*rating++</slotdescription>
+      <slotdescription name=relative to>mission accomplishment</slotdescription><p>
+      <slotdescription name=value>*rating+</slotdescription>
+      <slotdescription name=relative to>maneuver</slotdescription><p>
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+

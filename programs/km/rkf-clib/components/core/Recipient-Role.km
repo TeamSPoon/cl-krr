@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Recipient-Role.km,v 1.4 2004/07/20 22:29:24 gking Exp $
+;; 
+
+(Recipient-Role has
+	   (superclasses (Role))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (cmap-correspondence ())
+	   (test-case ()))
+
+(every Recipient-Role has
+       (in-event ((must-be-a Event)))
+       (played-by ((a Entity with
+		      (recipient-of ((the in-event of Self)))))))
+
+
+;; automatically added WN synsets
+(Recipient-Role has (wn16-synset ((:set  
+                                             (:triple "recipient" 1 "n")
+                                             (:triple "receiver" 4 "n")
+))))
+
+(Recipient-Role has (wn20-synset ((:set
+                                             (:triple "recipient" 1 "n")
+                                             (:triple "receiver" 4 "n")
+))))

@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Nucleotide-Sequence.km,v 1.20 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Nucleotide-Sequence has
+	      (superclasses (Chemical-Sequence))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("A sequence of nucleotides which forms a nucleotide
+                             polymer.  Souther:2001"))
+	      (cmap-correspondence ()))
+
+(every Nucleotide-Sequence has
+
+       (element-type (Nucleotide))
+       (has-part ((a 5-Prime-Nucleotide)
+		  (a 3-Prime-Nucleotide)
+		  (at-least 1 Nucleotide))))
+
+
+
+
+

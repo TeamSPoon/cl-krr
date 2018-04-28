@@ -1,0 +1,90 @@
+<!--- $Id: Ruin.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<kml>
+
+<concept name=Ruin><system-documentation name=Ruin>
+<superconcept name=Break>
+
+<definition>
+
+  Ruin an object so that it can no longer perform its function
+  and it cannot be repaired, i.e. the <conceptref name=Break> is 
+  permanent.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that's ruined.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the object to be ruined.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing that was used to ruin the object.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the object to be ruined.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Bubba permanently broke (i.e. ruined) the TV with a bat.</text>
+    <slotdescription name=object>the TV</slotdescription>
+    <slotdescription name=agent>Bubba</slotdescription>
+    <slotdescription name=instrument>a bat</slotdescription>
+  </examplesentence>
+  <comment>
+     If the TV could be repaired, use <conceptref name=Break>
+     instead.
+  </comment>
+
+  <examplesentence>
+    <text>The cup broke when it hit the floor. </text>
+    <slotdescription name=object>the cup</slotdescription>
+    <slotdescription name=by-means-of>hit the floor (a <conceptref name=Collide>)</slotdescription>
+  </examplesentence>
+  <comment>
+     The cup permanently ceases to perform its function of being a container.
+  </comment>
+
+  <examplesentence>
+    <text>Fido broke his leash. </text>
+    <slotdescription name=agent>Fido</slotdescription>
+    <slotdescription name=object>Fido's leash</slotdescription>
+  </examplesentence>
+  <comment>
+     Fido's leash permanently ceases to perform its function of restraint.
+     See also <conceptref name=Detach> for an encoding of the 
+     consequences of this action.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Destroy>
+     A destroyed object ceases to exist, whereas a ruined object
+     continues to exist but permanently loses its functionality.
+  </neighbor>
+
+  <neighbor name=Break>
+     A destroyed object ceases to exist, whereas a broken object
+     continues to exist but loses its functionality, if only temporarily.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

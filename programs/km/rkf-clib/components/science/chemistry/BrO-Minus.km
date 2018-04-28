@@ -1,0 +1,10 @@
+;; $Id: BrO-Minus.km,v 1.2 2003/02/22 16:23:57 jchaw Exp $ 
+(BrO-Minus has (superclasses (Anion)))
+(every BrO-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("hypobromite"))
+	(has-acid-name ("hypobromous"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Br)(:pair 1 O)))))))
+)

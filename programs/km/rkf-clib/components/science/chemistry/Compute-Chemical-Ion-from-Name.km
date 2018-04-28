@@ -1,0 +1,13 @@
+;; 
+;;    $Id: Compute-Chemical-Ion-from-Name.km,v 1.4 2003/09/24 14:00:44 jfan Exp $
+;; 
+
+(Compute-Chemical-Ion-from-Name has
+				(superclasses (Method))
+				(description ("a method to compute an ion based on its name")))
+
+(every Compute-Chemical-Ion-from-Name has
+       ;;(input ((a Thing)))
+       (output ((oneof (the all-subclasses of Ion)
+		       where ((the has-chemical-name of (an instance of It)) 
+			      includes (the input of Self))))))

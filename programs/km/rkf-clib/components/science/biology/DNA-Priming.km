@@ -1,0 +1,37 @@
+;; 
+;;    $Id: DNA-Priming.km,v 1.7 2004/01/30 22:02:42 kbarker Exp $
+;; 
+
+(DNA-Priming has
+  (superclasses        (Copy))
+  (required-slot       (object result))
+  (primary-slot        (instrument))
+  (description ("A process by which a short oligoribonucleotide is made at
+                 the beginning of DNA replication using the enzyme primase.
+                 This RNA primer is later replaced with deoxyribonucleotides.
+                 Souther."))
+  (cmap-correspondence ()))
+
+(every DNA-Priming has
+       (subevent-of ((a DNA-Strand-Replication)))
+       (object      ((a 3-Prime-End called "primer template" with
+		        (length ((at-most 15 Nucleotide)))
+		        (is-part-of 
+		      	  ((a Polydeoxyribonucleotide called "template strand")))
+		     	)))
+       (result 
+	((a Nucleic-Acid-Complex called "DNA-RNA primer hybrid" with
+	    (has-part 
+	     (((the 3-Prime-End object of Self)
+	       called "primer template")
+	      (a RNA-Primer with
+		  (complement 
+		   (((the 3-Prime-End object of Self)
+		     called "primer template")
+		    )))
+	      )))
+	 ))
+       (instrument ((a Primase)))
+
+       )
+(every DNA-Priming has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

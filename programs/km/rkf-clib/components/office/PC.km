@@ -1,0 +1,17 @@
+;;
+;; $Id: PC.km,v 1.2 2005/04/14 17:50:15 jchaw Exp $
+;;
+
+(PC has 
+  (superclasses (Computer))
+  (feature-slot ((the feature-slot of Computer)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = PC))
+  ))
+)
+
+(PC has (wn20-synset ((:set
+		       (:triple "personal_computer" 1 "n")
+		       (:triple "PC" 1 "n")
+		       (:triple "microcomputer" 1 "n")
+))))

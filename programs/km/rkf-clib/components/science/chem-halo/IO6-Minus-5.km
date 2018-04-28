@@ -1,0 +1,19 @@
+;; $Id: IO6-Minus-5.km,v 1.6 2008/05/15 17:19:10 kunal Exp $ 
+(IO6-Minus-5 has (superclasses (Anion)))
+(every IO6-Minus-5 has
+	(charge ((a Charge-Value with
+		(value ((:pair -5 *unity))))))
+	(has-chemical-name ("orthoperiodate"))
+	(has-acid-name ("orthoperiodic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 I)(:pair 6 O)))))))
+)
+
+
+(every IO6-Minus-5 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("orthoperiodate"))
+)
+
+ (IO6-Minus-5 has (wn20-synset ((:triple "IO6-5" 0 "n") (:triple "IO_6-5" 0 "n"))))

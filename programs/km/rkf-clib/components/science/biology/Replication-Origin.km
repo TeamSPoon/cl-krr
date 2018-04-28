@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Replication-Origin.km,v 1.14 2002/03/18 22:21:14 kbarker Exp $ 
+;; 
+
+(Replication-Origin has
+     (superclasses (DNA-Regulatory-Region))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("Site on a chromosome at which DNA replication begins.
+                    Alberts:ECB:G-16."))
+     (cmap-correspondence ()))
+
+(every Replication-Origin has
+;       (length ((a Length-Value with 
+;                   (value ((:pair 100 Deoxyribonucleotide))))))  ;;; bacteria and yeasts
+       (location-of ((a Replication-Origin-Sequence))))
+
+;;;
+
+

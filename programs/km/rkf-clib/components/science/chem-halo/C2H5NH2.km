@@ -1,0 +1,31 @@
+;; 
+;;    $Id: C2H5NH2.km,v 1.5 2006/01/23 23:33:41 jfan Exp $
+;; 
+
+(C2H5NH2 has (superclasses (Ionic-Compound)))
+
+(every C2H5NH2 has
+       (has-chemical-name ("ethylamine"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+				      (term ((:seq 
+					      (:pair 2 C)
+					      (:pair 5 H)
+					      (:pair 1 N)
+					      (:pair 2 H)
+					      ))))))
+       )
+#|(every C2H5NH2 has-definition
+  (instance-of (Chemical-Entity))
+  (nested-atomic-chemical-formula (
+					(a Chemical-Formula)
+					(constraint 
+					 (((the1 of (the term of TheValue)) = (:pair 2 C))
+					  and
+					  ((the2 of (the term of TheValue)) = (:pair 5 H))
+					  and
+					  ((the3 of (the term of TheValue)) = (:pair 1 N))
+					  and
+					  ((theN 4 of (the term of TheValue)) = (:pair 2 H))
+					  ))
+  (has-part ((a Anion) (a Cation))))
+|#

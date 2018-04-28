@@ -1,0 +1,67 @@
+;; 
+;;    $Id: State.km,v 1.19 2010/06/11 18:31:41 kbarker Exp $ 
+;; 
+
+(State has
+  (superclasses 	(Event))
+  (required-slot 	())
+  (primary-slot 	(object experiencer))
+  (secondary-slot 	())               
+  (cmap-correspondence  (
+			 (:seq experiencer "the thing experiencing the state")
+			 (:seq object "the thing that in the state")
+			)))
+
+(every State has 
+  ;; the time of existence of a state is 
+  ;; right after the creation action
+  ;; right before the defeating action
+  (time-during ((must-be-a Time-Interval with
+	   (time-int-started-by ((the time-during of (the resulting-state-of of Self))))
+	   (time-int-finished-by ((the time-during of (the defeated-by of Self)))))))
+       
+  ;; may be a little too strong to make the site of the state
+  ;; the site of the action resulting in it, but probably safe
+  (site ((the site of (the resulting-state-of of Self))))
+
+  (experiencer ((must-be-a Living-Entity with
+		  (time-of-existence 
+		    ((a Time-Interval with
+			(time-int-overlaps
+			  ((the time-of-existence of (the object of Self))
+			   (if (has-value (the beneficiary of Self))
+			       then
+			       (the time-of-existence of (the beneficiary of Self)))
+			   (if (has-value (the agent of Self))
+			       then
+			       (the time-of-existence of (the agent of Self)))
+			   (if (has-value (the instrument of Self))
+			       then
+			       (the time-of-existence of (the instrument of Self)))
+			   (if (has-value (the recipient of Self))
+			       then
+			       (the time-of-existence of (the recipient of Self))))))))))))
+
+(every State has
+  (text-active-verbseq-sg ("keeps"))
+  (text-active-verbseq-pl ("keep"))
+  (text-passive-verbseq-sg ("is"))
+  (text-passive-verbseq-pl ("are"))
+
+  (text-particle ((make-phrase (:seq "in a state of" (the instance-of of Self)))))
+
+  (text-argslots ((:seq text-particle base instrument)))
+)
+
+(State has (test-case ()))
+
+
+
+;; automatically added WN synsets
+(State has (wn16-synset ((:set  
+                                    (:triple "be" 1 "v")
+))))
+
+(State has (wn20-synset ((:set
+                                    (:triple "be" 1 "v")
+))))

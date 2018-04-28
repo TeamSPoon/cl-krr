@@ -1,0 +1,78 @@
+
+;;
+;; $Id: Compute-Ionic-Compound-from-Chemical-Name.km,v 1.5 2006/04/12 18:51:30 jfan Exp $
+;;
+
+(Compute-Ionic-Compound-from-Chemical-Name has
+					   (superclasses (Method)))
+
+(every Compute-Ionic-Compound-from-Chemical-Name has
+       ;;(input ((a Thing)))
+       (output
+	((if (has-value (the input of Self))
+	     then
+	   (a Ionic-Compound with
+	    (has-part
+	     ((the output of
+		   (a Compute-Chemical-Ion-from-Name with
+		      (input ((the2 of (#'(LAMBDA ()
+						  (SPLIT-COMPOUND-NAME-COMPONENTS
+						   (KM-UNIQUE0 '(the input of Self))))))))))
+	      (the output of
+		   (a Compute-Chemical-Ion-from-Name with
+		      (input ((the1 of (#'(LAMBDA ()
+						  (SPLIT-COMPOUND-NAME-COMPONENTS
+						   (KM-UNIQUE0 '(the input of Self)))))))))))))
+	    #|(has-chemical-formula
+	     ((the output of 
+		   (a Compute-Chemical-Formula-of-Ionic-Compound with
+		      (input ((an instance of
+				  (the output of
+				       (a Compute-Chemical-Ion-from-Name with
+					  (input ((the2 of (#'(LAMBDA ()
+								      (SPLIT-COMPOUND-NAME-COMPONENTS
+								       (KM-UNIQUE0 '(the input of Self)))))))))))
+			      (an instance of
+				  (the output of
+				       (a Compute-Chemical-Ion-from-Name with
+					  (input ((the1 of (#'(LAMBDA ()
+								      (SPLIT-COMPOUND-NAME-COMPONENTS
+								       (KM-UNIQUE0 '(the input of Self)))))))))))))))))
+	    (nested-atomic-chemical-formula
+	     ((the output of
+		   (a Compute-Nested-Atomic-Formula-from-Formula with
+		      (input ((the output of 
+				   (a Compute-Chemical-Formula-of-Ionic-Compound with
+				      (input ((an instance of
+						  (the output of
+						       (a Compute-Chemical-Ion-from-Name with
+							  (input ((the2 of (#'(LAMBDA ()
+										      (SPLIT-COMPOUND-NAME-COMPONENTS
+										       (KM-UNIQUE0 '(the input of Self)))))))))))
+					      (an instance of
+						  (the output of
+						       (a Compute-Chemical-Ion-from-Name with
+							  (input ((the1 of (#'(LAMBDA ()
+										      (SPLIT-COMPOUND-NAME-COMPONENTS
+										       (KM-UNIQUE0 '(the input of Self)))))))))))))))))))))
+	    (atomic-chemical-formula
+	     ((the output of
+		   (a Compute-Atomic-Formula-from-Nested-Formula with
+		      (input ((the output of
+				   (a Compute-Nested-Atomic-Formula-from-Formula with
+				      (input ((the output of 
+						   (a Compute-Chemical-Formula-of-Ionic-Compound with
+						      (input ((an instance of
+								  (the output of
+								       (a Compute-Chemical-Ion-from-Name with
+									  (input ((the2 of (#'(LAMBDA ()
+												      (SPLIT-COMPOUND-NAME-COMPONENTS
+												       (KM-UNIQUE0 '(the input of Self)))))))))))
+							      (an instance of
+								  (the output of
+								       (a Compute-Chemical-Ion-from-Name with
+									  (input ((the1 of (#'(LAMBDA ()
+												      (SPLIT-COMPOUND-NAME-COMPONENTS
+												       (KM-UNIQUE0 '(the input of Self)))))))))))))))))))))))))|#
+	    ))))
+       

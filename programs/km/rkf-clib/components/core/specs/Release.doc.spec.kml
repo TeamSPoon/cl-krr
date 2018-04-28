@@ -1,0 +1,112 @@
+<!--- $Id: Release.doc.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Release::doc>
+<superconcept name=Unobstruct::doc>
+
+<sme-documentation name=Release>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Release>
+  <definition>allow an object to be moved out of its enclosure</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <requiredslot name=location>
+      <restriction>is inside an enclosure</restriction>
+    </requiredslot>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Confined> whose <slot>location</slot> is the Place
+      inside the enclosure
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is not the <slot>object</slot> of a 
+      <conceptref name=Be-Confined> whose <slot>location</slot> is the Place
+      inside the enclosure
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Unobstruct::doc>
+    <restriction>causes <slot>object</slot> to be Released</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>  
+    <inheritedfrom name=Unobstruct::doc>
+    <restriction>the thing used to release the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>release#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>turn#13
+  </verb></wnsynsets>
+</component>
+
+<musing>
+In order to Release an <slot>object</slot> from an enclosure, it must already 
+be inside the enclosure and be the <slot>object</slot> of a state 
+<conceptref name=Be-Confined> with <slot>location</slot> inside the 
+enclosure.<p>
+
+(An <slot>object</slot> is put into a <conceptref name=Be-Confined> by the
+<conceptref name=Confine> action).
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=release2>
+  <sense-definition>let go of</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=release3>
+  <sense-definition>liberate</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=release4>
+  <sense-definition>publish</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=release5>
+  <sense-definition>eject</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=release6>
+  <sense-definition>relinquish/make available</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNrelease#1><equiv tag=release2></sense>
+<sense tag=WNrelease#2><equiv tag=release3></sense>
+<sense tag=WNrelease#3><equiv tag=release1></sense>
+<sense tag=WNrelease#4><equiv tag=release4></sense>
+<sense tag=WNrelease#5><equiv tag=release5></sense>
+<sense tag=WNrelease#6><equiv tag=release5></sense>
+<sense tag=WNrelease#7><equiv tag=release4></sense>
+<sense tag=WNrelease#8><equiv tag=release6></sense>
+<sense tag=WNrelease#9><equiv tag=release6></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

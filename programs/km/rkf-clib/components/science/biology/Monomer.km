@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Monomer.km,v 1.8 2001/06/01 20:56:50 pnav Exp $ 
+;; 
+
+(Monomer has
+         (superclasses (Organic-Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Small molecule that can be linked to others of the same
+                        type to form a larger molecule. Alberts:ECB:G-12."))
+         (test-case ()))
+
+; causing problem with Deoxyribonucleotide unifying with Nucleotide-Sequence
+;(every Monomer has
+;         (is-part-of ((must-be-a Polymer))))
+
+
+

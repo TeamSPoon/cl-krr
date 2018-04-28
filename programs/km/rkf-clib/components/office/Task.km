@@ -1,0 +1,43 @@
+;;
+;;    $Id: Task.km,v 1.8 2005/08/23 21:57:54 billj Exp $
+;;
+ 
+(Task has
+      (superclasses        (Activity))
+      (required-slot       ())
+      (primary-slot        ()))
+
+;;(every Task has
+;;       name
+;;       (identifier ((a Text-Field)))
+
+;;       (description ((a String)))
+
+;;       hasRole
+;;       (hasParticipant ((a ProjectRole)))
+;;       (hasResourceAssignment ((a ResourceAssignment)))
+
+;;       TODO: check this
+;;       (time-during ((must-be-a Time-Interval)))
+;;       (hasDeadline ((a Time-Instant)))
+
+;;       hasSubTask
+;;       (subevent ((must-be-a Task)))
+;;       hasSuperTask
+;;       (subevent-of ((must-be-a Task)))
+
+;;       (hasMilestone ((a Milestone)))
+;;       (hasProcedure ((must-be-a SPARK)))
+;;       )
+
+(hasMilestone has (instance-of (Interface-Slot)) (domain (Task)) (range (Milestone)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isMilestoneOf)))
+
+(hasRequiredPrecedent  has (instance-of (Interface-Slot)) (domain (Task)) (range (Task)) (inverse (isRequiredPrecedentOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+
+(hasDeadline has  (instance-of (Interface-Slot))  (superslots  ())  (subslots    ())  (domain      (Task))  (range   (Time-Instant))  (fluent-status (*Inertial-Fluent))  (cardinality (N-to-1))  (inverse (isDeadlineOf)))
+
+(hasProcedure has  (instance-of (Interface-Slot))  (superslots  ())  (subslots    ())  (domain      (Task))  (range   (String))  (fluent-status (*Inertial-Fluent))   (cardinality (N-to-1)))
+
+(hasResourceAssignment has  (instance-of (Interface-Slot))  (superslots  ())  (subslots    ())  (domain      (Task))  (range      (ResourceAssignment))  (fluent-status (*Inertial-Fluent))  (cardinality (N-to-N))(inverse (assignedResource)))
+
+(task-name has (instance-of (Interface-Slot))(fluent-status (*Inertial-Fluent))(cardinality (1-to-N))(domain (Task))(range (String))(description ("task-name is intended to store the (possibly several) names ascribed to a Task, e.g. in the course of a meeting.  See also project-name (more specific) or diagram-object-lable (to capture text on labels attached to Diagram-Objects)")))

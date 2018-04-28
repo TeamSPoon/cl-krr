@@ -1,0 +1,10 @@
+;; 
+;;    $Id: Reducing-Agent.km,v 1.2 2007/12/03 22:58:31 jchaw Exp $ 
+;; 
+
+(Reducing-Agent has (superclasses (Agent-Role))
+		(description ("A reducing agent (also called a reductant or reducer) is the element or a compound in a redox (reduction-oxidation) reaction (see electrochemistry) that reduces another species. In doing so, it becomes oxidized, and is therefore the electron donor in the redox.")))
+
+(every Reducing-Agent has
+       (played-by ((a Chemical)))
+       (in-event ((a Oxidation-Reduction-Reaction))))

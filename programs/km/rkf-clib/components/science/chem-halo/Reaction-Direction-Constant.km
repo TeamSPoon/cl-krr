@@ -1,0 +1,14 @@
+;; 
+;;    $Id: Reaction-Direction-Constant.km,v 1.2 2008/05/29 15:02:26 kbarker Exp $
+;; 
+
+(Reaction-Direction-Constant has
+ (superclasses (Constant)))
+
+(*left has (instance-of (Reaction-Direction-Constant)))
+(*right has (instance-of (Reaction-Direction-Constant)))
+
+(a Constant-Exclusion-Set with
+   (exclusive-constants (*left *right))
+)
+

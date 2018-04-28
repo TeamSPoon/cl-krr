@@ -1,0 +1,138 @@
+;; 
+;;    $Id: Block.km,v 1.25 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Block has
+  (superclasses		(Make-Inaccessible))
+  (required-slot   	(object))
+  (primary-slot 	(agent instrument))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "the place blocked")
+			 (:seq agent "blocker")
+			 (:seq instrument "the blockage")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Block has
+
+       (object ((a Spatial-Entity)))
+
+       (resulting-state ((a Be-Blocked)))
+
+       (add-list (
+		  (:triple
+		   (the object of Self)
+		   object-of
+		   (the resulting-state of Self) [Block-add-1])
+                  (if (has-value (the instrument of Self))
+                   then (:triple (the instrument of Self)
+                                 instrument-of
+                                 (the resulting-state of Self) [Block-add-2]))
+       ))
+)
+
+(comment [Block-add-1] (:seq (the object of Self) " is now blocked.")
+	 "A block causes a place to be blocked.")
+
+(comment [Block-add-2] (:seq (the instrument of Self) " is used to block " (the object of Self))
+	 "An instrument can be used to block a place.")
+
+(every Block has
+  (text-active-verbseq-sg ("blocks"))
+  (text-active-verbseq-pl ("block"))
+  (text-passive-verbseq-sg ("gets blocked"))
+  (text-passive-verbseq-pl ("get blocked"))
+
+)
+
+(every Block has
+       (preparatory-event ((:default
+			    (a  Unblock with
+				(object ((the object of Self))))))
+			  ))
+
+
+
+
+(Block has 
+  (test-case      ('(
+		     (*path1 has (instance-of (Place)))
+                            
+		     (a Block with 
+		      (object (*path1)))
+                            
+		     (do-and-next (thelast Block))
+                            
+		     (has-value (the Be-Blocked object-of of *path1))
+
+		     (a Move with (object (*car1))(path (*path1)))
+		     (not (try-do (thelast Move)))
+
+                     (new-situation)
+                     (*pipe has (instance-of (Physical-Object)))
+                     (*garbage has (instance-of (Substance)))
+                     (*water has (instance-of (Fluid-Substance)))
+
+                     (a Block with (object (*pipe)) (instrument (*garbage)))
+
+                     (do-and-next (thelast Block))
+
+                     (has-value (the Be-Blocked object-of of *pipe))
+
+                     (a Move with (object (*water)) (path (*pipe)))
+                     (not (try-do (thelast Move)))
+
+                     (a Unblock with (object (*pipe)))
+                     (do-and-next (thelast Unblock))
+
+                     (not (has-value (the Be-Blocked object-of of *pipe)))
+                     (not (has-value (the Be-Blocked instrument-of of *pipe)))
+
+                     (do-and-next (thelast Move))
+
+))))
+
+
+
+
+;; automatically added WN synsets
+(Block has (wn16-synset ((:set  
+                                    (:triple "block" 1 "v")
+                                    (:triple "block" 9 "v")
+                                    (:triple "block" 10 "v")
+                                    (:triple "bar" 2 "v")
+                                    (:triple "barricade" 1 "v")
+                                    (:triple "block_off" 2 "v")
+                                    (:triple "block_up" 1 "v")
+                                    (:triple "blockade" 2 "v")
+                                    (:triple "choke_up" 1 "v")
+                                    (:triple "close_up" 1 "v")
+                                    (:triple "impede" 2 "v")
+                                    (:triple "jam" 7 "v")
+                                    (:triple "lug" 2 "v")
+                                    (:triple "obstruct" 2 "v")
+                                    (:triple "occlude" 1 "v")
+                                    (:triple "stuff" 4 "v")
+))))
+
+(Block has (wn20-synset ((:set
+                                    (:triple "block" 1 "v")
+                                    (:triple "block" 9 "v")
+                                    (:triple "block" 10 "v")
+                                    (:triple "bar" 2 "v")
+                                    (:triple "barricade" 1 "v")
+                                    (:triple "block_off" 2 "v")
+                                    (:triple "block_up" 1 "v")
+                                    (:triple "blockade" 2 "v")
+                                    (:triple "choke_up" 1 "v")
+                                    (:triple "close_up" 1 "v")
+                                    (:triple "impede" 2 "v")
+                                    (:triple "jam" 7 "v")
+                                    (:triple "lug" 2 "v")
+                                    (:triple "obstruct" 2 "v")
+                                    (:triple "occlude" 1 "v")
+                                    (:triple "stuff" 3 "v")
+))))
+(every Block has (text-nominalization ("blocking")))

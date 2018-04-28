@@ -1,0 +1,31 @@
+<!--- $Id: Ionic-Compound-Substance.spec.kml,v 1.3 2005/12/01 15:59:31 jfan Exp $ --->
+
+<kml>
+<concept name=Ionic-Compound-Substance>
+
+<superconcept name=Chemical>
+
+  <definition>
+    A chemical defined by having an <conceptref name=Ionic-Compound>
+    as its basic structural unit
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=has-basic-structural-unit>
+    the <conceptref name=Ionic-Compound> 
+    which is the fundamental building block of this Chemical
+  </slotdescription>
+
+</requiredslotlist>
+
+<neighborlist>
+
+   <neighbor name=Ion>
+     An atom or group of atoms that carries an electrical charge
+   </neighbor>
+
+</neighborlist>
+
+</kml>
+

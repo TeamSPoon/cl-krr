@@ -1,0 +1,25 @@
+;; $Id: CH3_3_NH-Plus.km,v 1.7 2008/10/14 19:16:13 tecuci Exp $ 
+(CH3_3_NH-Plus has (superclasses (Cation)))
+(every CH3_3_NH-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("trimethlyammonium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq 
+						  (:pair 3 
+							 (:seq
+							  (:pair 1 C)
+							  (:pair 3 H)))
+						  (:pair 1 N)
+						  (:pair 1 H)
+						  ))))))
+)
+
+
+(every CH3_3_NH-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("trimethlyammonium"))
+)
+
+(CH3_3_NH-Plus has (wn20-synset ((:triple "CH3_3_NH+" 0 "n") (:triple "CH_3_3_NH+" 0 "n"))))

@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Information-Sequence.km,v 1.5 2009/12/16 17:04:47 kbarker Exp $ 
+;; 
+
+(Information-Sequence has
+          (superclasses (Sequence Information))
+          (required-slot ())
+          (primary-slot ())
+          (description ("A sequence which encodes information.  Biological examples are DNA, RNA, and the amino acid sequence of proteins (which determines folding)."))
+          (secondary-slot ()) )
+
+
+;; string#5 is more general but will show up when searching for sentence, etc.
+(Information-Sequence has (wn20-synset ((:set (:triple "string" 5 "n")))))
+
+
+;; stubby
+

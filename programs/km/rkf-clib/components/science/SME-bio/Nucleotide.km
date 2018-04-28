@@ -1,0 +1,54 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Nucleotide ----------
+
+(Nucleotide has (superclasses (Organic-Molecule)))
+
+(_Nucleotide337 has 
+  (instance-of (Nucleotide))
+  (prototype-of (Nucleotide))
+  (prototype-scope (Nucleotide))
+  (prototype-participants (_Atom347
+                           _Phosphate346
+                           _Nucleotide337))
+  (prototype-participant-of (_Nucleotide337))
+  (has-clones (_Placeholder-Class336338))
+  (has-built-clones (_Placeholder-Class336338))
+  (has-basic-structural-unit (_Atom347))
+  (has-part (_Phosphate346))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-part _Phosphate346 225 600)
+                    (:seq has-basic-structural-unit _Atom347 211 606)))
+  (edge-visibility ((:seq has-part _Phosphate346 t)
+                    (:seq has-basic-structural-unit _Atom347 f)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Atom347 has 
+  (instance-of (Atom))
+  (has-clones (_Atom339))
+  (is-basic-structural-unit-of (_Nucleotide337))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 361 600)))
+  (prototype-participant-of (_Nucleotide337)))
+
+(_Phosphate346 has 
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate345))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-part-of (_Nucleotide337))
+  (node-coordinate ((:pair 401 599)))
+  (prototype-participant-of (_Nucleotide337)))
+
+(explanation (:triple _Nucleotide337 has-basic-structural-unit _Atom347) ((a Atom (@ _Nucleotide337 Molecule has-basic-structural-unit))))
+(explanation (:triple _Nucleotide337 has-part _Phosphate346) ((added-at Nucleotide "User defined")))
+(explanation (:triple _Atom347 instance-of Atom) ((a Atom (@ _Nucleotide337 Molecule has-basic-structural-unit))))
+(explanation (:triple _Phosphate346 instance-of Phosphate) ((added-at Nucleotide "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

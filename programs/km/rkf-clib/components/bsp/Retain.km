@@ -1,0 +1,62 @@
+;;
+;; $Id: Retain.km,v 1.14 2004/01/30 22:40:14 kbarker Exp $
+;;
+
+(Retain has 
+	(superclasses (Engagement-Military-Task))
+	(description ("a tactical mission task to ensures a terrain remains free of enemy occupation or use")))
+
+(every Retain has
+       (agent ((a Military-Unit)))
+       (object ((a Terrain)))
+  (base ((a Military-Unit)))
+       (base ((set-constraint
+                  (((the number of 
+                         (the value of (the allegiance of TheValues))) <= 1)
+                   and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+       (enemy ((the base of Self)))
+
+  (first-subevent ((if (((the location of (the agent of Self))
+                   /= (the object of Self))
+                  and
+                   ((the location of (the agent of Self))
+                    /= (the location of (the object of Self)))
+                  and
+                   ((the is-at of (the location of (the agent of Self)))
+                     /= (the is-at of (the object of Self))))
+              then
+                 (a Move-Military-Unit with
+                    (object ((the agent of Self)))
+                    (destination ((the object of Self))))
+   )))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.8 NIL))))))
+
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.6 NIL))))))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 0.3 NIL))))))
+
+       (pcs-list ((:triple (the agent of Self)
+                           agent-of
+                           (a Be-Controlled with 
+			      (object ((the object of Self)))) [Retain-pcs-1]
+       )))
+
+       (text-active-verbseq-sg ("retains"))
+       (text-active-verbseq-pl ("retain"))
+)
+
+(comment [Retain-pcs-1] (:seq (the agent of Self) " must be in control of " (the object of Self)) "Retain cannot happen unless the agent controls the object.")

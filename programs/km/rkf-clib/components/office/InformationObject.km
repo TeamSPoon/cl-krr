@@ -1,0 +1,83 @@
+;;    $Id: InformationObject.km,v 1.21 2005/02/25 22:45:16 billj Exp $
+
+(InformationObject has
+		   (superclasses (Information))
+		   (required-slot ())
+		   (primary-slot ())
+		   (secondary-slot ())
+		   (cmap-correspondence ())
+		   (test-case ()))
+
+(every InformationObject has
+       (hasAudienceMember ((a Thing)))	
+       (hasAvailabilityStartDate ((a Time-Instant)))
+       (hasLastModifiedDate ((a Time-Instant)))
+       (hasCitationTo ((a InformationObject)))
+       (hasContentRating ((a Thing))) ;FIXME
+       (hasCreatorApplication ((a Software-Application)))
+       (hasCreatorApplicationProductID ((a String)))
+       (hasDataSize ((a Integer)))
+       (hasDirectoryPath ((a String)))
+       (hasDocumentFingerprint ((a String)))
+       (hasDublinCoreResourceClassification ((a Thing))) ;FIXME
+       (hasFileExtension ((a String)))
+       (hasFilename ((a String)))
+       (hasFormat ((a Thing)))	;FIXME
+       (hasIdenticalCopy ((a InformationObject)))
+       (hasInformationPurpose ((a Thing))) ;FIXME
+       (hasKeyword ((a String)))
+       (hasLanguage ((a Language)))
+       (hasLastAccessedDate ((a Time-Instant)))
+       (hasMarkedUpContent ((a String)))
+       (hasMedium ((a Thing)))
+       (hasPlainTextContent ((a String)))
+       (hasRequiredSecurityClassification ((a Thing)))
+       (hasSelfSummary ((a String)))
+       (hasSourceUID ((a String)))
+       (hasSourceURI ((a String)))
+       (hasVersionNumber ((a String)))
+       (hasWatermark ((a String)))
+       (isCitedFrom ((a InformationObject))) 
+       (isSummarizedBy ((a Thing))) ;FIXME
+       ) 
+
+(hasAudienceMember has  (instance-of (Interface-Slot))   (domain (InformationObject))  (range (String))  (cardinality (N-to-N)))
+
+(hasAttachment has (instance-of (Interface-Slot)) (domain (InformationObject)) (range (Information)) (inverse (isAttachmentOf)) (cardinality (N-to-N)))
+(hasAvailabilityStartDate has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (Time-Instant)) (cardinality (N-to-N))(inverse (isAvailabilityStartDateOf)))
+(hasLastModifiedDate has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (Time-Instant)) (cardinality (N-to-N))(inverse (isLastModifiedDateOf)))
+(hasCitationTo has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (InformationObject)) (inverse (isCitedFrom)) (cardinality (N-to-N)))
+(hasContentRating has (instance-of (Interface-Slot))  (domain (InformationObject)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isContentRatingOf))) ;FIXME
+(hasCreatorApplication has (instance-of (Interface-Slot))  (domain (InformationObject))  (range (Software-Application)) (inverse (isCreatorApplicationOf)) (cardinality (N-to-1)))
+(hasCreatorApplicationProductID has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-1)))
+(hasDataSize has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (Integer)) (cardinality (N-to-N)))
+(hasDirectoryPath has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-N)))
+(hasDocumentFingerprint has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-N)))
+(hasDublinCoreResourceClassification has (instance-of (Interface-Slot))  (domain (InformationObject)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isDublinCoreResourceClassificationOf))) ;FIXME
+(hasFileExtension has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-N)))
+(hasFilename has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-1)))
+(hasFormat has (instance-of (Interface-Slot))  (domain (InformationObject)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isFormatOf))) ;FIXME
+(hasIdenticalCopy has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (InformationObject)) (cardinality (N-to-N))(inverse (isIdenticalCopyOf)))
+(hasInformationPurpose has (instance-of (Interface-Slot))  (domain (InformationObject)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isInformationPurposeOf))) ;FIXME
+(hasKeyword has (instance-of (Interface-Slot))  (domain (Thing)) (range (String)) (cardinality (N-to-N)))
+(hasLanguage has (instance-of (Interface-Slot)) (domain (InformationObject CalendarOrganizer)) (range (Language)) (cardinality (N-to-N))(inverse (isLanguageOf)))
+(hasLastAccessedDate has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (Time-Instant)) (cardinality (N-to-1))(inverse (isLastAccessedDateOf)))
+(hasLogo has (instance-of (Interface-Slot)) (domain (InformationObject Person)) (range (StillImage AudioClip VideoClip)) (inverse (isLogoOf)) (cardinality (N-to-N)))
+(hasMarkedUpContent has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-1)))
+(hasMedium has (instance-of (Interface-Slot))  (domain (InformationObject)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isMediumOf)))
+(hasPlainTextContent has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-1)))
+(hasRequiredSecurityClassification has (instance-of (Interface-Slot))  (domain (InformationObject)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isRequiredSecurityClassificationOf)))
+(hasSelfSummary has (instance-of (Interface-Slot))  (domain (InformationObject Organization Event)) (range (String)) (cardinality (N-to-N)))
+(hasSourceUID has (instance-of (Interface-Slot))  (domain (InformationObject Message)) (range (String)) (cardinality (N-to-N)))
+(hasSourceURI has (instance-of (Interface-Slot))  (domain (InformationObject Message)) (range (String)) (cardinality (N-to-1)))
+(hasAlternativeSourceURI has (instance-of (Interface-Slot))  (domain (InformationObject Message)) (range (String)) (cardinality (N-to-N)))
+(hasVersionNumber has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-1)))
+(hasWatermark has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-N)))
+(isSummarizedBy has (instance-of (Interface-Slot))  (domain (InformationObject)) (range (String)) (cardinality (N-to-N)))
+
+(hasContainedItem has (instance-of (Interface-Slot)) (domain (InformationObject)) (inverse (isContainedItemOf)) (range (Document InformationObject)) (cardinality (N-to-N)))
+
+(hasMIMEType has (instance-of (Interface-Slot)) (domain (InformationObject)) (range (String)) (cardinality (N-to-1)))
+(hasMIMEVersion has (instance-of (Interface-Slot)) (domain (InformationObject)) (range (String)) (cardinality (N-to-1)))
+
+(isDerivedFrom has (instance-of (Interface-Slot))(domain (InformationObject))(range (InformationObject))(inverse (hasDerivations))(description ("Describes the relationship between files that are generated from another source file.")))

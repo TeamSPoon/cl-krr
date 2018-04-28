@@ -1,0 +1,103 @@
+<!--- $Id: Replace.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<kml>
+
+<concept name=Replace>
+<system-documentation name=Replace>
+<superconcept name=Action>
+
+  <definition>
+	substitute one <slot>object</slot> (labelled "new thing") 
+        for another <slot>object</slot> (labelled "old thing"). 
+	The "old thing" is first <conceptref name=Detach>ed from the 
+	<slot>base</slot> (the object it is <conceptref name=Attach>ed to). 
+	Then, the "new thing" is <conceptref name=Attach>ed to the
+        <slot>base</slot>.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     	this holds both the entity that is replaced (labelled "old
+        thing") and the one which replaces it (labelled "new thing").
+        Note that the 2 objects MUST 
+        be given exactly these labels (called Properties in SHAKEN).
+  </slotdescription>
+
+  <slotdescription name=base>
+     	the object that the "old thing" 
+        is <conceptref name=Detach>ed from during
+	the <conceptref name=Replace>. This is also 
+        the object to which the "new thing"
+	is <conceptref name=Attach>ed.
+  </slotdescription>
+
+</requiredslotlist>
+
+<subeventlist>
+
+  <subeventdescription name=Detach>
+	the <slot>object</slot> labelled "old thing" 
+        is <conceptref name=Detach>ed from
+	the <slot>base</slot>
+  </subeventdescription>
+
+  <subeventdescription name=Attach>
+    	the <slot>object</slot> labelled "new thing" 
+        is <conceptref name=Attach>ed to
+	the <slot>base</slot>.
+  </subeventdescription>
+
+</subeventlist>
+
+<subeventorder>
+  Detach then Attach
+</subeventorder>
+
+<primaryslotlist>
+
+  <slotdescription name=instrument>
+	the object used as a tool to do the Replace action
+  </slotdescription>
+
+  <slotdescription name=agent>
+	the <slot>causer</slot> of the Replace action
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Mick replaced the blown fuse from the socket with a new one.</text>
+    <slotdescription name=agent>Mick</slotdescription>
+    <slotdescription name=object>blown fuse</slotdescription>
+    <slotdescription name=object>new fuse</slotdescription>
+    <slotdescription name=base>socket</slotdescription>
+  <comment>
+    The first object (the blown fuse) must be given the label 
+    "old thing" and the second object (the new fuse) must be given
+    the label "new thing".  In SHAKEN labels are assigned as Properties;
+    In KM labels are assigned with the keyword "called".    
+  </comment>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Detach>
+	Replace implied both an Attach and a Detach.
+	Detach is asymmetric, like in unhitching a trailer from a truck .
+  </neighbor>
+
+  <neighbor name=Attach>
+	Replace implied both an Attach and a Detach.
+	Attach is asymmetric, like when a bike is locked to a rack. 
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

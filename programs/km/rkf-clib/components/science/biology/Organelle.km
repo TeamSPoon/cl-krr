@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Organelle.km,v 1.11 2001/06/03 06:16:44 souther Exp $ 
+;; 
+
+(Organelle has
+         (superclasses (Organic-Structure))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A discrete structure or subcompartment of a eucaryotic
+                        cell specialized to carry out a particular function;
+                        especially a cellular substructure that is visible in
+                        the light microscope.  Examples include mitochondria
+                        and the Golgi apparatus. (Alberts:ECB:G-13). Any 
+                        membrane bound structure found in the cytoplasm of
+                        cells.  Lodish:MCB:G-13."))
+         (test-case ()))
+
+(every Organelle has 
+       (is-inside ((a Cytoplasm)))
+; (has-part ((a Internal-Membrane)))   
+)
+
+;; note: classic organelles are surrounded by membranes, but some structures,
+;; such as centrosomes, are termed organelles though lacking a membrane.
+
+

@@ -1,0 +1,14 @@
+;; $Id: AudioRecording.km,v 1.11 2005/04/15 17:04:10 jchaw Exp $
+(AudioRecording has
+	(description ("A type of Recording produced by a Microphone."))
+	(superclasses (Recording)))
+
+(every AudioRecording has (result-of ((a Record with (instrument ((a Microphone)))))))
+
+;; eventually we will want to state something like "every AudioDocument
+;; contains an AudioRecording." 
+
+(AudioRecording has (wn20-synset ((:set
+		   	     (:triple "sound_recording" 1 "n")
+			     (:triple "audio_recording" 1 "n")
+))))

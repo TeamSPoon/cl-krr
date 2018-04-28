@@ -1,0 +1,113 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Translation ----------
+
+(Translation has (superclasses (Event)))
+
+(_Translation163 has 
+  (instance-of (Translation))
+  (prototype-of (Translation))
+  (prototype-scope (Translation))
+  (prototype-participants (_Amino-Acid249
+                           _Cytoplasm248
+                           _Atom247
+                           _Phosphate222
+                           _Nucleotide221
+                           _Translation163))
+  (prototype-participant-of (_Translation163))
+  (has-clones (_Placeholder-Class162164))
+  (has-built-clones (_Placeholder-Class162164))
+  (result (_Amino-Acid249))
+  (site (_Cytoplasm248))
+  (object (_Nucleotide221))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-coordinate ((:seq site _Cytoplasm248 385 409)
+                    (:seq object _Nucleotide221 238 327)
+                    (:seq result _Amino-Acid249 247 451)))
+  (edge-visibility ((:seq site _Cytoplasm248 t)
+                    (:seq object _Nucleotide221 t)
+                    (:seq result _Amino-Acid249 t)))
+  (node-coordinate ((:pair 186 399))))
+
+(_Amino-Acid249 has 
+  (instance-of (Amino-Acid
+                Entity))
+  (has-clones (_Amino-Acid165))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (result-of (_Translation163))
+  (node-coordinate ((:pair 260 503)))
+  (prototype-participant-of (_Translation163)))
+
+(_Cytoplasm248 has 
+  (instance-of (Cytoplasm
+                Spatial-Entity))
+  (has-clones (_Cytoplasm220))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (site-of (_Translation163))
+  (node-coordinate ((:pair 468 411)))
+  (prototype-participant-of (_Translation163)))
+
+(_Atom247 has 
+  (instance-of (Atom))
+  (has-clones (_Atom208))
+  (cloned-from (_Atom347))
+  (is-basic-structural-unit-of (_Nucleotide221))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 673 338)))
+  (prototype-participant-of (_Translation163)))
+
+(_Phosphate222 has 
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate209))
+  (cloned-from (_Phosphate346))
+  (is-part-of (_Nucleotide221))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 637 229)))
+  (prototype-participant-of (_Translation163)))
+
+(_Nucleotide221 has 
+  (has-basic-structural-unit (_Atom247))
+  (has-part (_Phosphate222))
+  (instance-of (Nucleotide))
+  (cloned-from (_Nucleotide337))
+  (clone-built-from (_Nucleotide337))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq has-part _Phosphate222 t)
+                    (:seq has-basic-structural-unit _Atom247 t)))
+  (edge-coordinate ((:seq has-part _Phosphate222 541 176)
+                    (:seq has-basic-structural-unit _Atom247 433 342)))
+  (object-of (_Translation163))
+  (node-coordinate ((:pair 325 162)))
+  (prototype-participant-of (_Translation163)))
+
+(explanation (:triple _Translation163 result _Amino-Acid249) ((added-at Translation "User defined")))
+(explanation (:triple _Translation163 object _Nucleotide221) ((added-at Translation "User defined")))
+(explanation (:triple _Translation163 site _Cytoplasm248) ((added-at Translation "User defined")))
+(explanation (:triple _Amino-Acid249 instance-of Amino-Acid) ((added-at Translation "User defined")))
+(explanation (:triple _Amino-Acid249 instance-of Entity) ((a Entity (@ _Translation163 Event (result must-be-a)))))
+(explanation (:triple _Cytoplasm248 instance-of Cytoplasm) ((added-at Translation "User defined")))
+(explanation (:triple _Cytoplasm248 instance-of Spatial-Entity) ((a Spatial-Entity with (is-near ((if (has-value (the object of _Translation163) (@ _Translation163 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Translation163) (@ _Translation163 Event (site must-be-a) Spatial-Entity is-near)) (@ _Translation163 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Translation163 Event (site must-be-a)))))
+(explanation (:triple _Atom247 is-basic-structural-unit-of _Nucleotide221) ((cloned-from _Nucleotide337 _Nucleotide221)))
+(explanation (:triple _Atom247 instance-of Atom) ((cloned-from _Nucleotide337 _Nucleotide221)))
+(explanation (:triple _Atom247 instance-of Atom) ((a Atom (@ _Nucleotide221 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom247 instance-of Atom) ((a Atom)))
+(explanation (:triple _Phosphate222 is-part-of _Nucleotide221) ((cloned-from _Nucleotide337 _Nucleotide221)))
+(explanation (:triple _Phosphate222 instance-of Phosphate) ((cloned-from _Nucleotide337 _Nucleotide221)))
+(explanation (:triple _Phosphate222 instance-of Phosphate) ((added-at Nucleotide "User defined")))
+(explanation (:triple _Nucleotide221 instance-of Nucleotide) ((added-at Translation "User defined")))
+(explanation (:triple _Nucleotide221 has-basic-structural-unit _Atom247) ((cloned-from _Nucleotide337 _Nucleotide221)))
+(explanation (:triple _Nucleotide221 has-part _Phosphate222) ((cloned-from _Nucleotide337 _Nucleotide221)))
+(explanation (:triple _Nucleotide221 has-basic-structural-unit _Atom247) ((a Atom (@ _Nucleotide221 Molecule has-basic-structural-unit))))
+(explanation (:triple _Nucleotide221 has-part _Phosphate222) ((added-at Nucleotide "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,51 @@
+<!--- $Id: Compute-Concentration-from-Quantity-and-Volume.spec.kml,v 1.1 2005/09/09 14:08:31 jfan Exp $ --->
+
+<kml>
+<concept name=Compute-Concentration-from-Quantity-and-Volume>
+
+
+<superconcept name=Method>
+
+  <definition>
+    A Compute-Concentration-from-Quantity-and-Volume is the <conceptref name=Method> to compute the concentration of 
+    a solute given the quantity of the solute and the volume of the solution.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=input>
+     1. A quantity value of the solute.
+     2. A volume value denoting the volume of the solution.
+   </slotdescription>
+   <slotdescription name=output>
+     A concentration value to denote the amount.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>One liter of NaCl solution with 2 moles of NaCl has a concentration of 2 molars.</text>
+     <slotdescription name=input> 1 liter and 2 mole</slotdescription>
+     <slotdescription name=output> 2 molars</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Compute-Quantity-of-Chemical>
+  Compute-Quantity-of-Chemical computes the quantity of a type of Chemical
+  in a compound.
+  </neighbor>
+
+  <neighbor name=Compute-Quantity-from-Concentration-and-Volume>
+  Compute-Quantity-from-Concentration-and-Volume computes the quantity of 
+  the solute, given the concentration and the volume of a solution.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

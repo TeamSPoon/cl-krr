@@ -1,0 +1,40 @@
+<!--- $Id: Load.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Load>
+<superconcept name=Move-Into>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Load>
+  <definition>Insert something into a device, thereby activating it</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <restriction>Container</restriction>
+  </requiredslot>
+  <requiredslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>within the Enclosure</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=causes>
+    <restriction>a Activate</restriction>
+    <restriction>the <slot>object</slot> of the Activate is the <slot>base</slot> of the Load</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Move-Into>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+  </primaryslot>
+  <wnsynsets><verb>load#1, load#2, load#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>charge#16, lade#2, laden#2, load_up#1, stow#1
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

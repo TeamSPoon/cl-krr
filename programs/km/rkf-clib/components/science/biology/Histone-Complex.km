@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Histone-Complex.km,v 1.15 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Histone-Complex has
+		 (superclasses (Protein-Complex Aggregate))
+		 (required-slot ())
+		 (primary-slot ())
+		 (secondary-slot ())
+		 (cmap-correspondence ())
+		 (description ("A Aggregate of basic proteins, rich in arginine and
+                        lysine, that are associated with DNA in chromosomes.
+                        Alberts:ECB:G-9."))
+		 (test-case ()))
+
+(every Histone-Complex has
+       ;;        (purpose ((a Inhibitor with
+       ;; 		    (in-event ((a Make-Inaccessible with
+       ;; 				  (object ((a DNA-Molecule)))
+       ;; 				  (base ((a DNA-Replication)))
+       ;; 				  )))
+       ;; 		    )))
+         
+       ;;DT - removed -- (has-part ((a Aggregate with ...
+
+       (element-type (Histone)))
+
+
+
+
+(every Histone-Complex has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

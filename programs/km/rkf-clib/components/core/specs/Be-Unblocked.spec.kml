@@ -1,0 +1,54 @@
+<!--- $Id: Be-Unblocked.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Unblocked><system-documentation name=Be-Unblocked>
+
+<superconcept name=Be-Accessible>
+
+<definition>
+
+  An <slot>object</slot>, which is a Place, is accessible for movement 
+  through or across it.
+
+  An object is put in this state by <conceptref name=Unblock>.
+
+  An object is taken out of this state by <conceptref name=Block>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the Place that is accessible
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>The street is open.</text>
+     <slotdescription name=object>the street</slotdescription>
+   </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Closed>
+      Be-Closed is specifically for portals through barriers.
+   </neighbor>
+
+   <neighbor name=Be-Concealed>
+      Be-Concealed is specifically for objects that are concealed.
+   </neighbor>
+
+   <neighbor name=Be-Obstructed>
+      Be-Obstructed is specifically for objects that are obstructed
+      from moving.
+   </neighbor>
+</neighborlist>
+   
+</kml>
+
+

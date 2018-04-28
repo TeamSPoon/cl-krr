@@ -1,0 +1,50 @@
+<!--- $Id: Product.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+
+<kml>
+<concept name=Product>
+<system-documentation name=Product>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    A Product is the <conceptref name=Role> played by an Entity which is
+    the <slot>result</slot> of a <conceptref name=Produce>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the entity that's playing the role of a Product
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Produce> event that creates the entity
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The factory produces a car from sheet metal.</text>
+     <comment>
+     In this example, the Product role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Produce> with
+         <slot>raw-material</slot>=sheet metal</slotdescription>
+     <slotdescription name=played-by>a car</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Template>
+     A Template is the role played by an object in a <conceptref name=Copy>
+     event, serving as the pattern or guide from which the copy is made.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

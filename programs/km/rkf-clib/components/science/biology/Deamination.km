@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Deamination.km,v 1.10 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Deamination has
+	      (superclasses  (Remove Enzyme-Catalysis))
+	      (required-slot (object base))
+	      (primary-slot  (agent instrument))
+	      (description   ("The loss or removal of an amino group from a
+                               molecule.  Souther.")))
+
+(every Deamination has
+  (agent        ((a Living-Entity)))
+  (base       ((a DNA-Strand)))
+  (object       ((a Amino-Group)))
+  (substrate ((the DNA-Strand base of Self)))
+  (instrument   ((a Deaminase)))
+  )
+
+
+
+
+
+(every Deamination has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

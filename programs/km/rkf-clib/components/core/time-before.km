@@ -1,0 +1,22 @@
+;; 
+;;    $Id: time-before.km,v 1.10 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(time-before has
+	     (description ("FRAME time-before FILLER means that FRAME is wholly before FILLER, i.e. the end of FRAME is earlier than the start of FILLER."))
+	     (instance-of (Temporal-Relation))
+	     (subslots ())
+	     (domain (Temporal-Entity))
+	     (range (Temporal-Entity))
+	     (inverse (time-after))
+	     (fluent-status (*Inertial-Fluent))
+             (original-slot      (t))	
+	     (cardinality (N-to-N))
+	     )
+
+;; [.1.]..[.2.]
+
+(time-before has (text-gloss ("occurs before")))
+
+(time-after has
+	(instance-of (Temporal-Relation)))

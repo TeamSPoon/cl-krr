@@ -1,0 +1,14 @@
+;;
+;; $Id: C2H5COOH.km,v 1.1 2003/04/23 23:44:19 jchaw Exp $
+;;
+
+(C2H5COOH has (superclasses (Ionic-Compound)))
+
+(every C2H5COOH has	
+       (has-part 
+	((a H-Plus) (a C2H5COO-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 H-Plus)
+			 (:pair 1 C2H5COO-Minus)))))))
+)

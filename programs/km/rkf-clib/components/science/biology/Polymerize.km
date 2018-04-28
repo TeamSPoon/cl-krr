@@ -1,0 +1,43 @@
+
+;; 
+;;    $Id: Polymerize.km,v 1.24 2004/07/20 22:27:06 gking Exp $ 
+;; 
+
+(Polymerize has
+         (superclasses (Produce Enzyme-Catalysis))
+         (required-slot (result raw-material))
+         (primary-slot (agent instrument))
+	 (description ("To link together many identical or similar units
+                        (monomers) in a repetitive fashion. Alberts:ECB:G-14;
+                        derived from definition of polymer.")))
+
+(every Polymerize has
+       (raw-material ((a Aggregate with
+
+			 (element-type (Monomer)))))
+       (instrument   ((a Polymerase)))
+       (result 	     ((a Polymer))))
+
+
+(every Polymerize has
+       (text-argslots ((:seq raw-material instrument)))
+
+       (text-active-verbseq-sg ("polymerizes"))
+       (text-active-verbseq-pl ("polymerize"))
+       (text-passive-verbseq-sg ("gets polymerized"))
+       (text-passive-verbseq-pl ("get polymerized"))
+)
+
+(every Polymerize has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))
+
+
+;; automatically added WN synsets
+(Polymerize has (wn16-synset ((:set  
+                                         (:triple "polymerize" 1 "v")
+                                         (:triple "polymerize" 2 "v")
+))))
+
+(Polymerize has (wn20-synset ((:set
+                                         (:triple "polymerize" 1 "v")
+                                         (:triple "polymerize" 2 "v")
+))))

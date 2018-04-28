@@ -1,0 +1,14 @@
+;; $Id: HClO2.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HClO2 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HClO2 has
+	(has-chemical-name ("hydrogen chlorite"))
+	(has-part ((a H-Plus)(a ClO2-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 ClO2-Minus)))))))
+)
+(every HClO2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a ClO2-Minus))))
+

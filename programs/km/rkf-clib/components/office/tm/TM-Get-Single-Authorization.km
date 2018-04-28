@@ -1,0 +1,50 @@
+;;    $Id: TM-Get-Single-Authorization.km,v 1.5 2004/10/22 16:11:51 pzyeh Exp $ 
+(TM-Get-Single-Authorization has (superclasses (TM-Task-Model)))
+
+(every TM-Get-Single-Authorization has
+  ;;----------------------------------------------------------------
+  ;; SPARK parameters.
+  ;;----------------------------------------------------------------
+  (object 		((a Form-Document))) 		     ;; the object of this event corresponds to $form.
+  (base 		((a Person with
+			    (plays ((a ManagementOrganizationRole)))))) ;; the base of this event corresponds to $manager.
+
+
+  ;;----------------------------------------------------------------
+  ;; Additional axioms.
+  ;;----------------------------------------------------------------
+  (duration  ((a Duration-Value)))
+
+  ;; The following information are copied from Obtain and its superclasses.
+  (agent     ((the recipient of Self)))
+  (recipient ((a Entity)
+              (if (has-value (the base of Self))
+                  then
+                  (excluded-values (the base of Self))
+  )))
+
+  ; Post-condition:
+  ;     1) If the base is specified, then the base will
+  ;        no longer possess the object.
+  ;     2) If the recipient is specified, then the recipient
+  ;        will now possess the object.
+  (del-list ((if (has-value (the base of Self))
+                 then
+                 (forall (the base of Self)
+                   ((:triple
+                     It
+                     possesses
+                     (the base of Self)
+		 )))
+  )))
+                
+  (add-list ((if (has-value (the recipient of Self))
+                 then
+                 (forall (the recipient of Self)
+                   ((:triple
+                     It
+                     possesses
+                     (the object of Self)
+		 )))
+  )))
+)

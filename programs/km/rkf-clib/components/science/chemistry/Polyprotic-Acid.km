@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Polyprotic-Acid.km,v 1.5 2005/08/01 21:45:05 tecuci Exp $ 
+;; 
+
+(Polyprotic-Acid has
+		 (superclasses (Acid))
+		 (test-case ()))
+
+(every Polyprotic-Acid has-definition 
+  (instance-of (Ionic-Compound-Substance [Polyprotic-Acid-instance-of-1]))
+
+  ;; monoprotic acid = has one H+
+  ;; PROBLEM: this is represented either using ions or atoms
+  ;; for now represented as conjunction as atomic-chf is computed from has-chf
+  (has-basic-structural-unit 
+   ((a Ionic-Compound)
+    (if (has-value (the has-chemical-formula of Self))
+	then (constraint ((oneof (the elements of 
+				      (the term of 
+					   (the has-chemical-formula of TheValue)))
+				 where 
+				 (((the2 of It) = H-Plus)
+				  and
+				  ((the1 of It) >= 2)))
+			  ))))))
+
+(comment [Polyprotic-Acid-instance-of-1]
+   (:seq "Because each molecule of" (the text-gen of Self) "contains multiple H+ ion, it is a polyprotic acid")
+   "By definition, an ionic compound is a polyprotic acid if it yields more than one H+ per molecule of acid"
+)

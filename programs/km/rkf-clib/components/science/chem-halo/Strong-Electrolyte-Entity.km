@@ -1,0 +1,13 @@
+;;
+;; $Id: Strong-Electrolyte-Entity.km,v 1.3 2008/10/29 22:24:19 tecuci Exp $
+;;
+
+(Strong-Electrolyte-Entity has
+  (superclasses (Electrolyte-Entity)))
+
+(Strong-Electrolyte-Entity has
+  (user-description ("A strong electrolyte entity is the basic structural unit of a substance that is completely ionized in solution, for example, strong acids, strong bases, and most salts.")))
+
+(every Strong-Electrolyte-Entity has-definition
+  (instance-of (Chemical-Entity))
+  (is-basic-structural-unit-of ((a Strong-Electrolyte))))

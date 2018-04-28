@@ -1,0 +1,15 @@
+;; 
+;; $Id: parent_formula.km,v 1.4 2006/09/29 18:57:37 jchaw Exp $
+;; 
+
+(parent_formula has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Thing))
+   (shaken-ui-hidden-slot (t))
+   #|(range (Thing))|#
+   (inverse (parent_formula-of))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+)
+
+(parent_formula-of has (instance-of (CLIB-Slot-Group)))

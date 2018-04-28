@@ -1,0 +1,14 @@
+;;
+;; $Id: Te.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Te has (superclasses (Metalloid-Atom VIA-Chalcogen-Element)))
+(every Te has
+       (atomic-symbol (Te))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 52 NIL))))))
+       (chemical-period (5)))
+(every Te has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("tellurium"))
+)

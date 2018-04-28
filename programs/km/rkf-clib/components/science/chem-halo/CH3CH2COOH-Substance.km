@@ -1,0 +1,17 @@
+;;
+;; $Id: CH3CH2COOH-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $
+;;
+
+(CH3CH2COOH-Substance has (superclasses (Bronsted-Lowry-Acid)))
+(every CH3CH2COOH-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 1.3e-5 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("propanoic"))
+	(has-basic-structural-unit ((a CH3CH2COOH)))
+)
+(every CH3CH2COOH-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a CH3CH2COOH))))

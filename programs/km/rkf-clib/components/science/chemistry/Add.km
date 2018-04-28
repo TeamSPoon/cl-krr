@@ -1,0 +1,16 @@
+;; 
+;;    $Id: Add.km,v 1.1 2005/08/25 18:15:44 jfan Exp $ 
+;; 
+(every Add has
+       (causes ((if (((the object of Self) isa Chemical) and 
+		     ((the base of Self) isa Chemical)) then
+		  (a Reaction with
+		     (raw-material ((the object of Self)
+				    (the base of Self)))))
+		(if (((the object of Self) isa Chemical-Entity) and 
+		     ((the base of Self) isa Chemical-Entity)) then
+		  (a Reaction with
+		     (raw-material ((a Chemical with (has-basic-structural-unit ((the object of Self))))
+				    (a Chemical with (has-basic-structural-unit ((the base of Self))))))))
+		))
+       )

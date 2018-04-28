@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Service.km,v 1.2 2005/10/25 03:02:10 sdbaji Exp $
+;;
+
+; IRIS_class: Service
+
+;; an Activity in which some Entity provides some service to another Entity, 
+;; for commercial purposes or not
+
+(Service has (superclasses (Activity)))
+
+(every Service has
+       (donor ((a Entity)))
+       (recipient ((a Entity)))
+       ;; need to accomodate both tangible and intangilbe Entities 
+       (object ((must-be-a Entity)))
+       (instrument ((must-be-a Entity)))
+       )
+
+(Service has (wn20-synset ((:set (:triple "service" 1 "n")))))
+
+;; stubby
+(every Service has (text-nominalization ("service")))

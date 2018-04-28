@@ -1,0 +1,16 @@
+;;
+;; $Id: Mn.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Mn has (superclasses (Metal-Atom VIIB-Element)))
+(every Mn has
+       (atomic-symbol (Mn))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 25 NIL))))))
+       (has-ion ((a Mn-Plus-2)))
+       (chemical-period (4)))
+
+(every Mn has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("manganese"))
+)

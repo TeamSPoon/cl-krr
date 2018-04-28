@@ -1,0 +1,14 @@
+;; 
+;;  $Id: coefficient.km,v 1.4 2003/01/02 20:37:13 kbarker Exp $
+;; 
+
+(coefficient has
+	     (instance-of (Property))
+	     (domain      (Chemical))
+	     (range       (Coefficient-Value))
+	     (fluent-status (*Inertial-Fluent))
+	     (inherit-with-overrides (t))
+	     (inverse     (coefficient-of))
+	     (cardinality (N-to-1))
+	     )
+

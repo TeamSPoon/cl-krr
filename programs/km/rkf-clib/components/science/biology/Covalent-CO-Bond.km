@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Covalent-CO-Bond.km,v 1.10 2001/11/17 06:50:16 jarred Exp $ 
+;; 
+
+(Covalent-CO-Bond has
+         (superclasses (Covalent-Single-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Chemical bond between a carbon and a oxygen.
+                        Souther. "))
+		  (cmap-correspondence ())
+		  (test-case ()))
+
+(every Covalent-CO-Bond has      
+       (purpose ((a Connector with
+		    (in-event ((a Be-Attached-To with
+				  (object ((a Carbon-Atom)
+					   (a Oxygen-Atom)
+					   (exactly 2 Atom)))
+				  )))
+		    )))
+       (intensity ((a Intensity-Value with 
+		(value ((:pair 62 *kilocalorie/mole))))))
+;       (length ((a Length-Value with (value ((:pair ?? *nanometer))))))   
+       )
+
+

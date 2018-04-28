@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Base-Pairing.km,v 1.9 2004/01/30 22:02:41 kbarker Exp $
+;; 
+
+(Base-Pairing has
+  (superclasses         (Attach))
+  (required-slot        (object))
+  (primary-slot         (instrument agent base))
+  (secondary-slot       ())
+  (description    ("The pairing of two complementary nucleotide bases
+                    during replication or transcription.  Souther.")))
+
+(every Base-Pairing has
+       (object       ((a Nucleotide)))
+       (base ((a Nucleotide with
+		 (complement ((the Nucleotide object of Self)))
+		 )))
+       (instrument ((a Aggregate with
+
+		       (element-type (Hydrogen-Bond))
+		       (element ((at-least 2 Hydrogen-Bond))))))
+       )
+(every Base-Pairing has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,74 @@
+<!--- $Id: Lose.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<kml>
+
+<concept name=Lose>
+<system-documentation name=Lose>
+<superconcept name=Transfer>
+
+  <definition> 
+      Change of possession of an <slot>object</slot> from a <slot>donor</slot>
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the thing that is lost
+  </slotdescription>
+
+  <slotdescription name=donor>
+       the entity that <slot>possesses</slot> the object before the loss,
+       and which loses possession because of it
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+       the entity that causes the loss
+  </slotdescription>
+
+  <slotdescription name=recipient>
+       the entity that <slot>possesses</slot> the object after the loss
+  </slotdescription>
+
+  <slotdescription name=caused-by>
+       the action that caused the loss
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John lost his wallet when he fell overboard.</text>
+    <slotdescription name=object>wallet</slotdescription>
+    <slotdescription name=donor>John</slotdescription>
+    <slotdescription name=caused-by>fall overboard</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Deliver>
+        Deliver is a special type of Transfer performed by an 
+        <slot>agent</slot> who is not the <slot>donor</slot>
+  </neighbor>  
+
+  <neighbor name=Receive>
+        Receive is a special type of Transfer in which a <slot>recipient</slot>
+        is mandatory
+  </neighbor>  
+
+  <neighbor name=Withdraw>
+        Withdraw is a special type of Transfer in which the 
+        <slot>object</slot> is withdrawn from a <slot>base</slot>,
+        thereby removing it from a <conceptref name=Be-Stored> state
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

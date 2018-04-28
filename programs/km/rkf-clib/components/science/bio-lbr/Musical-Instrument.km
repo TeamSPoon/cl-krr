@@ -1,0 +1,17 @@
+;; 
+;; $Id: Musical-Instrument.km,v 1.3 2006/11/06 20:20:59 kbarker Exp $
+;; 
+
+(Musical-Instrument has
+  (superclasses (Physical-Object))
+  (description ("an object used to make musical sounds"))
+)
+
+(every Musical-Instrument has
+  (instrument-of ((a Create with (result ((a Sound))))))
+)
+
+(Musical-Instrument has (wn20-synset ((:set 
+                                            (:triple "musical_instrument" 1 "n")
+                                            (:triple "instrument" 6 "n")
+))))

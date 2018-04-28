@@ -1,0 +1,14 @@
+;;
+;; $Id: Ar.km,v 1.4 2008/10/14 19:16:12 tecuci Exp $
+;;
+
+(Ar has (superclasses (Non-Metal-Atom VIIIA-Noble-Gas-Element)))
+(every Ar has
+       (atomic-symbol (Ar))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 18 NIL))))))
+       (chemical-period (3)))
+(every Ar has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("argon"))
+)

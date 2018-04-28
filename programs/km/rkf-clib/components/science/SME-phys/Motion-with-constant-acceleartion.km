@@ -1,0 +1,790 @@
+(disable-classification)
+
+;;; ---------- Definition of prototype for Motion-with-constant-acceleartion ----------
+
+(Motion-with-constant-acceleartion has (superclasses (Linear-Move Event)))
+
+(_Motion-with-constant-acceleartion481 has 
+  (instance-of (Motion-with-constant-acceleartion))
+  (prototype-of (Motion-with-constant-acceleartion))
+  (prototype-scope (Motion-with-constant-acceleartion))
+  (prototype-participants (_Property-Node594
+                           _Property-Node593
+                           _Property-Node592
+                           _Property-Node591
+                           _Property-Node590
+                           _Property-Node589
+                           _Property-Node588
+                           _Property-Node587
+                           _Property-Node586
+                           _Property-Node585
+                           _Property-Node584
+                           _Equation-Big-Node583
+                           _Equation-Big-Node582
+                           _Equation-Big-Node581
+                           _Equation-Big-Node580
+                           _Equation-Big-Node579
+                           _Equation-Big-Node578
+                           _Equation-Big-Node577
+                           _Property-Node576
+                           _Tangible-Entity575
+                           _Length-Value574
+                           _Length-Value573
+                           _Equation-Set572
+                           _System571
+                           _Equation-Set570
+                           _Acceleration-Magnitude-Value569
+                           _Equation-Set568
+                           _Length-Value567
+                           _Equation-Set566
+                           _Acceleration-Magnitude-Value565
+                           _Equation-Set564
+                           _Speed-Value563
+                           _Speed-Value562
+                           _Speed-Value561
+                           _Equation-Set560
+                           _Duration-Value559
+                           _Duration-Value558
+                           _Duration-Value557
+                           _Equation-Set556
+                           _Event555
+                           _Length-Value554
+                           _Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481))
+  (has-clones (_Placeholder-Class480482))
+  (has-built-clones (_Placeholder-Class480482))
+  (big-nodes (_Equation-Big-Node577
+              _Equation-Big-Node578
+              _Equation-Big-Node579
+              _Equation-Big-Node580
+              _Equation-Big-Node581
+              _Equation-Big-Node582
+              _Equation-Big-Node583
+              _Property-Node584
+              _Property-Node585
+              _Property-Node586
+              _Property-Node587
+              _Property-Node588
+              _Property-Node589
+              _Property-Node590
+              _Property-Node591
+              _Property-Node592
+              _Property-Node593
+              _Property-Node594))
+  (object (_Tangible-Entity575))
+  (initial-position (_Length-Value574))
+  (final-position (_Length-Value573))
+  (component-of (_System571))
+  (average-acceleration-magnitude (_Acceleration-Magnitude-Value569))
+  (distance (_Length-Value567))
+  (acceleration-magnitude (_Acceleration-Magnitude-Value565))
+  (average-speed (_Speed-Value563))
+  (final-speed (_Speed-Value562))
+  (initial-speed (_Speed-Value561))
+  (initial-time (_Duration-Value559))
+  (final-time (_Duration-Value558))
+  (duration (_Duration-Value557))
+  (cloned-from (_Linear-Move542))
+  (clone-built-from (_Linear-Move542))
+  (edge-coordinate ((:seq initial-x-position _Length-Value516 301 338)
+                    (:seq distance _Length-Value567 613 972)
+                    (:seq final-time _Duration-Value558 467 401)
+                    (:seq initial-time _Duration-Value559 295 271)
+                    (:seq duration _Duration-Value557 584 916)
+                    (:seq final-speed _Speed-Value562 549 748)
+                    (:seq average-speed _Speed-Value563 522 538)
+                    (:seq initial-speed _Speed-Value561 584 804)
+                    (:seq average-acceleration-magnitude _Acceleration-Magnitude-Value569 488 674)
+                    (:seq acceleration-magnitude _Acceleration-Magnitude-Value565 543 847)
+                    (:seq final-position _Length-Value573 493 476)
+                    (:seq initial-position _Length-Value574 385 320)
+                    (:seq object _Tangible-Entity575 310 613)))
+  (edge-visibility ((:seq initial-x-position _Length-Value516 t)
+                    (:seq distance _Length-Value567 t)
+                    (:seq final-time _Duration-Value558 t)
+                    (:seq initial-time _Duration-Value559 t)
+                    (:seq duration _Duration-Value557 t)
+                    (:seq final-speed _Speed-Value562 t)
+                    (:seq average-speed _Speed-Value563 t)
+                    (:seq initial-speed _Speed-Value561 t)
+                    (:seq average-acceleration-magnitude _Acceleration-Magnitude-Value569 t)
+                    (:seq acceleration-magnitude _Acceleration-Magnitude-Value565 t)
+                    (:seq final-position _Length-Value573 t)
+                    (:seq initial-position _Length-Value574 t)
+                    (:seq object _Tangible-Entity575 t)))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Property-Node594 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node553))
+  (node-visibility (t))
+  (contains-node (_Length-Value567))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node593 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node550))
+  (node-visibility (t))
+  (contains-node (_Duration-Value557))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node592 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node547))
+  (node-visibility (t))
+  (contains-node (_Acceleration-Magnitude-Value565))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node591 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node544))
+  (node-visibility (t))
+  (contains-node (_Speed-Value561))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node590 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node541))
+  (node-visibility (t))
+  (contains-node (_Speed-Value562))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node589 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node538))
+  (node-visibility (t))
+  (contains-node (_Acceleration-Magnitude-Value569))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node588 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node535))
+  (node-visibility (t))
+  (contains-node (_Speed-Value563))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node587 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node532))
+  (node-visibility (t))
+  (contains-node (_Length-Value573))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node586 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node526))
+  (node-visibility (t))
+  (contains-node (_Duration-Value558))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node585 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node523))
+  (node-visibility (t))
+  (contains-node (_Length-Value574))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node584 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node514))
+  (node-visibility (t))
+  (contains-node (_Duration-Value559))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Big-Node583 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node499))
+  (node-visibility (t))
+  (contains-node (_System571
+                  _Equation-Set556))
+  (contains-edge ((:triple _System571 component _Motion-with-constant-acceleartion481)
+                  (:triple _System571 equation _Equation-Set556)
+                  (:triple _Equation-Set556 user-equation-expression '(= t (- t_f t_i)))
+                  (:triple _Equation-Set556 equation-uses _Duration-Value559)
+                  (:triple _Equation-Set556 equation-symbol (:pair 't_i _Duration-Value559))
+                  (:triple _Equation-Set556 equation-uses _Duration-Value558)
+                  (:triple _Equation-Set556 equation-symbol (:pair 't_f _Duration-Value558))
+                  (:triple _Equation-Set556 equation-uses _Duration-Value557)
+                  (:triple _Equation-Set556 equation-expression '(= t (- t_f t_i)))
+                  (:triple _Equation-Set556 equation-symbol (:pair 't _Duration-Value557))))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Big-Node582 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node501))
+  (node-visibility (t))
+  (contains-node (_System571
+                  _Equation-Set572))
+  (contains-edge ((:triple _System571 component _Motion-with-constant-acceleartion481)
+                  (:triple _System571 equation _Equation-Set572)
+                  (:triple _Equation-Set572 user-equation-expression '(= s (- p_f p_i)))
+                  (:triple _Equation-Set572 equation-uses _Length-Value574)
+                  (:triple _Equation-Set572 equation-symbol (:pair 'p_i _Length-Value574))
+                  (:triple _Equation-Set572 equation-uses _Length-Value573)
+                  (:triple _Equation-Set572 equation-symbol (:pair 'p_f _Length-Value573))
+                  (:triple _Equation-Set572 equation-uses _Length-Value567)
+                  (:triple _Equation-Set572 equation-expression '(= s (- p_f p_i)))
+                  (:triple _Equation-Set572 equation-symbol (:pair 's _Length-Value567))))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Big-Node581 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node503))
+  (node-visibility (t))
+  (contains-node (_System571
+                  _Equation-Set568))
+  (contains-edge ((:triple _System571 component _Motion-with-constant-acceleartion481)
+                  (:triple _System571 equation _Equation-Set568)
+                  (:triple _Equation-Set568 user-equation-expression '(= a_avg a))
+                  (:triple _Equation-Set568 equation-uses _Acceleration-Magnitude-Value569)
+                  (:triple _Equation-Set568 equation-symbol (:pair 'a_avg _Acceleration-Magnitude-Value569))
+                  (:triple _Equation-Set568 equation-uses _Acceleration-Magnitude-Value565)
+                  (:triple _Equation-Set568 equation-expression '(= a_avg a))
+                  (:triple _Equation-Set568 equation-symbol (:pair 'a _Acceleration-Magnitude-Value565))))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Big-Node580 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node505))
+  (node-visibility (t))
+  (contains-node (_System571
+                  _Equation-Set564))
+  (contains-edge ((:triple _System571 component _Motion-with-constant-acceleartion481)
+                  (:triple _System571 equation _Equation-Set564)
+                  (:triple _Equation-Set564 user-equation-expression '(= v (+ u (* a t))))
+                  (:triple _Equation-Set564 equation-uses _Duration-Value557)
+                  (:triple _Equation-Set564 equation-symbol (:pair 't _Duration-Value557))
+                  (:triple _Equation-Set564 equation-uses _Speed-Value562)
+                  (:triple _Equation-Set564 equation-symbol (:pair 'v _Speed-Value562))
+                  (:triple _Equation-Set564 equation-uses _Speed-Value561)
+                  (:triple _Equation-Set564 equation-symbol (:pair 'u _Speed-Value561))
+                  (:triple _Equation-Set564 equation-uses _Acceleration-Magnitude-Value565)
+                  (:triple _Equation-Set564 equation-expression '(= v (+ u (* a t))))
+                  (:triple _Equation-Set564 equation-symbol (:pair 'a _Acceleration-Magnitude-Value565))))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Big-Node579 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node507))
+  (node-visibility (t))
+  (contains-node (_System571
+                  _Equation-Set560))
+  (contains-edge ((:triple _System571 component _Motion-with-constant-acceleartion481)
+                  (:triple _System571 equation _Equation-Set560)
+                  (:triple _Equation-Set560 user-equation-expression '(= v_avg (+ v (/ u 2))))
+                  (:triple _Equation-Set560 equation-uses _Speed-Value563)
+                  (:triple _Equation-Set560 equation-symbol (:pair 'v_avg _Speed-Value563))
+                  (:triple _Equation-Set560 equation-uses _Speed-Value562)
+                  (:triple _Equation-Set560 equation-symbol (:pair 'v _Speed-Value562))
+                  (:triple _Equation-Set560 equation-uses _Speed-Value561)
+                  (:triple _Equation-Set560 equation-expression '(= v_avg (+ v (/ u 2))))
+                  (:triple _Equation-Set560 equation-symbol (:pair 'u _Speed-Value561))))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Big-Node578 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node509))
+  (node-visibility (t))
+  (contains-node (_System571
+                  _Equation-Set566))
+  (contains-edge ((:triple _System571 component _Motion-with-constant-acceleartion481)
+                  (:triple _System571 equation _Equation-Set566)
+                  (:triple _Equation-Set566 user-equation-expression '(= (expt v 2) (+ (expt u 2) (* (* 2 a) s))))
+                  (:triple _Equation-Set566 equation-uses _Speed-Value562)
+                  (:triple _Equation-Set566 equation-symbol (:pair 'v _Speed-Value562))
+                  (:triple _Equation-Set566 equation-uses _Speed-Value561)
+                  (:triple _Equation-Set566 equation-symbol (:pair 'u _Speed-Value561))
+                  (:triple _Equation-Set566 equation-uses _Acceleration-Magnitude-Value565)
+                  (:triple _Equation-Set566 equation-symbol (:pair 'a _Acceleration-Magnitude-Value565))
+                  (:triple _Equation-Set566 equation-uses _Length-Value567)
+                  (:triple _Equation-Set566 equation-expression '(= (expt v 2) (+ (expt u 2) (* (* 2 a) s))))
+                  (:triple _Equation-Set566 equation-symbol (:pair 's _Length-Value567))))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Big-Node577 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node511))
+  (node-visibility (t))
+  (contains-node (_System571
+                  _Equation-Set570))
+  (contains-edge ((:triple _System571 component _Motion-with-constant-acceleartion481)
+                  (:triple _System571 equation _Equation-Set570)
+                  (:triple _Equation-Set570 user-equation-expression '(= s (+ (* u t) (* (* (/ 1 2) a) (expt t 2)))))
+                  (:triple _Equation-Set570 equation-uses _Duration-Value557)
+                  (:triple _Equation-Set570 equation-symbol (:pair 't _Duration-Value557))
+                  (:triple _Equation-Set570 equation-uses _Speed-Value561)
+                  (:triple _Equation-Set570 equation-symbol (:pair 'u _Speed-Value561))
+                  (:triple _Equation-Set570 equation-uses _Acceleration-Magnitude-Value565)
+                  (:triple _Equation-Set570 equation-symbol (:pair 'a _Acceleration-Magnitude-Value565))
+                  (:triple _Equation-Set570 equation-uses _Length-Value567)
+                  (:triple _Equation-Set570 equation-expression '(= s (+ (* u t) (* (* (/ 1 2) a) (expt t 2)))))
+                  (:triple _Equation-Set570 equation-symbol (:pair 's _Length-Value567))))
+  (big-node-of (_Motion-with-constant-acceleartion481))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Property-Node576 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node520))
+  (big-node-of (_Length-Value554))
+  (node-visibility (t))
+  (contains-node (_Length-Value554))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Tangible-Entity575 has 
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity488))
+  (cloned-from (_Tangible-Entity570))
+  (object-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 460 607)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Length-Value574 has 
+  (contains-node-of (_Property-Node585))
+  (instance-of (Length-Value))
+  (initial-position-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (used-in-equation (_Equation-Set572))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 534 319)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Length-Value573 has 
+  (contains-node-of (_Property-Node587))
+  (instance-of (Length-Value))
+  (final-position-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (used-in-equation (_Equation-Set572))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 600 470)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Set572 has 
+  (contains-node-of (_Equation-Big-Node582))
+  (equation-uses (_Length-Value574
+                  _Length-Value573
+                  _Length-Value567))
+  (instance-of (Equation-Set))
+  (equation-of (_System571))
+  (user-equation-expression ('(= s (- p_f p_i))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'p_i _Length-Value574)
+                    (:pair 'p_f _Length-Value573)
+                    (:pair 's _Length-Value567)))
+  (equation-expression ('(= s (- p_f p_i))))
+  (node-coordinate ((:pair 1137 310)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_System571 has 
+  (contains-node-of (_Equation-Big-Node583
+                     _Equation-Big-Node582
+                     _Equation-Big-Node581
+                     _Equation-Big-Node580
+                     _Equation-Big-Node579
+                     _Equation-Big-Node578
+                     _Equation-Big-Node577))
+  (equation (_Equation-Set556
+             _Equation-Set572
+             _Equation-Set568
+             _Equation-Set564
+             _Equation-Set560
+             _Equation-Set566
+             _Equation-Set570))
+  (instance-of (System))
+  (component (_Motion-with-constant-acceleartion481))
+  (edge-visibility ((:seq equation _Equation-Set570 t)
+                    (:seq equation _Equation-Set566 t)
+                    (:seq equation _Equation-Set560 t)
+                    (:seq equation _Equation-Set564 t)
+                    (:seq equation _Equation-Set568 t)
+                    (:seq equation _Equation-Set572 t)
+                    (:seq equation _Equation-Set556 t)
+                    (:seq component _Motion-with-constant-acceleartion481 t)))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Set570 has 
+  (contains-node-of (_Equation-Big-Node577))
+  (equation-of (_System571))
+  (instance-of (Equation-Set))
+  (user-equation-expression ('(= s (+ (* u t) (* (* (/ 1 2) a) (expt t 2))))))
+  (internally-expanded (t))
+  (equation-uses (_Duration-Value557
+                  _Speed-Value561
+                  _Acceleration-Magnitude-Value565
+                  _Length-Value567))
+  (equation-symbol ((:pair 't _Duration-Value557)
+                    (:pair 'u _Speed-Value561)
+                    (:pair 'a _Acceleration-Magnitude-Value565)
+                    (:pair 's _Length-Value567)))
+  (equation-expression ('(= s (+ (* u t) (* (* (/ 1 2) a) (expt t 2))))))
+  (node-coordinate ((:pair 1131 771)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Acceleration-Magnitude-Value569 has 
+  (contains-node-of (_Property-Node589))
+  (instance-of (Acceleration-Magnitude-Value))
+  (average-acceleration-magnitude-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (used-in-equation (_Equation-Set568))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 683 670)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Set568 has 
+  (contains-node-of (_Equation-Big-Node581))
+  (equation-of (_System571))
+  (equation-uses (_Acceleration-Magnitude-Value569
+                  _Acceleration-Magnitude-Value565))
+  (instance-of (Equation-Set))
+  (user-equation-expression ('(= a_avg a)))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'a_avg _Acceleration-Magnitude-Value569)
+                    (:pair 'a _Acceleration-Magnitude-Value565)))
+  (equation-expression ('(= a_avg a)))
+  (node-coordinate ((:pair 1145 394)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Length-Value567 has 
+  (contains-node-of (_Property-Node594))
+  (used-in-equation (_Equation-Set570
+                     _Equation-Set566
+                     _Equation-Set572))
+  (instance-of (Length-Value))
+  (distance-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 720 966)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Set566 has 
+  (contains-node-of (_Equation-Big-Node578))
+  (equation-of (_System571))
+  (equation-uses (_Speed-Value562
+                  _Speed-Value561
+                  _Acceleration-Magnitude-Value565
+                  _Length-Value567))
+  (instance-of (Equation-Set))
+  (user-equation-expression ('(= (expt v 2) (+ (expt u 2) (* (* 2 a) s)))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'v _Speed-Value562)
+                    (:pair 'u _Speed-Value561)
+                    (:pair 'a _Acceleration-Magnitude-Value565)
+                    (:pair 's _Length-Value567)))
+  (equation-expression ('(= (expt v 2) (+ (expt u 2) (* (* 2 a) s)))))
+  (node-coordinate ((:pair 1137 678)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Acceleration-Magnitude-Value565 has 
+  (contains-node-of (_Property-Node592))
+  (used-in-equation (_Equation-Set564
+                     _Equation-Set570
+                     _Equation-Set566
+                     _Equation-Set568))
+  (instance-of (Acceleration-Magnitude-Value))
+  (acceleration-magnitude-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 696 846)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Set564 has 
+  (contains-node-of (_Equation-Big-Node580))
+  (equation-of (_System571))
+  (equation-uses (_Duration-Value557
+                  _Speed-Value562
+                  _Speed-Value561
+                  _Acceleration-Magnitude-Value565))
+  (instance-of (Equation-Set))
+  (user-equation-expression ('(= v (+ u (* a t)))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 't _Duration-Value557)
+                    (:pair 'v _Speed-Value562)
+                    (:pair 'u _Speed-Value561)
+                    (:pair 'a _Acceleration-Magnitude-Value565)))
+  (equation-expression ('(= v (+ u (* a t)))))
+  (node-coordinate ((:pair 1146 466)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Speed-Value563 has 
+  (contains-node-of (_Property-Node588))
+  (instance-of (Speed-Value))
+  (average-speed-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (used-in-equation (_Equation-Set560))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 629 532)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Speed-Value562 has 
+  (contains-node-of (_Property-Node590))
+  (used-in-equation (_Equation-Set560
+                     _Equation-Set564
+                     _Equation-Set566))
+  (instance-of (Speed-Value))
+  (final-speed-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 656 742)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Speed-Value561 has 
+  (contains-node-of (_Property-Node591))
+  (used-in-equation (_Equation-Set560
+                     _Equation-Set570
+                     _Equation-Set564
+                     _Equation-Set566))
+  (instance-of (Speed-Value))
+  (initial-speed-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 691 798)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Set560 has 
+  (contains-node-of (_Equation-Big-Node579))
+  (equation-of (_System571))
+  (equation-uses (_Speed-Value563
+                  _Speed-Value562
+                  _Speed-Value561))
+  (instance-of (Equation-Set))
+  (user-equation-expression ('(= v_avg (+ v (/ u 2)))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'v_avg _Speed-Value563)
+                    (:pair 'v _Speed-Value562)
+                    (:pair 'u _Speed-Value561)))
+  (equation-expression ('(= v_avg (+ v (/ u 2)))))
+  (node-coordinate ((:pair 1143 556)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Duration-Value559 has 
+  (contains-node-of (_Property-Node584))
+  (instance-of (Duration-Value))
+  (initial-time-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (used-in-equation (_Equation-Set556))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 402 265)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Duration-Value558 has 
+  (contains-node-of (_Property-Node586))
+  (instance-of (Duration-Value))
+  (final-time-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (used-in-equation (_Equation-Set556))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 574 395)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Duration-Value557 has 
+  (contains-node-of (_Property-Node593))
+  (used-in-equation (_Equation-Set556
+                     _Equation-Set564
+                     _Equation-Set570))
+  (instance-of (Duration-Value))
+  (duration-of (_Motion-with-constant-acceleartion481))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 691 910)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Equation-Set556 has 
+  (contains-node-of (_Equation-Big-Node583))
+  (equation-of (_System571))
+  (equation-uses (_Duration-Value559
+                  _Duration-Value558
+                  _Duration-Value557))
+  (instance-of (Equation-Set))
+  (user-equation-expression ('(= t (- t_f t_i))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 't_i _Duration-Value559)
+                    (:pair 't_f _Duration-Value558)
+                    (:pair 't _Duration-Value557)))
+  (equation-expression ('(= t (- t_f t_i))))
+  (node-coordinate ((:pair 1131 221)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Event555 has 
+  (instance-of (Event))
+  (has-clones (_Event518))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 850 50)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(_Length-Value554 has 
+  (big-nodes (_Property-Node576))
+  (contains-node-of (_Property-Node576))
+  (instance-of (Length-Value))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 950 50)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-acceleartion481)))
+
+(explanation (:triple _Motion-with-constant-acceleartion481 object _Tangible-Entity575) ((cloned-from _Linear-Move542 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Motion-with-constant-acceleartion481 instance-of Linear-Move) ((a Linear-Move)))
+(explanation (:triple _Motion-with-constant-acceleartion481 object _Tangible-Entity575) ((a Tangible-Entity (@ _Motion-with-constant-acceleartion481 Move object))))
+(explanation (:triple _Motion-with-constant-acceleartion481 instance-of Event) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 initial-time _Thing489) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 initial-position _Thing490) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 final-time _Thing491) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 final-position _Thing492) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 duration _Thing493) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 velocity _Thing494) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 object _Tangible-Entity575) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Motion-with-constant-acceleartion481 initial-time _Thing489) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Motion-with-constant-acceleartion481 initial-position _Thing490) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Motion-with-constant-acceleartion481 final-time _Thing491) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Motion-with-constant-acceleartion481 final-position _Thing492) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Motion-with-constant-acceleartion481 duration _Thing493) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Motion-with-constant-acceleartion481 velocity _Thing494) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Motion-with-constant-acceleartion481 instance-of Event) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 initial-time _Duration-Value559) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 initial-position _Length-Value574) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 final-time _Duration-Value558) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 final-position _Length-Value573) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 average-speed _Speed-Value563) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 average-acceleration-magnitude _Acceleration-Magnitude-Value569) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 final-speed _Speed-Value562) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 initial-speed _Speed-Value561) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 acceleration-magnitude _Acceleration-Magnitude-Value565) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 duration _Duration-Value557) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Motion-with-constant-acceleartion481 distance _Length-Value567) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Tangible-Entity575 object-of _Motion-with-constant-acceleartion481) ((cloned-from _Linear-Move542 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Tangible-Entity575 instance-of Tangible-Entity) ((cloned-from _Linear-Move542 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Tangible-Entity575 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Motion-with-constant-acceleartion481 Move object))))
+(explanation (:triple _Tangible-Entity575 instance-of Tangible-Entity) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Tangible-Entity575 object-of _Motion-with-constant-acceleartion481) ((cloned-from _Motion-with-constant-acceleartion481 _Motion-with-constant-acceleartion481)))
+(explanation (:triple _Length-Value574 instance-of Length-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Length-Value573 instance-of Length-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 instance-of Equation-Set) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 user-equation-expression (QUOTE (= s (- p_f p_i)))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 equation-uses _Length-Value574) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 equation-symbol (:pair (QUOTE p_i) _Length-Value574)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 equation-uses _Length-Value573) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 equation-symbol (:pair (QUOTE p_f) _Length-Value573)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 equation-uses _Length-Value567) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 equation-expression (QUOTE (= s (- p_f p_i)))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set572 equation-symbol (:pair (QUOTE s) _Length-Value567)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 instance-of System) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 component _Motion-with-constant-acceleartion481) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 equation _Equation-Set556) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 equation _Equation-Set572) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 equation _Equation-Set568) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 equation _Equation-Set564) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 equation _Equation-Set560) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 equation _Equation-Set566) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _System571 equation _Equation-Set570) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 instance-of Equation-Set) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 user-equation-expression (QUOTE (= s (+ (* u t) (* (* (/ 1 2) a) (expt t 2)))))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-uses _Duration-Value557) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-symbol (:pair (QUOTE t) _Duration-Value557)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-uses _Speed-Value561) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-symbol (:pair (QUOTE u) _Speed-Value561)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-uses _Acceleration-Magnitude-Value565) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-symbol (:pair (QUOTE a) _Acceleration-Magnitude-Value565)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-uses _Length-Value567) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-expression (QUOTE (= s (+ (* u t) (* (* (/ 1 2) a) (expt t 2)))))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set570 equation-symbol (:pair (QUOTE s) _Length-Value567)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value569 instance-of Acceleration-Magnitude-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set568 instance-of Equation-Set) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set568 user-equation-expression (QUOTE (= a_avg a))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set568 equation-uses _Acceleration-Magnitude-Value569) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set568 equation-symbol (:pair (QUOTE a_avg) _Acceleration-Magnitude-Value569)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set568 equation-uses _Acceleration-Magnitude-Value565) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set568 equation-expression (QUOTE (= a_avg a))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set568 equation-symbol (:pair (QUOTE a) _Acceleration-Magnitude-Value565)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Length-Value567 instance-of Length-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 instance-of Equation-Set) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 user-equation-expression (QUOTE (= (expt v 2) (+ (expt u 2) (* (* 2 a) s))))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-uses _Speed-Value562) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-symbol (:pair (QUOTE v) _Speed-Value562)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-uses _Speed-Value561) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-symbol (:pair (QUOTE u) _Speed-Value561)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-uses _Acceleration-Magnitude-Value565) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-symbol (:pair (QUOTE a) _Acceleration-Magnitude-Value565)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-uses _Length-Value567) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-expression (QUOTE (= (expt v 2) (+ (expt u 2) (* (* 2 a) s))))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set566 equation-symbol (:pair (QUOTE s) _Length-Value567)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value565 instance-of Acceleration-Magnitude-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 instance-of Equation-Set) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 user-equation-expression (QUOTE (= v (+ u (* a t))))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-uses _Duration-Value557) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-symbol (:pair (QUOTE t) _Duration-Value557)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-uses _Speed-Value562) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-symbol (:pair (QUOTE v) _Speed-Value562)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-uses _Speed-Value561) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-symbol (:pair (QUOTE u) _Speed-Value561)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-uses _Acceleration-Magnitude-Value565) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-expression (QUOTE (= v (+ u (* a t))))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set564 equation-symbol (:pair (QUOTE a) _Acceleration-Magnitude-Value565)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Speed-Value563 instance-of Speed-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Speed-Value562 instance-of Speed-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Speed-Value561 instance-of Speed-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 instance-of Equation-Set) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 user-equation-expression (QUOTE (= v_avg (+ v (/ u 2))))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 equation-uses _Speed-Value563) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 equation-symbol (:pair (QUOTE v_avg) _Speed-Value563)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 equation-uses _Speed-Value562) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 equation-symbol (:pair (QUOTE v) _Speed-Value562)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 equation-uses _Speed-Value561) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 equation-expression (QUOTE (= v_avg (+ v (/ u 2))))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set560 equation-symbol (:pair (QUOTE u) _Speed-Value561)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Duration-Value559 instance-of Duration-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Duration-Value558 instance-of Duration-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Duration-Value557 instance-of Duration-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 instance-of Equation-Set) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 user-equation-expression (QUOTE (= t (- t_f t_i)))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 equation-uses _Duration-Value559) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 equation-symbol (:pair (QUOTE t_i) _Duration-Value559)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 equation-uses _Duration-Value558) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 equation-symbol (:pair (QUOTE t_f) _Duration-Value558)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 equation-uses _Duration-Value557) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 equation-expression (QUOTE (= t (- t_f t_i)))) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Equation-Set556 equation-symbol (:pair (QUOTE t) _Duration-Value557)) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Event555 instance-of Event) ((added-at Motion-with-constant-acceleartion "User defined")))
+(explanation (:triple _Length-Value554 instance-of Length-Value) ((added-at Motion-with-constant-acceleartion "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)

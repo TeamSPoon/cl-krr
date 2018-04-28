@@ -1,0 +1,25 @@
+;;
+;; $Id: frame-of-reference.km,v 1.6 2008/07/31 22:36:46 jchaw Exp $
+;;
+
+(frame-of-reference has
+	(instance-of (Participant-Relation))
+	(superslots ())
+	(subslots ())
+	(domain (Move))
+	(range (Entity))
+	(inverse (frame-of-reference-of))
+	(fluent-status (*Inertial-Fluent))
+	(text-slot (text-object))
+	(original-slot (t))
+	;(combine-values-by-appending (t))
+	(cardinality (N-to-N)))
+
+
+(frame-of-reference-of has
+;	(combine-values-by-appending (t))
+	(instance-of (Participant-Relation)))
+	
+(frame-of-reference has (wn20-synset ((:set 
+			(:triple "frame of reference" 0 "n")))))
+

@@ -1,0 +1,14 @@
+;;
+;; $Id: Sb.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Sb has (superclasses (Metalloid-Atom VA-Element)))
+(every Sb has
+       (atomic-symbol (Sb))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 51 NIL))))))
+       (chemical-period (5)))
+(every Sb has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("antimony"))
+)

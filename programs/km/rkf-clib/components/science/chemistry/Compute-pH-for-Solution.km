@@ -1,0 +1,213 @@
+;
+;;    $Id: Compute-pH-for-Solution.km,v 1.15 2005/09/19 19:45:01 jfan Exp $
+;;
+(Compute-pH-for-Solution has
+  (superclasses (Method))
+  (description ("given a solution, compute its PH"))) 
+
+;;
+;; This method encodes L.42. It computes the pH for a Solution..
+;; 
+(every Compute-pH-for-Solution has
+  (input ((a Solution)))  
+
+  ;; The base of the Solution is not known to be the raw-material of anything.
+  ;; Assume it to be the raw-material of a Hydrolysis, and recursively call
+  ;; this method. 
+#|
+  (output ((if (((the number of (the base of (the input of Self))) = 1)
+		and
+		(not (the Equilibrium-Reaction raw-material-of of (the base of (the input of Self)))))
+	       then
+	       (the output of 	
+	       	 (a Compute-pH-for-Solution with
+		    (input ((the base-of of 
+			      ((the raw-material of
+			            (a Hydrolysis with
+   				       (raw-material (((a Chemical called "Reactant")	
+		 				       &
+		   				       (the base of (the input of Self)))))
+			      	    ))
+			       called "Reactant"))))))
+	  )))  
+|#
+
+  ;; For a solution with one solute that is an acid, pH can be computed 
+  ;; directly as -log10[H+].
+  (output ((if (((the number of (the base of (the input of Self))) = 1)
+		and
+	 	;; We should have only one Equilibrium-Reaction, but if there is more 
+		;; than one then just find the first that satisfies this condition.
+		(oneof (the Equilibrium-Reaction raw-material-of of (the base of (the input of Self)))
+		  where
+		  (oneof2 (the result of It)
+		    where
+                    (((the has-basic-structural-unit of It2) isa H-Plus)
+                     or
+                     ((the has-basic-structural-unit of It2) isa H3O-Plus)))))
+               then                                     
+               (a PH-Value with
+                  (value (
+		    (:pair
+                      #'(LAMBDA ()
+			  (LET ((X 
+				 (FIRST 
+				   (KM0 '((|the1| |of| 
+					   (|the| |value| |of|
+					    (|the| |equilibrium-concentration| |of|
+					     (|oneof| (|the| |result| |of| (|the| |Equilibrium-Reaction| |raw-material-of| |of| 
+									    (|the| |base| |of| 
+									     (|the| |input| |of| |Self|))))
+					       |where|
+					       (((|the| |has-basic-structural-unit| |of| |It|) |isa| |H-Plus|)
+						|or|
+						((|the| |has-basic-structural-unit| |of| |It|) |isa| |H3O-Plus|)
+						)))))
+					  |or|
+					  (|the1| |of| 
+					   (|the| |value| |of| 
+                                            (|the| |output| |of| 
+                                             (|a| |Compute-Concentration-H-Plus| |with|
+                                                  (|input| ((|oneof| (|the| |Equilibrium-Reaction| |raw-material-of| |of| 
+								      (|the| |base| |of| 
+								       (|the| |input| |of| |Self|)))
+							      |where|
+							      t)
+							   )))))))))))
+			       (IF (NULL X)
+                                   NIL
+                                   (- 0 (/ (LOG X) (LOG 10))))))
+		      NIL))))
+            [Compute-pH-for-Solution-output-1]
+  )))
+
+  ;; For a solution with one solute that is a base, pH can be computed 
+  ;; indirectly as -log10([OH-]/10^-14).
+  (output ((if (((the number of (the base of (the input of Self))) = 1)
+		and
+	 	;; We should have only one Equilibrium-Reaction, but if there is more than
+		;; one then just find the first that satisfies this condition.
+		(oneof (the Equilibrium-Reaction raw-material-of of (the base of (the input of Self)))
+		  where
+		  (oneof2 (the result of It)
+		    where
+                    ((the has-basic-structural-unit of It2) isa OH-Minus))))
+               then                                     
+               (a PH-Value with
+                  (value (
+		    (:pair
+                      #'(LAMBDA ()
+                          (LET ((X 
+				 (FIRST 
+				   (KM0 '((|the1| |of| 
+					   (|the| |value| |of|
+					    (|the| |equilibrium-concentration| |of|
+					     (|oneof| (|the| |Equilibrium-Reaction| |raw-material-of| |of| 
+						       (|the| |base| |of| 
+							(|the| |input| |of| |Self|)))
+					       |where|
+					       (|oneof2| (|the| |result| |of| |It|)
+						 |where|
+						 ((|the| |has-basic-structural-unit| |of| |It2|) |isa| |OH-Minus|)
+					       )))))
+					  |or|
+					  (|the1| |of| 
+					   (|the| |value| |of| 
+                                            (|the| |output| |of| 
+                                             (|a| |Compute-Concentration-OH-Minus| |with|
+                                                  (|input| ((|oneof| (|the| |Equilibrium-Reaction| |raw-material-of| |of| 
+								      (|the| |base| |of| 
+								       (|the| |input| |of| |Self|)))
+							      |where|
+							      t)
+							   )))))))))))
+			       (IF (NULL X)
+				   NIL
+				   ;; Captures L.44(a)
+				   (- 0 (/ (LOG (/ 1e-14 X)) (LOG 10))))))
+		      NIL))))
+            [Compute-pH-for-Solution-output-2]
+  )))
+)
+
+(comment [Compute-pH-for-Solution-output-1]
+  (:seq "The pH of a solution of"
+        (the text-gen of 
+	     (the base of 
+		  (the input of Self))
+	)
+        "is therefore -log10(" "nospace"
+        (the1 of 
+              (the value of 
+                   (the output of 
+                        (a Compute-Concentration-H-Plus with
+                           (input ((oneof (the Equilibrium-Reaction raw-material-of of
+					       (the base of
+						    (the input of Self)))
+				     where
+				     (oneof2 (the result of It)  
+				       where
+				       (((the has-basic-structural-unit of It2) isa H-Plus)
+					or  
+					((the has-basic-structural-unit of It2) isa H3O-Plus)
+				       )))
+				  )))))
+        )
+        "nospace" ") ="
+        (the1 of (the value of (the output of Self)))
+  )
+  "The pH can be computed as -log10[H+]"
+  (:triple (a Compute-Concentration-H-Plus with
+              (input ((oneof (the Equilibrium-Reaction raw-material-of of
+				  (the base of
+				       (the input of Self)))
+			where
+			(oneof2 (the result of It)
+			  where
+			  (((the has-basic-structural-unit of It2) isa H-Plus) 
+			   or
+			   ((the has-basic-structural-unit of It2) isa H3O-Plus) 
+			  )))
+		     )))
+           output
+           *
+  )
+)
+
+(comment [Compute-pH-for-Solution-output-2]
+  (:seq "The pH of"
+        (the text-gen of (the input of Self))
+        "is therefore -log10(" "nospace"
+        (the1 of 
+              (the value of 
+                   (the output of 
+                        (a Compute-Concentration-OH-Minus with
+                           (input ((oneof (the Equilibrium-Reaction raw-material-of of
+				  	       (the base of
+				       		    (the input of Self)))
+				     where
+				     (oneof2 (the result of It)
+			  	       where
+				       ((the has-basic-structural-unit of It2) isa OH-Minus) 
+			  	     ))
+				  )))))
+        )
+        "nospace" "/10^-14) ="
+        (the1 of (the value of (the output of Self)))
+  )
+  "The pH can be computed as -log10[H+], where [H+] = [OH-]/10^-14"
+  (:triple (a Compute-Concentration-OH-Minus with
+              (input ((oneof (the Equilibrium-Reaction raw-material-of of
+				  (the base of
+				       (the input of Self)))
+			where
+			(oneof2 (the result of It)
+			  where
+			  ((the has-basic-structural-unit of It2) isa OH-Minus) 
+			))
+		     )))
+           output
+           *
+  )
+)
+

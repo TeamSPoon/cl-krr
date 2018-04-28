@@ -1,0 +1,114 @@
+<!--- $Id: Move-Together.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Move-Together><system-documentation name=Move-Together>
+<superconcept name=Action>
+
+<definition>
+
+  Several <slot>object</slot>s change their own location to 
+  the same <conceptref name=Place>, which is the destination. 
+  Move-Together is an <conceptref name=Action> 
+  involving multiple <slot>object</slot>s that <conceptref name=Move> to
+  the <slot>destination</slot>.
+  
+  The difference between Move-Together and <conceptref name=Come-Together>
+  is that Come-Together is reflexive (i.e. the objects move
+  themselves) and Move-Together is not.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    the things that move together
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the place where the <slot>object</slot>s move together to
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the move together to occur.
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot>s move
+     along.  Typically, this is an object or surface along which the
+     <slot>object</slot>s are moving
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot>s move.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot>s need not reach this
+    Place, but they may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot>s move away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot>s need not start at this
+    Place, but they may
+  </slotdescription>
+
+</primaryslotlist>
+
+<subeventlist>
+    
+  <subeventdescription name=Move>
+    for each <slot>object</slot> there is a <conceptref name=Move> where
+    the <slot>destination</slot> is the <slot>destination</slot> of the
+    Move-Together and the <slot>agent</slot> is the <slot>agent</slot> of
+    the Move-Together.
+  </subeventdescription>
+    
+</subeventlist>
+    
+<subeventorder>
+  All the <conceptref name=Move>s occur simultaneously.
+</subeventorder>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Mom and Dad moved to New York due to Junior's request</text>
+    <slotdescription name=object>Mom and Dad</slotdescription>
+    <slotdescription name=agent>Junior</slotdescription>
+    <slotdescription name=destination>New York</slotdescription>
+  </examplesentence>
+  <comment>
+    There are several "move"s occurring together which is translated 
+    to "move-together".
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+
+  <neighbor name=Come-Together>
+    Come-Together is the reflexive version of Move-Together (i.e.
+    the objects that move are acting by their own volition, so the agent
+    and the object of Come-Together are the same). Its opposite is
+    Disperse.
+  </neighbor>
+
+  <neighbor name=Disperse>
+    Disperse is the opposite of Come-Together, and should be used
+    when specifying several objects leaving some place by their own
+    volition.    
+  </neighbor>
+
+  <neighbor name=Move-Apart>
+    Move-Apart is the non-reflexive version of Disperse (i.e. the
+    objects that move apart are not necessarily acting by their own
+    volition.) Its opposite is Move-Together.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

@@ -1,0 +1,67 @@
+<!--- $Id: Portal.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+
+<kml>
+<concept name=Portal>
+<system-documentation name=Portal>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Conduit>
+
+  <definition>
+    Portal is the <conceptref name=Conduit> played by a 
+    <conceptref name=Spatial-Entity> which is
+    the <slot>path</slot> of a <conceptref name=Move-Through>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the <conceptref name=Spatial-Entity> that's playing 
+     the role of Portal
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Move-Through> event for which the
+     Spatial-Entity is playing the role of Portal
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The wine poured out the mouth of the bottle.</text>
+     <comment>
+     In this example, the Portal role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Move-Through> with
+         object=wine</slotdescription>
+     <slotdescription name=played-by>mouth of the bottle</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Portal-Covering>
+     A Portal is a <conceptref name=Conduit> used to 
+     <conceptref name=Move-Through> a <conceptref name=Barrier>, whereas
+     a Portal-Covering is the Entity that covers a Portal and causes 
+     it to <conceptref name=Be-Open> or closed.
+  </neighbor>
+
+  <neighbor name=Entrance>
+     Whereas a Portal enables movement into and out of a container,
+     an Entrance is a special type of Portal used for 
+     <conceptref name=Move-Into>
+  </neighbor>
+
+  <neighbor name=Outlet>
+     Whereas a Portal enables movement into and out of a container,
+     an Outlet is a special type of Portal used for 
+     <conceptref name=Move-Out-Of>
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

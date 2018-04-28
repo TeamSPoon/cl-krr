@@ -1,0 +1,39 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Phosphate ----------
+
+(Phosphate has (superclasses (Inorganic-Molecule)))
+
+(_Phosphate341 has 
+  (instance-of (Phosphate))
+  (prototype-of (Phosphate))
+  (prototype-scope (Phosphate))
+  (prototype-participants (_Atom344
+                           _Phosphate341))
+  (prototype-participant-of (_Phosphate341))
+  (has-clones (_Placeholder-Class340342))
+  (has-built-clones (_Placeholder-Class340342))
+  (has-basic-structural-unit (_Atom344))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 383 288)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom344 545 294)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom344 f))))
+
+(_Atom344 has 
+  (instance-of (Atom))
+  (has-clones (_Atom343))
+  (is-basic-structural-unit-of (_Phosphate341))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 695 288)))
+  (prototype-participant-of (_Phosphate341)))
+
+(explanation (:triple _Phosphate341 has-basic-structural-unit _Atom344) ((a Atom (@ _Phosphate341 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom344 instance-of Atom) ((a Atom (@ _Phosphate341 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,29 @@
+;; 
+;; $Id: Ceiling.km,v 1.4 2006/04/12 19:33:24 jchaw Exp $
+;; 
+
+(Ceiling has
+  (superclasses (Architectural-Structure))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("a horizontal architectural structure covering a room"))
+  (cmap-correspondence ())
+)
+
+(every Ceiling has
+  (orientation ((a Angle-Value with
+                   (value ((:pair *horizontal Entity))))))
+  (is-part-of ((a Room)))
+
+  (plays ((a Cover)))
+
+  (is-above ((the Room is-part-of of Self)))
+  (is-above ((the content of
+                 (the Container plays of
+                      (the Room is-part-of of Self))
+  )))
+)
+
+(Ceiling has (wn20-synset ((:set
+			    (:triple "ceiling" 1 "n")))))

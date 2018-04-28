@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Phosphodiester-Bond.km,v 1.9 2001/06/01 23:26:47 pnav Exp $ 
+;; 
+
+(Phosphodiester-Bond has
+         (superclasses (Covalent-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A covalent chemical bond formed when two hydroxyl
+                        groups are linked in ester linkage to the same
+                        phosphate group, as in the case of adjacent nucleotides
+                        in RNA or DNA. Alberts:ECB:G-14."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Phosphodiester-Bond has
+       (purpose ((a Connector with
+                    (in-event ((a Be-Attached-To with
+                                  (object ((a Nucleotide called "N1")
+                                           (a Nucleotide called "N2")
+                                           (exactly 2 Nucleotide)))
+                                  )))
+                    )))
+       )
+

@@ -1,0 +1,18 @@
+;; $Id: H3IO6-Minus-2.km,v 1.6 2008/05/15 17:19:10 kunal Exp $ 
+(H3IO6-Minus-2 has (superclasses (Anion)))
+(every H3IO6-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("trihydrogen orthoperiodate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 3 H)(:pair 1 I)(:pair 6 O)))))))
+)
+
+
+(every H3IO6-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("trihydrogen orthoperiodate"))
+)
+
+(H3IO6-Minus-2 has (wn20-synset ((:triple "H3IO6-2" 0 "n") (:triple "H_3IO_6-2" 0 "n"))))

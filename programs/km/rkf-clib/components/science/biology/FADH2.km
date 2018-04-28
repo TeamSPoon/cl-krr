@@ -1,0 +1,21 @@
+;; 
+;;    $Id: FADH2.km,v 1.7 2001/05/18 13:14:44 souther Exp $ 
+;; 
+
+(FADH2 has
+         (superclasses (Electron-Carrier))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Major electron carrier in metabolism; produced by
+                        reduction of FAD during the oxidation of catabolites
+                        such as succinate.  Alberts:ECB:G-7"))
+         (test-case ()))
+
+(every FADH2 has 
+       (purpose ((a Vehicle with
+                    (in-event ((a Electron-Transfer))))
+                 ))
+       )
+

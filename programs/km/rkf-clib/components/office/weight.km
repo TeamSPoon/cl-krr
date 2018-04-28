@@ -1,0 +1,18 @@
+;; 
+;; $Id: weight.km,v 1.1 2005/10/26 21:05:05 tecuci Exp $
+;; 
+
+(weight has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Weight-Value))
+   (scale-class (Weight-Scale))
+   (scalar-constant-class (Weight-Constant))
+   (cardinal-unit-class   (UoM-Weight))   
+   (inverse 	(weight-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+

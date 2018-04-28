@@ -1,0 +1,396 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Free-ribosome ----------
+
+(Free-ribosome has (superclasses (Ribosome Entity Spatial-Entity)))
+
+(_Free-ribosome1001 has 
+  (instance-of (Free-ribosome))
+  (prototype-of (Free-ribosome))
+  (prototype-scope (Free-ribosome))
+  (prototype-participants (_Amino-Acid7223
+                           _Amino-Acid7222
+                           _Atom1025
+                           _Protein1024
+                           _Cytoplasm1023
+                           _Synthesis1022
+                           _Atom1021
+                           _Amino-Acid1020
+                           _Atom1019
+                           _RRNA1018
+                           _Atom1017
+                           _Protein1016
+                           _Free-ribosome1001
+                           _Polymer466
+                           _Polymer467
+                           _Event762))
+  (prototype-participant-of (_Free-ribosome1001))
+  (has-clones (_Placeholder-Class10001002
+               _Free-ribosome458
+               _Free-ribosome163
+               _Free-ribosome727
+               _Free-ribosome758
+               _Free-ribosome3070))
+  (has-built-clones (_Placeholder-Class10001002
+                     _Free-ribosome458
+                     _Free-ribosome163
+                     _Free-ribosome727
+                     _Free-ribosome758
+                     _Free-ribosome3070))
+  (is-inside (_Cytoplasm1023))
+  (agent-of (_Synthesis1022))
+  (has-basic-structural-unit (_RRNA1018
+                              _Protein1016))
+  (cloned-from (_Ribosome567))
+  (clone-built-from (_Ribosome567))
+  (edge-coordinate ((:seq has-basic-structural-unit _Protein1016 235 606)
+                    (:seq has-basic-structural-unit _RRNA1018 235 606)
+                    (:seq is-inside _Cytoplasm1023 57 524)))
+  (edge-visibility ((:seq is-inside _Cytoplasm1023 t)
+                    (:seq has-basic-structural-unit _Protein1016 t)
+                    (:seq has-basic-structural-unit _RRNA1018 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Amino-Acid7223 has 
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing3084))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Protein1016))
+  (prototype-participant-of (_Free-ribosome1001)))
+
+(_Amino-Acid7222 has 
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing3085))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Protein1024))
+  (prototype-participant-of (_Free-ribosome1001)))
+
+(_Atom1025 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (is-basic-structural-unit-of (_Protein1024))
+  (instance-of (Atom))
+  (has-clones (_Atom1015
+               _Atom434
+               _Atom215
+               _Atom737
+               _Atom747
+               _Atom3081))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 713 526)))
+  (cloned-from (_Atom309))
+  (node-visibility (t)))
+
+(_Protein1024 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (agent-of (_Event762))
+  (has-part (_Polymer466))
+  (result-of (_Synthesis1022))
+  (instance-of (Protein
+                Entity))
+  (has-basic-structural-unit (_Atom1025
+                              _Amino-Acid7222))
+  (cloned-from (_Protein576
+                _Protein305))
+  (edge-coordinate ((:seq is-inside _Cytoplasm1023 232 458)
+                    (:seq has-part _Polymer466 554 235)
+                    (:seq has-basic-structural-unit _Atom1025 545 490)))
+  (edge-visibility ((:seq has-part _Polymer466 t)
+                    (:seq has-basic-structural-unit _Atom1025 t)
+                    (:seq is-inside _Cytoplasm1023 t)
+                    (:seq has-basic-structural-unit _Amino-Acid7222 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 392 484)))
+  (node-visibility (t))
+  (has-clones (_Protein462
+               _Protein214
+               _Protein736
+               _Protein748
+               _Protein3079))
+  (clone-built-from (_Protein305)))
+
+(_Cytoplasm1023 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (encloses (_Free-ribosome1001))
+  (site-of (_Event762
+            _Synthesis1022))
+  (instance-of (Cytoplasm
+                Spatial-Entity))
+  (edge-coordinate ((:seq encloses _Protein1024 241 438)
+                    (:seq encloses _Free-ribosome1001 241 438)))
+  (edge-visibility ((:seq encloses _Protein1024 f)
+                    (:seq encloses _Free-ribosome1001 f)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 72 432)))
+  (node-visibility (t))
+  (has-clones (_Cytoplasm438
+               _Cytoplasm211
+               _Cytoplasm735
+               _Cytoplasm749
+               _Cytoplasm3078)))
+
+(_Synthesis1022 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (agent (_Free-ribosome1001))
+  (raw-material (_Amino-Acid1020))
+  (instance-of (Synthesis))
+  (result (_Protein1024))
+  (site (_Cytoplasm1023))
+  (cloned-from (_Synthesis575))
+  (edge-coordinate ((:seq result _Protein1024 242 490)
+                    (:seq raw-material _Amino-Acid1020 242 534)
+                    (:seq agent _Free-ribosome1001 104 567)
+                    (:seq site _Cytoplasm1023 147 482)))
+  (edge-visibility ((:seq agent _Free-ribosome1001 t)
+                    (:seq raw-material _Amino-Acid1020 t)
+                    (:seq result _Protein1024 t)
+                    (:seq site _Cytoplasm1023 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 111 514)))
+  (node-visibility (t))
+  (has-clones (_Synthesis439
+               _Synthesis210
+               _Synthesis734
+               _Synthesis750
+               _Synthesis3077)))
+
+(_Atom1021 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (is-basic-structural-unit-of (_Amino-Acid1020))
+  (instance-of (Atom))
+  (has-clones (_Atom1009
+               _Atom451
+               _Atom209
+               _Atom733
+               _Atom751
+               _Atom3076))
+  (cloned-from (_Atom574))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 714 528)))
+  (node-visibility (f)))
+
+(_Amino-Acid1020 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (instance-of (Amino-Acid))
+  (raw-material-of (_Synthesis1022))
+  (has-basic-structural-unit (_Atom1021))
+  (cloned-from (_Amino-Acid573))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 392 528)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom1021 564 534)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom1021 f)))
+  (has-clones (_Amino-Acid452
+               _Amino-Acid208
+               _Amino-Acid732
+               _Amino-Acid752
+               _Amino-Acid3075)))
+
+(_Atom1019 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (is-basic-structural-unit-of (_RRNA1018))
+  (instance-of (Atom))
+  (has-clones (_Atom1005
+               _Atom454
+               _Atom207
+               _Atom731
+               _Atom754
+               _Atom3074))
+  (cloned-from (_Atom181))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 682 582)))
+  (node-visibility (f)))
+
+(_RRNA1018 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (is-basic-structural-unit-of (_Free-ribosome1001))
+  (instance-of (RRNA))
+  (has-basic-structural-unit (_Atom1019))
+  (cloned-from (_RRNA180))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 385 582)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom1019 532 588)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom1019 f)))
+  (has-clones (_RRNA455
+               _RRNA206
+               _RRNA730
+               _RRNA755
+               _RRNA3073)))
+
+(_Atom1017 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (is-basic-structural-unit-of (_Protein1016))
+  (instance-of (Atom))
+  (has-clones (_Atom1003
+               _Atom456
+               _Atom205
+               _Atom729
+               _Atom756
+               _Atom3072))
+  (cloned-from (_Atom183
+                _Atom309))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 688 617)))
+  (node-visibility (t)))
+
+(_Protein1016 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (is-basic-structural-unit-of (_Free-ribosome1001))
+  (has-part (_Polymer467))
+  (instance-of (Protein))
+  (has-basic-structural-unit (_Atom1017
+                              _Amino-Acid7223))
+  (cloned-from (_Protein182
+                _Protein305))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 385 617)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-part _Polymer467 566 554)
+                    (:seq has-basic-structural-unit _Atom1017 538 623)))
+  (edge-visibility ((:seq has-part _Polymer467 t)
+                    (:seq has-basic-structural-unit _Atom1017 t)
+                    (:seq has-basic-structural-unit _Amino-Acid7223 t)))
+  (has-clones (_Protein457
+               _Protein166
+               _Protein728
+               _Protein757
+               _Protein3071))
+  (clone-built-from (_Protein305)))
+
+(_Polymer466 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (instance-of (Polymer))
+  (has-clones (_Polymer461
+               _Polymer162
+               _Polymer726
+               _Polymer759
+               _Polymer3069))
+  (cloned-from (_Polymer308))
+  (is-part-of (_Protein1024))
+  (node-visibility (t))
+  (node-coordinate ((:pair 641 287))))
+
+(_Polymer467 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (instance-of (Polymer))
+  (has-clones (_Polymer464
+               _Polymer161
+               _Polymer725
+               _Polymer760
+               _Polymer3068))
+  (cloned-from (_Polymer308))
+  (is-part-of (_Protein1016))
+  (node-visibility (t))
+  (node-coordinate ((:pair 688 594))))
+
+(_Event762 has 
+  (prototype-participant-of (_Free-ribosome1001))
+  (instance-of (Event))
+  (has-clones (_Event761
+               _Event3067))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (agent (_Protein1024))
+  (edge-coordinate ((:seq site _Cytoplasm1023 154 403)
+                    (:seq agent _Protein1024 314 429)))
+  (edge-visibility ((:seq agent _Protein1024 t)
+                    (:seq site _Cytoplasm1023 t)))
+  (site (_Cytoplasm1023))
+  (node-coordinate ((:pair 236 374))))
+
+(explanation (:triple _Free-ribosome1001 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cytoplasm1023 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Free-ribosome1001 is-inside _Cytoplasm1023) ((added-at Free-ribosome "User defined")))
+(explanation (:triple _Free-ribosome1001 has-basic-structural-unit _Protein1016) ((added-at Ribosome "User defined")))
+(explanation (:triple _Free-ribosome1001 has-basic-structural-unit _RRNA1018) ((added-at Ribosome "User defined")))
+(explanation (:triple _Free-ribosome1001 instance-of Ribosome) ((a Ribosome)))
+(explanation (:triple _Free-ribosome1001 has-basic-structural-unit _Protein1016) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Free-ribosome1001 has-basic-structural-unit _RRNA1018) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Free-ribosome1001 agent-of _Synthesis1022) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Free-ribosome1001 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Synthesis1022) (@ _Synthesis1022 Event (agent must-be-a) Entity abuts)) then (the instrument of _Synthesis1022 (@ _Synthesis1022 Event (agent must-be-a) Entity abuts)) (@ _Synthesis1022 Event (agent must-be-a) Entity abuts)))) (@ _Synthesis1022 Event (agent must-be-a)))))
+(explanation (:triple _Free-ribosome1001 instance-of Entity) ((a Entity (@ _Synthesis1022 Create (agent must-be-a)))))
+(explanation (:triple _Amino-Acid7223 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein1016)))
+(explanation (:triple _Amino-Acid7222 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein1024)))
+(explanation (:triple _Atom1025 instance-of Atom) ((cloned-from _Protein305 _Protein1024)))
+(explanation (:triple _Atom1025 is-basic-structural-unit-of _Protein1024) ((cloned-from _Protein305 _Protein1024)))
+(explanation (:triple _Atom1025 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom1025 instance-of Atom) ((a Atom (@ _Protein1024 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein1024 has-basic-structural-unit _Amino-Acid7222) ((cloned-from _Protein305 _Protein1024)))
+(explanation (:triple _Protein1024 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Event762) (@ _Event762 Event (agent must-be-a) Entity abuts)) then (the instrument of _Event762 (@ _Event762 Event (agent must-be-a) Entity abuts)) (@ _Event762 Event (agent must-be-a) Entity abuts)))) (@ _Event762 Event (agent must-be-a)))))
+(explanation (:triple _Protein1024 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Activity742) (@ _Activity742 Event (agent must-be-a) Entity abuts)) then (the instrument of _Activity742 (@ _Activity742 Event (agent must-be-a) Entity abuts)) (@ _Activity742 Event (agent must-be-a) Entity abuts)))) (@ _Activity742 Event (agent must-be-a)))))
+(explanation (:triple _Protein1024 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cytoplasm1023 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Protein1024 instance-of Entity) ((a Entity (@ _Synthesis1022 Create result))))
+(explanation (:triple _Protein1024 instance-of Protein) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein1024 result-of _Synthesis1022) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Protein1024 instance-of Entity) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Protein1024 instance-of Protein) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Protein1024 has-part _Polymer466) ((added-at Protein "User defined")))
+(explanation (:triple _Protein1024 has-basic-structural-unit _Atom1025) ((a Atom (@ _Protein1024 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein1024 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein1024 has-part _Polymer466) ((cloned-from _Protein305 _Protein1024)))
+(explanation (:triple _Protein1024 has-basic-structural-unit _Atom1025) ((cloned-from _Protein305 _Protein1024)))
+(explanation (:triple _Cytoplasm1023 instance-of Spatial-Entity) ((a Spatial-Entity with (is-near ((if (has-value (the object of _Event762) (@ _Event762 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Event762) (@ _Event762 Event (site must-be-a) Spatial-Entity is-near)) (@ _Event762 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Event762 Event (site must-be-a)))))
+(explanation (:triple _Cytoplasm1023 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Free-ribosome1001 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Cytoplasm1023 instance-of Spatial-Entity) ((a Spatial-Entity with (is-near ((if (has-value (the object of _Activity742) (@ _Activity742 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Activity742) (@ _Activity742 Event (site must-be-a) Spatial-Entity is-near)) (@ _Activity742 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Activity742 Event (site must-be-a)))))
+(explanation (:triple _Cytoplasm1023 instance-of Spatial-Entity) ((a Spatial-Entity with (is-near ((if (has-value (the object of _Synthesis1022) (@ _Synthesis1022 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Synthesis1022) (@ _Synthesis1022 Event (site must-be-a) Spatial-Entity is-near)) (@ _Synthesis1022 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Synthesis1022 Event (site must-be-a)))))
+(explanation (:triple _Cytoplasm1023 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Protein1024 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Cytoplasm1023 instance-of Cytoplasm) ((added-at Free-ribosome "User defined")))
+(explanation (:triple _Synthesis1022 site _Cytoplasm1023) ((added-at Free-ribosome "User defined")))
+(explanation (:triple _Synthesis1022 agent _Free-ribosome1001) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis1022 raw-material _Amino-Acid1020) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis1022 result _Protein1024) ((a Entity (@ _Synthesis1022 Create result))))
+(explanation (:triple _Synthesis1022 instance-of Synthesis) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis1022 raw-material _Amino-Acid1020) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Synthesis1022 instance-of Synthesis) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Synthesis1022 result _Protein1024) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Synthesis1022 agent _Free-ribosome1001) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Atom1021 instance-of Atom) ((a Atom (@ _Amino-Acid1020 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1021 is-basic-structural-unit-of _Amino-Acid1020) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Atom1021 instance-of Atom) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Amino-Acid1020 has-basic-structural-unit _Atom1021) ((a Atom (@ _Amino-Acid1020 Molecule has-basic-structural-unit))))
+(explanation (:triple _Amino-Acid1020 instance-of Amino-Acid) ((added-at Ribosome "User defined")))
+(explanation (:triple _Amino-Acid1020 instance-of Amino-Acid) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Amino-Acid1020 has-basic-structural-unit _Atom1021) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Amino-Acid1020 raw-material-of _Synthesis1022) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Atom1019 instance-of Atom) ((a Atom (@ _RRNA1018 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1019 is-basic-structural-unit-of _RRNA1018) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Atom1019 instance-of Atom) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _RRNA1018 has-basic-structural-unit _Atom1019) ((a Atom (@ _RRNA1018 Molecule has-basic-structural-unit))))
+(explanation (:triple _RRNA1018 instance-of RRNA) ((added-at Ribosome "User defined")))
+(explanation (:triple _RRNA1018 is-basic-structural-unit-of _Free-ribosome1001) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _RRNA1018 instance-of RRNA) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _RRNA1018 has-basic-structural-unit _Atom1019) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Atom1017 instance-of Atom) ((cloned-from _Protein305 _Protein1016)))
+(explanation (:triple _Atom1017 is-basic-structural-unit-of _Protein1016) ((cloned-from _Protein305 _Protein1016)))
+(explanation (:triple _Atom1017 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom1017 instance-of Atom) ((a Atom (@ _Protein1016 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1017 is-basic-structural-unit-of _Protein1016) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Atom1017 instance-of Atom) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Protein1016 has-basic-structural-unit _Amino-Acid7223) ((cloned-from _Protein305 _Protein1016)))
+(explanation (:triple _Protein1016 has-part _Polymer467) ((added-at Protein "User defined")))
+(explanation (:triple _Protein1016 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein1016 has-part _Polymer467) ((cloned-from _Protein305 _Protein1016)))
+(explanation (:triple _Protein1016 has-basic-structural-unit _Atom1017) ((cloned-from _Protein305 _Protein1016)))
+(explanation (:triple _Protein1016 has-basic-structural-unit _Atom1017) ((a Atom (@ _Protein1016 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein1016 instance-of Protein) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein1016 is-basic-structural-unit-of _Free-ribosome1001) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Protein1016 instance-of Protein) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Protein1016 has-basic-structural-unit _Atom1017) ((cloned-from _Ribosome567 _Free-ribosome1001)))
+(explanation (:triple _Polymer466 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer466 instance-of Polymer) ((cloned-from _Protein305 _Protein1024)))
+(explanation (:triple _Polymer466 is-part-of _Protein1024) ((cloned-from _Protein305 _Protein1024)))
+(explanation (:triple _Polymer467 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer467 instance-of Polymer) ((cloned-from _Protein305 _Protein1016)))
+(explanation (:triple _Polymer467 is-part-of _Protein1016) ((cloned-from _Protein305 _Protein1016)))
+(explanation (:triple _Event762 site _Cytoplasm1023) ((added-at Free-ribosome "User defined")))
+(explanation (:triple _Event762 agent _Protein1024) ((added-at Free-ribosome "User defined")))
+(explanation (:triple _Event762 instance-of Event) ((added-at Free-ribosome "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,27 @@
+;;
+;;    $Id: apex-acceleration.km,v 1.6 2008/07/31 22:05:32 tecuci Exp $
+;;
+
+(apex-acceleration has
+	      (instance-of (EventProperty))
+	      (superslots ())
+	      (subslots ())
+	      (domain (Move))
+	      (range (Acceleration-Vector-Value))
+	      ;(scale-class (Acceleration-Scale))
+	      ;(scalar-constant-class (Acceleration-Constant))
+	      ;(cardinal-unit-class (UoM-Acceleration))
+	      (inverse (apex-acceleration-of))
+	      ; (inherit-with-overrides (t))
+	      (cardinality (N-to-1))
+	      (fluent-status (*Inertial-Fluent)))
+
+(apex-acceleration has (wn20-synset ((:set 
+				   (:triple "acceleration at the apex" 0 "n")
+				   (:triple "apex acceleration" 0 "n"))))) 
+
+(apex-acceleration-of has
+	(instance-of (EventProperty)))
+
+
+(apex-acceleration has (name ("acceleration at apex")))

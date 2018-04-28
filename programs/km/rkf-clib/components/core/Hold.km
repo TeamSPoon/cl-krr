@@ -1,0 +1,138 @@
+;; 
+;;    $Id: Hold.km,v 1.22 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Hold has
+  (superclasses		(Obstruct))
+  (required-slot   	(object agent))
+  (primary-slot 	())
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "the thing Held")
+			 (:seq agent "the Holder")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Hold has
+
+  (object 	   ((a Tangible-Entity)))
+  (agent  	   ((a Tangible-Entity)))
+  (resulting-state ((a Be-Held)))
+
+  ;; SOFT PCS:
+  (soft-pcs-list ((forall (the object of Self)
+		    (forall2 (the agent of Self)
+		      (:triple It is-at It2)))))
+
+  ;; We need to specify one more post-condition where the
+  ;; agent is also the agent of the resulting state.
+  (add-list ((:triple 
+	       (the resulting-state of Self)
+	       agent
+	       (the agent of Self) [Hold-add-1])))
+
+  ;; During Condition: The agent and the object abut during the Hold
+  (dcs-list ((forall (the agent of Self)
+		     (:triple
+		      It
+		      abuts
+		      (the object of Self) [Hold-dcs-1]))))
+	    
+  ;; A Hold can be interrupted if the object is 
+  ;; Let-Go-Of by the agent.
+  (interrupted-by ((must-be-a Let-Go-Of with
+		     (object ((the object of Self)))
+		     (agent  ((the agent of Self))) [Hold-interrupted-1])))
+)
+
+(comment [Hold-add-1] (:seq (the agent of Self) " is now holding.")
+	 "A holder will continue holding something until it is let go.")
+
+(comment [Hold-dcs-1] (:seq (the agent of Self) " abuts " (the object of Self))
+	 "A holder must be next to something it holds.")
+
+(comment [Hold-interrupted-1] (:seq (the agent of Self) " let go of " (the object of Self))
+	 "A let go of stops a holder from holding something.")
+
+(every Hold has
+  (text-active-verbseq-sg ("holds"))
+  (text-active-verbseq-pl ("hold"))
+  (text-passive-verbseq-sg ("gets held"))
+  (text-passive-verbseq-pl ("get held"))
+)
+
+
+(Hold has 
+      (test-case ('(
+			(*toy-train has
+			  (instance-of (Tangible-Entity)))
+			(*little-johny has
+			  (instance-of (Living-Entity)))
+
+			(a Hold with 
+			   (object (*toy-train))
+			   (agent  (*little-johny)))
+
+			(not (the Be-Held object-of of *toy-train))
+
+			(do-and-next (thelast Hold))
+			(the text-gen of (thelast Hold))
+			(has-value (the Be-Held object-of of *toy-train))
+ 
+                        (*Move1 has
+			  (instance-of (Move))
+			  (object (*toy-train)))
+
+			(*Move2 has 
+			  (instance-of (Move))
+			  (object (*toy-train))
+			  (agent  (*little-johny)))
+
+                        ;; (not (try-do *Move1))
+			;; above line commented out for now because km will halt upon error
+			;; the *abort-on-error-report* stops the whole test script, which is not suitable
+			;; 03/02/2001 jf
+
+			(try-do *Move2)
+			(the text-gen of (thelast Move))
+                        (a Let-Go-Of with
+                           (object (*toy-train))
+                           (agent  (*little-johny)))
+
+                        (do-and-next (thelast Let-Go-Of))
+			(the text-gen of (thelast Let-Go-Of))
+                        (not (has-value (the Be-Held object-of of *toy-train)))
+
+			(*Move3 has
+			  (instance-of (Move))
+			  (object (*toy-train)))
+	
+			(try-do *Move3)
+			(the text-gen of (thelast Move))
+		))))
+
+
+
+
+
+
+;; automatically added WN synsets
+(Hold has (wn16-synset ((:set  
+                                   (:triple "hold" 3 "v")
+                                   (:triple "hold" 16 "v")
+                                   (:triple "hold_up" 1 "v")
+                                   (:triple "support" 4 "v")
+                                   (:triple "sustain" 5 "v")
+                                   (:triple "take_hold" 2 "v")
+))))
+
+(Hold has (wn20-synset ((:set
+                                   (:triple "hold" 3 "v")
+                                   (:triple "hold" 15 "v")
+                                   (:triple "hold_up" 1 "v")
+                                   (:triple "support" 4 "v")
+                                   (:triple "sustain" 5 "v")
+                                   (:triple "take_hold" 2 "v")
+))))
+(every Hold has (text-nominalization ("holding")))

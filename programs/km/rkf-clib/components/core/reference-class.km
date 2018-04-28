@@ -1,0 +1,16 @@
+;;
+;; $Id: reference-class.km,v 1.7 2007/04/11 21:31:10 jchaw Exp $
+;;
+
+(reference-class has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Cardinal))
+  (range (Thing))                         ;; Class
+  (inverse (reference-class-of))
+  (cardinality (N-to-1))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+)
+
+(reference-class-of has
+   (instance-of (CLIB-Slot-Group)))

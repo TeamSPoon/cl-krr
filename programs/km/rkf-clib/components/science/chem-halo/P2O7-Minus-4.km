@@ -1,0 +1,20 @@
+;; $Id: P2O7-Minus-4.km,v 1.6 2008/05/15 17:19:10 kunal Exp $ 
+(P2O7-Minus-4 has (superclasses (Anion)))
+(every P2O7-Minus-4 has
+	(charge ((a Charge-Value with
+		(value ((:pair -4 *unity))))))
+	(has-chemical-name ("pyrophosphate"))
+	(has-acid-name ("pyrophosphoric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 P)(:pair 7 O)))))))
+)
+
+
+(every P2O7-Minus-4 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("pyrophosphate"))
+)
+
+
+(P2O7-Minus-4 has (wn20-synset ((:triple "P2O7-4" 0 "n") (:triple "P_2O_7-4" 0 "n"))))

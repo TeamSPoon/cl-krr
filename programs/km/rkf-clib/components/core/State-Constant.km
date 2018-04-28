@@ -1,0 +1,24 @@
+
+;;
+;; $Id: State-Constant.km,v 1.2 2008/05/29 14:54:57 kbarker Exp $
+;;
+
+(State-Constant has
+ (superclasses (Constant)))
+
+  (*gas has
+        (instance-of (State-Constant)))
+
+  (*aqueous has
+        (instance-of (State-Constant)))
+
+  (*liquid has
+        (instance-of (State-Constant)))
+
+  (*solid has
+        (instance-of (State-Constant)))
+
+(a Constant-Exclusion-Set with
+  (exclusive-constants (*gas *aqueous *liquid *solid))
+)
+

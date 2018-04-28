@@ -1,0 +1,28 @@
+;; 
+;;    $Id: next-event.km,v 1.15 2008/09/05 16:19:59 kbarker Exp $ 
+;; 
+
+(next-event has
+  (instance-of 	 (Meronymic-Relation))
+  (subslots 	 (disjunctive-next-events))
+  (domain 	 (Event))
+  (range 	 (Event))
+  (fluent-status (*Inertial-Fluent))
+  (cardinality 	 (N-to-N))
+  (original-slot      (t))	
+  (inverse 	 (prev-event)))
+
+(next-event has (text-gloss ("comes before")))
+
+(next-event has (wn20-synset ((:set
+			     (:triple "occurs after" 0 "n")
+))))
+
+(prev-event has 
+        (subslots (disjunctive-next-events-of))
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("comes after")))
+
+(prev-event has (wn20-synset ((:set
+			     (:triple "occurs before" 0 "n")
+))))

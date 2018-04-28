@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Nucleoplasm.km,v 1.16 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Nucleoplasm has
+	     (superclasses (Protoplasm))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (description ("The protoplasm of the nucleus. Souther."))
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+(every Nucleoplasm has
+       (encloses ((a Chromosome)
+		  (a Aggregate with
+
+		     (element-type (Eucaryotic-DNA-Polymerase)))
+		  (a Aggregate with
+
+		     (element-type (Nucleoside-Triphosphate))))))
+	
+#|
+       (content ((a Chromosome)    ; several
+		 (at-least 1 Chromosome)
+                 (a Aggregate with
+
+                    (element-type (Eucaryotic-DNA-Polymerase)))
+                 (a Aggregate with
+
+                    (element-type (Nucleoside-Triphosphate)))
+		 )))
+|#
+
+

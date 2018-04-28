@@ -1,0 +1,60 @@
+<!--- $Id: Trespass.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+<kml>
+<concept name=Trespass>
+<superconcept name=Unauthorized>
+<superconcept name=Go-To>
+<component tag=Trespass>
+  <definition>entry without authorization</definition>
+
+<requiredslotlist>
+  <requiredslot name=agent>
+    <inheritedfrom name=Locomotion>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+    <restriction>= <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Locomotion>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>= <slot>agent</slot></restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+</requiredslotlist>
+
+<primaryslotlist>
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+</primaryslotlist>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>Jane trespassed John's home.</text>
+    <slotdescription name=agent>Jane</slotdescription>
+    <slotdescription name=destination>>John's home</slotdescription> 
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Unauthorized>
+	without authorization
+  </neighbor>
+  <neighbor name=Authorized>
+	with authorization
+  </neighbor>
+  <neighbor name=Authorize>
+ 	grant authorization
+  </neighbor>
+</neighborlist>
+
+</kml>
+
+

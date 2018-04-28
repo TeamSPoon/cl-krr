@@ -1,0 +1,104 @@
+
+;;
+;; $Id: Length-Value.km,v 1.20 2008/05/02 16:33:28 tecuci Exp $
+;;
+
+
+(Length-Value has 
+       (superclasses (Magnitude-Value)))
+
+(every Length-Value has (primary-slot (length)))
+
+(Length-Value has (doc-file ("length")))
+
+(Length-Value has
+   (test-case ('(
+                 (Stick has (superclasses (Physical-Object)))
+                 (Tree has (superclasses (Physical-Object)))
+                 (*mybigstick has (instance-of (Stick))
+                                (height ((a Length-Value)))
+                                (length ((a Length-Value))))
+                 (*myshortstick has (instance-of (Stick))
+                              (length
+                                 ((a Length-Value with
+                                     (value ((:pair 20 *inch)
+                                             (:pair *short Stick)
+                                             (:pair *short Tree)
+                                     ))
+                                     (less-than
+                                        ((the length of *mybigstick)))
+                              )))
+                              (height
+                                 ((a Length-Value with
+                                     (value ((:pair 1.5 *foot)
+                                             (:pair *average Stick)
+                                             (:pair *short Tree)
+                                     ))
+                                     (less-than
+                                        ((the height of *mybigstick)))
+                              ))))
+
+                 (the value of (the length of *myshortstick))
+
+                 ((the less-than of (the length of *myshortstick))
+                       includes (the length of *mybigstick))
+                 ((the greater-than of (the length of *mybigstick))
+                       includes (the length of *myshortstick))
+
+                 (the value of (the height of *myshortstick))
+
+                 ((the less-than of (the height of *myshortstick))
+                       includes (the height of *mybigstick))
+                 ((the greater-than of (the height of *mybigstick))
+                       includes (the height of *myshortstick))
+
+                 (Flagpole has (superclasses (Physical-Object)))
+                 (*bigflagpole has   (instance-of (Flagpole))
+                                     (height ((a Length-Value)))
+                 )
+                 (*shortflagpole has (instance-of (Flagpole))
+                                     (height ((a Length-Value with
+                                                 (value ((:pair 1.5 *meter)
+                                                         (:pair *average Stick)
+                                                         (:pair *short Tree)
+                                                 ))
+                                                 (less-than ((the height of *bigflagpole)))
+                                     )))
+                 )
+
+                 (the less-than of (the height of *shortflagpole))   ;; force inverse
+
+                 ;; what is *bigflagpole taller than?
+                 ((the height-of of (the greater-than of (the height of *bigflagpole)))
+                  = (*shortflagpole))
+ 
+                 ;; is *shortflagpole taller than 55 inches?
+                 ((the height of *shortflagpole) 
+                  property-gt 
+                  (a Length-Value with (value ((:pair 55 *inch))))
+                 )
+
+
+                 (Pool has (superclasses (Physical-Object)))
+                 (Ocean has (superclasses (Physical-Object)))
+                 (*pacificocean has (instance-of (Ocean))
+                                (depth ((a Length-Value))))
+                 (*gregorygympool has (instance-of (Pool))
+                              (depth
+                                 ((a Length-Value with
+                                     (value ((:pair *shallow Ocean)
+                                             (:pair *deep Pool)
+                                     ))
+                                     (less-than
+                                        ((the depth of *pacificocean)))
+                              ))))
+
+                 (the value of (the depth of *gregorygympool))
+
+                 ((the less-than of (the depth of *gregorygympool))
+                       includes (the depth of *pacificocean))
+                 ((the greater-than of (the depth of *pacificocean))
+                       includes (the depth of *gregorygympool))
+))))
+
+(Length-Value has (description ("length is a property for describing how big the one-dimensional extent of a Spatial-Entity is")))

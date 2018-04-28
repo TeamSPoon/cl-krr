@@ -1,0 +1,51 @@
+;; 
+;;    $Id: Circle.km,v 1.4 2008/02/29 17:59:03 jchaw Exp $ 
+;; 
+
+(Circle has (superclasses (Geometric-Object)))
+
+(every Circle has
+  (volume        ((exactly 0 Volume-Value)))
+  (area          ((if (has-value (the value of (the radius of Self)))
+                   then (*Pi property-mult 
+                             ((the radius of Self)
+                              property-mult
+                              (the radius of Self)
+                        ))
+                  )
+  ))
+  (diameter      ((if (has-value (the value of (the radius of Self)))
+                   then (2 property-mult (the radius of Self))
+                  )
+  ))
+  (radius        ((if (has-value (the value of (the diameter of Self)))
+                   then (0.5 property-mult (the diameter of Self))
+                  )
+  ))
+  (circumference ((if (has-value (the value of (the diameter of Self)))
+                   then (*Pi property-mult (the diameter of Self))
+                  )
+  ))
+)
+
+(*Pi now-has 
+  (instance-of (Unitless-Value))
+  (value ((:pair 3.14 *unity)))
+)
+
+(Circle has (wn20-synset ((:set (:triple "circle" 1 "n")
+				(:triple "circle" 3 "n")
+				(:triple "ellipse" 1 "n")
+				(:triple "oval" 1 "n")
+))))
+
+(Circle has 
+      (test-case         ('(
+                            (new-situation)
+                            (a Circle with
+			       (radius ((a Length-Value with (value ((:pair 10 *meter)))))))
+			    ((the value of (the diameter of (thelast Circle))) = (:pair 20 *meter))
+			    ((the value of (the area of (thelast Circle))) = (:pair 314.0 *square-meter))
+			    ((the value of (the circumference of (thelast Circle))) = (:pair 62.800003 *meter))
+))))
+			    

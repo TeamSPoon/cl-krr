@@ -1,0 +1,16 @@
+;;
+;; $Id: conversion-multiplier.km,v 1.1 2010/01/27 16:03:54 kbarker Exp $
+;;
+
+(conversion-multiplier has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Unit-of-Measurement))
+  (range (Number))
+  (inverse (conversion-multiplier-of))
+  (cardinality (N-to-1))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(conversion-multiplier-of has
+   (instance-of (CLIB-Slot-Group))
+)

@@ -1,0 +1,22 @@
+;;
+;; $Id: C12H22O11.km,v 1.4 2008/09/17 23:50:36 tecuci Exp $
+;;
+
+(C12H22O11 has (superclasses (Organic-Molecule)))
+
+(every C12H22O11 has	
+       (has-chemical-name ("sucrose" "sugar" "table sugar"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 12 C)
+		    (:pair 22 H)
+                    (:pair 11 O))))))))
+       
+
+
+(every C12H22O11 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("sucrose"))
+)

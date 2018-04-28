@@ -1,0 +1,39 @@
+<!--- $Id: Be-Held.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Held>
+<superconcept name=Be-Obstructed>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Held>
+  <definition>object can only be Moved by this agent</definition>
+  <requiredslot name=object>
+    <restriction>may only be the <slot>object</slot> of <conceptref name=Move> 
+      Events whose <slot>agent</slot> is the <slot>agent</slot> of Be-Held
+    </restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+  </requiredslot>
+  <wnsynsets><adj>held#1
+  </adj></wnsynsets>
+  <wnsynsets><adj>--
+  </adj></wnsynsets>
+</component>
+
+<musing>
+Unlike the other <conceptref name=Be-Obstructed> states, Be-Held has
+an <slot>agent</slot>. Any <conceptref name=Move> of an <slot>object</slot>
+in a Be-Held state must be by the <slot>agent</slot> of the
+Be-Held and only this <slot>agent</slot> can <conceptref name=Let-Go-Of> 
+the <slot>object</slot>.<p>
+
+<conceptref name=Let-Go-Of> takes an <slot>object</slot> out of a Be-Held
+state. <conceptref name=Hold> puts the <slot>object</slot> into the
+Be-Held state. 
+</musing>
+
+</kml>
+
+

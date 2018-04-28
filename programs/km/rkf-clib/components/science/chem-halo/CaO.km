@@ -1,0 +1,19 @@
+;;
+;; $Id: CaO.km,v 1.5 2006/01/24 20:27:29 jfan Exp $
+;;
+
+(CaO has (superclasses (Ionic-Compound)))
+
+(every CaO has	
+       (has-chemical-name ("calcium oxide"))
+       (has-part 
+	((a Ca-Plus-2) (a O-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Ca-Plus-2)
+			 (:pair 1 O-Minus-2)))))))
+)
+(every CaO has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Ca-Plus-2) (a O-Minus-2))))
+

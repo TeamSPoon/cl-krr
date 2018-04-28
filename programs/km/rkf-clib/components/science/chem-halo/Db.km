@@ -1,0 +1,14 @@
+;;
+;; $Id: Db.km,v 1.3 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Db has (superclasses (Metal-Atom VB-Element)))
+(every Db has
+       (atomic-symbol (Db))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 105 NIL))))))
+       (chemical-period (7)))
+(every Db has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("dubnium"))
+)

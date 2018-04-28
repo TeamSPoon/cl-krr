@@ -1,0 +1,40 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Triglyceride ----------
+
+(Triglyceride has (superclasses (Lipid)))
+
+(_Triglyceride329 has 
+  (instance-of (Triglyceride))
+  (prototype-of (Triglyceride))
+  (prototype-scope (Triglyceride))
+  (prototype-participants (_Atom336
+                           _Triglyceride329))
+  (prototype-participant-of (_Triglyceride329))
+  (has-clones (_Placeholder-Class328330))
+  (has-built-clones (_Placeholder-Class328330))
+  (has-basic-structural-unit (_Atom336))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom336 219 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom336 t))))
+
+(_Atom336 has 
+  (instance-of (Atom))
+  (has-clones (_Atom333))
+  (is-basic-structural-unit-of (_Triglyceride329))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 369 600)))
+  (prototype-participant-of (_Triglyceride329)))
+
+(explanation (:triple _Triglyceride329 has-basic-structural-unit _Atom336) ((a Atom (@ _Triglyceride329 Molecule has-basic-structural-unit))))
+(explanation (:triple _Triglyceride329 instance-of Triglyceride) ((added-at Triglyceride "User defined")))
+(explanation (:triple _Atom336 instance-of Atom) ((a Atom (@ _Triglyceride329 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

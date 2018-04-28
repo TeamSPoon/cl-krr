@@ -1,0 +1,18 @@
+
+;; 
+;;  $Id: Hills.km,v 1.4 2002/10/12 18:46:21 kbarker Exp $
+;; 
+
+(Hills has
+   (superclasses (Terrain))
+   (description ("A feature of the terrain")))
+
+(every Hills has
+   (trafficability ((a Trafficability-Value with
+                       (value ((:pair *R Armor-Unit)
+                               (:pair *R Mechanized-Infantry-Unit)
+                               (:pair *UR Light-Infantry-Unit)))
+   )))
+)
+
+

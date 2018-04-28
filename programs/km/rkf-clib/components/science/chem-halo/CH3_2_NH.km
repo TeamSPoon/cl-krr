@@ -1,0 +1,23 @@
+;; 
+;;    $Id: CH3_2_NH.km,v 1.5 2006/01/23 23:33:41 jfan Exp $
+;; 
+
+(CH3_2_NH has (superclasses (Ionic-Compound)))
+
+(every CH3_2_NH has
+       (has-chemical-name ("dimethylamine"))
+       (nested-atomic-chemical-formula (
+				 (a Chemical-Formula with
+				    (term ((:seq 
+					    (:pair 2
+						   (:seq
+						    (:pair 1 C)
+						    (:pair 3 H)))
+					    (:pair 1 N)
+					    (:pair 1 H)
+					    ))))))
+       )
+#|(every CH3_2_NH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Anion) (a Cation))))
+|#

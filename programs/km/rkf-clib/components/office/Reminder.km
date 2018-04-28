@@ -1,0 +1,15 @@
+;; $Id: Reminder.km,v 1.1 2005/03/24 23:13:59 billj Exp $ 
+
+(Reminder has 
+	(description ("A subclass of Task the instances of which
+represent when the user (see CaloUser) should be reminded of a
+calendar Event-Entry as specified by the slot reminder-date."))
+	(superclasses (Task))
+)
+
+;; A reminder can apply to any number of things, so we will probably
+;; want to revisit this at some point significantly later than now
+;; (now = 2005-03-24) when we have a better sense of what we want.
+
+(reminder-date has (instance-of (Interface-Slot))(domain (Reminder))(range (Time-Instant))(fluent-status (*Inertial-Fluent))(cardinality (N-to-1))(inverse (date-of-reminder)))
+

@@ -1,0 +1,26 @@
+;; 
+;; $Id: Wall.km,v 1.4 2006/04/12 19:31:19 jchaw Exp $
+;; 
+
+(Wall has
+  (superclasses (Architectural-Structure))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("a vertical architectural structure that acts as a barrier"))
+  (cmap-correspondence ())
+)
+
+(every Wall has
+  (orientation ((a Angle-Value with
+                   (value ((:pair *vertical Entity)))
+  )))
+
+  (plays ((a Barrier)))
+)
+
+
+(Wall has (wn20-synset ((:set 
+			 (:triple "wall" 1 "n")
+			 (:triple "wall" 4 "n")
+			 ))))

@@ -1,0 +1,24 @@
+;; 
+;; $Id: Be-Defeated.km,v 1.1 2009/10/15 15:08:10 kbarker Exp $
+;; 
+
+(Be-Defeated has (superclasses (State)))
+
+(every Be-Defeated has
+  (object ((a Entity with 
+              (plays ((a Loser with (in-event ((the base of Self))))))
+          ))
+  )
+  (base   ((a Contest)))
+)
+
+(every Be-Defeated has
+       (text-active-verbseq-sg ("loses"))
+       (text-active-verbseq-pl ("lose"))
+)
+
+(Be-Defeated has (wn20-synset ((:set
+  (:triple "lose" 2 "v")
+))))
+
+

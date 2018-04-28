@@ -1,0 +1,39 @@
+<!--- $Id: slope.spec.kml,v 1.2 2006/03/01 20:20:47 kbarker Exp $ --->
+<kml>
+<property-doc name=slope>
+<system-documentation name=slope>
+<gpd-documentation name=Property>
+
+<from name=Spatial-Entity>
+<to name=Unitless-Value>
+
+<description> 
+  the inclination of a Spatial-Entity
+</description>
+
+<value-description>
+  <cardinal-value-description>
+  a real number (a ratio with an assumed denominator 1); nu unit of measurement <conceptref name=UoM-Unitless>
+<p>
+    <examplesentence>
+      <text>the slope gains 1 meter for every 2 you walk.</text>
+      <slotdescription name=number>.5</slotdescription>
+      <slotdescription name=unit of measure>UoM-Unitless</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>horizontal, gradual, steep, vertical</scalars>
+<scale name=*horizontal-vertical-scale>horizontal..gradual..steep..vertical</scale>
+    <p>
+    <examplesentence>
+      <text>El Capitan rises vertically in front of your eyes.</text>
+      <slotdescription name=value>vertical</slotdescription>
+      <slotdescription name=relative to>ground slope</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+

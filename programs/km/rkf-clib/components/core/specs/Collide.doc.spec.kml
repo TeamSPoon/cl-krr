@@ -1,0 +1,65 @@
+<!--- $Id: Collide.doc.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Collide::doc>
+<superconcept name=Make-Contact::doc>
+
+<sme-documentation name=Collide>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Collide>
+  <definition>objects make contact with a high intensity</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Make-Contact::doc>
+    <restriction>two Tangible-Entities (symmetric collision) or
+       one Tangible-Entity if there is a <slot>base</slot> object
+       (asymmetric collision)
+    </restriction>
+  </requiredslot>
+  <requiredslot name=location>
+    <inheritedfrom name=Make-Contact::doc>
+    <restriction>a Place</restriction>
+    <comment>if there is a <slot>base</slot> object then the 
+       <slot>location</slot> is the <slot>base</slot>'s 
+       <slot>location</slot>
+    </comment>
+  </requiredslot>
+  <requiredslot name=intensity>
+    <restriction> = *high</restriction>
+  </requiredslot>
+  <requiredslot name=pre-condition>
+    <inheritedfrom name=Make-Contact::doc>
+    <restriction>the <slot>object</slot>s must not already 
+       <conceptref name=Be-Touching>
+    </restriction>
+  </requiredslot>  
+  <requiredslot name=post-condition>
+    <inheritedfrom name=Make-Contact::doc>
+    <restriction><slot>object</slot>s are the <slot>object</slot>s
+                 of a <conceptref name=Be-Touching> state.
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Make-Contact::doc>
+    <restriction>causes <slot>object</slot>s to Collide</restriction>
+  </primaryslot>
+  <primaryslot name=base>
+    <inheritedfrom name=Make-Contact::doc> 
+    <restriction>the thing that the <slot>object</slot> Collides with</restriction>
+  </primaryslot>
+  <wnsynsets><verb>collide#2, collide#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>clash#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Collide is a specialization of <conceptref name=Make-Contact::doc> where 
+the intensity is *high.
+</musing>
+
+</kml>
+
+

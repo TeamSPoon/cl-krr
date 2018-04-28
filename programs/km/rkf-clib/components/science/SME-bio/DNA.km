@@ -1,0 +1,186 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for DNA ----------
+
+(DNA has (superclasses (Nucleic-acid)))
+
+(_DNA374 has 
+  (instance-of (DNA))
+  (prototype-of (DNA))
+  (prototype-scope (DNA))
+  (prototype-participants (_Atom17
+                           _Phosphate16
+                           _Atom383
+                           _Chromatid382
+                           _DNA374
+                           _Nucleotide13
+                           _Deoxyribose14
+                           _Polymer15
+                           _Chromatid16))
+  (prototype-participant-of (_DNA374))
+  (has-basic-structural-unit (_Atom383))
+  (has-part (_Chromatid382
+             _Chromatid16
+             _Polymer15
+             _Deoxyribose14
+             _Nucleotide13))
+  (cloned-from (_Nucleic-acid1037
+                _DNA1666))
+  (clone-built-from (_Nucleic-acid1037))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom383 565 408)
+                    (:seq has-part _Nucleotide13 588 294)
+                    (:seq has-part _Deoxyribose14 588 294)
+                    (:seq has-part _Polymer15 588 294)
+                    (:seq has-part _Chromatid16 588 294)
+                    (:seq has-part _Chromatid382 588 294)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom383 t)
+                    (:seq has-part _Nucleotide13 t)
+                    (:seq has-part _Deoxyribose14 t)
+                    (:seq has-part _Polymer15 t)
+                    (:seq has-part _Chromatid16 t)
+                    (:seq has-part _Chromatid382 t)))
+  (edge-never-visible ((:seq has-basic-structural-unit _Atom383 f)
+                       (:seq has-part _Nucleotide13 f)
+                       (:seq has-part _Deoxyribose14 f)
+                       (:seq has-part _Polymer15 f)
+                       (:seq has-part _Chromatid16 f)
+                       (:seq has-part _Chromatid382 f)))
+  (node-coordinate ((:pair 399 318))))
+
+(_Atom17 has 
+  (instance-of (Atom))
+  (cloned-from (_Atom347))
+  (is-basic-structural-unit-of (_Nucleotide13))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 1107 467)))
+  (prototype-participant-of (_DNA374)))
+
+(_Phosphate16 has 
+  (instance-of (Phosphate))
+  (cloned-from (_Phosphate346))
+  (is-part-of (_Nucleotide13))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 1107 423)))
+  (prototype-participant-of (_DNA374)))
+
+(_Atom383 has 
+  (prototype-participant-of (_DNA374))
+  (is-basic-structural-unit-of (_DNA374))
+  (instance-of (Atom))
+  (cloned-from (_Atom1040))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 662 545))))
+
+(_Chromatid382 has 
+  (cloned-from (_Chromatid379))
+  (prototype-participant-of (_DNA374))
+  (is-part-of (_DNA374))
+  (instance-of (Chromatid))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 773 225))))
+
+(_Nucleotide13 has 
+  (prototype-participant-of (_DNA374))
+  (is-part-of (_DNA374))
+  (instance-of (Nucleotide))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 788 446)))
+  (has-basic-structural-unit (_Atom17))
+  (has-part (_Phosphate16))
+  (cloned-from (_Nucleotide337))
+  (clone-built-from (_Nucleotide337))
+  (edge-visibility ((:seq has-part _Phosphate16 t)
+                    (:seq has-basic-structural-unit _Atom17 t)))
+  (edge-coordinate ((:seq has-part _Phosphate16 957 429)
+                    (:seq has-basic-structural-unit _Atom17 957 473)))
+  (edge-never-visible ((:seq has-part _Phosphate16 f)
+                       (:seq has-basic-structural-unit _Atom17 f))))
+
+(_Deoxyribose14 has 
+  (prototype-participant-of (_DNA374))
+  (is-part-of (_DNA374))
+  (instance-of (Deoxyribose))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 790 383))))
+
+(_Polymer15 has 
+  (prototype-participant-of (_DNA374))
+  (is-part-of (_DNA374))
+  (instance-of (Polymer))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 785 324))))
+
+(_Chromatid16 has 
+  (prototype-participant-of (_DNA374))
+  (is-part-of (_DNA374))
+  (instance-of (Chromatid))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 777 269))))
+
+(explanation (:triple _DNA374 has-part _Chromatid382)
+  ((added-at DNA "User defined")))
+(explanation (:triple _DNA374 instance-of DNA)
+  ((added-at DNA "User defined")))
+(explanation (:triple _DNA374 has-basic-structural-unit _Atom383)
+  ((a Atom (@ _DNA374 Molecule has-basic-structural-unit))))
+(explanation (:triple _DNA374 has-part _Chromatid16)
+  ((added-at DNA "User defined")))
+(explanation (:triple _DNA374 has-part _Polymer15)
+  ((added-at DNA "User defined")))
+(explanation (:triple _DNA374 has-part _Deoxyribose14)
+  ((added-at DNA "User defined")))
+(explanation (:triple _DNA374 has-part _Nucleotide13)
+  ((added-at DNA "User defined")))
+(explanation (:triple _Atom17 instance-of Atom)
+  ((cloned-from _Nucleotide337 _Nucleotide13 _Atom347)))
+(explanation (:triple _Atom17 is-basic-structural-unit-of _Nucleotide13)
+  ((cloned-from _Nucleotide337 _Nucleotide13 _Atom347)))
+(explanation (:triple _Atom17 instance-of Atom)
+  ((a Atom (@ _Nucleotide13 Molecule has-basic-structural-unit))))
+(explanation (:triple _Phosphate16 instance-of Phosphate)
+  ((cloned-from _Nucleotide337 _Nucleotide13 _Phosphate346)))
+(explanation (:triple _Phosphate16 is-part-of _Nucleotide13)
+  ((cloned-from _Nucleotide337 _Nucleotide13 _Phosphate346)))
+(explanation (:triple _Atom383 instance-of Atom)
+  ((a Atom (@ _DNA374 Molecule has-basic-structural-unit))))
+(explanation (:triple _Chromatid382 instance-of Chromatid)
+  ((added-at DNA "User defined")))
+(explanation (:triple _Nucleotide13 instance-of Nucleotide)
+  ((added-at DNA "User defined")))
+(explanation (:triple _Nucleotide13 has-part _Phosphate16)
+  ((cloned-from _Nucleotide337 _Nucleotide13 _Nucleotide337)))
+(explanation (:triple _Nucleotide13 has-basic-structural-unit _Atom17)
+  ((cloned-from _Nucleotide337 _Nucleotide13 _Nucleotide337)))
+(explanation (:triple _Nucleotide13 has-basic-structural-unit _Atom17)
+  ((a Atom (@ _Nucleotide13 Molecule has-basic-structural-unit))))
+(explanation (:triple _Deoxyribose14 instance-of Deoxyribose)
+  ((added-at DNA "User defined")))
+(explanation (:triple _Polymer15 instance-of Polymer)
+  ((added-at DNA "User defined")))
+(explanation (:triple _Chromatid16 instance-of Chromatid)
+  ((added-at DNA "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

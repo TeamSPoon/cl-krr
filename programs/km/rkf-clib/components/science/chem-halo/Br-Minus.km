@@ -1,0 +1,19 @@
+;; $Id: Br-Minus.km,v 1.5 2008/05/15 17:55:38 kunal Exp $ 
+(Br-Minus has (superclasses (Anion)))
+(every Br-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("bromide"))
+	(has-acid-name ("hydrobromic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Br)))))))
+        (is-ion-of ((a Br)))
+)
+
+(every Br-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("bromide"))
+)
+
+(Br-Minus has (wn20-synset ((:triple "Br-" 0 "n"))))

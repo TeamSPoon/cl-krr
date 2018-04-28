@@ -1,0 +1,27 @@
+;; 
+;; $Id: longitude.km,v 1.8 2007/04/11 21:23:40 jchaw Exp $
+;; 
+
+(longitude has
+   (instance-of (EntityProperty))
+   (superslots  ())
+   (subslots    ())
+   (domain      (Spatial-Entity))
+   (range       (Angle-Value))
+   (scalar-constant-class (Longitude-Constant))
+   (cardinal-unit-class   (UoM-Angle))
+   (inverse     (longitude-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1))
+)
+
+(longitude has (wn20-synset ((:set
+                               (:triple "longitude" 1 "n")
+                               (:triple "meridian" 2 "n")
+                               (:triple "line of longitude" 1 "n")
+))))
+
+(longitude-of has
+	(instance-of (EntityProperty)))

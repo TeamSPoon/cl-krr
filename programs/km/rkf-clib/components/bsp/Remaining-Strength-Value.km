@@ -1,0 +1,14 @@
+;;
+;; $Id: Remaining-Strength-Value.km,v 1.2 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+(Remaining-Strength-Value has
+  (superclasses (Property-Value))
+)
+
+(every Remaining-Strength-Value has
+  (property-slot (remaining-strength))
+  (less-than ((must-be-a Remaining-Strength-Value)))
+  (greater-than ((must-be-a Remaining-Strength-Value)))
+  (same-as ((must-be-a Remaining-Strength-Value)))
+)

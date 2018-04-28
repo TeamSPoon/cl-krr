@@ -1,0 +1,17 @@
+;;
+;; $Id: Enemy-Attrition-Rate-Value.km,v 1.3 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+(Enemy-Attrition-Rate-Value has
+  (superclasses (Property-Value))
+)
+
+(every Enemy-Attrition-Rate-Value has
+  (property-slot (enemy-attrition-rate))
+  (less-than    ((constraint ((TheValue isa Agent-Attrition-Rate-Value) or
+                              (TheValue isa Enemy-Attrition-Rate-Value)))))
+  (greater-than ((constraint ((TheValue isa Agent-Attrition-Rate-Value) or
+                              (TheValue isa Enemy-Attrition-Rate-Value)))))
+  (same-as      ((constraint ((TheValue isa Agent-Attrition-Rate-Value) or
+                              (TheValue isa Enemy-Attrition-Rate-Value)))))
+)

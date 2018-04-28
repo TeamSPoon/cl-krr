@@ -1,0 +1,20 @@
+;;
+;; $Id: NaNO3.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(NaNO3 has (superclasses (Ionic-Compound)))
+
+(every NaNO3 has
+       (has-chemical-name ("sodium nitrate"))
+       (has-part ((a Na-Plus)
+		  (a NO3-Minus)))
+
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 Na-Plus)
+					      (:pair 1 NO3-Minus))))))
+			     )
+       )
+(every NaNO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a NO3-Minus))))
+

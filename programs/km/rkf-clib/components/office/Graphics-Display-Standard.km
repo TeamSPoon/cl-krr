@@ -1,0 +1,22 @@
+;;
+;; $Id: Graphics-Display-Standard.km,v 1.5 2005/06/27 18:47:40 billj Exp $
+;;
+
+(Graphics-Display-Standard has (superclasses (Interface-Standard))
+	(description ("This class contains video hardware standards that have to do with the monitor and the video adapter that make a computer capable of displaying grpahics.  By contrast, see a sibling of this class, Video-Display-Standard.")))
+
+(*CGA has (instance-of (Graphics-Display-Standard))(hasHorizontalResolution ((a Optical-Resolution-Value with (value ((:pair 320 nil))))))(hasVerticalResolution ((a Optical-Resolution-Value with (value ((:pair 200 nil)))))))
+(*EGA has (instance-of (Graphics-Display-Standard))(hasHorizontalResolution ((a Optical-Resolution-Value with (value ((:pair 640 nil))))))(hasVerticalResolution ((a Optical-Resolution-Value with (value ((:pair 350 nil)))))))
+(*VGA has (instance-of (Graphics-Display-Standard))(hasHorizontalResolution ((a Optical-Resolution-Value with (value ((:pair 640 nil))))))(hasVerticalResolution ((a Optical-Resolution-Value with (value ((:pair 480 nil)))))));assuming in 16 color as opposed to 256 color mode
+(*SVGA has (instance-of (Graphics-Display-Standard))(hasHorizontalResolution ((a Optical-Resolution-Value with (value ((:pair 800 nil))))))(hasVerticalResolution ((a Optical-Resolution-Value with (value ((:pair 600 nil)))))))
+(*XGA has (instance-of (Graphics-Display-Standard))(hasHorizontalResolution ((a Optical-Resolution-Value with (value ((:pair 1024 nil))))))(hasVerticalResolution ((a Optical-Resolution-Value with (value ((:pair 768 nil)))))))
+(*SXGA has (instance-of (Graphics-Display-Standard))(hasHorizontalResolution ((a Optical-Resolution-Value with (value ((:pair 1280 nil))))))(hasVerticalResolution ((a Optical-Resolution-Value with (value ((:pair 1024 nil)))))))
+(*UXGA has (instance-of (Graphics-Display-Standard))(hasHorizontalResolution ((a Optical-Resolution-Value with (value ((:pair 1600 nil))))))(hasVerticalResolution ((a Optical-Resolution-Value with (value ((:pair 1200 nil)))))))
+
+; Note: The hor/vert resolutions for each Graphics-Display-Standard
+; were found at
+; http://searchsmb.techtarget.com/sDefinition/0,,sid44_gci211966,00.html
+; on 2005-02-28.
+
+
+

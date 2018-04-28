@@ -1,0 +1,9 @@
+;; $Id: Co-Plus-2.km,v 1.4 2003/03/26 19:45:23 wilder Exp $ 
+(Co-Plus-2 has (superclasses (Metal-Cation)))
+(every Co-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *electronic-charge))))))
+	(has-chemical-name ("cobalt"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Co)))))))
+)

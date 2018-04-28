@@ -1,0 +1,33 @@
+<!--- $Id: first-element.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=first-element>
+
+
+<from name=Aggregate>
+<to name=Entity>
+
+<description> 
+The first Entity of an ordered Aggregate
+</description>
+
+<examplesentencelist>
+ <examplesentence>
+<text>The first <ex-to>person</ex-to> <ex-from>in line</ex-from> will get the ticket.</text>
+  </examplesentence>
+
+ <examplesentence>
+<text>The first of <ex-from>the players</ex-from> to enter the field was <ex-to>Joe</ex-to></text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=element>
+ first-element applies to ordered Aggregates, determining the first Entity among its elements.
+ </neighbor>
+<neighbor name=next-element>
+ next-element applies to an Entity that is element of an ordered Aggregate, indicating the Entity that follows it.
+ </neighbor>
+</neighborlist>
+
+</kml>

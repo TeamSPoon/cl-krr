@@ -1,0 +1,14 @@
+;; $Id: HCHO2.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HCHO2 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HCHO2 has
+	(has-chemical-name ("formic acid"))
+	(has-part ((a H-Plus)(a CHO2-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 CHO2-Minus)))))))
+)
+(every HCHO2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a CHO2-Minus))))
+

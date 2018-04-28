@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Peroxidase.km,v 1.7 2001/05/19 02:50:21 souther Exp $ 
+;; 
+
+(Peroxidase has
+         (superclasses (Oxidase))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Enzyme that catalyzes the breakdown of peroxides.
+                        see Lehninger:PBC:G-10."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Peroxidase has 
+       (purpose ((a Catalyst with
+		    (in-event ((a Oxidation with
+				  (donor ((a Peroxide)))))
+		    )))
+       ))
+
+;;;;;;*********************  fix this
+

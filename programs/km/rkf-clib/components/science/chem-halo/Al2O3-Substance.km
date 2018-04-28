@@ -1,0 +1,13 @@
+
+;;
+;; $Id: Al2O3-Substance.km,v 1.3 2008/11/03 03:11:25 tecuci Exp $
+;;
+
+(Al2O3-Substance has 
+  (superclasses (Ionic-Compound-Substance)))
+
+(every Al2O3-Substance has
+  (has-basic-structural-unit ((a Al2O3))))
+(every Al2O3-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Al2O3))))

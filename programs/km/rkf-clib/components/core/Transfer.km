@@ -1,0 +1,164 @@
+;; 
+;;    $Id: Transfer.km,v 1.25 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Transfer has
+	(superclasses	(Action))
+	(required-slot	(object))
+	(primary-slot	(agent donor recipient instrument))
+	(secondary-slot	())
+	(cmap-correspondence (
+			       (:seq object "the thing transfered")
+			       (:seq agent "causer")            
+			       (:seq donor "donor")	
+			       (:seq recipient "recipient")
+			       (:seq instrument "instrument")
+			     ))
+#|      (sentence-type  (*punctual *conclusive))|#
+)
+
+(every Transfer has
+  (object 	((a Entity))) ; this is 'Entity' instead of 'Tangible-Entity'
+                              ; so that Information can be Transfer'ed
+  (donor	((must-be-a Tangible-Entity)))
+  (recipient	((must-be-a Entity)
+		 (if (has-value (the donor of Self))
+		     then
+		     (excluded-values (the donor of Self)))))
+
+  ; SOFT PCS: Soft Preconditions.
+  (soft-pcs-list ((if (has-value (the donor of Self))
+		      then
+		      (forall (the donor of Self)
+			(:triple (the donor of Self)
+				 abuts
+				 (the object of Self))))))
+
+#|
+		  (if (Information subsumes (the instance-of of (the object of Self)))
+	    	      then
+		      (if (has-value (the donor of Self))
+			  then
+			  (:triple (the object of Self) 
+				   object-of 
+				   (a Be-Known with
+				      (experiencer ((the donor of Self)))))
+			  else
+			  (:triple (the object of Self) 
+				   object-of 
+				   (a Be-Known))))))
+|#
+
+  ; Precondition:
+  ;	If the donor is specified, then the donor must 
+  ;	possess the object.
+  ;
+  ; Note: The pcs-list will be declared as being the del-list 
+  ;	  plus something extra. This will make the following 
+  ;	  declaration unnecessary. Therefore remove the following
+  ;	  after the afore-mentioned has been declared.
+  (pcs-list ((if (has-value (the donor of Self)) 
+		   then
+	       (forall (the donor of Self)
+		   ((:triple
+		     It
+		     possesses
+		     (the object of Self) [Transfer-pcs-1]))))))
+
+  ; Post-condition:
+  ;	1) If the donor is specified, then the donor will
+  ;	   no longer possess the object.
+  ;	2) If the recipient is specified, then the recipient
+  ;	   will now possess the object.
+  (del-list ((if (has-value (the donor of Self))
+		 then
+	       (forall (the donor of Self)
+		 ((:triple 
+		   It
+		   possesses
+		   (the object of Self) [Transfer-del-1]))))))		     
+
+  (add-list ((if (has-value (the recipient of Self))
+		 then
+	       (forall (the recipient of Self)
+		 ((:triple 
+		   It
+		   possesses
+		   (the object of Self) [Transfer-add-1])))))))
+
+(comment [Transfer-pcs-1] (:seq (the donor of Self) " must possess " (the object of Self))
+	 "The donor must have the object to transfer it.")
+
+(comment [Transfer-del-1] (:seq (the donor of Self) " no longer possesses " (the object of Self))
+	 "A transfer moves possessions from the donor to the recipient.")
+
+(comment [Transfer-add-1] (:seq (the recipient of Self) " now possesses " (the object of Self))
+	 "A transfer moves possessions from the donor to the recipient.")
+
+
+;; will need its own templates to add donor and recipient
+(every Transfer has
+  (text-active-verbseq-sg ("transfers"))
+  (text-active-verbseq-pl ("transfer"))
+  (text-passive-verbseq-sg ("gets transferred"))
+  (text-passive-verbseq-pl ("get transferred"))
+
+  (text-donor ((if (has-value (the donor of Self))
+                then ("from"))))
+  (text-recipient ((if (has-value (the recipient of Self))
+                    then ("to"))))
+
+  (text-argslots ((:seq donor recipient instrument)))
+
+)
+
+
+(every Transfer has
+       (preparatory-event ((:default
+			  ;; Obtain isa Transfer, so there's a recursion here
+			  (a Obtain with
+			     (recipient ((the donor of Self)))
+			     (object ((the object of Self))))))
+))
+(Transfer has
+  (test-case ('( 
+		(*Us has (instance-of (Tangible-Entity)))
+		(*Alaska has (instance-of (Tangible-Entity)))
+		(*Russia has
+		 (instance-of (Tangible-Entity))
+		 (possesses (*Alaska)))
+
+		; Russia transfers Alaska to the US
+		(a Transfer with
+		 (donor (*Russia))
+		 (recipient (*Us))
+		 (object (*Alaska)))
+		(do-and-next (thelast Transfer))
+		(the text-gen of (thelast Transfer))
+		; Test1: Alaska is now possessed by the US
+		((the is-possessed-by of *Alaska) = *Us)
+
+		; Test2: Alaska is no longer possessed by Russia
+		((the possesses of *Russia) /= *Alaska)
+
+		; Test3: Alaska cannot be unified with Russia
+		(not (*Alaska &? *Russia))
+	      )))
+)
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Transfer has (wn16-synset ((:set  
+                                       (:triple "transfer" 5 "v")
+))))
+
+
+(Transfer has (wn20-synset ((:set
+                                       (:triple "transfer" 5 "v")
+))))
+(every Transfer has (text-nominalization ("transfer")))

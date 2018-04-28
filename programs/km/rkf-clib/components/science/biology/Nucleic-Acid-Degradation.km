@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Nucleic-Acid-Degradation.km,v 1.11 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Nucleic-Acid-Degradation has
+        (superclasses   (Catabolize))
+        (required-slot  (object))
+        (primary-slot   (agent instrument by-means-of))
+	(description	("The hydrolytic breakdown of nucleic acids.
+                          Souther.")))
+
+(every Nucleic-Acid-Degradation has
+  (object       ((a Nucleotide-Sequence)))
+  (instrument   ((a Nuclease)))
+  (result       ((a Aggregate with
+
+		    (element-type (Nucleotide-Sequence)))))
+  )
+
+
+
+

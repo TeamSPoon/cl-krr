@@ -1,0 +1,67 @@
+<!-- $Id: Physical-Mark.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ -->
+<kml>
+
+<concept name=Physical-Mark><system-documentation name=Physical-Mark>
+<superconcept name=Piece-of-Substance>
+
+<definition>
+
+Any mark created as the result of writing, sketching, printing,
+drawing etc (i.e. the result of Mark).  Any persistant physical mark
+or set of marks created by depositing or applying something acting in
+the role of a writing substance (e.g. ink, paint, sand, blood) to some
+kind of writable medium using something acting in the role of writing
+implement (e.g. pencil, marker, finger, paintbrush, spray paint can,
+printer).
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=result-of>
+
+The <conceptref>Mark</conceptref> event by which a given Physical-Mark
+was created.
+
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>A trail of marks was left on the white board after the meeting.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text>Bob signed the check in ink.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+<neighbor name=Physical-Document>
+
+A <conceptref name=Physical-Document> is like a Physical-Mark in that
+both are the result of <conceptref name=Embody> events.  However, a
+<conceptref name=Physical-Document> also includes the medium
+(e.g. paper) whereas Physical-Mark is merely the trail left in
+writing, for example.  A <conceptref name=Physical-Document> has a
+Physical-Mark as a part.
+
+</neighoor name=Physical-Document>
+
+<neighbor name=Message>
+
+A <conceptref name=Message> is intangible whereas a Physical-Mark is tangible.
+
+</neighbor name=Message>
+
+</neighborlist>
+
+</kml>
+
+
+
+

@@ -1,0 +1,19 @@
+;;
+;; $Id: Compute-Salt-Status.km,v 1.2 2003/09/26 21:55:14 jfan Exp $
+;;
+
+(Compute-Salt-Status has 
+		     (superclasses (Method))
+		     (description ("given a chemical entity, determines if it is salt")))
+
+(every Compute-Salt-Status has
+       (output
+	((if (oneof 
+	      (the all-superclasses of
+		   (the2 of (the1 of (the term of (the has-chemical-formula of (the input of Self))))))
+	      where
+	      (It = Metal-Cation))
+	     then
+	     (a Salt-Status-Value with
+		(value ((:pair *salt nil)))))))
+)

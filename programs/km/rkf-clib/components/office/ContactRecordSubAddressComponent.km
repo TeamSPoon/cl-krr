@@ -1,0 +1,21 @@
+;;    $Id: ContactRecordSubAddressComponent.km,v 1.7 2005/02/22 21:18:23 jchaw Exp $
+(ContactRecordSubAddressComponent has
+                      (superclasses (ContactDataStructure))
+                      (required-slot ())
+                      (primary-slot ())
+                      (secondary-slot ())
+                      (cmap-correspondence ())
+                      (test-case ()))
+
+
+(every ContactRecordSubAddressComponent has
+       (isAddressOf ((a ContactRecordSubAddress)))
+       (isBCCAddressOf ((a Message-Field)))
+       (isCCAddressOf ((a Message-Field)))
+       (isFromAddressOf ((a Message-Field)))
+       (isReceiptReplyToAddressOf ((a Message-Field)))
+       (isReplyToAddressOf ((a Message-Field)))
+       (isToAddressOf ((a Message-Field))))
+
+(hasAddressString has (instance-of (Interface-Slot)) (domain (ContactRecordSubAddressComponent)) (range (String)) (cardinality (N-to-N)))
+

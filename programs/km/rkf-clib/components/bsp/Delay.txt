@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Delay.txt,v 1.3 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Delay 
+  superclass: Tactical-Mission-Task 
+  superclass:  ??Inhibit 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+  duration: Time-Interval 
+ 
+  objective: 
+                  Action with 
+                       inhibits: Move 
+                                         object: MU called "enemy forces" 
+                                         direction: *forward 
+                                         path: Avenue-of-Approach 
+                                         destination: Place with 
+                                                               site-of: Tactical-Mission-Task with 
+                                                                               agent: MU called "friendly forces" 
+                                                                                 
+ 
+Morrison definition from FM-390: 
+ 
+Delay (E) 
+====== 
+ 
+1. Slow enemy advance in a direction or along an avenue of approach toward a friendly objective.  Enemy should not reach friendly objective during delay. 

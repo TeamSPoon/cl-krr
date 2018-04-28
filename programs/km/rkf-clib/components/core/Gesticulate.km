@@ -1,0 +1,24 @@
+;;
+;; $Id: Gesticulate.km,v 1.5 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(Gesticulate has
+  (superclasses (Embody Orient))
+  (description ("The physical act of making a gesture using a body part (e.g. pointing, looking) or using an object (e.g. a pointer)."))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Gesticulate has
+	(agent ((a Tangible-Entity)))
+	(instrument ((a Tangible-Entity)))
+	(result ((a Light))))
+
+
+(Gesticulate has (wn20-synset ((:set
+			   (:triple "gesticulate" 1 "v")
+			   (:triple "gesture" 1 "v")
+			   (:triple "motion" 1 "v")
+))))
+
+	
+(every Gesticulate has (text-nominalization ("gesticulation")))

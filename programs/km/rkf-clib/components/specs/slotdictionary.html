@@ -1,0 +1,1430 @@
+
+<!--- $Id: slotdictionary.html,v 1.54 2005/04/01 22:37:33 billj Exp $ --->
+
+<html>
+<head>
+<title>Slot Dictionary</title>
+</head>
+
+<style>
+body { font: 75% Verdana, Helvetica, Arial, sans-serif;
+       background: White;
+       color: Black;
+       margin: 0;
+       padding: 0;
+}
+
+table {
+    font-size: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border-style: solid; 
+    border-color: white; 
+    border-width: 2px; 
+    padding: 0px 10px 0px 10px;
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+    color: #436976;
+    background-color: transparent;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #8CACBB;
+    background-color: transparent;
+}
+
+h1 {
+    font: 100% Verdana, Helvetica, Arial, sans-serif;
+    color: #436976;
+    font-size: 200%;
+    margin: 30px 0px 30px 10px;
+}
+
+h2 {
+    font: 100% Verdana, Helvetica, Arial, sans-serif;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+pre {
+    padding: 0;
+    margin: 0;
+    background-color: #dee7ec;
+}
+
+div.boxtop {
+    background: #DEE7EC;
+    border: 1px solid #8CACBB;
+    border-style: solid solid none solid;
+    color: #436976;
+    display: inline;
+    font-weight: bold;
+    padding: 0px 10px 0px 10px;
+}
+
+div.boxtab {
+    background: #DEE7EC;
+    border: 1px solid #8CACBB;
+    border-style: solid solid solid solid;
+    color: #436976;
+    display: inline;
+    font-weight: bold;
+    padding: 0px 10px 0px 10px;
+    position: absolute;
+    right: 12px;
+}
+
+div.boxbody {
+    border: 1px solid #8CACBB;
+    border-collapse: collapse;
+    padding: 10px 10px 10px 10px;
+}
+
+div.boxbody2 {
+    border: 1px solid #8CACBB;
+    border-style: none solid solid solid;
+    border-collapse: collapse;
+    padding: 10px 10px 10px 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Slot Dictionary</h1>
+
+<p>
+<a name=TOC>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Slot Types</div>
+<div class="boxbody">
+<table>
+<tr><td><a href=#Event-Event>Event to Event</a> slots</td></tr>
+<tr><td><a href=#Event-Entity>Event to Entity</a> slots</td></tr>
+<tr><td><a href=#Entity-Role>Entity to Role</a> slots</td></tr>
+<tr><td><a href=#Role-Event>Role to Event</a> slots</td></tr>
+<tr><td><a href=#Entity-Event>Entity to Event</a> slots</td></tr>
+<tr><td><a href=#Entity-Entity>Entity to Entity</a> slots</td></tr>
+<tr><td><a href=#Entity-Value>Entity to Value</a> slots</td></tr>
+<tr><td><a href=#Event-Value>Event to Value</a> slots</td></tr>
+<tr><td><a href=#Value-Value>Value to Value</a> slots</td></tr>
+<tr><td><a href=#Entity-Temporal-Entity>Entity to Temporal-Entity</a> slots</td></tr>
+<tr><td><a href=#Event-Temporal-Entity>Event to Temporal-Entity</a> slots</td></tr>
+<tr><td><a href=#Temporal-Entity-Temporal-Entity>Temporal-Entity to Temporal-Entity</a> slots</td></tr>
+<tr><td><a href=#Place-Place>Place to Place</a> slots</td></tr>
+</table>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Event-Event>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Event to Event</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=causes><a name=caused-by><a href="javascript: void goToSpec('causes')">causes</a></td>
+<td>caused-by</td>
+<td>--</td>
+<td>Event<sub>1</sub> causes Event<sub>2</sub></td>
+<td>splitting the atomic nucleus <i>causes</i> a release of energy</td>
+</tr>
+
+<tr>
+<td><a name=defeats><a name=defeated-by><a href="javascript: void goToSpec('defeats')">defeats</a></td>
+<td>defeated-by</td>
+<td>Event<sub>1</sub> is an Action<br>
+Event<sub>2</sub> is a State</td>
+<td>Event<sub>1</sub> defeats State Event<sub>2</sub></td>
+<td>detaching attached objects <i>defeats</i> the attachment of the objects</td>
+</tr>
+
+<tr>
+<td><a name=enables><a name=enabled-by><a href="javascript: void goToSpec('enables')">enables</a></td>
+<td>enabled-by</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> enables Event<sub>2</sub> but is insufficient
+to cause it</td>
+<td>opening the door <i>enables</i> entry into the room</td>
+</tr>
+
+<tr>
+<td><a name=inhibits><a name=inhibited-by><a href="javascript: void goToSpec('inhibits')">inhibits</A></td>
+<td>inhibited-by</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> inhibits Event<sub>2</sub> but is insufficient
+to prevent it</td>
+<td>obstructing an object <i>inhibits</i> moving it</td>
+</tr>
+<tr>
+<td><a name=by-means-of><a name=means-by-which><a href="javascript: void goToSpec('by-means-of')">by-means-of</a></td>
+<td>means-by-which</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> transpires by means of Event<sub>2</sub></td>
+<td>producing sound <i>by-means-of</i> additive synthesis</td>
+</tr>
+<tr>
+<td><a name=first-subevent><a name=first-subevent0of><a href="javascript: void goToSpec('first-subevent')">first-subevent</a></td>
+<td>first-subevent-of</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> has Event<sub>2</sub> as its first subevent</td>
+<td>first <i>turn on the computer</i>.</td>
+</tr>
+<tr>
+<td><a name=objective><a name=objective><a href="javascript: void goToSpec('objective')">objective</a></td>
+<td>objective</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> has objective Event<sub>2</sub></td>
+<td>the attack was intended to <i>free the prisoners</i></td>
+</tr>
+<tr>
+<td><a name=next-event><a name=prev-event><a href="javascript: void goToSpec('next-event')">next-event</a></td>
+<td>prev-event</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> immediately temporally preceeds Event<sub>2</sub></td>
+<td>They left after they <i>ate</i>.</td>
+</tr>
+<tr>
+<td><a name=prevents><a name=prevented-by><a href="javascript: void goToSpec('prevents')">prevents</A></td>
+<td>prevented-by</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> prevents Event<sub>2</sub></td>
+<td>innoculating <i>prevents</i> contracting disease</td>
+</tr>
+<tr>
+<td><a name=resulting-state><a name=resulting-from><a href="javascript: void goToSpec('resulting-state')">resulting-state</A></td>
+<td>resulting-from</td>
+<td>Event<sub>1</sub> is an Action<br>
+Event<sub>2</sub> is a State</td>
+<td>Event<sub>1</sub> results in State Event<sub>2</sub></td>
+<td>breaking an object <i>results in</i> the object being broken</td>
+</tr>
+<tr>
+<td><a name=subevent><a name=subevent-of><a href="javascript: void goToSpec('subevent')">subevent</A></td>
+<td>subevent-of</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> has as subevent Event<sub>2</sub></td>
+<td>penetrating <i>has as subevent</i> breaching</td>
+</tr>
+
+<tr>
+<td><a name=supports><a name=supported-by><a href="javascript: void goToSpec('support')">supports</A></td>
+<td>supported-by</td>
+<td><i>--</i></td>
+<td>Event<sub>1</sub> supports Event<sub>2</sub></td>
+<td>artillery fire will offer support for <i>the main attack</i></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Event-Entity>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Event to Entity</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=agent><a name=agent-of><a href="javascript: void goToSpec('agent')">agent</A></td>
+<td>agent-of</td>
+<td>--</td>
+<td>Entity initiates, performs or causes Event</td>
+<td><i>Chico</i> solved the mystery</td>
+</tr>
+<tr>
+<td><a name=away-from><a name=away-from-of><a href="javascript: void goToSpec('away-from')">away-from</a></td>
+<td>away-from-of</td>
+<td>--</td>
+<td>Event transpires away from place Place but did not necessarily start there</td>
+<td>Sylvia gave the lecture <i>off-campus</i></td>
+</tr>
+<tr>
+<td><a name=base><a name=base-of><a href="javascript: void goToSpec('base')">base</A></td>
+<td>base-of</td>
+<td>--</td>
+<td>Event references Entity as a major or relatively fixed thing</td>
+<td>Vlad attached the sign to <i>the post</i></td>
+<td></td>
+</tr>
+<tr>
+<td><a name=beneficiary><a name=beneficiary-of><a href="javascript: void goToSpec('beneficiary')">beneficiary</a></td>
+<td>beneficiary-of</td>
+<td>--</td>
+<td>Entity benefits from Event</td>
+<td>the verdict benefited <i>Lorena</i></td>
+</tr>
+<tr>
+<td><a name=destination><a name=destination-of><a href="javascript: void goToSpec('destination')">destination</a></td>
+<td>destination-of</td>
+<td>--</td>
+<td>Event ends at place Place</td>
+<td>Fiona attached the cable to <i>the winch</i></td>
+</tr>
+<tr>
+<td><a name=donor><a name=donor-of><a href="javascript: void goToSpec('donor')">donor</A></td>
+<td>donor-of</td>
+<td>Event is a Dative</td>
+<td>Entity releases object of Event</td>
+<td><i>Edward</i> sent the money</td>
+</tr>
+<tr>
+<td><a name=experiencer><a name=experiencer-of><a href="javascript: void goToSpec('experiencer')">experiencer</a></td>
+<td>experiencer-of</td>
+<td>Event is a State</td>
+<td>Entity experiences Event</td>
+<td><i>Franz</i> fainted at the keyboard</td>
+</tr>
+<tr>
+<td><a name=instrument><a name=instrument-of><a href="javascript: void goToSpec('instrument')">instrument</A></td>
+<td>instrument-of</td>
+<td>--</td>
+<td>Entity is used in Event</td>
+<td>Irene removed the tumor with a <i>laser</i></td>
+</tr>
+<tr>
+<td><a name=location><a name=location-of><a href="javascript: void goToSpec('location')">location</a></td>
+<td>location-of</td>
+<td>Entity is a Place</td>
+<td>Event transpires at place Place</td>
+<td>Alain performed in <i>the park</i></td>
+</tr>
+<tr>
+<td><a name=object><a name=object-of><a href="javascript: void goToSpec('object')">object</A></td>
+<td>object-of</td>
+<td>Event is a Action</td>
+<td>Entity is the main passive participant in Event</td>
+<td>Betty opened the <i>window</i></td>
+</tr>
+<tr>
+<td><a name=origin><a name=origin-of><a href="javascript: void goToSpec('origin')">origin</A></td>
+<td>origin-of</td>
+<td>--</td>
+<td>Event begins at place Place</td>
+<td>She's leaving <i>home</i></td>
+</tr>
+<tr>
+<td><a name=path><a name=path-of><a href="javascript: void goToSpec('path')">path</a></td>
+<td>path-of</td>
+<td>--</td>
+<td>Event transpires along Place as path</td>
+<td>the ants marched across <i>the blanket</i></td>
+</tr>
+<tr>
+<td><a name=raw-material><a name=raw-material-of><a href="javascript: void goToSpec('raw-material')">raw-material</A></td>
+<td>raw-material-of</td>
+<td>--</td>
+<td>Event uses Entity as input</td>
+<td>Grent carved the swan out of <i>ice</i></td>
+<td></td>
+</tr>
+<tr>
+<td><a name=recipient><a name=recipient-of><a href="javascript: void goToSpec('recipient')">recipient</A></td>
+<td>recipient-of</td>
+<td>Event is a Dative</td>
+<td>Entity receives object of Event</td>
+<td>Richard sold <i>Gerald</i> the house</td>
+</tr>
+<tr>
+<td><a name=result><a name=result-of><a href="javascript: void goToSpec('result')">result</A></td>
+<td>result-of</td>
+<td>Event is a Action</td>
+<td>Entity comes into being as a result of Event</td>
+<td>Blaise invented the <i>syringe</i></td>
+</tr>
+<tr>
+<td><a name=site><a name=site-of><a href="javascript: void goToSpec('site')">site</A></td>
+<td>site-of</td>
+<td>--</td>
+<td>The specific place of some effect of an Event</td>
+<td>The car attaches to the trailer at <i>the hitch</i></td>
+<td></td>
+</tr>
+<tr>
+<td><a name=substrate><a name=substrate-of><a href="javascript: void goToSpec('substrate')">substrate</A></td>
+<td>substrate</td>
+<td>Entity is a Tangible-Entity</td>
+<td>The Tangible-Entity is the molecule that gets converted during Event</td>
+<td><i>glucose</i> is the substrate in the enzymatic reaction which produces glucose-6-phosphat.</td>
+<td></td>
+</tr>
+<tr>
+<td><a name=toward><a name=toward-of><a href="javascript: void goToSpec('toward')">toward</A></td>
+<td>toward-of</td>
+<td>--</td>
+<td>Event transpires toward place Place but may end elsewhere</td>
+<td>Adam drove toward <i>Brighton</i></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Entity-Role>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Entity to Role</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=capability><a name=capability-of><a href="javascript: void goToSpec('capability')">capability</A></td>
+<td>capability-of</td>
+<td>--</td>
+<td>Entity is able to fill a Role in Event</td>
+<td>a knife is able <i>to be instrument</i> in a <i>Pry</i> Event</td>
+</tr>
+<tr>
+<td><a name=plays><a name=played-by><a href="javascript: void goToSpec('plays')">plays</A></td>
+<td>played-by</td>
+<td> -- </td>
+<td>Entity is playing the Role in Event</td>
+<td>a knife is playing the role of <i>an instrument</i> in a <i>Pry</i> Event</td>
+<td></td>
+</tr>
+<tr>
+<td><a name=purpose><a name=purpose-of><a href="javascript: void goToSpec('purpose')">purpose</A></td>
+<td>purpose-of</td>
+<td>--</td>
+<td>The primary purpose of Entity is to fill a Role in Event</td>
+<td>the purpose of a knife is to be <i>an instrument</i> in a <i>Cut</i> Event</td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Role-Event>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Role to Event</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=in-event><a name=in-event-of><a href="javascript: void goToSpec('in-event')">in-event</A></td>
+<td>in-event-of</td>
+<td> -- </td>
+<td>the entity that plays this Role participates in Event</td>
+<td>Container role is played by entities that are the instruments of <i>a Be-Contained</i> Event</td>
+<td></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Entity-Event>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Entity to Event</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=has-goal><a name=is-goal-of><a href="javascript: void goToSpec('has-goal')">has-goal</A></td>
+<td>is-goal-of</td>
+<td>--</td>
+<td>The goal of Entity is that Event happens</td>
+<td>the goal of a traveller is that <i>he arrives at a destination</i></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Entity-Entity>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Entity to Entity</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=complement><a name=complement><a href="javascript: void goToSpec('complement')">complement</a></td>
+<td>complement</td>
+<td>--</td>
+<td>Entity<sub>1</sub> has a complement Entity<sub>2</sub></td>
+<td><i>ball</i> and <i>socket</i></td>
+</tr>
+<tr>
+<td><a name=content><a name=content-of><a href="javascript: void goToSpec('content')">content</a></td>
+<td>content-of</td>
+<td>Entity<sub>1</sub> is a Container<br>Entity<sub>2</sub> is a Tangible-Entity</td>
+<td>Entity<sub>1</sub> contains Entity<sub>2</sub></td>
+<td>this is my <i>stout</i> mug</td>
+</tr>
+
+<tr>
+<td><a name=chemical-formula><a name=chemical-formula-of><a href="javascript: void goToSpec('chemical-formula')">chemical-formula</A></td>
+<td>chemical-formula-of</td>
+<td>Entity<sub>1</sub> is a Chemical-Entity<br>Entity<sub>2</sub> is a Chemical-Formula</td>
+<td>Entity<sub>1</sub> has chemical formula Entity</sub>To</sub>/td>
+<td>the <i>H<sub>2</sub>O</i> is the chemical formula for water</td>
+</tr>
+
+<tr>
+<td><a name=has-part><a name=is-part-of><a href="javascript: void goToSpec('has-part')">has-part</a></td>
+<td>is-part-of</td>
+<td>Entity<sub>1</sub> is a Tangible-Entity<br>Entity<sub>2</sub> is a Tangible-Entity</td>
+<td>Entity<sub>1</sub> has as part Entity<sub>2</sub></td>
+<td>this is my stout mug <i>handle</i></td>
+</tr>
+
+<tr>
+<td><a name=has-basic-functional-unit><a name=is-basic-functional-unit-of><a href="javascript: void goToSpec('has-basic-functional-unit')">has-basic-functional-unit</a></td>
+<td>is-basic-functional-unit-of</td>
+<td>Entity<sub>1</sub> is a Tangible-Entity<br>Entity<sub>2</sub> is an Entity</td>
+<td>Entity<sub>1</sub> is made up of Entity<sub>2</sub> as its basic functional unit</td>
+<td>the book's <i>ideas</i></td>
+</tr>
+<tr>
+<td><a name=has-basic-structural-unit><a name=is-basic-structural-unit-of><a href="javascript: void goToSpec('has-basic-structural-unit')">has-basic-structural-unit</a></td>
+<td>is-basic-structural-unit-of</td>
+<td>Entity<sub>1</sub> is a Tangible-Entity<br>Entity<sub>2</sub> is a Tangible-Entity</td>
+<td>Entity<sub>1</sub> is made up of Entity<sub>2</sub> as its basic structural unit</td>
+<td>the book's <i>pages</i></td>
+</tr>
+<tr>
+<td><a name=has-functional-part><a name=is-functional-part-of><a href="javascript: void goToSpec('has-functional-part')">has-functional-part</a></td>
+<td>is-functional-part-of</td>
+<td>Entity<sub>1</sub> is a Tangible-Entity<br>Entity<sub>2</sub> is a Tangible-Entity</td>
+<td>Entity<sub>1</sub> is made up of Entity<sub>2</sub> as a functional part</td>
+<td>the rocket's <i>propulsion system</i></td>
+</tr>
+
+<tr>
+<td><a name=has-region><a name=is-region-of><a href="javascript: void goToSpec('has-region')">has-region</A></td>
+<td>is-region-of</td>
+<td>Entity<sub>1</sub> is a Tangible-Entity<br>Entity<sub>2</sub> is a Place</td>
+<td>Entity<sub>1</sub> has a subregion Entity<sub>2</sub></td>
+<td>the <i>bottom</i> of my stout mug</td>
+</tr>
+
+<tr>
+<td><a name=has-structural-part><a name=is-structural-part-of><a href="javascript: void goToSpec('has-structural-part')">has-structural-part</a></td>
+<td>is-structural-part-of</td>
+<td>Entity<sub>1</sub> is a Tangible-Entity<br>Entity<sub>2</sub> is a Tangible-Entity</td>
+<td>Entity<sub>1</sub> is made up of Entity<sub>2</sub> as a structural part</td>
+<td>the rocket's <i>nose cone</i></td>
+</tr>
+
+<tr>
+<td><a name=information-content><a name=information-content-of><a href="javascript: void goToSpec('information-content')">information-content</a></td>
+<td>information-content</td>
+<td>Entity<sub>1</sub> is an Information<br>Entity<sub>2</sub> is a Thing</td>
+<td>Entity<sub>1</sub> contains the information described by Entity<sub>2</sub></td>
+<td>the order was <i>to attack at dawn</i></td>
+</tr>
+
+<tr>
+<td><a name=is-northwest-of><a name=is-southeast-of><a href="javascript: void goToSpec('is-northwest-of')">is-northwest-of</a></td>
+<td>is-southeast-of</td>
+<td>Entity<sub>1</sub> is a Spatial-Entity<br>Entity<sub>2</sub> is a Spatial-Entity</td>
+<td>Entity<sub>1</sub> is located north west with respect to Entity<sub>2</sub></td>
+<td>north west of <i>city hall</i></td>
+</tr>
+
+<tr>
+<td><a name=is-southwest-of><a name=is-northeast-of><a href="javascript: void goToSpec('is-southwest-of')">is-southwest-of</a></td>
+<td>is-northeast-of</td>
+<td>Entity<sub>1</sub> is a Spatial-Entity<br>Entity<sub>2</sub> is a Spatial-Entity</td>
+<td>Entity<sub>1</sub> is located south west with respect to Entity<sub>2</sub></td>
+<td>south west of the <i>the border</i></td>
+</tr>
+
+<tr>
+<td><a name=is-west-of><a name=is-east-of><a href="javascript: void goToSpec('is-west-of')">is-west-of</a></td>
+<td>is-east-of</td>
+<td>Entity<sub>1</sub> is a Spatial-Entity<br>Entity<sub>2</sub> is a Spatial-Entity</td>
+<td>Entity<sub>1</sub> is located west with respect to Entity<sub>2</sub></td>
+<td>west of the <i>the tower</i></td>
+</tr>
+
+<tr>
+<td><a name=location><a name=location-of><a href="javascript: void goToSpec('location')">location</a></td>
+<td>location-of</td>
+<td>Entity<sub>1</sub> is a Tangible-Entity<br>Entity<sub>2</sub> is a Place</td>
+<td>Entity<sub>1</sub> is located at Entity<sub>2</sub></td>
+<td>my stout mug is at <i>home</i></td>
+</tr>
+<tr>
+<td><a name=material><a name=material-of><a href="javascript: void goToSpec('material')">material</a></td>
+<td>material-of</td>
+<td>Entity<sub>1</sub> is a Tangible-Entity<br>Entity<sub>2</sub> is a Substance</td>
+<td>Entity<sub>1</sub> is made of Entity<sub>2</sub></td>
+<td>this is my <i>pewter</i> stout mug</td>
+</tr>
+<tr>
+<td><a name=element><a name=element-of><a href="javascript: void goToSpec('element')">element</A></td>
+<td>element-of</td>
+<td>Entity<sub>1</sub> is an Aggregate</td>
+<td>Entity(s)<sub>2</sub> make up the Aggregate</td>
+<td>The three stooges are <i>Moe, Larry, and Curly</i></td>
+</tr>
+<tr>
+<td><a name=first-element><a name=first-element-of><a href="javascript: void goToSpec('first-element')">first-element</A></td>
+<td>first-element-of</td>
+<td>Entity<sub>1</sub> is a Sequence</td>
+<td>Entity<sub>2</sub> is the first in the Sequence</td>
+<td>The first in line was <i>John</i></td>
+</tr>
+<tr>
+<td><a name=next-element><a name=next-element-of><a href="javascript: void goToSpec('next-element')">next-element</A></td>
+<td>next-element-of</td>
+<td>Entity<sub>1</sub> is a element of a Sequence</td>
+<td>Entity<sub>2</sub> follows Entity<sub>1</sub> in the Sequence</td>
+<td><i>Mary</i>came after John</td>
+</tr>
+<tr>
+<td><a name=possesses><a name=is-possessed-by><a href="javascript: void goToSpec('possesses')">possesses</A></td>
+<td>is-possessed-by</td>
+<td>--</td>
+<td>Entity<sub>1</sub> possesses Entity<sub>2</sub></td>
+<td>that stout mug is <i>mine</i></td>
+
+<tr>
+<td><a name=term><a name=term><a href="javascript: void goToSpec('term')">term</A></td>
+<td>term-of</td>
+<td>Entity<sub>1</sub> is a Chemical-Formula<br>Entity<sub>2</sub> is a Thing</td>
+<td>Entity<sub>1</sub> contains Entity</sub>To</sub> as a term</td>
+<td>H<sub>2</sub>O has <i>O</i> as a term.</td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Entity-Value>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Entity to Value</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=depth><a name=depth-of><a href="javascript: void goToSpec('depth')">depth</A></td>
+<td>depth-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has depth Value</td>
+<td>the <i>bottomless</i> pit</td>
+</tr>
+<tr>
+<td><a name=height><a name=height-of><a href="javascript: void goToSpec('height')">height</A></td>
+<td>height-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has height Value</td>
+<td><i>towering</i> inferno</td>
+</tr>
+<tr>
+<td><a name=thickness><a name=thickness-of><a href="javascript: void goToSpec('thichness')">thickness</A></td>
+<td>thickness-of</td>
+<td>Entity is a Tangible-Entity<br>Value is scalar</td>
+<td>Entity has thickness Value</td>
+<td>a <i>thick</i> leg</td>
+</tr>
+<tr>
+<td><a name=length><a name=length-of><a href="javascript: void goToSpec('length')">length</A></td>
+<td>length-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has length Value</td>
+<td>a <i>short</i> skirt</td>
+</tr>
+<tr>
+<td><a name=width><a name=width-of><a href="javascript: void goToSpec('width')">width</A></td>
+<td>width-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has width Value</td>
+<td>the <i>narrow</i> pass</td>
+</tr>
+
+<tr>
+<td><a name=age><a name=age-of><a href="javascript: void goToSpec('age')">age</A></td>
+<td>age-of</td>
+<td>Value is cardinal or scalar</td>
+<td>Entity has age Value</td>
+<td>a <i>juvenile</i> delinquent</td>
+</tr>
+
+<tr>
+<td><a name=area><a name=area-of><a href="javascript: void goToSpec('area')">area</A></td>
+<td>area-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has area Value</td>
+<td><i>huge</i> tracts of land</td>
+</tr>
+
+<tr>
+<td><a name=density><a name=density-of><a href="javascript: void goToSpec('density')">density</A></td>
+<td>density-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has density Value</td>
+<td>a <i>hard</i> shell</td>
+</tr>
+
+<tr>
+<td><a name=temperature><a name=temperature-of><a href="javascript: void goToSpec('temperature')">temperature</A></td>
+<td>temperature-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has temperature Value</td>
+<td>a <i>friggingcold</i> day</td>
+</tr>
+
+<tr>
+<td><a name=mass><a name=mass-of><a href="javascript: void goToSpec('mass')">mass</A></td>
+<td>mass-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has mass Value</td>
+<td>a <i>hefty</i> bag</td>
+</tr>
+
+<tr>
+<td><a name=volume><a name=volume-of><a href="javascript: void goToSpec('volume')">volume</A></td>
+<td>volume-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has volume Value</td>
+<td>one <i>large</i> dish barrel</td>
+</tr>
+
+<tr>
+<td><a name=weight><a name=weight-of><a href="javascript: void goToSpec('weight')">weight</A></td>
+<td>weight-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has weight Value</td>
+<td><i>heavy</i> bag</td>
+</tr>
+
+<tr>
+<td><a name=animacy><a name=animacy-of>animacy</td>
+<td>animacy-of</td>
+<td>Value is boolean</td>
+<td>animate=T</tt>: Entity can be living or dead</td>
+<td>a <i>carrot</i></td>
+</tr>
+
+<tr>
+<td><a name=breakability><a name=breakability-of><a href="javascript: void goToSpec('breakability')">breakability</A></td>
+<td>breakability-of</td>
+<td>Entity is a Tangible-Entity<br>Value is scalar</td>
+<td>A measure of Entity's physical integrity</td>
+<td><i>brittle</i> bones</td>
+</tr>
+<tr>
+<td><a name=brightness><a name=brightness-of><a href="javascript: void goToSpec('Brightness-Value')">brightness</A></td>
+<td>brightness-of</td>
+<td>Entity is a Tangible-Entity<br>Value is scalar</td>
+<td>The brightness of the Tangible-Entity</td>
+<td><i>dark</i> room</td>
+</tr>
+<tr>
+<td><a name=capacity><a name=capacity-of><a href="javascript: void goToSpec('capacity')">capacity</A></td>
+<td>capacity-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has capacity Value</td>
+<td>the <i>5-gallon</i> popcorn pail</td>
+</tr>
+
+<tr>
+<td><a name=consistency><a name=consistency-of>consistency</td>
+<td>consistency-of</td>
+<td>Entity is a Tangible-Entity<br>Value is scalar</td>
+<td>Entity has consistency Value</td>
+<td><i>gritty</i> chocolate</td>
+</tr>
+<tr>
+<td><a name=integrity><a name=integrity-of>integrity</td>
+<td>integrity-of</td>
+<td>Entity is a Tangible-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has integrity Value</td>
+<td><i>semi-permeable</i> membrane</td>
+</tr>
+<tr>
+<td><a name=number-of-elements><a name=number-of-elements-of>number-of-elements</td>
+<td>number-of-elements-of</td>
+<td>Entity is an Aggregate <br>Value is a number</td>
+<td>Entity has number-of-elements Value</td>
+<td><i>three</i> butterflies</td>
+</tr>
+<tr>
+<td><a name=pH><a name=pH-of>pH</td>
+<td>pH-of</td>
+<td>Entity is a Chemical-Object<br>Value is cardinal or scalar</td>
+<td>Chemical-Object has pH Value</td>
+<td>an <i>acidic</i> compound</td>
+</tr>
+<tr>
+<td><a name=size><a name=size-of><a href="javascript: void goToSpec('size')">size</A></td>
+<td>size-of</td>
+<td>Entity is a Tangible-Entity<br>Value is scalar</td>
+<td>Entity has size Value</td>
+<td>the <i>big</i> one</td>
+</tr>
+<tr>
+<td><a name=slope><a name=slope-of><a href="javascript: void goToSpec('Slope-Value')">slope</A></td>
+<td>slope-of</td>
+<td>Entity is a Spatial-Entity<br>Value is cardinal or scalar</td>
+<td>Entity has slope Value</td>
+<td>a <i>steep</i> road</td>
+</tr>
+<tr>
+<td><a name=texture><a name=texture-of><a href="javascript: void goToSpec('texture')">texture</A></td>
+<td>texture-of</td>
+<td>Entity is a Tangible-Entity<br>Value is scalar</td>
+<td>Entity has texture Value</td>
+<td><i>smooth</i> skin</td>
+</tr>
+<tr>
+<td><a name=wetness><a name=wetness-of><a href="javascript: void goToSpec('wetness')">wetness</A></td>
+<td>wetness-of</td>
+<td>Entity is a Tangible-Entity<br>Value is scalar</td>
+<td>Entity has wetness Value</td>
+<td><i>dry</i> earth</td>
+</tr>
+<tr>
+<td><a name=sentience><a name=sentience-of>sentience</td>
+<td>sentience-of</td>
+<td>Entity has animate=T<br>Value is scalar</td>
+<td>sentient=T</tt>: Entity can perceive or feel</td>
+<td>a <i>human</i></td>
+</tr>
+
+<tr>
+<td><a name=color><a name=color-of><a href="javascript: void goToSpec('color')">color</A></td>
+<td>color-of</td>
+<td>Entity is a Tangible-Entity<br>Value is categorical</td>
+<td>Entity has color Value</td>
+<td>a <i>puce</i> beret</td>
+</tr>
+<tr>
+<td><a name=polarity><a name=polarity-of><a href="javascript: void goToSpec('Polarity-Value')">polarity</a></td>
+<td>polarity-of</td>
+<td>Entity is a Chemical-Object<br>Value is categorical</td>
+<td>Chemical-Object has polarity Value</td>
+<td>an <i>negative</i> ion</td>
+</tr>
+<tr>
+<td><a name=sex><a name=sex-of>sex</td>
+<td>sex-of</td>
+<td>Entity has sentient=T<br>Value is categorical</td>
+<td>Entity has sex Value</td>
+<td>the <i>female</i> yak</td>
+</tr>
+<tr>
+<td><a name=shape><a name=shape-of><a href="javascript: void goToSpec('shape')">shape</A></td>
+<td>shape-of</td>
+<td>Entity is a Tangible-Entity<br>Value is categorical</td>
+<td>Entity has shape Value</td>
+<td>a <i>conical</i> hat</td>
+</tr>
+<tr>
+<td><a name=smell><a name=smell-of><a href="javascript: void goToSpec('smell')">smell</A></td>
+<td>smell-of</td>
+<td>Entity is a Tangible-Entity<br>Value is categorical</td>
+<td>Entity has smell Value</td>
+<td>a <i>malodorous</i> reek</td>
+</tr>
+<tr>
+<td><a name=taste><a name=taste-of><a href="javascript: void goToSpec('taste')">taste</A></td>
+<td>taste-of</td>
+<td>Entity is a Tangible-Entity<br>Value is categorical</td>
+<td>Entity has taste Value</td>
+<td><i>piquante</i> sauce</td>
+</tr>
+<tr>
+<td><a name=trait><a name=trait-of><a href="javascript: void goToSpec('trait')">trait</A></td>
+<td>trait-of</td>
+<td>Entity has sentient=T<br>Value is categorical</td>
+<td>Entity has personality trait of Value</td>
+<td><i>aggressive</i> people</td>
+</tr>
+<tr>
+<td><a name=truth><a name=truth-of><a href="javascript: void goToSpec('Truth-Value')">truth</A></td>
+<td>truth-of</td>
+<td>Entity is a Information<br>Value is categorical</td>
+<td>Entity has truth value of Value</td>
+<td><i>false</i> statement</td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Event-Value>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Event to Value</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=direction><a name=direction-of>direction</td>
+<td>direction-of</td>
+<td>Value is cardinal, scalar or categorical</td>
+<td>Event transpires in the direction of Value</td>
+<td>Max moved <i>north</i></td>
+</tr>
+<tr>
+<td><a name=distance><a name=distance-of>distance</td>
+<td>distance-of</td>
+<td>Value is cardinal or scalar</td>
+<td>Event transpires over distance Value</td>
+<td>they traveled <i>far</i></td>
+</tr>
+<tr>
+<td><a name=duration><a name=duration-of>duration</td>
+<td>duration-of</td>
+<td>Value is cardinal or scalar</td>
+<td>Event lasts for Value amount of time</td>
+<td>Wayne played for <i>20 years</i></td>
+</tr>
+
+<tr>
+<td><a name=frequency><a name=frequency-of>frequency</td>
+<td>frequency-of</td>
+<td>Event is repetitive<br>Value is cardinal or scalar</td>
+<td>Event transpires at the frequency of Value</td>
+<td>Christopher lobbied <i>annually</i></td>
+</tr>
+
+<tr>
+<td><a name=intensity><a name=intensity-of>intensity</td>
+<td>intensity-of</td>
+<td>Value is cardinal or scalar</td>
+<td>Event transpires with intensity Value</td>
+<td>the window held <i>fast</i></td>
+</tr>
+
+<tr>
+<td><a name=rate><a name=rate-of>rate</td>
+<td>rate-of</td>
+<td>Value is cardinal or scalar</td>
+<td>Event transpires at the rate of Value</td>
+<td>this drug takes effect <i>immediately</i></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Value-Value>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Value to Value</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=same-as><a name=same-as>same-as</td>
+<td>same-as</td>
+<td>--</td>
+<td>Property-Value<sub>1</sub> is the same as Property-Value<sub>2</sub></td>
+<td>same length as <i>width</i></td>
+</tr>
+<tr>
+<td><a name=greater-than><a name=less-than>greater-than</td>
+<td>less-than</td>
+<td>--</td>
+<td>Property-Value<sub>1</sub> is the greater than Property-Value<sub>2</sub></td>
+<td>heavier than a <i>brick</i></td>
+</tr>
+<tr>
+<td><a name=greater-than-or-equal-to><a name=less-than-or-equal-to>greater-than-or-equal-to</td>
+<td>less-than-or-equal-to</td>
+<td>--</td>
+<td>Property-Value<sub>1</sub> is the greater than Property-Value<sub>2</sub></td>
+<td>--</td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Entity-Temporal-Entity>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Entity to Temporal-Entity</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=time-of-existence><a name=time-of-existence-of><a href="javascript: void goToSpec('time-of-existence')">time-of-existence</A></td>
+<td>time-of-existence-of</td>
+<td>Temporal-Entity is a Time-Interval</td>
+<td>Entity exists during some Time-Interval</td>
+<td><i>--</i></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Event-Temporal-Entity>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Event to Temporal-Entity</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=time-at><a name=time-of><a href="javascript: void goToSpec('time-at')">time-at</A></td>
+<td>time-of</td>
+<td>Temporal-Entity is Time-Instant</td>
+<td>Event happens at Time-Instant</td>
+<td>--</td>
+</tr>
+<tr>
+<td><a name=time-during><a name=time-contains><a href="javascript: void goToSpec('time-during')">time-during</A></td>
+<td>time-contains</td>
+<td>Temporal-Entity is a Time-Interval</td>
+<td>Event occurs during Time-Interval</td>
+<td><i>--</i></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Temporal-Entity-Temporal-Entity>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Temporal-Entity to Temporal-Entity</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+<tr>
+<td><a name=time-before><a name=time-after><a href="javascript: void goToSpec('time-before')">time-before</A></td>
+<td>time-after</td>
+<td>--</td>
+<td>end of Temporal-Entity<sub>1</sub> &lt; start of Temporal-Entity<sub>2</sub></td>
+<td>--</td>
+</tr>
+
+<tr>
+<td><a name=time-int-starts><a name=time-int-started-by><a href="javascript: void goToSpec('time-int-starts')">time-int-starts</A></td>
+<td>time-int-started-by</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Interval</td>
+<td>start of Time-Interval<sub>1</sub> = start of Time-Interval<sub>2</sub></td>
+<td><tt><i>XXX</i><br>YYYYY</tt></td>
+</tr>
+<tr>
+<td><a name=time-int-overlaps><a name=time-int-overlapped-by><a href="javascript: void goToSpec('time-int-overlaps')">time-int-overlaps</A></td>
+<td>timt-int-overlapped-by</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Interval</td>
+<td>start of Time-Interval<sub>1</sub> &lt; start of Time-Interval<sub>2</sub><br>
+end of Time-Interval<sub>1</sub> &lt; end of Time-Interval<sub>2</sub></td>
+<td><tt><i>XXX</i><br>&nbsp;YYY</tt></td>
+</tr>
+<tr>
+<td><a name=time-int-meets><a name=time-int-met-by><a href="javascript: void goToSpec('time-int-meets')">time-int-meets</A></td>
+<td>time-int-met-by</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Interval</td>
+<td>end of Time-Interval<sub>1</sub> = start of Time-Interval<sub>2</sub></td>
+<td><tt><i>XXX</i>YYY</tt></td>
+</tr>
+<tr>
+<td><a name=time-int-finishes><a name=time-int-finishhed-by><a href="javascript: void goToSpec('time-int-finishes')">time-int-finishes</A></td>
+<td>time-int-finished-by</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Interval</td>
+<td>end of Time-Interval<sub>1</sub> = end of Time-Interval<sub>2</sub></td>
+<td><tt>&nbsp;&nbsp;<i>XXX</i><br>YYYYY</tt></td>
+</tr>
+<tr>
+<td><a name=time-int-equals><a name=time-int-equals><a href="javascript: void goToSpec('time-int-equals')">time-int-equals</A></td>
+<td>time-int-equals</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Interval</td>
+<td>Time-Interval<sub>1</sub> = Time-Interval<sub>2</sub></td>
+<td><tt><i>XXX</i><br>YYY</tt></td>
+</tr>
+<tr>
+<td><a name=time-int-during><a name=time-int-contains><a href="javascript: void goToSpec('time-int-during')">time-int-during</A></td>
+<td>time-int-contains</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Interval</td>
+<td>start of Time-Interval<sub>1</sub> &gt; start of Time-Interval<sub>2</sub><br>
+end of TI<sub>1</sub> &lt; end of TI<sub>2</sub></td>
+<td><tt>&nbsp;<i>XXX</i><br>YYYYYY</tt></td>
+</tr>
+<tr>
+<td><a name=time-int-before><a name=time-int-after><a href="javascript: void goToSpec('time-int-before')">time-int-before</A></td>
+<td>time-int-after</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Interval</td>
+<td>end of Time-Interval<sub>1</sub> &lt; start of Time-Interval<sub>2</sub></td>
+<td><tt><i>XXX</i>&nbsp;YYY</tt></td>
+</tr>
+
+<tr>
+<td><a name=time-begins><a name=time-beginning-of><a href="javascript: void goToSpec('time-begins')">time-begins</A></td>
+<td>time-beginning-of</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Instant</td>
+<td>Time-Instant<sub>2</sub> is at the start of Time-Interval<sub>1</sub></td>
+<td><tt><i>XXX</i><br>Y&nbsp;&nbsp;</tt></td>
+</tr>
+<tr>
+<td><a name=time-ends><a name=time-end-of><a href="javascript: void goToSpec('time-ends')">time-ends</A></td>
+<td>time-end-of</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Instant</td>
+<td>Time-Instant<sub>2</sub> is at the end of Time-Interval<sub>1</sub></td>
+<td><tt><i>XXX</i><br>&nbsp;&nbsp;Y</tt></td>
+</tr>
+<tr>
+<td><a name=time-inside><a name=time-is-inside><a href="javascript: void goToSpec('time-inside')">time-inside</A></td>
+<td>time-is-inside</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Instant</td>
+<td>Time-Instant<sub>2</sub> is inside the Time-Interval<sub>1</sub></td>
+<td><tt><i>XXX</i><br>&nbsp;Y</tt></td>
+</tr>
+<tr>
+<td><a name=time-begins-or-in><a name=time-is-beginning-or-inside><a href="javascript: void goToSpec('time-begins-or-in')">time-begins-or-in</A></td>
+<td>time-is-beginning-or-inside</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Instant</td>
+<td>Time-Interval<sub>1</sub> begins with or contains Time-Instant<sub>2</sub></td>
+<td><tt><i>XXXX</i><br>Y</tt></td>
+</tr>
+<tr>
+<td><a name=time-between><a href="javascript: void goToSpec('time-between')">time-between</A></tt></td>
+<td>--</td>
+<td>Temporal-Entity<sub>2</sub> is a Time-Instant</td>
+<td>Time-Interval<sub>1</sub> is between Time-Instants<sub>2</sub></td>
+<td><tt><i>XXXX</i><br>Y&nbsp;&nbsp;Y</tt></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+<p>
+<a name=Place-Place>
+<table>
+<tr><td>
+
+<br>
+<div class="boxtop">Place to Place</div>
+<div class="boxtab"><a href=#TOC>top</a></div>
+
+<div class="boxbody">
+
+<table>
+<tr>
+<td><b><i>Slot Name</i></b></td>
+<td><b><i>Inverse</i></b></td>
+<td><b><i>Restrictions</i></b></td>
+<td><b><i>Gloss</i></b></td>
+<td><b><i>Example</i></b></td>
+</tr>
+
+</tr>
+<tr>
+<td><a name=abuts><a name=abuts>abuts</td>
+<td>abuts</td>
+<td>--</td>
+<td>Place<sub>1</sub> abuts Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-above><a name=is-below><a href="javascript: void goToSpec('is-above')">is-above</A></td>
+<td>is-below</td>
+<td>--</td>
+<td>Place<sub>1</sub> is above Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-along><a name=is-along><a href="javascript: void goToSpec('is-along')">is-along</A></td>
+<td>is-along</td>
+<td>--</td>
+<td>Place<sub>1</sub> is along Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-at><a name=is-at-of><a href="javascript: void goToSpec('is-at')">is-at</A></td>
+<td>is-at-of</td>
+<td>--</td>
+<td>Place<sub>1</sub> is at Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-beside><a href="javascript: void goToSpec('is-beside')">is-beside</A></td>
+<td>is-beside</td>
+<td>--</td>
+<td>Place<sub>1</sub> is beside Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-between><a href="javascript: void goToSpec('is-between')">is-between</A></tt></td>
+<td>--</td>
+<td>--</td>
+<td>Place<sub>1</sub> is between Places<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-behind><a name=is-in-front-of><a href="javascript: void goToSpec('is-behind')">is-behind</A></td>
+<td>is-in-front-of</td>
+<td>--</td>
+<td>Place<sub>1</sub> is behind Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-facing><a name=is-faced-by><a href="javascript: void goToSpec('is-facing')">is-facing</A></td>
+<td>is-faced-by</td>
+<td>--</td>
+<td>Place<sub>1</sub> is facing Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-inside><a name=encloses><a href="javascript: void goToSpec('is-inside')">is-inside</a></td>
+<td>encloses</td>
+<td>--</td>
+<td>Place<sub>1</sub> is inside Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-near><a name=is-near><a href="javascript: void goToSpec('is-near')">is-near</a></td>
+<td>is-near</td>
+<td>--</td>
+<td>Place<sub>1</sub> is near Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-on><a name=has-on-it><a href="javascript: void goToSpec('is-on')">is-on</A></td>
+<td>has-on-it</td>
+<td>--</td>
+<td>Place<sub>1</sub> is on Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-opposite><a name=is-opposite><a href="javascript: void goToSpec('is-opposite')">is-opposite</A></td>
+<td>is-opposite</td>
+<td>--</td>
+<td>Place<sub>1</sub> is opposite Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-oriented-toward><a name=is-oriented-toward-of><a href="javascript: void goToSpec('is-oriented-toward')">is-oriented-toward</A></td>
+<td>is-oriented-toward-of</td>
+<td>--</td>
+<td>Place<sub>1</sub> is oriented toward Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-outside><a name=does-not-enclose><a href="javascript: void goToSpec('is-outside')">is-outside</A></td>
+<td>does-not-enclose</td>
+<td>--</td>
+<td>Place<sub>1</sub> is outside Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+<tr>
+<td><a name=is-over><a name=is-under><a href="javascript: void goToSpec('is-over')">is-over</A></td>
+<td>is-under</td>
+<td>--</td>
+<td>Place<sub>1</sub> is over Place<sub>2</sub></td>
+<td><i>&nbsp;</i></td>
+</tr>
+
+</table>
+</div>
+</tr>
+</table>
+</p>
+
+</table><p>
+
+</body>
+</html>
+

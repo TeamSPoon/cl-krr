@@ -1,0 +1,28 @@
+<!--- $Id: actions.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=actions>
+
+
+<from name=Event>
+<to name=Event>
+
+<description> 
+  A set of events.
+</description>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>The plane is <ex-from>going through</ex-from> the <ex-to>final checks</ex-to> on the tarmac.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>The operator <ex-from>keyed in</ex-from> a <ex-to>sequence of commands</ex-to> to unlock the safe.</text>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=all-subevents>
+	An Action is a sequence of Events without a parent event while all-subevents are a sequence of events caused by a parent event.
+ </neighbor>
+</neighborlist>
+
+</kml>

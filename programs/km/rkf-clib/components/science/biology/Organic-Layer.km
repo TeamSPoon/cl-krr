@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Organic-Layer.km,v 1.5 2001/05/19 02:50:20 souther Exp $ 
+;; 
+
+(Organic-Layer has
+         (superclasses (Organic-Structure))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A layer made up of organic molecules, such as the
+                        bimolecular layer that makes up the plasma membrane.
+                        Souther:2001."))
+         (test-case ()))  
+
+(every Organic-Layer has
+       (has-part ((at-least 2 Organic-Molecule)))
+       )       
+
+
+
+
+

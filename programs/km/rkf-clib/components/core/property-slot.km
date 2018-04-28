@@ -1,0 +1,17 @@
+
+;;
+;;   $Id: property-slot.km,v 1.9 2008/03/31 21:40:16 jchaw Exp $
+;;
+
+(property-slot has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Property-Value Property-Class-Order Increase Decrease))   ;; triple-duty utility slot
+  (range (Slot))
+  (cardinality (N-to-1))
+  (inherit-with-overrides (t))
+  (fluent-status (*Non-Fluent))
+  (original-slot      (t))	
+)
+
+(property-slot-of has
+   (instance-of (CLIB-Slot-Group)))

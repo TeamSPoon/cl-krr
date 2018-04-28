@@ -1,0 +1,23 @@
+;; 
+;;    $Id: required-slot.km,v 1.9 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(required-slot has
+	       (instance-of (CLIB-Slot-Group))
+	       (superslots ())
+	       (subslots ())
+	       (domain (Thing))
+	       (range (Slot))
+	       (fluent-status (*Non-Fluent))
+               (original-slot      (t))	
+	       (cardinality (N-to-N)))
+
+(required-slot-of has
+   (instance-of (CLIB-Slot-Group)))
+
+
+
+
+
+
+

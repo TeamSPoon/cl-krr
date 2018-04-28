@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Glutamic-Acid.km,v 1.10 2001/05/18 13:14:47 souther Exp $ 
+;; 
+
+(Glutamic-Acid has                
+         (superclasses (Acidic-Amino-Acid Nonessential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A polar amino acid with a propionic side chain.
+                        Souther")) 
+         (test-case ()))
+
+(every Glutamic-Acid has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 ((the Carbon-Atom has-part of 
+		       (the Propionic-Group has-part of
+			    (the Amino-Acid-Side-Chain has-part of Self)))) 
+		 )))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Propionic-Group))))	
+	)))
+
+ 
+
+
+

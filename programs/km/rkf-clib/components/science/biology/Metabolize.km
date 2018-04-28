@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Metabolize.km,v 1.17 2005/08/01 16:41:49 jchaw Exp $ 
+;; 
+
+(Metabolize has
+        (superclasses    (Catabolize))
+        (required-slot   (result substrate))
+        (primary-slot    (agent instrument))
+        (description     ("The sum of processes by which a particular 
+                           substance is handled by the body. 
+                           Webster's Ninth Collegiate Dictionary - under
+                           Metabolism.")))
+              
+
+(every Metabolize has
+       (agent        ((a Living-Entity)))
+       (substrate       ((a Chemical-Entity)
+		      (at-least 1 Chemical-Entity)))
+       (result       ((a Chemical-Entity)
+		      (at-least 1 Chemical-Entity)))
+       (instrument   ((a Enzyme)))   )
+
+;; automatically added WN synsets
+(Metabolize has (wn16-synset ((:set  
+			       (:triple "metabolize" 2 "v")))))
+
+(Metabolize has (wn20-synset ((:set
+			       (:triple "metabolize" 2 "v")))))

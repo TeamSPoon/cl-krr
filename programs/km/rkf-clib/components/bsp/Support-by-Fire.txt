@@ -1,0 +1,87 @@
+;; 
+;;    $Id: Support-by-Fire.txt,v 1.2 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Support-by-fire 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on?? 
+  instrument: Object with  
+                         plays: weapon 
+  location: mustnt-be Place with 
+                                   is-near: Military-Unit called "enemy forces" object-of Self 
+  manner: Forcefully 
+  cliché: Intentional-Act 
+  cliché: Unauthorized-Act 
+  supports: Tactical-Mission-Task 
+                      agent: Military-Unit called "friendly forces" with 
+                                    plays: Ally 
+ 
+objective: 
+                   Fix    (primary objective) 
+                      agent: MU called "friendly forces" agent of Self 
+                      object: Military-Unit called "enemy forces"  object of Self 
+                  Suppress     (primary objective) 
+                      agent: MU called "friendly forces" agent of Self 
+                      object: Military-Unit called "enemy forces"  object of Self  
+                   Destroy          (secondary objective)    (if enemy tries to move) 
+                      agent: MU called "friendly forces" agent of Self 
+                      object: Military-Unit called "enemy forces"  object of Self 
+                      temporally-starts: Time-Interval             
+                                                       time-of: Move with 
+                                                                 object: Military-Unit called "enemy forces"  object of Self 
+                                                          
+  subevent:  
+                   Occupy:  
+                        object: Military-Unit called "friendly forces" agent of Self 
+                        destination: a Place with 
+                                                plays: Cover   
+                                            mustnt-be-a Place with 
+                                                 is-near: MU called "enemy forces"    
+                                            
+                        objective: Observe 
+                                            agent: MU called "friendly forces" agent of Self 
+                                            object: MU called "enemy forces" 
+                                            manner: Well 
+                                        Hide 
+                                            object: MU called "friendly forces" agent of Self 
+                                            base: MU called "enemy forces" 
+                                        Fire: 
+                                           agent: MU called "friendly forces" agent of Self 
+                                           origin: the Place origin of Occupy subevent of Self 
+                                           destination: Military-Unit called "enemy forces"  object of Self 
+                                           path: mustnt-be-a Spatial-Entity with 
+                                                                               object-of:  Be-blocked 
+ 
+                   Fire 
+                      agent: MU called "friendly forces" agent of Self 
+                      origin: the Place origin of Occupy subevent of Self 
+                      destination: Military-Unit called "enemy forces"  object of Self 
+ 
+                   Event: mustnt-be-a  
+                                 Capture 
+                                     agent: MU called "friendly forces" agent of Self 
+                                     object: Military-Unit called "enemy forces"  object of Self 
+                                Seize 
+                                     agent: MU called "friendly forces" agent of Self 
+                                     object: Region with 
+                                                   is-controlled-by: Military-Unit called "enemy forces"  object of Self 
+                      
+ 
+Note: How to designate relative importance of an objective. 
+ 
+---------------------------- 
+ 
+Support-by-fire (A). 
+===============. 
+1. Support-by-fire is a tactical mission task in which a maneuver force moves to a position where it can engage the enemy by direct fire in support of another maneuvering force. 
+2. The primary objective of the support force is normally to fix and suppress the enemy 
+    so he cannot effectively fire on the maneuvering force. 
+    The secondary objective is to destroy the enemy if he tries to reposition. 
+3. A unit conducting the task of support by fire does not maneuver to capture enemy forces or terrain. 
+4. When assigning a support-by-fire mission, the commander designates the enemy, when 
+     to attack, the general location from which to operate, the friendly force to support, and  
+     the purpose of the task, such as fix or suppress. 
+5. Once the commander gives an element the task of support by fire, it should occupy support by fire positions that have cover and concealment, good observation, and clear fields of fire. 
+6. Support by fire closely resembles the task of attack by fire. 
+The difference is that support by fire supports another force so it can maneuver against the enemy, while an attack by fire does not support the maneuver of another friendly force. 

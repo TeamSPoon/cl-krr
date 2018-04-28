@@ -1,0 +1,558 @@
+<html>
+<head>
+
+<title>The Contact Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Contact</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">This is the ontology for Contact information. 
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>Radar Networks' <a href="https://calo.sri.com/cgi-bin/rep.cgi/apps/iris/data/">irisOntology (search for "Contact")</a> (.owl format)
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+<ul>
+<li>Thing
+    <ul>
+    <li>Entity
+        <ul>
+        <li>Intangible-Entity
+            <ul>
+            <li>Information
+                <ul>
+                <li>InformationObject
+                    <ul>
+                    <li>DataRecord
+                        <ul>
+                        <li><a href=#ContactDataStructure><b>ContactDataStructure</b></a>
+			    <ul>
+			    <li><a href=#ContactRecord><b>ContactRecord</b></a>
+			    <li><a href=#ContactRecordSubAddress><b>ContactRecordSubAddress</b></a>
+			    <li><a href=#ContactRecordSubAddressComponent><b>ContactRecordSubAddressComponent</b></a>
+			        <ul>
+			        <li>PhoneNumber
+			        <li><a href=#StreetAddress><b>StreetAddress</b></a>
+			        </ul>
+			    </ul>
+                        <li>EmploymentRecord
+                        </ul>
+                    </ul>
+                </ul>
+            <li>Message
+                <ul>
+                <li>Document
+                    <ul>
+                    <li>Computer-File
+                        <ul>
+                        <li>Computer-Program
+                            <ul>
+                            <li><a href=#ContactManagementApplication><b>ContactManagementApplication</b></a>
+                            </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+	</ul>
+    <li>Role
+        <ul>
+        <li>Job-Role
+            <ul>
+            <li>Support-Role
+                <ul>
+	        <li><a href=#ContactRepresentative><b>ContactRepresentative</b></a>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+</ul>
+</div>
+</td></tr></table>
+</p>
+
+<p>
+<a name=ContactDataStructure>
+<table>
+<tr><td>
+
+<div class="boxtop">ContactDataStructure</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for storing a contact information.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ContactDataStructure with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ContactDataStructure-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasEncryptionKey</pre></td><td><pre>hasEncryptionKey</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>isContactInformationFor</pre></td><td><pre>isContactInformationFor</pre></td><td align=center><pre>N</pre></td><td><pre>(a Event) or (a Activity) or (a Agent-Role)</pre></td></tr>
+
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ContactRecord>
+<table>
+<tr><td>
+
+
+<div class="boxtop">ContactRecord</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+      <dd>A detailed record of a contact.
+      </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ContactRecord with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ContactRecord&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasAgentContactRecord</pre></td><td><pre>hasAgentContactRecord</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecord)</pre></td></tr>
+    <tr><td><pre>hasAttachment</pre></td><td><pre>hasAttachment</pre></td><td align=center><pre>1</pre></td><td><pre>(a Information) or (a Document)</pre></td></tr>
+    <tr><td><pre>hasAudioPronunciation</pre></td><td><pre>hasAudioPronunciation</pre></td><td align=center><pre>1</pre></td><td><pre>(a AudioClip)</pre></td></tr>
+    <tr><td><pre>hasBirthDate</pre></td><td><pre>hasBirthDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>hasContactRecordSubAddress</pre></td><td><pre>hasContactRecordSubAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddress)</pre></td></tr>
+    <tr><td><pre>hasEncoding</pre></td><td><pre>hasEncoding</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasLogo</pre></td><td><pre>hasLogo</pre></td><td align=center><pre>N</pre></td><td><pre>(a AudioClip) or (a StillImage)</pre></td></tr>
+    <tr><td><pre>hasRepresentative</pre></td><td><pre>hasRepresentative</pre></td><td align=center><pre>N</pre></td><td><pre>(a Person)</pre></td></tr>
+    <tr><td><pre>hasSimpleNamePrefix</pre></td><td><pre>hasSimpleNamePrefix</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasSortString</pre></td><td><pre>hasSortString</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasTextString</pre></td><td><pre>hasTextString</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasVersionNumber</pre></td><td><pre>hasVersionNumber</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>isAgentContactRecordFor</pre></td><td><pre>isAgentContactRecordFor</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecord)</pre></td></tr>
+    <tr><td><pre>isContactInformationFor</pre></td><td><pre>isContactInformationFor</pre></td><td align=center><pre>N</pre></td><td><pre>(a Event) or (a Activity) or (a Form-Document) or (a Agent-Role)</pre></td></tr>
+
+    <tr><td colspan=3><i>+ slots inherited from ContactDataStructure</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ContactRecordSubAddress>
+<table>
+<tr><td>
+
+<div class="boxtop">ContactRecordSubAddress</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for storing contact address.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ContactRecordSubAddress with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ContactRecordSubAddress-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasAddress</pre></td><td><pre>hasAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddressComponent)</pre></td></tr>
+    <tr><td><pre>hasContactRecordAddressComponent</pre></td><td><pre>hasContactRecordAddressComponent</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddressComponent)</pre></td></tr>
+    <tr><td><pre>hasGroupOrOrganization</pre></td><td><pre>hasGroupOrOrganization</pre></td><td align=center><pre>N</pre></td><td><pre>(a Organization)</pre></td></tr>
+
+    <tr><td><pre>hasLogo</pre></td><td><pre>hasLogo</pre></td><td align=center><pre>N</pre></td><td><pre>(a AudioClip) or (a StillImage)</pre></td></tr>
+
+    <tr><td><pre>isContactRecordSubAddressOf</pre></td><td><pre>isContactRecordSubAddressOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecord)</pre></td></tr>
+
+    <tr><td><pre>isTypeOfContactRecordAddress</pre></td><td><pre>isTypeOfContactRecordAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+
+    <tr><td colspan=3><i>+ slots inherited from ContactDataStructure</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ContactRecordSubAddressComponent>
+<table>
+<tr><td>
+
+<div class="boxtop">ContactRecordSubAddressComponent</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for a type of contact address.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ContactRecordSubAddressComponent with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ContactRecordSubAddressComponent-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasAddressString</pre></td><td><pre>hasAddressString</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from ContactDataStructure</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=StreetAddress>
+<table>
+<tr><td>
+
+<div class="boxtop">StreetAddress</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for street addresses.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a StreetAddress with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;StreetAddress-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasCity</pre></td><td><pre>hasCity</pre></td><td align=center><pre>N</pre></td><td><pre>(a City)</pre></td></tr>
+    <tr><td><pre>hasNation</pre></td><td><pre>hasNation</pre></td><td align=center><pre>N</pre></td><td><pre>(a Country)</pre></td></tr>
+    <tr><td><pre>hasStateOrProvince</pre></td><td><pre>hasStateOrProvince</pre></td><td align=center><pre>N</pre></td><td><pre>(a Political-State) or (a Province)</pre></td></tr>
+    <tr><td><pre>hasStreet</pre></td><td><pre>hasStreet</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasStreetAddressNumber</pre></td><td><pre>hasStreetAddressNumber</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasZipCode</pre></td><td><pre>hasZipCode</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from ContactRecordSubAddressComponent</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ContactManagementApplication>
+<table>
+<tr><td>
+
+<div class="boxtop">ContactManagementApplication</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>An application for Contact Management.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ContactManagementApplication with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ContactManagementApplication-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Computer-Program</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ContactRepresentative>
+<table>
+<tr><td>
+
+<div class="boxtop">ContactRepresentative</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>An agent supporting the role of a contact representative.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ContactRepresentative with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ContactRepresentative-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Support-Role</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

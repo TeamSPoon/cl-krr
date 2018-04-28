@@ -1,0 +1,46 @@
+;; 
+;;    $Id: Replicon.km,v 1.18 2001/06/01 23:26:51 pnav Exp $ 
+;; 
+
+(Replicon has
+	  (superclasses (DNA-Molecule-Segment))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("A unit in the genome that consists of an origin of
+                         replication and all the DNA that is replicated from
+                         that origin. Mathews:BC:1160"))
+	  (cmap-correspondence ()))
+
+;; (a Partition with (members (DNA-Strand Replicon)))
+
+(every Replicon has 
+       (is-part-of ((a DNA-Molecule)))
+       (has-part ((a DNA-Sequence called "DNA-Strand-1-segment" with
+		     (is-part-of (((the DNA-Strand has-part of 
+					(the DNA-Molecule is-part-of of Self))
+				   called "DNA-Strand-1")
+				 ))
+                     (complement (((the DNA-Sequence has-part of Self)
+                                   called "DNA-Strand-2-segment")))
+                     )
+		  (a DNA-Sequence called "DNA-Strand-2-segment" with
+                     (is-part-of (((the DNA-Strand has-part of
+					(the DNA-Molecule is-part-of of Self))
+                                   called "DNA-Strand-2") 
+				  ))
+		     (complement (((the DNA-Sequence has-part of Self)
+				   called "DNA-Strand-1-segment")))
+		     )
+		  ))
+       )
+
+;;; another partonomy of DNA based on the manner of replication starting at
+;;; a replication origin.
+
+
+
+
+
+
+

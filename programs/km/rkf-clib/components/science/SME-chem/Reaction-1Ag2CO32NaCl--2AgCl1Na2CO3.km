@@ -1,0 +1,285 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 ----------
+
+(Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 has (superclasses (Reaction)))
+
+(_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 has 
+  (instance-of (Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3))
+  (prototype-of (Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3))
+  (prototype-scope (Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3))
+  (prototype-participants (_Property-Node2701
+                           _Property-Node2700
+                           _Property-Node2699
+                           _Property-Node2698
+                           _Chemical-Entity2697
+                           _Chemical2695
+                           _Coefficient-Value2694
+                           _Chemical-Entity2692
+                           _Chemical2691
+                           _Coefficient-Value2690
+                           _Chemical2688
+                           _Coefficient-Value2687
+                           _Chemical-Entity2686
+                           _Chemical-Entity2680
+                           _Chemical2679
+                           _Coefficient-Value2678
+                           _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (big-nodes (_Property-Node2698
+              _Property-Node2699
+              _Property-Node2700
+              _Property-Node2701))
+  (raw-material (_Chemical2691
+                 _Chemical2695))
+  (result (_Chemical2679
+           _Chemical2688))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical2679 t)
+                    (:seq raw-material _Chemical2691 t)
+                    (:seq raw-material _Chemical2695 t)
+                    (:seq result _Chemical2688 t))))
+
+(_Property-Node2701 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2687))
+  (contains-edge ((:triple _Coefficient-Value2687 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Property-Node2700 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2678))
+  (contains-edge ((:triple _Coefficient-Value2678 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Property-Node2699 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2694))
+  (contains-edge ((:triple _Coefficient-Value2694 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Property-Node2698 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2690))
+  (contains-edge ((:triple _Coefficient-Value2690 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Chemical-Entity2697 has 
+  (instance-of (Chemical-Entity
+                NaCl))
+  (is-basic-structural-unit-of (_Chemical2695))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Chemical2695 has 
+  (has-basic-structural-unit (_Chemical-Entity2697))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value2694))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2694 t)))
+  (raw-material-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Coefficient-Value2694 has 
+  (contains-node-of (_Property-Node2699))
+  (coefficient-of (_Chemical2695))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Chemical-Entity2692 has 
+  (instance-of (Chemical-Entity
+                Ag2CO3))
+  (is-basic-structural-unit-of (_Chemical2691))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Chemical2691 has 
+  (has-basic-structural-unit (_Chemical-Entity2692))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2690))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2690 t)))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Coefficient-Value2690 has 
+  (contains-node-of (_Property-Node2698))
+  (coefficient-of (_Chemical2691))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Chemical2688 has 
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity2686))
+  (coefficient (_Coefficient-Value2687))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2687 t)))
+  (result-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Coefficient-Value2687 has 
+  (contains-node-of (_Property-Node2701))
+  (coefficient-of (_Chemical2688))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Chemical-Entity2686 has 
+  (is-basic-structural-unit-of (_Chemical2688))
+  (instance-of (Chemical-Entity
+                Na2CO3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Chemical-Entity2680 has 
+  (instance-of (Chemical-Entity
+                AgCl))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical2679))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Chemical2679 has 
+  (has-basic-structural-unit (_Chemical-Entity2680))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2678))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2678 t)))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(_Coefficient-Value2678 has 
+  (contains-node-of (_Property-Node2700))
+  (coefficient-of (_Chemical2679))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623)))
+
+(explanation (:triple _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 result _Chemical2688)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 raw-material _Chemical2695)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 raw-material _Chemical2691)
+  ((a Chemical (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction raw-material))))
+(explanation (:triple _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 result _Chemical2679)
+  ((a Chemical (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction result))))
+(explanation (:triple _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 chemical-equation _Chemical-Equation-Expression2625)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623) (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 instance-of Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical-Entity2697 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2695 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity2697 instance-of NaCl)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical2695 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical2695 coefficient _Coefficient-Value2694)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical2695 has-basic-structural-unit _Chemical-Entity2697)
+  ((a Chemical-Entity (@ _Chemical2695 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2695 instance-of Chemical)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Coefficient-Value2694 value (:pair 2 *unity))
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Coefficient-Value2694 instance-of Coefficient-Value)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical-Entity2692 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2691 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity2692 instance-of Ag2CO3)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical2691 has-basic-structural-unit _Chemical-Entity2692)
+  ((a Chemical-Entity (@ _Chemical2691 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2691 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical2691 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction raw-material))))
+(explanation (:triple _Chemical2691 coefficient _Coefficient-Value2690)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical2691 instance-of Chemical)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Coefficient-Value2690 value (:pair 1 *unity))
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Coefficient-Value2690 instance-of Coefficient-Value)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical2688 instance-of Entity)
+  ((a Entity (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Event (result must-be-a)))))
+(explanation (:triple _Chemical2688 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2688 coefficient _Coefficient-Value2687)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical2688 has-basic-structural-unit _Chemical-Entity2686)
+  ((a Chemical-Entity (@ _Chemical2688 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2688 instance-of Chemical)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Coefficient-Value2687 value (:pair 1 *unity))
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Coefficient-Value2687 instance-of Coefficient-Value)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical-Entity2686 atomic-chemical-formula _Chemical-Formula2676)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity2686)) or (the term of (the has-chemical-formula of _Chemical-Entity2686)) (@ _Chemical-Entity2686 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2686)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2686))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity2686)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity2686)))))))))) (@ _Chemical-Entity2686 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity2686 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity2686 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2686 nested-atomic-chemical-formula _Chemical-Formula2667)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity2686)) and (the has-chemical-formula of _Chemical-Entity2686) (@ _Chemical-Entity2686 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity2686)))) (@ _Chemical-Entity2686 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity2686 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2686 has-chemical-formula _Chemical-Formula2665)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 Na-Plus) (:pair 1 CO3-Minus-2)))) (@ _Chemical-Entity2686 Na2CO3 has-chemical-formula))))
+(explanation (:triple _Chemical-Entity2686 has-chemical-formula _Chemical-Formula2665)
+  ((if ((the has-part of _Chemical-Entity2686) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity2686)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity2686)))) (@ _Chemical-Entity2686 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity2686) (the Anion has-part of _Chemical-Entity2686)))) (@ _Chemical-Entity2686 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity2686) (@ _Chemical-Entity2686 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity2686 instance-of Na2CO3)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical-Entity2686 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2688 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity2680 instance-of AgCl)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical-Entity2680 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2679 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2679 has-basic-structural-unit _Chemical-Entity2680)
+  ((a Chemical-Entity (@ _Chemical2679 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2679 instance-of Entity)
+  ((a Entity (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Event (result must-be-a)))))
+(explanation (:triple _Chemical2679 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2679 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1Ag2CO32NaCl--2AgCl1Na2CO32623 Reaction result))))
+(explanation (:triple _Chemical2679 coefficient _Coefficient-Value2678)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Chemical2679 instance-of Chemical)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Coefficient-Value2678 value (:pair 2 *unity))
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+(explanation (:triple _Coefficient-Value2678 instance-of Coefficient-Value)
+  ((added-at Reaction-1Ag2CO32NaCl--2AgCl1Na2CO3 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

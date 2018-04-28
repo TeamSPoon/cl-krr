@@ -1,0 +1,14 @@
+;; $Id: HSeO4-Minus-Substance.km,v 1.6 2008/11/29 03:57:54 tecuci Exp $ 
+(HSeO4-Minus-Substance has (superclasses (Anion-Substance)))
+(every HSeO4-Minus-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 2.2e-2 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("hydrogen selenate"))
+	(has-basic-structural-unit ((a HSeO4-Minus)))
+)
+(every HSeO4-Minus-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a HSeO4-Minus))))

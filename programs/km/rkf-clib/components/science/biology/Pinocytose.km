@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Pinocytose.km,v 1.6 2001/05/11 06:41:36 souther Exp $ 
+;; 
+
+;; Not yet released:
+;; - need to specify that the object of a Pinocytose is "surrounded by water"
+
+(Pinocytose has
+       (superclasses   (Endocytose))
+       (required-slot  (object destination))
+       (primary-slot   (agent origin path))
+       (secondary-slot ())
+       (description ("Uptake of fluid by a cell by means of endocytosis
+                      Alberts:ECB:G-14.")) )
+
+
+(every Pinocytose has
+       (agent ((a Cell)))
+       (object ((a Soluble-Substance)))
+       (destination ((a Place with
+                        (is-inside ((the Cell agent of Self))))))
+       )
+
+
+
+
+
+
+

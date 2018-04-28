@@ -1,0 +1,141 @@
+;; 
+;;    $Id: Glucose.km,v 1.11 2001/06/04 19:24:29 pzyeh Exp $ 
+;; 
+
+(Glucose has
+	 (superclasses (Hexose))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+   (description ("A six-carbon sugar that plays a major role in the metabolism
+                  of living cells. Stored in polymeric form as glycogen in
+                  animal cells and as starch in plants.  Alberts:ECB:G-8.")) 
+
+	 (cmap-correspondence ()))
+
+(every Glucose has
+       (has-part
+        (
+         (a Oxygen-Atom uniquely-called "Ring-Oxygen" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-1")))
+                 (instrument 	((a Covalent-CO-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Covalent-CO-Bond)))) )))
+	 
+         (a Carbon-Atom uniquely-called "Carbon-1" with
+            (object-of
+             (
+              (a Be-Attached-To with                        
+                 (object 	(((the has-part of Self) uniquely-called "Ring-Oxygen")))
+                 (instrument 	((a Covalent-CO-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydroxyl-Group")))
+                 (instrument 	((a Covalent-CO-Bond))))
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))))))
+
+         (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-1")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-3")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object	(((the has-part of Self) uniquely-called "C2-Hydroxyl-Group")))
+                 (instrument 	((a Covalent-CO-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))))))
+	 
+         (a Carbon-Atom uniquely-called "Carbon-3" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C3-Hydroxyl-Group")))
+                 (instrument 	((a Covalent-CO-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C3-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))))))   
+
+         (a Carbon-Atom uniquely-called "Carbon-4" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-3")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C4-Hydroxyl-Group")))
+                 (instrument 	((a Covalent-CO-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C4-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))))))
+
+         (a Carbon-Atom uniquely-called "Carbon-5" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-6")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with                        
+                 (object 	(((the has-part of Self) uniquely-called "Ring-Oxygen")))
+                 (instrument 	((a Covalent-CO-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C5-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))))))
+
+         (a Carbon-Atom uniquely-called "Carbon-6" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C6-Hydroxyl-Group")))
+                 (instrument 	((a Covalent-CO-Bond))) ) 
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C6-Hydrogen-1")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To with
+		 (object 	(((the has-part of Self) uniquely-called "C6-Hydrogen-2")))
+                 (instrument 	((a Covalent-CH-Bond)))))))
+	 
+         (a Hydrogen-Atom uniquely-called "C1-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C2-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C3-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C4-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C5-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C6-Hydrogen-1")
+         (a Hydrogen-Atom uniquely-called "C6-Hydrogen-2")
+         (a Hydroxyl-Group uniquely-called "C1-Hydroxyl-Group")
+         (a Hydroxyl-Group uniquely-called "C2-Hydroxyl-Group")
+         (a Hydroxyl-Group uniquely-called "C3-Hydroxyl-Group")
+         (a Hydroxyl-Group uniquely-called "C4-Hydroxyl-Group")
+         (a Hydroxyl-Group uniquely-called "C6-Hydroxyl-Group")
+    )))
+
+
+
+

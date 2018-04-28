@@ -1,0 +1,20 @@
+;; $Id: Cu-Plus-2.km,v 1.5 2008/05/15 17:19:10 kunal Exp $ 
+(Cu-Plus-2 has (superclasses (Metal-Cation)))
+(every Cu-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *unity))))))
+	(has-chemical-name ("copper(II)"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cu)))))))
+        (is-ion-of ((a Cu)))
+)
+
+(every Cu-Plus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("copper(II)"))
+)
+
+
+
+(Cu-Plus-2 has (wn20-synset ((:triple "Cu+2" 0 "n"))))

@@ -1,0 +1,229 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1Cu_OH_2--1CuO1H2O ----------
+
+(Reaction-1Cu_OH_2--1CuO1H2O has (superclasses (Reaction)))
+
+(_Reaction-1Cu_OH_2--1CuO1H2O5483 has 
+  (instance-of (Reaction-1Cu_OH_2--1CuO1H2O))
+  (prototype-of (Reaction-1Cu_OH_2--1CuO1H2O))
+  (prototype-scope (Reaction-1Cu_OH_2--1CuO1H2O))
+  (prototype-participants (_Property-Node5554
+                           _Property-Node5553
+                           _Property-Node5552
+                           _Chemical5550
+                           _Coefficient-Value5549
+                           _Chemical-Entity5548
+                           _Chemical-Entity5543
+                           _Chemical5541
+                           _Coefficient-Value5540
+                           _Chemical-Entity5538
+                           _Chemical5537
+                           _Coefficient-Value5536
+                           _Reaction-1Cu_OH_2--1CuO1H2O5483))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483))
+  (big-nodes (_Property-Node5552
+              _Property-Node5553
+              _Property-Node5554))
+  (raw-material (_Chemical5550))
+  (result (_Chemical5537
+           _Chemical5541))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical5537 t)
+                    (:seq raw-material _Chemical5550 t)
+                    (:seq result _Chemical5541 t))))
+
+(_Property-Node5554 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5540))
+  (contains-edge ((:triple _Coefficient-Value5540 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Cu_OH_2--1CuO1H2O5483))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Property-Node5553 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5536))
+  (contains-edge ((:triple _Coefficient-Value5536 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Cu_OH_2--1CuO1H2O5483))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Property-Node5552 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5549))
+  (contains-edge ((:triple _Coefficient-Value5549 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Cu_OH_2--1CuO1H2O5483))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Chemical5550 has 
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1Cu_OH_2--1CuO1H2O5483))
+  (has-basic-structural-unit (_Chemical-Entity5548))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value5549))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5549 t)))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Coefficient-Value5549 has 
+  (contains-node-of (_Property-Node5552))
+  (coefficient-of (_Chemical5550))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Chemical-Entity5548 has 
+  (is-basic-structural-unit-of (_Chemical5550))
+  (instance-of (Chemical-Entity
+                Cu_OH_2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Chemical-Entity5543 has 
+  (instance-of (Chemical-Entity
+                H2O))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5541))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Chemical5541 has 
+  (has-basic-structural-unit (_Chemical-Entity5543))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value5540))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5540 t)))
+  (result-of (_Reaction-1Cu_OH_2--1CuO1H2O5483))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Coefficient-Value5540 has 
+  (contains-node-of (_Property-Node5554))
+  (coefficient-of (_Chemical5541))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Chemical-Entity5538 has 
+  (instance-of (Chemical-Entity
+                CuO))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5537))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Chemical5537 has 
+  (has-basic-structural-unit (_Chemical-Entity5538))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1Cu_OH_2--1CuO1H2O5483))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value5536))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5536 t)))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(_Coefficient-Value5536 has 
+  (contains-node-of (_Property-Node5553))
+  (coefficient-of (_Chemical5537))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Cu_OH_2--1CuO1H2O5483)))
+
+(explanation (:triple _Reaction-1Cu_OH_2--1CuO1H2O5483 result _Chemical5541)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Reaction-1Cu_OH_2--1CuO1H2O5483 raw-material _Chemical5550)
+  ((a Chemical (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction raw-material))))
+(explanation (:triple _Reaction-1Cu_OH_2--1CuO1H2O5483 result _Chemical5537)
+  ((a Chemical (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction result))))
+(explanation (:triple _Reaction-1Cu_OH_2--1CuO1H2O5483 chemical-equation _Chemical-Equation-Expression5485)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1Cu_OH_2--1CuO1H2O5483) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1Cu_OH_2--1CuO1H2O5483) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1Cu_OH_2--1CuO1H2O5483) (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1Cu_OH_2--1CuO1H2O5483 instance-of Reaction-1Cu_OH_2--1CuO1H2O)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical5550 has-basic-structural-unit _Chemical-Entity5548)
+  ((a Chemical-Entity (@ _Chemical5550 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5550 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical5550 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction raw-material))))
+(explanation (:triple _Chemical5550 coefficient _Coefficient-Value5549)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical5550 instance-of Chemical)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Coefficient-Value5549 value (:pair 1 *unity))
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Coefficient-Value5549 instance-of Coefficient-Value)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical-Entity5548 atomic-chemical-formula _Chemical-Formula5534)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity5548)) or (the term of (the has-chemical-formula of _Chemical-Entity5548)) (@ _Chemical-Entity5548 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5548)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5548))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity5548)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity5548)))))))))) (@ _Chemical-Entity5548 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity5548 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity5548 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5548 nested-atomic-chemical-formula _Chemical-Formula5525)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity5548)) and (the has-chemical-formula of _Chemical-Entity5548) (@ _Chemical-Entity5548 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity5548)))) (@ _Chemical-Entity5548 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity5548 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5548 has-chemical-formula _Chemical-Formula5523)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Cu-Plus-2) (:pair 2 OH-Minus)))) (@ _Chemical-Entity5548 Cu_OH_2 has-chemical-formula))))
+(explanation (:triple _Chemical-Entity5548 has-chemical-formula _Chemical-Formula5523)
+  ((if ((the has-part of _Chemical-Entity5548) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity5548)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity5548)))) (@ _Chemical-Entity5548 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity5548) (the Anion has-part of _Chemical-Entity5548)))) (@ _Chemical-Entity5548 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity5548) (@ _Chemical-Entity5548 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity5548 instance-of Cu_OH_2)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical-Entity5548 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5550 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity5543 atomic-chemical-formula _Chemical-Formula5510)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity5543)) or (the term of (the has-chemical-formula of _Chemical-Entity5543)) (@ _Chemical-Entity5543 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5543)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5543))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity5543)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity5543)))))))))) (@ _Chemical-Entity5543 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity5543 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity5543 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5543 nested-atomic-chemical-formula _Chemical-Formula5508)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 O)))) (@ _Chemical-Entity5543 H2O nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5543 instance-of H2O)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical-Entity5543 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5541 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5541 instance-of Entity)
+  ((a Entity (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Event (result must-be-a)))))
+(explanation (:triple _Chemical5541 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical5541 coefficient _Coefficient-Value5540)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical5541 has-basic-structural-unit _Chemical-Entity5543)
+  ((a Chemical-Entity (@ _Chemical5541 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5541 instance-of Chemical)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Coefficient-Value5540 value (:pair 1 *unity))
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Coefficient-Value5540 instance-of Coefficient-Value)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical-Entity5538 instance-of CuO)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical-Entity5538 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5537 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5537 has-basic-structural-unit _Chemical-Entity5538)
+  ((a Chemical-Entity (@ _Chemical5537 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5537 instance-of Entity)
+  ((a Entity (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Event (result must-be-a)))))
+(explanation (:triple _Chemical5537 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical5537 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1Cu_OH_2--1CuO1H2O5483 Reaction result))))
+(explanation (:triple _Chemical5537 coefficient _Coefficient-Value5536)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Chemical5537 instance-of Chemical)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Coefficient-Value5536 value (:pair 1 *unity))
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+(explanation (:triple _Coefficient-Value5536 instance-of Coefficient-Value)
+  ((added-at Reaction-1Cu_OH_2--1CuO1H2O "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

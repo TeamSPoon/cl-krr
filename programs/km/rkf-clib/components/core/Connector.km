@@ -1,0 +1,45 @@
+;; 
+;;    $Id: Connector.km,v 1.13 2004/07/20 22:28:56 gking Exp $ 
+;; 
+
+(Connector has
+         (superclasses (Role))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Connector has
+       	(in-event ((a Be-Attached-To)))
+	(played-by ((a Tangible-Entity with
+		(instrument-of ((the in-event of Self)))))))
+	
+
+
+;; automatically added WN synsets
+(Connector has (wn16-synset ((:set  
+                                        (:triple "connector" 1 "n")
+                                        (:triple "connection" 3 "n")
+                                        (:triple "connexion" 4 "n")
+                                        (:triple "connecter" 1 "n")
+                                        (:triple "connective" 2 "n")
+                                        (:triple "fastener" 1 "n")
+                                        (:triple "fastening" 1 "n")
+                                        (:triple "holdfast" 1 "n")
+                                        (:triple "link" 1 "n")
+                                        (:triple "nexus" 1 "n")
+))))
+
+(Connector has (wn20-synset ((:set
+                                        (:triple "connector" 1 "n")
+                                        (:triple "connection" 3 "n")
+                                        (:triple "connexion" 4 "n")
+                                        (:triple "connecter" 1 "n")
+                                        (:triple "connective" 2 "n")
+                                        (:triple "fastener" 2 "n")
+                                        (:triple "fastening" 1 "n")
+                                        (:triple "holdfast" 1 "n")
+                                        (:triple "link" 1 "n")
+                                        (:triple "nexus" 1 "n")
+))))

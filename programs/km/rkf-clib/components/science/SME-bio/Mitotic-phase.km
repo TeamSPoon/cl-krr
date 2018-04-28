@@ -1,0 +1,75 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Mitotic-phase ----------
+
+(Mitotic-phase has (superclasses (Event)))
+
+(_Mitotic-phase2233 has 
+  (instance-of (Mitotic-phase))
+  (prototype-of (Mitotic-phase))
+  (prototype-scope (Mitotic-phase))
+  (prototype-participants (_Cytokinesis2239
+                           _Mitosis2238
+                           _Mitotic-phase2233))
+  (prototype-participant-of (_Mitotic-phase2233))
+  (has-clones (_Placeholder-Class22322234))
+  (has-built-clones (_Placeholder-Class22322234))
+  (subevent (_Mitosis2238
+             _Cytokinesis2239))
+  (first-subevent (_Mitosis2238))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq subevent _Cytokinesis2239 243 601)
+                    (:seq subevent _Mitosis2238 243 601)
+                    (:seq first-subevent _Mitosis2238 139 473)))
+  (edge-visibility ((:seq subevent _Cytokinesis2239 t)
+                    (:seq subevent _Mitosis2238 t)
+                    (:seq first-subevent _Mitosis2238 t)))
+  (edge-never-visible ((:seq subevent _Cytokinesis2239 t)
+                       (:seq subevent _Mitosis2238 t)
+                       (:seq first-subevent _Mitosis2238 f)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600))))
+
+(_Cytokinesis2239 has 
+  (instance-of (Cytokinesis))
+  (has-clones (_Cytokinesis2236))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (subevent-of (_Mitotic-phase2233))
+  (prev-event (_Mitosis2238))
+  (node-coordinate ((:pair 290 662)))
+  (prototype-participant-of (_Mitotic-phase2233)))
+
+(_Mitosis2238 has 
+  (next-event (_Cytokinesis2239))
+  (instance-of (Mitosis))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (first-subevent-of (_Mitotic-phase2233))
+  (subevent-of (_Mitotic-phase2233))
+  (edge-coordinate ((:seq next-event _Cytokinesis2239 341 599)))
+  (edge-visibility ((:seq next-event _Cytokinesis2239 t)))
+  (edge-never-visible ((:seq next-event _Cytokinesis2239 t)))
+  (node-coordinate ((:pair 283 532)))
+  (prototype-participant-of (_Mitotic-phase2233)))
+
+(explanation (:triple _Mitotic-phase2233 subevent _Cytokinesis2239) ((added-at Mitotic-phase "User defined")))
+(explanation (:triple _Mitotic-phase2233 subevent _Mitosis2238) ((the first-subevent of _Mitotic-phase2233 (@ _Mitotic-phase2233 Event subevent))))
+(explanation (:triple _Mitotic-phase2233 subevent _Mitosis2238) ((the first-subevent of _Mitotic-phase2233)))
+(explanation (:triple _Mitotic-phase2233 first-subevent _Mitosis2238) ((added-at Mitotic-phase "User defined")))
+(explanation (:triple _Mitotic-phase2233 instance-of Mitotic-phase) ((added-at Mitotic-phase "User defined")))
+(explanation (:triple _Cytokinesis2239 instance-of Event) ((a Event with (time-during ((a Time-Interval with (time-after ((the time-during of _Mitosis2238 (@ _Mitosis2238 Event (next-event must-be-a) Event time-during Time-Interval time-after)))) (@ _Mitosis2238 Event (next-event must-be-a) Event time-during)))) (@ _Mitosis2238 Event (next-event must-be-a)))))
+(explanation (:triple _Cytokinesis2239 instance-of Event) ((a Event (@ _Mitotic-phase2233 Event (subevent must-be-a)))))
+(explanation (:triple _Cytokinesis2239 instance-of Cytokinesis) ((added-at Mitotic-phase "User defined")))
+(explanation (:triple _Mitosis2238 next-event _Cytokinesis2239) ((added-at Mitotic-phase "User defined")))
+(explanation (:triple _Mitosis2238 instance-of Event) ((a Event (@ _Mitotic-phase2233 Event (subevent must-be-a)))))
+(explanation (:triple _Mitosis2238 instance-of Mitosis) ((added-at Mitotic-phase "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

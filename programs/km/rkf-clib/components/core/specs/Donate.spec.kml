@@ -1,0 +1,68 @@
+<!--- $Id: Donate.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Donate>
+<superconcept name=Give>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Donate>
+  <definition>intentional change of possession of a beneficial object
+by the <slot>donor</slot> to a <slot>recipient</slot>.</definition>
+  <requiredslot name=beneficiary>
+    <restriction>if = <slot>recipient</slot> then <slot>possess</slot>es <slot>object</slot> after Donate</restriction> 
+    <restriction>if != <slot>recipient</slot> then does not <slot>possess</slot> <slot>object</slot> after Donate</restriction> 
+  </requiredslot>
+  <requiredslot name=recipient>
+    <inheritedfrom name=Give>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Donate</restriction>
+  </requiredslot>  
+  <requiredslot name=agent>
+    <inheritedfrom name=Give>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+    <restriction>= <slot>donor</slot>
+  </requiredslot>
+  <requiredslot name=donor>
+    <inheritedfrom name=Give>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Donate</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Give>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Give>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>donate#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=donate2>
+  <sense-definition>to make a gift of; especially: to contribute to a public or charitable cause
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=donate3>
+  <sense-definition>to transfer (as electrons) to another atom or molecule
+</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNdonate#1><equiv tag={donate1, donate2}></sense>
+
+</senselist>
+</reference>
+</kml>
+
+

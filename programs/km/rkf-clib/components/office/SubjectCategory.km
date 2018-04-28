@@ -1,0 +1,12 @@
+;; 
+;; $Id: SubjectCategory.km,v 1.1 2004/12/09 22:13:25 kbarker Exp $
+;; 
+
+;; IRIS_class: SubjectCategory
+
+(SubjectCategory has
+  (superclasses (Annotation)))
+
+(hasClassificationSystem has (instance-of (Interface-Slot)) (inverse (isClassificationSystemOf)) (domain (SubjectCategory)) (range (ClassificationSystem)) (cardinality (N-to-N)))
+(hasSubjectCategoryID has (instance-of (Interface-Slot)) (domain (SubjectCategory)) (range (String)) (cardinality (N-to-1)))
+

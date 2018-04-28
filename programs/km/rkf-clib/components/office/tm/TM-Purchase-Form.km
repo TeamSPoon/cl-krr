@@ -1,0 +1,19 @@
+;;    $Id: TM-Purchase-Form.km,v 1.5 2004/09/13 05:23:13 pzyeh Exp $ 
+
+(TM-Purchase-Form has (superclasses (TM-Task-Model)))
+
+(every TM-Purchase-Form has
+       ;; the object corresponds to $item. 
+       ;; Also fulfills precondition, must be a laptop conputer.
+       (object ((must-be-a Laptop-Computer)
+		(a Laptop-Computer)))
+
+       (duration 	((a Duration-Value)))
+
+       ;; postcondition: currently unspecified
+       (first-subevent ((the TM-Purchase subevent of Self)))
+
+       (subevent ((a TM-Purchase with 
+		     (base ((the base of Self)))
+       )))
+)

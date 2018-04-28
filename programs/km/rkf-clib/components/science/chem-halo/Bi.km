@@ -1,0 +1,14 @@
+;;
+;; $Id: Bi.km,v 1.3 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Bi has (superclasses (Metal-Atom VA-Element)))
+(every Bi has
+       (atomic-symbol (Bi))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 83 NIL))))))
+       (chemical-period (6)))
+(every Bi has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("bismuth"))
+)

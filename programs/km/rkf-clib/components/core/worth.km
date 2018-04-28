@@ -1,0 +1,27 @@
+;; 
+;; $Id: worth.km,v 1.6 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(worth has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Entity))    
+   (range       (Worth-Value))
+   (scale-class (Worth-Scale))
+   (scalar-constant-class (Worth-Constant))
+   (cardinal-unit-class   (UoM-Worth))
+   (inverse 	(worth-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1))
+   (original-slot      (t))	
+)
+
+(worth-of has
+	(instance-of (EntityProperty)))
+
+(worth has (wn20-synset ((:set
+                               (:triple "worth" 1 "n")
+))))
+

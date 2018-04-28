@@ -1,0 +1,12 @@
+;;
+;; $Id: Electronegativity-Value.km,v 1.2 2007/05/21 04:43:14 mrglass Exp $
+;;
+
+(Electronegativity-Value has
+			 (superclasses (Property-Value)))
+
+(every Electronegativity-Value has
+  (property-slot (electronegativity))
+)
+
+(Electronegativity-Value has (description ("A measurement of how much an atom tends to steal electrons from atoms that it's bonded to. Elements at the top right of the periodic table (excluding the noble gases) are very electronegative while atoms in the bottom left are not very electronegative (aka "electropositive").")))

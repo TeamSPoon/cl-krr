@@ -1,0 +1,14 @@
+;;
+;;  $Id: Charge-Value.km,v 1.4 2005/02/14 22:39:43 kbarker Exp $
+;;
+
+(Charge-Value has
+	      (superclasses (Property-Value)))
+
+(every Charge-Value has
+  (property-slot (charge))
+       (charge-of ((must-be-a Chemical-Entity)))
+       (less-than ((must-be-a Charge-Value)))
+       (greater-than ((must-be-a Charge-Value)))
+       (same-as ((must-be-a Charge-Value)))
+)

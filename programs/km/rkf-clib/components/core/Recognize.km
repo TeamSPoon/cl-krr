@@ -1,0 +1,57 @@
+;; 
+;;    $Id: Recognize.km,v 1.13 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Recognize has
+     (superclasses        (Perceive))
+     (required-slot       (object))
+     (primary-slot        (agent))
+     (secondary-slot      ())
+     (cmap-correspondence (
+                           (:seq agent "the recognizer")
+                           (:seq object "the recognized")
+                          ))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Recognize has
+  (object ((a Entity)))
+  (agent ((must-be-a Tangible-Entity)))
+  
+  (soft-pcs-list ((if (has-value (the agent of Self))
+		      then
+		      (:triple (the agent of Self)
+			       experiencer
+			       (a Be-Known with
+				  (object ((a Information with
+					      (information-content (the object of Self))))))))))
+  
+)
+
+(every Recognize has
+  (text-active-verbseq-sg ("recognizes"))
+  (text-active-verbseq-pl ("recognize"))
+  (text-passive-verbseq-sg ("is recognized"))
+  (text-passive-verbseq-pl ("are recognized"))
+)
+
+(Recognize has (wn20-synset ((:set
+			    	 (:triple "acknowledge" 6 "v")
+			    	 (:triple "recognize" 1 "v")
+			    	 (:triple "recognise" 8 "v")
+			    	 (:triple "know" 6 "v")
+			    	 (:triple "recognize" 3 "v")
+			    	 (:triple "recognise" 3 "v")
+			    	 (:triple "distinguish" 2 "v")
+			    	 (:triple "discern" 1 "v")
+			    	 (:triple "pick_out" 2 "v")
+			    	 (:triple "make_out" 1 "v")
+			    	 (:triple "tell_apart" 1 "v")
+			    	 (:triple "acknowledge" 4 "v")
+			    	 (:triple "recognize" 7 "v")
+			    	 (:triple "recognise" 5 "v")
+			    	 (:triple "recognize" 9 "v")
+			    	 (:triple "recognise" 1 "v")
+))))
+
+(every Recognize has (text-nominalization ("recognition")))

@@ -1,0 +1,51 @@
+
+;;
+;;  $Id: Canalize.km,v 1.14 2005/11/07 20:38:02 kbarker Exp $
+;;
+
+(Canalize has
+  (superclasses (Engagement-Military-Task Confine))
+  (description ("a tactical mission task in which a military unit restricts enemy movement to a narrow zone"))
+)
+
+(every Canalize has
+  (agent ((a Military-Unit)))
+  (object ((a Military-Unit)))
+  (object ((set-constraint
+              (((the number of 
+                     (the value of (the allegiance of TheValues))) <= 1)
+               and
+              (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+  (enemy ((the object of Self)))
+
+  (base ((a Terrain with 
+            (width ((a Length-Value with (value ((:pair *narrow Terrain))))))
+  )))
+
+  (required-force-ratio 
+     ((a Required-Force-Ratio-Value with
+         (value ((:pair 0.3 NIL))))))
+
+  (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                            (value ((:pair 0.9 NIL))))))
+  (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                            (value ((:pair 0.7 NIL))))))
+
+
+  (text-nominalization ("canalization"))
+  (text-active-verbseq-sg ("canalizes"))
+  (text-active-verbseq-pl ("canalize"))
+
+  (text-base ("in"))
+  (text-argslots ((:seq base path)))
+)
+
+

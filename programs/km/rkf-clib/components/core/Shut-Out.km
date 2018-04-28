@@ -1,0 +1,96 @@
+;; 
+;;    $Id: Shut-Out.km,v 1.28 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Shut-Out has
+	  (superclasses		(Obstruct))
+	  (required-slot   	(object base))
+	  (primary-slot 	(agent))
+	  (secondary-slot      	())
+	  (cmap-correspondence 	(
+				 (:seq object "the thing Shut-Out")
+				 (:seq base "the enclosure")
+				 (:seq agent "the Out-Shutter")
+				 ))
+        #|(sentence-type (*punctual *conclusive))|#
+	  )
+
+(every Shut-Out has
+       (resulting-state ((a Be-Shut-Out)))
+       (base            ((a Tangible-Entity
+                          with
+                            (plays ((a Container)))
+       )))
+
+       (object 	        ((a Tangible-Entity)))
+
+       (ncs-list 	((forall (the object of Self) 
+                                 (:triple It is-inside (the base of Self) [Shut-Out-ncs-1]))
+       ))
+
+       (add-list 	((forall (the object of Self) 
+				 (:triple
+				    It
+				    object-of
+				    (the resulting-state of Self) [Shut-Out-add-1]))
+			  (:triple
+			     (the base of Self)
+			     base-of
+			     (the resulting-state of Self) [Shut-Out-add-2]))))
+
+(comment [Shut-Out-ncs-1] (:seq (the object of Self) " cannot be inside something.")
+	 "A Tangible-Entity cannot be shut out of another Tangible-Entity if it is already inside of it.")
+
+(comment [Shut-Out-add-1] (:seq (the object of Self) " is now shut out of " (the base of Self))
+	 "A shut out causes a Tangible-Entity to be shut out of another Tangible-Entity.")
+
+(comment [Shut-Out-add-2] (:seq (the base of Self) " now shuts out " (the object of Self))
+	 "A shut out causes a Tangible-Entity to be shut out of another Tangible-Entity.")
+
+(every Shut-Out has
+  (text-active-verbseq-sg ("shuts out"))
+  (text-active-verbseq-pl ("shut out"))
+  (text-passive-verbseq-sg ("gets shut out"))
+  (text-passive-verbseq-pl ("get shut out"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("of"))))
+
+)
+
+(every Shut-Out has
+       (preparatory-event ((:default
+			  (a Admit with
+			     (base ((the base of Self)))
+			     (object ((the object of Self))))
+			  (a Exit with
+			     (base ((the base of Self)))
+			     (object ((the object of Self))))
+))))
+
+
+
+;; nothing extra to say about contextual info
+
+(Shut-Out has (test-case ()))
+
+
+
+
+
+
+;; automatically added WN synsets
+(Shut-Out has (wn16-synset ((:set  
+                                       (:triple "shut_out" 1 "v")
+                                       (:triple "exclude" 2 "v")
+                                       (:triple "keep_out" 1 "v")
+                                       (:triple "shut" 3 "v")
+))))
+
+(Shut-Out has (wn20-synset ((:set
+                                       (:triple "shut_out" 1 "v")
+                                       (:triple "exclude" 2 "v")
+                                       (:triple "keep_out" 1 "v")
+                                       (:triple "shut" 3 "v")
+))))
+(every Shut-Out has (text-nominalization ("shutting")))

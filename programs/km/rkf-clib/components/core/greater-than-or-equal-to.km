@@ -1,0 +1,20 @@
+
+;;
+;; $Id: greater-than-or-equal-to.km,v 1.6 2007/05/30 16:00:10 kbarker Exp $
+;;
+
+(greater-than-or-equal-to has
+  (instance-of (Property-Relation))      ; not a property (even though domain is Value)
+  (domain (Property-Value))
+  (range (Property-Value))
+  (inverse (less-than-or-equal-to))
+  (cardinality (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Inertial-Fluent))
+)
+
+(greater-than-or-equal-to has (text-gloss ("is greater than or equal to")))
+(less-than-or-equal-to has (text-gloss ("is less than or equal to")))
+
+(less-than-or-equal-to has
+	(instance-of (Property-Relation)))

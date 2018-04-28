@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Allosteric-Protein.km,v 1.11 2001/05/31 21:49:52 pnav Exp $ 
+;; 
+
+(Allosteric-Protein has
+         (superclasses (Protein))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Protein that exists in two or more conformations
+                        depending on the binding of a molecule (a ligand) at a
+                        regulatory site.  Allosteric proteins composed of 
+                        multiple subunits often display a cooperative response
+                        to ligand binding.  Modified from Alberts:ECB:G-1."))
+         (test-case ()))
+
+(every Allosteric-Protein has
+        (has-region ((a Binding-Site)
+                 (a Regulatory-Site)
+                 (at-least 2 Binding-Site) )))
+
+
+

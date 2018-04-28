@@ -1,0 +1,121 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Hg2_NO3_2 ----------
+
+(Hg2_NO3_2 has (superclasses (Ionic-Compound)))
+
+(_Hg2_NO3_28726 has 
+  (instance-of (Hg2_NO3_2))
+  (prototype-of (Hg2_NO3_2))
+  (prototype-scope (Hg2_NO3_2))
+  (prototype-participants (_Property-Node8804
+                           _Cation8803
+                           _Charge-Value8802
+                           _Anion8801
+                           _Charge-Value8800
+                           _Hg2_NO3_28726))
+  (prototype-participant-of (_Hg2_NO3_28726))
+  (big-nodes (_Property-Node8804))
+  (has-part (_Anion8801
+             _Cation8803))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Cation8803 t)
+                    (:seq has-part _Anion8801 t)))
+  (internally-expanded (t)))
+
+(_Property-Node8804 has 
+  (instance-of (Property-Node))
+  (big-node-of (_Hg2_NO3_28726))
+  (node-visibility (t))
+  (contains-node (_Charge-Value8802))
+  (prototype-participant-of (_Hg2_NO3_28726)))
+
+(_Cation8803 has 
+  (instance-of (Cation
+                Hg-Plus-2))
+  (is-part-of (_Hg2_NO3_28726))
+  (charge (_Charge-Value8802))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Hg2_NO3_28726)))
+
+(_Charge-Value8802 has 
+  (contains-node-of (_Property-Node8804))
+  (charge-of (_Cation8803))
+  (instance-of (Charge-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Hg2_NO3_28726)))
+
+(_Anion8801 has 
+  (instance-of (Anion
+                NO3-Minus))
+  (is-part-of (_Hg2_NO3_28726))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (charge (_Charge-Value8800))
+  (prototype-participant-of (_Hg2_NO3_28726)))
+
+(_Charge-Value8800 has 
+  (charge-of (_Anion8801))
+  (instance-of (Charge-Value))
+  (value ((:pair -1 *unity)))
+  (prototype-participant-of (_Hg2_NO3_28726)))
+
+(explanation (:triple _Hg2_NO3_28726 nested-atomic-chemical-formula _Chemical-Formula8797)
+  ((_Chemical-Formula8797)))
+(explanation (:triple _Hg2_NO3_28726 atomic-chemical-formula _Chemical-Formula8798)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Hg2_NO3_28726)) or (the term of (the has-chemical-formula of _Hg2_NO3_28726)) (@ _Hg2_NO3_28726 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Hg2_NO3_28726)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Hg2_NO3_28726))))))) else (if (the term of (the has-chemical-formula of _Hg2_NO3_28726)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Hg2_NO3_28726)))))))))) (@ _Hg2_NO3_28726 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Hg2_NO3_28726 Chemical-Entity atomic-chemical-formula)) (@ _Hg2_NO3_28726 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Hg2_NO3_28726 nested-atomic-chemical-formula _Chemical-Formula8797)
+  ((if ((not (the nested-atomic-chemical-formula of _Hg2_NO3_28726)) and (the has-chemical-formula of _Hg2_NO3_28726) (@ _Hg2_NO3_28726 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Hg2_NO3_28726)))) (@ _Hg2_NO3_28726 Ionic-Compound nested-atomic-chemical-formula)) (@ _Hg2_NO3_28726 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Hg2_NO3_28726 has-chemical-formula _Chemical-Formula8799)
+  ((if ((the has-part of _Hg2_NO3_28726) and (has-value (the value of (the charge of (the Cation has-part of _Hg2_NO3_28726)))) and (has-value (the value of (the charge of (the Anion has-part of _Hg2_NO3_28726)))) (@ _Hg2_NO3_28726 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Hg2_NO3_28726) (the Anion has-part of _Hg2_NO3_28726)))) (@ _Hg2_NO3_28726 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Hg2_NO3_28726) (@ _Hg2_NO3_28726 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Hg2_NO3_28726 has-chemical-name ("mercury(II) nitrate"))
+  ((added-at Hg2_NO3_2 "User defined")))
+(explanation (:triple _Hg2_NO3_28726 has-chemical-name "mercury(II) nitrate")
+  (("mercury(II) nitrate")))
+(explanation (:triple _Hg2_NO3_28726 has-part _Cation8803)
+  ((a Cation (@ _Hg2_NO3_28726 Ionic-Compound has-part))))
+(explanation (:triple _Hg2_NO3_28726 has-part _Anion8801)
+  ((a Anion (@ _Hg2_NO3_28726 Ionic-Compound has-part))))
+(explanation (:triple _Hg2_NO3_28726 instance-of Hg2_NO3_2)
+  ((added-at Hg2_NO3_2 "User defined")))
+(explanation (:triple _Cation8803 charge _Charge-Value8802)
+  ((a Charge-Value with (value ((:pair 2 *unity))) (@ _Cation8803 Hg-Plus-2 charge))))
+(explanation (:triple _Cation8803 has-chemical-formula _Chemical-Formula8761)
+  ((if ((not (the has-chemical-formula of _Cation8803)) and (the nested-atomic-chemical-formula of _Cation8803) (@ _Cation8803 Ion has-chemical-formula)) then (the nested-atomic-chemical-formula of _Cation8803 (@ _Cation8803 Ion has-chemical-formula)) (@ _Cation8803 Ion has-chemical-formula))))
+(explanation (:triple _Cation8803 nested-atomic-chemical-formula _Chemical-Formula8761)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Hg)))) (@ _Cation8803 Hg-Plus-2 nested-atomic-chemical-formula))))
+(explanation (:triple _Cation8803 instance-of Hg-Plus-2)
+  ((added-at Hg2_NO3_2 "User defined")))
+(explanation (:triple _Cation8803 charge _Charge-Value8802)
+  ((a Charge-Value (@ _Cation8803 Ion charge))))
+(explanation (:triple _Cation8803 instance-of Cation)
+  ((a Cation (@ _Hg2_NO3_28726 Ionic-Compound has-part))))
+(explanation (:triple _Charge-Value8802 instance-of Charge-Value)
+  ((a Charge-Value with (value ((:pair 2 *unity))) (@ _Cation8803 Hg-Plus-2 charge))))
+(explanation (:triple _Charge-Value8802 instance-of Charge-Value)
+  ((a Charge-Value (@ _Cation8803 Ion charge))))
+(explanation (:triple _Anion8801 charge _Charge-Value8800)
+  ((a Charge-Value (@ _Anion8801 Ion charge))))
+(explanation (:triple _Anion8801 charge _Charge-Value8800)
+  ((a Charge-Value with (value ((:pair -1 *unity))) (@ _Anion8801 NO3-Minus charge))))
+(explanation (:triple _Anion8801 has-chemical-formula _Chemical-Formula8759)
+  ((if ((not (the has-chemical-formula of _Anion8801)) and (the nested-atomic-chemical-formula of _Anion8801) (@ _Anion8801 Ion has-chemical-formula)) then (the nested-atomic-chemical-formula of _Anion8801 (@ _Anion8801 Ion has-chemical-formula)) (@ _Anion8801 Ion has-chemical-formula))))
+(explanation (:triple _Anion8801 nested-atomic-chemical-formula _Chemical-Formula8759)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 3 O)))) (@ _Anion8801 NO3-Minus nested-atomic-chemical-formula))))
+(explanation (:triple _Anion8801 instance-of NO3-Minus)
+  ((added-at Hg2_NO3_2 "User defined")))
+(explanation (:triple _Anion8801 instance-of Anion)
+  ((a Anion (@ _Hg2_NO3_28726 Ionic-Compound has-part))))
+(explanation (:triple _Charge-Value8800 instance-of Charge-Value)
+  ((a Charge-Value (@ _Anion8801 Ion charge))))
+(explanation (:triple _Charge-Value8800 instance-of Charge-Value)
+  ((a Charge-Value with (value ((:pair -1 *unity))) (@ _Anion8801 NO3-Minus charge))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

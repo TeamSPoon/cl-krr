@@ -1,0 +1,26 @@
+;; 
+;;    $Id: radius.km,v 1.9 2007/04/11 21:31:10 jchaw Exp $
+;; 
+
+(radius has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Length-Value))
+   (scale-class (Radius-Scale))
+   (scalar-constant-class (Radius-Constant))
+   (cardinal-unit-class   (UoM-Length))
+   (inverse 	(radius-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(radius has (wn20-synset ((:set
+                               (:triple "radius" 1 "n")
+                               (:triple "r" 4 "n")
+))))
+
+(radius-of has
+	(instance-of (EntityProperty)))

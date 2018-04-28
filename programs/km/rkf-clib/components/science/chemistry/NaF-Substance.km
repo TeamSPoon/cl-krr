@@ -1,0 +1,21 @@
+
+;;
+;; $Id: NaF-Substance.km,v 1.1 2003/02/06 21:20:45 wilder Exp $
+;;
+
+(NaF-Substance has 
+  (superclasses (Salt-Substance)))
+
+(every NaF-Substance has
+  (has-basic-structural-unit (
+    (a Salt with
+       (has-part ((a Na-Plus) (a F-Minus)))
+       (atomic-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Na) (:pair 1 F)))))))
+       (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Na-Plus) (:pair 1 F-Minus)))))))
+  )))
+)
+

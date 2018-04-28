@@ -1,0 +1,14 @@
+;; $Id: H2SeO3.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(H2SeO3 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H2SeO3 has
+	(has-chemical-name ("selenous acid"))
+	(has-part ((a H-Plus)(a SeO3-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 2 H-Plus)
+			(:pair 1 SeO3-Minus-2)))))))
+)
+(every H2SeO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a SeO3-Minus-2))))
+

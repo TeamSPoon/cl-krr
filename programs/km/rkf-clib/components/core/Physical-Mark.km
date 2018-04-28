@@ -1,0 +1,28 @@
+;; $Id: Physical-Mark.km,v 1.5 2009/12/16 17:04:47 kbarker Exp $
+
+(Physical-Mark has
+
+	(description ("Any mark created as the result of writing, sketching, printing, drawing etc (i.e. the result of Mark).  Any persistant physical mark or set of marks created by depositing or applying something acting in the role of a writing substance (e.g. ink, paint, sand, blood) to some kind of writable medium using something acting in the role of writing implement (e.g. pencil, marker, finger, paintbrush, spray paint can, printer)."))
+
+	(superclasses (Piece-of-Substance)))
+
+;; What should we do about marks that are made via removal and not
+;; made via deposition of a substance, e.g. a mark made by a chisel?
+;; Chiseled marks would not be a kind of Piece-of-Substance (unless
+;; one views the "air" where the removal has happened but this seems a
+;; contorted view).  A concept corresponding to the word "mark" that
+;; is agnostic as to whether substance removal or substance deposition
+;; has occured (e.g. chiseling vs printing) would seem more like a
+;; kind of visual feature.
+
+(every Physical-Mark has 
+	(result-of ((a Mark))))
+
+
+(Physical-Mark has (wn20-synset ((:set
+                           (:triple "mark" 4 "n")
+                           (:triple "print" 3 "n")
+                           (:triple "mark" 10 "n")
+))))
+
+

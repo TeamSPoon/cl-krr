@@ -1,0 +1,65 @@
+;;    $Id: TM-Obtain-Authorizations.km,v 1.4 2004/09/10 22:57:32 pzyeh Exp $ 
+(TM-Obtain-Authorizations has (superclasses (TM-Task-Model)))
+
+(every TM-Obtain-Authorizations has
+
+  ;;----------------------------------------------------------------
+  ;; SPARK parameters.
+  ;;----------------------------------------------------------------
+  ;; This is the thing we are getting authorization for - 
+  ;; i.e. $selection in the SPARK encoding.
+  (base		((a Entity)))
+
+  ;; This corresponds to $form in the SPARK encoding.
+  (object 	((a TM-Requisition-Form)))
+
+
+  ;;----------------------------------------------------------------
+  ;; Additional axioms.
+  ;;----------------------------------------------------------------
+
+  ;; Note: The agent of this action may not necessarily be the user.
+  (agent 	((a Person)))
+
+  ;; The persons providing the authorizations. There must be at least two.
+  ;; The fillers of this role correspond to $manager1 and $manager2 in 
+  ;; the SPARK encoding.
+  (donor	((at-least 2 Person)
+		 (a Person called "Manager1" with
+		    (plays ((a Signing-Authority))))
+		 (a Person called "Manager2" with
+		    (plays ((a Signing-Authority)))) 
+  ))
+
+  ;; A precondition is that the signing authority must be in the same
+  ;; organization as the agent of Self.
+  (pcs-list 	((forall (the plays of (the base of Self))
+		   	 (:triple It 
+				  in-organization     	
+				  (a Organization with 
+				     (in-organization-of ((the Job-Role plays of (the agent of Self))))))
+  )))
+
+  ;; There is not much to say about the post conditions since that information
+  ;; is captured by TM-Get-Single-Authorization. 
+  ;;
+  ;; All that's left to say is that there are two TM-Get-Single-Authorization 
+  ;; which are occuring simulatenously. This is encoded below.
+  (first-subevent (
+    (a TM-Get-Single-Authorization with
+       (object ((the object of Self)))
+       (base   (((the donor of Self) called "Manager1"))))
+    (a TM-Get-Single-Authorization with
+       (object ((the object of Self)))
+       (base   (((the donor of Self) called "Manager2"))))
+  ))
+
+  (duration        ((a Duration-Value)))
+)
+
+
+;;
+;; We don't have a class for requisition forms, so I went ahead 
+;; and created one.
+;; 
+(TM-Requisition-Form has (superclasses (Form-Document)))

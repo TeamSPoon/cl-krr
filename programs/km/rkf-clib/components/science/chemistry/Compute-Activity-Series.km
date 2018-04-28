@@ -1,0 +1,171 @@
+;; 
+;;    $Id: Compute-Activity-Series.km,v 1.6 2003/09/23 15:39:10 jfan Exp $ 
+;; 
+
+(Compute-Activity-Series has
+			 (superclasses (Method))
+			 (description ("given 2 particles, decide if the first is more active than the second")))
+
+;; decide if the 1st input is more active than the 2nd input
+(every Compute-Activity-Series has
+       (input ((a Chemical-Entity)
+	       (a Chemical-Entity)))
+       (context
+	(
+	 ((forall
+	  (:set (:pair Li 0)
+		(:pair Li-Plus 0)
+		(:pair K 1)
+		(:pair K-Plus 1)
+		(:pair Ba 2)
+		(:pair Ba-Plus-2 2)
+		(:pair Ca 3)
+		(:pair Ca-Plus-2 3)
+		(:pair Na 4)
+		(:pair Na-Plus 4)
+		(:pair Mg 5)
+		(:pair Mg-Plus-2 5)
+		(:pair Al 6)
+		(:pair Al-Plus-3 6)
+		(:pair Mn 7)
+		(:pair Mn-Plus-2 7)
+		(:pair Zn 8)
+		(:pair Zn-Plus-2 8)
+		(:pair Cr 9)
+		(:pair Cr-Plus-3 9)
+		(:pair Fe 10)
+		;;(:pair Fe-Plus-3 10)
+		(:pair Fe-Plus-2 10)
+		(:pair Co 11)
+		(:pair Co-Plus-2 11)
+		(:pair Ni 12)
+		(:pair Ni-Plus-2 12)
+		(:pair Sn 13)
+		(:pair Sn-Plus-2 13)
+		(:pair Pb 14)
+		(:pair Pb-Plus-2 14)
+		(:pair H 15)
+		(:pair H-Plus 15)
+		(:pair H-Minus 15)
+		(:pair Cu 16)
+		(:pair Cu-Plus-2 16)
+		(:pair Ag 17)
+		(:pair Ag-Plus 17)
+		(:pair Hg 18)
+		(:pair Hg-Plus-2 18)
+		(:pair Pt 19)
+		(:pair Pt-Plus-2 19)
+		(:pair Au 20)
+		(:pair Au-Plus-2 20)
+		)
+	  where
+	  ((the first of (the input of Self))
+	   isa
+	   (the1 of It))
+	  (the2 of It))
+	 <
+	 (forall
+	  (:set (:pair Li 0)
+		(:pair Li-Plus 0)
+		(:pair K 1)
+		(:pair K-Plus 1)
+		(:pair Ba 2)
+		(:pair Ba-Plus-2 2)
+		(:pair Ca 3)
+		(:pair Ca-Plus-2 3)
+		(:pair Na 4)
+		(:pair Na-Plus 4)
+		(:pair Mg 5)
+		(:pair Mg-Plus-2 5)
+		(:pair Al 6)
+		(:pair Al-Plus-3 6)
+		(:pair Mn 7)
+		(:pair Mn-Plus-2 7)
+		(:pair Zn 8)
+		(:pair Zn-Plus-2 8)
+		(:pair Cr 9)
+		(:pair Cr-Plus-3 9)
+		(:pair Fe 10)
+		;;(:pair Fe-Plus-3 10)
+		(:pair Fe-Plus-2 10)
+		(:pair Co 11)
+		(:pair Co-Plus-2 11)
+		(:pair Ni 12)
+		(:pair Ni-Plus-2 12)
+		(:pair Sn 13)
+		(:pair Sn-Plus-2 13)
+		(:pair Pb 14)
+		(:pair Pb-Plus-2 14)
+		(:pair H 15)
+		(:pair H-Plus 15)
+		(:pair H-Minus 15)
+		(:pair Cu 16)
+		(:pair Cu-Plus-2 16)
+		(:pair Ag 17)
+		(:pair Ag-Plus 17)
+		(:pair Hg 18)
+		(:pair Hg-Plus-2 18)
+		(:pair Pt 19)
+		(:pair Pt-Plus-2 19)
+		(:pair Au 20)
+		(:pair Au-Plus-2 20)
+		)
+	  where
+	  ((the second of (the input of Self))
+	   isa
+	   (the1 of It))
+	  (the2 of It)
+	  ))))
+
+       (output ((if (the context of Self)
+		    then
+		    "yes" [Compute-Activity-Series-output-1])))
+       (output ((if (not (the context of Self))
+		    then
+		    "no" [Compute-Activity-Series-output-2])))
+       )
+
+(Compute-Activity-Series
+ has
+ (test-case ('(
+	       ((the output of
+		     (a Compute-Activity-Series with
+			(input ((a Na) (a Ag-Plus)))))
+		= "yes")
+
+	       ((the output of
+		     (a Compute-Activity-Series with
+			(input ((a Sn-Plus-2) (a Au)))))
+		= "yes")
+	       
+	       ((the output of
+		     (a Compute-Activity-Series with
+			(input ((a Pt) (a Fe)))))
+		= "no")
+	       
+	       ((the output of
+		     (a Compute-Activity-Series with
+			(input ((a Mn-Plus-2) (a Ba)))))
+		= "no")
+))))
+
+(comment [Compute-Activity-Series-output-1]
+       (:seq "Based on the activity series," 
+	     (the text-gen of (the first of (the input of Self)))
+	     "is more active than"
+	     (the text-gen of (the second of (the input of Self))))
+
+   "The activity series can be used to predict the outcome of reactions between
+ metals and metal salts or acids"
+)
+
+(comment [Compute-Activity-Series-output-2]
+       (:seq "Based on the activity series," 
+	     (the text-gen of (the second of (the input of Self)))
+	     "is more active than"
+	     (the text-gen of (the first of (the input of Self))))
+
+   "The activity series can be used to predict the outcome of reactions between
+ metals and metal salts or acids"
+)
+

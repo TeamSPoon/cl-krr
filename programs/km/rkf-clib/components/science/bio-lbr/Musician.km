@@ -1,0 +1,24 @@
+
+;;
+;; $Id: Musician.km,v 1.2 2006/06/27 21:42:35 kbarker Exp $
+;;
+
+(Musician has (superclasses (Performer)))
+
+(every Musician has
+  (in-event ((a Communicate with
+                (agent ((the played-by of Self)))
+                (base  ((a Message with
+                           (information-language ((a Music)))
+                )))
+                (instrument ((a Musical-Instrument)))
+  )))
+)
+
+(Musician has (wn20-synset ((:set
+                                  (:triple "musician" 1 "n")
+                                  (:triple "musician" 2 "n")
+                                  (:triple "instrumentalist" 1 "n")
+                                  (:triple "player" 2 "n")
+))))
+

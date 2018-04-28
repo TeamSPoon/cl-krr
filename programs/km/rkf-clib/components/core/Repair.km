@@ -1,0 +1,105 @@
+;; 
+;;    $Id: Repair.km,v 1.23 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Repair has
+        (superclasses   (Action))
+        (required-slot  (object))
+        (primary-slot   ((agent instrument by-means-of)))
+        (secondary-slot ())
+        (cmap-correspondence (
+                              (:seq object "the thing being repaired")
+                              (:seq agent "the one doing the repair")
+                              (:seq instrument "the instrument of the repair")
+                              (:seq by-means-of "how the repair is achieved")
+                             ))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Repair has
+       ;; object must be broken
+       (object   ((a Tangible-Entity)))
+       (defeats  ((allof (the object-of of (the object of Self)) 
+			 where ((the classes of It) = Be-Broken))))
+       (pcs-list ((forall (the object of Self)
+			  (:triple
+			   It
+			   object-of
+			   (a Be-Broken) [Repair-pcs-1]))
+		  
+		  ; This condition captures the requirement that a
+		  ; ruined object cannot be repaired.
+		  (forall (the object of Self)
+			  (:triple
+			   It
+			   object-of
+			   (mustnt-be-a Be-Ruined with
+					(object ((the object of Self)))) [Repair-pcs-2]) )))
+       
+       (del-list ((forall (the defeats of Self)
+               	          (:triple It object (the object of Self) [Repair-del-1])))))
+
+(comment [Repair-pcs-1] (:seq (the object of Self) " must be broken to be repaired.")
+	 "Only broken objects need repair.")
+
+(comment [Repair-pcs-2] (:seq (the object of Self) " must not be ruined.")
+	 "Ruined objects cannot be repaired.")
+
+(comment [Repair-del-1] (:seq (the object of Self) " is no longer broken.")
+	 "A repair stops something from being broken.")
+
+(every Repair has
+  (text-active-verbseq-sg ("repairs"))
+  (text-active-verbseq-pl ("repair"))
+  (text-passive-verbseq-sg ("gets repaired"))
+  (text-passive-verbseq-pl ("get repaired"))
+)
+
+
+(every Repair has
+       (preparatory-event ((:default
+			  (a Break with
+			     (object ((the object of Self))))
+))))
+			
+
+(Repair has 
+	(test-case     ('(
+			  (*Vase has (instance-of (Physical-Object)))
+			 
+			  (a Break with (object (*Vase)))
+
+			  (do-and-next (thelast Break))
+			  (the text-gen of (thelast Break))
+			  (has-value (the Be-Broken object-of of *Vase))
+
+			  (a Repair with (object (*Vase)))
+			  (do-and-next (thelast Repair))
+			  (the text-gen of (thelast Repair))
+			  (not (has-value (the Be-Broken object-of of *Vase)))
+
+			  ))))
+
+
+
+;; automatically added WN synsets
+(Repair has (wn16-synset ((:set  
+                                     (:triple "repair" 1 "v")
+                                     (:triple "bushel" 1 "v")
+                                     (:triple "doctor" 3 "v")
+                                     (:triple "furbish_up" 1 "v")
+                                     (:triple "mend" 1 "v")
+                                     (:triple "restore" 4 "v")
+                                     (:triple "touch_on" 3 "v")
+))))
+
+(Repair has (wn20-synset ((:set
+                                     (:triple "repair" 1 "v")
+                                     (:triple "bushel" 1 "v")
+                                     (:triple "doctor" 3 "v")
+                                     (:triple "furbish_up" 1 "v")
+                                     (:triple "mend" 1 "v")
+                                     (:triple "restore" 4 "v")
+                                     (:triple "touch_on" 3 "v")
+))))
+(every Repair has (text-nominalization ("repair")))

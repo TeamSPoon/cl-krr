@@ -1,0 +1,48 @@
+<kml>
+
+<concept name=Meal>
+<superconcept name=Activity>
+
+<hr>
+<h3>Component Semantics:</h3>
+  <component tag=Meal>
+    <definition>
+      the Activity of eating. It can be elaborated upon, but there is at least Eating going on.
+    </definition>
+  </component>
+
+<requiredslotlist>
+  <slotdescription name=sub-event>
+    Must have a sub-event of <conceptref name=Eat>ing.
+  </slotdescription>
+</requiredslotlist>
+
+<neighborlist>
+
+  <neighbor name=Breakfast>
+	Breakfast is a special case of Meal - the Activity of eating (usually) early in the morning.
+  </neighbor>
+
+  <neighbor name=Brunch>
+	Brunch is a special case of Meal - the Activity of eating (usually) late in the morning - as a combination of Breakfast and Lunch.
+  </neighbor>
+
+  <neighbor name=Lunch>
+	Lunch is a special case of Meal - the Activity of eating (usually) at mid-day.
+  </neighbor>
+
+  <neighbor name=Dinner>
+	Dinner is a special case of Meal - the Activity of eating (usually) in the (late) evening.
+  </neighbor>
+
+  <neighbor name=Supper>
+	Supper is a special case of Meal - the Activity of (light) eating (usually) in the (early) evening.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+
+

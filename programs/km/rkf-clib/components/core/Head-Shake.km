@@ -1,0 +1,21 @@
+;;
+;; $Id: Head-Shake.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(Head-Shake has
+  (superclasses (Gesticulate))
+  (description ("The physical act of turning the head side to side, possibly repeatedly, so as to Embody a Gesture indicating dissent."))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Head-Shake has
+	(agent ((:default (a Animal)))) ; default bc some Robots can shake.
+;;	(instrument ((a "Head"))) ; once Head is created.
+	)
+
+(Head-Shake has (wn20-synset ((:set
+			       (:triple "headshake" 1 "n")
+			       (:triple "headshaking" 1 "n")
+))))
+
+(every Head-Shake has (text-nominalization ("shaking")))

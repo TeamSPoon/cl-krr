@@ -1,0 +1,21 @@
+;;
+;; $Id: Team.km,v 1.5 2010/05/18 14:58:03 kbarker Exp $
+;;
+
+(Team has 
+  (superclasses (Group))
+  (description ("a relatively small organization of Roles with a goal"))
+)
+
+(every Team has
+  (element ((must-be-a Role with
+               (played-by ((a Entity with 
+                              (has-goal ((the has-goal of Self)))
+               )))
+  )))
+)
+
+
+;; team#1 - a cooperative unit (captures the common goal)
+(Team has (wn20-synset ((:set (:triple "team" 1 "n")
+			      (:triple "squad" 2 "n"))))) 

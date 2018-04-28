@@ -1,0 +1,29 @@
+;; 
+;;    $Id: truth.km,v 1.8 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(truth has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Information))    
+   (range       (Truth-Value))
+   (categorical-constant-class (Truth-Constant))
+   (inverse 	(truth-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1))
+   (original-slot      (t))	
+)
+
+(truth-of has
+	(instance-of (EntityProperty)))
+
+(truth has (wn20-synset ((:set
+                               (:triple "truth" 2 "n")     ;; none of these is 
+                               (:triple "truth" 4 "n")     ;; exactly right
+                               (:triple "the true" 1 "n")  ;; for "truth value"
+                               (:triple "verity" 1 "n")    ;; (i.e. the property
+                               (:triple "accuracy" 1 "n")  ;; of being T or F)
+))))
+

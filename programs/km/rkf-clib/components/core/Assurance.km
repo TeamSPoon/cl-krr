@@ -1,0 +1,21 @@
+
+;;
+;; $Id: Assurance.km,v 1.4 2004/09/09 19:32:46 kbarker Exp $
+;;
+
+(Assurance has
+  (superclasses (Message))
+  (description ("a message expressing a commitment to do (or not do) something"))
+)
+
+;; We need a better model of kinds of messages. For now, we need a place to
+;; hang Warranty for the office domain. Making Warranty a kind of Assurance
+;; (itself a kind of Message) is consistent with wn.
+
+(Assurance has (wn20-synset ((:set
+			      (:triple "commitment" 4 "n")
+			      (:triple "dedication" 3 "n")
+))))
+
+;; stubby
+

@@ -1,0 +1,36 @@
+;; 
+;;    $Id: Nitrogen-Atom.km,v 1.14 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Nitrogen-Atom has
+         (superclasses (Atom))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A colorless, odorless element constituting about 4/5ths
+                        of the volume of the atmosphere and is present in 
+                        combined form in animal and vegetable tissues, 
+                        especially in proteins. RHCD:1st Revised:901."))
+         (test-case ()))
+
+(every Nitrogen-Atom has
+       (atomic-symbol (N))
+       (has-part
+        (
+         (a Proton)
+         (exactly 7 Proton)
+         (a Neutron)
+         (exactly 7 Neutron)
+         (a Electron)
+         (exactly 7 Electron)
+         ))
+       (mass ((a Mass-Value with
+		(value ((:pair 14 *dalton))))))
+       )
+                
+
+
+
+
+(every Nitrogen-Atom has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

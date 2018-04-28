@@ -1,0 +1,21 @@
+;; 
+;;    $Id: DNA-Polymerase-Replication-Enzyme.km,v 1.2 2001/06/03 06:16:39 souther Exp $
+;; 
+
+(DNA-Polymerase-Replication-Enzyme has
+                (superclasses (DNA-Polymerase))
+                (required-slot ())
+                (primary-slot ())
+                (secondary-slot ())
+		(description ("Enzyme that catalyzes the synthesis of a DNA
+                               molecule on a DNA template from nucleoside
+                               triphosphate precursors. Alberts: ECB:G-16."))
+                (cmap-correspondence ()))
+
+(every DNA-Polymerase-Replication-Enzyme has
+       (purpose ((a Catalyst with
+		    (in-event ((a DNA-Replication))))
+                  )))
+
+
+

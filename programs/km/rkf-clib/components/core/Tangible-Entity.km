@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Tangible-Entity.km,v 1.8 2005/09/20 21:44:27 pzyeh Exp $ 
+;; 
+
+(Tangible-Entity has
+  (superclasses (Spatial-Entity))
+  (required-slot ())
+  (primary-slot (location))
+  (secondary-slot ())
+  (cmap-correspondence ())
+  (test-case ())
+)
+
+;; see Spatial-Entity.km for partition:
+;;   (a Partition with (members (Tangible-Entity Place)))
+
+
+(every Tangible-Entity has
+   (location ((must-be-a Place)))
+)
+
+

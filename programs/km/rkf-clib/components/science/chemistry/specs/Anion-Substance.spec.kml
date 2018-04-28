@@ -1,0 +1,30 @@
+<!--- $Id: Anion-Substance.spec.kml,v 1.1 2005/08/01 20:59:02 jchaw Exp $ --->
+
+<kml>
+<concept name=Anion-Substance>
+
+<superconcept name=Chemical>
+
+  <definition>
+    An Anion-Substance is defined to be a Chemical with an 
+    <conceptref name=Anion> as its basic structural unit
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=has-basic-structural-unit>
+    must be an Anion
+  </slotdescription>
+
+</requiredslotlist>
+
+<neighborlist>
+
+   <neighbor name=Cation-Substance>
+    A Chemical with a <conceptref name=Cation> as its basic structural unit
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

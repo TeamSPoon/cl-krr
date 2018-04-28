@@ -1,0 +1,68 @@
+;; 
+;;    $Id: Locomotion.km,v 1.19 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Locomotion has
+	    (superclasses (Move Reflexive-Cliche))
+	    (required-slot       (object agent))
+	    (primary-slot 	 ())
+	    (secondary-slot      ())
+	    (cmap-correspondence (
+				  (:seq agent "the mover")
+				  (:seq object "the mover")
+				  ))
+          #|(sentence-type      (*punctual *conclusive))|#
+)
+
+; Locomotion is a reflexive Move (i.e. the agent and object are the 
+; same).  This definition is completely captured by the superclass
+; Move and the Reflexive cliche.
+
+(every Locomotion has
+  (text-active-verbseq-sg ("locomotes"))
+  (text-active-verbseq-pl ("locomote"))
+)
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(Locomotion has 
+	    (test-case ('(
+			  (new-situation)
+			  (*Boston has (instance-of (Place)))
+			  (*Austin has (instance-of (Place)))
+			  (*John has (instance-of (Living-Entity)))
+			  (*John has (location (*Boston)))
+
+			  ;John Locomotes from Boston to Austin
+			  (a Locomotion with
+			   (agent (*John))
+			   (origin (*Boston))
+			   (destination   (*Austin)))
+			  (do-and-next (thelast Locomotion))
+			  (the text-gen of (thelast Locomotion))
+			  ;Test1: John is now in Austin
+			  ((the location of *John) = *Austin)
+			  ))))
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Locomotion has (wn16-synset ((:set  
+                                         (:triple "locomote" 1 "v")
+                                         (:triple "travel" 1 "v")
+                                         (:triple "go" 1 "v")
+                                         (:triple "move" 1 "v")
+))))
+
+(Locomotion has (wn20-synset ((:set
+                                         (:triple "locomote" 1 "v")
+                                         (:triple "travel" 1 "v")
+                                         (:triple "go" 1 "v")
+                                         (:triple "move" 1 "v")
+))))
+(every Locomotion has (text-nominalization ("locomotion")))

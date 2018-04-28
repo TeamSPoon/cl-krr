@@ -1,0 +1,13 @@
+;; 
+;;  $Id: PKb-Value.km,v 1.3 2007/10/23 16:30:42 tecuci Exp $
+;; 
+
+(PKb-Value has (superclasses (Unitless-Value)))
+
+(every PKb-Value has
+  (property-slot (pkb))
+       (less-than    ((must-be-a PKb-Value)))
+       (greater-than ((must-be-a PKb-Value)))
+       (same-as      ((must-be-a PKb-Value)))
+)
+(PKb-Value has (description ("the negative log to base 10 of the alkalinity constant, kb.")))

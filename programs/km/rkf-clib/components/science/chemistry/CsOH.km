@@ -1,0 +1,14 @@
+;;
+;; $Id: CsOH.km,v 1.1 2003/04/22 05:07:18 jchaw Exp $
+;;
+
+(CsOH has (superclasses (Ionic-Compound)))
+
+(every CsOH has	
+       (has-part 
+	((a Cs-Plus) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Cs-Plus)
+			 (:pair 1 OH-Minus)))))))
+       )

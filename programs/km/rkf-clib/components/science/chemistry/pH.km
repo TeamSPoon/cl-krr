@@ -1,0 +1,16 @@
+;; 
+;;    $Id: pH.km,v 1.2 2005/03/14 23:56:30 billj Exp $
+;; 
+
+(pH has
+    (instance-of (Property))
+    (superslots ())
+    (subslots ())
+    (domain      (Tangible-Entity))    
+    (range       (PH-Value))    
+    (scalar-constant-class (PH-Constant))
+    (cardinal-unit-class (UoM-Unitless)) ;; [ksm 1/30/03] pH has no UofM (see Pedro email 1/30/03) 
+    (fluent-status (*Inertial-Fluent))
+    (inverse (pH-of))
+    (inherit-with-overrides (t))
+    (cardinality (N-to-1)))

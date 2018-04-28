@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Aromatic-Compound.km,v 1.4 2001/05/01 22:29:58 pnav Exp $ 
+;; 
+
+(Aromatic-Compound has
+		       (superclasses (Ring-Compound))
+		       (required-slot ())
+		       (primary-slot ())
+		       (secondary-slot ())
+		       (description ("A ring compound containing the benzene
+                                      ring.  Souther."))
+		       (cmap-correspondence ())
+		       (test-case ()))
+
+(every Aromatic-Compound has 
+       (has-part ((a Benzene))))
+
+
+

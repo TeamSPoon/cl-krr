@@ -1,0 +1,589 @@
+
+;;; ---------- Definition of prototype for Endoplasmic-reticulum ----------
+
+(Endoplasmic-reticulum has (superclasses (Organelle)))
+
+(_Endoplasmic-reticulum407 has 
+  (has-clones (_Rough-endoplasmic-reticulum1961
+               _Placeholder-Class406408
+               _Endoplasmic-reticulum276
+               _Endoplasmic-reticulum313
+               _Endoplasmic-reticulum358
+               _Endoplasmic-reticulum398
+               _Endoplasmic-reticulum460
+               _Endoplasmic-reticulum505
+               _Endoplasmic-reticulum562
+               _Endoplasmic-reticulum597
+               _Endoplasmic-reticulum699
+               _Endoplasmic-reticulum738
+               _Endoplasmic-reticulum791
+               _Endoplasmic-reticulum834
+               _Endoplasmic-reticulum1040
+               _Endoplasmic-reticulum1090
+               _Rough-endoplasmic-reticulum1107
+               _Smooth-endoplasmic-reticulum1094
+               _Endoplasmic-reticulum186
+               _Endoplasmic-reticulum359
+               _Tangible-Entity446
+               _Rough-endoplasmic-reticulum499
+               _Endoplasmic-reticulum1075
+               _Endoplasmic-reticulum569
+               _Tangible-Entity643
+               _Rough-endoplasmic-reticulum755
+               _Smooth-endoplasmic-reticulum800
+               _Endoplasmic-reticulum840))
+  (has-built-clones (_Rough-endoplasmic-reticulum1961
+                     _Placeholder-Class406408
+                     _Endoplasmic-reticulum276
+                     _Endoplasmic-reticulum313
+                     _Endoplasmic-reticulum358
+                     _Endoplasmic-reticulum398
+                     _Endoplasmic-reticulum460
+                     _Endoplasmic-reticulum505
+                     _Endoplasmic-reticulum562
+                     _Endoplasmic-reticulum597
+                     _Endoplasmic-reticulum699
+                     _Endoplasmic-reticulum738
+                     _Endoplasmic-reticulum791
+                     _Endoplasmic-reticulum834
+                     _Endoplasmic-reticulum1040
+                     _Endoplasmic-reticulum1090
+                     _Rough-endoplasmic-reticulum1107
+                     _Smooth-endoplasmic-reticulum1094
+                     _Endoplasmic-reticulum186
+                     _Endoplasmic-reticulum359
+                     _Tangible-Entity446
+                     _Rough-endoplasmic-reticulum499
+                     _Endoplasmic-reticulum1075
+                     _Endoplasmic-reticulum569
+                     _Tangible-Entity643
+                     _Rough-endoplasmic-reticulum755
+                     _Smooth-endoplasmic-reticulum800
+                     _Endoplasmic-reticulum840))
+  (instance-of (Endoplasmic-reticulum))
+  (prototype-of (Endoplasmic-reticulum))
+  (prototype-scope (Endoplasmic-reticulum))
+  (prototype-participants (_Property-Node639
+                           _Physical-Object638
+                           _Tangible-Entity637
+                           _Cisternal-space636
+                           _Spatial-Entity635
+                           _Cisternae634
+                           _Living-Entity633
+                           _Tangible-Entity632
+                           _Atom631
+                           _Protein630
+                           _Pore629
+                           _Spatial-Entity628
+                           _Length-Value627
+                           _Living-Entity626
+                           _Nuclear-lamina625
+                           _Atom624
+                           _Protein623
+                           _Nucleus622
+                           _Nuclear-envelope621
+                           _Spatial-Entity620
+                           _Endoplasmic-reticulum407
+                           _Membrane1092))
+  (prototype-participant-of (_Endoplasmic-reticulum407))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (has-basic-structural-unit (_Membrane1092))
+  (edge-coordinate ((:seq has-region _Cisternae634 174 641)
+                    (:seq abuts _Nuclear-envelope621 263 583)
+                    (:seq has-basic-structural-unit _Membrane1092 118 528)))
+  (edge-visibility ((:seq has-region _Cisternae634 t)
+                    (:seq abuts _Nuclear-envelope621 t)
+                    (:seq has-basic-structural-unit _Membrane1092 t)))
+  (big-nodes (_Property-Node639))
+  (has-region (_Cisternae634))
+  (abuts (_Nuclear-envelope621))
+  (/== (_Nuclear-envelope621))
+  (edge-documentation ((:seq has-basic-structural-unit _Membrane1092 (:seq "The endoplasmic reticulum is a network of membrane tubes and sacs."))
+                       (:seq abuts _Nuclear-envelope621 (:seq "The membranes of the endoplasmic reticulum can be continuous with the nuclear envelope.")))))
+
+(_Property-Node639 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node575))
+  (cloned-from (_Property-Node189))
+  (contains-node (_Length-Value627))
+  (big-node-of (_Endoplasmic-reticulum407))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Physical-Object638 has 
+  (instance-of (Physical-Object))
+  (has-clones (_Physical-Object616))
+  (cloned-from (_Physical-Object605))
+  (is-inside (_Cisternae634))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 597 665)))
+  (edge-coordinate ((:seq is-inside _Cisternae634 790 671)))
+  (edge-visibility ((:seq is-inside _Cisternae634 f)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Tangible-Entity637 has 
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity615))
+  (cloned-from (_Tangible-Entity598
+                _Tangible-Entity606))
+  (has-region (_Cisternal-space636))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-region _Cisternal-space636 1141 56)))
+  (edge-visibility ((:seq has-region _Cisternal-space636 f)))
+  (node-coordinate ((:pair 950 50)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Cisternal-space636 has 
+  (is-region-of (_Tangible-Entity637))
+  (instance-of (Cisternal-space))
+  (cloned-from (_Cisternal-space593
+                _Cisternal-space607))
+  (clone-built-from (_Cisternal-space593))
+  (location-of (_Spatial-Entity635))
+  (is-inside (_Cisternae634))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 486 642)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq is-inside _Cisternae634 679 648)))
+  (edge-visibility ((:seq is-inside _Cisternae634 f)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Spatial-Entity635 has 
+  (location (_Cisternal-space636))
+  (instance-of (Spatial-Entity))
+  (cloned-from (_Spatial-Entity597
+                _Spatial-Entity608))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq location _Cisternal-space636 1033 56)))
+  (edge-visibility ((:seq location _Cisternal-space636 f)))
+  (node-coordinate ((:pair 850 50)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Cisternae634 has 
+  (has-clones (_Thing738
+               _Thing782
+               _Thing801
+               _Thing842
+               _Cisternae885
+               _Cisternae899
+               _Cisternae913
+               _Cisternae928))
+  (encloses (_Cisternal-space636
+             _Physical-Object638))
+  (instance-of (Cisternae))
+  (cloned-from (_Cisternae588))
+  (clone-built-from (_Cisternae588))
+  (is-part-of (_Living-Entity633))
+  (edge-coordinate ((:seq encloses _Physical-Object638 418 666)
+                    (:seq encloses _Cisternal-space636 418 666)))
+  (edge-visibility ((:seq encloses _Physical-Object638 t)
+                    (:seq encloses _Cisternal-space636 t)))
+  (internally-expanded (t))
+  (is-region-of (_Endoplasmic-reticulum407))
+  (node-coordinate ((:pair 299 683)))
+  (node-visibility (t))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Living-Entity633 has 
+  (has-part (_Cisternae634))
+  (instance-of (Living-Entity))
+  (cloned-from (_Living-Entity609))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Cisternae634 149 683)))
+  (edge-visibility ((:seq has-part _Cisternae634 f)))
+  (node-coordinate ((:pair -1 683)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Tangible-Entity632 has 
+  (has-clones (_Thing739
+               _Thing783
+               _Thing802
+               _Thing843
+               _Tangible-Entity883
+               _Membrane897
+               _Membrane911
+               _Membrane926))
+  (instance-of (Tangible-Entity
+                Membrane))
+  (cloned-from (_Tangible-Entity473))
+  (is-part-of (_Nuclear-envelope621))
+  (has-region (_Pore629))
+  (node-coordinate ((:pair 740 500)))
+  (edge-coordinate ((:seq has-region _Pore629 909 506)))
+  (edge-visibility ((:seq has-region _Pore629 f)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Atom631 has 
+  (has-clones (_Thing740
+               _Thing784
+               _Thing803
+               _Thing844
+               _Atom879
+               _Atom894
+               _Atom908
+               _Atom923))
+  (instance-of (Atom))
+  (cloned-from (_Atom477))
+  (is-basic-structural-unit-of (_Protein630))
+  (node-coordinate ((:pair 1653 478)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Protein630 has 
+  (has-clones (_Thing741
+               _Thing785
+               _Thing804
+               _Thing845
+               _Protein878
+               _Protein893
+               _Protein907
+               _Protein922))
+  (has-basic-structural-unit (_Atom631))
+  (instance-of (Protein))
+  (cloned-from (_Protein476))
+  (is-part-of (_Pore629))
+  (node-coordinate ((:pair 1350 478)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom631 1503 484)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom631 f)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Pore629 has 
+  (has-clones (_Thing742
+               _Thing786
+               _Thing805
+               _Thing846
+               _Pore881
+               _Pore896
+               _Pore910
+               _Pore925))
+  (is-region-of (_Tangible-Entity632))
+  (has-part (_Protein630))
+  (instance-of (Pore))
+  (cloned-from (_Pore472))
+  (diameter (_Length-Value627))
+  (location-of (_Spatial-Entity628))
+  (edge-coordinate ((:seq has-part _Protein630 1200 484)
+                    (:seq diameter _Length-Value627 1200 527)))
+  (edge-visibility ((:seq has-part _Protein630 f)
+                    (:seq diameter _Length-Value627 f)))
+  (node-coordinate ((:pair 1059 500)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Spatial-Entity628 has 
+  (has-clones (_Thing743
+               _Thing787
+               _Thing806
+               _Thing847
+               _Spatial-Entity880
+               _Spatial-Entity895
+               _Spatial-Entity909
+               _Spatial-Entity924))
+  (location (_Pore629))
+  (instance-of (Spatial-Entity))
+  (cloned-from (_Spatial-Entity471))
+  (edge-coordinate ((:seq location _Pore629 -150 554)))
+  (edge-visibility ((:seq location _Pore629 f)))
+  (node-coordinate ((:pair 150 50)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Length-Value627 has 
+  (has-clones (_Thing744
+               _Thing788
+               _Thing807
+               _Thing848
+               _Length-Value876
+               _Length-Value892
+               _Length-Value906
+               _Length-Value921))
+  (contains-node-of (_Property-Node639))
+  (diameter-of (_Pore629))
+  (instance-of (Length-Value))
+  (cloned-from (_Length-Value188))
+  (value ((:pair 100.0 *nanometer)))
+  (node-coordinate ((:pair 1350 522)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Living-Entity626 has 
+  (has-clones (_Thing745
+               _Thing789
+               _Thing808
+               _Thing849
+               _Living-Entity884
+               _Living-Entity898
+               _Living-Entity912
+               _Living-Entity927))
+  (instance-of (Living-Entity))
+  (cloned-from (_Living-Entity310))
+  (has-part (_Nuclear-envelope621))
+  (edge-coordinate ((:seq has-part _Nuclear-envelope621 169 595)))
+  (edge-visibility ((:seq has-part _Nuclear-envelope621 f)))
+  (node-coordinate ((:pair 250 50)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Nuclear-lamina625 has 
+  (has-clones (_Thing746
+               _Thing790
+               _Thing809
+               _Thing850
+               _Nuclear-lamina875
+               _Nuclear-lamina891
+               _Nuclear-lamina905
+               _Nuclear-lamina920))
+  (instance-of (Nuclear-lamina))
+  (cloned-from (_Nuclear-lamina559
+                _Nuclear-lamina566))
+  (clone-built-from (_Nuclear-lamina559))
+  (has-basic-structural-unit (_Protein623))
+  (does-not-enclose (_Nuclear-envelope621))
+  (node-coordinate ((:pair 740 544)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Protein623 929 550)))
+  (edge-visibility ((:seq has-basic-structural-unit _Protein623 f)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Atom624 has 
+  (has-clones (_Thing747
+               _Thing791
+               _Thing810
+               _Thing851
+               _Atom874
+               _Atom890
+               _Atom904
+               _Atom919))
+  (instance-of (Atom))
+  (cloned-from (_Atom564
+                _Atom355))
+  (is-basic-structural-unit-of (_Protein623))
+  (node-coordinate ((:pair 1382 544)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Protein623 has 
+  (has-clones (_Thing748
+               _Thing792
+               _Thing811
+               _Thing852
+               _Protein873
+               _Protein889
+               _Protein903
+               _Protein917))
+  (is-basic-structural-unit-of (_Nuclear-lamina625))
+  (has-basic-structural-unit (_Atom624))
+  (instance-of (Protein))
+  (cloned-from (_Protein563
+                _Protein354))
+  (node-coordinate ((:pair 1079 544)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom624 1232 550)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom624 f)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Nucleus622 has 
+  (has-clones (_Thing749
+               _Thing793
+               _Thing812
+               _Thing853
+               _Nucleus872
+               _Physical-Object888
+               _Physical-Object902
+               _Physical-Object916))
+  (instance-of (Nucleus
+                Physical-Object))
+  (cloned-from (_Nucleus302
+                _Nucleus309))
+  (clone-built-from (_Nucleus302))
+  (is-inside (_Nuclear-envelope621))
+  (node-coordinate ((:pair 740 588)))
+  (edge-coordinate ((:seq is-inside _Nuclear-envelope621 896 594)))
+  (edge-visibility ((:seq is-inside _Nuclear-envelope621 f)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Nuclear-envelope621 has 
+  (has-clones (_Thing750
+               _Thing794
+               _Thing813
+               _Thing854
+               _Nuclear-envelope871
+               _Nuclear-envelope887
+               _Nuclear-envelope901
+               _Nuclear-envelope915))
+  (has-part (_Tangible-Entity632))
+  (is-part-of (_Living-Entity626))
+  (is-outside (_Nuclear-lamina625))
+  (encloses (_Spatial-Entity620
+             _Nucleus622))
+  (instance-of (Nuclear-envelope))
+  (cloned-from (_Nuclear-envelope304))
+  (clone-built-from (_Nuclear-envelope304))
+  (internally-expanded (t))
+  (abuts (_Endoplasmic-reticulum407))
+  (/== (_Endoplasmic-reticulum407))
+  (edge-coordinate ((:seq abuts _Endoplasmic-reticulum407 257 549)
+                    (:seq has-part _Tangible-Entity632 590 506)
+                    (:seq is-outside _Nuclear-lamina625 590 550)
+                    (:seq encloses _Nucleus622 590 612)
+                    (:seq encloses _Spatial-Entity620 590 612)))
+  (edge-visibility ((:seq abuts _Endoplasmic-reticulum407 t)
+                    (:seq has-part _Tangible-Entity632 f)
+                    (:seq is-outside _Nuclear-lamina625 f)
+                    (:seq encloses _Nucleus622 f)
+                    (:seq encloses _Spatial-Entity620 f)))
+  (node-coordinate ((:pair 387 541)))
+  (node-visibility (t))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Spatial-Entity620 has 
+  (has-clones (_Thing751
+               _Thing795
+               _Thing814
+               _Thing855
+               _Spatial-Entity870
+               _Physical-Object886
+               _Physical-Object900
+               _Physical-Object914))
+  (is-inside (_Nuclear-envelope621))
+  (instance-of (Spatial-Entity
+                Physical-Object))
+  (cloned-from (_Spatial-Entity353))
+  (node-coordinate ((:pair 740 623)))
+  (edge-coordinate ((:seq is-inside _Nuclear-envelope621 933 629)))
+  (edge-visibility ((:seq is-inside _Nuclear-envelope621 f)))
+  (prototype-participant-of (_Endoplasmic-reticulum407)))
+
+(_Membrane1092 has 
+  (has-clones (_Membrane1985
+               _Membrane1091
+               _Membrane1614
+               _Membrane1102
+               _Membrane251
+               _Membrane381
+               _Membrane422
+               _Membrane477
+               _Membrane503
+               _Membrane568
+               _Membrane674
+               _Membrane778
+               _Membrane799
+               _Membrane819))
+  (prototype-participant-of (_Endoplasmic-reticulum407))
+  (is-basic-structural-unit-of (_Endoplasmic-reticulum407))
+  (instance-of (Membrane))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 233 446)))
+  (node-visibility (t)))
+
+(explanation (:triple _Endoplasmic-reticulum407 has-basic-structural-unit _Membrane1092) ((added-at Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Endoplasmic-reticulum407 abuts _Nuclear-envelope621) ((added-at Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Endoplasmic-reticulum407 has-region _Cisternae634) ((added-at Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Property-Node639 big-node-of _Nuclear-envelope621) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Property-Node639 instance-of Property-Node) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Physical-Object638 instance-of Physical-Object) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Physical-Object638 is-inside _Cisternae634) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Physical-Object638 instance-of Physical-Object) ((a Physical-Object (@ _Cisternae634 Membrane-Enclosure encloses))))
+(explanation (:triple _Tangible-Entity637 has-region _Cisternal-space636) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Tangible-Entity637 instance-of Tangible-Entity) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Tangible-Entity637 instance-of Tangible-Entity) ((cloned-from _Cisternal-space593 _Cisternal-space636)))
+(explanation (:triple _Tangible-Entity637 has-region _Cisternal-space636) ((cloned-from _Cisternal-space593 _Cisternal-space636)))
+(explanation (:triple _Tangible-Entity637 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Cisternal-space636 Region is-region-of))))
+(explanation (:triple _Cisternal-space636 location-of _Spatial-Entity635) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Cisternal-space636 instance-of Cisternal-space) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Cisternal-space636 is-region-of _Tangible-Entity637) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Cisternal-space636 is-inside _Cisternae634) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Cisternal-space636 instance-of Cisternal-space) ((added-at Cisternae "User defined")))
+(explanation (:triple _Cisternal-space636 is-region-of _Tangible-Entity637) ((cloned-from _Cisternal-space593 _Cisternal-space636)))
+(explanation (:triple _Cisternal-space636 location-of _Spatial-Entity635) ((cloned-from _Cisternal-space593 _Cisternal-space636)))
+(explanation (:triple _Cisternal-space636 location-of _Spatial-Entity635) ((a Spatial-Entity (@ _Cisternal-space636 Place location-of))))
+(explanation (:triple _Cisternal-space636 is-region-of _Tangible-Entity637) ((a Tangible-Entity (@ _Cisternal-space636 Region is-region-of))))
+(explanation (:triple _Spatial-Entity635 instance-of Spatial-Entity) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Spatial-Entity635 location _Cisternal-space636) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Spatial-Entity635 instance-of Spatial-Entity) ((cloned-from _Cisternal-space593 _Cisternal-space636)))
+(explanation (:triple _Spatial-Entity635 location _Cisternal-space636) ((cloned-from _Cisternal-space593 _Cisternal-space636)))
+(explanation (:triple _Spatial-Entity635 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cisternal-space636 Place location-of))))
+(explanation (:triple _Cisternae634 instance-of Cisternae) ((added-at Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Cisternae634 is-part-of _Living-Entity633) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Cisternae634 encloses _Physical-Object638) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Cisternae634 encloses _Cisternal-space636) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Cisternae634 encloses _Physical-Object638) ((a Physical-Object (@ _Cisternae634 Membrane-Enclosure encloses))))
+(explanation (:triple _Cisternae634 is-part-of _Living-Entity633) ((a Living-Entity (@ _Cisternae634 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Cisternae634 encloses _Cisternal-space636) ((added-at Cisternae "User defined")))
+(explanation (:triple _Living-Entity633 instance-of Living-Entity) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Living-Entity633 has-part _Cisternae634) ((cloned-from _Cisternae588 _Cisternae634)))
+(explanation (:triple _Living-Entity633 instance-of Living-Entity) ((a Living-Entity (@ _Cisternae634 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Tangible-Entity632 is-part-of _Nuclear-envelope621) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Tangible-Entity632 instance-of Tangible-Entity) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Tangible-Entity632 instance-of Membrane) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Tangible-Entity632 has-region _Pore629) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Tangible-Entity632 instance-of Membrane) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Tangible-Entity632 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Pore629 Region is-region-of))))
+(explanation (:triple _Atom631 instance-of Atom) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Atom631 is-basic-structural-unit-of _Protein630) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Atom631 instance-of Atom) ((a Atom (@ _Protein630 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein630 has-basic-structural-unit _Atom631) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Protein630 instance-of Protein) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Protein630 is-part-of _Pore629) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Protein630 instance-of Protein) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Protein630 has-basic-structural-unit _Atom631) ((a Atom (@ _Protein630 Molecule has-basic-structural-unit))))
+(explanation (:triple _Pore629 has-part _Protein630) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Pore629 is-region-of _Tangible-Entity632) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Pore629 instance-of Pore) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Pore629 diameter _Length-Value627) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Pore629 location-of _Spatial-Entity628) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Pore629 instance-of Pore) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Pore629 is-region-of _Tangible-Entity632) ((a Tangible-Entity (@ _Pore629 Region is-region-of))))
+(explanation (:triple _Pore629 location-of _Spatial-Entity628) ((a Spatial-Entity (@ _Pore629 Place location-of))))
+(explanation (:triple _Pore629 has-part _Protein630) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Pore629 diameter _Length-Value182) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Pore629 diameter _Length-Value627) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Spatial-Entity628 location _Pore629) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Spatial-Entity628 instance-of Spatial-Entity) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Spatial-Entity628 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Pore629 Place location-of))))
+(explanation (:triple _Length-Value627 diameter-of _Pore629) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Length-Value627 instance-of Length-Value) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Length-Value627 contains-node-of _Property-Node639) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Length-Value627 value (:pair 100.0 *nanometer)) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Length-Value627 instance-of Length-Value) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Living-Entity626 has-part _Nuclear-envelope621) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Living-Entity626 instance-of Living-Entity) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Living-Entity626 instance-of Living-Entity) ((a Living-Entity (@ _Nuclear-envelope621 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Nuclear-lamina625 instance-of Nuclear-lamina) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-lamina625 has-basic-structural-unit _Protein623) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-lamina625 does-not-enclose _Nuclear-envelope621) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-lamina625 instance-of Nuclear-lamina) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nuclear-lamina625 has-basic-structural-unit _Protein623) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina625)))
+(explanation (:triple _Nuclear-lamina625 has-basic-structural-unit _Protein623) ((added-at Nuclear-lamina "User defined")))
+(explanation (:triple _Atom624 instance-of Atom) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Atom624 is-basic-structural-unit-of _Protein623) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Atom624 instance-of Atom) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina625)))
+(explanation (:triple _Atom624 is-basic-structural-unit-of _Protein623) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina625)))
+(explanation (:triple _Atom624 instance-of Atom) ((a Atom (@ _Protein623 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein623 has-basic-structural-unit _Atom624) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Protein623 instance-of Protein) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Protein623 is-basic-structural-unit-of _Nuclear-lamina625) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Protein623 is-basic-structural-unit-of _Nuclear-lamina625) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina625)))
+(explanation (:triple _Protein623 has-basic-structural-unit _Atom624) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina625)))
+(explanation (:triple _Protein623 instance-of Protein) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina625)))
+(explanation (:triple _Protein623 instance-of Protein) ((added-at Nuclear-lamina "User defined")))
+(explanation (:triple _Protein623 has-basic-structural-unit _Atom624) ((a Atom (@ _Protein623 Molecule has-basic-structural-unit))))
+(explanation (:triple _Nucleus622 is-inside _Nuclear-envelope621) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nucleus622 instance-of Nucleus) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nucleus622 instance-of Physical-Object) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nucleus622 instance-of Nucleus) ((a Nucleus)))
+(explanation (:triple _Nucleus622 instance-of Nucleus) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nucleus622 instance-of Physical-Object) ((a Physical-Object (@ _Nuclear-envelope621 Membrane-Enclosure encloses))))
+(explanation (:triple _Nuclear-envelope621 instance-of Nuclear-envelope) ((added-at Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Nuclear-envelope621 is-part-of _Living-Entity626) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-envelope621 encloses _Nucleus622) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-envelope621 encloses _Spatial-Entity620) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-envelope621 has-part _Tangible-Entity632) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-envelope621 is-outside _Nuclear-lamina625) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-envelope621 encloses _Nucleus622) ((a Physical-Object (@ _Nuclear-envelope621 Membrane-Enclosure encloses))))
+(explanation (:triple _Nuclear-envelope621 is-part-of _Living-Entity626) ((a Living-Entity (@ _Nuclear-envelope621 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Nuclear-envelope621 has-part _Tangible-Entity632) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nuclear-envelope621 encloses _Spatial-Entity620) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nuclear-envelope621 is-outside _Nuclear-lamina625) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nuclear-envelope621 encloses _Spatial-Entity620) ((a Physical-Object (@ _Nuclear-envelope621 Membrane-Enclosure encloses))))
+(explanation (:triple _Spatial-Entity620 instance-of Spatial-Entity) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Spatial-Entity620 is-inside _Nuclear-envelope621) ((cloned-from _Nuclear-envelope304 _Nuclear-envelope621)))
+(explanation (:triple _Spatial-Entity620 instance-of Spatial-Entity) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Membrane1092 instance-of Membrane) ((added-at Endoplasmic-reticulum "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(Endoplasmic-reticulum now-has (user-description ("The endoplasmic reticulum is a network of membranes where proteins and lipids are synthesized.")))

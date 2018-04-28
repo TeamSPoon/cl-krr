@@ -1,0 +1,69 @@
+;; 
+;;    $Id: Uracil.km,v 1.23 2001/06/16 22:38:07 souther Exp $ 
+;; 
+
+(Uracil has
+	(superclasses (Pyrimidine))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+	(description ("A pyrimidine base which combines with a ribose base to
+                        form uridine.  Uridine triphosphates are one of the
+                        building block monomers for RNA. Souther. ")) 
+	(cmap-correspondence ()))
+
+(every Uracil has
+       (complement ((a Adenine)))   
+       (has-part
+        (
+         (a Nitrogen-Atom uniquely-called "Nitrogen-1" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "N1-N1H" with  
+                 (object (((the has-part of Self) uniquely-called "N1-Hydrogen")))
+                 (instrument ((a Covalent-NH-Bond))) ))))
+         (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C2-N1" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-1")))
+                 (instrument 	((a Covalent-CN-Bond))) )
+              (a Be-Attached-To uniquely-called "C2-N3"  with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-3")))
+                 (instrument 	((a Covalent-CN-Bond))) )
+              (a Be-Attached-To uniquely-called "C2-C2O" with
+                 (object (((the has-part of Self) uniquely-called "C2-Oxygen")))
+                 (instrument ((a Double-Covalent-CO-Bond))) ) )))
+         (a Nitrogen-Atom uniquely-called "Nitrogen-3" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "N3-N3H" with  
+                 (object (((the has-part of Self) uniquely-called "N3-Hydrogen")))
+                 (instrument ((a Covalent-NH-Bond))) ))))
+	 (a Carbon-Atom uniquely-called "Carbon-4" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C4-N3" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-3")))
+                 (instrument 	((a Covalent-CN-Bond))) )
+              (a Be-Attached-To uniquely-called "C4-C5" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Covalent-CC-Bond))) )
+              (a Be-Attached-To uniquely-called "C4-C4O" with
+                 (object (((the has-part of Self) uniquely-called "C4-Oxygen")))
+                 (instrument ((a Covalent-CO-Bond))) ) )))
+         (a Carbon-Atom uniquely-called "Carbon-5" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C4-C5" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument 	((a Double-Covalent-CC-Bond)))
+		 ))))
+	 
+	 (a Oxygen-Atom uniquely-called "C2-Oxygen")
+	 (a Oxygen-Atom uniquely-called "C4-Oxygen")
+	 (a Hydrogen-Atom uniquely-called "N1-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "N3-Hydrogen")
+	 )))
+
+

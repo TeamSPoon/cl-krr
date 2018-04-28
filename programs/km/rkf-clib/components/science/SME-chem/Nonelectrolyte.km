@@ -1,0 +1,59 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Nonelectrolyte2767
+
+
+|#
+
+(disable-classification)
+
+(Nonelectrolyte has (superclasses (Chemical)))
+
+(Nonelectrolyte now-has (user-description ("A nonelectrolyte is a substance that does not ionise in water and consequently gives a nonconducting solution.")))
+
+(_Nonelectrolyte8004 has
+  (prototype-of (Nonelectrolyte Chemical))
+  (prototype-scope (Nonelectrolyte 
+        (the-class Chemical with (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))))
+  (prototype-participants (_Solubility-Value8007 _Electrolyte-Status-Value8003 _State-Value8006 _Chemical-Entity8005 _Nonelectrolyte8004)))
+
+(_Electrolyte-Status-Value8003 has (instance-of (Electrolyte-Status-Value)))
+
+(_Nonelectrolyte8004 has
+  (instance-of (Nonelectrolyte))
+  (solubility (_Solubility-Value8007))
+  (electrolyte-status (_Electrolyte-Status-Value8003))
+  (physical-state (_State-Value8006))
+  (has-basic-structural-unit (_Chemical-Entity8005)))
+
+(_Chemical-Entity8005 has (instance-of (Chemical-Entity)))
+
+(_State-Value8006 has (instance-of (State-Value)))
+
+(_Solubility-Value8007 has (instance-of (Solubility-Value)))
+
+(enable-classification)
+
+(explanation (:triple _Nonelectrolyte8004 solubility _Solubility-Value8007) (((@ SME entered)) (every Nonelectrolyte has (solubility ((a Solubility-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value8003 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Nonelectrolyte8004 instance-of Nonelectrolyte) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity8005 instance-of Chemical-Entity) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value8006 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value8007 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+(every Nonelectrolyte has (solubility ((a Solubility-Value))))
+
+|#
+
+|#
+

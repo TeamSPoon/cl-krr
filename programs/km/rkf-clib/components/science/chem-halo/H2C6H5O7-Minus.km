@@ -1,0 +1,17 @@
+;; $Id: H2C6H5O7-Minus.km,v 1.8 2008/05/15 22:45:41 vaibhav Exp $ 
+(H2C6H5O7-Minus has (superclasses (Anion)))
+(every H2C6H5O7-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("citrate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 H)(:pair 6 C)(:pair 5 H)(:pair 7 O)))))))
+)
+
+(every H2C6H5O7-Minus has-definition
+  (instance-of (Chemical-Entity))
+  (charge ((a Charge-Value with (value ((:pair -1 *unity))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 6 C) (:pair 5 H) (:pair 7 O)))))))
+)
+
+(H2C6H5O7-Minus has (wn20-synset ((:triple "H2C6H5O7-" 0 "n") (:triple "H_2C_6H_5O_7-" 0 "n"))))

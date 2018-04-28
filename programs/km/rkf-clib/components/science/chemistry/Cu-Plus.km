@@ -1,0 +1,9 @@
+;; $Id: Cu-Plus.km,v 1.4 2003/03/26 19:45:23 wilder Exp $ 
+(Cu-Plus has (superclasses (Metal-Cation)))
+(every Cu-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("copper(I)"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cu)))))))
+)

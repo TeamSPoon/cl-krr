@@ -1,0 +1,22 @@
+;; 
+;;    $Id: SnRNP-Ensemble.km,v 1.14 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(SnRNP-Ensemble has
+         (superclasses (Nucleoprotein-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A complex of nucleoprotein enzymes involved in the 
+                        splicing of mRNA.  Alberts:ECB:220"))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every SnRNP-Ensemble has
+;       (purpose ((a Instrument-Role with
+;		    (in-event ((a MRNA-Splicing))))))
+
+       (element-type (SnRNP))
+       )
+
+;; revisit

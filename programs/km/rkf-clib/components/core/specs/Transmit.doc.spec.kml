@@ -1,0 +1,28 @@
+<!--- $Id: Transmit.doc.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<kml>
+
+<concept name=Transmit::doc>
+<superconcept name=Action::doc>
+
+<sme-documentation name=Transmit>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Transmit>
+  <definition>an entity transmits a signal to another entity</definition>
+  <requiredslot name=object>
+    <restriction>an <conceptref name=Entity> which plays a <conceptref name=Stimulus> that is transmitted</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>a <conceptref name=Tangible-Entity> which does the Transmit</restriction>
+  </primaryslot>
+  <primaryslot name=recipient>
+    <restriction>a <conceptref name=Tangible-Entity> that recieves the transmitted stimulus</restriction>
+  </primaryslot>
+  <wnsynsets><verb>transmit#1, transmit#2, transmit#4
+  </verb></wnsynsets>
+  <wnsynsets><verb>convey#3, communicate#3, conduct#5, convey#4, carry#3, channel#1, transfer#7, transport#5, channel#3, channelize#1
+  </verb></wnsynsets>
+</component>
+
+</kml>

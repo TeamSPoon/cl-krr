@@ -1,0 +1,42 @@
+<!--- $Id: Precipitate.spec.kml,v 1.1 2005/08/01 20:59:22 jchaw Exp $ --->
+
+<kml>
+<concept name=Precipitate>
+
+<superconcept name=Chemical>
+
+  <definition>
+    An insoluble substance that forms in, and separates from, a
+    water <conceptref name=Solution> (Brown, et.al)
+  </definition>
+
+<primaryslotlist>
+  <slotdescription name=result-of>
+    The <conceptref name=Reaction> that creates this precipitate
+  </slotdescription>
+</primaryslotlist>
+
+<neighborlist>
+
+   <neighbor name=Acid>
+     A precipitate that is able to donate a 
+     <conceptref name=Hydrogen-Ion> (a <conceptref name=Proton>)
+     and hence increases the <slot>concentration</slot> of 
+     <conceptref name=Hydrogen-Atom>s when it dissolves in water
+  </neighbor>
+
+   <neighbor name=Base>
+     A precipitate that is an <conceptref name=Hydrogen-Ion>
+     acceptor
+  </neighbor>
+
+   <neighbor name=Salt>
+     An <conceptref name=Ionic-Compound> formed by replacing one or more 
+     <conceptref name=Hydrogen-Atom>s of an <conceptref name=Acid>
+     by other <conceptref name=Cation>s
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

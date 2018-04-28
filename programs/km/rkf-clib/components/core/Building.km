@@ -1,0 +1,19 @@
+;; 
+;; $Id: Building.km,v 1.3 2006/04/12 19:33:24 jchaw Exp $
+;; 
+
+(Building has
+  (superclasses (Architectural-Structure))
+  (description ("an architectural structure playing a container, having a floor, rooms, walls and a roof"))
+)
+
+(every Building has
+  (plays ((a Container)))
+  (has-part ((a Room) (a Floor) (a Wall) (a Roof)))
+)
+
+;; see Room.km, Roof.km, Floor.km and Wall.km
+
+(Building has (wn20-synset ((:set
+			     (:triple "building" 1 "n")
+			     ))))

@@ -1,0 +1,19 @@
+;;
+;; $Id: NO.km,v 1.7 2006/03/16 23:08:29 jfan Exp $
+;;
+
+(NO has (superclasses (Inorganic-Molecule)))
+
+(every NO has	
+       (has-chemical-name ("nitrogen monoxide"))
+       (nested-atomic-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 N)
+		    (:pair 1 O))))))))
+
+(every NO has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("nitrogen monoxide"))
+)

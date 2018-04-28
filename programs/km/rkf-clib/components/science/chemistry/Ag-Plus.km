@@ -1,0 +1,9 @@
+;; $Id: Ag-Plus.km,v 1.7 2003/03/26 19:45:22 wilder Exp $ 
+(Ag-Plus has (superclasses (Metal-Cation)))
+(every Ag-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("silver"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Ag)))))))
+)

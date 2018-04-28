@@ -1,0 +1,48 @@
+<kml>
+
+<concept name=Region>
+<superconcept name=Place>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Region>
+  <definition>a <conceptref name=Place> with spatial extent, typically a subregion of some Tangible-Entity.
+</definition>
+</component>
+
+<primaryslotlist>
+
+  <slotdescription name=is-region-of>
+       The Tangible-Entity on which the Region is a subregion
+  </slotdescription>
+
+  <slotdescription name=has-region>
+       The relation that the Tangible-Entity has to the Region
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>There is a heart-shaped birthmark on a dime-sized Region on her leg.</text>
+    <slotdescription name=is-region-of>her leg</slotdescription>
+    <slotdescription name=is-location-of>a heart-shaped birthmark</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Place>
+	Place is a more general form for Region - it does not specify any spatial extent.
+  </neighbor>
+
+  <neighbor name=Territory>
+	Territory is a special case of Region - alongwith spatial extent, it also specifies the reason for the demarcation.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

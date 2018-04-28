@@ -1,0 +1,89 @@
+;; 
+;; $Id: Pumping.km,v 1.5 2006/10/30 17:04:09 kbarker Exp $
+;; 
+
+(Pumping has
+  (superclasses (Action))
+  (description ("to cause a fluid to flow from one place to another"))
+)
+
+;(every Fluid-Substance has-definition
+;  (instance-of (Substance))
+;  (object-of ((a Pumping)))
+;)
+
+(every Pumping has
+  (object ((a Fluid-Substance)))
+  (instrument ((a Pumping-Device)))
+  (destination ((the destination of (the Flow causes of (the Contract subevent of Self)))))
+  (origin ((the origin of (the Flow causes of (the Expand subevent of Self)))))
+
+  (first-subevent ((the Contract subevent of Self)))
+
+  (subevent ((a Contract with
+                (object ((the Chamber has-part of (the Pumping-Device instrument of Self))))
+                (causes ((a Open with
+                            (object (((the has-region of (the Chamber has-part of (the instrument of Self)))
+                                       uniquely-called "outlet portal")))
+                            (instrument (((the Valve has-part of (the instrument of Self))
+                                           uniquely-called "outlet valve")))
+                         )
+                         (a Close with
+                            (object (((the has-region of (the Chamber has-part of (the instrument of Self)))
+                                       uniquely-called "inlet portal")))
+                            (instrument (((the Valve has-part of (the instrument of Self))
+                                           uniquely-called "inlet valve")))
+                         )
+                         (a Flow with
+                            (object ((the Fluid-Substance object of Self)))
+                            (destination ((a Physical-Object uniquely-called "outlet conduit" with 
+					     (plays ((a Conduit)))	
+                                             (is-outside ((the Chamber has-part of (the instrument of Self)))))))
+                            (origin ((the encloses of (the Chamber has-part of (the instrument of Self)))))
+                            (path (((the has-region of (the Chamber has-part of (the instrument of Self)))
+                                     uniquely-called "outlet portal")))
+                         )
+                ))
+                (next-event ((the Expand subevent of Self)))
+             )
+             (a Expand with
+                (object ((the Chamber has-part of (the Pumping-Device instrument of Self))))
+                (causes ((a Close with
+                            (object (((the has-region of (the Chamber has-part of (the instrument of Self)))
+                                       uniquely-called "outlet portal")))
+                            (instrument (((the Valve has-part of (the instrument of Self))
+                                           uniquely-called "outlet valve")))
+                         )
+                         (a Open with
+                            (object (((the has-region of (the Chamber has-part of (the instrument of Self)))
+                                       uniquely-called "inlet portal")))
+                            (instrument (((the Valve has-part of (the instrument of Self))
+                                           uniquely-called "inlet valve")))
+                         )
+                         (a Flow with
+                            (object ((the Fluid-Substance object of Self)))
+                            (origin ((a Physical-Object uniquely-called "inlet conduit" with 
+					(plays ((a Conduit)))
+                                        (is-outside ((the Chamber has-part of (the instrument of Self)))))))
+                            (destination ((the encloses of (the Chamber has-part of (the instrument of Self)))))
+                            (path (((the has-region of (the Chamber has-part of (the instrument of Self)))
+                                     uniquely-called "inlet portal")))
+                         )
+                ))
+             )
+  ))
+)
+
+(Pumping has (wn20-synset ((:set 
+                                  (:triple "pump" 3 "v")
+))))
+
+(every Pumping has
+  (text-active-verbseq-sg ("pumps"))
+  (text-active-verbseq-pl ("pump"))
+  (text-passive-verbseq-sg ("gets pumped"))
+  (text-passive-verbseq-pl ("get pumped"))
+)
+
+(every Pumping has (text-nominalization ("pumping")))
+

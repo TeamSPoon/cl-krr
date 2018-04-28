@@ -1,0 +1,18 @@
+;; 
+;; $Id: contrast-ratio.km,v 1.1 2004/10/20 21:19:40 kbarker Exp $
+;; 
+
+(contrast-ratio has
+  (instance-of (Property))
+  (superslots  ())
+  (subslots    ())
+  (domain      (Office-Equipment))    
+  (range       (Contrast-Ratio-Value))
+  (scalar-constant-class (Contrast-Ratio-Constant))
+  (cardinal-unit-class (UoM-Unitless))
+  (inverse     (contrast-ratio-of))
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (cardinality (N-to-1))
+)
+

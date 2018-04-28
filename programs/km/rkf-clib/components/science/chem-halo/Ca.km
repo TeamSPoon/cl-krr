@@ -1,0 +1,16 @@
+;;
+;; $Id: Ca.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Ca has (superclasses (Metal-Atom IIA-Alkaline-Earth-Metal-Element)))
+(every Ca has
+       (atomic-symbol (Ca))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 20 NIL))))))
+       (has-ion ((a Ca-Plus-2)))
+       (chemical-period (4)))
+
+(every Ca has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("calcium"))
+)

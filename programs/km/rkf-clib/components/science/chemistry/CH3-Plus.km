@@ -1,0 +1,19 @@
+;; $Id: CH3-Plus.km,v 1.2 2003/02/20 22:00:08 wilder Exp $
+
+(CH3-Plus has (superclasses (Cation)))
+
+(every CH3-Plus has
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 C)
+					  (:pair 3 H)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 C)
+					  (:pair 3 H)))))))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 C)
+					  (:pair 3 H)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair +1 *electronic-charge)))))))

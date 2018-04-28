@@ -1,0 +1,55 @@
+<!--- $Id: Instruction.doc.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<kml>
+
+<concept name=Instruction>
+<superconcept name=Role>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Instruction>
+  <definition>Instruction is the <conceptref name=Role> played by <conceptref name=Information> 
+    	which is the <slot>object</slot> of a <conceptref name=Command>.
+  </definition>
+  <requiredslot name=played-by>
+    <restriction>a Information</restriction>
+  </requiredslot>
+  <requiredslot name=in-event>
+    <restriction>a Command</restriction>
+   </requiredslot>
+  
+  <wnsynsets><verb>instruction #1, instruction #4
+  </verb></wnsynsets>
+  <wnsynsets><verb>direction#6, command#7, statement#6, program line#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+
+</musing>
+
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=instruction2>
+  <sense-definition>activities that impart knowledge
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+
+<sense tag=instruction3>
+  <sense-definition>the profession of a teacher
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNinstruction#1><equiv tag=instruction1></sense>
+<sense tag=WNinstruction#4><equiv tag=instruction4></sense>
+</senselist>
+</reference>
+</kml>
+
+

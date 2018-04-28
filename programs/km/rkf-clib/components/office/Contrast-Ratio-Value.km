@@ -1,0 +1,16 @@
+;;
+;; $Id: Contrast-Ratio-Value.km,v 1.2 2005/02/14 22:27:41 kbarker Exp $
+;;
+
+
+(Contrast-Ratio-Value has 
+   (superclasses (Property-Value)))
+
+(every Contrast-Ratio-Value has
+   (property-slot (contrast-ratio))
+   (contrast-ratio-of ((must-be-a Office-Equipment)))
+   (less-than ((must-be-a Contrast-Ratio-Value)))
+   (greater-than ((must-be-a Contrast-Ratio-Value)))
+   (same-as ((must-be-a Contrast-Ratio-Value)))
+)
+

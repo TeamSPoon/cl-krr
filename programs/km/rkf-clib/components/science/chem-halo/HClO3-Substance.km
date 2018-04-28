@@ -1,0 +1,11 @@
+;; 
+;;    $Id: HClO3-Substance.km,v 1.5 2008/11/03 03:11:26 tecuci Exp $
+;; 
+
+(HClO3-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every HClO3-Substance has
+       (has-basic-structural-unit ((a HClO3))))
+(every HClO3-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a HClO3))))

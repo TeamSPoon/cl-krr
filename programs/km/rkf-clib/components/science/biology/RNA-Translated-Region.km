@@ -1,0 +1,23 @@
+;; 
+;;    $Id: RNA-Translated-Region.km,v 1.7 2001/05/11 06:41:41 souther Exp $ 
+;; 
+
+(RNA-Translated-Region has
+         (superclasses (RNA-Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("Region of the mRNA which directs the selection of
+                        amino acids to make up a particular protein.
+                        Souther."))
+         (test-case ()))
+
+(every RNA-Translated-Region has
+         (has-part ((a Protein-Initiator-Codon)
+                    (a Protein-Stop-Codon)
+                    (a RNA-Coding-Sequence)
+                    ))
+ )
+
+

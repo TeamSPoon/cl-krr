@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Lipid-Bilayer.km,v 1.14 2005/10/04 23:17:10 kbarker Exp $ 
+;; 
+
+(Lipid-Bilayer has
+         (superclasses (Organic-Layer))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A bimolecular leaflet made up of lipid molecules,
+                        forming the basic structure of the plasma membrane,
+                        organelle membranes, etc. Souther."))
+         (test-case ()))  
+
+(every Lipid-Bilayer has
+;       (thickness ((a Length-Value with (value ((:pair 2 Molecule))))))
+       (has-structural-part ((a Organic-Layer called "outer lipid layer" with
+				(has-structural-part ((a Aggregate with
+
+					      (element-type (Lipid)))))
+;				(thickness ((a Length-Value with
+;                                               (value ((:pair 1 Molecule))))))
+)
+			     (a Organic-Layer called "inner lipid layer" with
+				(has-structural-part ((a Aggregate with
+
+							 (element-type (Lipid)))))
+;				(thickness ((a Length-Value with
+;                                               (value ((:pair 1 Molecule))))))
+))))
+
+
+
+

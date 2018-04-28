@@ -1,0 +1,12 @@
+;;
+;; $Id: Electrolyte-Status-Value.km,v 1.2 2007/05/21 04:43:14 mrglass Exp $
+;;
+
+(Electrolyte-Status-Value has
+			  (superclasses (Property-Value)))
+
+(every Electrolyte-Status-Value has
+  (property-slot (electrolyte-status))
+)
+
+(Electrolyte-Status-Value has (description ("The degree of ionization for a solution, e.g. non-electrolyte, weak-electrolyte, or strong-electrolyte.")))

@@ -1,0 +1,44 @@
+;; $Id: Relevance-Value.km,v 1.4 2005/03/29 22:55:43 billj Exp $
+
+(Relevance-Value has
+	(superclasses (Property-Value)))
+
+(Relevance-Value has
+		 (property-slot (relevance))
+		 (relevance-of ((must-be-a Be-Relevant-To)))
+		 (less-than ((must-be-a Relevance-Value)))
+		 (greater-than ((must-be-a Relevance-Value)))
+		 (same-as ((must-be-a Relevance-Value)))
+		 )
+
+(Relevance-Value 
+ has
+ (test-case ('(
+	       (Dog has (superclasses (Animal)))
+	       (*lassie has (instance-of (Dog)))
+	       (*lassies-weight has (instance-of (Weight-Value)))
+	       (*fidos-weight has (instance-of (Weight-Value)))
+	       (*lassie has (weight (*lassies-weight)))
+	       (*relevance-of-lassies-weight-to-lassie 
+		has
+		(instance-of (Be-Relevant-To))
+		(object (*lassies-weight))
+		(base (*lassie))
+		(relevance ((a Relevance-Value))))
+	       (*relevance-of-spots-weight-to-lassie 
+		has (instance-of (Be-Relevant-To))
+		(object (*spots-weight))
+		(base (*lassie))
+		(relevance
+		 ((a Relevance-Value with
+		     (value ((:pair 0.1 NIL)
+			     (:pair *irrelevant Dog)
+			     ))
+		     (less-than ((the relevance of *relevance-of-lassies-weight-to-lassie)))
+		     ))))
+	       (the value of (the relevance of *relevance-of-spots-weight-to-lassie))
+	       ((the less-than of (the relevance of *relevance-of-spots-weight-to-lassie))
+		includes (the relevance of *relevance-of-lassies-weight-to-lassie))
+	       ((the greater-than of (the relevance of *relevance-of-lassies-weight-to-lassie))
+		includes (the relevance of *relevance-of-spots-weight-to-lassie))
+	       ))))

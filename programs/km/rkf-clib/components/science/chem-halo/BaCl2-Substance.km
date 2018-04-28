@@ -1,0 +1,15 @@
+
+;;
+;; $Id: BaCl2-Substance.km,v 1.6 2008/11/03 03:11:25 tecuci Exp $
+;;
+
+(BaCl2-Substance has 
+  (superclasses (Ionic-Compound-Substance)))
+
+(every BaCl2-Substance has
+  (electrolyte-status ((a Electrolyte-Status-Value with
+                               (value ((:pair *non Chemical))))))
+  (has-basic-structural-unit ((a BaCl2))))
+(every BaCl2-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a BaCl2))))

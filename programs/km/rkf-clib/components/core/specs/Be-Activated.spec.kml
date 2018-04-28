@@ -1,0 +1,65 @@
+<!--- $Id: Be-Activated.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Activated><system-documentation name=Be-Activated>
+
+<superconcept name=Be-Accessible>
+
+<definition>
+
+   An <slot>object</slot> becomes activated.  This is a specific type
+   of accessibility.
+
+  An object is put in this state by <conceptref name=Activate>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the thing that becomes activated
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>Sally turned on the computer.</text>
+     <slotdescription name=object>the computer</slotdescription>
+   </examplesentence>
+   <comment> 
+      "Turned on" here would be represented by an <conceptref name=Activate>
+      action, where the activation of the computer would be a result.
+   </comment>
+   
+   <examplesentence>
+     <text>Jerome armed the motion sensor.</text>
+     <slotdescription name=object>the motion sensor</slotdescription>
+   </examplesentence>
+   <comment>
+      Activation is distinct from Operation.  The motion sensor can now be
+      used; triggering the motion sensor would not be an activate, since
+      it is already activated.
+   </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Accessible>
+      Be-Accessible is generally for accessible things not covered by
+      more specific concepts.
+   </neighbor>
+
+   <neighbor name=Be-Open>
+      Be-Open is specifically for a <conceptref name=Portal-Cover>, so that 
+      it is removed from the  <conceptref name=Portal>.
+   </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

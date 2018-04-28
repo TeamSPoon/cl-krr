@@ -1,0 +1,150 @@
+<!--- $Id: Transfer.doc.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Transfer>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Transfer>
+  <definition>change of possession of an object</definition>
+  <requiredslot name=object>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+  </primaryslot>
+  <primaryslot name=donor>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Transfer</restriction>
+  </primaryslot>
+  <primaryslot name=recipient>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Transfer</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>transfer#5
+  </verb></wnsynsets>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+<hr>
+<h3>Core Senses:</h3>
+<senselist>
+<sense tag=transfer1>
+  <sense-definition>change of possession of an object</sense-definition>
+  <requiredslot name=object>
+    <restriction>a Physical-Object</restriction>
+    <restriction>possessor changes</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes object's possessor to change</restriction>
+  </primaryslot>
+  <primaryslot name=donor>
+    <restriction>= possessed object before Transfer</restriction>
+  </primaryslot>
+  <primaryslot name=recipient>
+    <restriction>= possesses object after Transfer</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>= medium of transfer of object</restriction>
+  </primaryslot>
+</sense>
+</senselist>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=transfer2>
+  <sense-definition>move</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=transfer3>
+  <sense-definition>change medium</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=transfer4>
+  <sense-definition>transmit</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<musing>
+The Transfer verbs seem to be topologically analogous to the
+<conceptref name=Move> verbs with the following slot mappings:<br>
+Move:<slot>agent</slot> ~ Transfer:<slot>agent</slot><br>
+Move:<slot>object</slot> ~ Transfer:<slot>object</slot><br>
+Move:<slot>origin</slot> ~ Transfer:<slot>donor</slot><br>
+Move:<slot>destination</slot> ~ Transfer:<slot>recipient</slot><br>
+Move:<slot>path</slot> ~ Transfer:<slot>instrument</slot><p>
+
+But wait, that's not all. Transfer verbs often imply change of location
+of the object transferred and are therefore often lumped in with
+<conceptref name=Move> verbs. What's needed is probably a slightly
+looser coupling.
+</musing>
+
+<reference source=Levin>
+Levin has a whole chapter (13) on <term>Verbs of Change of Possession</term>.
+These include <term>Give</term> verbs, <term>Contribute</term> verbs
+(<term>Transfer</term> goes here), <term>Verbs of Future Having</term>,
+<term>Verbs of Providing</term>, <term>Verbs of Obtaining</term>,
+<term>Verbs of Exchange</term> and <term>Berry</term> verbs (as in 
+"pick berries"), as well as several subclasses of these.<p>
+
+Levin also includes <term>Transfer</term> in with the change of location
+verbs (<term>Send</term> verbs in particular).
+</reference>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDtransfer1><equiv tag=transfer2></sense>
+<sense tag=COBUILDtransfer2><equiv tag=transfer1></sense>
+<sense tag=COBUILDtransfer3><equiv tag=transfer3></sense>
+<sense tag=COBUILDtransfer4><equiv tag=transfer2></sense>
+<sense tag=COBUILDtransfer5><equiv tag=transfer2><comment>abstract</comment></sense>
+<sense tag=COBUILDtransfer6><equiv tag=transfer2><comment>abstract</comment></sense>
+<sense tag=COBUILDtransfer7><equiv tag=transfer2></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+<sense tag=LDOCEtransfer1><equiv tag=transfer2></sense>
+<sense tag=LDOCEtransfer2><equiv tag=transfer3></sense>
+<sense tag=LDOCEtransfer3><equiv tag=transfer3></sense>
+<sense tag=LDOCEtransfer4><equiv tag=transfer1></sense>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+<sense tag=NODEtransfer1><equiv tag={transfer1, transfer2}></sense>
+<sense tag=NODEtransfer1.1><equiv tag=transfer2></sense>
+<sense tag=NODEtransfer1.2><equiv tag=transfer2></sense>
+<sense tag=NODEtransfer1.3><equiv tag=transfer3></sense>
+<sense tag=NODEtransfer1.4><equiv tag=transfer1></sense>
+<sense tag=NODEtransfer1.5><equiv tag=transfer3></sense>
+<sense tag=NODEtransfer1.6><equiv tag=transfer3></sense>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNtransfer#1><equiv tag=transfer2></sense>
+<sense tag=WNtransfer#2><equiv tag=transfer2></sense>
+<sense tag=WNtransfer#3><equiv tag=transfer2></sense>
+<sense tag=WNtransfer#4><equiv tag=transfer2></sense>
+<sense tag=WNtransfer#5><equiv tag=transfer1></sense>
+<sense tag=WNtransfer#6><equiv tag=transfer3></sense>
+<sense tag=WNtransfer#7><equiv tag=transfer4></sense>
+<sense tag=WNtransfer#8><equiv tag=transfer2></sense>
+<sense tag=WNtransfer#9><equiv tag=transfer2></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

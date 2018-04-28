@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Nucleoside-Triphosphate.km,v 1.10 2001/06/01 23:26:43 pnav Exp $ 
+;; 
+
+(Nucleoside-Triphosphate has
+         (superclasses (Nucleotide))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A nucleotide in which the 5' terminal group is a
+                        triphosphate.  Souther."))
+         (test-case ()))
+
+(every Nucleoside-Triphosphate has
+  (has-part ((a Triphosphate with
+		(object-of
+		  ((a Be-Attached-To with
+		      (object ((the Nucleoside has-part of Self)))
+		      (site   (((the Carbon-Atom has-part of
+				     (the Pentose has-part of
+					  (the Nucleoside has-part of Self)))
+				called "Carbon-5")
+			       ((the Oxygen-Atom has-part of
+				     ((the Monophosphate has-part of
+					   (the Triphosphate has-part of Self))
+				      called "Phosphate-1"))
+				called "Oxygen-1")))
+		      (instrument ((a Covalent-CO-Bond)))))))
+	     (a Nucleoside))))
+
+

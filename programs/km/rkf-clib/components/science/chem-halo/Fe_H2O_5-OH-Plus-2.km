@@ -1,0 +1,17 @@
+;; $Id: Fe_H2O_5-OH-Plus-2.km,v 1.4 2008/05/15 17:19:10 kunal Exp $ 
+(Fe_H2O_5-OH-Plus-2 has (superclasses (Cation)))
+(every Fe_H2O_5-OH-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair 2 *unity))))))
+	(has-chemical-name ("iron hydroxide pentahydrate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Fe) (:pair 5 (:seq (:pair 2 H) (:pair 1 O))) (:pair 1 (:seq (:pair 1 O) (:pair 1 H)))))))))
+	)
+
+
+(every Fe_H2O_5-OH-Plus-2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("iron hydroxide pentahydrate"))
+)
+
+(Fe_H2O_5-OH-Plus-2 has (wn20-synset ((:triple "Fe_H2O_5-OH+2" 0 "n"))))

@@ -1,0 +1,31 @@
+
+;;
+;; $Id: Area-Value.km,v 1.15 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(Area-Value has 
+       (superclasses (Property-Value)))
+
+(Area-Value has
+   (test-case ('(
+                 (Carpet has (superclasses (Physical-Object)))
+                 (*LivingroomCarpet has (instance-of (Carpet))
+                                (area ((a Area-Value))))
+                 (*BedroomCarpet has (instance-of (Carpet))
+                              (area
+                                 ((a Area-Value with
+                                     (value ((:pair *tiny Carpet)
+                                             (:pair 20 *square-meter)
+                                     ))
+                                     (less-than
+                                        ((the area of *LivingroomCarpet)))
+                              ))))
+
+                 (the value of (the area of *BedroomCarpet))
+
+                 ((the less-than of (the area of *BedroomCarpet))
+                       includes (the area of *LivingroomCarpet))
+                 ((the greater-than of (the area of *LivingroomCarpet))
+                       includes (the area of *BedroomCarpet))
+))))
+(Area-Value has (description ("area is a property for describing how big the two-dimensional extent of a Tangible-Entity is")))

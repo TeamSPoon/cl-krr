@@ -1,0 +1,47 @@
+
+;;
+;; $Id: Compute-Molecular-Compound-from-Chemical-Name.km,v 1.4 2005/09/21 19:53:12 jfan Exp $
+;;
+
+(Compute-Molecular-Compound-from-Chemical-Name has
+					       (superclasses (Method)))
+
+(every Compute-Molecular-Compound-from-Chemical-Name has
+       ;;(input ((a Thing)))
+       (output
+	((a Molecular-Compound with
+	    (has-part
+	     ((:set (an instance of
+			(the2 of (the1 of (#'(LAMBDA ()
+						     (SPLIT-MOLECULAR-COMPOUND-NAME-COMPONENTS
+						      (KM-UNIQUE0 '(the input of Self))))))))
+		    (an instance of
+			(the2 of (the2 of (#'(LAMBDA ()
+						     (SPLIT-MOLECULAR-COMPOUND-NAME-COMPONENTS
+						      (KM-UNIQUE0 '(the input of Self)))))))))))
+	    (has-chemical-formula
+	     ((a Chemical-Formula with
+		 (term
+		  ((#'(LAMBDA ()
+			      (SPLIT-MOLECULAR-COMPOUND-NAME-COMPONENTS
+			       (KM-UNIQUE0 '(the input of Self))))))))))
+	    (nested-atomic-chemical-formula
+	     ((the output of
+		   (a Compute-Nested-Atomic-Formula-from-Formula with
+		      (input ((a Chemical-Formula with
+				 (term
+				  ((#'(LAMBDA ()
+					      (SPLIT-MOLECULAR-COMPOUND-NAME-COMPONENTS
+					       (KM-UNIQUE0 '(the input of Self))))))))))))))
+	    (atomic-chemical-formula
+	     ((the output of
+		   (a Compute-Atomic-Formula-from-Nested-Formula with
+		      (input ((the output of
+				   (a Compute-Nested-Atomic-Formula-from-Formula with
+				      (input ((a Chemical-Formula with
+						 (term
+						  ((#'(LAMBDA ()
+							      (SPLIT-MOLECULAR-COMPOUND-NAME-COMPONENTS
+							       (KM-UNIQUE0 '(the input of Self))))))))))))))))))
+	    )))
+       )

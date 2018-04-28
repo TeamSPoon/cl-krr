@@ -1,0 +1,9 @@
+;; $Id: Sr-Plus-2.km,v 1.6 2003/03/26 19:45:27 wilder Exp $ 
+(Sr-Plus-2 has (superclasses (Metal-Cation)))
+(every Sr-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *electronic-charge))))))
+	(has-chemical-name ("strontium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Sr)))))))
+)

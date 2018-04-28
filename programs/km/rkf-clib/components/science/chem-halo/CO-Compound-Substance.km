@@ -1,0 +1,13 @@
+;; 
+;;    $Id: CO-Compound-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $ 
+;; 
+
+(CO-Compound-Substance has (superclasses (Inorganic-Molecule-Substance)))
+
+(every CO-Compound-Substance has
+       (has-basic-structural-unit ((a CO-Compound)))
+       (physical-state ((a State-Value with
+		  (value (*gas))))))
+(every CO-Compound-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a CO-Compound))))

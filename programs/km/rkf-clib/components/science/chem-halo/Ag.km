@@ -1,0 +1,16 @@
+;;
+;; $Id: Ag.km,v 1.6 2008/10/14 19:16:12 tecuci Exp $
+;;
+
+(Ag has (superclasses (Metal-Atom IB-Element)))
+(every Ag has
+       (atomic-symbol (Ag))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 47 NIL))))))
+       (has-ion ((a Ag-Plus)))
+       (chemical-period (5)))
+
+(every Ag has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("silver"))
+)

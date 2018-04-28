@@ -1,0 +1,19 @@
+;; 
+;;    $Id: RNA-Sequence.km,v 1.10 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(RNA-Sequence has
+          (superclasses (Nucleotide-Sequence))
+          (required-slot ())
+          (primary-slot ())
+          (description ("A nucleotide sequence of ribonucleotides.
+                         Souther. "))
+          (secondary-slot ()) )
+
+(every RNA-Sequence has
+
+       (element-type (Ribonucleotide))
+       (has-part ((a 5-Prime-Ribonucleotide)
+		  (a Internal-RNA-Sequence)
+		  (a 3-Prime-Ribonucleotide) )))
+

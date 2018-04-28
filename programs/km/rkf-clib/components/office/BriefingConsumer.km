@@ -1,0 +1,11 @@
+;; $Id: BriefingConsumer.km,v 1.1 2005/01/12 20:02:39 kbarker Exp $
+
+(BriefingConsumer has 
+  (superclasses (Participant))
+  (description ("a role played by the recipient Participant in a Briefing"))
+)
+
+(every BriefingConsumer has
+  (in-event ((a Briefing with (recipient ((the played-by of Self))))))
+)
+

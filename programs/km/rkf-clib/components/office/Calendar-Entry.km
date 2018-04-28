@@ -1,0 +1,821 @@
+
+;;
+;; $Id: Calendar-Entry.km,v 1.28 2005/10/03 20:07:28 billj Exp $
+;;
+
+;; Calendar entries have classification status, summary, author (contact/organizer),
+;; creation time, last modified time, version numbers, etc. They contain information
+;; about events, todos, etc. They are recorded using a language (e.g., the iCalendar 
+;; standard). All this suggests that calendar entries are documents.
+
+(Calendar-Entry has
+  (superclasses (Form-Document))
+  (subclasses (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry))
+  (description ("a calendar entry corresponding to an event, todo, journal or free/busy slot"))
+)
+
+
+(a Partition with (members (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry)))
+
+
+(every Calendar-Entry has
+   ;; the calendar user (Person, Organization, Room, etc.) appears on Calendar.km
+
+   ;; calendar-referent: the Entity this calendar entry describes 
+   ;; (a Event) for Event-Entry, Todo-Entry; 
+   ;; (a Document) for Journal-Entry;
+   ;; (a Time-Interval) for Free-Busy-Entry
+   ;; see the information-content slot on the subclasses
+
+   (information-content ((the calendar-referent of Self)))
+   (information-content ((exactly 1 Thing)))
+
+
+;; interface slots common to all four subclasses of Calendar-Entry:
+;;   calendar-attendee calendar-comment calendar-contact calendar-organizer 
+;;   calendar-url calendar-uid calendar-dtstamp calendar-x-prop)
+
+   ;; calendar-attendee interface (don't know what it means to "attend" a Journal entry)
+#|
+   (information-content ((if ((Self isa Event-Entry) or (Self isa Todo-Entry))
+                          then (a Event with
+                                  (in-event-of ((forall (the calendar-attendee of Self)
+                                                        ((a Role with (played-by ((the1 of It)))
+                                                                      (in-event ((the information-content of Self)))
+                                                         )
+                                                         & 
+                                                         (an instance of
+                                                             (the Role instance-of of
+                                                                  (theN 4 of (the calendar-attendee of Self)))
+                                                         )
+                                                        )
+                               ))))
+                         )
+   ))
+|#
+;; calendar-attendee is now filled by the CalendarAttendee class
+
+   ;; calendar-comment interface
+#|
+   (has-part ((a Text-Field uniquely-called "COMMENT" with
+                 (information-content ((the calendar-comment of Self)))
+   )))
+|#
+
+   ;; calendar-contact interface
+   ;; - need document properties
+;; calendar-contact now filled by the ContactDataStructure class
+
+   ;; calendar-organizer interface
+   ;; - need document properties
+;; calendar-organizer now filled by the CalendarOrganizer class
+
+   ;; calendar-url interface
+   ;; - need document properties
+
+   ;; calendar-uid interface
+   (identifier ((a Text-Field uniquely-called "UID" with
+                   (information-content ((the calendar-uid of Self)))
+   )))
+
+   ;; calendar-dtstamp interface
+   (time-of-existence ((a Time-Interval with
+                          (time-begins ((the calendar-dtstamp of Self)))
+   )))
+
+   ;; calendar-x-prop interface
+#|
+   (has-part ((a Text-Field with
+                 (uniquely-called ((the1 of (the calendar-x-prop of Self))))
+                 (information-content ((the2 of (the calendar-x-prop of Self))))
+   )))
+|#
+;; calendar-x-prop now filled by the CalendarXProp class
+
+;; interface slots common to Event, Todo and Journal entries:
+;;   calendar-attach calendar-categories calendar-class calendar-description 
+;;   calendar-status calendar-summary calendar-recurrence-id calendar-related-to 
+;;   calendar-exdate calendar-exrule calendar-rdate calendar-rrule calendar-created 
+;;   calendar-last-modified calendar-sequence
+
+   ;; calendar-attach interface
+   ;; - need document properties
+;; calendar-attach now filled by the Information class
+
+   ;; calendar-categories interface
+   ;; - need document properties
+;; calendar-categories now filled by the Thing class
+
+   ;; calendar-class interface
+   ;; - need document properties
+
+   ;; calendar-description interface
+#|
+   (has-part ((a Text-Field uniquely-called "DESCRIPTION" with
+                 (information-content ((the calendar-description of Self)))
+   )))
+|#
+
+   ;; calendar-status interface
+   ;; - need document properties
+;; calendar-status now filled by the Status-Value class
+
+   ;; calendar-summary interface
+   (has-part ((a Text-Field uniquely-called "SUMMARY" with
+                 (information-content ((the calendar-summary of Self)))
+   )))
+
+   ;; calendar-recurrence-id interface
+   ;; - for us, this is the time-begins of the Event (dtstart is the start of the
+   ;;   recurring sequence of Events)
+
+   ;; calendar-related-to interface
+   ;; - no interface, this slot is for storage only
+
+   ;; calendar-exdate interface
+   ;; - no interface, this slot is for storage only
+
+   ;; calendar-exrule interface
+   ;; - no interface, this slot is for storage only
+
+   ;; calendar-rdate interface
+   ;; - no interface, this slot is for storage only
+
+   ;; calendar-rrule interface
+   ;; - no interface, this slot is for storage only
+
+   ;; calendar-created interface
+   ;; - creation date of the "information" going into this entry
+
+   ;; calendar-last-modified interface
+   ;; - need document properties
+
+   ;; calendar-sequence interface
+   ;; - need document properties
+
+
+;; interface slots common to Event-Entry, Todo-Entry and Free-Busy-Entry
+;;   calendar-dtstart calendar-duration
+;;   calendar-earliest-start calendar-latest-start 
+;;   calendar-earliest-finish calendar-latest-finish
+
+   ;; calendar-dtstart interface
+   (information-content ((if (not (has-value (the calendar-recurrence-id of Self)))
+                          then (if ((Self isa Event-Entry) or (Self isa Todo-Entry))
+                                then (a Event with
+                                        (time-during ((a Time-Interval with
+                                                  (time-begins ((the calendar-dtstart of Self))))))
+                                     )
+                                else (if (Self isa Free-Busy-Entry)
+                                      then (a Time-Interval with
+                                              (time-begins ((the calendar-dtstart of Self)))
+                                           )
+                                     )
+                               )
+   )))
+
+   ;; calendar-duration interface
+
+
+;; interface slots common to Event-Entry, Journal-Entry and Free-Busy-Entry
+;;   NIL
+
+;; interface slots common to Todo-Entry, Journal-Entry and Free-Busy-Entry
+;;   NIL
+
+
+;; interface slots common to Event-Entry and Todo-Entry
+;;   calendar-geo calendar-location calendar-priority calendar-resources
+
+   ;; calendar-geo interface
+;; calendar-geo obsolete -- use calendar-location
+
+   ;; calendar-location interface
+#|
+   (information-content ((if ((Self isa Event-Entry) or (Self isa Todo-Entry))
+                          then (a Event with
+                                  (location ((a Place with
+                                                (latitude ((a Angle-Value with
+                                                              (value ((:pair (the1 of (the calendar-geo of Self)) 
+                                                                             *degree))))
+                                                ))
+                                                (longitude ((a Angle-Value with
+                                                              (value ((:pair (the1 of (the calendar-geo of Self)) 
+                                                                             *degree))))
+                                                ))
+                                             )
+                                  ))
+                                  (site (((the1 of (the calendar-location of Self))
+                                          &
+                                          (a Spatial-Entity with
+                                             (identifier ((a Text-Field with
+                                                             (information-content ((the1 of (the calendar-location of Self)))))
+                                          )))
+                                         )
+                                  ))
+                               )
+   )))
+|#
+;; calendar-location now filled by the Spatial-Entity class
+
+
+   ;; calendar-priority interface
+   ;; - is this priority of the Event/etc. or of the calendar entry?
+   ;; since this is defined only for Event-Entry and Todo-Entry, I'll
+   ;; assume it's for the Event itself
+;   (priority ((a Unitless-Value with 
+;                 (value ((:pair (the calendar-priority of Self) NIL)))
+;   )))
+   (information-content ((if ((Self isa Event-Entry) or (Self isa Todo-Entry))
+                          then (a Event with
+                                  (priority ((a Unitless-Value with 
+                                                (value ((:pair (the calendar-priority of Self) NIL)))
+                                  )))
+                               )
+   )))
+
+   ;; calendar-resources interface (not crazy about just making them instruments)
+   (information-content ((if ((Self isa Event-Entry) or (Self isa Todo-Entry))
+                          then (a Event with (instrument ((the calendar-resources of Self))))
+   )))
+
+
+;; interface slots common to Event-Entry and Journal-Entry
+;;   NIL
+
+
+;; interface slots common to Event-Entry and Free-Busy-Entry
+;;   calendar-dtend
+
+   ;; calendar-dtend interface
+
+
+;; interface slots common to Todo-Entry and Journal-Entry
+;;   NIL
+
+;; interface slots common to Todo-Entry and Free-Busy-Entry
+;;   NIL
+
+;; interface slots common to Journal-Entry and Free-Busy-Entry
+;;   NIL
+
+
+;; interface slots unique to Event-Entry
+;;   calendar-transp
+
+   ;; calendar-transp interface
+
+
+;; interface slots unique to Todo-Entry
+;;   calendar-percent-complete calendar-completed calendar-due
+
+   ;; calendar-percent-complete interface
+
+   ;; calendar-completed interface
+
+   ;; calendar-due interface
+
+
+;; interface slots unique to Journal-Entry
+;;   NIL
+
+;; interface slots unique to Free-Busy-Entry
+;;   calendar-freebusy
+
+   ;; calendar-freebusy interface
+
+
+
+)
+
+
+(Calendar-Entry has
+  (test-case ('(
+                ;; iCalendar example 1
+                ;; 
+                ;; BEGIN:VEVENT DTSTAMP:19960704T120000Z
+                ;; UID:uid1@host.com ORGANIZER:MAILTO:jsmith@host.com
+                ;; DTSTART:19960918T143000Z DTEND:19960920T220000Z STATUS:CONFIRMED
+                ;; CATEGORIES:CONFERENCE SUMMARY:Networld+Interop Conference
+                ;; DESCRIPTION:Networld+Interop Conference
+                ;;   and Exhibit\nAtlanta World Congress Center\n
+                ;;  Atlanta, Georgia END:VEVENT 
+
+                (*JSmith has (instance-of (Person)))
+                (a Event-Entry with
+                   (calendar-dtstamp ((a Time-Instant with
+                                         (time-value ((:pair 1996 *year)
+                                                      (:pair 7 *month)
+                                                      (:pair 4 *day)
+                                                      (:pair 12 *hour)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-uid ("uid1@host.com"))
+                   (calendar-organizer ((:seq *JSmith "MAILTO:jsmith@host.com")))     ;; trailing nils in :seq not required
+                   (calendar-dtstart ((a Time-Instant with
+                                         (time-value ((:pair 1996 *year)
+                                                      (:pair 9 *month)
+                                                      (:pair 18 *day)
+                                                      (:pair 14 *hour)
+                                                      (:pair 30 *minute)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-dtend   ((a Time-Instant with
+                                         (time-value ((:pair 1996 *year)
+                                                      (:pair 9 *month)
+                                                      (:pair 20 *day)
+                                                      (:pair 22 *hour)
+                                                      (:pair 0 *minute)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-status ("CONFIRMED"))
+                   (calendar-categories ((:seq "CONFERENCE")))                       ;; language not specified
+                   (calendar-summary ((:seq "Networld+Interop Conference")))         ;; altrep and lang not specified
+                   (calendar-description ((:seq "Networld+Interop Conference and Exhibit
+Atlanta World Congress Center
+Atlanta, Georgia")))
+                )
+
+                ;; iCalendar example 2
+                ;; 
+                ;; BEGIN:VTIMEZONE
+                ;; TZID:US-Eastern
+                ;; BEGIN:STANDARD
+                ;; DTSTART:19981025T020000
+                ;; RDATE:19981025T020000
+                ;; TZOFFSETFROM:-0400
+                ;; TZOFFSETTO:-0500
+                ;; TZNAME:EST
+                ;; END:STANDARD
+                ;; BEGIN:DAYLIGHT
+                ;; DTSTART:19990404T020000
+                ;; RDATE:19990404T020000
+                ;; TZOFFSETFROM:-0500
+                ;; TZOFFSETTO:-0400
+                ;; TZNAME:EDT
+                ;; END:DAYLIGHT
+                ;; END:VTIMEZONE
+                ;; BEGIN:VEVENT
+                ;; DTSTAMP:19980309T231000Z
+                ;; UID:guid-1.host1.com
+                ;; ORGANIZER;ROLE=CHAIR:MAILTO:mrbig@host.com               ;; a bug in the spec? ROLE is not allowed on ORGANIZER
+                ;; ATTENDEE;RSVP=TRUE;ROLE=REQ-PARTICIPANT;CUTYPE=GROUP:
+                ;;  MAILTO:employee-A@host.com
+                ;; DESCRIPTION:Project XYZ Review Meeting
+                ;; CATEGORIES:MEETING
+                ;; CLASS:PUBLIC
+                ;; CREATED:19980309T130000Z
+                ;; SUMMARY:XYZ Project Review
+                ;; DTSTART;TZID=US-Eastern:19980312T083000
+                ;; DTEND;TZID=US-Eastern:19980312T093000
+                ;; LOCATION:1CP Conference Room 4350
+                ;; END:VEVENT
+
+                (*MrBig has (instance-of (Person)))
+                (*Employee-A has (instance-of (Group)))
+                (*CR4350 has (instance-of (Room))
+                             (called ("1CP Conference Room 4350"))
+                )
+                (a Event-Entry with
+                   (calendar-dtstamp ((a Time-Instant with
+                                         (time-value ((:pair 1998 *year)
+                                                      (:pair 3 *month)
+                                                      (:pair 9 *day)
+                                                      (:pair 23 *hour)
+                                                      (:pair 10 *minute)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-uid ("guid-1.host1.com"))
+                   (calendar-organizer ((:seq *MrBig "MAILTO:mrbig@host.com" (a EventChairperson))))
+                   (calendar-attendee ((:seq *Employee-A 
+                                             "MAILTO:employee-A@host.com"
+                                             NIL
+                                             (a RequiredParticipant)
+                                             ""
+                                             t
+                   )))
+                   (calendar-description ((:seq "Project XYZ Review Meeting")))
+                   (calendar-categories ((:seq "MEETING")))
+                   (calendar-class ("PUBLIC"))
+                   (calendar-created ((a Time-Instant with
+                                         (time-value ((:pair 1998 *year)
+                                                      (:pair 3 *month)
+                                                      (:pair 9 *day)
+                                                      (:pair 13 *hour)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-summary ((:seq "XYZ Project Review")))
+                   (calendar-dtstart ((a Time-Instant with
+                                         (time-value ((:pair 1998 *year)
+                                                      (:pair 3 *month)
+                                                      (:pair 12 *day)
+                                                      (:pair 8 *hour)
+                                                      (:pair 30 *minute)
+                                                      *EST
+                                         ))
+                   )))
+                   (calendar-dtend   ((a Time-Instant with
+                                         (time-value ((:pair 1998 *year)
+                                                      (:pair 3 *month)
+                                                      (:pair 12 *day)
+                                                      (:pair 9 *hour)
+                                                      (:pair 30 *minute)
+                                                      *EST
+                                         ))
+                   )))
+                   (calendar-location ((:seq *CR4350)))
+                )
+
+                ;; iCalendar example 3
+                ;; 
+                ;; BEGIN:VTODO
+                ;; DTSTAMP:19980130T134500Z
+                ;; SEQUENCE:2
+                ;; UID:uid4@host1.com
+                ;; ORGANIZER:MAILTO:unclesam@us.gov
+                ;; ATTENDEE;PARTSTAT=ACCEPTED:MAILTO:jqpublic@host.com
+                ;; DUE:19980415T235959
+                ;; STATUS:NEEDS-ACTION
+                ;; SUMMARY:Submit Income Taxes
+                ;; BEGIN:VALARM
+                ;; ACTION:AUDIO
+                ;; TRIGGER:19980403T120000
+                ;; ATTACH;FMTTYPE=audio/basic:http://host.com/pub/audio-
+                ;;  files/ssbanner.aud
+                ;; REPEAT:4
+                ;; DURATION:PT1H
+                ;; END:VALARM
+                ;; END:VTODO
+
+                (*UncleSam has (instance-of (Person)))
+                (*JohnQPublic has (instance-of (Person)))
+                (a Todo-Entry with
+                   (calendar-dtstamp ((a Time-Instant with
+                                         (time-value ((:pair 1998 *year)
+                                                      (:pair 1 *month)
+                                                      (:pair 30 *day)
+                                                      (:pair 13 *hour)
+                                                      (:pair 45 *minute)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-sequence (2))
+                   (calendar-uid ("uid4@host1.com"))
+                   (calendar-organizer ((:seq *UncleSam "MAILTO:unclesam@us.gov")))
+                   (calendar-attendee ((:seq *JohnQPublic "MAILTO:jqpublic@host.com" NIL "ACCEPTED")))
+                   (calendar-due ((a Time-Instant with
+                                     (time-value ((:pair 1998 *year)
+                                                  (:pair 4 *month)
+                                                  (:pair 3 *day)
+                                                  (:pair 12 *hour)
+                                     ))
+                   )))
+                   (calendar-status ("NEEDS-ACTION"))
+                   (calendar-summary ((:seq "Submit Income Taxes")))
+                )
+
+                ;; iCalendar example 4
+                ;; 
+                ;; BEGIN:VJOURNAL
+                ;; DTSTAMP:19970324T120000Z
+                ;; UID:uid5@host1.com
+                ;; ORGANIZER:MAILTO:jsmith@host.com
+                ;; STATUS:DRAFT
+                ;; CLASS:PUBLIC
+                ;; CATEGORY:Project Report, XYZ, Weekly Meeting
+                ;; DESCRIPTION:Project xyz Review Meeting Minutes\n
+                ;;  Agenda\n1. Review of project version 1.0 requirements.\n2.
+                ;; Definition
+                ;;  of project processes.\n3. Review of project schedule.\n
+                ;;  Participants: John Smith, Jane Doe, Jim Dandy\n-It was
+                ;;   decided that the requirements need to be signed off by
+                ;;   product marketing.\n-Project processes were accepted.\n
+                ;;  -Project schedule needs to account for scheduled holidays
+                ;;   and employee vacation time. Check with HR for specific
+                ;;   dates.\n-New schedule will be distributed by Friday.\n-
+                ;;  Next weeks meeting is cancelled. No meeting until 3/23.
+                ;; END:VJOURNAL
+
+                (a Journal-Entry with
+                   (calendar-dtstamp ((a Time-Instant with
+                                         (time-value ((:pair 1997 *year)
+                                                      (:pair 3 *month)
+                                                      (:pair 24 *day)
+                                                      (:pair 12 *hour)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-uid ("udi5@host1.com"))
+                   (calendar-organizer ((:seq *JSmith "MAILTO:jsmith@host.com")))
+                   (calendar-status ("DRAFT"))
+                   (calendar-class ("PUBLIC"))
+                   (calendar-category ("Project Report" "XYZ" "Weekly Meeting"))
+                   (calendar-description ((:seq "Project xyz Review Meeting Minutes
+Agenda
+1. Review of project version 1.0 requirements.
+2. Definition of project processes.
+3. Review of project schedule.
+Participants: John Smith, Jane Doe, Jim Dandy
+-It was decided that the requirements need to be signed off by product marketing.
+-Project processes were accepted.
+-Project schedule needs to account for scheduled holidays and employee vacation time. Check with HR for specific dates.
+-New schedule will be distributed by Friday.
+Next weeks meeting is cancelled. No meeting until 3/23.")))
+                )
+
+                ;; iCalendar example 5
+                ;; 
+                ;; BEGIN:VFREEBUSY
+                ;; ORGANIZER:MAILTO:jsmith@host.com
+                ;; DTSTART:19980313T141711Z
+                ;; DTEND:19980410T141711Z
+                ;; FREEBUSY:19980314T233000Z/19980315T003000Z
+                ;; FREEBUSY:19980316T153000Z/19980316T163000Z
+                ;; FREEBUSY:19980318T030000Z/19980318T040000Z
+                ;; URL:http://www.host.com/calendar/busytime/jsmith.ifb
+                ;; END:VFREEBUSY
+
+                (a Free-Busy-Entry with
+                   (calendar-organizer ((:seq *JSmith "MAILTO:jsmith@host.com")))
+                   (calendar-dtstart ((a Time-Instant with
+                                         (time-value ((:pair 1998 *year)
+                                                      (:pair 3 *month)
+                                                      (:pair 13 *day)
+                                                      (:pair 14 *hour)
+                                                      (:pair 17 *minute)
+                                                      (:pair 11 *second)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-dtend   ((a Time-Instant with
+                                         (time-value ((:pair 1998 *year)
+                                                      (:pair 4 *month)
+                                                      (:pair 10 *day)
+                                                      (:pair 14 *hour)
+                                                      (:pair 17 *minute)
+                                                      (:pair 11 *second)
+                                                      *UTC
+                                         ))
+                   )))
+                   (calendar-freebusy (
+                     (:seq (a Time-Interval with
+                              (time-begins ((a Time-Instant with
+                                              (time-value ((:pair 1998 *year)
+                                                           (:pair 3 *month)
+                                                           (:pair 14 *day)
+                                                           (:pair 23 *hour)
+                                                           (:pair 30 *minute)
+                                                           *UTC
+                                              ))
+                              )))
+                              (time-ends   ((a Time-Instant with
+                                              (time-value ((:pair 1998 *year)
+                                                           (:pair 3 *month)
+                                                           (:pair 15 *day)
+                                                           (:pair 0 *hour)
+                                                           (:pair 30 *minute)
+                                                           *UTC
+                                              ))
+                              )))
+                           )
+                           "BUSY"    ;; default in iCalendar for FBTYPE
+                   )))
+                   (calendar-freebusy (
+                     (:seq (a Time-Interval with
+                              (time-begins ((a Time-Instant with
+                                              (time-value ((:pair 1998 *year)
+                                                           (:pair 3 *month)
+                                                           (:pair 16 *day)
+                                                           (:pair 15 *hour)
+                                                           (:pair 30 *minute)
+                                                           *UTC
+                                              ))
+                              )))
+                              (time-ends   ((a Time-Instant with
+                                              (time-value ((:pair 1998 *year)
+                                                           (:pair 3 *month)
+                                                           (:pair 16 *day)
+                                                           (:pair 16 *hour)
+                                                           (:pair 30 *minute)
+                                                           *UTC
+                                              ))
+                              )))
+                           )
+                           "BUSY"
+                   )))
+                   (calendar-freebusy (
+                     (:seq (a Time-Interval with
+                              (time-begins ((a Time-Instant with
+                                              (time-value ((:pair 1998 *year)
+                                                           (:pair 3 *month)
+                                                           (:pair 18 *day)
+                                                           (:pair 3 *hour)
+                                                           *UTC
+                                              ))
+                              )))
+                              (time-ends   ((a Time-Instant with
+                                              (time-value ((:pair 1998 *year)
+                                                           (:pair 3 *month)
+                                                           (:pair 18 *day)
+                                                           (:pair 4 *hour)
+                                                           *UTC
+                                              ))
+                              )))
+                           )
+                           "BUSY"
+                   )))
+                )
+))))
+
+
+
+;; calendar-referent: (a Event) or (a Document) or (a Time-Interval)   ;; depending on what kind of entry this is
+
+;; calendar-attach: (:seq (a String) (a String))     ;; uri encoding={"BASE-64" | "BINARY"}
+;; calendar-categories: (:seq (a String) (a Language))     ;; category={"APPOINTMENT" | "BUSINESS" | "EDUCATION" | 
+                                                           ;;           "HOLIDAY" | "MEETING" | "MISCELLANEOUS" | 
+                                                           ;;           "PERSONAL" | "PHONE CALL" | "SICK DAY" | 
+                                                           ;;           "SPECIAL OCCASION" | "TRAVEL" | "VACATION" | ...}
+;; calendar-class: (a String)     ;; classification={"PUBLIC" | "PRIVATE" | "CONFIDENTIAL"}
+;; calendar-comment: (:seq (a String) (a String) (a Language))     ;; comment altrep-uri lang
+;; calendar-description: (:seq (a String) (a String) (a Language))     ;; description altrep-uri lang
+;; calendar-geo: (:seq (a Number) (a Number))     ;; latitude in deg (N>0, S<0) longitude in deg (E>0, W<0)
+;; calendar-location: (:seq (a Spatial-Entity) (a String))     ;; location altrep-uri
+;; calendar-percent-complete: (a Number)
+;; calendar-priority: (a Number)
+;; calendar-resources: (a Entity)     ;; resource
+;; calendar-status: (a String)     ;; event:   {"TENTATIVE" | "CONFIRMED" | "CANCELLED"}
+                                   ;; todo:    {"NEEDS-ACTION" | "COMPLETED" | "IN-PROCESS" | "CANCELLED"}
+                                   ;; journal: {"DRAFT" | "FINAL" | "CANCELLED"}
+;; calendar-summary: (:seq (a String) (a String) (a Language))     ;; comment altrep-uri lang
+
+;; calendar-completed: (a Time-Instant)
+;; calendar-dtend: (a Time-Instant)
+;; calendar-due: (a Time-Instant)
+;; calendar-dtstart: (a Time-Instant)
+;; calendar-duration: (a Duration-Value)
+;; calendar-freebusy: (:seq (a Time-Interval) (a String))    ;; FBTYPE={"FREE" | "BUSY" | "BUSY-TENTATIVE" | "BUSY-UNAVAILABLE"}
+;; calendar-transp: (a String)     ;; transparency={"OPAQUE" | "TRANSPARENT"}
+
+;; calendar-attendee: (:seq (a Entity)        ;; Person, Room, Device, Organization, etc.
+;;                          (a String)        ;; cal-address of the previous Entity
+;;                          (a Organization)  ;; (MEMBER)
+;;                          (a Role)          ;; (ROLE)
+;;                          (a String)        ;; (PARTSTAT) event: {"NEEDS-ACTION" | "ACCEPTED" | "DECLINED" | "TENTATIVE" | "DELEGATED"}
+;;                                            ;;             todo: {"NEEDS-ACTION" | "ACCEPTED" | "DECLINED" | "TENTATIVE" | "DELEGATED" | "COMPLETED" | "IN-PROCESS"}
+;;                                            ;;          journal: {"NEEDS-ACTION" | "ACCEPTED" | "DECLINED"}
+;;                          (a Boolean)       ;; (RSVP) {t | f}
+;;                          (a Entity)        ;; (DELEGATED-TO)
+;;                          (a Entity)        ;; (DELEGATED-FROM)
+;;                          (a Entity)        ;; (SENT-BY)
+;;                          (a String)        ;; (CN)
+;;                          (a String)        ;; (DIR)
+;;                    )
+;; calendar-contact: (:seq (a String) (a String) (a Language))     ;; contact altrep-uri lang
+;; calendar-organizer: (:seq (a Entity)       ;; Person mostly, I guess
+;;                           (a String)       ;; cal-address
+;;                           (a Role)         ;; (ROLE)   ;; (doesn't appear in the spec, but does in one of the spec's examples
+;;                           (a Language)     ;; (LANGUAGE)
+;;                           (a Entity)       ;; (SENT-BY)
+;;                           (a String)       ;; (CN)
+;;                           (a String)       ;; (DIR)
+;;                     )
+;; calendar-recurrence-id: (a Time-Instant)     ;; a particular instance of a recurring entry, identified by time
+;; calendar-related-to: (a String)    ;; stored, not interpreted
+;; calendar-url: (a String)     ;; uri
+;; calendar-uid: (a String)     ;; unique identifier
+
+;; calendar-exdate: (a Time-Instant)
+;; calendar-exrule: (a Recurrence-Rule)     ;; stored, not interpreted
+;; calendar-rdate: (a Time-Instant)
+;; calendar-rrule: (a Recurrence-Rule)
+
+;; calendar-created: (a Time-Instant)
+;; calendar-dtstamp: (a Time-Instant)
+;; calendar-last-modified: (a Time-Instant)
+;; calendar-sequence: (a Number)     ;; revision number
+
+;; calendar-x-prop: (:seq (a String) (a String))    ;; the name of the x-prop and its value (stored, not interpreted)
+
+(hasDossier has (instance-of (Interface-Slot)) (domain (Event Event-Entry)) (range (Dossier)) (inverse (isDossierOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+
+;; here are two extra slots for SRI
+(hasStartDate has (instance-of (Interface-Slot)) (domain (Event Calendar Event-Entry Todo-Entry Free-Busy-Entry EmploymentRecord)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent))(inverse (isStartDateOf)))
+(hasEndDate has (instance-of (Interface-Slot)) (domain (Event Calendar Event-Entry Todo-Entry Free-Busy-Entry EmploymentRecord)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent))(inverse (isEndDateOf)))
+
+;; and their interface :-b
+(every Event has 
+  (hasStartDate ((the time-begins of (the time-during of Self))))
+  (hasEndDate   ((the time-ends   of (the time-during of Self))))
+  (time-during  (((if (has-value (the hasStartDate of Self))
+                   then (a Time-Interval with 
+                           (time-begins ((the hasStartDate of Self))))
+                  )
+                  &
+                  (if (has-value (the hasEndDate of Self))
+                   then (a Time-Interval with 
+                           (time-ends   ((the hasEndDate   of Self))))
+                 ))
+  ))
+)
+
+(every Event-Entry has 
+  (hasStartDate ((the time-begins of (the time-of-existence of Self))))
+  (hasEndDate   ((the time-ends   of (the time-of-existence of Self))))
+  (time-of-existence (((if (has-value (the hasStartDate of Self))
+                        then (a Time-Interval with 
+                                (time-begins ((the hasStartDate of Self))))
+                       )
+                       &
+                       (if (has-value (the hasEndDate of Self))
+                        then (a Time-Interval with 
+                                (time-ends   ((the hasEndDate   of Self))))
+                      ))
+  ))
+)
+
+(every Todo-Entry has 
+  (hasStartDate ((the time-begins of (the time-of-existence of Self))))
+  (hasEndDate   ((the time-ends   of (the time-of-existence of Self))))
+  (time-of-existence (((if (has-value (the hasStartDate of Self))
+                        then (a Time-Interval with 
+                                (time-begins ((the hasStartDate of Self))))
+                       )
+                       &
+                       (if (has-value (the hasEndDate of Self))
+                        then (a Time-Interval with 
+                                (time-ends   ((the hasEndDate   of Self))))
+                      ))
+  ))
+)
+
+(every Free-Busy-Entry has 
+  (hasStartDate ((the time-begins of (the time-of-existence of Self))))
+  (hasEndDate   ((the time-ends   of (the time-of-existence of Self))))
+  (time-of-existence (((if (has-value (the hasStartDate of Self))
+                        then (a Time-Interval with 
+                                (time-begins ((the hasStartDate of Self))))
+                       )
+                       &
+                       (if (has-value (the hasEndDate of Self))
+                        then (a Time-Interval with 
+                                (time-ends   ((the hasEndDate   of Self))))
+                      ))
+  ))
+)
+
+
+(calendar-referent has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry)) (range (Event Time-Interval Document)) (fluent-status (*Inertial-Fluent)))
+
+(calendar-attach has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Information)) (fluent-status (*Inertial-Fluent)))
+(calendar-categories has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Thing)) (fluent-status (*Inertial-Fluent)))
+(calendar-class has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (String)) (fluent-status (*Inertial-Fluent)))
+(calendar-comment has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry)) (range (String)) (fluent-status (*Inertial-Fluent)))
+(calendar-description has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (String)) (fluent-status (*Inertial-Fluent)))
+;; obsolete
+;; (calendar-geo has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry)) (fluent-status (*Inertial-Fluent)))
+(calendar-location has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry)) (range (Spatial-Entity)) (fluent-status (*Inertial-Fluent)))
+(calendar-percent-complete has (instance-of (Interface-Slot)) (domain (Todo-Entry)) (range (Number)) (fluent-status (*Inertial-Fluent)))
+(calendar-priority has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry)) (range (Number)) (fluent-status (*Inertial-Fluent)))
+(calendar-resources has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry)) (range (Entity)) (fluent-status (*Inertial-Fluent)))
+(calendar-status has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Status-Value)) (fluent-status (*Inertial-Fluent)))
+(calendar-summary has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (String)) (fluent-status (*Inertial-Fluent)))
+
+(calendar-completed has (instance-of (Interface-Slot)) (domain (Todo-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-dtend has (instance-of (Interface-Slot)) (domain (Event-Entry Free-Busy-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-due has (instance-of (Interface-Slot)) (domain (Todo-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-dtstart has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Free-Busy-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-earliest-start has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Free-Busy-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-latest-start has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Free-Busy-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-earliest-finish has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Free-Busy-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-latest-finish has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Free-Busy-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-duration has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Free-Busy-Entry)) (range (Duration-Value)) (fluent-status (*Inertial-Fluent)))
+(calendar-freebusy has (instance-of (Interface-Slot)) (domain (Free-Busy-Entry)) (range (Free-Busy-Period)) (fluent-status (*Inertial-Fluent)))
+(calendar-transp has (instance-of (Interface-Slot)) (domain (Event-Entry)) (range (String)) (fluent-status (*Inertial-Fluent)))
+
+(calendar-attendee has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (CalendarAttendee)) (fluent-status (*Inertial-Fluent)))
+(calendar-contact has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry)) (range (ContactDataStructure)) (fluent-status (*Inertial-Fluent)))
+(calendar-organizer has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry)) (range (CalendarOrganizer)) (fluent-status (*Inertial-Fluent)))
+(calendar-recurrence-id has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-related-to has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (String)) (fluent-status (*Inertial-Fluent)))
+(calendar-url has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry)) (range (String)) (fluent-status (*Inertial-Fluent)))
+(calendar-uid has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry)) (range (String)) (fluent-status (*Inertial-Fluent)))
+
+(calendar-exdate has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-exrule has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Recurrence-Rule)) (fluent-status (*Inertial-Fluent)))
+(calendar-rdate has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-rrule has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Recurrence-Rule)) (fluent-status (*Inertial-Fluent)))
+
+(calendar-created has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-dtstamp has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-last-modified has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Time-Instant)) (fluent-status (*Inertial-Fluent)))
+(calendar-sequence has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry)) (range (Number)) (fluent-status (*Inertial-Fluent)))
+
+(calendar-x-prop has (instance-of (Interface-Slot)) (domain (Event-Entry Todo-Entry Journal-Entry Free-Busy-Entry Recurrence-Rule)) (range (CalendarXProp)) (fluent-status (*Inertial-Fluent)))
+
+(calendar-reminder has (instance-of (Interface-Slot))(domain (Calendar-Entry))(range (Reminder))(fluent-status (*Inertial-Fluent))(cardinality (1-to-N))(inverse (reminder-for-calendar-entry)))

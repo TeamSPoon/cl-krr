@@ -1,0 +1,38 @@
+<!--- $Id: is-inside.spec.kml,v 1.1 2005/08/01 20:57:50 jchaw Exp $ --->
+
+<kml>
+<relation-doc name=is-inside/encloses>
+
+
+<from name=Spatial-Entity>
+<to name=Spatial-Entity>
+
+<description> 
+  One place or object is completely inside another.
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-to>The goalie</ex-to> fell inside <ex-from>the goal</ex-from>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-to>The marble</ex-to> is inside <ex-from>the circle</ex-from>.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=content>
+    If an entity is the <slot>content</slot> of a container, then 
+    the entity <slot>is-inside</slot> the container.  Therefore, 
+    the first statement subsumes the second.  However, the first 
+    statement implies additional information.  If an entity is the 
+    <slot>content</slot> of a container, not only is it inside (which 
+    is a structural assertion), it is also restricted from leaving 
+    and restricted from interacting with entities outside the
+    container (which are functional assertions).
+ </neighbor>
+</neighborlist>
+</kml>

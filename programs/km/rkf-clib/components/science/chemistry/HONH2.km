@@ -1,0 +1,16 @@
+;; 
+;;    $Id: HONH2.km,v 1.2 2003/02/23 20:08:59 jchaw Exp $
+;; 
+
+(HONH2 has (superclasses (Ionic-Compound)))
+
+(every HONH2 has
+       (nested-atomic-chemical-formula (
+				 (a Chemical-Formula with
+				    (term ((:seq 
+					    (:pair 1 H)
+					    (:pair 1 O)
+					    (:pair 1 N)
+					    (:pair 2 H)
+					    ))))))
+       )

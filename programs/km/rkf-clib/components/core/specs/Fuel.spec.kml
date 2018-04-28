@@ -1,0 +1,46 @@
+<!--- $Id: Fuel.spec.kml,v 1.1 2007/06/05 20:28:19 porter Exp $ --->
+
+<kml>
+<concept name=Fuel>
+<system-documentation name=Fuel>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Resource>
+
+  <definition>
+    A Fuel is the <conceptref name=Role> played by an entity which is the 
+    <slot>object</slot> of a <conceptref name=Burn>'ing event.
+    The <slot>objective</slot> of the event is to <conceptref name=Heat>
+    a nearby <conceptref name=Tangible-Entity>, which is the 
+    <slot>object</slot> of the Heating. 
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the entity that's playing the role of Fuel
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Burn>'ing event in which the entity is the Fuel
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>Coal fueled the fire.</text>
+     <comment>
+     In this example, the Fuel role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Burn> with
+         <slot>object</slot>=Coal</slotdescription>
+     <slotdescription name=played-by>the coal</slotdescription>
+     </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

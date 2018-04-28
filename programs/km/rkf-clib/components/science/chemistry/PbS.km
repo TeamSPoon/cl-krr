@@ -1,0 +1,16 @@
+;;
+;; $Id: PbS.km,v 1.1 2003/04/22 18:36:01 jchaw Exp $
+;;
+
+(PbS has (superclasses (Ionic-Compound)))
+
+(every PbS has	
+       (has-part 
+	((a Pb-Plus-2) (a S-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 Pb-Plus-2)
+		    (:pair 1 S-Minus-2))))))))
+
+

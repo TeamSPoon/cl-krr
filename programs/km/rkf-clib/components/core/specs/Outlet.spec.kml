@@ -1,0 +1,59 @@
+<!--- $Id: Outlet.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+
+<kml>
+<concept name=Outlet>
+<system-documentation name=Outlet>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Portal>
+
+  <definition>
+    Outlet is the <conceptref name=Portal> played by a 
+    <conceptref name=Spatial-Entity> which is
+    the <slot>path</slot> of a <conceptref name=Move-Out-Of>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the <conceptref name=Spatial-Entity> that's playing 
+     the role of the Outlet
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Move-Out-Of> event for which the
+     Spatial-Entity is playing the role of the Outlet
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The fireman left the building through the basement window.</text>
+     <comment>
+     In this example, the Outlet role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Move-Out-Of> with
+         <slot>object</slot>=<slot>agent</slot>=fireman</slotdescription>
+     <slotdescription name=played-by>basement window</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Portal>
+     Whereas an Outlet enables movement out of a container,
+     a Portal is more general: it enables something to 
+     <conceptref name=Move-Through> a <conceptref name=Barrier>.
+  </neighbor>
+
+  <neighbor name=Entrance>
+     Whereas an Outlet enables movement out of a container,
+     an Entrance enables a <conceptref name=Move-Into> a container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

@@ -1,0 +1,18 @@
+;;
+;;    $Id: Session.km,v 1.2 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Session has
+	    (superclasses (Interaction))      
+	    (required-slot          ()) 
+	    (primary-slot     	    ())  
+	    (secondary-slot         ())
+)
+
+(Session has 
+	     (wn20-synset 
+	      ((:set 
+		(:triple "session" 1 "n")
+		(:triple "session" 3 "n")))))
+
+(every Session has (text-nominalization ("session")))

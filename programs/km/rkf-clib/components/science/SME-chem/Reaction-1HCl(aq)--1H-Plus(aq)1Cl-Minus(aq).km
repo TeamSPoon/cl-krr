@@ -1,0 +1,376 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| ----------
+
+(|Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| has (superclasses (Reaction)))
+
+(|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| has 
+  (instance-of (|Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)|))
+  (prototype-of (|Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)|))
+  (prototype-scope (|Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)|))
+  (prototype-participants (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|
+                           _Coefficient-Value4393
+                           _State-Value4394
+                           _Chemical4395
+                           _Chemical-Entity4396
+                           _Coefficient-Value4398
+                           _State-Value4399
+                           _Chemical4400
+                           _Chemical-Entity4403
+                           _Chemical-Entity4408
+                           _Coefficient-Value4409
+                           _State-Value4410
+                           _Chemical4411
+                           _Property-Node4413
+                           _Property-Node4414
+                           _Property-Node4415
+                           _Property-Node4416
+                           _Property-Node4417
+                           _Property-Node4418))
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (big-nodes (_Property-Node4418
+              _Property-Node4417
+              _Property-Node4416
+              _Property-Node4415
+              _Property-Node4414
+              _Property-Node4413))
+  (raw-material (_Chemical4411))
+  (result (_Chemical4400
+           _Chemical4395))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical4395 t)
+                    (:seq result _Chemical4400 t)
+                    (:seq raw-material _Chemical4411 t)))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq result _Chemical4395 659 273)
+                    (:seq result _Chemical4400 659 273)
+                    (:seq raw-material _Chemical4411 250 276)))
+  (edge-never-visible ((:seq result _Chemical4395 f)
+                       (:seq result _Chemical4400 f)
+                       (:seq raw-material _Chemical4411 f)))
+  (node-coordinate ((:pair 305 92))))
+
+(_Coefficient-Value4393 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (contains-node-of (_Property-Node4415))
+  (coefficient-of (_Chemical4395))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (edge-visibility ((:seq value (:pair 1 *unity) f)))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 518 449))))
+
+(_State-Value4394 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (contains-node-of (_Property-Node4416))
+  (physical-state-of (_Chemical4395))
+  (instance-of (State-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value (*aqueous))
+  (edge-visibility ((:seq value *aqueous f)))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 357 449))))
+
+(_Chemical4395 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (result-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (has-basic-structural-unit (_Chemical-Entity4396))
+  (instance-of (Chemical
+                Entity))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value4393))
+  (edge-visibility ((:seq physical-state _State-Value4394 t)
+                    (:seq coefficient _Coefficient-Value4393 t)
+                    (:seq has-basic-structural-unit _Chemical-Entity4396 t)))
+  (physical-state (_State-Value4394))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq physical-state _State-Value4394 388 392)
+                    (:seq coefficient _Coefficient-Value4393 559 385)
+                    (:seq has-basic-structural-unit _Chemical-Entity4396 462 476)))
+  (edge-never-visible ((:seq physical-state _State-Value4394 f)
+                       (:seq coefficient _Coefficient-Value4393 f)
+                       (:seq has-basic-structural-unit _Chemical-Entity4396 f)))
+  (node-coordinate ((:pair 459 341))))
+
+(_Chemical-Entity4396 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Chemical-Entity
+                H-Plus))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical4395))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 474 557))))
+
+(_Coefficient-Value4398 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (contains-node-of (_Property-Node4417))
+  (coefficient-of (_Chemical4400))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (edge-visibility ((:seq value (:pair 1 *unity) f)))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 858 447))))
+
+(_State-Value4399 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (contains-node-of (_Property-Node4418))
+  (physical-state-of (_Chemical4400))
+  (instance-of (State-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value (*aqueous))
+  (edge-visibility ((:seq value *aqueous f)))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 707 452))))
+
+(_Chemical4400 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (result-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (has-basic-structural-unit (_Chemical-Entity4403))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value4398))
+  (edge-visibility ((:seq physical-state _State-Value4399 t)
+                    (:seq coefficient _Coefficient-Value4398 t)
+                    (:seq has-basic-structural-unit _Chemical-Entity4403 t)))
+  (physical-state (_State-Value4399))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq physical-state _State-Value4399 746 390)
+                    (:seq coefficient _Coefficient-Value4398 902 393)
+                    (:seq has-basic-structural-unit _Chemical-Entity4403 795 479)))
+  (edge-never-visible ((:seq physical-state _State-Value4399 f)
+                       (:seq coefficient _Coefficient-Value4398 f)
+                       (:seq has-basic-structural-unit _Chemical-Entity4403 f)))
+  (node-coordinate ((:pair 793 336))))
+
+(_Chemical-Entity4403 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Chemical-Entity
+                Cl-Minus))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical4400))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 808 561))))
+
+(_Chemical-Entity4408 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (is-basic-structural-unit-of (_Chemical4411))
+  (instance-of (Chemical-Entity
+                HCl))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 116 640))))
+
+(_Coefficient-Value4409 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (contains-node-of (_Property-Node4413))
+  (coefficient-of (_Chemical4411))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (edge-visibility ((:seq value (:pair 1 *unity) f)))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 197 473))))
+
+(_State-Value4410 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (contains-node-of (_Property-Node4414))
+  (physical-state-of (_Chemical4411))
+  (instance-of (State-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value (*aqueous))
+  (edge-visibility ((:seq value *aqueous f)))
+  (node-never-visible (f))
+  (node-coordinate ((:pair -3 471))))
+
+(_Chemical4411 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (raw-material-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Chemical))
+  (has-basic-structural-unit (_Chemical-Entity4408))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value4409))
+  (edge-visibility ((:seq physical-state _State-Value4410 t)
+                    (:seq coefficient _Coefficient-Value4409 t)
+                    (:seq has-basic-structural-unit _Chemical-Entity4408 t)))
+  (physical-state (_State-Value4410))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq physical-state _State-Value4410 42 405)
+                    (:seq coefficient _Coefficient-Value4409 239 401)
+                    (:seq has-basic-structural-unit _Chemical-Entity4408 103 512)))
+  (edge-never-visible ((:seq physical-state _State-Value4410 f)
+                       (:seq coefficient _Coefficient-Value4409 f)
+                       (:seq has-basic-structural-unit _Chemical-Entity4408 f)))
+  (node-coordinate ((:pair 107 340))))
+
+(_Property-Node4413 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (big-node-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4409))
+  (contains-edge ((:triple _Coefficient-Value4409 value (:pair 1 *unity)))))
+
+(_Property-Node4414 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (big-node-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_State-Value4410))
+  (contains-edge ((:triple _State-Value4410 value *aqueous))))
+
+(_Property-Node4415 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (big-node-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4393))
+  (contains-edge ((:triple _Coefficient-Value4393 value (:pair 1 *unity)))))
+
+(_Property-Node4416 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (big-node-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_State-Value4394))
+  (contains-edge ((:triple _State-Value4394 value *aqueous))))
+
+(_Property-Node4417 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (big-node-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4398))
+  (contains-edge ((:triple _Coefficient-Value4398 value (:pair 1 *unity)))))
+
+(_Property-Node4418 has 
+  (prototype-participant-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (big-node-of (|_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|))
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_State-Value4399))
+  (contains-edge ((:triple _State-Value4399 value *aqueous))))
+
+(explanation (:triple |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| instance-of |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)|)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| chemical-equation _Chemical-Equation-Expression4328)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326|) (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction chemical-equation))))
+(explanation (:triple |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| result _Chemical4395)
+  ((a Chemical (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction result))))
+(explanation (:triple |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| raw-material _Chemical4411)
+  ((a Chemical (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction raw-material))))
+(explanation (:triple |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| result _Chemical4400)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Coefficient-Value4393 instance-of Coefficient-Value)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Coefficient-Value4393 value (:pair 1 *unity))
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _State-Value4394 instance-of State-Value)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _State-Value4394 instance-of State-Value)
+  ((a State-Value (@ _Chemical4395 Chemical physical-state))))
+(explanation (:triple _State-Value4394 value *aqueous)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4395 instance-of Chemical)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4395 coefficient _Coefficient-Value4393)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4395 physical-state _State-Value4394)
+  ((a State-Value (@ _Chemical4395 Chemical physical-state))))
+(explanation (:triple _Chemical4395 instance-of Chemical)
+  ((a Chemical (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction result))))
+(explanation (:triple _Chemical4395 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction (result must-be-a) Chemical plays)))) (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction (result must-be-a)))))
+(explanation (:triple _Chemical4395 instance-of Entity)
+  ((a Entity (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Event (result must-be-a)))))
+(explanation (:triple _Chemical4395 has-basic-structural-unit _Chemical-Entity4396)
+  ((a Chemical-Entity (@ _Chemical4395 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity4396 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4395 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity4396 instance-of H-Plus)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Coefficient-Value4398 instance-of Coefficient-Value)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Coefficient-Value4398 value (:pair 1 *unity))
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _State-Value4399 instance-of State-Value)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _State-Value4399 instance-of State-Value)
+  ((a State-Value (@ _Chemical4400 Chemical physical-state))))
+(explanation (:triple _State-Value4399 value *aqueous)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4400 instance-of Chemical)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4400 has-basic-structural-unit _Chemical-Entity4403)
+  ((a Chemical-Entity (@ _Chemical4400 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4400 coefficient _Coefficient-Value4398)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4400 physical-state _State-Value4399)
+  ((a State-Value (@ _Chemical4400 Chemical physical-state))))
+(explanation (:triple _Chemical4400 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction (result must-be-a) Chemical plays)))) (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction (result must-be-a)))))
+(explanation (:triple _Chemical4400 instance-of Entity)
+  ((a Entity (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Event (result must-be-a)))))
+(explanation (:triple _Chemical-Entity4403 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4400 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity4403 instance-of Cl-Minus)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical-Entity4403 nested-atomic-chemical-formula _Chemical-Formula4364)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Cl)))) (@ _Chemical-Entity4403 Cl-Minus nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4403 atomic-chemical-formula _Chemical-Formula4366)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity4403)) or (the term of (the has-chemical-formula of _Chemical-Entity4403)) (@ _Chemical-Entity4403 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4403)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4403))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity4403)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity4403)))))))))) (@ _Chemical-Entity4403 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity4403 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity4403 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4408 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4411 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity4408 instance-of HCl)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical-Entity4408 has-chemical-formula _Chemical-Formula4379)
+  ((if ((the has-part of _Chemical-Entity4408) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity4408)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity4408)))) (@ _Chemical-Entity4408 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity4408) (the Anion has-part of _Chemical-Entity4408)))) (@ _Chemical-Entity4408 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity4408) (@ _Chemical-Entity4408 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity4408 has-chemical-formula _Chemical-Formula4379)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 H-Plus) (:pair 1 Cl-Minus)))) (@ _Chemical-Entity4408 HCl has-chemical-formula))))
+(explanation (:triple _Chemical-Entity4408 nested-atomic-chemical-formula _Chemical-Formula4381)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity4408)) and (the has-chemical-formula of _Chemical-Entity4408) (@ _Chemical-Entity4408 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity4408)))) (@ _Chemical-Entity4408 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity4408 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4408 atomic-chemical-formula _Chemical-Formula4390)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity4408)) or (the term of (the has-chemical-formula of _Chemical-Entity4408)) (@ _Chemical-Entity4408 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4408)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4408))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity4408)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity4408)))))))))) (@ _Chemical-Entity4408 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity4408 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity4408 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Coefficient-Value4409 instance-of Coefficient-Value)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Coefficient-Value4409 value (:pair 1 *unity))
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _State-Value4410 instance-of State-Value)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _State-Value4410 instance-of State-Value)
+  ((a State-Value (@ _Chemical4411 Chemical physical-state))))
+(explanation (:triple _State-Value4410 value *aqueous)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4411 instance-of Chemical)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4411 coefficient _Coefficient-Value4409)
+  ((added-at |Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)| "User defined")))
+(explanation (:triple _Chemical4411 physical-state _State-Value4410)
+  ((a State-Value (@ _Chemical4411 Chemical physical-state))))
+(explanation (:triple _Chemical4411 instance-of Chemical)
+  ((a Chemical (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction raw-material))))
+(explanation (:triple _Chemical4411 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction (raw-material must-be-a) Chemical plays)))) (@ |_Reaction-1HCl(aq)--1H-Plus(aq)1Cl-Minus(aq)4326| Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical4411 has-basic-structural-unit _Chemical-Entity4408)
+  ((a Chemical-Entity (@ _Chemical4411 Chemical has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

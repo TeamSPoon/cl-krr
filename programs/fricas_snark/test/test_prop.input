@@ -1,0 +1,200 @@
+-- ========================================================================
+-- Seventy-Five Problems for Testing Automatic Theorem Provers
+-- FRANCIS JEFFRY PELLETIER
+-- Journal of Automated Reasoning 2 (1986) 191-216
+-- http://www.sfu.ca/~jeffpell/papers/75ATPproblems86.pdf
+-- ========================================================================
+
+
+-- Errata
+-- F. J. Pelletier: '75 Problems for testing automatic theorem provers', 
+-- J. Automated Reasoning 2, 191-216 (1986). (Received: 5 November 1987)
+-- Journal of Automated Reasoning 4 (1988) 235-236.
+-- 1988 by Kluwer Academic Publishers.
+-- http://www.ualberta.ca/~francisp/papers/75ProblemsErrata.pdf
+-- fixes P 28, 34, 54
+
+-- An Erratum for Some Errata to ATP Problems
+-- FRANCIS JEFFRY PELLETIER
+-- Department of Computing Science, University of Alberta. 
+-- email jeffp@cs.ualberta.ca
+-- GEOFF SUTCLIFFE
+-- Department of Computer Science, James Cook University. email
+-- geoff@cs.jcu.edu.au
+-- http://www.ualberta.ca/~francisp/papers/JAR.pdf
+-- also: www.ualberta.ca/~francisp/papers/SutclPellErrataBehindErratum95.pdf
+-- ***
+-- Problem 62 was wrong in 75ATPproblems86.pdf --> now works here
+-- ***
+
+-- Problems 1 .. 68
+-- Problems 38 and 47 skipped (separate files)
+-- ca. 3.75 seconds
+
+
+)clear completely
+)set message time on
+
+snarkInit()$Lisp
+
+)lisp (snark::default-run-time-limit 60) 
+
+
+X==>EXPR INT
+P==>PROP INT
+
+pcheck(problem,i) ==
+  formula:P:=problem(1)
+  premises:List P:=problem(2) 
+  res:=prove(formula,premises)$P
+  if  (string symbol(res)="PROOF-FOUND") then
+    print (concat(string(i),":ok")::Symbol)
+    true
+  else
+    print (concat(string(i),":ERROR")::Symbol)
+    false
+    
+ 
+p:=pred('p,[])
+q:=pred('q,[])
+r:=pred('r,[])
+s:=pred('s,[])
+
+f(x:X):P == pred('f,[x])
+g(x:X):P == pred('g,[x])
+h(x:X):P == pred('h,[x])
+i(x:X):P == pred('i,[x])
+j(x:X):P == pred('j,[x])
+k(x:X):P == pred('k,[x])
+l(x:X):P == pred('l,[x])
+m(x:X):P == pred('m,[x])
+
+ff(x:X,y:X):P == pred('ff,[x,y])
+gg(x:X,y:X):P == pred('gg,[x,y])
+hh(x:X,y:X):P == pred('hh,[x,y])
+jj(x:X,y:X):P == pred('jj,[x,y])
+kk(x:X,y:X):P == pred('kk,[x,y])
+pp(x:X,y:X):P == pred('pp,[x,y])
+qq(x:X,y:X):P == pred('qq,[x,y])
+rr(x:X,y:X):P == pred('rr,[x,y])
+
+
+phi:BOP:=operator 'phi
+op:BOP:=operator 'op
+f1:BOP:=operator 'f1
+f2:BOP:=operator 'f2
+g1:BOP:=operator 'g1
+g2:BOP:=operator 'g2
+
+
+-- group th problems
+grp_a:=all([x,y,z],(op(op(x,y),z)=op(x,op(y,z)))$P)
+grp_b:=all(x,(op(a,x)=x)$P)
+grp_c:=all(x,ex(y,(op(y,x)=a)$P))
+grp:=[grp_a,grp_b,grp_c]
+
+-- Charles Morgan
+T(x:X):P == pred('T,[x])
+ii:BOP:=operator 'ii
+n:BOP:=operator 'n
+
+cm_a:=all([x,y],T(ii(x,ii(y,x))))
+cm_b:=all([x,y,z],T(ii(ii(x,ii(y,z)),ii(ii(x,y),ii(x,z)))))
+cm_c:=all([x,y],T(ii(ii(n(x),n(y)),ii(y,x))))
+cm_d:=all([x,y],T(ii(x,y))/\(T(x)>>T(y)))
+cm:=[cm_a,cm_b,cm_c,cm_d]
+
+
+pelletier:= [ _
+  [(p>>q)^(~q>>~p),[]], _
+  [~~p^p,[]], _
+  [~(p>>q)>>(q>>p),[]], _
+  [(~p>>q)^(~q>>p),[]], _
+  [((p\/q)>>(p\/r))>>(p\/(q>>r)),[]], _
+  [p\/~p,[]], _
+  [p\/~~~p,[]], _
+  [((p>>q)>>p)>>p,[]], _
+  [((p\/q)/\(~p\/q)/\(p\/~q))>>~(~p\/~q),[]], _
+  [p^q,[q>>r,r>>(p/\q),p>>(q\/r)]], _
+  [p^p,[]], _
+  [((p^q)^r)^(p^(q^r)),[]], _
+  [(p\/(q/\r))^((p\/q)/\(p\/r)),[]], _
+  [(p^q)^((q\/~p)/\(~q\/p)),[]], _
+  [(p>>q)^(~p\/q),[]], _
+  [(p>>q)\/(q>>p),[]], _
+  [((p/\(q>>r))>>s)^((~p\/q\/s)/\(~p\/~r\/s)),[]], _
+  [ex(y,all(x,f(y)>>f(x))),[]], _
+  [ex(x,all([y,z],((f(y)>>g(z))>>(f(x)>>g(x))))),[]], _
+  [all([x,y],ex(z,all(w,((f(x)/\g(y))>>(h(z)/\k(w))>>((ex([x,y],(f(x)/\g(y))>>ex(z,h(z))))))))),[]], _
+  [ex(x,p^f(x)),[ex(x,p>>f(x)),ex(x,f(x)>>p)]], _
+  [all(x,p^f(x))>>(p^all(x,f(x))),[]], _
+  [all(x,p\/f(x))>>(p\/all(x,f(x))),[]], _
+  [ex(x,f(x)/\h(x)),[~ex(x,k(x)/\g(x)),all(x,f(x)>>(g(x)\/h(x))),~ex(x,f(x)>>ex(x,g(x))),all(x,g(x)\/h(x)>>k(x))]], _
+  [ex(x,k(x)/\h(x)),[ex(x,h(x)),all(x,(f(x)>>(~g(x)/\l(x)))),all(x,(h(x)>>(g(x)/\f(x)))),all(x,(h(x)>>k(x))\/ex(x,(h(x)/\l(x))))]], _
+  [all(x,(f(x)>>l(x)))^all(x,(g(x)>>m(x))),[ex(x,f(x))^ex(x,g(x)),all([x,y],(f(x)/\g(y))>>(l(x)^m(y)))]], _
+  [all(x,j(x)>>~i(x)),[ex(x,f(x)/\~g(x)),all(x,f(x)>>h(x)),all(x,(j(x)/\i(x))>>f(x)),ex(x,(h(x)/\~g(x)))>>all(x,i(x)>>~h(x))]], _
+  [all(x,(h(x)/\f(x))>>g(x)),[all(x,(h(x)>>all(x,i(x)))),all(x,(i(x)\/j(x)))>>ex(x,i(x)/\k(x)),ex(x,k(x))>>all(x,f(x)>>g(x))]], _
+  [(all(x,(f(x)>>h(x)))/\all(x,(g(x)>>j(x))))^(all([x,y],(f(x)/\g(y))>>(h(x)/\j(y)))),[ex(x,f(x))/\ex(x,g(x))]], _
+  [all(x,i(x)),[all(x,(f(x)\/g(x))>>~h(x)),all(x,(g(x)>>~i(x))>>(f(x)/\h(x)))]], _
+  [ex(x,i(x)/\j(x)),[~(ex(x,f(x)/\(g(x)\/h(x)))),ex(x,i(x)/\f(x)),all(x,(~h(x)>>j(x)))]], _
+  [all(x,(f(x)/\k(x))>>j(x)),[all(x,(f(x)/\(g(x)\/h(x)))>>i(x)),all(x,(i(x)/\h(x))>>j(x)),all(x,k(x)>>h(x))]], _
+  [all(x,f(a)/\(f(x)>>f(b))>>f(c))^(all(x,(~f(a)\/(f(x)\/f(c))))/\(~f(a)\/(~f(b)\/f(c)))),[]], _
+  [(ex(x,all(y,(f(x)^f(y))))^(ex(x,g(x))^all(y,g(y))))^(ex(x,all(y,(g(x)^g(y))))^(ex(x,f(x))^all(y,f(y)))),[]], _
+  [ex([x,y] ,pp(x,y)>>all([x,y] ,pp(x,y))),[]], _
+  [all(x,ex(y,hh(x,y))),[all(x,ex(y,ff(x,y))),all(x,ex(y,gg(x,y))),all([x,y],(ff(x,y)\/gg(x,y))>>all(z,(ff(y,z)\/gg(y,z)>>hh(x,z))))]], _
+  [all(x,ex(y,rr(x,y))),[all(z,ex(w,all(x,ex(y,(pp(x,z)>>pp(y,w))/\pp(y,z)/\(pp(y,w)>>ex(u,qq(u,w))))))),all([x,z],(~pp(x,z)>>ex(y,qq(y,z)))),ex([x,y],qq(x,y))>>all(x,rr(x,x))]], _
+  [true()$P,[]], _
+  [~ex(x,all(y,ff(y,x)^~ff(y,y))),[]], _
+  [ex(y,all(x,(ff(x,y)^ff(x,x))))>>~all(x,ex(y,all(z,ff(x,y)^~ff(z,x)))),[]], _
+  [~ex(z,all(x,ff(x,z))),[all(z,ex(y,all(x,ff(x,y)^(ff(x,z)/\~ff(x,x)))))]], _
+  [~ex(y,all(x,ff(x,y)^(~ex(z,ff(x,z)/\ff(z,x))))),[]], _
+  [all([x,y],qq(x,y)^qq(y,x)),[all([x,y],qq(x,y)^all(z,ff(z,x)^ff(z,y)))]], _
+  [ex(x,j(x)/\~f(x)),[all(x,f(x)>>ex(y,g(y)/\hh(x,y))/\ex(y,g(y)/\~hh(x,y))),ex(x,(j(x)/\all(y,g(y)>>hh(x,y))))]], _
+  [ex(x,f(x)/\~ex(y,g(y)/\hh(x,y))),[all(x,f(x)/\all(y,(g(y)/\hh(x,y))>>jj(x,y))>>all(y,g(y)/\hh(x,y)>>k(y))),~ex(y,l(y)/\k(y)),ex(x,f(x)/\all(y,(hh(x,y)>>l(y)))/\all(y,(g(y)/\hh(x,y)>>jj(x,y))))]], _
+  [all(x,f(x)>>g(x)),[all(x,(f(x)/\all(y,(f(y)/\hh(x,y))>>g(y))>>g(x))),ex(x,f(x)/\~g(x))>>ex(x,(f(x)/\~g(x)/\all(y,(f(y)/\~g(y))>>jj(x,y)))),all([x,y],f(x)/\f(y)/\hh(x,y)>>~jj(x,y))]], _
+  [true()$P,[]], _
+  [all([a,b,c,d],(a=d+b)$P/\(c=d+b)$P),[all([a,b,c,d],(a=b+c)$P/\(d=b+c)$P),all([a,b,c,d],(a=c+b)$P/\(d=c+b)$P)]], _
+  [all(x,f(x)),[ex([x,y],all(z,(z=x+z)$P/\(y=x+z)$P)),f(a)/\f(b),~((a::X=b)$P)]], _
+  [all(x,ff(a,x)\/all(y,ff(y,x)))>>ex(x,all(y,ff(x,y))),[]], _
+  [ex(z,all(x,(ex(w,all(y,(ff(x,y)^(y=w)$P))^(x=z)$P)))),[ex([z,w],all([x,y],ff(x,y)^((x=z)$P/\(y=w)$P)))]], _
+  [ex(w,all(y,(ex(z,all(x,(ff(x,y)^(x=z)$P)))^(y=w)$P))),[ex([z,w],all([x,y],ff(x,y)^((x=z)$P/\(y=w)$P)))]], _
+  [ex(z,all(x,(ex(w,all(y,ff(x,y)^(y=w)$P))^(x=z)$P)))^ex(w,all(y,(ex(z,all(x,(ff(x,y)^(x=z)$P)))^(y=w)$P))),[ex([x,y],~((x=y)$P)/\all(z,(z=x+z)$P/\(y=z)$P))]], _
+  [~ex(w,all(x,ff(x,w)^all(u,ff(x,u)>>ex(y,ff(y,u)/\~ex(z,ff(z,u)/\ff(z,y)))))),[all(y,ex(z,all(x,ff(x,z)^(x=y)$P)))]], _
+  [kk(a,a),[ex(x,l(x)/\kk(x,a)),l(a)/\l(b)/\l(c),all(x,l(x)>>((x=a+x)$P/\(x=b+x)$P/\(x=c)$P)),all([y,x],kk(x,y)>>hh(x,y)),all([x,y],kk(x,y)>>~rr(x,y)),all(x,hh(a,x)>>~hh(c,x)),all(x,~((x=b)$P)>>hh(a,x)),all(x,~rr(x,a)>>hh(b,x)),all(x,hh(a,x)>>hh(b,z)),all(x,ex(y,~hh(x,y))),~((a=b)$P)]], _
+  [all(x,ex(y,f(y)/\(x=phi(y))$P)>>f(x))^all(x,f(x)>>f(phi(x))),[]], _
+  [ff(f2(a,b),f2(a,c)),[ff(f2(a,b),f2(b,c)),ff(f2(b,c),f2(a,c)),all([x,y,z],(ff(x,y)/\ff(y,z))>>ff(x,z))]], _
+  [all([x,y],(f1(f1(x))=f1(g1(y)))$P),[all([x,y],(f1(x)=g1(y))$P)]], _
+  [ex(x,f(x)/\~f(f1(x))),[all(x,f(x)^~f(f1(x)))]], _
+  [all(x,ff(x,f1(x))^(ex(y,(all(z,ff(z,y)>>ff(z,f1(x)))/\ff(x,y))))),[]], _
+  [all([x,y,z,w],(f2(x,f2(y,f2(z,w)))=f2(f2(f2(x,y),z),w))$P),[all([x,y,z],(f2(x,f2(y,z))=f2(f2(x,y),z))$P)]], _
+  [all(x,f(a)/\(f(x)>>f(f1(x)))>>f(f1(f1(x))))^all(x,(~f(a)\/f(x)\/f(f1(f1(x))))/\(~f(a)\/~f(f1(x))\/f(f1(f1(x))))),[]], _
+  [all([x,y,z],(op(x,y)=op(z,y))$P>>(x=z)$P),grp], _
+  [all([x,y],(op(y,x)=a)$P>>(op(x,y)=a)$P),grp], _
+  [all(x,(op(x,x)=a)$P)>>all([x,y],(op(x,y)=op(y,x))$P),[grp_a,grp_b]], _
+  [all(x,T(ii(x,n(n(x))))),cm], _
+  [all(x,T(ii(n(n(x)),x))),cm], _
+  [all(x,T(ii(x,n(n(x))))),[cm_a,cm_b,cm_d,all([x,y],T(ii(ii(y,x),ii(n(x),n(y)))))]]
+  ]
+  
+  
+)if any
+  ["0+69",[]], _
+  ["0+70",[]], _
+  ["0+71",[]], _
+  ["0+72",[]], _
+  ["0+73",[]], _
+  ["0+74",[]], _
+  ["0+75",[]] _
+]
+
+)endif
+
+
+results:=[pcheck(pelletier(i),i) for i in 1..#pelletier]
+
+)set message time off
+
+-- All tests passed?
+reduce(_and,results)
+
+

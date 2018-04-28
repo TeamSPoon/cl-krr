@@ -1,0 +1,42 @@
+;; 
+;;    $Id: AMP.km,v 1.16 2001/06/01 23:26:11 pnav Exp $ 
+;; 
+
+(AMP has
+         (superclasses (Ribonucleotide Nucleoside-Monophosphate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Adenosine monophosphate. One of the four nucleotides 
+                        in RNA.  AMP is produced by the energetically 
+                        favorable hydrolysis of ATP. Alberts:ECB:G-2."))
+         (test-case ()))
+
+(every AMP has
+       (complement ((must-be-a UMP)))  
+       (has-part 
+	((a Monophosphate with
+	  (object-of
+	   ((a Be-Attached-To with
+	       (object 
+		((the Adenosine has-part of Self)))
+	       (site
+		(((the Carbon-Atom has-part of
+		       (the Ribose has-part of
+			    (the Adenosine has-part of Self)))
+		  called "Carbon-5")
+		 ((the Oxygen-Atom has-part of
+		       (the Monophosphate has-part of Self))
+		  called "Oxygen-1") ))
+	       (instrument ((a Covalent-CO-Bond)))
+	       ))))
+       (a Adenosine)
+       ))
+       )
+
+
+;; Note: selection of oxygen-1 is arbitrary.  all four oxygens in monophosphate
+;; are equivalent.
+
+

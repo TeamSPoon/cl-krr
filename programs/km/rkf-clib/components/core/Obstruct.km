@@ -1,0 +1,106 @@
+;; 
+;;    $Id: Obstruct.km,v 1.28 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Obstruct has
+  (superclasses		(Make-Inaccessible))
+  (required-slot   	(object))
+  (primary-slot 	(agent))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "the thing Obstructed")
+			 (:seq agent "the Obstructor")
+			 (:seq destination "the place to which the object is Obstructed")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Obstruct has
+       (object ((a Tangible-Entity)))
+       (agent  ((must-be-a Entity)))
+
+       (resulting-state ((a Be-Obstructed)))
+
+       (add-list ((:triple
+		   (the resulting-state of Self)
+		   object
+		   (the object of Self) [Obstruct-add-1])
+		  (if (has-value (the agent of Self))
+		      then
+		    (forall (the agent of Self)
+			    (:triple
+			     It
+			     agent-of
+			     (the resulting-state of Self) [Obstruct-add-2]))))))
+       
+(comment [Obstruct-add-1] (:seq (the object of Self) " is obstructed.")
+	 "An obstruct causes something to be obstructed.")
+
+(comment [Obstruct-add-2] (:seq (the agent of Self) " caused the obstruction.")
+	 "Somthing can cause something else to be obstructed.")
+
+
+(every Obstruct has
+  (text-active-verbseq-sg ("obstructs"))
+  (text-active-verbseq-pl ("obstruct"))
+  (text-passive-verbseq-sg ("gets obstructed"))
+  (text-passive-verbseq-pl ("get obstructed"))
+
+  (text-argslots ((:seq base instrument path result)))
+)
+
+
+;; Extra contextual info that the agent (if one is specified)
+;; must move to the location of the object as part of the
+;; prepatory step in an attempt to obstruct the object. 
+(every Obstruct has
+       (preparatory-event 
+	(((:default
+	     (if (has-value (the agent of Self))
+		 then	
+		 (a Move with 
+		    (object 	 ((the agent of Self)))
+		    (destination ((a Spatial-Entity with
+				     (is-at ((the object of Self)))))))
+
+))))))
+
+(Obstruct has 
+	  (test-case      ('(
+			     (*pedestrian has (instance-of (Physical-Object)))
+                            
+			     (a Obstruct with 
+			      (object (*pedestrian)))
+                            
+			     (do-and-next (thelast Obstruct))
+                            (the text-gen of (thelast Obstruct))
+			     (has-value (the Be-Obstructed object-of of 
+				      *pedestrian))
+			   (forall (the resulting-state of (thelast Obstruct)) (the text-gen of It))
+			     (a Move with (object (*car))(path (*path)))
+			     (try-do (thelast Move)) ; Obstruct doesn't
+					; *prevent* move's
+
+			     ))))
+
+
+;; automatically added WN synsets
+(Obstruct has (wn16-synset ((:set  
+                                       (:triple "obstruct" 2 "v")
+                                       (:triple "block" 10 "v")
+                                       (:triple "close_up" 1 "v")
+                                       (:triple "jam" 7 "v")
+                                       (:triple "impede" 2 "v")
+                                       (:triple "occlude" 1 "v")
+))))
+
+(Obstruct has (wn20-synset ((:set
+                                       (:triple "obstruct" 2 "v")
+                                       (:triple "block" 10 "v")
+                                       (:triple "close_up" 1 "v")
+                                       (:triple "jam" 7 "v")
+                                       (:triple "impede" 2 "v")
+                                       (:triple "occlude" 1 "v")
+))))
+
+(every Obstruct has (text-nominalization ("obstruction")))

@@ -1,0 +1,17 @@
+;;
+;; $Id: CH3_2_NH-Substance.km,v 1.7 2008/11/03 03:11:26 tecuci Exp $
+;;
+ 
+(CH3_2_NH-Substance has (superclasses (Base)))
+(every CH3_2_NH-Substance has
+       (plays ((a Base-Role with
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 5.4e-4 nil))))))
+		  (intensity ((a Intensity-Value with
+			(value ((:pair *weak Base)))))))))
+	(has-chemical-name ("dimethlyamine"))
+	(has-basic-structural-unit ((a CH3_2_NH)))
+)
+(every CH3_2_NH-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a CH3_2_NH))))

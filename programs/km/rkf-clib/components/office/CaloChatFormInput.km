@@ -1,0 +1,13 @@
+;;    $Id: CaloChatFormInput.km,v 1.5 2005/02/22 21:18:23 jchaw Exp $
+(CaloChatFormInput has
+		   (superclasses (CaloChatFormField))
+		   (required-slot ())
+		   (primary-slot ())
+		   (secondary-slot ())
+		   (cmap-correspondence ())
+		   (test-case ()))
+
+(every CaloChatFormInput has
+       (hasFieldInputType ((a String))))
+
+(hasFieldInputType has (instance-of (Interface-Slot)) (domain (CaloChatFormInput)) (range (String)) (cardinality (N-to-N)))

@@ -1,0 +1,142 @@
+; 
+;;    $Id: Metal-Salt-Displacement-Reaction.km,v 1.6 2003/08/21 20:54:01 tecuci Exp $ 
+;; 
+
+(Metal-Salt-Displacement-Reaction has (superclasses (Reaction)))
+
+(every Metal-Salt-Displacement-Reaction has-definition
+       (instance-of (Reaction 
+		     [Metal-Salt-Displacement-Reaction-instance-of-1]))
+       (raw-material ((a Chemical with
+                         (has-basic-structural-unit ((a Metal-Atom))))
+		      (a Salt-Substance))))
+
+(every Metal-Salt-Displacement-Reaction has
+       (result 
+	(
+	 (if ((the output of
+		  ;; see if the metal is more active than the salt's Cation
+		  (a Compute-Activity-Series with
+		     (input ((the Metal-Atom has-basic-structural-unit of (the raw-material of Self))
+			     (the Cation has-part of 
+				  (the has-basic-structural-unit of
+				       (the Salt-Substance raw-material of
+					    Self))))))) 
+	      = "yes")
+	     then
+	   (:set
+	    ;; a new metal is formed
+	    (a Chemical with
+	       (has-basic-structural-unit
+		((forall 
+		  (the2 of
+			(the elements of
+			     (the term of
+				  (the atomic-chemical-formula of
+				       (the Cation has-part of
+					    (the has-basic-structural-unit of
+						 (the Salt-Substance raw-material of Self)))))))
+		  where
+		  ((oneof2 (the superclasses of It) where (It2 = Metal-Atom))
+		   or
+		   (It = Metal-Atom))
+		  (an instance of It)))))
+	    
+	    ;; a new salt is formed
+	    (a Salt-Substance with
+	       (has-basic-structural-unit
+		((a Ionic-Compound with
+		    (has-part
+		     (
+		      (forall (the all-subclasses of Cation)
+			      where
+			      ((the2 of
+				     (the elements of
+					  (the term of
+					       (the 
+						has-chemical-formula of 
+						(an instance of It)))))
+			       = 
+			       (allof2
+				(the instance-of
+				     of
+				     (the Atom
+					  has-basic-structural-unit 
+					  of
+					  (the raw-material of Self)))
+				where
+				(It2 /= Metal-Atom))
+			       )
+			      (an instance of It))
+		      (an instance of
+			  (the instance-of of
+			       (the Anion has-part of
+				    (the has-basic-structural-unit of
+					 (the Salt-Substance raw-material 
+					      of Self)))))))))))
+	    [Metal-Salt-Displacement-Reaction-result-1]
+	    )))))
+
+(comment [Metal-Salt-Displacement-Reaction-instance-of-1]
+   "Therefore, this reaction is a Metal-Salt displacement reaction"
+
+   "By definition, a reaction between a metal and a salt is a Metal-Salt displacement reaction"
+)
+
+
+(comment [Metal-Salt-Displacement-Reaction-result-1]
+         (if ((the output of
+	      (a Compute-Activity-Series with
+		 (input ((the Metal-Atom has-basic-structural-unit of 
+			      (the raw-material of Self))
+			 (the Cation has-part of 
+			      (the has-basic-structural-unit of
+				   (the Salt-Substance raw-material of Self))))
+			))) = "yes")
+	     then
+	     (:seq "Therefore, the reaction occurs, and it produces" 
+		   (andify (the text-gen of (the result of Self))))
+	     else
+	     (:seq "Therefore, no reaction occurs"))
+
+   "Whether a reaction occurs depends on the activity series of the reactants"
+
+   (:triple (a Compute-Activity-Series with
+	       (input ((the Metal-Atom has-basic-structural-unit of 
+			    (the raw-material of Self))
+		       (the Cation has-part of 
+			    (the has-basic-structural-unit of
+				 (the Salt-Substance raw-material of
+				      Self))))))
+	    output
+	    *)
+)
+
+
+
+
+(Metal-Salt-Displacement-Reaction 
+ has
+ (test-case ( '(
+		((the number of
+		     (allof
+		      (the result of
+			   (a Reaction with
+			      (raw-material 
+			       ((a Chemical with
+				   (has-basic-structural-unit ((a Ba))))
+				(a NaI-Substance)))))
+		      where
+		      (((the elements of
+			     (the term of
+				  (the has-chemical-formula of
+				       (the has-basic-structural-unit of
+					    It))))
+			= (:set (:pair 1 Ba-Plus-2)
+				(:pair 2 I-Minus)))
+			or
+			((the has-basic-structural-unit of
+			      It) isa Na))))
+		 =
+		 2)
+))))

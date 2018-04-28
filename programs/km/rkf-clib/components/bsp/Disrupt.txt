@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Disrupt.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Disrupt 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+ 
+  by-means-of: 
+        Attack-by-fire 
+        Block 
+ 
+  inhibits: Action with 
+     agent: MU called "enemy forces" object of Self 
+ 
+  resulting-state: Be-Accessible         (actually be "more" accessible") 
+                                 object: MU called "friendly forces" 
+                                 base: Attack-by-fire 
+                                                    agent: MU called "enemy forces" 
+ 
+Note: How to capture: Obstacles alone cannot disrupt an enemy unit. (7) 
+ 
+ 
+Disrupt (E). 
+=======. 
+1. Disrupt is a tactical mission task in which a commander integrates direct and indirect fires, terrain, and obstacles to upset an enemy's formation or tempo, interrupt his timetable, or cause his forces to commit prematurely or attack in a piecemeal fashion. 
+2. This increases the enemy's vulnerability to friendly fires. 
+3. It may temporarily knock a unit out of the battle. 
+4. Disruption is never an end; it is the means to an end. 
+5. The maneuver force attempting to disrupt an enemy must attack him with enough combat power to achieve desired results with one mass attack or sustain the attack until it achieves the desired results. 
+6. It also helps to deceive the enemy concerning the location of friendly defensive positions, to separate combat echelons, or to separate combat forces from their logistic support. 
+7. Obstacles alone cannot disrupt an enemy unit. 

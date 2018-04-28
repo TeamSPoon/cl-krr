@@ -1,0 +1,30 @@
+;;
+;;    $Id: Gene-To-Protein-Expression.km,v 1.1 2001/05/30 23:31:03 souther Exp $
+;;
+
+(Gene-To-Protein-Expression has
+		   (superclasses   (Gene-Expression))
+		   (required-slot  (object donor recipient))
+		   (primary-slot   (agent instrument))
+		   (secondary-slot ())
+		   (description	
+                         ("The commonest form of gene expression in which 
+                          proteins are synthesized as directed by a gene via
+                          the intermediary of RNA which is translated into
+                          protein.  Souther. ")))
+
+(every Gene-To-Protein-Expression has
+       (agent        ((a Suborganismal-Entity)))
+       (donor        ((a Gene)))
+       (recipient    ((a Protein)))
+       (object       ((a Genetic-Information)))
+       (instrument   ((a MRNA)))
+       (first-subevent ((the DNA-Transcription subevent of Self)))
+       (subevent     ((a DNA-Transcription)
+					;		 (a RNA-Translation)
+			)))
+		       
+;; needs to be fleshed out
+
+
+

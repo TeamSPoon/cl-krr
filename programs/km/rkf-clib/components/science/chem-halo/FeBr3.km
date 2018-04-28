@@ -1,0 +1,15 @@
+;; 
+;;    $Id: FeBr3.km,v 1.1 2008/07/07 16:02:12 tecuci Exp $
+;; 
+
+
+(FeBr3 has (superclasses (Ionic-Compound)))
+
+(every FeBr3 has
+       (has-chemical-name ("iron(III) bromide"))
+       (has-part  ((a Fe-Plus-3) (a Br-Minus)))
+       (has-chemical-formula 
+        ((a Chemical-Formula with
+            (term ((:seq
+                    (:pair 1 Fe-Plus-3)
+                    (:pair 3 Br-Minus))))))))

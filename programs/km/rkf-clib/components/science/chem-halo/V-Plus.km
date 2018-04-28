@@ -1,0 +1,22 @@
+;;
+;; $Id: V-Plus.km,v 1.5 2008/05/14 20:16:56 kunal Exp $
+;;
+
+(V-Plus has (superclasses (Metal-Cation)))
+(every V-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("vanadium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 V)))))))
+        (is-ion-of ((a V)))
+)
+
+(every V-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("vanadium"))
+  (charge ((a Charge-Value with
+	      (value ((:pair +1 *unity)))))))
+
+(V-Plus has (wn20-synset ((:triple "V+" 0 "n"))))

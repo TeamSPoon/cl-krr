@@ -1,0 +1,93 @@
+;; 
+;;    $Id: Acid-Base-Exchange-w-Gas-a.km,v 1.6 2003/04/08 18:31:11 kbarker Exp $ 
+;; 
+
+(Acid-Base-Exchange-w-Gas-a has (superclasses (Reaction)))
+
+(every Acid-Base-Exchange-w-Gas-a has-definition
+       (instance-of (Reaction [Acid-Base-Exchange-w-Gas-a-instance-of-1]))
+       (raw-material (;; the raw material
+		      ;; has to be Water with SO2
+		      ;; or Water with CO2
+		      (a Acid)
+		      (a Ionic-Compound-Substance with
+			 (has-basic-structural-unit
+			  ((a Ionic-Compound with
+			      (has-part ((a CO3-Minus-2))))))))))
+
+(every Acid-Base-Exchange-w-Gas-a has
+       (result ((a Ionic-Compound-Substance with
+		   (has-basic-structural-unit
+		    ((a Ionic-Compound with
+			(has-part ((
+				    an instance of
+				       (forall (the raw-material of Self)
+					       where
+					       ((the Anion has-part of
+						     (the has-basic-structural-unit
+							  of
+							  It))
+						isa CO3-Minus-2)
+					       (the instance-of
+						    of
+						    (the Cation has-part of
+							 (the has-basic-structural-unit
+							      of
+                                                              It))))
+                                   )
+                                   (an instance of
+                                       (the instance-of
+                                            of
+                                            (the Anion has-part of
+                                                 (the has-basic-structural-unit
+                                                      of
+                                                      (the Acid raw-material of Self))))
+                                   )
+                        ))
+                   )))
+                 [Acid-Base-Exchange-w-Gas-a-result-1]
+                )
+                (a H2O-Substance)
+                (a CO2-Substance)
+       ))
+)
+
+(comment [Acid-Base-Exchange-w-Gas-a-instance-of-1]
+  "Therefore, this is an acid-base exchange reaction (with gas)"
+
+  "By definition, a reaction between an acid and a carbonate is an acid-base exchange reaction (with gas)"
+)
+
+(comment [Acid-Base-Exchange-w-Gas-a-result-1]
+  (:seq "The products of the reaction of"
+        (andify (the text-gen of (the raw-material of Self)))
+        "are thus"
+        (andify (the text-gen of (the result of Self)))
+  )
+  "When an acid reacts with a carbonate, the products are water, CO2(g), and a salt formed by the acid's anion and the carbonate metal"
+)
+
+
+(Acid-Base-Exchange-w-Gas-a 
+ has
+ (test-case ('(
+	       ((the number of
+		    (allof
+		     (the result of
+			  (a Reaction with
+			     (raw-material ((a HCl-Substance)
+					    (a Na2CO3-Substance)))))
+		     where
+		     ((It isa H2O-Substance)
+		      or
+		      (It isa CO2-Substance)
+		      or
+		      ((the elements of
+			    (the term of
+				 (the has-chemical-formula of
+				      (the has-basic-structural-unit of
+					   It))))
+		       = (:set (:pair 1 Cl-Minus) (:pair 1 Na-Plus))))))
+	       = 
+	       3)
+))))

@@ -1,0 +1,49 @@
+<!--- $Id: Instruction.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<kml>
+<concept name=Instruction>
+<system-documentation name=Instruction>
+
+<superconcept name=Role>
+
+  <definition>
+    Instruction is the <conceptref name=Role> played by 
+    <conceptref name=Information> that is the <slot>object</slot> 
+    of a <conceptref name=Command>
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the Information playing the role of Instruction
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Command> event during which the instruction 
+     is expressed
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+
+     <text>James asked the waiter to bring him a glass of water.</text>
+     <comment>
+     In this example, the role of Instruction is described with these properties:
+     </comment>
+     <slotdescription name=in-event>A <conceptref name=Command> with
+         <slot>object</slot>="bring James a glass of water" and 
+         <slot>recipient</slot>=the waiter</slotdescription>
+     <slotdescription name=played-by>"bring James a glass of water"
+     </slotdescription>
+     </comment>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+
+
+

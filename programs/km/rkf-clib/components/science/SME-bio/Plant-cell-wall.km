@@ -1,0 +1,62 @@
+
+;;; ---------- Definition of prototype for Plant-cell-wall ----------
+
+(Plant-cell-wall has (superclasses (Cell-wall)))
+
+(_Plant-cell-wall354 has 
+  (instance-of (Plant-cell-wall))
+  (prototype-of (Plant-cell-wall))
+  (prototype-scope (Plant-cell-wall))
+  (prototype-participants (_Organic-Molecule484
+                           _Plasmodesmata483
+                           _Plant-cell-wall354))
+  (prototype-participant-of (_Plant-cell-wall354))
+  (has-clones (_Placeholder-Class353355
+               _Plant-cell-wall357
+               _Plant-cell-wall383
+               _Plant-cell-wall421
+               _Plant-cell-wall465))
+  (has-built-clones (_Placeholder-Class353355
+                     _Plant-cell-wall357
+                     _Plant-cell-wall383
+                     _Plant-cell-wall421
+                     _Plant-cell-wall465))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (has-part (_Plasmodesmata483))
+  (edge-coordinate ((:seq has-part _Plasmodesmata483 182 545)))
+  (edge-visibility ((:seq has-part _Plasmodesmata483 t))))
+
+(_Organic-Molecule484 has 
+  (instance-of (Organic-Molecule))
+  (has-clones (_Organic-Molecule480))
+  (cloned-from (_Organic-Molecule478))
+  (is-basic-structural-unit-of (_Plasmodesmata483))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 616 541)))
+  (prototype-participant-of (_Plant-cell-wall354)))
+
+(_Plasmodesmata483 has 
+  (has-basic-structural-unit (_Organic-Molecule484))
+  (instance-of (Plasmodesmata))
+  (cloned-from (_Plasmodesmata475))
+  (clone-built-from (_Plasmodesmata475))
+  (is-part-of (_Plant-cell-wall354))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 273 541)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Organic-Molecule484 466 547)))
+  (edge-visibility ((:seq has-basic-structural-unit _Organic-Molecule484 f)))
+  (prototype-participant-of (_Plant-cell-wall354)))
+
+(explanation (:triple _Plant-cell-wall354 has-part _Plasmodesmata483) ((added-at Plant-cell-wall "User defined")))
+(explanation (:triple _Organic-Molecule484 instance-of Organic-Molecule) ((cloned-from _Plasmodesmata475 _Plasmodesmata483)))
+(explanation (:triple _Organic-Molecule484 is-basic-structural-unit-of _Plasmodesmata483) ((cloned-from _Plasmodesmata475 _Plasmodesmata483)))
+(explanation (:triple _Organic-Molecule484 instance-of Organic-Molecule) ((a Organic-Molecule (@ _Plasmodesmata483 Organic-Structure has-basic-structural-unit))))
+(explanation (:triple _Plasmodesmata483 instance-of Plasmodesmata) ((added-at Plant-cell-wall "User defined")))
+(explanation (:triple _Plasmodesmata483 has-basic-structural-unit _Organic-Molecule484) ((cloned-from _Plasmodesmata475 _Plasmodesmata483)))
+(explanation (:triple _Plasmodesmata483 has-basic-structural-unit _Organic-Molecule484) ((a Organic-Molecule (@ _Plasmodesmata483 Organic-Structure has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+

@@ -1,0 +1,18 @@
+;; $Id: HPO3-Minus-2.km,v 1.3 2008/05/15 17:19:10 kunal Exp $ 
+(HPO3-Minus-2 has (superclasses (Anion)))
+(every HPO3-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("hydrogen phosphite"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 P) (:pair 3 O)))))))
+)
+
+
+(every HPO3-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen phosphite"))
+)
+
+(HPO3-Minus-2 has (wn20-synset ((:triple "HPO3-2" 0 "n") (:triple "HPO_3-2" 0 "n"))))

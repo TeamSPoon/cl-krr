@@ -1,0 +1,29 @@
+;; 
+;;    $Id: UoM-Area.km,v 1.10 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(UoM-Area has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*square-meter))
+ (instances (*square-inch *square-foot *square-meter)))
+
+(*square-inch has (instance-of (UoM-Area))
+                  (name ("in^2"))
+		   (wn20-synset ((:set (:triple "square inch" 0 "n")
+				       (:triple "square inches" 0 "n")
+				       (:triple "in^2" 0 "n")))))
+
+(*square-foot  has (instance-of (UoM-Area))
+                   (name ("ft^2"))
+		    (wn20-synset ((:set (:triple "square foot" 0 "n")
+					(:triple "square feet" 0 "n")
+					(:triple "ft^2" 0 "n")))))
+
+(*square-meter  has (instance-of (UoM-Area))
+                    (name ("m^2"))
+		   (wn20-synset ((:set (:triple "square meter" 0 "n")
+				       (:triple "square meters" 0 "n")
+				       (:triple "m^2" 0 "n")))))
+(*square-inch has (conversion-multiplier (6.4516e-4)))
+(*square-foot has (conversion-multiplier (0.09290304)))
+(*square-meter has (conversion-multiplier (1.0)))

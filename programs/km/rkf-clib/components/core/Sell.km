@@ -1,0 +1,89 @@
+;;
+;; $Id: Sell.km,v 1.10 2005/10/29 14:00:51 kbarker Exp $
+;;
+
+(Sell has
+  (superclasses  (Relinquish))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+;; From Relinquish, Sell inherits a single Transfer in which 
+;; the donor is the agent. All we need to add for Sell is the
+;; extra Transfer of money (implicit in the term "sell") and
+;; the fact that the recipient (buyer) is required.
+
+;; Note that an instance of Sell doesn't imply that there is
+;; an instance of Buy. Each "sales transaction" is either
+;; one or the other, depending on the point of view. We don't
+;; have two instances.
+
+(every Sell has
+  (recipient ((a Tangible-Entity)))
+  (instrument ((a Money)))
+
+  (first-subevent ((a Transfer with
+                      (object ((the instrument of Self)))
+                      (agent ((the recipient of Self)))
+                      (donor ((the recipient of Self)))
+                      (recipient ((the agent of Self)))
+  )))
+
+  (subevent ((the first-subevent of Self)))
+)
+
+(every Sell has
+  (text-active-verbseq-sg ("sells"))
+  (text-active-verbseq-pl ("sell"))
+
+  (text-instrument ("for"))
+)
+
+(Sell has 
+     (test-case ('(
+		   (new-situation) 
+		   
+		   (*Boat has (instance-of (Tangible-Entity)))
+		   (*Jack has 
+			(instance-of (Tangible-Entity))
+			(possesses (*Boat)))
+
+		   (*2000-Dollars has 
+				  (instance-of (Money))
+				  (worth ((a Worth-Value with
+					     (value ((:pair 2000 *usdollar)))))))
+		   (*Jill has 
+			  (instance-of (Tangible-Entity))
+			  (possesses (*2000-Dollars)))
+
+		   ;; *Jack Selling *Boat to *Jill
+		   (a Sell with
+		      (agent (*Jack))
+		      (object (*Boat))
+		      (recipient (*Jill))
+		      (instrument (*2000-Dollars)))
+		   
+		   (do-script (thelast Sell))
+		   (the text-gen of (thelast Sell))
+
+		   ;; Test 1: *Jill has possesion of the boat
+		   ((the possesses of *Jill) = *Boat)
+		   
+		   ;; Test 2: the bike is possessed-by *Jill
+		   ((the is-possessed-by of *Boat) = *Jill)
+		   
+		   ;; Test 3: the agent should be the donor
+		   ((the agent of (thelast Sell)) = (the donor of (thelast Sell)))
+
+		   ;; Test 4: *Jack has possesion of the the money
+		   ((the possesses of *Jack) = *2000-Dollars)
+		   
+		   ;; Test 5: the money is possessed-by *Jack
+		   ((the is-possessed-by of *2000-Dollars) = *Jack)
+		   
+))))
+
+
+(Sell has (wn20-synset ((:set
+			 (:triple "sell" 1 "v")
+))))
+(every Sell has (text-nominalization ("sale")))

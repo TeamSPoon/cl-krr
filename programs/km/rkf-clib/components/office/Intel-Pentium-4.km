@@ -1,0 +1,13 @@
+;;
+;; $Id: Intel-Pentium-4.km,v 1.2 2004/01/23 19:23:40 kbarker Exp $
+;;
+
+(Intel-Pentium-4 has 
+  (superclasses (Intel-Pentium-Processor))
+  (feature-slot ((the feature-slot of Intel-Pentium-Processor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Intel-Pentium-4))
+  ))
+)
+
+

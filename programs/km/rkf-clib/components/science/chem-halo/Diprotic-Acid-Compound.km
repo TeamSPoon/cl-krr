@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Diprotic-Acid-Compound.km,v 1.1 2008/07/28 18:40:49 tecuci Exp $ 
+;; 
+
+(Diprotic-Acid-Compound has
+			(superclasses (Polyprotic-Acid-Compound))
+			(test-case ()))
+
+(Diprotic-Acid-Compound has (user-description ("An acid that yields two H+ ion per molecule of acid.")))
+
+(every Diprotic-Acid-Compound has-definition
+       (instance-of (Polyprotic-Acid-Compound))
+       (has-chemical-formula ((a Chemical-Formula)
+			      (constraint (
+					   (if (the term of TheValue)
+					       then
+					     ((not (Self isa H2O))
+					      and
+					      (oneof (the elements of (the term of TheValue))
+						     where (((the2 of It) = H-Plus)
+							    and
+							    ((the1 of It) = 2))))
+					     else
+					     (Self isa Polyprotic-Acid-Compound)
+					     ))))))

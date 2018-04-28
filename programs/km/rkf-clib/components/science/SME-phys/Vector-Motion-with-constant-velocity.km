@@ -1,0 +1,50 @@
+(Vector-Motion-with-constant-velocity has
+	(superclasses (Move)))
+
+(every Vector-Motion-with-constant-velocity has
+       (velocity (( a Velocity-Vector-Value )))
+       (average-velocity (( the velocity of Self )))
+       (displacement (( a Displacement-Vector-Value )))
+			 (direction (( a Angle-Value )))
+       (duration (( a Duration-Value )))
+       (component-of (( a System with
+                          ( equation (( a Equation-Set with
+                                          ( equation-uses (( the x-distance of ( the displacement of Self ))
+                                                           ( the x-speed of ( the velocity of Self ))
+                                                           ( the duration of Self )))
+                                          ( equation-symbol (( :pair (QUOTE d_x) ( the x-distance of ( the displacement of Self )))
+                                                             ( :pair (QUOTE v_x) ( the x-speed of ( the velocity of Self )))
+                                                             ( :pair (QUOTE t) ( the duration of Self ))))
+                                          ( equation-expression (( QUOTE ( = d_x ( * v_x t))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the direction of Self )
+										( the x-speed of ( the velocity of Self ))
+                                                           ( the y-speed of ( the velocity of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE theta) ( the direction of Self ))
+                                                             ( :pair (QUOTE v_x) ( the x-speed of ( the velocity of Self )))
+                                                             ( :pair (QUOTE v_y) ( the y-speed of ( the velocity of Self )))))
+                                          ( equation-expression (( QUOTE ( = theta ( atan v_y v_x ))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the speed of ( the velocity of Self ))
+										( the x-speed of ( the velocity of Self ))
+                                                           ( the y-speed of ( the velocity of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE v) ( the speed of ( the velocity of Self )))
+                                                             ( :pair (QUOTE v_x) ( the x-speed of ( the velocity of Self )))
+                                                             ( :pair (QUOTE v_y) ( the y-speed of ( the velocity of Self )))))
+                                          ( equation-expression (( QUOTE ( = ( expt v 2) (  + ( expt v_x 2 )  ( expt v_y 2 ) ))))))
+
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the y-distance of ( the displacement of Self ))
+                                                           ( the y-speed of ( the velocity of Self ))
+                                                           ( the duration of Self )))
+                                          ( equation-symbol (( :pair (QUOTE d_y) ( the y-distance of ( the displacement of Self )))
+                                                             ( :pair (QUOTE v_y) ( the y-speed of ( the velocity of Self )))
+                                                             ( :pair (QUOTE t) ( the duration of Self ))))
+                                          ( equation-expression (( QUOTE ( = d_y ( * v_y t))))))))))))  
+
+
+
+

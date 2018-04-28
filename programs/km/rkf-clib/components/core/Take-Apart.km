@@ -1,0 +1,57 @@
+;; 
+;;    $Id: Take-Apart.km,v 1.18 2008/08/04 22:33:47 jchaw Exp $ 
+;; 
+
+(Take-Apart has
+  (superclasses   	(Break))
+  (required-slot  	(object))
+  (primary-slot   	(agent instrument))
+  (secondary-slot 	())
+  (cmap-correspondence 	(
+			 (:seq agent "the agent")
+                         (:seq object "the thing taken apart")
+                         (:seq instrument "instrument of used in the take apart")
+			))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Take-Apart has
+  (object ((a Tangible-Entity)))
+
+  (del-list ((forall (the object of Self)
+                (:triple It has-part (the has-part of It) [Take-Apart-del-1]))))
+
+  ;; To Do: The object must exist
+  ;;	    (pcs-list ())
+  ;; To Do: We need to add that the object ceases to exist
+  ;;	    in the del-list.
+)
+
+(comment [Take-Apart-del-1] (:seq (the object of Self) " no longer has " (the has-part of (the object of Self)))
+	 "A take-apart removes parts from something.")
+
+(every Take-Apart has
+  (text-active-verbseq-sg ("takes apart"))
+  (text-active-verbseq-pl ("take apart"))
+  (text-passive-verbseq-sg ("gets taken apart"))
+  (text-passive-verbseq-pl ("get taken apart"))
+)
+
+(every Take-Apart has (text-nominalization ("taking apart")))
+
+;; automatically added WN synsets
+(Take-Apart has (wn16-synset ((:set  
+                                         (:triple "take_apart" 1 "v")
+                                         (:triple "break_apart" 1 "v")
+                                         (:triple "break_up" 8 "v")
+                                         (:triple "disassemble" 1 "v")
+                                         (:triple "dismantle" 2 "v")
+))))
+
+(Take-Apart has (wn20-synset ((:set
+                                         (:triple "take_apart" 1 "v")
+                                         (:triple "break_apart" 1 "v")
+                                         (:triple "break_up" 8 "v")
+                                         (:triple "disassemble" 1 "v")
+                                         (:triple "dismantle" 2 "v")
+))))

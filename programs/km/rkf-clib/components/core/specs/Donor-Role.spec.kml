@@ -1,0 +1,53 @@
+<!--- $Id: Donor-Role.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+
+<kml>
+<concept name=Donor-Role>
+<system-documentation name=Donor-Role>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    A Donor (here called a "Donor-Role") is the <conceptref name=Role> 
+    played by the <slot>donor</slot> of a <conceptref name=Transfer>.
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the entity that's playing the role of Donor 
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Transfer> event that the entity is engaged in
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>Fred donated stock certificates to GoodWill.</text>
+     <comment>
+     In this example, the Donor-Role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Transfer> with
+         <slot>object</slot>=stock certificates and 
+         <slot>recipient</slot>=GoodWill</slotdescription>
+     <slotdescription name=played-by>Fred</slotdescription>
+     </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Recipient-Role>
+     A Recipient-Role is played by an Entity on the receiving end of a
+     Transfer.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

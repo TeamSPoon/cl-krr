@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Protein-Filament.km,v 1.16 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(Protein-Filament has
+         (superclasses (Compound-Protein Chemical-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A linear chain of protein molecules.  As microtubules,
+                        actin filaments, and intermediate filaments, they
+                        constitute much of the cytoskeleton of all eucaryotic
+                        cells and especially abundant in muscle cells.
+                        see Alberts:ECB:16."))
+         (test-case ()))
+
+(every Protein-Filament has 
+
+       (element-type (Protein)))
+
+		     
+

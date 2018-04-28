@@ -1,0 +1,7 @@
+;; $Id: Physical-MarkRecording.km,v 1.2 2005/01/21 23:33:35 billj Exp $
+(Physical-MarkRecording has
+	(description ("A type of Recording produced when the object of the recording constitutes physical markings (i.e. is an instance of Phsical-Mark) such as writing, sketching, etc."))
+	(superclasses (Recording)))
+
+(every Physical-MarkRecording has
+	(result-of ((a Record with (object ((a Physical-Mark)))))))

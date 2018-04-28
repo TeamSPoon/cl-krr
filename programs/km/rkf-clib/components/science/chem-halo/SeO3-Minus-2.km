@@ -1,0 +1,19 @@
+;; $Id: SeO3-Minus-2.km,v 1.6 2008/05/15 17:19:10 kunal Exp $ 
+(SeO3-Minus-2 has (superclasses (Anion)))
+(every SeO3-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("selenite"))
+	(has-acid-name ("selenous"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Se)(:pair 3 O)))))))
+)
+
+
+(every SeO3-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("selenite"))
+)
+
+(SeO3-Minus-2 has (wn20-synset ((:triple "SeO3-2" 0 "n") (:triple "SeO_3-2" 0 "n"))))

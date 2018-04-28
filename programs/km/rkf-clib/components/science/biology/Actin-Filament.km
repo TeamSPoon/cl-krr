@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Actin-Filament.km,v 1.23 2005/10/04 23:17:10 kbarker Exp $ 
+;; 
+
+(Actin-Filament has
+         (superclasses (Protein-Filament))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Protein filament, about 7nm thick, formed from a
+                        chain of globular actin molecules.  A major
+                        constituent of the cytoskeleton of all eucaryotic cells
+                        and especially abundant in muscle cells.
+                        Alberts:ECB:G-1."))
+         (description ("Protein-Filament, about 7nm thick, formed from a
+                        chain of the globular Actin-Molecule.  A major
+                        constituent of the cytoskeleton of all Eucaryotic-Cell
+                        and especially abundant in muscle cells.
+                        Alberts:ECB:G-1."))
+         (test-case ()))
+
+(every Actin-Filament has 
+
+       (element-type (Actin-Molecule))
+       (purpose ((a Instrument-Role with
+		    (in-event ((a Amoeboid-Cell-Locomotion))))))
+       (width ((a Length-Value with 
+			(value ((:pair 7 *nanometer))))))
+       )
+
+
+
+
+

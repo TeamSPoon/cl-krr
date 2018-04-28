@@ -1,0 +1,25 @@
+;; 
+;; $Id: Certification.km,v 1.4 2005/04/15 16:58:56 jchaw Exp $
+;; 
+
+(Certification has
+  (superclasses (LegalDocument)))
+
+#|
+(every Certification has
+       (isCertificateOf ((a MessageHeader))))
+
+(isCertificateOf has 
+	(instance-of 
+	(Interface-Slot)) 
+	(domain (Certification)) 
+	(range (MessageHeader)) 
+	(cardinality (N-to-N)))
+|#
+
+(Certification has (wn20-synset ((:set
+		   	     (:triple "certificate" 1 "n")
+			     (:triple "certification" 3 "n")
+			     (:triple "credential" 1 "n")
+			     (:triple "credentials" 1 "n")
+))))

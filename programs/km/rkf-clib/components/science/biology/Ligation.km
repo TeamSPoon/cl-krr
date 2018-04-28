@@ -1,0 +1,36 @@
+; 
+;;    $Id: Ligation.km,v 1.14 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Ligation has
+  (superclasses         (Add Enzyme-Catalysis))
+  (required-slot        (object base))
+  (primary-slot         (agent instrument))
+  (secondary-slot       ())
+  (description ("The joining of the 3' end of one nucleic acid strand with the
+                 5' end of another, forming a continuous strand. see
+                 Lodish:MCB:G-10. definition for ligase."))
+  )
+
+(every Ligation has
+       (object       ((a Nucleotide-Sequence called "5' NA sequence")))
+       (base         ((a Nucleotide-Sequence called "3' NA sequence")))
+       (substrate (((the  Nucleotide-Sequence object of Self)
+                    called "5' NA sequence")
+                   ((the  Nucleotide-Sequence base of Self)
+                   called "3' NA sequence")))
+       (instrument ((a Ligase)))
+       (resulting-state 
+        ((a Be-Attached-To with
+            (object (((the object of Self) called "5' NA sequence")
+                     ((the base of Self) called "3' NA sequence")
+                     )))))
+       )
+
+
+
+;; need to capture be-attached in post-condition
+
+;; That's handled by the Attach parent (in fact, we don't even need the
+;; resulting-state slot here, Attach would handle it correctly)         KB
+(every Ligation has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

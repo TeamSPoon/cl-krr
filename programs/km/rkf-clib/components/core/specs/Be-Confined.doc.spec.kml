@@ -1,0 +1,39 @@
+<!--- $Id: Be-Confined.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Confined>
+<superconcept name=Be-Obstructed>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Confined>
+  <definition>object unable to Move-Out-Of</definition>
+
+  <requiredslot name=object>
+    <restriction>may not be the <slot>object</slot> of any
+      <conceptref name=Move-Out-Of> Event with <slot>origin</slot> the 
+      <slot>base</slot>
+    </restriction>
+  </requiredslot>
+
+  <requiredslot name=base>
+      <restriction>the thing inside which the <slot>object</slot> is confined</restriction>
+  </requiredslot>
+
+  <wnsynsets><adj>confined#4
+  </adj></wnsynsets>
+  <wnsynsets><adj>enclosed#1, fenced_in#1, penned#1
+  </adj></wnsynsets>
+</component>
+
+<musing>
+The semantics of Be-Confined are captured as conditions of the Actions
+that put an <slot>object</slot> into this state (<conceptref name=Confine>),
+that take an <slot>object</slot> out of this state (<conceptref name=Release>) 
+and that are prevented by this state (<conceptref name=Move-Out-Of>).
+</musing>
+
+</kml>
+
+

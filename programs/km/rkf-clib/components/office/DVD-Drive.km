@@ -1,0 +1,12 @@
+;;
+;;    $Id: DVD-Drive.km,v 1.2 2004/01/23 19:23:39 kbarker Exp $
+;;
+
+(DVD-Drive has 
+  (superclasses (Optical-Drive))
+  (feature-slot ((the feature-slot of Optical-Drive)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = DVD-Drive))
+  ))
+)
+

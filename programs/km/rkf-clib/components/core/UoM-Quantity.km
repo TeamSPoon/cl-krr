@@ -1,0 +1,42 @@
+;; 
+;;    $Id: UoM-Quantity.km,v 1.8 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(UoM-Quantity has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*unit))
+ (instances (*unit *mole *pair *dozen *score *gross)))
+
+(*unit has (instance-of (UoM-Quantity))
+       (name ("unit")))
+
+(*mole has (instance-of (UoM-Quantity))
+       (name ("mole"))
+       (wn20-synset ((:set (:triple "mole" 0 "n")  
+			   (:triple "moles" 0 "n")))))
+
+(*pair has (instance-of (UoM-Quantity))
+       (name ("pair"))
+       (wn20-synset ((:set (:triple "pair" 0 "n")  
+			   (:triple "pairs" 0 "n")))))
+
+(*dozen has (instance-of (UoM-Quantity))
+       (name ("dozen"))
+       (wn20-synset ((:set (:triple "dozen" 0 "n") 
+			   (:triple "dozens" 0 "n")))))
+
+(*score has (instance-of (UoM-Quantity))
+       (name ("score"))
+       (wn20-synset ((:set (:triple "score" 0 "n") 
+			   (:triple "scores" 0 "n")))))
+
+(*gross has (instance-of (UoM-Quantity))
+       (name ("gross"))
+       (wn20-synset ((:set (:triple "gross" 0 "n") 
+			   (:triple "grosses" 0 "n")))))
+(*unit has (conversion-multiplier (1.0)))
+(*mole has (conversion-multiplier (6.0221415e+23)))
+(*pair has (conversion-multiplier (2.0)))
+(*dozen has (conversion-multiplier (12.0)))
+(*score has (conversion-multiplier (20.0)))
+(*gross has (conversion-multiplier (144.0)))

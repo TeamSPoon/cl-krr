@@ -1,0 +1,17 @@
+
+;;
+;; $Id: Scalar-Concentration-Value.km,v 1.3 2007/05/21 04:43:14 mrglass Exp $
+;;
+
+(Scalar-Concentration-Value has (superclasses (Property-Value)))
+
+(every Scalar-Concentration-Value has
+  (property-slot (scalar-concentration))
+  #|(value ((the all-instances of 
+               (the scalar-constant-class of
+                    (the property-slot of (a Concentration-Value)))
+  )))|#
+)
+
+
+(Scalar-Concentration-Value has (description ("a qualitative description of concentration, such as diluted.")))

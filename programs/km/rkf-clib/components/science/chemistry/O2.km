@@ -1,0 +1,16 @@
+;; 
+;;    $Id: O2.km,v 1.7 2005/08/18 22:40:32 oursland Exp $
+;; 
+
+(O2 has (superclasses (Molecular-Compound)))
+	
+(every O2 has
+       (has-chemical-formula
+        ((a Chemical-Formula with
+            (term ((:seq
+                    (:pair 2 O)))))))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 O))))))))
+       

@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Binding-Site.km,v 1.11 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Binding-Site has
+         (superclasses (Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Region on the surface of a molecule - typically a
+                        cavity or groove - that is complementary in shape to 
+                        another molecule (the ligand) and therefore can bind it
+                        through the formation of multiple weak (noncovalent)
+                        bonds. cf Alberts:ECB:G-3."))
+         (test-case ()))
+
+(every Binding-Site has
+       (location-of ((a Attach with
+			(object ((a Ligand with
+				    (complement ((Self)))
+				    )))
+			(instrument ((a Noncovalent-Bond)
+				     (at-least 1 Noncovalent-Bond) ))
+			)))
+       ) 
+
+
+
+(every Binding-Site has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Enzyme-Complex.km,v 1.15 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Enzyme-Complex has
+		(superclasses (Aggregate Protein-Complex))
+		(required-slot ())
+		(primary-slot ())
+		(secondary-slot ())
+		(cmap-correspondence ())
+		(description ("A group of enzymes which act together to provide
+                        structure or perform some function.  Examples are
+                        ATP synthesis and oxidative phosphorylation enzymes.
+                        Souther."))
+		(test-case ()))
+
+(every Enzyme-Complex has 
+
+       (element-type (Enzyme)))
+
+(every Enzyme-Complex has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

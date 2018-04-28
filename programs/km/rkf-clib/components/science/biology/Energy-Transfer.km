@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Energy-Transfer.km,v 1.4 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Energy-Transfer has
+        (superclasses   (Transfer))
+        (required-slot  (object donor recipient))
+        (primary-slot   (agent instrument))
+        (secondary-slot ())
+	(description	("The transfer of energy from one entity to another.
+                          Souther. ")))
+
+(every Energy-Transfer has
+  (donor        ((a Tangible-Entity)))
+  (recipient    ((a Tangible-Entity)))
+  (object       ((a Energy)))
+  )
+
+
+
+
+
+(every Energy-Transfer has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,15 @@
+;; 
+;;  $Id: keq.km,v 1.3 2003/01/24 22:37:27 pzyeh Exp $
+;; 
+
+(keq has
+  (instance-of 		  (Property))
+  (domain      		  (Equilibrium-Reaction))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  (inverse     		  (keq-of))
+  (inherit-with-overrides (t))
+  (cardinality 		  (N-to-1))
+)
+

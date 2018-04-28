@@ -1,0 +1,17 @@
+;; 
+;;    $Id: cost-rate.km,v 1.1 2004/11/04 23:02:19 tecuci Exp $ 
+;; 
+
+(cost-rate has
+  (instance-of (Property))
+  (superslots  ())
+  (subslots    ())
+  (domain      (VariableCost))    
+  (range       (Cost-Rate-Value))
+  (scalar-constant-class (Cost-Rate-Constant))
+  (cardinal-unit-class (UoM-Cost-Rate))
+  (inverse     (cost-rate-of))
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (cardinality (N-to-1))
+)

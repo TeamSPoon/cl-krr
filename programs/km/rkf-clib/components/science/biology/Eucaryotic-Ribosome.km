@@ -1,0 +1,41 @@
+;; 
+;;    $Id: Eucaryotic-Ribosome.km,v 1.13 2002/02/08 18:51:39 kbarker Exp $ 
+;; 
+
+(Eucaryotic-Ribosome has
+		     (superclasses (Ribosome))
+		     (required-slot ())
+		     (primary-slot ())
+		     (secondary-slot ())
+		     (description ("Ribosome found in cytoplasm of eucaryotes.
+                                    Souther. "))
+		     (cmap-correspondence ())
+		     (test-case ()))
+
+; This concept should have been off-limits to the SMEs for the
+; Jan-Feb 2002 retest but leaked through. To prevent it from
+; helping our scores in question answering we are gutting it.
+;
+; (every Eucaryotic-Ribosome has
+;        (mass 	 ((must-be-a Mass-Value with 
+;                             (value ((:pair 4200000 *dalton))))))
+;        (has-part ((a Ribonucleoprotein called "RNP1" with 
+;                      (mass ((must-be-a Mass-Value with 
+;                                        (value ((:pair 2800000 *dalton))))))
+; 		     (has-part ((a MRNA-Site)
+; 				(a A-Site)
+; 				(a P-Site)
+; 				(a E-Site)
+; 				(exactly 3 RRNA)
+; 				(exactly 49 Ribosomal-Protein)))) ;Average
+; 		  (a Ribonucleoprotein called "RNP2" with
+;                      (mass ((must-be-a Mass-Value with 
+;                                        (value ((:pair 1400000 *dalton))))))
+; 		     (has-part ((a MRNA-Site)
+; 				(a TRNA-Initiator-Site)
+; 				(a RRNA)
+; 				(exactly 1 Ribosomal-Protein) 
+; 		)))))) ;Average
+
+
+

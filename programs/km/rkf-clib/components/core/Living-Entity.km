@@ -1,0 +1,23 @@
+;; 
+;; $Id: Living-Entity.km,v 1.11 2004/09/09 19:32:46 kbarker Exp $ 
+;; 
+
+(Living-Entity has
+  (superclasses (Physical-Object))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (cmap-correspondence ())
+  (description ("Any living organism"))
+)
+
+(a Partition with (members (Animal Plant)))
+
+(Living-Entity has (wn20-synset ((:set
+				  (:triple "living_thing" 1 "n")
+				  (:triple "animate_thing" 1 "n")
+))))
+
+
+;; stubby
+

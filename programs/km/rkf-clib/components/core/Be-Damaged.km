@@ -1,0 +1,21 @@
+;;
+;;    $Id: Be-Damaged.km,v 1.2 2005/08/11 21:04:33 pzyeh Exp $
+;;
+(Be-Damaged has
+            (superclasses 	 (State))
+            (required-slot 	 (object))
+            (primary-slot 	 ())
+            (secondary-slot 	 ())
+            (caused-by-class     (Damage))
+            (defeated-by-class   ())
+            (cmap-correspondence ()))
+
+(every Be-Damaged has
+  (object ((a Tangible-Entity)))
+  (resulting-state-of ((must-be-a Damage with
+			 (object ((the object of Self))))))
+)
+
+(every Be-Damaged has
+   (text-particle ("damaged"))
+)

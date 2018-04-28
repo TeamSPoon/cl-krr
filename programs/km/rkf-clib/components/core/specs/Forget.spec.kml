@@ -1,0 +1,57 @@
+<!--- $Id: Forget.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Forget><system-documentation name=Forget>
+<superconcept name=Action>
+
+<definition>
+	<conceptref name=Information> once known to the <slot> agent </slot> becomes forgotten
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the <conceptref name=Information> that becomes forgotten
+  </slotdescription>
+
+  <slotdescription name=agent>
+    the <conceptref name=Tangible-Entity> that forgets the information 
+  </slotdescription>
+
+</requiredslotlist>
+
+<comment> 
+
+Before the forget action occurs, it's assumed that the information is
+in a <conceptref name=Be-Known> state in which the <slot>agent</slot>
+is the <slot>experiencer</slot>.  The forget action takes the
+information out of that state.
+
+ </comment>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John forgot the test was today.</text>
+    <slotdescription name=object>the test was today</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<comment>
+   Before the forget action, John knew the test was today.
+</comment>
+
+<neighborlist>
+
+  <neighbor name=Learn>
+     The Learn action is the opposite of Forget; it causes an entity
+     to know information
+  </neighbor>
+
+</neighborlist>
+
+
+</kml>

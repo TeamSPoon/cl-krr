@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Terminator-Sequence-2.km,v 1.1 2001/05/18 13:15:09 souther Exp $
+;; 
+
+(Terminator-Sequence-2 has
+     (superclasses (DNA-Regulatory-Sequence))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A DNA consensus sequence CTGGCGGC that forms part of the 
+                    terminator for DNA transcription. Alberts:ECB:217."))
+     (cmap-correspondence ()))
+
+(every Terminator-Sequence-2 has 
+       (is-functional-part-of ((a Terminator)))
+       )
+
+
+

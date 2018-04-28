@@ -1,0 +1,22 @@
+;; 
+;;    $Id: pH.km,v 1.3 2008/06/23 05:25:40 jchaw Exp $
+;; 
+
+(pH has
+    (instance-of (Property))
+    (user-description ("a measure of the acidity or basicity (alkalinity) of a material when dissolved in water"))
+    (superslots ())
+    (subslots ())
+    (domain      (Substance))
+    (range       (PH-Value))    
+    (scalar-constant-class (PH-Constant))
+    (cardinal-unit-class (UoM-Unitless)) ;; [ksm 1/30/03] pH has no UofM (see Pedro email 1/30/03) 
+    (fluent-status (*Inertial-Fluent))
+    (inverse (pH-of))
+    ; (inherit-with-overrides (t))
+    (cardinality (N-to-1)))
+
+(pH-of has (instance-of (Property)))
+
+(pH has
+  (wn20-synset ((:triple "ph" 0 n))))

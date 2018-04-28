@@ -1,0 +1,61 @@
+<!--- $Id: Withdraw.doc.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Withdraw::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Withdraw>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Withdraw>
+  <definition>To Withdraw an Entity from a Tangible-Entity</definition>
+  <requiredslot name=object>
+    <restriction>a Entity</restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Stored> <conceptref name=State>. <slot>base</slot>
+      is the <slot>base</slot> of the same <conceptref name=Be-Stored>
+      <conceptref name=State>.
+    </restriction>
+    <restriction><slot>object</slot> is one of the <slot>content</slot>s of
+      the <slot>base</slot>.
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is removed from <conceptref name=Be-Stored> 
+      <conceptref name=State>. The <slot>base</slot> is also removed from the
+      same <conceptref name=Be-Stored> <conceptref name=State>.
+    </restriction>
+    <restriction><slot>object</slot> is no longer one of the <slot>content</slot>s of
+      the <slot>base</slot>.
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be withdrawn from the <slot>base</slot></restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>a Entity</restriction>
+    <restriction>used in Withdrawning the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>withdraw#9
+  </verb></wnsynsets>
+  <wnsynsets><verb>draw#14, take_out#2, take_out#6, take_out#8, unpack#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+To Withdraw is to cause the <slot>object</slot> to be removed from 
+the <slot>base</slot>. In other words, both the <slot>object</slot> and
+the <slot>base</slot> are no longer in a <conceptref name=Be-Stored> 
+State, and the <slot>base</slot> no longer contains the <slot>object</slot>.
+</musing>
+
+</kml>
+
+

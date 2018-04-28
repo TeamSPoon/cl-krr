@@ -1,0 +1,16 @@
+;;
+;; $Id: Ra.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Ra has (superclasses (Metal-Atom IIA-Alkaline-Earth-Metal-Element)))
+(every Ra has
+       (atomic-symbol (Ra))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 88 NIL))))))
+       (has-ion ((a Ra-Plus-2)))
+       (chemical-period (7)))
+
+(every Ra has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("radium"))
+)

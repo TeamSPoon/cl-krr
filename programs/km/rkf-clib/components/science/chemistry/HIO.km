@@ -1,0 +1,10 @@
+;; $Id: HIO.km,v 1.2 2003/02/22 16:26:40 jchaw Exp $ 
+(HIO has (superclasses (Ionic-Compound)))
+(every HIO has
+	(has-chemical-name (""))
+	(has-part ((a H-Plus)(a IO-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 IO-Minus)))))))
+)

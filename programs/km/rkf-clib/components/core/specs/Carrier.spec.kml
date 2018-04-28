@@ -1,0 +1,26 @@
+<!--- $Id: Carrier.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Carrier><system-documentation name=Carrier>
+<superconcept name=Role>
+
+<definition>
+
+  The role played by an entity with regards to <conceptref name=Transmit>ing a <conceptref name=Message>.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=in-event>
+    Must be the object of an <conceptref name=Action>.
+  </slotdescription>
+
+  <slotdescription name=played-by>
+    Is the role played by the <conceptref name=Entity> which is the <slot>intrument-of</slot> an <conceptref name=Action>.
+  </slotdescription>
+
+</requiredslotlist>
+
+
+</kml>

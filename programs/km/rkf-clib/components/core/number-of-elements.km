@@ -1,0 +1,19 @@
+;; 
+;;  $Id: number-of-elements.km,v 1.10 2007/04/11 21:31:10 jchaw Exp $
+;; 
+
+(number-of-elements has
+   (instance-of (EntityProperty))
+   (superslots  ())
+   (subslots    ())
+   (domain      (Aggregate))    
+   (range       (Number))
+   (fluent-status (*Inertial-Fluent))
+   (dont-cache-values (t))
+   (inherit-with-overrides (t))
+   (inverse     (number-of-elements-of))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(number-of-elements-of has
+	(instance-of (EntityProperty)))

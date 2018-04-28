@@ -1,0 +1,18 @@
+;;
+;; $Id: NH4_3_PO4.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(NH4_3_PO4 has (superclasses (Ionic-Compound)))
+
+(every NH4_3_PO4 has	
+       (has-chemical-name ("ammonium phosphate"))
+       (has-part 
+	((a NH4-Plus) (a PO4-Minus-3)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 3 NH4-Plus)
+			 (:pair 1 PO4-Minus-3)))))))
+       )	(every NH4_3_PO4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a NH4-Plus) (a PO4-Minus-3))))
+

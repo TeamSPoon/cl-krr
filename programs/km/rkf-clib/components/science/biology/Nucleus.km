@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Nucleus.km,v 1.20 2004/09/08 20:14:48 kbarker Exp $ 
+;; 
+
+(Nucleus has
+         (superclasses (Organelle Subcellular-Compartment))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("The major organelle in eucaryotic cells, containing
+                        DNA organized into chromosomes. Alberts:ECB:G-13"))
+         (test-case ()))
+
+(every Nucleus has
+       (purpose ((a Container with
+		    (in-event ((a Be-Contained)))
+		    (content ((a Aggregate with
+				 (element-type (Eucaryotic-Chromosome)))))
+		    )))
+       (is-part-of ((a Eucaryotic-Cell)))
+       (is-inside ((the Eucaryotic-Cytoplasm has-part of
+                        (the Eucaryotic-Cell is-part-of of Self))))
+       (has-part 
+	((a Nucleoplasm)
+	 (a Nuclear-Envelope with
+	    (encloses ((the Nucleoplasm has-part of Self)))
+	    )))
+       )
+
+
+

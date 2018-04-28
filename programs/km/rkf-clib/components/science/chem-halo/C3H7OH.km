@@ -1,0 +1,19 @@
+;;
+;; $Id: C3H7OH.km,v 1.2 2008/09/17 23:50:58 tecuci Exp $
+;;
+
+(C3H7OH has (superclasses (Organic-Molecule)))
+
+(every C3H7OH has	
+       (has-chemical-name ("propanol"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 3 C)
+		    (:pair 8 H)
+		    (:pair 1 O))))))))
+       
+(every C3H7OH has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("propanol"))
+)

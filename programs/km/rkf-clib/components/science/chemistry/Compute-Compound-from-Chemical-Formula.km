@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Compute-Compound-from-Chemical-Formula.km,v 1.2 2003/09/10 16:59:50 jchaw Exp $
+;; 
+
+(Compute-Compound-from-Chemical-Formula has
+					(superclasses (Method)))
+
+(every Compute-Compound-from-Chemical-Formula has
+       ;;(input ((a Thing)))
+       (output (((the output of
+		      (a Compute-Compound-from-Common-Formula with
+			 (input ((the input of Self)))))
+		 or
+		 (the output of
+		      (an instance of
+			  (the output of
+			       (a Compute-Compound-Computing-Method-from-Formula with
+				  (input ((the input of Self)))))
+			  with (input ((the input of Self)))))))))

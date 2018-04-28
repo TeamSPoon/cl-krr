@@ -1,0 +1,50 @@
+;;
+;;   $Id: Replenish.km,v 1.6 2008/02/13 19:28:58 kbarker Exp $
+;;
+
+(Replenish has
+  (superclasses  (Action))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Replenish has
+       (base (
+	      (mustnt-be-a Nonrenewable-Resource)
+	      (a Resource with 
+		 (played-by ((the object of Self))))))
+
+       (object ((a Entity with
+		   (plays ((a Resource with 
+			      (base-of ((Self))))))))))
+
+(Replenish has (wn20-synset ((:set
+			      (:triple "replenish" 1 "v")
+			      (:triple "refill" 1 "v")
+			      (:triple "fill_again" 1 "v")
+))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(every Replenish has (text-nominalization ("replenishing")))

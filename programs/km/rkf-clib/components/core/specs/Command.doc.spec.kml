@@ -1,0 +1,70 @@
+<!--- $Id: Command.doc.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Command>
+<superconcept name=Express>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Express>
+  <definition>An object (an <conceptref name = Instruction>) is expressed, making it available for interpretation and for acting upon by another entity.</definition>
+  <requiredslot name=agent>
+    <restriction>expresses <slot>object</slot> </restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Information</restriction>
+    <restriction>expressed by <slot>agent</slot></restriction>
+  </requiredslot>
+  <requiredslot name=recipient>
+    <restriction>a Entity</restriction>
+    </requiredslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Action>
+    <restriction>a Tangible-Entity</restriction>
+  </primaryslot>
+  <primaryslot name=base>
+    <inheritedfrom name=Action>
+    <restriction>a Medium</restriction>
+  </primaryslot>
+  
+  <wnsynsets><verb>command#2, command#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>require#3, compel#2, order#1, tell#4, enjoin#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+
+</musing>
+
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=command1>
+  <sense-definition>have dominance over, be in command of
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+
+<sense tag=command4>
+  <sense-definition>to look down on
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+
+<sense tag=express5>
+  <sense-definition>to exercise authoratitaive power or control over
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNcommand#2><equiv tag=command2></sense>
+<sense tag=WNcommand#3><equiv tag=command3></sense>
+</senselist>
+</reference>
+</kml>
+
+

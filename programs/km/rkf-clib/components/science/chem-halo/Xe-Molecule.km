@@ -1,0 +1,16 @@
+;;
+;; $Id: Xe-Molecule.km,v 1.2 2008/11/03 00:07:37 tecuci Exp $
+;;
+
+(Xe-Molecule has (superclasses (Monoatomic-Molecule Inorganic-Molecule)))
+
+(every Xe-Molecule has
+       (has-part ((a Xe)))
+       (has-chemical-name ("xenon"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Xe)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Xe)))))))
+       (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Xe))))))))
+
+(Xe-Molecule has (wn20-synset ((:set (:triple "xenon" 0 "n")
+				     (:triple "molecular xenon" 0 "n")
+				     ))))

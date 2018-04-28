@@ -1,0 +1,46 @@
+;; 
+;;    $Id: Load.km,v 1.8 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(Load has
+         (superclasses 	 (Move-Into))
+         (required-slot  (object base))
+         (primary-slot 	 (destination origin path))
+         (secondary-slot ())
+       #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Load has
+  (causes ((a Activate with (object ((the base of Self))))))
+
+  (text-active-verbseq-sg ("loads"))
+  (text-active-verbseq-pl ("load"))
+
+  (text-base (("into")))
+
+)
+
+
+;; automatically added WN synsets
+(Load has (wn16-synset ((:set  
+                                   (:triple "load" 1 "v")
+                                   (:triple "load" 2 "v")
+                                   (:triple "load" 3 "v")
+                                   (:triple "charge" 16 "v")
+                                   (:triple "lade" 2 "v")
+                                   (:triple "laden" 2 "v")
+                                   (:triple "load_up" 1 "v")
+                                   (:triple "stow" 1 "v")
+))))
+
+(Load has (wn20-synset ((:set
+                                   (:triple "load" 1 "v")
+                                   (:triple "load" 2 "v")
+                                   (:triple "charge" 16 "v")
+                                   (:triple "lade" 2 "v")
+                                   (:triple "laden" 2 "v")
+                                   (:triple "load_up" 1 "v")
+                                   (:triple "stow" 1 "v")
+))))
+
+(every Load has (text-nominalization ("loading")))

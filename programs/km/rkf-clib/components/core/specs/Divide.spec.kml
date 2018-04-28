@@ -1,0 +1,78 @@
+<!--- $Id: Divide.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<kml>
+
+<concept name=Divide><system-documentation name=Divide>
+<superconcept name=Destroy>
+
+<definition>
+
+  Divide an object into two parts, 
+  causing it to be <conceptref name=Destroy>'ed.  
+  Some of the object's properties are retained
+  by the pieces, such as <slot>material</slot> and <slot>density</slot>.
+  Other properties of the object are not retained, such as
+  <slot>weight</slot> and <slot>size</slot>.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that's divided into two parts.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity responsible for the division.
+
+  <slotdescription name=result>
+    the two entities created when the object is divided.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing that was used to divide the object.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the division.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John cut the string in half.</text>
+    <slotdescription name=object>the string</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The knife sliced the bread. </text>
+    <slotdescription name=object>the bread</slotdescription>
+    <slotdescription name=instrument>the knife</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The operation severed the nerve. </text>
+    <slotdescription name=object>the nerve</slotdescription>
+    <slotdescription name=by-means-of>the operation</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Take-Apart>
+     Divide cuts an object into two pieces, whereas Take-Apart
+     disassembles an object.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

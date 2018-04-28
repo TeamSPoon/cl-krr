@@ -1,0 +1,164 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Storage ----------
+
+(Storage has (superclasses (Container)))
+
+(_Storage188 has 
+  (instance-of (Storage))
+  (prototype-of (Storage))
+  (prototype-scope (Storage))
+  (prototype-participants (_Property-Node213
+                           _Tangible-Entity210
+                           _Be-Contained209
+                           _Shape-Value208
+                           _Spatial-Entity207
+                           _Tangible-Entity206
+                           _Spatial-Entity204
+                           _Storage188))
+  (prototype-participant-of (_Storage188))
+  (has-clones (_Placeholder-Class187190))
+  (has-built-clones (_Placeholder-Class187190))
+  (in-event (_Be-Contained209))
+  (played-by (_Tangible-Entity206))
+  (node-visibility (t))
+  (big-nodes (_Property-Node213))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq in-event _Be-Contained209 204 606)))
+  (edge-visibility ((:seq in-event _Be-Contained209 t))))
+
+(_Property-Node213 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node203))
+  (node-visibility (t))
+  (contains-node (_Shape-Value208))
+  (contains-edge ((:triple _Shape-Value208 value *hollow-volume)))
+  (big-node-of (_Storage188))
+  (prototype-participant-of (_Storage188)))
+
+(_Tangible-Entity210 has 
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity198))
+  (object-of (_Be-Contained209))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 0 0)))
+  (prototype-participant-of (_Storage188)))
+
+(_Be-Contained209 has 
+  (object (_Tangible-Entity210))
+  (instance-of (Be-Contained
+                Block))
+  (instrument (_Tangible-Entity206))
+  (in-event-of (_Storage188))
+  (internally-expanded (f))
+  (edge-visibility ((:seq instrument _Tangible-Entity206 f)
+                    (:seq object _Tangible-Entity210 f)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq instrument _Tangible-Entity206 603 495)
+                    (:seq object _Tangible-Entity210 384 352)))
+  (node-coordinate ((:pair 354 600)))
+  (prototype-participant-of (_Storage188)))
+
+(_Shape-Value208 has 
+  (contains-node-of (_Property-Node213))
+  (instance-of (Shape-Value))
+  (value (*hollow-volume))
+  (shape-of (_Tangible-Entity206))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (edge-visibility ((:seq value *hollow-volume t)))
+  (node-coordinate ((:pair 0 0)))
+  (prototype-participant-of (_Storage188)))
+
+(_Spatial-Entity207 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity200))
+  (is-outside (_Tangible-Entity206))
+  (abuts ((excluded-values (the first of (the is-between of (the played-by of _Storage188))))))
+  (is-between-of (_Tangible-Entity206))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 0 0)))
+  (edge-coordinate ((:seq is-outside _Tangible-Entity206 295 750)))
+  (edge-visibility ((:seq is-outside _Tangible-Entity206 f)))
+  (prototype-participant-of (_Storage188)))
+
+(_Tangible-Entity206 has 
+  (instrument-of (_Be-Contained209))
+  (shape (_Shape-Value208))
+  (does-not-enclose (_Spatial-Entity207))
+  (is-between (_Spatial-Entity204
+               _Spatial-Entity207))
+  (instance-of (Tangible-Entity))
+  (encloses (_Spatial-Entity204))
+  (plays (_Storage188))
+  (internally-expanded (f))
+  (edge-visibility ((:seq plays _Storage188 f)
+                    (:seq shape _Shape-Value208 f)
+                    (:seq is-between _Spatial-Entity207 f)
+                    (:seq is-between _Spatial-Entity204 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq plays _Storage188 -100 600)
+                    (:seq shape _Shape-Value208 601 648)
+                    (:seq is-between _Spatial-Entity207 493 751)
+                    (:seq is-between _Spatial-Entity204 493 751)))
+  (node-coordinate ((:pair -250 600)))
+  (prototype-participant-of (_Storage188)))
+
+(_Spatial-Entity204 has 
+  (is-inside (_Tangible-Entity206))
+  (is-between-of (_Tangible-Entity206))
+  (instance-of (Spatial-Entity))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 0 0)))
+  (edge-coordinate ((:seq is-inside _Tangible-Entity206 217 480)))
+  (edge-visibility ((:seq is-inside _Tangible-Entity206 f)))
+  (prototype-participant-of (_Storage188)))
+
+(explanation (:triple _Storage188 in-event _Be-Contained209) ((a Be-Contained with (object ((the content of _Storage188 (@ _Storage188 Container in-event Be-Contained object)))) (instrument ((the played-by of _Storage188 (@ _Storage188 Container in-event Be-Contained instrument)))) (@ _Storage188 Container in-event))))
+(explanation (:triple _Storage188 played-by _Tangible-Entity206) ((a Tangible-Entity with (encloses ((a Spatial-Entity with (is-inside ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Storage188 Container played-by Tangible-Entity encloses)))) (does-not-enclose ((a Spatial-Entity with (is-outside ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Storage188 Container played-by Tangible-Entity does-not-enclose)))) (is-between ((the encloses of (the played-by of _Storage188) (@ _Storage188 Container played-by Tangible-Entity is-between)) (the does-not-enclose of (the played-by of _Storage188) (@ _Storage188 Container played-by Tangible-Entity is-between)))) (shape ((a Shape-Value with (value ((*hollow-volume (@ _Storage188 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Storage188 Container played-by Tangible-Entity shape)))) (@ _Storage188 Container played-by))))
+(explanation (:triple _Storage188 played-by _Tangible-Entity206) ((a Tangible-Entity with (instrument-of ((the in-event of _Storage188 (@ _Storage188 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Storage188 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Storage188)))))) (@ _Storage188 Barrier played-by Tangible-Entity is-between)))) (@ _Storage188 Barrier played-by))))
+(explanation (:triple _Storage188 in-event _Be-Contained209) ((a Block with (object ((the location of _Storage188 (@ _Storage188 Barrier in-event Block object)))) (@ _Storage188 Barrier in-event))))
+(explanation (:triple _Tangible-Entity210 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Be-Contained209 Be-Contained object))))
+(explanation (:triple _Tangible-Entity210 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Be-Contained209 Block object))))
+(explanation (:triple _Tangible-Entity210 instance-of Entity) ((a Entity (@ _Be-Contained209 Make-Inaccessible object))))
+(explanation (:triple _Tangible-Entity210 instance-of Thing) ((a Thing (@ _Be-Contained209 Action (object must-be-a)))))
+(explanation (:triple _Be-Contained209 instance-of Be-Contained) ((a Be-Contained with (object ((the content of _Storage188 (@ _Storage188 Container in-event Be-Contained object)))) (instrument ((the played-by of _Storage188 (@ _Storage188 Container in-event Be-Contained instrument)))) (@ _Storage188 Container in-event))))
+(explanation (:triple _Be-Contained209 instance-of Block) ((a Block with (object ((the location of _Storage188 (@ _Storage188 Barrier in-event Block object)))) (@ _Storage188 Barrier in-event))))
+(explanation (:triple _Be-Contained209 object _Tangible-Entity210) ((a Tangible-Entity (@ _Be-Contained209 Be-Contained object))))
+(explanation (:triple _Be-Contained209 object _Tangible-Entity210) ((a Spatial-Entity (@ _Be-Contained209 Block object))))
+(explanation (:triple _Be-Contained209 object _Tangible-Entity210) ((a Entity (@ _Be-Contained209 Make-Inaccessible object))))
+(explanation (:triple _Be-Contained209 instrument _Tangible-Entity206) ((the played-by of _Storage188 (@ _Storage188 Container in-event Be-Contained instrument))))
+(explanation (:triple _Shape-Value208 value *hollow-volume) ((*hollow-volume (@ _Storage188 Container played-by Tangible-Entity shape Shape-Value value))))
+(explanation (:triple _Shape-Value208 value *hollow-volume) (((FUNCTION (LAMBDA NIL (COND ((FBOUNDP (QUOTE EQUATION-SOLVE)) (EQUATION-SOLVE (QUOTE _Shape-Value208)))))) (@ _Shape-Value208 Property-Value value))))
+(explanation (:triple _Shape-Value208 property-slot shape) ((the range-of of (the instance-of of _Shape-Value208) (@ _Shape-Value208 Property-Value property-slot))))
+(explanation (:triple _Shape-Value208 instance-of Shape-Value) ((a Shape-Value with (value ((*hollow-volume (@ _Storage188 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Storage188 Container played-by Tangible-Entity shape))))
+(explanation (:triple _Spatial-Entity207 instance-of Spatial-Entity) ((a Spatial-Entity with (is-outside ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Storage188 Container played-by Tangible-Entity does-not-enclose))))
+(explanation (:triple _Spatial-Entity207 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Tangible-Entity206 Spatial-Entity (does-not-enclose must-be-a)))))
+(explanation (:triple _Spatial-Entity207 instance-of Spatial-Entity) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Storage188)))))) (@ _Storage188 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Spatial-Entity207 is-outside _Tangible-Entity206) ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside))))
+(explanation (:triple _Tangible-Entity206 instance-of Tangible-Entity) ((a Tangible-Entity with (encloses ((a Spatial-Entity with (is-inside ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Storage188 Container played-by Tangible-Entity encloses)))) (does-not-enclose ((a Spatial-Entity with (is-outside ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Storage188 Container played-by Tangible-Entity does-not-enclose)))) (is-between ((the encloses of (the played-by of _Storage188) (@ _Storage188 Container played-by Tangible-Entity is-between)) (the does-not-enclose of (the played-by of _Storage188) (@ _Storage188 Container played-by Tangible-Entity is-between)))) (shape ((a Shape-Value with (value ((*hollow-volume (@ _Storage188 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Storage188 Container played-by Tangible-Entity shape)))) (@ _Storage188 Container played-by))))
+(explanation (:triple _Tangible-Entity206 instance-of Tangible-Entity) ((a Tangible-Entity with (instrument-of ((the in-event of _Storage188 (@ _Storage188 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Storage188 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Storage188)))))) (@ _Storage188 Barrier played-by Tangible-Entity is-between)))) (@ _Storage188 Barrier played-by))))
+(explanation (:triple _Tangible-Entity206 instance-of Entity) ((a Entity (@ _Be-Contained209 Action (instrument must-be-a)))))
+(explanation (:triple _Tangible-Entity206 instance-of Entity) ((a Entity with (abuts ((if (has-value (the agent of _Be-Contained209) (@ _Be-Contained209 Event (instrument must-be-a) Entity abuts)) then (the agent of _Be-Contained209 (@ _Be-Contained209 Event (instrument must-be-a) Entity abuts)) (@ _Be-Contained209 Event (instrument must-be-a) Entity abuts)))) (@ _Be-Contained209 Event (instrument must-be-a)))))
+(explanation (:triple _Tangible-Entity206 encloses _Spatial-Entity204) ((a Spatial-Entity with (is-inside ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Storage188 Container played-by Tangible-Entity encloses))))
+(explanation (:triple _Tangible-Entity206 does-not-enclose _Spatial-Entity207) ((a Spatial-Entity with (is-outside ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Storage188 Container played-by Tangible-Entity does-not-enclose))))
+(explanation (:triple _Tangible-Entity206 is-between _Spatial-Entity204) ((the encloses of (the played-by of _Storage188) (@ _Storage188 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Tangible-Entity206 is-between _Spatial-Entity207) ((the does-not-enclose of (the played-by of _Storage188) (@ _Storage188 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Tangible-Entity206 is-between _Spatial-Entity204) ((a Spatial-Entity (@ _Storage188 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Tangible-Entity206 is-between _Spatial-Entity207) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Storage188)))))) (@ _Storage188 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Tangible-Entity206 shape _Shape-Value208) ((a Shape-Value with (value ((*hollow-volume (@ _Storage188 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Storage188 Container played-by Tangible-Entity shape))))
+(explanation (:triple _Tangible-Entity206 instrument-of _Be-Contained209) ((the in-event of _Storage188 (@ _Storage188 Barrier played-by Tangible-Entity instrument-of))))
+(explanation (:triple _Tangible-Entity206 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Spatial-Entity207 Spatial-Entity (is-outside must-be-a)))))
+(explanation (:triple _Spatial-Entity204 instance-of Spatial-Entity) ((a Spatial-Entity with (is-inside ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Storage188 Container played-by Tangible-Entity encloses))))
+(explanation (:triple _Spatial-Entity204 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Tangible-Entity206 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Spatial-Entity204 is-inside _Tangible-Entity206) ((the played-by of _Storage188 (@ _Storage188 Container played-by Tangible-Entity encloses Spatial-Entity is-inside))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

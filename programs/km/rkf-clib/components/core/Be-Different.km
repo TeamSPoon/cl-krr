@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Be-Different.km,v 1.1 2006/01/25 20:19:32 kbarker Exp $ 
+;; 
+
+(Be-Different has (superclasses (State)))
+
+; This state (and Be-Similar) are used primarily for the CPL
+; handling of questions in the Aura system. Peter Yeh's matcher
+; is used to enumerate the ways in which instances are different,
+; instantiating the results in an instance of Viewpoint.
+; 
+; In general use, you could instantiate Be-Different to assert
+; that two things are different. But this definition of Be-Different
+; makes no suggestions of how to record the differences.
+;
+; Note that there are no actions whose simulation results in
+; object being put in a Be-Different state or taken out of one.
+
+(every Be-Different has
+  (object ((exactly 2 Thing)))
+)
+
+(every Be-Different has
+   (text-particle ("different"))
+)
+
+(Be-Different has (wn20-synset ((:set
+                                      (:triple "difference" 1 "n")
+                                      (:triple "different" 1 "a")
+                                      (:triple "different" 4 "a")
+                                      (:triple "dissimilar" 1 "a")
+                                      (:triple "dissimilar" 2 "a")
+                                      (:triple "dissimilar" 3 "a")
+                                      (:triple "unalike" 1 "a")
+                                      (:triple "unlike" 1 "a")
+))))
+

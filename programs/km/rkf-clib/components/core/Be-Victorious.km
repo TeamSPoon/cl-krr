@@ -1,0 +1,24 @@
+;; 
+;; $Id: Be-Victorious.km,v 1.1 2009/10/15 15:08:10 kbarker Exp $
+;; 
+
+(Be-Victorious has (superclasses (State)))
+
+(every Be-Victorious has
+  (object ((a Entity with 
+              (plays ((a Winner with (in-event ((the base of Self))))))
+          ))
+  )
+  (base   ((a Contest)))
+)
+
+(every Be-Victorious has
+       (text-active-verbseq-sg ("wins"))
+       (text-active-verbseq-pl ("win"))
+)
+
+(Be-Victorious has (wn20-synset ((:set
+  (:triple "win" 1 "v")
+))))
+
+

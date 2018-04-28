@@ -1,0 +1,62 @@
+;
+;; $Id: Compute-Conjugate-Base.km,v 1.15 2005/09/02 18:25:48 jfan Exp $
+;;
+
+(Compute-Conjugate-Base has (superclasses (Method)))
+
+(every Compute-Conjugate-Base has
+       (input ((a Chemical with (plays ((a Acid-Role))))))
+       (parent_formula ((the term of 
+			     (the nested-atomic-chemical-formula of 
+				  (the has-basic-structural-unit of
+				       (the input of Self))))))
+       (target-unit 
+	((if (the parent_formula of Self) then
+	   (:set	
+	    (#'(LAMBDA () 
+		       (GET-CONJUGATE-BASE-ATOMIC-FORMULA-BACK 
+			(KM0 '(|the| |parent_formula| |of| |Self|)))))
+	    (#'(LAMBDA () 
+		       (GET-CONJUGATE-BASE-ATOMIC-FORMULA-FRONT
+			(KM0 '(|the| |parent_formula| |of| |Self|)))))))))
+       (output
+	((if (oneof (the input of Self) where (It isa H3O-Plus-Substance))
+	  then 	
+	  (a H2O-Substance)
+ 	  else
+	  ((forall 
+	    (allof2 (the target-unit of Self)
+		    where
+		    ((not (It2 = (the parent_formula of Self)))))
+	    (the output of	
+		 (a Identify-Chemical with
+		    (input
+		     ((a Chemical with
+			 (has-basic-structural-unit
+			  ((the output of 
+				(a Identify-Chemical-Entity with
+				   (input	
+				    ((a Chemical-Entity with
+					(nested-atomic-chemical-formula 
+					 ((a Chemical-Formula with
+					     (term (It)))))))))))))))))))
+		   [Compute-Conjugate-Base-output-1]
+	  )))
+       )
+
+(comment [Compute-Conjugate-Base-output-1]
+  (:seq "Therefore, the conjugate base of"
+        (the text-gen of (the input of Self))
+        "is"
+        (the text-gen of (the output of Self))
+  )
+  "In acid-base equilibrium reactions, both the forward and the backward reaction involve proton transfers, so the reactant base is the conjugate base of the product acid and the product base is the conjugate base of the reactant acid"
+)
+
+
+(Compute-Conjugate-Base has
+     (test-case	
+      ('((
+	  (the output of (an instance of Self with (input ((a H2SO4-Substance))))) 
+	  isa HSO4-Minus-Substance)))))
+

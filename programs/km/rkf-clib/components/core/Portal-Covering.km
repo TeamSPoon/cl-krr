@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Portal-Covering.km,v 1.11 2004/07/20 22:29:23 gking Exp $ 
+;; 
+
+(Portal-Covering has
+		 (superclasses (Barrier))  ;; a type of Role
+		 (required-slot ())
+		 (primary-slot ())
+		 (secondary-slot ())
+		 (cmap-correspondence ()))
+
+(every Portal-Covering has
+	(played-by  ((a Tangible-Entity with       
+			(is-part-of ((a Tangible-Entity with 
+					(plays ((a Container))))))
+			))))
+
+
+;; automatically added WN synsets
+(Portal-Covering has (wn16-synset ((:set  
+                                              (:triple "movable_barrier" 1 "n")
+))))
+
+(Portal-Covering has (wn20-synset ((:set
+                                              (:triple "movable_barrier" 1 "n")
+))))

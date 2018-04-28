@@ -1,0 +1,18 @@
+;; 
+;; $Id: pixel-length.km,v 1.1 2004/10/20 21:09:18 kbarker Exp $
+;; 
+
+(pixel-length has
+  (instance-of (Property))
+  (superslots  ())
+  (subslots    ())
+  (domain      (Computer-Display))    
+  (range       (Pixel-Length-Value))
+  (scalar-constant-class (Pixel-Length-Constant))
+  (cardinal-unit-class (UoM-Pixel-Length))
+  (inverse     (pixel-length-of))
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (cardinality (N-to-1))
+)
+

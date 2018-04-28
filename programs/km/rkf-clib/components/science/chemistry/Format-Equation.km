@@ -1,0 +1,54 @@
+
+;;
+;; $Id: Format-Equation.km,v 1.2 2003/09/26 21:55:15 jfan Exp $
+;;
+
+;; expects input of the form (:seq <reactants> <products>)
+;; where both <reactants> and <products are of the form
+;; (:set (:pair <coeff> <text-gen of chem>) ...) 
+;; or simply (:pair <coeff> <text-gen of <chem>) for a single 
+;; reactant or product
+
+(Format-Equation has 
+		 (superclasses (Method))
+		 )
+
+(every Format-Equation has
+  (output ((:seq (if ((the1 of (the first of (the1 of (the input of Self)))) 
+                      /= 1)
+                  then (:seq (the1 of (the first of (the1 of (the input of Self))))
+                             "nospace"
+                       )
+                 )
+                 (the2 of (the first of (the1 of (the input of Self))))
+                 (forall (the1 of (the input of Self))
+                         where (It /= (the first of (the1 of (the input of Self))))
+                         (:seq "+"
+                               (if ((the1 of It) /= 1)
+                                then (:seq (the1 of It) "nospace")
+                               )
+                               (the2 of It)
+                         )
+                 )
+
+                 "-->"
+
+                 (if ((the1 of (the first of (the2 of (the input of Self)))) 
+                      /= 1)
+                  then (:seq (the1 of (the first of (the2 of (the input of Self))))
+                             "nospace"
+                       )
+                 )
+                 (the2 of (the first of (the2 of (the input of Self))))
+                 (forall (the2 of (the input of Self))
+                         where (It /= (the first of (the2 of (the input of Self))))
+                         (:seq "+"
+                               (if ((the1 of It) /= 1)
+                                then (:seq (the1 of It) "nospace")
+                               )
+                               (the2 of It)
+                         )
+                 )
+  )))
+)
+

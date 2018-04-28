@@ -1,0 +1,17 @@
+;;
+;; $Id: has-acid-name.km,v 1.5 2006/09/29 18:57:37 jchaw Exp $
+;;
+
+(has-acid-name has
+	       (instance-of (CLIB-Slot-Group))
+	       (domain      (Atom))
+	       (range       (String))
+	       ; (inherit-with-overrides (t))
+	       (inverse (has-acid-name-of))
+	       (cardinality (1-to-N))
+	       )
+
+(has-acid-name  has (wn20-synset ((:set
+				   (:triple "acid name" 0 "n")))))
+
+(has-acid-name-of has (instance-of (CLIB-Slot-Group)))

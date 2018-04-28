@@ -1,0 +1,218 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1C1O2--1CO2 ----------
+
+(Reaction-1C1O2--1CO2 has (superclasses (Reaction)))
+
+(_Reaction-1C1O2--1CO24718 has 
+  (instance-of (Reaction-1C1O2--1CO2))
+  (prototype-of (Reaction-1C1O2--1CO2))
+  (prototype-scope (Reaction-1C1O2--1CO2))
+  (prototype-participants (_Property-Node4761
+                           _Property-Node4760
+                           _Property-Node4759
+                           _Chemical-Entity4758
+                           _Chemical4756
+                           _Coefficient-Value4755
+                           _Chemical-Entity4753
+                           _Chemical4752
+                           _Coefficient-Value4751
+                           _Chemical-Entity4749
+                           _Chemical4748
+                           _Coefficient-Value4747
+                           _Reaction-1C1O2--1CO24718))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718))
+  (big-nodes (_Property-Node4759
+              _Property-Node4760
+              _Property-Node4761))
+  (raw-material (_Chemical4752
+                 _Chemical4756))
+  (result (_Chemical4748))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical4748 t)
+                    (:seq raw-material _Chemical4752 t)
+                    (:seq raw-material _Chemical4756 t))))
+
+(_Property-Node4761 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4747))
+  (contains-edge ((:triple _Coefficient-Value4747 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1C1O2--1CO24718))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Property-Node4760 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4755))
+  (contains-edge ((:triple _Coefficient-Value4755 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1C1O2--1CO24718))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Property-Node4759 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4751))
+  (contains-edge ((:triple _Coefficient-Value4751 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1C1O2--1CO24718))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Chemical-Entity4758 has 
+  (instance-of (Chemical-Entity
+                O2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical4756))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Chemical4756 has 
+  (has-basic-structural-unit (_Chemical-Entity4758))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value4755))
+  (edge-visibility ((:seq coefficient _Coefficient-Value4755 t)))
+  (raw-material-of (_Reaction-1C1O2--1CO24718))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Coefficient-Value4755 has 
+  (contains-node-of (_Property-Node4760))
+  (coefficient-of (_Chemical4756))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Chemical-Entity4753 has 
+  (instance-of (Chemical-Entity
+                C))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical4752))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Chemical4752 has 
+  (has-basic-structural-unit (_Chemical-Entity4753))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1C1O2--1CO24718))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value4751))
+  (edge-visibility ((:seq coefficient _Coefficient-Value4751 t)))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Coefficient-Value4751 has 
+  (contains-node-of (_Property-Node4759))
+  (coefficient-of (_Chemical4752))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Chemical-Entity4749 has 
+  (instance-of (Chemical-Entity
+                CO2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical4748))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Chemical4748 has 
+  (has-basic-structural-unit (_Chemical-Entity4749))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1C1O2--1CO24718))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value4747))
+  (edge-visibility ((:seq coefficient _Coefficient-Value4747 t)))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(_Coefficient-Value4747 has 
+  (contains-node-of (_Property-Node4761))
+  (coefficient-of (_Chemical4748))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1C1O2--1CO24718)))
+
+(explanation (:triple _Reaction-1C1O2--1CO24718 raw-material _Chemical4756)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Reaction-1C1O2--1CO24718 raw-material _Chemical4752)
+  ((a Chemical (@ _Reaction-1C1O2--1CO24718 Reaction raw-material))))
+(explanation (:triple _Reaction-1C1O2--1CO24718 result _Chemical4748)
+  ((a Chemical (@ _Reaction-1C1O2--1CO24718 Reaction result))))
+(explanation (:triple _Reaction-1C1O2--1CO24718 chemical-equation _Chemical-Equation-Expression4720)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1C1O2--1CO24718) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1C1O2--1CO24718) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1C1O2--1CO24718) (@ _Reaction-1C1O2--1CO24718 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1C1O2--1CO24718 instance-of Reaction-1C1O2--1CO2)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity4758 atomic-chemical-formula _Chemical-Formula4740)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity4758)) or (the term of (the has-chemical-formula of _Chemical-Entity4758)) (@ _Chemical-Entity4758 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4758)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4758))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity4758)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity4758)))))))))) (@ _Chemical-Entity4758 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity4758 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity4758 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4758 nested-atomic-chemical-formula _Chemical-Formula4738)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 O)))) (@ _Chemical-Entity4758 O2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4758 instance-of O2)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity4758 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4756 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4756 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1C1O2--1CO24718 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1C1O2--1CO24718 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical4756 coefficient _Coefficient-Value4755)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical4756 has-basic-structural-unit _Chemical-Entity4758)
+  ((a Chemical-Entity (@ _Chemical4756 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4756 instance-of Chemical)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value4755 value (:pair 1 *unity))
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value4755 instance-of Coefficient-Value)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity4753 instance-of C)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity4753 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4752 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4752 has-basic-structural-unit _Chemical-Entity4753)
+  ((a Chemical-Entity (@ _Chemical4752 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4752 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1C1O2--1CO24718 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1C1O2--1CO24718 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical4752 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1C1O2--1CO24718 Reaction raw-material))))
+(explanation (:triple _Chemical4752 coefficient _Coefficient-Value4751)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical4752 instance-of Chemical)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value4751 value (:pair 1 *unity))
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value4751 instance-of Coefficient-Value)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity4749 instance-of CO2)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity4749 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4748 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4748 has-basic-structural-unit _Chemical-Entity4749)
+  ((a Chemical-Entity (@ _Chemical4748 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4748 instance-of Entity)
+  ((a Entity (@ _Reaction-1C1O2--1CO24718 Event (result must-be-a)))))
+(explanation (:triple _Chemical4748 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1C1O2--1CO24718 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1C1O2--1CO24718 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical4748 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1C1O2--1CO24718 Reaction result))))
+(explanation (:triple _Chemical4748 coefficient _Coefficient-Value4747)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Chemical4748 instance-of Chemical)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value4747 value (:pair 1 *unity))
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value4747 instance-of Coefficient-Value)
+  ((added-at Reaction-1C1O2--1CO2 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,58 @@
+<!--- $Id: Write.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+<kml>
+
+<concept name=Write>
+<system-documentation name=Write>
+<superconcept name=Encode>
+
+<definition>
+	encode information into a document in a language (to be embodied as symbols)
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     <conceptref name=Information> being encoded.
+  </slotdescription>
+
+  <slotdescription name=agent>
+    The <conceptref name=Tangible-Entity> doing the encoding.
+  </slotdescription>
+
+  <slotdescription name=result>
+    The <conceptref name=Message> that <slot>results</slot> from the encoding of the <conceptref name=Information>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=instrument>
+    An instrument used to encode <conceptref name=Information> into a <conceptref name=Message>.
+  </slotdescription>
+</primaryslotlist>
+
+<neighborlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Jane wrote John a letter about the good news.</text>
+    <slotdescription name=agent>Jane</slotdescription>
+    <slotdescription name=object>good news</slotdescription>
+    <slotdescription name=result>a letter</slotdescription>
+  </examplesentence>
+  <comment>
+     Harry knows that John has won the competition after the communicate.
+  </comment>
+
+</examplesentencelist>
+
+  <neighbor name=Encode>
+    Encode involves creation of a new <conceptref name= Message> via an 
+<conceptref name= Instrument>. Write involves creation of a new 
+<conceptref name = Document>.
+    </neighbor>
+</neighborlist>
+
+</kml>

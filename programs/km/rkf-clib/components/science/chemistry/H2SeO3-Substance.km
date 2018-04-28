@@ -1,0 +1,11 @@
+;; $Id: H2SeO3-Substance.km,v 1.2 2003/02/22 16:27:30 jchaw Exp $ 
+(H2SeO3-Substance has (superclasses (Acid)))
+(every H2SeO3-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 2.3e-3 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("Selenous"))
+	(has-basic-structural-unit ((a H2SeO3)))
+)

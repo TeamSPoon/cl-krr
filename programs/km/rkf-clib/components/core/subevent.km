@@ -1,0 +1,37 @@
+;; 
+;;    $Id: subevent.km,v 1.18 2007/06/27 19:25:58 jchaw Exp $ 
+;; 
+
+(subevent has
+          (instance-of 	 (Meronymic-Relation))
+          (domain 	 (Event))
+          (range 	 (Event))
+          (fluent-status (*Inertial-Fluent))
+          (cardinality 	 (N-to-N))
+          (original-slot      (t))	
+          (inverse 	 (subevent-of)))
+
+(subevent has (wn20-synset ((:set
+			     (:triple "step" 1 "n")
+			     (:triple "occurs during" 0 "n")
+))))
+
+(subevent-of has
+   (instance-of (Meronymic-Relation))
+   (text-slot          (text-subevent-of)))
+
+(text-subevent has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+   (inherit-with-overrides (t))
+)
+
+(text-subevent-of has (instance-of (NL-Slot-Group)))
+
+(subevent has (text-gloss ("has as subevent")))
+(subevent-of has (text-gloss ("is a subevent of")))

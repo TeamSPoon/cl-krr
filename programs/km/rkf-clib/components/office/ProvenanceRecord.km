@@ -1,0 +1,11 @@
+
+;; $Id: ProvenanceRecord.km,v 1.3 2004/12/21 23:37:04 billj Exp $
+
+(ProvenanceRecord has (superclasses (DataRecord)))
+
+
+(hasUserInterestRating has (instance-of (Interface-Slot)) (domain (ProvenanceRecord)) (range (Number)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasAppliedDetailRecord has (instance-of (Interface-Slot)) (domain (ProvenanceRecord)) (range (ProvenanceDetail)) (inverse (isAppliedDetailRecordOf)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasDetailRecord has (instance-of (Interface-Slot)) (domain (ProvenanceRecord)) (range (ProvenanceDetail)) (inverse (isDetailRecordOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasUpdateSchedule has (instance-of (Interface-Slot)) (domain (ProvenanceRecord)) (range (UpdateSchedule)) (inverse (isUpdateScheduleOf)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+

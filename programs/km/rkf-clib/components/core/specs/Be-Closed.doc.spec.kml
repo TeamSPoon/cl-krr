@@ -1,0 +1,31 @@
+<!--- $Id: Be-Closed.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Closed>
+<superconcept name=Be-Inaccessible>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Closed>
+  <definition>an object is closed and as a result cannot be accessed</definition>
+  <requiredslot name=object>
+    <restriction>exactly 1 Portal-Covering</restriction>
+    <restriction>the Portal-Covering <slot>is-part-of</slot> a <conceptref name=Tangible-Entity></restriction>    
+  </requiredslot>
+  <wnsynsets>
+  </wnsynsets>
+  <wnsynsets>--
+  </wnsynsets>
+</component>
+
+<musing>
+The <conceptref name=Close> action puts an <slot>object</slot> into 
+the Be-Closed state while at the same time taking the object out of
+the <conceptref name=Be-Opened> state. The action <conceptref name=Open> 
+does the exact opposite.
+</musing>
+
+</kml>
+
+

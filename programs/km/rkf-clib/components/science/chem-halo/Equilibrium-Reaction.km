@@ -1,0 +1,147 @@
+;; 
+;;    $Id: Equilibrium-Reaction.km,v 1.4 2006/04/05 19:54:16 tecuci Exp $
+;; 
+
+(Equilibrium-Reaction has (superclasses (Reaction)))
+
+(Equilibrium-Reaction has 
+		      (user-description ("Chemical equilibrium occurs when opposing reactions are proceeding at equal rates.")))
+
+(every Equilibrium-Reaction has
+
+      ;; Encodes L.22(C).
+       (reaction-direction (
+	(if (not (the reaction-direction of Self))
+	    then
+	    (a Reaction-Direction-Value with
+	       (value ((if (the output of 
+				(a Compute-Equilibrium-Position with
+				   (input (Self))))
+			   then
+			   (if ((the output of 
+				     (a Compute-Equilibrium-Position with
+					(input (Self))))
+			    	=
+			    	(the raw-material of Self))
+			       then
+			       *left
+			       else
+			       *right)))))
+	 [Reaction-direction-1]
+      )))
+
+  ;; Compute Keq based on the reaction and the Keq expression.
+  (keq ((if (not (the keq of Self))
+            then
+            (if (oneof (the ki of Self) where ((the value of It) = nil))
+                then
+                (the output of 
+                     (a Compute-Equilibrium-Constant with
+                        (input (Self))))
+            )
+         [Equilibrium-Reaction-keq-1]
+  )))
+
+  ;; Compute Keq based on individual Ki. Encodes L.51
+  (keq ((if (not (the keq of Self))
+            then
+            (if (not (oneof (the ki of Self) where ((the value of It) = nil)))
+                then
+                (a Equilibrium-Constant-Value with
+                   (value (
+                     (:pair (the product of 
+                                 (forall-bag (the bag of (the ki of Self))
+                                   (the1 of (the value of It))))
+                            nil))))
+            )
+         [Equilibrium-Reaction-keq-2]
+  )))
+
+  ;; 
+  ;; The Kis of each individual equilibrium reaction that is
+  ;; combined to form an overall equilibrium reaction. Each
+  ;; Equilibrium-Constant-Value will possess a subscript slot 
+  ;; to encode this information. This is a Variant of L.51.
+  ;;
+  (ki ((if ((the ki of Self)
+	    and
+	    (not (oneof (the ki of Self) where ((the value of It) = nil)))
+            and
+            (the1 of (the value of (the keq of Self)))
+            and
+            ((the product of
+                  (forall-bag (the bag of (the ki of Self))
+                    (the1 of (the value of It))))
+             /= 
+             (the1 of (the value of (the keq of Self)))))
+            then
+	    (a Equilibrium-Constant-Value with
+	       (subscript ((a Subscript-Value)))
+	       (value ((:pair
+			 ((the1 of (the value of (the keq of Self)))
+                          /
+                          (the product of
+                            (forall-bag (the bag of (the ki of Self))
+                              (the1 of (the value of It)))))
+                         nil))))
+            else
+	    (a Equilibrium-Constant-Value with
+	       (subscript ((a Subscript-Value)))
+	    )
+	    ;; [Equilibrium-Reaction-ki-1]   ;; Don't justify this vacuous calc
+  )))
+
+  ;;
+  ;; The equilibrium constant expression.
+  ;;
+  (keq-expression (
+    (if ((not (the keq-expression of Self))
+         and
+         (the result of Self)
+         and
+         (the raw-material of Self))
+        then
+        (the output of 
+             (a Compute-Equilibrium-Expression with
+                (input (Self))))
+        [Equilibrium-Reaction-keq-expression-1]
+  )))
+)
+
+(comment [Equilibrium-Reaction-keq-1]
+  (:seq "Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "The equilibrium constant Keq of a reaction must be computed from the Keq expression"
+  (:triple (a Compute-Equilibrium-Constant with (input (Self))) output *)
+)
+
+(comment [Equilibrium-Reaction-keq-2]
+  (:seq "Keq ="
+        (the1 of (the value of (the first of (the ki of Self))))
+        (forall (the ki of Self)                  ;; assumes all ki are different
+                where (It /= (the first of (the ki of Self)))
+                (:seq "*" (the1 of (the value of It)))
+        )
+        "="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "The overall equilibrium constant Keq of a combined reaction is equal to the product of the equilibrium constants for each individual reaction"
+)
+
+(comment [Equilibrium-Reaction-keq-expression-1]
+  ""
+  "The equilibrium constant expression for an equilibrium reaction is a ratio of product concentrations and reactant concentrations"
+  (:triple (a Compute-Equilibrium-Expression with
+              (input (Self)))
+           output
+           *
+  )
+)
+(comment [Reaction-direction-1]
+  (:seq "Therefore, this reaction proceeds to the"
+        (the value of (the reaction-direction of Self))
+  )
+  "In acid/base equilibrium reactions, the reaction proceeds in the direction of the side where equilibrium lies"
+  (:triple (a Compute-Equilibrium-Position with (input (Self))) output *)
+)

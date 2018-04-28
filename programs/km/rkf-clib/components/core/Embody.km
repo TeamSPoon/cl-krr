@@ -1,0 +1,25 @@
+;; 
+;; $Id: Embody.km,v 1.8 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(Embody has
+	(superclasses (Create))
+	(required-slot (object result))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Embody has
+	(object ((a Message)))
+	(result ((a Tangible-Entity)))
+)
+
+
+;; automatically added WN synsets
+(Embody has (wn16-synset ((:set  
+                                     (:triple "embody" 3 "v")
+))))
+
+(Embody has (wn20-synset ((:set
+                                     (:triple "embody" 3 "v")
+))))
+(every Embody has (text-nominalization ("embodiment")))

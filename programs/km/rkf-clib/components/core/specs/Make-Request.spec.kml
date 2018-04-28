@@ -1,0 +1,55 @@
+<!--- $Id: Make-Request.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<kml>
+
+<concept name=Make-Request>
+<system-documentation name=Make-Request>
+<superconcept name=Communicate>
+
+  <definition>
+  An object (a <conceptref name=Request>) is requested by one entity of another usually in 
+  a polite manner.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+        the entity making the request
+  </slotdescription>
+  
+  <slotdescription name=object>
+       the request being made
+  </slotdescription>
+  
+  <slotdescription name=recipient>
+  	the entity the request is being made to
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Larry requested of Sally that she close the door.</text>
+    <slotdescription name=agent>Larry</slotdescription>
+    <slotdescription name=object>to close the door</slotdescription>
+    <slotdescription name=recipient>Sally</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Communicate>
+        The object of a communicate is not necessarily a request.
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+
+
+  

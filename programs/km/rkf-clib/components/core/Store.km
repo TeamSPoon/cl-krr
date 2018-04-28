@@ -1,0 +1,97 @@
+;;
+;;    $Id: Store.km,v 1.17 2005/10/25 03:02:11 sdbaji Exp $
+;;
+
+(Store has
+       (superclasses 	(Action))
+       (required-slot        (object base))
+       (primary-slot         (agent instrument))
+       (secondary-slot       ())
+       (cmap-correspondence  (
+			      (:seq object "the thing being stored")
+			      (:seq base "the thing stored in")
+			      (:seq agent "the agent")
+			      (:seq instrument "the instrument used")
+			      ))
+     #|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Store has
+       (object 	   ((a Entity)))
+       (base		   ((exactly 1 Tangible-Entity)
+			    (a Tangible-Entity with 
+			       (plays ((a Container))))))
+       (agent  	   ((must-be-a Entity)))
+       (instrument	   ((must-be-a Entity)))
+       (resulting-state ((a Be-Stored)))
+       
+       (soft-pcs-list ((forall (the object of Self)
+			       (:triple It
+					is-outside
+					(the base of Self)))))
+       ;; Pre and Post conditions.
+       (pcs-list ((forall (the object of Self)
+			  (:triple
+			   It
+			   object-of
+			   (mustnt-be-a Be-Stored with
+					(base ((the base of Self)))) [Store-pcs-1]))))
+       (add-list ((:triple
+		   (the Container plays of (the base of Self))
+		   content
+		   (the object of Self) [Store-add-1])
+		  (:triple
+		   (the resulting-state of Self)
+		   object
+		   (the object of Self) [Store-add-2])	
+		  (:triple
+		   (the resulting-state of Self)
+		   base
+		   (the base of Self) [Store-add-3]))))
+
+(comment [Store-pcs-1] (:seq (the object of Self) " must not be stored already.")
+	 "Something cannot be stored more than once.")
+
+(comment [Store-add-1] (:seq (the base of Self) " now contains " (the object of Self))
+	 "A store causes an Entity to be stored inside a Tangible-Entity.")
+
+(comment [Store-add-2] (:seq (the object of Self) " is now stored in " (the base of Self))
+	 "A store causes an Entity to be stored inside a Tangible-Entity.")
+
+(comment [Store-add-3] (:seq (the base of Self) " now has " (the object of Self) " stored inside it.")
+	 "A store causes an Entity to be stored inside a Tangible-Entity.")
+
+(every Store has
+  (text-active-verbseq-sg ("stores"))
+  (text-active-verbseq-pl ("store"))
+  (text-passive-verbseq-sg ("gets stored"))
+  (text-passive-verbseq-pl ("get stored"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("in"))))
+
+)
+
+(every Store has
+   (preparatory-event ((:default
+	(a Withdraw with 
+	 (object ((the object of Self))))
+	(a Open with 
+	 (base ((the base of Self)))
+	 (agent ((the agent of Self))))
+))))
+
+
+;; automatically added WN synsets
+(Store has (wn16-synset ((:set  
+                                    (:triple "store" 1 "v")
+                                    (:triple "store" 2 "v")
+                                    (:triple "store" 3 "v")
+))))
+
+(Store has (wn20-synset ((:set
+                                    (:triple "store" 1 "v")
+                                    (:triple "store" 2 "v")
+))))
+
+(every Store has (text-nominalization ("storage")))

@@ -1,0 +1,17 @@
+;; 
+;;    $Id: text-slot.km,v 1.6 2006/09/27 16:18:16 jchaw Exp $
+;; 
+
+(text-slot has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Thing))
+   (range (Slot))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (dont-cache-values (t))
+)
+
+(text-slot-of has (instance-of (NL-Slot-Group)))

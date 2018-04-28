@@ -1,0 +1,14 @@
+;; $Id: HCN.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HCN has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HCN has
+	(has-chemical-name ("hydrocyanic acid" "hydrogen cyanide"))
+	(has-part ((a H-Plus)(a CN-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 CN-Minus)))))))
+)
+(every HCN has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a CN-Minus))))
+

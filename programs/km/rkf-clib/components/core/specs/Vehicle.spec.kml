@@ -1,0 +1,43 @@
+<!--- $Id: Vehicle.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<kml>
+<concept name=Vehicle>
+<system-documentation name=Vehicle>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    A Vehicle is the <conceptref name=Role> played by an entity which is the 
+    <slot>instrument</slot> of a <conceptref name=Carry>'ing event. 
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the entity that's playing the role of Vehicle
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Carry>'ing event in which the entity is the Vehicle
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>John rode in the wagon.</text>
+     <comment>
+     In this example, the Vehicle role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Carry> with
+         <slot>object</slot>=John</slotdescription>
+     <slotdescription name=played-by>the wagon</slotdescription>
+     </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

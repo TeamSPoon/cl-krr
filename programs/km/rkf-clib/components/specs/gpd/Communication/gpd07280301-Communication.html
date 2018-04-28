@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>The CLib Communication Model</title>
+</head>
+
+<body bgcolor=white>
+
+<h5>SHAKEN gpd 07280301</h5>
+
+<table border=0 width="100%" bgcolor=#8C3016 cellpadding=0>
+<tr><td><font color=white><h1>The CLib Communication Model</font></td></tr>
+</table></h1><p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href=#Model>A Three-Layer Model of Communication</a>
+<li><a href=#Information>Information</a>
+<li><a href=#Examples>Examples</a>
+</ul><p>
+
+<a name=Model>
+<hr noshade size=6 color=#8C3016>
+
+<h2>A Three-Layer Model of Communication</h2>
+
+Modeling languages that use only a small number of relations often
+seem inadequate for representing communication events. In communication
+events, there seem to be too many participants and not enough role
+relations:<p>
+
+<dd><i>She gave me the news.</i></dd><p>
+
+Participants include at least <i>she</i>, the <i>news</i>, <i>me</i>, a
+<i>spoken message</i> and <i>sound waves</i>.<p>
+
+A flat model of communication would attempt to hang all of these 
+participants off role relations of a <i>Communicate</i> event. We have 
+chosen to model communication events as multiple concurring events at 
+different levels of concreteness.<p>
+
+At the most abstract level, the example above is communicating information
+from speaker to listener:<p>
+
+<dd><i>She communicates news to me.</i></dd><p>
+
+Two concurring events are also taking place:<p>
+
+<dd><i>She conveys to me a message (in some language).</i></dd><br>
+<dd><i>I hear the sound waves she transmits.</i></dd><p>
+
+Graphically:<p>
+
+<center><img src=Communication1.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=center><i>Three events: communicating information, conveying a 
+message and transmitting sound waves.</i></td></tr>
+</table><p></center>
+
+More generally, the <i>Communicate</i> event transfers <i>Information</i>
+from one <i>Agent</i> to another. In simulation, it is a precondition that
+the first <i>Agent</i> already "knows" the <i>Information</i>. And as
+a result of simulating the <i>Communicate</i>, the second <i>Agent</i>
+will also "know" the <i>Information</i>. Recall that if a precondition in 
+KM is not known to be true, it will be asserted if it is not inconsistent
+with the knowledge base to do so:<p>
+
+<center><img src=Communication2.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=center><i>The basic form of the generic </i>Communicate<i> 
+event.</i></td></tr>
+</table><p></center>
+
+Similarly, the <i>Convey</i> event transfers a <i>Message</i> from one
+<i>Agent</i> to another and the <i>Transmit</i> event transfers a
+<i>Tangible-Entity</i> playing the role of
+<i>Signal</i> from one <i>Place</i> to another. For <i>source</i> and
+<i>destination</i>, an <i>Entity</i> is an allowable shorthand for
+a <i>Place</i> (the <i>Entity</i>'s location):<p>
+
+<center><img src=Communication3.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=center><i>The basic form of the generic </i>Convey<i> and
+<i>Transmit</i> events.</i></td></tr>
+</table><p></center>
+
+For every <i>Communicate</i> event that transfers <i>Information</i>,
+it is assumed that there is a <i>Convey</i> event that transfers a
+<i>Message</i> expressing the <i>Information</i>. For every
+<i>Convey</i> event that transfers a <i>Message</i>, it is assumed
+that there is a <i>Transmit</i> event that transfers a
+<i>Tangible-Entity</i> playing the role of <i>Signal</i> embodying the
+<i>Message</i>. Not every
+<i>Transmit</i>, however, is assumed to be part of some <i>Convey</i>, and
+not every <i>Convey</i> is assumed to be part of some <i>Communicate</i>.
+So here is a basic representation of the generic <i>Communicate</i> and its
+subevents (preconditions and postconditions not shown):<p>
+
+<center><img src=Communication4.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=center><i>The generic </i>Communicate<i> event with subevent 
+structure (in blue);<br>
+</i>Entity<i> nodes are shown gray to distinguish them from
+</i>Event<i> nodes.</i></td></tr>
+</table><p></center>
+
+<a name=Information>
+<hr noshade size=6 color=#8C3016>
+
+<h2>Information</h2>
+
+The <i>Communicate</i> event is special in that the <i>object</i> of the event
+can be anything that can be known by <i>Agent</i>s. We call this intangible
+entity <i>Information</i>. <i>Information</i> can be communicated, learned,
+taught, forgotten, lied about, questioned, etc.<p>
+
+Every instance of the <i>Information</i> concept has two important 
+features: its <i>information-content</i> and its <i>truth</i>. The 
+<i>information-content</i> can be any legal KM expression. The 
+<i>truth</i> must be a <i>Truth-Value</i>. If an <i>Agent</i> knows
+<i>Information</i> it is assumed the the <i>Agent</i> knows its
+<i>information-content</i>. It is <b>not</b> assumed that the <i>Agent</i>
+knows its <i>truth</i>.
+
+<center><img src=Communication5.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=center><i></i>Information<i> has </i>information-content<i> 
+and </i>truth<i>; An </i>Agent<i> can </i>Know Information<i> without 
+</i>Knowing<i> its </i>truth<i>.</i></td></tr>
+</table><p></center>
+
+<a name=Examples>
+<hr noshade size=6 color=#8C3016>
+
+<h2>Examples</h2>
+
+The following examples are expressed using the generic communication
+events. For CALO, many specific events common to the office domain will
+be pre-built. In most cases, only the <i>agent</i>, <i>recipient</i>
+and <i>information-content</i> will need to be specified.<p>
+
+<h3>Example 1</h3>
+
+<dd><i>The sysadmin sends out an email that the phones are down.</i></dd><p>
+
+<center><img src=Communication6.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=center><i>The recipient has not been stated; the physical 
+(most concrete) layer from the communication model is not shown.</i></td></tr>
+</table><p></center>
+
+<h3>Example 2</h3>
+
+<dd><i>Edwin gives a false report.</i><p>
+
+<center><img src=Communication7.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=center><i>It is a precondition of the </i>Communicate<i> event 
+that the </i>agent<i> know the </i>Information<i>, so it is assumed that 
+</i>Edwin<i> "knows" the </i>Report<i>;<br> it is not assumed that he
+knows the </i>truth<i> of the </i>Report<i>.</i></td></tr>
+</table><p></center>
+
+<h3>Example 3</h3>
+
+<dd><i>Edwin lies.</i><p>
+
+<center><img src=Communication8.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=center><i>As with the previous example, it is assumed that 
+</i>Edwin<i> knows the </i>Information<i>;<br>
+in this example it is explicit that </i>Edwin<i>
+knows the </i>Information<i> is false.</i></td></tr>
+</table><p></center>
+
+<hr noshade size=12 color=#8C3016>
+
+</body>
+</html>

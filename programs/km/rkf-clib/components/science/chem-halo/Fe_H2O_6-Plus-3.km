@@ -1,0 +1,18 @@
+;; $Id: Fe_H2O_6-Plus-3.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $ 
+(Fe_H2O_6-Plus-3 has (superclasses (Cation)))
+(every Fe_H2O_6-Plus-3 has
+	(charge ((a Charge-Value with
+		(value ((:pair 3 *unity))))))
+	(has-chemical-name ("iron hydrate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Fe)(:pair 6 (:seq (:pair 2 H) (:pair 1 O)))))))))
+	)
+
+
+(every Fe_H2O_6-Plus-3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("iron hydrate"))
+)
+
+
+(Fe_H2O_6-Plus-3 has (wn20-synset ((:triple "Fe_H2O_6+3" 0 "n"))))

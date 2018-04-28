@@ -1,0 +1,26 @@
+;;    $Id: NetworkAddress.km,v 1.7 2005/02/22 21:18:23 jchaw Exp $
+
+(NetworkAddress has
+	     (superclasses (ContactRecordSubAddressComponent))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+(every NetworkAddress has
+       (hasAddressOrganizationName ((a String)))
+       (hasAddressOwnerName ((a String)))
+       (hasNickname ((a String)))
+       (hasRealName ((a String)))
+       (isTypeOfNetworkAddress ((a String))))
+
+(hasAddressOrganizationName has  (instance-of (Interface-Slot))  (domain (NetworkAddress)) (range (String)) (cardinality (N-to-1)))
+
+(hasAddressOwnerName has  (instance-of (Interface-Slot))  (domain (NetworkAddress)) (range (String)) (cardinality (N-to-1)))
+
+(hasNickname has  (instance-of (Interface-Slot))  (domain (NetworkAddress)) (range (String)) (cardinality (N-to-N)))
+
+(hasRealName has  (instance-of (Interface-Slot))  (domain (NetworkAddress)) (range (String)) (cardinality (N-to-N)))
+
+(isTypeOfNetworkAddress has  (instance-of (Interface-Slot))  (domain (NetworkAddress)) (range (String)) (cardinality (N-to-N)))

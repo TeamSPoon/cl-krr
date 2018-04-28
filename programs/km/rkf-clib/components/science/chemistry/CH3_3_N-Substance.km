@@ -1,0 +1,14 @@
+;;
+;; $Id: CH3_3_N-Substance.km,v 1.3 2003/09/10 16:59:49 jchaw Exp $
+;;
+ 
+(CH3_3_N-Substance has (superclasses (Base)))
+(every CH3_3_N-Substance has
+       (plays ((a Base-Role with
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 6.4e-5 nil))))))
+		  (intensity ((a Intensity-Value with
+			(value ((:pair *weak Base)))))))))
+	(has-chemical-name ("Trimethylamine"))
+	(has-basic-structural-unit ((a CH3_3_N)))
+)

@@ -1,0 +1,21 @@
+;; 
+;;    $Id: C6H5NH2.km,v 1.5 2006/01/23 23:44:00 jfan Exp $
+;; 
+
+(C6H5NH2 has (superclasses (Ionic-Compound)))
+
+(every C6H5NH2 has
+       (has-chemical-name ("aniline" "phenylamine"))
+       (nested-atomic-chemical-formula (
+				 (a Chemical-Formula with
+				    (term ((:seq 
+					    (:pair 6 C)
+					    (:pair 5 H)
+					    (:pair 1 N)
+					    (:pair 2 H)
+					    ))))))
+       )
+#|(every C6H5NH2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Anion) (a Cation))))
+|#

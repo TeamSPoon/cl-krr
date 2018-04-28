@@ -1,0 +1,73 @@
+<!--- $Id: Make-Contact.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Make-Contact><system-documentation name=Make-Contact>
+<superconcept name=Action>
+
+<definition>
+
+  One <slot>object</slot> makes contact (touches) another which is 
+  the <slot>base</slot>.
+
+  This Make-Contact action encodes an asymmetric collision, 
+  such as occurs when a bike leans against a building.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    for a Make-Contact, give one <slot>object</slot> and one
+    <slot>base</slot>.  See examples below.
+
+    This action causes the object and the base to be touching, i.e. to 
+    be in a <conceptref name=Be-Touching> state; it's assumed that 
+    they're not in this state beforehand.
+  </slotdescription>
+
+  <slotdescription name=base>
+    the thing that is touched by the <slot>object</slot>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+  <slotdescription name=agent>
+    the initiator of the Make-Contact
+  </slotdescription>
+
+  <slotdescription name=location>
+    the Place where the Make-Contact occurs
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The bike leaned against the building.</text>
+    <slotdescription name=object>the bike</slotdescription>
+    <slotdescription name=base>the building</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Collide>
+    Collide is a type of Make-Contact with one extra property: it occurs 
+    with high <slot>intensity</slot>
+  </neighbor>
+
+  <neighbor name=Attach>
+    Attach is a type of Make-Contact with one extra property: it results
+    in an attachment between the object and the base
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

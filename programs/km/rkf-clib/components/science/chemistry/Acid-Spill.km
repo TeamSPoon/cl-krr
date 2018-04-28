@@ -1,0 +1,14 @@
+;;
+;; $Id: Acid-Spill.km,v 1.1 2003/01/15 00:07:36 wilder Exp $
+;;
+
+(Acid-Spill has
+	    (superclasses (Action)))
+
+(every Acid-Spill has
+       (treatment ((a Action with
+		      (object (Self))
+		      (instrument ((a NaHCO3-Substance)
+				   (a Na2CO3-Substance)))))))
+
+

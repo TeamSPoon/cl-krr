@@ -1,0 +1,23 @@
+;; 
+;; $Id: Plant.km,v 1.1 2007/11/29 21:17:38 tecuci Exp $
+;; 
+
+(Plant has
+  (superclasses (Organism))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("a living entity incapable of locomotion"))
+)
+
+;; incapability is not represented; Plant is distinguished from
+;; Animal through the KB partition in Living-Entity
+
+(Plant has (wn20-synset ((:set
+			  (:triple "plant" 2 "n")
+			  (:triple "flora" 2 "n")
+			  (:triple "plant_life" 1 "n")
+))))
+
+;; stubby
+

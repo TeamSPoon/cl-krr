@@ -1,0 +1,49 @@
+<!--- $Id: Inquire.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<kml>
+
+<concept name=Inquire>
+<system-documentation name=Inquire>
+<superconcept name=Express>
+
+  <definition>
+        Expression of a Question.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       The <slot>agent</slot> expresses <conceptref name=Information> that is a <conceptref name=Question>.
+  </slotdescription>
+
+  <slotdescription name=agent>
+        The <slot>agent</slot> expresses the <conceptref name=Information> in the <slot> object </slot>.
+  </slotdescription>
+
+  <slotdescription name=recipient>
+       the entity that the inquire is expressed to.
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Mick inquired to his brother, "Is it raining?".</text>
+    <slotdescription name=agent>Mick</slotdescription>
+    <slotdescription name=object>"Is it raining?"</slotdescription>
+    <slotdescription name=recipient>Mick's brother</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Interpret>
+	In a <conceptref name=Interpret> the <slot> agent </slot> is the passive receiver of <conceptref name=Information>, but in an Inquire the <slot> agent </slot> is actively expressing the <conceptref name=Information> which is playing the role of a  <conceptref name=Question>. </neighbor>
+  <neighbor name=Command>
+       	In a <conceptref name=Command> the <conceptref name=Information in the <slot> object </slot> plays the role of <conceptref name=Instruction>, but in an Inquire the information plays the role of a <conceptref name=Question>.
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>

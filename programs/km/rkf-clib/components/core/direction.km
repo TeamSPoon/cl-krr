@@ -1,0 +1,31 @@
+;; 
+;;    $Id: direction.km,v 1.18 2008/09/17 23:18:10 jchaw Exp $ 
+;; 
+
+(direction has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Event))    
+   (range       (Angle-Value))
+   (scalar-constant-class (Direction-Constant))
+   (cardinal-unit-class (UoM-Angle))
+   (inverse 	(direction-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(direction-of has
+   (instance-of (EventProperty))
+   (combine-values-by-appending (t))
+)
+
+(direction has (wn20-synset ((:set
+                               (:triple "direction" 1 "n")
+                               (:triple "direction" 2 "n")
+                               (:triple "way" 7 "n")
+))))
+
+(direction-of has
+	(instance-of (EventProperty)))

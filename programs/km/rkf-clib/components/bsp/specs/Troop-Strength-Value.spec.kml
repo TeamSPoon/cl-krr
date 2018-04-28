@@ -1,0 +1,29 @@
+<!--- $Id: Troop-Strength-Value.spec.kml,v 1.1 2005/08/01 20:56:42 jchaw Exp $ --->
+<kml>
+<property-doc name=troop-strength/Troop-Strength-Value>
+<system-documentation name=Troop-Strength-Value>
+<gpd-documentation name=Property>
+
+<from name=Military-Unit>
+<to name=Troop-Strength-Value>
+
+<description> 
+the troop strength of a military unit
+</description>
+
+<value-description>
+  <scalar-value-description>
+  a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>minus, regular, plus</scalars>
+<scale name=*minus-plus-scale>minus..regular..plus</scale>
+    <p>
+    <examplesentence>
+      <text>The blue unit is stonger than the red one.</text>
+      <slotdescription name=value>plus</slotdescription>
+      <slotdescription name=relative-to>the red unit</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+

@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Silver-Iodide-Substance10659
+
+
+|#
+
+(disable-classification)
+
+(Silver-Iodide-Substance has (superclasses (Iodide-Substance)))
+
+(every Silver-Iodide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Silver-Iodide-Substance619 has
+  (prototype-of (Silver-Iodide-Substance Iodide-Substance))
+  (prototype-scope (Silver-Iodide-Substance (the-class Iodide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Ag-Plus) (a I-Minus)))))))))
+  (prototype-participants (_Cation625 _I-Minus626 _Chemical-Entity621 _Silver-Iodide-Substance619)))
+
+(_Chemical-Entity621 has (instance-of (Ionic-Compound)) (has-part (_Cation625 _I-Minus626)))
+
+(_Cation625 has (instance-of (Ag-Plus)))
+
+(_I-Minus626 has (instance-of (I-Minus)))
+
+(_Silver-Iodide-Substance619 has (instance-of (Silver-Iodide-Substance)) (has-basic-structural-unit (_Chemical-Entity621)))
+
+(enable-classification)
+
+(explanation (:triple _Silver-Iodide-Substance619 has-basic-structural-unit _Chemical-Entity621) (((@ SME entered)) (every Silver-Iodide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity621 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation625 instance-of Ag-Plus) (((@ SME entered)) NIL))
+
+(explanation (:triple _I-Minus626 instance-of I-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Silver-Iodide-Substance619 instance-of Silver-Iodide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Silver-Iodide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

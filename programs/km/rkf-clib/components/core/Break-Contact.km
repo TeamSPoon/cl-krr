@@ -1,0 +1,84 @@
+;; 
+;;    $Id: Break-Contact.km,v 1.24 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Break-Contact has
+  (superclasses 	(Action))	
+  (required-slot 	(object base))
+  (primary-slot 	(agent))
+  (secondary-slot 	())
+  (cmap-correspondence 	(
+			 (:seq object "the things Breaking-Contact")
+			 (:seq agent "the Contact-Breaker")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Break-Contact has
+  ;; The agent is inherited from Action
+
+  (object   ((exactly 1 Tangible-Entity)
+	     (a Tangible-Entity)))
+
+  (base     ((exactly 1 Tangible-Entity)
+	     (a Tangible-Entity)))
+
+  (defeats  ((allof (the object-of of (the base of Self))
+                    where
+                    (((the classes of It) = Be-Touching) and
+                     ((the object of It) includes (the object of Self))))))
+
+  (del-list ((:set (forall (the defeats of Self)
+                           (:triple It object (the object of It) [Break-Contact-del-1]))
+                   (:triple (the base of Self) abuts (the object of Self) [Break-Contact-del-2])
+                   (:triple (the object of Self) abuts (the base of Self) [Break-Contact-del-3])
+  )))
+)
+
+(comment [Break-Contact-del-1] (:seq (the object of Self) " is no longer touching " (the base of Self))
+	 "A break-contact stops something from touching something else.")
+
+(comment [Break-Contact-del-2] (:seq (the base of Self) " no longer abuts " (the object of Self))
+	 "A break-contact stops something from touching something else.")
+	 
+(comment [Break-Contact-del-3] (:seq (the object of Self) " no longer abuts " (the base of Self))
+	 "A break-contact stops something from touching something else.")
+
+
+(every Break-Contact has
+  (text-active-verbseq-sg ("breaks contact between"))
+  (text-active-verbseq-pl ("break contact between"))
+  (text-passive-verbseq-sg ("breaks contact"))
+  (text-passive-verbseq-pl ("break contact"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("with"))))
+
+)
+
+(every Break-Contact has
+  (preparatory-event ((:default
+	(a Detach with
+	   (object ((the object of Self)))
+	   (base   ((the base of Self))))
+	(a Make-Contact with
+	   (object ((the object of Self)))
+	   (agent  ((the agent of Self)))
+	   (base   ((the base of Self))))
+))))
+
+
+
+;; test cases in Make-Contact
+
+
+
+;; automatically added WN synsets
+(Break-Contact has (wn16-synset ((:set  
+                                            (:triple "let_go" 1 "v")
+))))
+
+(Break-Contact has (wn20-synset ((:set
+                                            (:triple "let_go" 1 "v")
+))))
+(every Break-Contact has (text-nominalization ("breaking")))

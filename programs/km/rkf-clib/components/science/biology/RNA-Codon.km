@@ -1,0 +1,30 @@
+;; 
+;;    $Id: RNA-Codon.km,v 1.21 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(RNA-Codon has
+         (superclasses (Codon RNA-Coding-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("Sequence of three nucleotides in a RNA molecule that
+                        represents the instruction for incorporation of a
+                        specific amino acid into a polypeptide chain.
+                        cf Alberts:ECB:G-5 (codon).")) 
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every RNA-Codon has
+;       (length ((a Length-Value with (value ((:pair 3 Ribonucleotide))))))
+
+       (element-type (Ribonucleotide))
+       (purpose ((a Vehicle with
+                    (in-event ((a Gene-Expression with
+                                  (object    ((a RNA-Codon)))
+	 			  (donor     ((a DNA-Codon)))
+                                  (recipient ((a Amino-Acid))))))
+                    ))))
+
+
+
+

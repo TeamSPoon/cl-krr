@@ -1,0 +1,78 @@
+<!--- $Id: Take-Apart.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<kml>
+
+<concept name=Take-Apart><system-documentation name=Take-Apart>
+<superconcept name=Destroy>
+
+<definition>
+
+  Take apart, i.e. disassemble, an object.  
+  The object is <conceptref name=Destroy>'ed, 
+  but the parts continue to exist as separate entities.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that's taken apart.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity responsible for the disassembly.
+
+  <slotdescription name=instrument>
+    the thing that was used to take apart the object.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the disassembly.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John disassembled the engine.</text>
+    <slotdescription name=object>the engine</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>A screwdriver was used to take apart the table. </text>
+    <slotdescription name=object>the table</slotdescription>
+    <slotdescription name=instrument>a screwdriver</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The earthquake shook apart the condo. </text>
+    <slotdescription name=object>the condo</slotdescription>
+    <slotdescription name=by-means-of>the earthquake</slotdescription>
+  </examplesentence>
+  <comment>
+
+    Alternatively, the disassembly of the condo was by-means-of a
+    shaking which was <slot>caused-by</slot> the earthquake.
+
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Divide>
+     Take-Apart disassembles an object, whereas Divide
+     cuts an object into two pieces.
+
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

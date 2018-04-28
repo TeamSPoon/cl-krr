@@ -1,0 +1,18 @@
+;; $Id: H2AsO3-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $ 
+(H2AsO3-Minus has (superclasses (Anion)))
+(every H2AsO3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("dihydrogen arsenite"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 H)(:pair 1 As)(:pair 3 O)))))))
+)
+
+
+(every H2AsO3-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("dihydrogen arsenite"))
+)
+
+(H2AsO3-Minus has (wn20-synset ((:triple "H2AsO3-" 0 "n") (:triple "H_2AsO_3-" 0 "n"))))

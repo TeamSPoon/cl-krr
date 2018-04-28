@@ -1,0 +1,30 @@
+;;
+;;    $Id: Processor.km,v 1.8 2005/04/10 21:19:07 jchaw Exp $
+;;
+
+(Processor has 
+  (superclasses (Computer-Component))
+  (feature-slot ((the feature-slot of Computer-Component)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Processor))
+  ))
+)
+
+
+(every Processor has
+;  (instrument-of ((a ??? with
+;                     (frequency ((the hasProcessorSpeed of Self)))
+;  )))
+
+)
+
+(hasProcessorSpeed has (instance-of (Interface-Slot)) (domain (Processor)) (range (Frequency-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isProcessorSpeedOf)))
+
+(Processor has (wn20-synset ((:set
+			     (:triple "central_processing_unit" 1 "n")	
+			     (:triple "CPU" 1 "n")
+			     (:triple "C.P.U." 1 "n")
+			     (:triple "central_processor" 1 "n")
+			     (:triple "processor" 3 "n")
+			     (:triple "mainframe" 2 "n")
+))))

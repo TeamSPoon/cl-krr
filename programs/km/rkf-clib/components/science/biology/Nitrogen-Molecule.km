@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Nitrogen-Molecule.km,v 1.7 2001/05/17 20:22:49 jfan Exp $ 
+;; 
+
+(Nitrogen-Molecule has
+         (superclasses (Inorganic-Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Molecule made up of two or more nitrogen atoms.
+                        Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Nitrogen-Molecule has
+         (has-part ((at-least 2 Nitrogen-Atom))))
+
+

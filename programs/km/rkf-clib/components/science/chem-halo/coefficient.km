@@ -1,0 +1,21 @@
+;; 
+;;  $Id: coefficient.km,v 1.9 2008/07/06 02:08:51 jchaw Exp $
+;; 
+
+(coefficient has
+	     (instance-of            (Property))
+	     (domain                 (Chemical))
+	     (range                  (Coefficient-Value))
+	     (fluent-status          (*Inertial-Fluent))
+	     (inherit-with-overrides (t))
+	     (inverse                (coefficient-of))
+	     (cardinality            (N-to-1))
+	     (cardinal-unit-class    (UoM-Unitless))
+	     (scale-class            (KI-Scale))
+	     (scalar-constant-class  (KI-Constant))
+             (original-slot      (t))	
+	     )
+
+(coefficient has (user-description ("a quantity (usually a numerical constant) which is multiplied by another quantity following it in an expression; e.g. in the algebraic expression 4 x 2 - 6 x, the coefficient of (the first term) x 2 is 4 and the coefficient of (the second term) x is -6.")))
+
+(coefficient-of has (instance-of (Property)))

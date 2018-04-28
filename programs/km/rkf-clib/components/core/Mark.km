@@ -1,0 +1,33 @@
+;;
+;;   $Id: Mark.km,v 1.8 2009/12/16 17:04:47 kbarker Exp $
+;;
+(Mark has 
+	(description ("The act of embodying a message in the form of a printed ink, a physical mark or sketch, etc.  This includes any action in which an object playing the role of writing implement (pen, pencil, printer, magic marker, spray paint can, finger dipped in paint, etc) writes, sketches, scribbles or sprays some kind of physical mark, set of markings, or written text."))
+
+	(superclasses  (Embody Produce))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Mark has
+	(result ((a Physical-Mark)))
+	(instrument ((must-be-a Tangible-Entity)))
+)
+
+(every Mark has
+  (text-active-verbseq-sg ("marks"))
+  (text-active-verbseq-pl ("mark"))
+  (text-passive-verbseq-sg ("gets marked"))
+  (text-passive-verbseq-pl ("get marked"))
+
+  (text-raw-material ((if (has-value (the raw-material of Self))
+                       then ("in"))))
+
+  (text-argslots ((:seq raw-material)))
+)
+
+
+(Mark has (wn20-synset ((:set
+			 (:triple "write" 7 "v")
+))))
+
+(every Mark has (text-nominalization ("marking")))

@@ -1,0 +1,12 @@
+;; $Id: C2H5COOH-Substance.km,v 1.1 2003/04/23 23:44:27 jchaw Exp $
+
+(C2H5COOH-Substance has (superclasses (Acid)))
+(every C2H5COOH-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 1.3e-5 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("propanoic"))
+	(has-basic-structural-unit ((a C2H5COOH)))
+)

@@ -1,0 +1,33 @@
+
+;; 
+;;    $Id: RNA-Translation.km,v 1.5 2004/01/30 22:02:42 kbarker Exp $
+;; 
+
+(RNA-Translation has
+	       (superclasses   (Produce Enzyme-Catalysis))
+	       (required-slot  (result))
+	       (primary-slot   (raw-material agent instrument))
+	       (description	("The synthesis of a protein from amino acids
+                                  guided by mRNA. Souther.")))
+
+(every RNA-Translation has
+       (agent        ((a Living-Entity)))
+       (raw-material ((a Amino-Acid)
+		      (at-least 2 Amino-Acid)))
+       (result       ((a Amino-Acid-Sequence)))
+       (instrument   ((a Ribosomal-Peptidyl-Transferase)))
+       )
+
+
+(every RNA-Translation has
+       (text-argslots ((:seq raw-material instrument result)))
+
+       (text-active-verbseq-sg ("synthesizes"))
+       (text-active-verbseq-pl ("synthesize"))
+       (text-passive-verbseq-sg ("gets synthesized"))
+       (text-passive-verbseq-pl ("get synthesized"))
+)
+
+
+
+(every RNA-Translation has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

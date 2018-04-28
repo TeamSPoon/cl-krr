@@ -1,0 +1,223 @@
+<html>
+<head>
+
+<title>The Person Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Person</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">This is the ontology for human individuals. The
+top-level class is Person. Subclasses have not yet been elaborated;
+many range classes for local slots still need to be created.
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>Radar Networks' <a href="https://calo.sri.com/cgi-bin/rep.cgi/apps/iris/data/">irisOntology (see "Human")</a> (.owl format)
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+<ul>
+<li>Thing
+    <ul>
+    <li>Entity
+        <ul>
+        <li>Spatial-Entity
+            <ul>
+            <li>Tangible-Entity
+            <ul>
+                <li>Physical-Object
+                    <ul>
+                    <li>Living-Entity
+                        <ul>
+                        <li>Animal
+                            <ul>
+                            <li><a href=#Person><b>Person</b></a>
+                            </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+</ul>
+</div>
+</td></tr></table>
+</p>
+
+<p>
+<a name=Person>
+<table>
+<tr><td>
+
+<div class="boxtop">Person</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A human being; a sentient animal.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Person with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Person-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasAliasFamilyName</pre></td><td><pre>hasAliasFamilyName</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasAliasFullName</pre></td><td><pre>hasAliasFullName</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasAliasGivenName</pre></td><td><pre>hasAliasGivenName</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasAliasMiddleName</pre></td><td><pre>hasAliasMiddleName</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasAnniversaryDate</pre></td><td><pre>hasAnniversaryDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>???</pre></td><td><pre>hasConcept</pre></td></tr>
+    <tr><td><pre>hasDeliverable</pre></td><td><pre>hasDeliverable</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasEmploymentStatus</pre></td><td><pre>hasEmploymentStatus</pre></td><td align=center><pre>1</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasEthnicity</pre></td><td><pre>hasEthnicity</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasFamilyName</pre></td><td><pre>hasFamilyName</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasFieldOfOccupation</pre></td><td><pre>hasFieldOfOccupation</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasFullName</pre></td><td><pre>hasFullName</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasFullOccupationalTitle</pre></td><td><pre>hasFullOccupationalTitle</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasGender</pre></td><td><pre>hasGender</pre></td><td align=center><pre>n??</pre></td><td><pre>(a Sex-Constant)</pre></td></tr>
+    <tr><td><pre>hasGivenName</pre></td><td><pre>hasGivenName</pre></td><td align=center><pre>1??</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasHairColor</pre></td><td><pre>hasHairColor</pre></td><td align=center><pre>n</pre></td><td><pre>(a Color-Constant)</pre></td></tr>
+    <tr><td><pre>hasHeight</pre></td><td><pre>hasHeight</pre></td><td align=center><pre>1</pre></td><td><pre>(a Height-Value)</pre></td></tr>
+    <tr><td><pre>hasHobby</pre></td><td><pre>hasHobby</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasHomePageAddress</pre></td><td><pre>hasHomePageAddress</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasHonorificSuffix</pre></td><td><pre>hasHonorificSuffix</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasLogo</pre></td><td><pre>hasLogo</pre></td><td
+    align=center><pre>1</pre></td><td><pre>(a StillImage) or (a AudioClip)</pre></td></tr>
+    <tr><td><pre>hasMessage</pre></td><td><pre>hasMessage</pre></td><td align=center><pre>n</pre></td><td><pre>(a Electronic-Message)</pre></td></tr>
+    <tr><td><pre>hasMiddleName</pre></td><td><pre>hasMiddleName</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasNamePrefix</pre></td><td><pre>hasNamePrefix</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>   
+    <tr><td><pre>hasNationality</pre></td><td><pre>hasNationality</pre></td><td align=center><pre>1??</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasNationOfResidence</pre></td><td><pre>hasNationOfResidence</pre></td><td align=center><pre>1??</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasNeighborhoodOfResidence</pre></td><td><pre>hasNeighborhoodOfResidence</pre></td><td align=center><pre>1??</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasNickname</pre></td><td><pre>hasNickname</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasOccupation</pre></td><td><pre>hasOccupation</pre></td><td align=center><pre>n</pre></td><td><pre>(a Job-Role)</pre></td></tr>
+    <tr><td><pre>hasOccupationalRank</pre></td><td><pre>hasOccupationalRank</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasOnlinePresenceStatus</pre></td><td><pre>hasOnlinePresenceStatus</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasPicture</pre></td><td><pre>hasPicture</pre></td><td align=center><pre>n</pre></td><td><pre>(a StillImage)</pre></td></tr>
+    <tr><td><pre>hasPolicy</pre></td><td><pre>hasPolicy</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasPreferredFullName</pre></td><td><pre>hasPreferredFullName</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasPriorLastName</pre></td><td><pre>hasPriorLastName</pre></td><td align=center><pre>1??</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasProject</pre></td><td><pre>hasProject</pre></td><td align=center><pre>n</pre></td><td><pre>(a Project)</pre></td></tr>
+   ;; range should be Project, but that's in the office directory
+    <tr><td><pre>hasReligion</pre></td><td><pre>hasReligion</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasRepresentative</pre></td><td><pre>hasRepresentative</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasResidencyStatus</pre></td><td><pre>hasResidencyStatus</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasRoomNumber</pre></td><td><pre>hasRoomNumber</pre></td><td align=center><pre>1??</pre></td><td><pre><b>(a String)</b></pre></td></tr>
+    <tr><td><pre>hasSchedule</pre></td><td><pre>hasSchedule</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasSecurityClassification</pre></td><td><pre>hasSecurityClassification</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasSentParticipant</pre></td><td><pre>hasSentParticipant</pre></td><td align=center><pre>n</pre></td><td><pre>(a Participant)</pre></td></tr>
+    <tr><td><pre>hasSkill</pre></td><td><pre>hasSkill</pre></td><td align=center><pre>1??</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasSocialSecurityNumber</pre></td><td><pre>hasSocialSecurityNumber</pre></td><td align=center><pre>1??</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasStateOfResidence</pre></td><td><pre>hasStateOfResidence</pre></td><td align=center><pre>1??</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>hasTask</pre></td><td><pre>hasTask</pre></td><td align=center><pre>n</pre></td><td><pre>(a Task)</pre></td></tr>
+    <tr><td><pre>hasWeight</pre></td><td><pre>hasWeight</pre></td><td align=center><pre>1</pre></td><td><pre>(a Weight-Value)</pre></td></tr>
+    <tr><td><pre>isAudienceMemberOf</pre></td><td><pre>isAudienceMemberOf</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>isCareOfContactFor</pre></td><td><pre>isCareOfContactFor</pre></td><td align=center><pre>n</pre></td><td><pre>(a ?????)</pre></td></tr>
+    <tr><td><pre>???</pre></td><td><pre>Semex_RepresentsPDI</pre></td></tr>
+    <tr><td><pre>hasContactInformation</pre></td><td><pre>hasContactInformation (inherited?)</pre</td><td align=center><pre>n</pre></td><td><pre>(a ContactDataStructure)</pre></td></tr>
+    <tr><td><pre>isMentionedIn</pre></td><td><pre>isMentionedIn</pre</td><td align=center><pre>n</pre></td><td><pre>(a InformationObject)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Animal</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Person with
+   (hasFamilyName ("Geblu"))
+   (hasGivenName  ("Aramilek"))
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(*BMF has
+   (instance-of (Person))
+   (hasFamilyName ("Faughth"))
+   (hasGivenName  ("Beviyukp" "Mary"))
+   (hasNickname   ("Bev"))
+   (hasGender     (*female))
+   (hasHairColor  (*brunette))
+   (hasHeight     ((a Height-Value with
+                             (value ((:pair 6 *foot)
+                                     (:pair 2 *inch)
+                                     (*tall Person)
+                             ))
+   )))
+   (hasAnniversaryDate ((a Time-Instant with
+                                  (time-year (2000))
+                                  (time-month (2))
+                                  (time-day (5))
+   )))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

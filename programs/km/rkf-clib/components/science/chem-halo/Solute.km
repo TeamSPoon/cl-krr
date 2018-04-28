@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Solute.km,v 1.3 2007/11/10 21:14:20 tecuci Exp $ 
+;; 
+
+(Solute has 
+        (superclasses (Soluble-Substance)))
+
+(every Solute has-definition
+       (instance-of (Soluble-Substance [Solute-instance-of-1]))
+       (result-of ((a Reaction)))
+       (solubility ((a Solubility-Value with
+                       (value ((:pair *soluble Chemical)))
+       )))
+)
+
+(comment [Solute-instance-of-1]
+  (:seq "Therefore," (the text-gen of Self) "is not a precipitate")
+  "By definition, the result of a reaction is a precipitate if it is insoluble in water"
+  (:triple Self solubility *)
+)
+

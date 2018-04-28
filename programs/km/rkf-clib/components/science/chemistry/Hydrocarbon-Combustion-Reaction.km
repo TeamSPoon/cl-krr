@@ -1,0 +1,75 @@
+; 
+;;    $Id: Hydrocarbon-Combustion-Reaction.km,v 1.7 2005/08/24 21:28:27 jchaw Exp $ 
+;; 
+
+(Hydrocarbon-Combustion-Reaction has
+				 (superclasses (Reaction)))
+
+(every Hydrocarbon-Combustion-Reaction has-definition
+       (instance-of (Reaction
+		     [Hydrocarbon-Combustion-Reaction-instance-of-1]))
+       (raw-material ((a O2-Substance)
+		      (a Chemical with
+			 (has-basic-structural-unit
+			  ((a Chemical-Entity with
+			      (atomic-chemical-formula
+			       ((a Chemical-Formula)
+				(constraint
+				 (
+				  ;; have to have a C
+				  (oneof (the elements of
+					     (the term of TheValue))
+					where
+					((the2 of It) = C))
+				  and
+				  ;; have to have a H
+				  (oneof (the elements of
+					     (the term of TheValue))
+					where
+					((the2 of It) = H))
+				  and
+				  ;; all elements used should be C, H, or O
+				  (not
+				   (oneof (the elements of
+					       (the term of TheValue))
+					  where
+					  (((the2 of It) /= C)
+					   and
+					   ((the2 of It) /= H)
+					   and
+					   ((the2 of It) /= O))))
+				  )))))))))))
+
+(every Hydrocarbon-Combustion-Reaction has
+       (result ((a H2O-Substance)
+		(a CO2-Substance
+		   [Hydrocarbon-Combustion-Reaction-result-1]))))
+
+(comment [Hydrocarbon-Combustion-Reaction-instance-of-1]
+  "Therefore, this reaction is a hydrocarbon combustion reaction"
+
+  "By definition, a Hydrocarbon Combustion Reaction occurs when a hydrocarbon reacts with oxygen in air"
+)
+
+(comment [Hydrocarbon-Combustion-Reaction-result-1]
+  (:seq "In this reaction"
+	(andify (the text-gen of (the raw-material of Self)))
+        "react to produce" 
+	(andify (the text-gen of (the result of Self))))
+
+  "A hydrocarbon combustion reaction produces water and carbon dioxide"
+)
+
+(Hydrocarbon-Combustion-Reaction 
+ has
+ (test-case ( '(
+		((make-phrase 
+		  (the output of
+		       (a Format-Equation with 
+			  (input 
+			   ((the chemical-equation of
+				 (a Reaction with
+				    (raw-material ((a CH4-Substance)
+						   (a O2-Substance))))))))))
+		 =
+		 "CH4 + 2O2 --> 2HOH + CO2")))))

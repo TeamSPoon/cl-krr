@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Tap-Water.km,v 1.2 2003/04/05 14:47:12 porter Exp $
+;; 
+
+(Tap-Water has (superclasses (Aqueous-Solution)))
+
+(every Tap-Water has
+       (base 
+	((a H2SiF6-Substance with
+	    (scalar-concentration 
+	     ((a Scalar-Concentration-Value with
+		 (value ((*dilute))))))
+	    [Tap-Water-base-1]
+	    )))
+)
+		 
+(comment [Tap-Water-base-1]
+  ""
+  "Tap water contains fluoride.  Fluoride is added to water by introducing hydrofluosilicic acid (H2SiF6) in very small parts, resulting in a very dilute
+acid with concentration 1.0e-13 molar. The source for this information is:
+   http://www.geocities.com/CapeCanaveral/3000/fluoride.htm
+   http://www.npwa.freeserve.co.uk/cooking_the_books.html"
+  ()
+)

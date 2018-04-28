@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Deoxyribonucleoside.km,v 1.1 2001/05/29 02:29:49 souther Exp $
+;; 
+
+(Deoxyribonucleoside has
+         (superclasses (Nucleoside))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Compound composed of a purine or pyrimidine base linked
+                        to a deoxyribose sugar. Alberts:ECB:G-13."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Deoxyribonucleoside has
+       (has-part ((a Pentose)
+		  (a Nitrogenous-Base with
+		     (instance-of
+		      ((possible-values Purine Pyrimidine))))
+		  ))  
+       )

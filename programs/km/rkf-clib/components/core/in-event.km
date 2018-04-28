@@ -1,0 +1,17 @@
+;; 
+;;    $Id: in-event.km,v 1.11 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(in-event has
+	  (instance-of (Participant-Relation))
+	  (superslots ())
+	  (subslots ())
+	  (domain (Role))
+	  (range (Event))
+	  (inverse (in-event-of))
+	  (cardinality (N-to-1))
+  (original-slot      (t))	
+	  (fluent-status (*Inertial-Fluent)))
+
+(in-event-of has
+	(instance-of (Participant-Relation)))

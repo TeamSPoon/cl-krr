@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Procaryotic-Ribosome.km,v 1.15 2002/01/11 22:16:37 kbarker Exp $ 
+;; 
+
+(Procaryotic-Ribosome has
+		      (superclasses (Ribosome))
+		      (required-slot ())
+		      (primary-slot ())
+		      (secondary-slot ())
+		      (description ("Ribosome found in cytoplasm of 
+                                     procaryotes. Souther."))
+		      (cmap-correspondence ())
+		      (test-case ()))
+
+(every Procaryotic-Ribosome has
+       (mass ((must-be-a Mass-Value with 
+                         (value ((:pair 2500000 *dalton))))))
+       (has-part 
+	((a Ribonucleoprotein called "RNP1" with 
+	    (mass     ((a Mass-Value with
+		(value ((:pair 1600000 *dalton))))))
+	    (has-part ((exactly 2 Procaryotic-RRNA)
+		       (exactly 34 Procaryotic-Ribosomal-Protein))))
+	 (a Ribonucleoprotein called "RNP2" with
+	    (mass     ((a Mass-Value with
+		(value ((:pair 900000 *dalton))))))
+	    (has-part ((a Procaryotic-RRNA)
+		       (exactly 21 Procaryotic-Ribosomal-Protein)))))))
+
+
+

@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Be-Supported.km,v 1.13 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Supported has
+             (superclasses   (Be-Obstructed))
+             (required-slot  (object))
+             (primary-slot   (instrument))
+             (caused-by-class      (Support))
+             (defeated-by-class    (Let-Fall))
+             (cmap-correspondence (
+                                   (:seq object "the thing Being-Supported")
+                                   (:seq instrument "the thing used to Support")
+                                  )))
+
+
+(every Be-Supported has
+       (object 	   ((a Entity)))   ;; Entity to allow Aggregates
+       (instrument ((must-be-a Tangible-Entity))))
+
+(every Be-Supported has
+   (text-particle ("supported"))
+)
+
+(Be-Supported has (wn20-synset ((:set (:triple "supported" 2 "a")
+))))
+

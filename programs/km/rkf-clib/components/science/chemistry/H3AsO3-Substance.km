@@ -1,0 +1,11 @@
+;; $Id: H3AsO3-Substance.km,v 1.2 2003/02/22 16:27:24 jchaw Exp $ 
+(H3AsO3-Substance has (superclasses (Acid)))
+(every H3AsO3-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 6e-10 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("Arsenous"))
+	(has-basic-structural-unit ((a H3AsO3)))
+)

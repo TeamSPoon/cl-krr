@@ -1,0 +1,20 @@
+
+;;
+;; $Id: Fire.km,v 1.2 2002/07/12 14:26:55 porter Exp $
+;;
+
+(Fire has 
+      (superclasses (Propel))
+      (description ("Firing a projectile toward a target")))
+
+(every Fire has
+  (agent       ((a Military-Unit)))
+  (object      ((a Tangible-Entity with
+                   (plays ((a Projectile))))))
+  (toward      ((a Spatial-Entity with
+                   (plays ((a Target))))))
+  (instrument  ((a Tangible-Entity with
+                   (plays ((a Weapon))))))
+)
+
+

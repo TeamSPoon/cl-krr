@@ -1,0 +1,53 @@
+<!--- $Id: time-of-existence.spec.kml,v 1.2 2005/12/06 21:39:13 kbarker Exp $ --->
+
+<kml>
+
+<relation-doc name=time-of-existence>
+
+
+<from name=Entity>
+<to name=Time-Interval>
+
+<description> 
+   asserts that an Entity exists in a particular Time-Interval
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-from>Abraham Lincoln</ex-from> lived <ex-to>from 1809-1865</ex-to> (a Time-Interval).</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+ <neighbor name=before>
+   Asserts that one Time-Interval comes before another
+ </neighbor>
+
+ <neighbor name=during>
+   Asserts that one Time-Interval is during (completely contained
+   within) another
+ </neighbor>
+
+ <neighbor name=temporally-overlaps>
+   Asserts that one Time-Interval overlaps another, but may not be
+   completely contained within it
+ </neighbor>
+
+ <neighbor name=temporally-meets>
+   Asserts that one Time-Interval meets (abuts) another
+ </neighbor>
+
+ <neighbor name=temporally-starts>
+   Asserts that two Time-Intervals begin together
+ </neighbor>
+
+ <neighbor name=temporally-finishes>
+   Asserts that two Time-Intervals end together
+ </neighbor>
+
+</neighborlist>
+
+</kml>

@@ -1,0 +1,20 @@
+;;
+;; $Id: Ca_OCl_2.km,v 1.5 2006/01/24 20:27:29 jfan Exp $
+;;
+
+(Ca_OCl_2 has (superclasses (Ionic-Compound)))
+
+(every Ca_OCl_2 has	
+       (has-chemical-name ("calcium hypochlorite"))
+       (has-part 
+	((a Ca-Plus-2) (a OCl-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 Ca-Plus-2)
+		    (:pair 2 OCl-Minus))))))))
+       
+(every Ca_OCl_2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Ca-Plus-2) (a OCl-Minus))))
+

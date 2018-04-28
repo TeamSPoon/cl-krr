@@ -1,0 +1,226 @@
+<!--- $Id: Carry.doc.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Carry>
+<superconcept name=Move>
+
+<sme-documentation name=Carry>
+
+<subevent name=Locomotion>
+<subevent name=Hold>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Carry>
+  <definition>cause something to change location by holding it while going somewhere</definition>
+  <requiredslot name=agent>
+    <restriction>holds <slot>object</slot>
+    <restriction>"locomotes" (causes self's <slot>location</slot> to change)</restriction>
+    <restriction>moves <slot>object</slot> (causes <slot>object</slot>'s <slot>location</slot> to change)</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Physical-Object</restriction>
+    <restriction>is held by <slot>agent</slot></restriction>
+    <restriction>moves (<slot>location</slot> changes)</restriction>
+  </requiredslot>
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>agent</slot>/<slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>agent</slot>/<slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>agent</slot>/<slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>carry#1, carry#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>pack#2, take#30, transport#1
+  </verb></wnsynsets>
+  <dd><i>Corresponding Cyc Concept:</i> #$TransportationEvent</dd>
+</component>
+
+<hr>
+<h3>Core Senses:</h3>
+<senselist>
+<sense tag=carry1>
+  <sense-definition>cause something to change location by holding it while going somewhere</sense-definition>
+  <transitivity>transitive</transitivity>
+  <requiredslot name=agent>
+    <restriction>holds object
+    <restriction>causes self's location to change</restriction>
+    <restriction>causes object's location to change</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Physical-Object</restriction>
+    <restriction>is held by agent</restriction>
+    <restriction>location changes</restriction>
+  </requiredslot>
+</sense>
+</senselist>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=carry2>
+  <sense-definition>move an object caught up in motion</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry3>
+  <sense-definition>host an organism</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry4>
+  <sense-definition>communicate (a meaning, idea, etc.)</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry5>
+  <sense-definition>develop or extend (an argument, <i>e.g.</i>)</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry6>
+  <sense-definition>contain</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry7>
+  <sense-definition>win or pass (a vote, <i>e.g.</i>)</sense-definition>
+  <transitivity>transitive or intransitive</transitivity>
+</sense>
+<sense tag=carry8>
+  <sense-definition>support</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry9>
+  <sense-definition>results in (a penalty, <i>e.g.</i>)</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry10>
+  <sense-definition>propagate (sound, <i>e.g.</i>)</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=carry11>
+  <sense-definition>behave or bear a demeanor</sense-definition>
+  <transitivity>reflexive</transitivity>
+</sense>
+<sense tag=carry12>
+  <sense-definition>possess</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry13>
+  <sense-definition>have as a feature</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=carry14>
+  <sense-definition>be pregnant</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=Levin>
+Levin calls <langelement>Carry</langelement> one of a class of verbs
+of "continuous causation of accompanied motion in some manner". She
+also mentions the subject of the verb <langelement>carry</langelement>
+can be characterized as a location.
+</reference>
+
+<reference source=COBUILD>
+Senses 1-18 in COBUILD are base verb senses. Here are the maps:
+<senselist>
+<sense tag=COBUILDcarry1><equiv tag=carry1></sense>
+<sense tag=COBUILDcarry2><equiv tag=carry2></sense>
+<sense tag=COBUILDcarry3><equiv tag=carry1></sense>
+<sense tag=COBUILDcarry4><equiv tag=carry1></sense>
+<sense tag=COBUILDcarry5><equiv tag=carry3></sense>
+<sense tag=COBUILDcarry6><equiv tag=carry4></sense>
+<sense tag=COBUILDcarry7><equiv tag=carry4></sense>
+<sense tag=COBUILDcarry8><equiv tag=carry5></sense>
+<sense tag=COBUILDcarry9><equiv tag=carry6></sense>
+<sense tag=COBUILDcarry10><equiv tag=carry7></sense>
+<sense tag=COBUILDcarry11><equiv tag=carry9></sense>
+<sense tag=COBUILDcarry12><equiv tag=carry10></sense>
+<sense tag=COBUILDcarry13><equiv tag=carry8></sense>
+<sense tag=COBUILDcarry14><equiv tag=carry8></sense>
+<sense tag=COBUILDcarry15><equiv tag=carry7></sense>
+<sense tag=COBUILDcarry16><equiv tag=carry7></sense>
+<sense tag=COBUILDcarry17><equiv tag=carry11></sense>
+<sense tag=COBUILDcarry18><equiv tag=carry14></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<sense tag=LDOCEcarry1><equiv tag=carry1></sense>
+<sense tag=LDOCEcarry2><equiv tag=carry2></sense>
+<sense tag=LDOCEcarry3><equiv tag=carry3></sense>
+<sense tag=LDOCEcarry4><equiv tag=carry8></sense>
+<sense tag=LDOCEcarry5><equiv tag=carry12></sense>
+<sense tag=LDOCEcarry6><equiv tag=carry11></sense>
+<sense tag=LDOCEcarry7><equiv tag=carry8></sense>
+<sense tag=LDOCEcarry8><equiv tag=carry6></sense>
+<sense tag=LDOCEcarry9><equiv tag=carry12></sense>
+<sense tag=LDOCEcarry10><equiv tag={carry9, carry13}></sense>
+<sense tag=LDOCEcarry11><equiv tag=carry10></sense>
+<sense tag=LDOCEcarry12><equiv tag=carry7></sense>
+<sense tag=LDOCEcarry13><equiv tag=carry7></sense>
+<sense tag=LDOCEcarry14><equiv tag=carry10></sense>
+<sense tag=LDOCEcarry15><equiv tag=carry8></sense>
+</reference>
+
+<reference source=NODE>
+<sense tag=NODEcarry1><equiv tag={carry1, carry2, carry3, carry10}></sense>
+<sense tag=NODEcarry2><equiv tag={carry8, carry14}></sense>
+<sense tag=NODEcarry3><equiv tag={carry9, carry13}></sense>
+<sense tag=NODEcarry4><equiv tag={carry5, carry10}></sense>
+<sense tag=NODEcarry5><equiv tag=carry7></sense>
+<sense tag=NODEcarry6><equiv tag={carry6, carry12, carry13}></sense>
+<sense tag=NODEcarry7><equiv tag=carry10></sense>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNcarry#1><equiv tag=carry1></sense>
+<sense tag=WNcarry#2><equiv tag=carry1></sense>
+<sense tag=WNcarry#3><equiv tag=carry10></sense>
+<sense tag=WNcarry#4><equiv tag=carry4></sense>
+<sense tag=WNcarry#5><equiv tag=carry8></sense>
+<sense tag=WNcarry#6><equiv tag=carry11></sense>
+<sense tag=WNcarry#7><equiv tag=carry6></sense>
+<sense tag=WNcarry#8><equiv tag=carry5></sense>
+<sense tag=WNcarry#9><equiv tag=carry5></sense>
+<sense tag=WNcarry#10><equiv tag=carry9></sense>
+<sense tag=WNcarry#11><equiv tag=carry7></sense>
+<sense tag=WNcarry#12><equiv tag=carry6></sense>
+<sense tag=WNcarry#13><equiv tag=carry11></sense>
+<sense tag=WNcarry#14><equiv tag=carry12></sense>
+<sense tag=WNcarry#15><equiv tag=carry6></sense>
+<sense tag=WNcarry#16><equiv tag=carry2></sense>
+<sense tag=WNcarry#17><equiv tag=carry4></sense>
+<sense tag=WNcarry#18><equiv tag=carry13></sense>
+<sense tag=WNcarry#19><equiv tag=carry10></sense>
+<sense tag=WNcarry#20><equiv tag=carry8></sense>
+<sense tag=WNcarry#21><equiv tag=carry7></sense>
+<sense tag=WNcarry#22><equiv tag=carry8></sense>
+<sense tag=WNcarry#23><equiv tag=carry8></sense>
+<sense tag=WNcarry#24><equiv tag=carry5></sense>
+<sense tag=WNcarry#25><equiv tag=carry13></sense>
+<sense tag=WNcarry#26><equiv tag=carry7></sense>
+<sense tag=WNcarry#27><equiv tag=carry10></sense>
+<sense tag=WNcarry#28><equiv tag=carry10></sense>
+<sense tag=WNcarry#29><equiv tag=none><comment>???</comment></sense>
+<sense tag=WNcarry#30><equiv tag=carry2></sense>
+<sense tag=WNcarry#31><equiv tag=carry8></sense>
+<sense tag=WNcarry#32><equiv tag=carry8></sense>
+<sense tag=WNcarry#33><equiv tag=carry10></sense>
+<sense tag=WNcarry#34><equiv tag=carry10></sense>
+<sense tag=WNcarry#35><equiv tag=carry7></sense>
+<sense tag=WNcarry#36><equiv tag=carry7></sense>
+<sense tag=WNcarry#37><equiv tag=none><comment>idiomatic</comment></sense>
+<sense tag=WNcarry#38><equiv tag=carry14></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

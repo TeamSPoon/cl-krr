@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Perceive.km,v 1.11 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Perceive has
+     (superclasses        (Action))
+     (required-slot       (object))
+     (primary-slot        (agent))
+     (secondary-slot      ())
+     (cmap-correspondence (
+                           (:seq agent "the perceiver")
+                           (:seq object "the perceived")))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Perceive has
+  (object ((a Entity)))
+  (agent ((must-be-a Tangible-Entity)))
+)
+
+(every Perceive has
+  (text-active-verbseq-sg ("perceives"))
+  (text-active-verbseq-pl ("perceive"))
+  (text-passive-verbseq-sg ("is perceived"))
+  (text-passive-verbseq-pl ("are perceived"))
+)
+
+
+(Perceive has (wn20-synset ((:set
+			     (:triple "perceive" 1 "v")
+			     (:triple "comprehend" 2 "v")
+))))
+
+(every Perceive has (text-nominalization ("perception")))

@@ -1,0 +1,15 @@
+;; 
+;;  $Id: Coefficient-Value.km,v 1.2 2007/05/21 04:43:14 mrglass Exp $
+;; 
+
+(Coefficient-Value has 
+		(superclasses (Property-Value)))
+
+(every Coefficient-Value has
+  (property-slot (coefficient))
+       (quantity-of ((must-be-a Chemical)))
+       (less-than ((must-be-a Coefficient-Value)))
+       (greater-than ((must-be-a Coefficient-Value)))
+       (same-as ((must-be-a Coefficient-Value)))
+)
+(Coefficient-Value has (description ("a quantity (usually a numerical constant) which is multiplied by another quantity following it in an expression; e.g. in the algebraic expression 4 x 2 - 6 x, the coefficient of (the first term) x 2 is 4 and the coefficient of (the second term) x is -6.")))

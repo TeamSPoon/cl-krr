@@ -1,0 +1,24 @@
+;;
+;; $Id: Ra-Plus-2.km,v 1.8 2008/11/29 03:57:55 tecuci Exp $
+;;
+
+(Ra-Plus-2 has (superclasses (Metal-Cation)))
+
+(every Ra-Plus-2 has
+       (has-chemical-name ("radium (II)"))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 Ra)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair 2 *unity))))))
+       (is-ion-of ((a Ra)))
+)
+
+(every Ra-Plus-2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ra)))))))
+  (charge ((a Charge-Value with (value ((:pair 2 *unity))))))
+)
+
+
+(Ra-Plus-2 has (wn20-synset ((:triple "Ra+2" 0 "n"))))

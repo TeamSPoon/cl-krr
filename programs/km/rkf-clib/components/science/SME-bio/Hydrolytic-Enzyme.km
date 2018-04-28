@@ -1,0 +1,84 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Hydrolytic-Enzyme ----------
+
+(Hydrolytic-Enzyme has (superclasses (Enzyme)))
+
+(_Hydrolytic-Enzyme764 has 
+  (instance-of (Hydrolytic-Enzyme))
+  (prototype-of (Hydrolytic-Enzyme))
+  (prototype-scope (Hydrolytic-Enzyme))
+  (prototype-participants (_Amino-Acid7347
+                           _Hydrolytic-Enzyme764
+                           _Polymer785
+                           _Atom786))
+  (prototype-participant-of (_Hydrolytic-Enzyme764))
+  (has-clones (_Placeholder-Class763765
+               _Hydrolytic-Enzyme4194))
+  (has-built-clones (_Placeholder-Class763765
+                     _Hydrolytic-Enzyme4194))
+  (has-basic-structural-unit (_Atom786
+                              _Amino-Acid7347))
+  (has-part (_Polymer785))
+  (cloned-from (_Protein305))
+  (clone-built-from (_Protein305))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-part _Polymer785 259 583)
+                    (:seq has-basic-structural-unit _Atom786 259 627)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom786 t)
+                    (:seq has-part _Polymer785 t)
+                    (:seq has-basic-structural-unit _Amino-Acid7347 t)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Amino-Acid7347 has 
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing4195))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Hydrolytic-Enzyme764))
+  (prototype-participant-of (_Hydrolytic-Enzyme764)))
+
+(_Polymer785 has 
+  (prototype-participant-of (_Hydrolytic-Enzyme764))
+  (is-part-of (_Hydrolytic-Enzyme764))
+  (instance-of (Polymer))
+  (has-clones (_Polymer767
+               _Polymer4193))
+  (cloned-from (_Polymer308))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 409 577))))
+
+(_Atom786 has 
+  (prototype-participant-of (_Hydrolytic-Enzyme764))
+  (is-basic-structural-unit-of (_Hydrolytic-Enzyme764))
+  (instance-of (Atom))
+  (has-clones (_Atom766
+               _Atom4191))
+  (cloned-from (_Atom309))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 409 621))))
+
+(explanation (:triple _Hydrolytic-Enzyme764 has-basic-structural-unit _Amino-Acid7347) ((cloned-from _Protein305 _Hydrolytic-Enzyme764)))
+(explanation (:triple _Hydrolytic-Enzyme764 has-part _Polymer785) ((added-at Protein "User defined")))
+(explanation (:triple _Hydrolytic-Enzyme764 has-basic-structural-unit _Atom786) ((a Atom (@ _Hydrolytic-Enzyme764 Molecule has-basic-structural-unit))))
+(explanation (:triple _Hydrolytic-Enzyme764 instance-of Protein) ((a Protein)))
+(explanation (:triple _Hydrolytic-Enzyme764 has-part _Polymer785) ((cloned-from _Protein305 _Hydrolytic-Enzyme764)))
+(explanation (:triple _Hydrolytic-Enzyme764 has-basic-structural-unit _Atom786) ((cloned-from _Protein305 _Hydrolytic-Enzyme764)))
+(explanation (:triple _Hydrolytic-Enzyme764 instance-of Hydrolytic-Enzyme) ((added-at Hydrolytic-Enzyme "User defined")))
+(explanation (:triple _Amino-Acid7347 instance-of Amino-Acid) ((cloned-from _Protein305 _Hydrolytic-Enzyme764)))
+(explanation (:triple _Polymer785 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer785 instance-of Polymer) ((cloned-from _Protein305 _Hydrolytic-Enzyme764)))
+(explanation (:triple _Polymer785 is-part-of _Hydrolytic-Enzyme764) ((cloned-from _Protein305 _Hydrolytic-Enzyme764)))
+(explanation (:triple _Atom786 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom786 instance-of Atom) ((a Atom (@ _Hydrolytic-Enzyme764 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom786 instance-of Atom) ((cloned-from _Protein305 _Hydrolytic-Enzyme764)))
+(explanation (:triple _Atom786 is-basic-structural-unit-of _Hydrolytic-Enzyme764) ((cloned-from _Protein305 _Hydrolytic-Enzyme764)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

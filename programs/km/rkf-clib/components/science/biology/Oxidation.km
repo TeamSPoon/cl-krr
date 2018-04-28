@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Oxidation.km,v 1.8 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Oxidation has
+        (superclasses   (Lose))
+        (required-slot  (object donor))
+        (primary-slot   (agent recipient instrument))
+	(description	("The loss of electrons from an atom or molecule as
+                          occurs when hydrogen is removed from a molecule or
+                          oxygen is added.  Lodish:MCB:G-13")))
+
+(every Oxidation has
+       (donor ((a Chemical-Entity)))
+       (recipient ((a Chemical-Entity))) 
+       (object ((a Electron)))
+       (instrument ((a Oxidase)))
+       )
+
+
+(every Oxidation has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

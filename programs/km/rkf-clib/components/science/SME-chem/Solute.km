@@ -1,0 +1,66 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Solute477
+
+
+|#
+
+(disable-classification)
+
+(Solute has (superclasses (Chemical)))
+
+(_Solute492 has
+  (prototype-of (Solute))
+  (prototype-scope (Solute))
+  (prototype-participants (_Concentration-Value498 _Reaction-Result497 _Reaction496 _Chemical-Entity495 _State-Value494 _Solubility-Value493 _Solute492)))
+
+(_Solute492 has
+  (instance-of (Solute))
+  (concentration (_Concentration-Value498))
+  (plays (_Reaction-Result497))
+  (has-basic-structural-unit (_Chemical-Entity495))
+  (physical-state (_State-Value494))
+  (solubility (_Solubility-Value493)))
+
+(_Solubility-Value493 has (instance-of (Solubility-Value)))
+
+(_State-Value494 has (instance-of (State-Value)))
+
+(_Chemical-Entity495 has (instance-of (Chemical-Entity)))
+
+(_Reaction496 has (instance-of (Reaction)) (result (_Solute492 (must-be-a Chemical) (must-be-a Entity))))
+
+(_Reaction-Result497 has (instance-of (Reaction-Result)))
+
+(_Concentration-Value498 has (instance-of (Concentration-Value)))
+
+(enable-classification)
+
+(explanation (:triple _Solute492 concentration _Concentration-Value498) (((@ SME entered)) (every Solute has (concentration ((a Concentration-Value))))))
+
+(explanation (:triple _Solute492 instance-of Solute) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value493 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value494 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity495 instance-of Chemical-Entity) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction496 instance-of Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Result497 instance-of Reaction-Result) (((@ SME entered)) NIL))
+
+(explanation (:triple _Concentration-Value498 instance-of Concentration-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Solute has (concentration ((a Concentration-Value))))
+
+|#
+
+|#
+

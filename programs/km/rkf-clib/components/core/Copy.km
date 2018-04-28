@@ -1,0 +1,89 @@
+;; 
+;;    $Id: Copy.km,v 1.19 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Copy has
+	(superclasses 	 (Create))
+	(required-slot   (result object))
+	(primary-slot 	 (agent instrument by-means-of))
+	(cmap-correspondence (
+			      (:seq result "the copy")
+			      (:seq object "the original")	
+			      (:seq agent "copier")
+			      (:seq instrument "the instrument")
+			      (:seq by-means-of "the event needed for the copy")	
+			     ))
+      #|(sentence-type   (*punctual *conclusive))|#
+)
+
+(every Copy has
+  (object	((a Tangible-Entity)))
+
+  ; A copy of the object, but not necessarily all properties of the object!
+  ; If no result is specified, create an instance of the same type as object
+
+  (add-list	((if (not (the result of Self))
+                  then (:triple Self
+			        result
+			        (an instance of 
+                                    (the instance-of of 
+                                         (the object of Self))) [Copy-add-1]))))
+
+  (instrument	((must-be-a Tangible-Entity))) 
+  (by-means-of  ((must-be-a Event)))
+)	
+
+(comment [Copy-add-1] (:seq "Another copy of " (the object of Self) " has been created.")
+	 "A copy creates a duplicate instance of something.")
+
+(every Copy has
+  (text-active-verbseq-sg ("copies"))
+  (text-active-verbseq-pl ("copy"))
+  (text-passive-verbseq-sg ("gets copied"))
+  (text-passive-verbseq-pl ("get copied"))
+
+;*; these special templates are redundant for now... see Create.km
+;*;
+;*;  (text-active-agent-sentence (
+;*;     (:seq (the text-phrase of (the agent of Self))
+;*;           (the text-active-phrase of Self)
+;*;           (if ((the agent of Self) /= (the object of Self))
+;*;            then (andify (the text-phrase of (the object of Self))))
+;*;           (the text-arguments of Self)
+;*;  )))
+;*;
+;*;  (text-active-instrument-sentence (
+;*;     (:seq (the text-phrase of (the instrument of Self))
+;*;           (the text-active-phrase of Self)
+;*;           (andify (the text-phrase of (the object of Self)))
+;*;           (the text-arguments of Self)
+;*;  )))
+;*;
+;*;  (text-passive-sentence (
+;*;     (:seq (andify (the text-phrase of (the object of Self)))
+;*;           (the text-passive-phrase of Self)
+;*;           (the text-arguments of Self)
+;*;  )))
+
+)
+
+
+;; nothing extra to say about contextual info
+
+(Copy has (test-case ()))
+
+
+
+
+;; automatically added WN synsets
+(Copy has (wn16-synset ((:set  
+                                   (:triple "copy" 5 "v")
+                                   (:triple "re-create" 2 "v")
+))))
+
+
+(Copy has (wn20-synset ((:set
+                                   (:triple "copy" 4 "v")
+                                   (:triple "re-create" 2 "v")
+))))
+(every Copy has (text-nominalization ("copying")))

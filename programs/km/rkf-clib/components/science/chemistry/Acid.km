@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Acid.km,v 1.4 2003/01/28 00:23:28 pzyeh Exp $ 
+;; 
+
+(Acid has
+      (superclasses (Ionic-Compound-Substance))
+      (test-case ()))
+;; 
+;; If it has a H+, then it's an acid role.
+;;
+(every Acid has-definition 
+  (instance-of (Ionic-Compound-Substance))
+  (has-basic-structural-unit
+    ((a Ionic-Compound with
+	(has-part ((a H-Plus))))
+     (constraint 
+       ((the term of (the has-chemical-formula of TheValue))
+        /=
+        (:seq (:pair 1 H-Plus) (:pair 1 OH-Minus)))))))
+
+(every Acid has
+       (plays ((a Acid-Role)))
+)

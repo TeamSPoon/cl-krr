@@ -1,0 +1,10 @@
+;; $Id: ClO4-Minus.km,v 1.4 2003/02/22 16:24:22 jchaw Exp $ 
+(ClO4-Minus has (superclasses (Anion)))
+(every ClO4-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("perchlorate"))
+	(has-acid-name ("perchloric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cl) (:pair 4 O)))))))
+)

@@ -1,0 +1,10 @@
+;; $Id: CH3COO-Minus-Substance.km,v 1.1 2003/04/09 17:55:26 jchaw Exp $ 
+(CH3COO-Minus-Substance has (superclasses (Anion-Substance)))
+(every CH3COO-Minus-Substance has
+       (plays ((a Base-Role with	
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a CH3COO-Minus)))
+)

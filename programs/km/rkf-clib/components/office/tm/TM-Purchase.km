@@ -1,0 +1,100 @@
+;;    $Id: TM-Purchase.km,v 1.2 2004/09/13 05:23:17 pzyeh Exp $ 
+(TM-Purchase has (superclasses (TM-Task-Model)))
+
+(every TM-Purchase has
+
+       ;;----------------------------------------------------------------
+       ;; SPARK Parameters:
+       ;; 
+       ;; There is a problem. What role do we use for $criteria?
+       ;;----------------------------------------------------------------
+       ;; This an example of the laptop we want to buy. It corresponds to 
+       ;; $item in the SPARK encoding.
+       (base 	((must-be-a Laptop-Computer)
+		 (a Laptop-Computer)))
+       
+       ;; This is the laptop computer that we end up buying. It corresponds to 
+       ;; $selection in the SPARK encoding.
+       (object 	((a Laptop-Computer with 
+		    (object-of ((the Buy subevent of Self)))
+       )))
+
+       ;; (result ((the result of (the Specify subevent of Self))))
+
+       ;;----------------------------------------------------------------
+       ;; Additional axioms.
+       ;;----------------------------------------------------------------
+       (agent 		((a Entity)))           	
+       (recipient 	((the agent of Self)))  	
+
+       (beneficiary 	((a Entity)))         		
+
+       (donor 		((the is-possessed-by of       	;; purchased from
+		    	      (the object of Self))))
+
+       (instrument 	((the Money instrument of
+			      (the Buy subevent of Self))))
+
+       (duration        ((a Duration-Value)))       
+       
+       (first-subevent ((the Specify subevent of Self)))
+       (subevent (
+		   ;; Describe by way of feature values. The SPARK encoding does not
+		   ;; have a Specify, but we do. We include it because this specify
+		   ;; provides the criteria we will use to select and buy the laptop.
+		   (a Specify with         
+		      (object 		((the base of Self)))
+		      ;; The result of this specify is a Specification of the laptop
+		      ;; we want to buy. This resulting Specification corresponds to 
+		      ;; $criteria in the SPARK encoding.
+		      (result 		((a Specification)))
+		      (next-event 	((the TM-Find-Computer subevent of Self)))
+		   )
+		   
+		   ;; find instances that match (to some degree) the spec.
+		   ;; NOTE: The choose step is actually a subevent of TM-Find-Computer
+		   (a TM-Find-Computer with    
+		      (object 	  ((the Specification result of (the Specify subevent of Self))))	;; <- $criteria
+		      (base	  ((the base of Self)))							;; <- $item
+		      (result 	  ((the object of Self)))						;; <- $selection
+		      (next-event ((the TM-Obtain-Authorizations subevent of Self)))
+		   )
+	   
+		   (a TM-Obtain-Authorizations with
+		      (object ((a TM-Requisition-Form)))					;; <- The requisition_form
+		      (base	((the result of (the TM-Find-Computer subevent of Self))))	;; <- $selection.
+		      (next-event ((the TM-Confirm-Order subevent of Self)))
+		   )
+		   
+		   (a TM-Confirm-Order with
+		      (base 	  ((the agent of Self)))	;; We ask the user (which is the agent) to confirm the order.
+		      (object 	  ((the result of (the TM-Find-Computer subevent of Self))))	;; <- $selection.	
+		      (next-event ((the TM-Place-Order subevent of Self)))
+		   )
+		     
+		   (a TM-Place-Order with
+		      (object     ((the result of (the TM-Find-Computer subevent of Self))))	;; <- $selection
+		      (next-event ((the Buy subevent of Self)))
+		   )
+             
+		   ;; This buy subevent is NOT encoded in the SPARK encoding, but we have it in 
+		   ;; our purchase model.
+		   ;;
+		   ;; Information about the agent, recipient, and donor are inherited from purchase,
+		   ;; so we do not need to include it here.
+		   (a Buy with   
+		      (agent 	   ((the agent of Self)))     ;; payer = recipient (possessor)
+		      (recipient   ((the recipient of Self)))
+		      (donor 	   ((the donor of Self)))
+		      (beneficiary ((the beneficiary of Self)))
+		      (instrument  ((a Money with 
+				       (worth ((a Worth-Value with
+						  (value ((the value of
+							       (the worth of
+								    (the object of 
+									 (the Place-Order subevent of Self))))))))))))
+		      (object 	   ((the result of (the TM-Find-Computer subevent of Self))))
+		   )
+       ))
+)
+

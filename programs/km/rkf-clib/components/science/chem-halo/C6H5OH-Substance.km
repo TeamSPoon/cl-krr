@@ -1,0 +1,17 @@
+;;
+;; $Id: C6H5OH-Substance.km,v 1.5 2008/11/03 03:11:25 tecuci Exp $ 
+;;
+
+(C6H5OH-Substance has (superclasses (Bronsted-Lowry-Acid)))
+(every C6H5OH-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 1.3e-10 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("phenol"))
+	(has-basic-structural-unit ((a C6H5OH)))
+)
+(every C6H5OH-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a C6H5OH))))

@@ -1,0 +1,17 @@
+;;
+;; $Id: Cs.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Cs has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+
+(every Cs has
+       (atomic-symbol (Cs))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 55 NIL))))))
+       (has-ion ((a Cs-Plus)))
+       (chemical-period (6)))
+
+(every Cs has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("cesium"))
+)

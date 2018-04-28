@@ -1,0 +1,50 @@
+<!--- $Id: possesses.spec.kml,v 1.3 2007/06/22 14:25:32 porter Exp $ --->
+<kml>
+
+<relation-doc name=possesses>
+
+
+<from name=Entity>
+<to name=Tangible-Entity>
+
+<description> 
+   one thing possesses another, in any of these three ways: An
+<conceptref name=Organism> possesses a <conceptref name=Tangible-Entity>; 
+a <conceptref name=Chemical-Object> possesses a
+<conceptref name=Charge>; an <conceptref name=Entity> possesses
+<conceptref name=Energy>.
+
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-from>John</ex-from> owns <ex-to>the vase</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-from>The book</ex-from> belongs <ex-to>to Mary</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-from>A hydrogen ion</ex-from> has <ex-to>a charge of +1</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-from>A hydrogen bond</ex-from> contains 
+    <ex-to>5 kilo-calories</ex-to> of energy.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=has-part>
+     has-part describes the structural relations between a whole and its parts,
+     whereas possesses describes an ownership relationship. 
+     See also <conceptref name=Transfer>, the action that passes possessions
+     from one entity to another.
+ </neighbor>
+</neighborlist>
+
+</kml>
+

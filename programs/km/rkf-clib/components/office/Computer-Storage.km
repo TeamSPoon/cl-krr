@@ -1,0 +1,26 @@
+;;
+;;    $Id: Computer-Storage.km,v 1.5 2005/04/15 17:16:48 jchaw Exp $
+;;
+
+(Computer-Storage has 
+  (superclasses (Computer-Component))
+  (feature-slot ((the feature-slot of Computer-Component)))
+  (feature-slot (computer-storage-size))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Computer-Storage))
+  ))
+)
+
+(every Computer-Storage has
+  (computer-storage-size ((a Computer-Storage-Size-Value)))
+)
+
+(Computer-Storage has (wn20-synset ((:set
+				(:triple "memory" 4 "n")
+				(:triple "computer_memory" 1 "n")
+				(:triple "storage" 5 "n")
+				(:triple "computer_storage" 1 "n")
+				(:triple "store" 3 "n")
+				(:triple "memory_board" 1 "n")
+))))
+

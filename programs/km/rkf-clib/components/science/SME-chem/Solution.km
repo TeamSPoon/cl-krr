@@ -1,0 +1,37 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Solution13594
+
+
+|#
+
+(disable-classification)
+
+(Solution has (superclasses (Mixture)))
+
+(Solution now-has (user-description ("A solution is a mixture of substances that has a uniform composition; a homogeneous mixture. The substance present in greater quantity is usually called the solvent. The other substances in the solution are known as the solutes.")))
+
+;;(every Solution has (has-solute ((a Chemical))) (has-solvent ((a Chemical))) (solute-species ((((forall (the has-solute of Self) where (It isa Nonelectrolyte) It)) && ((forall (the has-solute of Self) where (It isa Strong-Electrolyte) (the has-part of (the has-basic-structural-unit of It)))) && ((forall (the has-solute of Self) where (It isa Weak-Electrolyte) (:set (the has-part of (the has-basic-structural-unit of It)) It)))))) (volume ((if (not (the volume of Self)) then (the output of (a Compute-Volume-from-Concentration-and-Quantity with (input ((the quantity of (the first of (the has-solute of Self))) (the concentration of (the first of (the has-solute of Self))))))) (comm [Solution-volume-1] Self)))) (text-phrase (((if (has-value (the has-chemical-name of (the has-basic-structural-unit of (the has-solute of Self)))) then (:seq (andify (the text-phrase of (the has-basic-structural-unit of (the has-solute of Self)))) "solution") else (the text-base-phrase of Self)) & (if (has-value (the text-phrase of (the has-basic-structural-unit of (the has-solute of Self)))) then (:seq (andify (the text-phrase of (the has-basic-structural-unit of (the has-solute of Self)))) "solution") else (the text-base-phrase of Self))))) (text-base-phrase ((((if (has-value (the has-chemical-name of (the has-basic-structural-unit of (the has-solute of Self)))) then (:seq (andify (the text-base-phrase of (the has-basic-structural-unit of (the has-solute of Self)))) "solution") else (the text-def-head of Self))) && ((if (has-value (the text-base-phrase of (the has-basic-structural-unit of (the has-solute of Self)))) then (:seq (andify (the text-base-phrase of (the has-basic-structural-unit of (the has-solute of Self)))) "solution") else Self))))) (text-def-head ((:seq (the text-def-determiner of (the has-basic-structural-unit of (the has-solute of Self))) (the text-head of Self)))) (text-head ((((if (has-value (the has-chemical-name of (the has-basic-structural-unit of (the has-solute of Self)))) then (:seq (the text-head of (the has-solute of Self)) "solution") else Self)) && ((:seq (the text-head of (the has-solute of Self)) "solution"))))))
+
+(_Solution405 has
+  (prototype-of (Solution))
+  (prototype-scope (Solution))
+  (prototype-participants (_Solution405)))
+
+(_Solution405 has (instance-of (Solution)))
+
+(enable-classification)
+
+(explanation (:triple _Solution405 instance-of Solution) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+
+|#
+
+|#
+

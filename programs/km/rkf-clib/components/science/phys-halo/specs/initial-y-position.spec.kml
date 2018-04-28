@@ -1,0 +1,28 @@
+<!--- $Id: initial-y-position.spec.kml,v 1.2 2006/03/01 20:24:28 kbarker Exp $ --->
+<kml>
+<property-doc name=initial-y-position>
+<gpd-documentation name=Property>
+
+<from name=Event>
+<to name=Length-Value>
+
+<description> 
+  initial vertical position of a moving object;
+  note that initial-y-position is a property of a Move event; 
+  use <conceptref name=fixed-y-position> for the fixed vertical position 
+  of an object that is not moving.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Length>
+<p>
+    <examplesentence>
+      <text>The initial vertical position of the falling rock is 10 feet.</text>
+      <slotdescription name=number>10</slotdescription>
+      <slotdescription name=unit of measure>foot</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+</value-description>
+</kml>

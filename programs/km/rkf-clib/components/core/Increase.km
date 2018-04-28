@@ -1,0 +1,76 @@
+;;
+;;   $Id: Increase.km,v 1.18 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Increase has 
+  (superclasses  (Action))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Increase has
+  (from-value ((a Property-Value)))
+  (to-value   ((an instance of (the instance-of of (the from-value of Self)) with
+                   (greater-than ((the from-value of Self)))
+  )))
+
+  (del-list ((:triple (the (the property-of-slot of (the from-value of Self)) of (the from-value of Self))
+                      (the property-slot of (the from-value of Self)) 
+                      *
+  )))
+
+  (add-list ((:triple (the (the property-of-slot of (the from-value of Self)) of (the from-value of Self))
+                      (the property-slot of (the from-value of Self))
+                      (the to-value of Self)
+  )))
+)
+
+(Increase has 
+  (test-case ('(
+    (*Beer9 has 
+      (instance-of (Liquid-Substance))
+      (temperature ((a Temperature-Value with (value ((:pair *cold Liquid-Substance))))))
+    )
+    (*Increase9 has 
+      (instance-of (Increase))
+      (base (*Beer9))
+      (from-value ((the temperature of *Beer9)))
+    )
+    (do-and-next *Increase9)
+    ((the greater-than of (the temperature of *Beer9))
+     includes
+     ((in-situation (the prev-situation of (curr-situation)) (the temperature of *Beer9)))
+    )
+))))
+
+
+(Increase has (wn20-synset ((:set
+                                    (:triple "increase" 1 "v")
+                                    (:triple "increase" 2 "v")
+))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(every Increase has (text-nominalization ("increase")))

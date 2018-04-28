@@ -1,0 +1,16 @@
+;;
+;; $Id: numeric-value.km,v 1.7 2007/04/11 21:31:10 jchaw Exp $
+;;
+
+(numeric-value has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Cardinal))
+  (range (Number))
+  (inverse (numeric-value-of))
+  (cardinality (N-to-1))
+  (original-slot      (t))	
+  (fluent-status (*Inertial-Fluent))
+)
+
+(numeric-value-of has
+   (instance-of (CLIB-Slot-Group)))

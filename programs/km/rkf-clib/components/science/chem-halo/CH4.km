@@ -1,0 +1,21 @@
+;;
+;; $Id: CH4.km,v 1.8 2007/05/18 02:40:28 tecuci Exp $
+;;
+
+(CH4 has (superclasses (Hydrocarbon-Molecule)))
+
+(every CH4 has	
+       (has-chemical-name ("methane"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 C)
+		    (:pair 4 H))))))))
+       
+
+
+(every CH4 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("methane"))
+)

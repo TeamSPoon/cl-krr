@@ -1,0 +1,204 @@
+;; 
+;;    $Id: Reaction.km,v 1.27 2010/05/18 15:05:13 kbarker Exp $ 
+;; 
+
+(Reaction has (superclasses (Action)))
+
+(Reaction has (user-description ("A chemical reaction is a process in which one or more substances are converted into other substances.")))
+
+
+(every Reaction has
+       ;;(raw-material ((must-be-a Chemical)))
+       (raw-material ((a Chemical)
+		      (must-be-a Chemical with
+				 (plays ((a Reaction-Material)))) ;; all reactions must have a raw-material -- jjf
+;		      (constraint 
+;		       (#'(LAMBDA () (SAME-ATOM-TYPES (KM0 '|TheValue|) (KM0 '(|the| |result| |of| |Self|))))))
+	))
+       ;;(result ((must-be-a Chemical)))
+       (result ((a Chemical)
+		(must-be-a Chemical with
+			   (plays ((a Reaction-Result)))) ;; all reactions must have a result too -- jjf
+;		(constraint 
+;		 (#'(LAMBDA () (SAME-ATOM-TYPES (KM0 '|TheValue|) (KM0 '(|the| |raw-material| |of| |Self|))))))
+))
+;;       (identification-status ((#'(LAMBDA () (REACTION-IDENTIFY-ME 'Self)))))
+       (chemical-equation ((a Chemical-Equation-Expression with
+			      (term ((:seq (:set (forall (the raw-material of Self)
+							 where
+							 (has-value
+							  (the string-name of 
+							       (the atomic-chemical-formula of 
+								    (the has-basic-structural-unit of It))))
+							 (:pair
+							  ((the1 of
+								 (the value of
+								      (the coefficient of (the Reaction-Material plays of It))))
+							   or
+							   (the1 of
+								 (the value of
+								      (the coefficient of It))))
+							  ((the string-name of 
+							        (the nested-atomic-chemical-formula of 
+								     (the has-basic-structural-unit of It)))
+							   or
+							   (the string-name of 
+							        (the has-chemical-formula of 
+								     (the has-basic-structural-unit of It)))
+							   or
+							   (the string-name of 
+							        (the atomic-chemical-formula of 
+								     (the has-basic-structural-unit of It)))))))
+					   (:set (forall (the result of Self)
+							 where
+							 (has-value
+							  (the string-name of 
+							       (the atomic-chemical-formula of 
+								    (the has-basic-structural-unit of It))))
+							 (:pair
+							  ((the1 of
+								 (the value of
+								      (the coefficient of (the Reaction-Result plays of It))))
+							   or
+							   (the1 of
+								 (the value of
+								      (the coefficient of It))))
+							  ((the string-name of 
+							        (the nested-atomic-chemical-formula of 
+								     (the has-basic-structural-unit of It)))
+							   or
+							   (the string-name of 
+							        (the has-chemical-formula of 
+								     (the has-basic-structural-unit of It)))
+							   or
+							   (the string-name of 
+							        (the atomic-chemical-formula of 
+								     (the has-basic-structural-unit of It))))))))))
+			      [Reaction-balanced-chemical-equation]
+			      ))))
+      ;; Encodes L.22(C).
+      
+
+
+(every Reaction has
+  (text-result ("to form"))
+  (text-raw-material ("of"))
+
+  (text-gen ((make-sentence
+    (:seq (andify (the text-gen of (the raw-material of Self)))
+          (if ((the number of (the raw-material of Self)) > 1)
+           then "react to form"
+           else "reacts to form"
+          )
+          (andify (the text-gen of (the result of Self)))
+    )
+  )))
+
+  (text-head ((if ((#'(LAMBDA () (LENGTH (STRING (KM-UNIQUE0 '|Self|)))))
+                   > 10)
+               then (if (#'(LAMBDA () (STRING= (STRING (KM-UNIQUE0 '|Self|))
+                                               "_Reaction-"
+                                               :END1 10
+                                      )
+                        ))
+                     then "reaction"
+                     else Self
+                    )
+               else Self
+              )
+  ))
+
+  (text-base-phrase ((:seq "the reaction of"
+                           (andify (the text-def-head of (the raw-material of Self)))
+  )))
+
+  (text-phrase ((:seq (the text-base-phrase of Self)
+                      (the text-result of Self)
+                      (andify (the text-def-head of (the result of Self)))
+  )))
+
+  (text-nom-sentence (
+    (make-sentence (:seq (the text-base-phrase of Self)
+                         "produces"
+                         (andify (the text-def-head of (the result of Self)))
+    ))
+  ))
+)
+
+
+(comment [Reaction-complete-ionic-equation-1]
+  (:seq "The complete ionic equation for this reaction is therefore"
+        (the output of 
+             (a Format-Equation with 
+                (input ((the term of (the complete-ionic-equation of Self))))))
+  )
+  "The complete ionic equation of a reaction is the chemical equation with all soluble strong electrolytes shown as ions"
+  (:set (forall (the raw-material of Self) 
+                (if (It isa Strong-Electrolyte)
+                 then (:set (:triple It solubility *) 
+                            (:triple It electrolyte-status *))
+                 else (:triple It electrolyte-status *)
+                )
+        )
+        (forall (the result of Self)
+                (if (It isa Strong-Electrolyte)
+                 then (:set (:triple It solubility *) 
+                            (:triple It electrolyte-status *))
+                 else (:triple It electrolyte-status *)
+                )
+        )
+  )
+)
+
+(comment [Reaction-balanced-chemical-equation]
+	 (:seq "The balanced chemical equation of a reaction is obtained by changing the coefficients of the reaction participants so that there are equal number of atoms of each element on each side.")
+	 ""
+	 ""
+  )
+
+(Reaction has 
+     (test-case ( '(
+		    (*Na2SO4 has
+			     (instance-of (Ionic-Compound-Substance))
+			     (is-solute-of ((a Aqueous-Solution)))
+			     (has-basic-structural-unit ((a Ionic-Compound with (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 2 Na-Plus) (:pair 1 SO4-Minus-2)))))))))))
+		    
+		    (*BaCl2 has
+			    (instance-of (Ionic-Compound-Substance))
+			    (is-solute-of ((a Aqueous-Solution)))
+			    (has-basic-structural-unit ((a Ionic-Compound with (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ba-Plus-2) (:pair 2 Cl-Minus)))))))))))
+		    
+		    ;; *R is a metathesis reaction
+		    ;; should result in NaCl(aq) & BaSO4(s)
+		    (*R has
+			(instance-of (Reaction))
+			(raw-material (*Na2SO4 *BaCl2)))
+
+		    ;; test equation slot
+		    #| commented out because string generation not working properly
+		    ((forall (the elements of (the equation of *R)) (:pair (the1 of (the value of (the1 of It))) (the2 of It)))
+		     =
+		     (:set (:pair 1 "(Na)2SO4") (:pair 1 "BaCl2")
+		      (:pair 2 "NaCl") (:pair 1 "BaSO4")))
+		    |#
+
+		    ;; test complete ionic equation slot
+
+		    ;; test net ionic equation slot
+))))
+
+
+(Reaction has (wn20-synset ((:set 
+			     (:triple "chemical reaction" 0 "n")
+			     (:triple "react" 2 "v")
+			     (:triple "change" 1 "v")
+			     (:triple "convert" 11 "v")
+			     (:triple "change integrity" 1 "v")
+			     (:triple "burn" 3 "v")
+			     (:triple "burn" 7 "v")
+			     (:triple "combust" 5 "v")
+			     (:triple "incinerate" 2 "v")
+			     (:triple "ferment" 3 "v")
+			     (:triple "work" 25 "v")
+))))
+

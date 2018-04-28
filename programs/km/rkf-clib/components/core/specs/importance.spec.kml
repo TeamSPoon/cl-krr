@@ -1,0 +1,37 @@
+<!--- $Id: importance.spec.kml,v 1.2 2006/03/01 20:20:46 kbarker Exp $ --->
+<kml>
+<property-doc name=importance>
+<gpd-documentation name=Property>
+
+<from name=Thing>
+<to name=Unitless-Value>
+
+<description> 
+  The degree of prominence or noteworthiness possessed by a thing.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units <conceptref name=UoM-Unitless>
+<p>
+    <examplesentence>
+      <text>a bug with importantce rating 5</text>
+      <slotdescription name=number>5</slotdescription>
+      <slotdescription name=unit of measure>none</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>unimportant, moderately-important, important</scalars>
+<scale name=*unimportant-important-scale>unimportant..moderately-important..important</scale>
+    <p>
+    <examplesentence>
+      <text>an important meeting</text>
+      <slotdescription name=value>important</slotdescription>
+      <slotdescription name=relative to>Meeting</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>

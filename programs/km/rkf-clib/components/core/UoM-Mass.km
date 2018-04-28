@@ -1,0 +1,36 @@
+;; 
+;;    $Id: UoM-Mass.km,v 1.12 2010/01/29 18:19:48 kbarker Exp $ 
+;; 
+
+(UoM-Mass has
+ (superclasses (Unit-of-Measurement))
+ (base-unit (*kilogram))
+ (instances (*gram *kilogram *dalton *slug)))
+
+(*gram has (instance-of (UoM-Mass))
+       (name ("g"))
+       (wn20-synset ((:set (:triple "gram" 0 "n")
+			   (:triple "grams" 0 "n")
+			   (:triple "g" 0 "n")))))
+
+(*kilogram has (instance-of (UoM-Mass))
+       (name ("kg"))
+	   (wn20-synset ((:set (:triple "kilogram" 0 "n")
+			       (:triple "kilograms" 0 "n")
+			       (:triple "kg" 0 "n")))))
+
+(*dalton has (instance-of (UoM-Mass))
+       (name ("Da"))
+	  (wn20-synset ((:set (:triple "dalton" 0 "n")  
+			      (:triple "daltons" 0 "n")))))
+	 
+(*slug has (instance-of (UoM-Mass))
+       (name ("slugs"))
+       (wn20-synset ((:set (:triple "slug" 0 "n")
+			   (:triple "slugs" 0 "n")))))
+
+(*gram has (conversion-multiplier (0.001)))
+(*kilogram has (conversion-multiplier (1.0)))
+(*dalton has (conversion-multiplier (1.6605388e-27)))
+(*slug has (conversion-multiplier (14.5939029)))
+

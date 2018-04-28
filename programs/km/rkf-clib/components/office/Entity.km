@@ -1,0 +1,24 @@
+;; 
+;; $Id: Entity.km,v 1.5 2004/12/21 23:37:03 billj Exp $
+;; 
+
+;; NB: Basic information about the Entity class is defined in the 
+;; NB: core directory. This file contains only office-specific
+;; NB: "interface" info
+
+(hasCreatedDate has (instance-of (Interface-Slot)) (domain (Entity)) (range (Time-Instant)) (inverse (isCreatedDateOf)) (cardinality (N-to-1)))
+
+(every Entity has
+  (hasCreatedDate ((the time-begins of (the time-of-existence of Self))))
+  (time-of-existence ((if (has-value (the hasCreatedDate of Self))
+                       then ((a Time-Interval with
+                                (time-begins ((the hasCreatedDate of Self)))))
+  )))
+)
+
+;; this next one applies to Thing, but I'm not going to make a Thing.km
+
+(hasInstanceDisplayName has (instance-of (Interface-Slot)) (domain (Thing)) (range (String)) (cardinality (N-to-1)))
+
+(hasProvenanceRecord has (instance-of (Interface-Slot)) (domain (Thing)) (range (ProvenanceRecord)) (inverse (isProvenanceRecordOf)) (cardinality (N-to-1)))
+

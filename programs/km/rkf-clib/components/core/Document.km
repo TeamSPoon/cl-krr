@@ -1,0 +1,25 @@
+;; 
+;; $Id: Document.km,v 1.2 2005/04/08 04:17:22 jchaw Exp $
+;; 
+
+(Document has
+  (superclasses (Message))
+  (description ("a written message"))
+)
+
+;; For now, this is pretty stubby; it will be much more interesting
+;; in the context of Actions that affect it (Write, Edit, Revise, etc.)
+;; and its subclasses (Email, Form, Memorandum, Proposal, Report, etc.)
+
+(every Document has
+  (result-of ((a Write)))
+)
+
+
+(Document has (wn20-synset ((:set
+			     (:triple "document" 1 "n")	
+			     (:triple "written_document" 1 "n")	
+			     (:triple "papers" 1 "n")	
+			     (:triple "document" 2 "n")	
+			     (:triple "document" 3 "n")
+))))

@@ -1,0 +1,27 @@
+;; 
+;; $Id: Authorize.km,v 1.4 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(Authorize has
+  (superclasses (Action))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Authorize has
+       (agent ((a Entity)))
+       (is-goal-of ((a Entity)))
+       (enables ((a Authorized)))
+)
+
+
+(Authorize has (wn20-synset ((:set
+			      (:triple "authorize" 1 "v")
+			      (:triple "authorise" 2 "v")
+			      (:triple "pass" 24 "v")
+			      (:triple "clear" 4 "v")
+			      (:triple "empower" 1 "v")
+			      (:triple "authorise" 1 "v")
+			      (:triple "authorize" 2 "v")
+))))
+
+(every Authorize has (text-nominalization ("authorization")))

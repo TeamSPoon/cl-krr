@@ -1,0 +1,39 @@
+;; 
+;;    $Id: Oxidative-Phosphorylation.km,v 1.12 2005/11/11 17:33:09 kbarker Exp $ 
+;; 
+
+(Oxidative-Phosphorylation has
+;        (superclasses   (Phosphorylation Oxidation))
+; bad kludge: these two superclasses clash so arbitrarily kill one
+        (superclasses   (Oxidation))
+        (required-slot  (object base))
+        (primary-slot   (raw-material agent instrument))
+	(description	("Process in bacteria and mitochondria in which ATP
+                          formation is driven by the transfer of electrons 
+                          from food molecules to molecular oxygen.  Involves 
+                          the intermediate generation of a pH gradient across 
+                          the membrane, which drives ATP synthesis by a 
+                          chemiosmotic coupling. Alberts:ECB:G-13p")))
+
+(base has (domain (Oxidative-Phosphorylation)))
+
+(every Oxidative-Phosphorylation has  
+
+;; *** from Phosphorylation
+       (object       ((a Phosphoryl-Group)))
+       (substrate ((the Molecule base of Self)))
+       (base ((a Molecule)))
+       (instrument ((a Kinase)))   
+;; ***
+
+       (agent ((a Cell)))
+       (first-subevent ((the Oxidation subevent of Self)))
+       (subevent ((a Oxidation with
+		     (recipient ((a Oxygen-Molecule)))
+		     (next-event ((the ATP-Synthesis subevent of Self))))
+
+		  (a ATP-Synthesis)))
+
+       (text-gen ((the description of Oxidative-Phosphorylation)))
+       )
+

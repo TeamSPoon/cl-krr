@@ -1,0 +1,38 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Pb_NO3_2-Substance2887
+
+
+|#
+
+(Pb_NO3_2-Substance has (superclasses (Ionic-Compound-Substance)))
+
+;;(every Pb_NO3_2-Substance has (has-basic-structural-unit ((a Pb_NO3_2))))
+
+(_Pb_NO3_2-Substance2923 has
+  (prototype-of (Pb_NO3_2-Substance))
+  (prototype-scope (Pb_NO3_2-Substance))
+  (prototype-participants (_Solubility-Value2924 _Pb_NO3_2-Substance2923)))
+
+(_Pb_NO3_2-Substance2923 has (instance-of (Pb_NO3_2-Substance)) (solubility (_Solubility-Value2924)))
+
+(_Solubility-Value2924 has (instance-of (Solubility-Value)) (value ((:pair *soluble Chemical))))
+
+(explanation (:triple _Solubility-Value2924 value (:pair *soluble Chemical)) (((@ SME entered)) (every Pb_NO3_2-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))))
+
+(explanation (:triple _Pb_NO3_2-Substance2923 instance-of Pb_NO3_2-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value2924 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Pb_NO3_2-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+|#
+
+|#
+

@@ -1,0 +1,80 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Uracil ----------
+
+(Uracil has (superclasses (Nucleotide)))
+
+(_Uracil427 has 
+  (instance-of (Uracil))
+  (prototype-of (Uracil))
+  (prototype-scope (Uracil))
+  (prototype-participants (_Atom439
+                           _Phosphate436
+                           _Adenine435
+                           _Uracil427))
+  (prototype-participant-of (_Uracil427))
+  (has-clones (_Placeholder-Class426428))
+  (has-built-clones (_Placeholder-Class426428))
+  (has-basic-structural-unit (_Atom439))
+  (has-part (_Phosphate436))
+  (complement (_Adenine435))
+  (cloned-from (_Nucleotide337))
+  (clone-built-from (_Nucleotide337))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq complement _Adenine435 t)
+                    (:seq has-part _Phosphate436 t)
+                    (:seq has-basic-structural-unit _Atom439 f)))
+  (edge-coordinate ((:seq complement _Adenine435 225 184)
+                    (:seq has-part _Phosphate436 222 239)
+                    (:seq has-basic-structural-unit _Atom439 222 283)))
+  (node-coordinate ((:pair 88 256))))
+
+(_Atom439 has 
+  (instance-of (Atom))
+  (has-clones (_Atom430))
+  (cloned-from (_Atom347))
+  (is-basic-structural-unit-of (_Uracil427))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 372 277)))
+  (prototype-participant-of (_Uracil427)))
+
+(_Phosphate436 has 
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate431))
+  (cloned-from (_Phosphate346))
+  (is-part-of (_Uracil427))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 372 233)))
+  (prototype-participant-of (_Uracil427)))
+
+(_Adenine435 has 
+  (instance-of (Adenine))
+  (has-clones (_Adenine434))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (complement-of (_Uracil427))
+  (node-coordinate ((:pair 363 112)))
+  (prototype-participant-of (_Uracil427)))
+
+(explanation (:triple _Uracil427 has-basic-structural-unit _Atom439) ((cloned-from _Nucleotide337 _Uracil427)))
+(explanation (:triple _Uracil427 has-part _Phosphate436) ((cloned-from _Nucleotide337 _Uracil427)))
+(explanation (:triple _Uracil427 has-basic-structural-unit _Atom439) ((a Atom (@ _Uracil427 Molecule has-basic-structural-unit))))
+(explanation (:triple _Uracil427 has-part _Phosphate436) ((added-at Nucleotide "User defined")))
+(explanation (:triple _Uracil427 complement _Adenine435) ((added-at Uracil "User defined")))
+(explanation (:triple _Atom439 instance-of Atom) ((cloned-from _Nucleotide337 _Uracil427)))
+(explanation (:triple _Atom439 is-basic-structural-unit-of _Uracil427) ((cloned-from _Nucleotide337 _Uracil427)))
+(explanation (:triple _Atom439 instance-of Atom) ((a Atom (@ _Uracil427 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom439 instance-of Atom) ((a Atom)))
+(explanation (:triple _Phosphate436 instance-of Phosphate) ((cloned-from _Nucleotide337 _Uracil427)))
+(explanation (:triple _Phosphate436 is-part-of _Uracil427) ((cloned-from _Nucleotide337 _Uracil427)))
+(explanation (:triple _Phosphate436 instance-of Phosphate) ((added-at Nucleotide "User defined")))
+(explanation (:triple _Adenine435 instance-of Adenine) ((added-at Uracil "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

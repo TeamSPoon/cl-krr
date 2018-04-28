@@ -1,0 +1,31 @@
+;; 
+;;    $Id: D-TTP.km,v 1.7 2001/06/01 23:26:20 pnav Exp $
+;; 
+
+(D-TTP has
+         (superclasses (Deoxyribonucleoside-Triphosphate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Nucleoside triphosphate containing the base thymine
+                        used in the synthesis of DNA.  Souther.")) 
+         (test-case ()))
+
+(every D-TTP has
+  (has-part
+    ((a Triphosphate with
+	(object-of
+	  ((a Be-Attached-To with
+	      (object ((the Deoxythymidine has-part of Self)))
+	      (site   (((the Carbon-Atom has-part of
+                             (the Deoxyribose has-part of
+				  (the Deoxythymidine has-part of Self)))
+                    	called "Carbon-5")
+		       ((the Oxygen-Atom has-part of
+			     ((the Monophosphate has-part of
+				   (the Triphosphate has-part of Self))
+			      called "Phosphate-1"))
+			called "Oxygen-1")))
+	      (instrument ((a Covalent-CO-Bond))) ))))
+     (a Deoxythymidine))))

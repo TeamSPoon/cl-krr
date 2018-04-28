@@ -1,0 +1,15 @@
+;;
+;; $Id: scale-class.km,v 1.8 2007/04/11 21:42:43 jchaw Exp $
+;;
+
+(scale-class has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Property))
+   (range  (Scale))
+   (cardinality (N-to-N))
+   (fluent-status (*Non-Fluent))
+   (original-slot      (t))	
+) 
+
+(scale-class-of has
+   (instance-of (CLIB-Slot-Group)))

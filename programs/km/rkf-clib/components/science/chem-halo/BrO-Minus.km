@@ -1,0 +1,20 @@
+;; $Id: BrO-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(BrO-Minus has (superclasses (Anion)))
+(every BrO-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("hypobromite"))
+	(has-acid-name ("hypobromous"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Br)(:pair 1 O)))))))
+)
+
+
+(every BrO-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hypobromite"))
+)
+
+
+(BrO-Minus has (wn20-synset ((:triple "BrO-" 0 "n"))))

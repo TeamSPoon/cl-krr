@@ -1,0 +1,398 @@
+
+;;; ---------- Definition of prototype for Nuclear-envelope ----------
+
+(Nuclear-envelope has (superclasses (Membrane-Enclosure)))
+
+(_Nuclear-envelope304 has 
+  (has-clones (_Nuclear-envelope1072
+               _Nuclear-envelope1968
+               _Placeholder-Class303305
+               _Nuclear-envelope319
+               _Nuclear-envelope328
+               _Nuclear-envelope338
+               _Nuclear-envelope166
+               _Nuclear-envelope177
+               _Nuclear-envelope181
+               _Nuclear-envelope225
+               _Nuclear-envelope553
+               _Nuclear-envelope761
+               _Nuclear-envelope1595
+               _Nuclear-envelope343
+               _Nuclear-envelope362
+               _Nuclear-envelope439
+               _Nuclear-envelope497))
+  (has-built-clones (_Nuclear-envelope1072
+                     _Nuclear-envelope1968
+                     _Placeholder-Class303305
+                     _Nuclear-envelope319
+                     _Nuclear-envelope328
+                     _Nuclear-envelope338
+                     _Nuclear-envelope166
+                     _Nuclear-envelope177
+                     _Nuclear-envelope181
+                     _Nuclear-envelope225
+                     _Nuclear-envelope553
+                     _Nuclear-envelope761
+                     _Nuclear-envelope1595
+                     _Nuclear-envelope343
+                     _Nuclear-envelope362
+                     _Nuclear-envelope439
+                     _Nuclear-envelope497))
+  (instance-of (Nuclear-envelope))
+  (prototype-of (Nuclear-envelope))
+  (prototype-scope (Nuclear-envelope))
+  (prototype-participants (_Atom355
+                           _Protein354
+                           _Spatial-Entity353
+                           _Nuclear-lamina566
+                           _Property-Node189
+                           _Length-Value188
+                           _Living-Entity310
+                           _Nucleus309
+                           _Nuclear-envelope304
+                           _Spatial-Entity471
+                           _Pore472
+                           _Tangible-Entity473
+                           _Protein476
+                           _Atom477))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (is-part-of (_Living-Entity310))
+  (encloses (_Nucleus309
+             _Spatial-Entity353))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq is-inside _Nuclear-lamina566 240 536)
+                    (:seq is-outside _Nuclear-lamina566 210 549)
+                    (:seq encloses _Spatial-Entity353 251 606)
+                    (:seq encloses _Nucleus309 251 606)
+                    (:seq has-part _Tangible-Entity473 116 536)))
+  (edge-visibility ((:seq is-inside _Nuclear-lamina566 t)
+                    (:seq is-outside _Nuclear-lamina566 t)
+                    (:seq encloses _Spatial-Entity353 t)
+                    (:seq encloses _Nucleus309 t)
+                    (:seq has-part _Tangible-Entity473 t)))
+  (has-part (_Tangible-Entity473))
+  (big-nodes (_Property-Node189))
+  (is-outside (_Nuclear-lamina566))
+  (edge-documentation ((:seq has-part _Tangible-Entity473 (:seq "The two membranes of the nuclear envelope are separated by a space of 20-40 nm, except at the pores."))
+                       (:seq is-outside _Nuclear-lamina566 (:seq "The nuclear envelope is lined by a protein mesh called the nuclear lamina.")))))
+
+(_Atom355 has 
+  (instance-of (Atom))
+  (has-clones (_Atom349))
+  (cloned-from (_Atom564))
+  (is-basic-structural-unit-of (_Protein354))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 968 492)))
+  (prototype-participant-of (_Nuclear-envelope304)))
+
+(_Protein354 has 
+  (has-basic-structural-unit (_Atom355))
+  (instance-of (Protein))
+  (cloned-from (_Protein563))
+  (is-basic-structural-unit-of (_Nuclear-lamina566))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 682 492)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom355 818 498)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom355 f)))
+  (prototype-participant-of (_Nuclear-envelope304)))
+
+(_Spatial-Entity353 has 
+  (has-clones (_Thing383
+               _Thing472
+               _Thing502
+               _Spatial-Entity504
+               _Spatial-Entity505
+               _Spatial-Entity506))
+  (instance-of (Spatial-Entity))
+  (internally-expanded (t))
+  (is-inside (_Nuclear-envelope304))
+  (node-coordinate ((:pair 313 578)))
+  (edge-coordinate ((:seq is-inside _Nuclear-envelope304 496 584)))
+  (edge-visibility ((:seq is-inside _Nuclear-envelope304 f)))
+  (prototype-participant-of (_Nuclear-envelope304)))
+
+(_Nuclear-lamina566 has 
+  (has-clones (_Nuclear-lamina1074
+               _Nuclear-lamina1976
+               _Nuclear-lamina565
+               _Nuclear-lamina756
+               _Nuclear-lamina1594
+               _Nuclear-lamina348
+               _Nuclear-lamina360
+               _Nuclear-lamina431
+               _Nuclear-lamina498))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (instance-of (Nuclear-lamina))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 360 492)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq encloses _Nuclear-envelope304 598 536)
+                    (:seq has-basic-structural-unit _Protein354 532 498)))
+  (edge-visibility ((:seq encloses _Nuclear-envelope304 f)
+                    (:seq has-basic-structural-unit _Protein354 f)))
+  (has-basic-structural-unit (_Protein354))
+  (cloned-from (_Nuclear-lamina559))
+  (clone-built-from (_Nuclear-lamina559))
+  (does-not-enclose (_Nuclear-envelope304)))
+
+(_Property-Node189 has 
+  (has-clones (_Property-Node1076
+               _Property-Node2006
+               _Property-Node187
+               _Property-Node176
+               _Property-Node219
+               _Property-Node557
+               _Property-Node757
+               _Property-Node1615
+               _Property-Node347
+               _Property-Node357
+               _Property-Node400
+               _Property-Node476))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (big-node-of (_Nuclear-envelope304))
+  (contains-node (_Length-Value188))
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-edge ((:triple _Length-Value188 value (:pair 100.0 *nanometer)))))
+
+(_Length-Value188 has 
+  (has-clones (_Length-Value1067
+               _Length-Value1971
+               _Length-Value177
+               _Length-Value220
+               _Length-Value556
+               _Length-Value758
+               _Length-Value1599
+               _Length-Value346
+               _Length-Value367
+               _Length-Value436
+               _Length-Value493))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (diameter-of (_Pore472))
+  (instance-of (Length-Value))
+  (contains-node-of (_Property-Node189))
+  (internally-expanded (t))
+  (value ((:pair 100.0 *nanometer)))
+  (node-coordinate ((:pair 380 203)))
+  (node-visibility (t)))
+
+(_Living-Entity310 has 
+  (has-clones (_Living-Entity1071
+               _Living-Entity1967
+               _Living-Entity307
+               _Living-Entity320
+               _Living-Entity326
+               _Living-Entity336
+               _Living-Entity168
+               _Living-Entity181
+               _Living-Entity178
+               _Living-Entity221
+               _Living-Entity555
+               _Living-Entity759
+               _Living-Entity1603
+               _Living-Entity345
+               _Living-Entity363
+               _Living-Entity440
+               _Living-Entity489))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (has-part (_Nuclear-envelope304))
+  (instance-of (Living-Entity))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Nuclear-envelope304 -100 600)))
+  (edge-visibility ((:seq has-part _Nuclear-envelope304 f)))
+  (node-coordinate ((:pair -250 600))))
+
+(_Nucleus309 has 
+  (has-clones (_Nucleus1073
+               _Nucleus1975
+               _Nucleus317
+               _Nucleus394
+               _Nucleus395
+               _Nucleus396
+               _Nucleus167
+               _Nucleus179
+               _Nucleus180
+               _Nucleus224
+               _Nucleus554
+               _Nucleus760
+               _Nucleus1596
+               _Nucleus344
+               _Nucleus361
+               _Nucleus432
+               _Nucleus496))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (is-inside (_Nuclear-envelope304))
+  (instance-of (Nucleus
+                Physical-Object))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 401 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq is-inside _Nuclear-envelope304 451 605)))
+  (edge-visibility ((:seq is-inside _Nuclear-envelope304 f)))
+  (cloned-from (_Nucleus302))
+  (clone-built-from (_Nucleus302)))
+
+(_Spatial-Entity471 has 
+  (has-clones (_Spatial-Entity1068
+               _Spatial-Entity1972
+               _Spatial-Entity165
+               _Spatial-Entity176
+               _Spatial-Entity182
+               _Spatial-Entity226
+               _Spatial-Entity552
+               _Spatial-Entity763
+               _Spatial-Entity1600
+               _Spatial-Entity342
+               _Spatial-Entity366
+               _Spatial-Entity435
+               _Spatial-Entity492))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (location (_Pore472))
+  (instance-of (Spatial-Entity))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq location _Pore472 207 435)))
+  (edge-visibility ((:seq location _Pore472 f)))
+  (node-coordinate ((:pair 57 435))))
+
+(_Pore472 has 
+  (has-clones (_Pore1069
+               _Pore1973
+               _Pore164
+               _Pore175
+               _Pore183
+               _Pore227
+               _Pore551
+               _Pore764
+               _Pore1601
+               _Pore341
+               _Pore365
+               _Pore434
+               _Pore491))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (has-part (_Protein476))
+  (is-region-of (_Tangible-Entity473))
+  (instance-of (Pore))
+  (diameter (_Length-Value188))
+  (location-of (_Spatial-Entity471))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 265 372)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq diameter _Length-Value182 334 282)
+                    (:seq diameter _Length-Value188 322 288)
+                    (:seq has-part _Protein476 358 329)))
+  (edge-visibility ((:seq diameter _Length-Value182 t)
+                    (:seq diameter _Length-Value188 t)
+                    (:seq has-part _Protein476 t)))
+  (edge-documentation ((:seq has-part _Protein476 (:seq "The pores in the nuclear envelope are lined with proteins that form a pore complex.")))))
+
+(_Tangible-Entity473 has 
+  (has-clones (_Tangible-Entity1070
+               _Tangible-Entity1974
+               _Membrane339
+               _Tangible-Entity163
+               _Tangible-Entity174
+               _Tangible-Entity184
+               _Tangible-Entity228
+               _Tangible-Entity550
+               _Tangible-Entity765
+               _Tangible-Entity1602
+               _Tangible-Entity340
+               _Tangible-Entity364
+               _Tangible-Entity433
+               _Tangible-Entity490))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (is-part-of (_Nuclear-envelope304))
+  (instance-of (Tangible-Entity
+                Membrane))
+  (has-region (_Pore472))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 183 471)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-region _Pore472 269 423)))
+  (edge-visibility ((:seq has-region _Pore472 t)))
+  (edge-documentation ((:seq has-region _Pore472 (:seq "The two membranes of the nuclear envelope fuse together at each pore.")))))
+
+(_Protein476 has 
+  (has-clones (_Protein1065
+               _Protein1969
+               _Protein162
+               _Protein173
+               _Protein185
+               _Protein229
+               _Protein549
+               _Protein766
+               _Protein1597
+               _Protein339
+               _Protein370
+               _Protein438
+               _Protein495))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (has-basic-structural-unit (_Atom477))
+  (instance-of (Protein))
+  (is-part-of (_Pore472))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 461 279)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom477 614 285)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom477 f))))
+
+(_Atom477 has 
+  (has-clones (_Atom1066
+               _Atom1970
+               _Atom475
+               _Atom161
+               _Atom172
+               _Atom186
+               _Atom230
+               _Atom548
+               _Atom767
+               _Atom1598
+               _Atom338
+               _Atom368
+               _Atom437
+               _Atom494))
+  (prototype-participant-of (_Nuclear-envelope304))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Protein476))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 764 279))))
+
+(explanation (:triple _Nuclear-envelope304 encloses _Nucleus309) ((a Physical-Object (@ _Nuclear-envelope304 Membrane-Enclosure encloses))))
+(explanation (:triple _Nuclear-envelope304 is-part-of _Living-Entity310) ((a Living-Entity (@ _Nuclear-envelope304 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Nuclear-envelope304 has-part _Tangible-Entity473) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nuclear-envelope304 encloses _Spatial-Entity353) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nuclear-envelope304 is-outside _Nuclear-lamina566) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Atom355 instance-of Atom) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina566)))
+(explanation (:triple _Atom355 is-basic-structural-unit-of _Protein354) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina566)))
+(explanation (:triple _Atom355 instance-of Atom) ((a Atom (@ _Protein354 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein354 is-basic-structural-unit-of _Nuclear-lamina566) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina566)))
+(explanation (:triple _Protein354 has-basic-structural-unit _Atom355) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina566)))
+(explanation (:triple _Protein354 instance-of Protein) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina566)))
+(explanation (:triple _Protein354 instance-of Protein) ((added-at Nuclear-lamina "User defined")))
+(explanation (:triple _Protein354 has-basic-structural-unit _Atom355) ((a Atom (@ _Protein354 Molecule has-basic-structural-unit))))
+(explanation (:triple _Spatial-Entity353 instance-of Spatial-Entity) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nuclear-lamina566 instance-of Nuclear-lamina) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nuclear-lamina566 has-basic-structural-unit _Protein354) ((cloned-from _Nuclear-lamina559 _Nuclear-lamina566)))
+(explanation (:triple _Nuclear-lamina566 has-basic-structural-unit _Protein354) ((added-at Nuclear-lamina "User defined")))
+(explanation (:triple _Length-Value188 instance-of Length-Value) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Living-Entity310 instance-of Living-Entity) ((a Living-Entity (@ _Nuclear-envelope304 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Nucleus309 instance-of Nucleus) ((a Nucleus)))
+(explanation (:triple _Nucleus309 instance-of Nucleus) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Nucleus309 instance-of Physical-Object) ((a Physical-Object (@ _Nuclear-envelope304 Membrane-Enclosure encloses))))
+(explanation (:triple _Spatial-Entity471 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Pore472 Place location-of))))
+(explanation (:triple _Pore472 instance-of Pore) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Pore472 is-region-of _Tangible-Entity473) ((a Tangible-Entity (@ _Pore472 Region is-region-of))))
+(explanation (:triple _Pore472 location-of _Spatial-Entity471) ((a Spatial-Entity (@ _Pore472 Place location-of))))
+(explanation (:triple _Pore472 has-part _Protein476) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Pore472 diameter _Length-Value182) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Pore472 diameter _Length-Value188) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Tangible-Entity473 instance-of Membrane) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Tangible-Entity473 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Pore472 Region is-region-of))))
+(explanation (:triple _Protein476 instance-of Protein) ((added-at Nuclear-envelope "User defined")))
+(explanation (:triple _Protein476 has-basic-structural-unit _Atom477) ((a Atom (@ _Protein476 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom477 instance-of Atom) ((a Atom (@ _Protein476 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+

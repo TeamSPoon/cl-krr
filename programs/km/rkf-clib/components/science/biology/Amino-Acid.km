@@ -1,0 +1,58 @@
+;; 
+;;    $Id: Amino-Acid.km,v 1.18 2005/07/07 18:27:53 pzyeh Exp $ 
+;; 
+
+(Amino-Acid has                
+         (superclasses (Monomer))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Organic molecule containing both an amino group and a 
+                        carboxyl group.  Alpha amino acids (those in which the
+                        amino and carboxyl groups are linked to the same 
+                        carbon atom) serve as the building blocks of proteins.
+                        Alberts:ECB:G-2."))
+         (test-case ()))
+
+(every Amino-Acid has
+      (has-part (
+         (a Alpha-Carbon with
+            (object-of 
+             (
+	       (a Be-Attached-To with
+                  (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                  (instrument ((a Covalent-Bond))))
+               (a Be-Attached-To with
+                  (object ((the Carboxyl-Group has-part of Self)))
+                  (instrument ((a Covalent-CC-Bond))))
+               (a Be-Attached-To with
+                  (object ((the Amino-Group has-part of Self)))
+                  (instrument ((a Covalent-CN-Bond)))  )
+	       (a Be-Attached-To with
+                  (object ((the Hydrogen-Atom has-part of Self)))
+                  (instrument ((a Covalent-CH-Bond)))) )))
+	 
+	 (a Carboxyl-Group)
+	 (a Amino-Group)
+	 (a Hydrogen-Atom)
+	 (a Amino-Acid-Side-Chain)
+	 )))
+ 
+#| <-- Trimming for demo.
+(every Amino-Acid has
+       (text-base-phrase ((if (anonymous-instancep Self) then
+                              (:seq (the text-def-determiner of Self)
+                                    (the text-premods of Self)
+                                    (the text-head of Self))
+                           else
+                              (:seq (the text-head of Self))
+       )))
+
+       (text-phrase ((if (anonymous-instancep Self) then
+                         (:seq (the text-base-phrase of Self)
+                                 (the elements of
+                                   (the text-postmods of Self)))
+                      else (the text-base-phrase of Self))))
+)
+|#

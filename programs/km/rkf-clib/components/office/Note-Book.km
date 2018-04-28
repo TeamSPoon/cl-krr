@@ -1,0 +1,15 @@
+;;
+;; $Id: Note-Book.km,v 1.3 2005/04/14 17:50:15 jchaw Exp $
+;;
+(Note-Book has (superclasses (Artifact)))
+
+(every Note-Book has
+       (purpose ((a Container with
+		    (content ((a Message)))
+		    (in-event ((must-be-a Be-Contained)))
+		    (played-by (Self)))))
+       )
+
+(Note-Book has (wn20-synset ((:set
+  		       (:triple "notebook" 1 "n")
+))))

@@ -1,0 +1,58 @@
+
+;;
+;; $Id: Format-Equation.km,v 1.3 2008/01/19 03:14:42 tecuci Exp $
+;;
+
+;; expects input of the form (:seq <reactants> <products>)
+;; where both <reactants> and <products are of the form
+;; (:set (:pair <coeff> <text-gen of chem>) ...) 
+;; or simply (:pair <coeff> <text-gen of <chem>) for a single 
+;; reactant or product
+
+(Format-Equation has 
+		 (superclasses (Method))
+		 )
+
+(every Format-Equation has
+  (output ((if (has-value #'(LAMBDA () (VALID-EQUATION-EXPRESSIONP (KM-UNIQUE0 '(|the| |input| |of| |Self|)))))
+	       then
+	       (:seq (if ((the1 of (the first of (the1 of (the input of Self)))) 
+			  /= 1)
+			 then (:seq (the1 of (the first of (the1 of (the input of Self))))
+				    "nospace"
+				    )
+			 )
+		     (the2 of (the first of (the1 of (the input of Self))))
+		     (forall (the1 of (the input of Self))
+			     where (It /= (the first of (the1 of (the input of Self))))
+			     (:seq "+"
+                               (if ((the1 of It) /= 1)
+				   then (:seq (the1 of It) "nospace")
+				   )
+                               (the2 of It)
+			       )
+			     )
+		     
+		     "-->"
+		     
+		     (if ((the1 of (the first of (the2 of (the input of Self)))) 
+			  /= 1)
+			 then (:seq (the1 of (the first of (the2 of (the input of Self))))
+				    "nospace"
+				    )
+			 )
+		     (the2 of (the first of (the2 of (the input of Self))))
+		     (forall (the2 of (the input of Self))
+			     where (It /= (the first of (the2 of (the input of Self))))
+			     (:seq "+"
+				   (if ((the1 of It) /= 1)
+				       then (:seq (the1 of It) "nospace")
+				       )
+				   (the2 of It)
+				   ))
+	       [Format-Equation-balanced-chemical-equation]
+	       )))))
+
+(comment [Format-Equation-balanced-chemical-equation]
+	 "The balanced chemical equation of a reaction is obtained by changing the coefficients of the reaction participants so that there are equal number of atoms of each element on each side"
+  )

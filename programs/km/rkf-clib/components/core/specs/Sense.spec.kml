@@ -1,0 +1,70 @@
+<!--- $Id: Sense.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<kml>
+
+<concept name=Sense><system-documentation name=Sense>
+<superconcept name=Action>
+
+<definition>
+
+  The <slot>experiencer</slot> derives a <conceptref name=Message> 
+  from a <conceptref name=Sensation> using a sensory apparatus
+
+</definition>
+
+<comment>
+   Sense is the third and final step of <conceptref name=Convey> (which itself 
+   is a step of <conceptref name=Communicate>). For perspective, 
+   here's the overall model of convey.  First, a <conceptref name=Message>
+   is <conceptref name=Embody>'ed as a Tangible-Entity. 
+   Second, that entity, playing the role
+   of a <conceptref name=Signal>, is <conceptref name=Transmit>ed to
+   the <slot>recipient</slot>s. Finally, the signal is sensed
+   by the recipient and converted back into a message.
+</comment>
+
+<requiredslotlist>
+
+  <slotdescription name=experiencer>
+    The <conceptref name=Tangible-Entity> doing the sensing
+  </slotdescription>
+
+  <slotdescription name=object>
+    The <conceptref name=Sensation> being sensed
+  </slotdescription>
+
+  <slotdescription name=result>
+    The <conceptref name=Message> received by the experiencer
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    The sensory apparatus used in the sensing
+  </slotdescription>
+
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Jane heard a loud *bang*.</text>
+    <slotdescription name=object>sound wave</slotdescription>
+    <slotdescription name=experiencer>Jane</slotdescription>
+    <slotdescription name=message>something big is happening</slotdescription>
+    <slotdescription name=instrument>ears</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Create>
+     Create involves the creation of a new entity, while Sense
+     derives a <conceptref name=Message> from a <conceptref name=Signal>
+  </neighbor>
+
+  <neighbor name=Communicate>
+     Communicate is the transfer of information between entities
+  </neighbor>
+
+</neighborlist>
+
+</kml>

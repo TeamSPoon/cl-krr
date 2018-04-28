@@ -1,0 +1,161 @@
+
+;;
+;; $Id: Slot-Query-Viewpoint.km,v 1.14 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(Slot-Query-Viewpoint has (superclasses (Viewpoint)))
+
+(every Slot-Query-Viewpoint has
+  (viewpoint-question (
+    (make-phrase (:seq "What is the relationship between"
+                       (the text-def-head of (the2 of (the2 of (the1 of (the viewpoint-query of Self)))))
+                       "and"
+                       (the text-def-head of (the3 of (the2 of (the1 of (the viewpoint-query of Self)))))
+                       "nospace" "?"
+                 )
+    )
+  ))
+                                   
+  (viewpoint-answer ((
+    (?csltmp == (forall ?trip in (the elements of (the viewpoint-target of Self))
+                 where (((the2 of ?trip) isa Relation)
+                        and
+                        (?valphrase == (make-phrase (the text-indef-phrase of (the3 of ?trip))))
+                        and
+                        (?valphrase /= "")
+                        and
+                        (not ((:set "an entity" "an event" "a role" "an intangible-entity"
+                                    "a tangible-entity" "a spatial-entity" "a place"
+                              ) includes ?valphrase)
+                        )
+                       )
+                 (:pair (the1 of ?trip) (the2 of ?trip))
+                )
+    )
+    and
+    (?concsl == (allof ?cslpair in ?csltmp
+                 where (not (oneof ?cslpair2 in ?csltmp     ;; remove superslot pair if subslot exists
+                             where (((the1 of ?cslpair2) = (the1 of ?cslpair))
+                                    and
+                                    ((the superslots of (the2 of ?cslpair2)) includes (the2 of ?cslpair))
+                                   )
+                            )
+                       )
+    ))
+    and
+    (?i1 == (the2 of (the2 of (the1 of (the viewpoint-query of Self)))))
+    and
+    (?i2 == (the3 of (the2 of (the1 of (the viewpoint-query of Self)))))
+    and
+    (?i1-text == (the text-def-head of ?i1))
+    and
+    (?i2-text == (the text-def-head of ?i2))
+    and
+    (if (has-value ?concsl)
+     then (:seq (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                '|?i1|
+                                (CAPITALIZE (MAKE-PHRASE (KM0 '|?i1-text|)))))
+                )
+                "and"
+                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                '|?i2|
+                                (MAKE-PHRASE (KM0 '|?i2-text|))))
+                )
+                "are related in the following ways:<ul>
+"
+                (forall ?cs in ?concsl
+                 (:seq "<li>" "nospace"
+                       (make-sentence
+                          (:seq (the text-def-head of (the1 of ?cs))
+                                (if (has-value (the text-gloss of (the2 of ?cs)))
+                                 then (the text-gloss of (the2 of ?cs))
+                                 else (if (has-value (the text-slot of (the2 of ?cs)))
+                                       then (:seq "is" (the (the text-slot of (the2 of ?cs)) of (the1 of ?cs)))
+                                       else (:seq "--" (the2 of ?cs) "--")
+                                      )
+                                )
+                                (andify
+                                  (forall ?trip in (the elements of (the viewpoint-target of Self))
+                                   where (((the1 of ?trip) = (the1 of ?cs))
+                                          and
+                                          ((the2 of ?trip) = (the2 of ?cs))
+                                   )
+                                   (the text-def-head of (the3 of ?trip))
+                                  )
+                                )
+                          )
+                       )
+                       "</li>
+")
+                )
+                "</ul>
+"
+          )
+     else (:seq "Unable to find any relationship between"
+                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                '|?i1|
+                                (MAKE-PHRASE (KM0 '|?i1-text|))))
+                )
+                "and"
+                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                '|?i2|
+                                (MAKE-PHRASE (KM0 '|?i2-text|))))
+                )
+          )
+     )
+  )))
+
+#|
+  (viewpoint-detail (
+    (if (has-value (the1 of (the viewpoint-query of Self)))
+     then (if ((the1 of (the1 of (the viewpoint-query of Self))) = *slot-query)
+      then (
+        (?vq == (the1 of (the viewpoint-query of Self)))
+        and
+        (?fr == (the1 of (the2 of ?vq)))
+        and
+        (?sl == (the2 of (the2 of ?vq)))
+        and
+        (make-phrase
+          (:seq 
+                (get-justification (:triple ?fr ?sl *))
+                "<br /><br />
+"
+                "<li><b>" (the instance-of of ?fr) "nospace" ":</b>"
+                (make-sentence (
+                  (the user-description of (the instance-of of ?fr))
+                  or
+                  (the description of (the instance-of of ?fr))
+                  or
+                  (the text-definition-sentence of ?fr)
+                ))
+                "</li>
+"
+                (forall ?val in (the ?sl of ?fr)
+                        (:seq "<li>"
+                              (the text-def-head of ?fr)
+                              "is"
+                              ((the (the text-slot of ?sl) of ?fr)
+                               or "related to")
+                              (the text-def-head of ?val)
+                              "</li>
+"
+                        )
+                )
+                (get-justification (:triple ?fr instance-of *))
+                "<br />
+"
+                (forall ?val in (the ?sl of ?fr) 
+                        (:seq (get-justification (:triple ?val instance-of *))
+                              "<br />
+"
+                        )
+                )
+          ))
+        )
+    ))
+  ))
+|#
+
+)
+

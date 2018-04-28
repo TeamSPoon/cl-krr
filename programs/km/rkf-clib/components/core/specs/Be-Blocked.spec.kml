@@ -1,0 +1,59 @@
+<!--- $Id: Be-Blocked.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Blocked><system-documentation name=Be-Blocked>
+
+<superconcept name=Be-Inaccessible>
+
+<definition>
+
+  An <slot>object</slot>, which is a Place, is inaccessible.  
+  A place is put into this state by <conceptref name=Block>, and
+  removed from this state by <conceptref name=Unblock>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the Place that is blocked
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=instrument>
+    the entity causing the blockage
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>The path is blocked by the fallen tree.</text>
+     <slotdescription name=object>the path</slotdescription>
+     <slotdescription name=instrument>the fallen tree</slotdescription>
+   </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Concealed>
+      Be-Concealed applies to objects that are hidden from view.
+   </neighbor>
+
+   <neighbor name=Be-Closed>
+      Be-Closed applies to Portals which are blocked to objects moving through.
+   </neighbor>
+
+   <neighbor name=Be-Obstructed>
+      Be-Obstructed applies to objects that are restricted in movement.
+   </neighbor>
+</neighborlist>
+
+</kml>
+
+

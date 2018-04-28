@@ -1,0 +1,21 @@
+;; 
+;;  $Id: default-ka.km,v 1.5 2006/09/29 18:57:36 jchaw Exp $
+;; 
+
+(default-ka has
+  (instance-of 		  (Property))
+  (domain      		  (Acid-Role))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (inverse     		  (default-ka-of))
+  (cardinality 		  (N-to-1))
+  (scale-class         (KI-Scale))
+  (scalar-constant-class (KI-Constant))
+)
+
+(default-ka has (user-description ("Default ka value, where Ka is a quantitative descriptor for describing the strength of acids.")))
+
+(default-ka-of has (instance-of (Property)))
+

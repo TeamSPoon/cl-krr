@@ -1,0 +1,33 @@
+;; 
+;;    $Id: A-Site.km,v 1.3 2006/03/27 21:42:47 tecuci Exp $ 
+;; 
+
+;; PZY: Added for Sept 15 demo.
+;;
+;; superclass is now Region.
+;;
+(A-Site has
+         (superclasses   (Cellular-Region))
+         (required-slot  ())
+         (primary-slot   ())
+         (secondary-slot ())
+	 (description ("The site on the ribosome where the incoming amino-acyl tRNA binds."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every A-Site has
+       (text-base-phrase ((if (anonymous-instancep Self) then
+                              (:seq (the text-def-determiner of Self)
+                                    (the text-premods of Self)
+                                    (the text-head of Self))
+                           else
+                              (:seq (the text-head of Self))
+       )))
+
+       (text-phrase ((if (anonymous-instancep Self) then
+                         (:seq (the text-base-phrase of Self)
+                                 (the elements of
+                                   (the text-postmods of Self)))
+                      else (the text-base-phrase of Self))))
+)
+

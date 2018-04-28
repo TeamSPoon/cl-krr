@@ -1,0 +1,28 @@
+<kml>
+<concept name=Participant>
+<gpd-documentation name=Roles>
+
+<superconcept name=Agent-Role>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Participant>
+  <definition>
+     The <conceptref name=Role>, specifically an <conceptref name=Agent-Role> played by an <conceptref name=Entity> that
+     is particpating in an <conceptref name=Event>.
+  </definition>
+</component>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the <conceptref name=Entity> playing the <conceptref name=Role> of the <conceptref name=Agent>.
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Event> in which the <conceptref name=Entity> is playing that <conceptref name=Role>.
+   </slotdescription>
+
+</requiredslotlist>
+
+</kml>
+

@@ -1,0 +1,22 @@
+;; 
+;;    $Id: SnRNP.km,v 1.7 2001/05/19 02:50:34 souther Exp $ 
+;; 
+
+(SnRNP has
+         (superclasses (Nucleoprotein))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A nucleoprotein enzyme involved in the splicing of 
+                        mRNA.  Alberts:ECB:220"))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every SnRNP has
+;       (purpose ((a Catalyst with
+;		    (in-event ((a MRNA-Splicing))
+;			      ))))
+       (has-part ((a Protein)
+		  (a RNA-Molecule))))
+
+

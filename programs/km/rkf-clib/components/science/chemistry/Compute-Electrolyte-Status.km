@@ -1,0 +1,119 @@
+;;
+;; $Id: Compute-Electrolyte-Status.km,v 1.16 2003/02/13 19:54:19 kbarker Exp $
+;;
+
+(Compute-Electrolyte-Status has (superclasses (Method)))
+
+;;; so far this method only correctly computes the electrolyte-status
+;;; for acids and bases.  it needs to work with ionic compounds too,
+;;; which seems buggy at the moment
+
+(every Compute-Electrolyte-Status has
+       (output 
+	((if ((has-value (the input of Self))
+	      and
+	      (((the1 of (the value of (the intensity of 
+					    (the Base-Role plays of 
+						 (the input of Self)))))
+		=
+		*weak)
+	       or
+	       ((the1 of (the value of (the intensity of 
+					    (the Acid-Role plays of 
+						 (the input of Self)))))
+		=
+		*weak)))
+	     then
+	   (a Electrolyte-Status-Value with (value ((:pair *weak nil))))
+           [Compute-Electrolyte-Status-output-1]
+       )))
+       (output
+	((if ((has-value (the input of Self))
+	      and
+	      (((the1 of (the value of (the intensity of
+					    (the Base-Role plays of
+						 (the input of Self)))))
+		=
+		*strong)
+	       or
+	       ((the1 of (the value of (the intensity of 
+					    (the Acid-Role plays of 
+						 (the input of Self)))))
+		=
+		*strong)))
+	     then
+	   (a Electrolyte-Status-Value with (value ((:pair *strong nil))))
+           [Compute-Electrolyte-Status-output-2]
+       )))
+       (output
+	((if ((has-value (the input of Self))
+	      and
+	      ((the input of Self) isa Salt-Substance)
+	      and
+	      ;; has to be a soluble salt
+	      ((the1 of (the value of (the solubility of (the input of Self))))
+	       /= *insoluble)
+	      )
+	     then
+	   (a Electrolyte-Status-Value with (value ((:pair *strong nil))))
+           [Compute-Electrolyte-Status-output-3]
+       )))
+       (output
+	((if ((has-value (the input of Self))
+              and
+              ((not ((the input of Self) isa Salt-Substance))
+               or
+	       ((the1 of (the value of (the solubility of (the input of Self))))
+	        = *insoluble)
+              )
+              and
+              (not (the value of (the intensity of (the Base-Role plays of (the input of Self)))))
+              and
+              (not (the value of (the intensity of (the Acid-Role plays of (the input of Self)))))
+             )
+          then
+	   (a Electrolyte-Status-Value with (value ((:pair *non nil))))
+           [Compute-Electrolyte-Status-output-4]
+       )))
+)
+
+(comment [Compute-Electrolyte-Status-output-1]
+  (:seq (the text-gen of (the input of Self))
+        "is a weak"
+        (if ((the1 of (the value of (the intensity of (the Base-Role plays of (the input of Self)))))
+             = *weak)
+         then "base"
+         else "acid"
+        )
+        "and is therefore a weak electrolyte"
+  )
+  "Weak acids and bases are weak electrolytes"
+)
+
+(comment [Compute-Electrolyte-Status-output-2]
+  (:seq (the text-gen of (the input of Self))
+        "is a strong"
+        (if ((the1 of (the value of (the intensity of (the Base-Role plays of (the input of Self)))))
+             = *strong)
+         then "base"
+         else "acid"
+        )
+        "and is therefore a strong electrolyte"
+  )
+  "Strong acids and bases are strong electrolytes"
+)
+
+(comment [Compute-Electrolyte-Status-output-3]
+  (:seq (the text-gen of (the input of Self)) 
+        "is a soluble salt and is therefore a strong electrolyte"
+  )
+  "Soluble salts are strong electrolytes"
+)
+
+(comment [Compute-Electrolyte-Status-output-4]
+  (:seq (the text-gen of (the input of Self)) 
+        "is not an electrolyte"
+  )
+  ""
+)
+

@@ -1,0 +1,63 @@
+;; 
+;;    $Id: Add.km,v 1.21 2005/10/25 03:01:30 sdbaji Exp $ 
+;; 
+
+(Add has
+     (superclasses        (Action))
+     (required-slot       (object base))
+     (primary-slot        (agent instrument))
+     (secondary-slot      ())
+     (cmap-correspondence (
+                           (:seq agent "the adder")
+                           (:seq object "the part added.")        
+                           (:seq base "the thing to which the part is being added")
+                           (:seq instrument "instrument of the add")
+                          ))
+   #|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Add has
+	(preparatory-event ((:default
+			     (a Move with
+				(object      ((the object of Self)))
+				(destination ((the base of Self)))
+				(agent       ((the agent of Self)))
+				)))))
+
+(every Add has
+  (object      ((a Tangible-Entity)))
+  (base ((a Tangible-Entity)))
+
+  ; here we're assuming the objects are not already part of the base
+  ; (or that it doesn't matter that we re-add existing parts)
+  (add-list    ((forall (the object of Self)
+			(:triple It is-part-of (the base of Self) [Add-add-1]))))
+  )
+
+(comment [Add-add-1] (:seq (the object of Self) " is added to, and is now part of, " (the base of Self))
+	 "When something is added to a base, it becomes part of the base.")
+
+(every Add has
+  (text-active-verbseq-sg ("adds"))
+  (text-active-verbseq-pl ("add"))
+  (text-passive-verbseq-sg ("gets added"))
+  (text-passive-verbseq-pl ("get added"))
+)
+
+
+;; automatically added WN synsets
+(Add has (wn16-synset ((:set  
+                                  (:triple "add" 1 "v")
+                                  (:triple "add" 6 "v")
+                                  (:triple "include" 1 "v")
+                                  (:triple "include" 3 "v")
+))))
+
+(Add has (wn20-synset ((:set
+                                  (:triple "add" 1 "v")
+                                  (:triple "add" 6 "v")
+                                  (:triple "include" 1 "v")
+                                  (:triple "include" 3 "v")
+))))
+
+(every Add has (text-nominalization ("addition")))

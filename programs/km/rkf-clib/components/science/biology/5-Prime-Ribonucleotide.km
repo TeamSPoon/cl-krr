@@ -1,0 +1,25 @@
+;; 
+;;    $Id: 5-Prime-Ribonucleotide.km,v 1.6 2006/02/24 00:21:32 tecuci Exp $ 
+;; 
+
+(5-Prime-Ribonucleotide has
+			;; temporary hack
+			(superclasses (RNA-Sequence #|Ribonucleotide 5-Prime-Nucleotide|#))
+			(required-slot ())
+			(primary-slot ())
+			(secondary-slot ())
+			(description ("Nucleotide at the end of a RNA sequence which is connected
+                    within the sequence only at the 3' OH.  If at the end of
+                    a molecule the free 5' OH is connected to a triphosphate
+                    rather than a monophosphate.  Souther."))
+			(description ("Nucleotide at the end of a RNA-Sequence which is connected
+                    within the sequence only at the 3' Hydroxyl-Group.  If at
+                    the 5-Prime-End of a molecule the 5' Hydroxyl-Group is
+                    connected to a triphosphate rather than a monophosphate.
+                    Souther.")) 
+			(cmap-correspondence ()))
+
+(every 5-Prime-Ribonucleotide has
+       (is-part-of ((a RNA-Sequence)))
+       (has-chemical-name ("5-Prime-Ribonucleotide"))
+       )         

@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Identify-Chemical-Entity.km,v 1.4 2003/09/26 21:55:15 jfan Exp $ 
+;; 
+
+(Identify-Chemical-Entity has
+			  (superclasses (Method))
+			  (description ("given a chemical entity, specialize it into the right class if possible")))
+
+
+(every Identify-Chemical-Entity has
+       (input ((a Chemical-Entity)))
+       (output (#'(LAMBDA ()
+			  (IDENTIFY-CH-ENT-CACHED  (KM-UNIQUE0 '(|the| |input| |of| |Self|)))))))
+					    
+
+(Identify-Chemical-Entity has
+    (test-case ('(
+		  ((the output of 
+			(a Identify-Chemical-Entity with 
+			   (input ((a Chemical-Entity with 
+				      (nested-atomic-chemical-formula ((a Chemical-Formula with 
+									  (term ((:seq (:pair 1 H) 
+										       (:pair 1 S) 
+										       (:pair 4 O))))))))))))
+		   isa HSO4-Minus)))))
+

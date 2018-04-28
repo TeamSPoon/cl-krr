@@ -1,0 +1,54 @@
+<!--- $Id: time.spec.kml,v 1.3 2002/08/28 20:25:42 tecuci Exp $ --->
+
+<kml>
+
+<relation-doc name=time/time-of>
+
+
+<from name=Event>
+<to name=Time-Interval>
+
+<description> 
+   an Event occupies a particular Time-Interval
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-from>The Great Depression</ex-from> occurred in <ex-to>the 1930's</ex-to> (a Time-Interval).</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+ <neighbor name=before>
+   before asserts that one Time-Interval comes before another
+ </neighbor>
+
+ <neighbor name=during>
+   during asserts that one Time-Interval is during (completely contained
+   within) another
+ </neighbor>
+
+ <neighbor name=temporally-overlaps>
+   temporally-overlaps asserts that one Time-Interval overlaps another, 
+   but may not be completely contained within it
+ </neighbor>
+
+ <neighbor name=temporally-meets>
+   temporally-meets asserts that one Time-Interval ends as another one
+   begins
+ </neighbor>
+
+ <neighbor name=temporally-starts>
+   temporally-starts asserts that two Time-Intervals begin together
+ </neighbor>
+
+ <neighbor name=temporally-finishes>
+   temporally-finishes asserts that two Time-Intervals end together
+ </neighbor>
+
+</neighborlist>
+
+</kml>

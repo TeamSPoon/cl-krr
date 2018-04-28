@@ -1,0 +1,30 @@
+
+;; 
+;;    $Id: Lipid-Synthesis.km,v 1.9 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Lipid-Synthesis has
+	         (superclasses   (Produce Enzyme-Catalysis))
+	         (required-slot  (result))
+	         (primary-slot   (raw-material agent instrument))
+	         (description	 ("The synthesis of lipids.  Souther.")))
+
+(every Lipid-Synthesis has
+       (agent 	 ((a Cell)))
+       (location ((the location of (a Smooth-Endoplasmic-Reticulum))))
+       (result   ((a Lipid))))
+
+
+(every Lipid-Synthesis has
+       (text-argslots ((:seq result)))
+
+       (text-active-verbseq-sg ("synthesizes"))
+       (text-active-verbseq-pl ("synthesize"))
+       (text-passive-verbseq-sg ("gets synthesized"))
+       (text-passive-verbseq-pl ("get synthesized"))
+)
+
+
+
+
+(every Lipid-Synthesis has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

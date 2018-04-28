@@ -1,0 +1,18 @@
+;;
+;; $Id: CNO-Minus-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $ 
+;;
+
+(CNO-Minus-Substance has (superclasses (Anion-Substance)))
+(every CNO-Minus-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 2.86e-11 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a CNO-Minus)))
+)
+(every CNO-Minus-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a CNO-Minus))))

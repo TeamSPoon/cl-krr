@@ -1,0 +1,15 @@
+;;
+;; $Id: Optical-Resolution-Value.km,v 1.5 2005/03/11 16:17:55 kbarker Exp $
+;;
+
+
+(Optical-Resolution-Value has 
+   (superclasses (Property-Value)))
+
+(every Optical-Resolution-Value has
+   (property-slot (optical-resolution))
+   (less-than ((must-be-a Optical-Resolution-Value)))
+   (greater-than ((must-be-a Optical-Resolution-Value)))
+   (same-as ((must-be-a Optical-Resolution-Value)))
+)
+

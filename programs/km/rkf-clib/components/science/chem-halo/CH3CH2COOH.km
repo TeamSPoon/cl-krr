@@ -1,0 +1,18 @@
+;;
+;; $Id: CH3CH2COOH.km,v 1.2 2006/01/23 23:33:41 jfan Exp $
+;;
+
+(CH3CH2COOH has (superclasses (Ionic-Compound)))
+
+(every CH3CH2COOH has	
+       (has-chemical-name ("propianic acid" "propanoic acid"))
+       (has-part 
+	((a H-Plus) (a C2H5COO-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 H-Plus)
+			 (:pair 1 C2H5COO-Minus)))))))
+)(every CH3CH2COOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C2H5COO-Minus))))
+

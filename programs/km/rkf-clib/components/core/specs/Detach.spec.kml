@@ -1,0 +1,81 @@
+<!--- $Id: Detach.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<kml>
+
+<concept name=Detach><system-documentation name=Detach>
+<superconcept name=Action>
+
+<definition>
+
+  Detach an <slot>object</slot> from a <slot>base</slot> by removing 
+  the link that connects them. The detach action encodes an asymmetric 
+  detach, such as unhitching a trailer from a truck.  Therefore, a detach
+  action is described with one <slot>object</slot> (e.g. the trailer) 
+  and one <slot>base</slot> (e.g. the truck).
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    the thing that is detached from the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=base>
+    the thing that the <slot>object</slot> is detached from
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the Detach to occur
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John removed the door from its hinges.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the door</slotdescription>
+    <slotdescription name=base>the hinges</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>Fido broke his leash.</text>
+    <slotdescription name=agent>Fido</slotdescription>
+    <slotdescription name=object>Fido's leash</slotdescription>
+    <slotdescription name=base>Fido</slotdescription>
+  </examplesentence>
+  <comment>
+    i.e. Fido (the agent) caused his leash to become detached from
+    Fido (the object).
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Release> 
+     Release frees an object from its confinement in a container, whereas
+     Detach removes an attachment between two objects.
+  </neighbor>
+
+  <neighbor name=Take-Apart> 
+     Take-Apart disassembles an object by removing all of its parts from 
+     the whole.
+  </neighbor>
+
+  <neighbor name=Break-Contact>
+    An object and a base may break contact if they are merely touching.  
+    In contrast, an object and a base must be attached for them to be 
+    detached.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

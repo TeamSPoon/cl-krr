@@ -1,0 +1,31 @@
+;; $Id: CH3-Plus.km,v 1.9 2008/11/29 02:04:12 tecuci Exp $
+
+(CH3-Plus has (superclasses (Cation)))
+
+(every CH3-Plus has
+       (has-chemical-name ("methyl"))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 C)
+					  (:pair 3 H)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 C)
+					  (:pair 3 H)))))))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 C)
+					  (:pair 3 H)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair +1 *unity)))))))
+
+
+(every CH3-Plus has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 C) (:pair 3 H)))))))
+  (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 C) (:pair 3 H)))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 C) (:pair 3 H)))))))
+  (charge ((a Charge-Value with (value ((:pair 1 *unity))))))
+)
+
+(CH3-Plus has (wn20-synset ((:triple "CH3+" 0 "n") (:triple "CH_3+" 0 "n"))))

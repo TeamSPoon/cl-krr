@@ -1,0 +1,16 @@
+;;
+;; $Id: Acid-Spill.km,v 1.3 2008/05/06 18:23:40 kbarker Exp $
+;;
+
+(Acid-Spill has
+  (superclasses     (Action))
+  (user-description ("An action where acid is spilled.")))
+
+(every Acid-Spill has
+       (object ((a Acid)))
+       (treatment ((a Action with
+		      (object ((the object of Self)))
+		      (instrument ((a NaHCO3-Substance)
+				   (a Na2CO3-Substance)))))))
+
+

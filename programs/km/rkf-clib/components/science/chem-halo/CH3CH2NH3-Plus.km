@@ -1,0 +1,17 @@
+;; 
+;;    $Id: CH3CH2NH3-Plus.km,v 1.6 2008/11/29 01:35:24 tecuci Exp $
+;; 
+
+(CH3CH2NH3-Plus has (superclasses (Cation)))
+
+(every CH3CH2NH3-Plus has
+       (has-chemical-name ("ethylammonium"))
+       #|(has-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 CH3NH2)
+			 (:pair 1 NH3-Plus)))))))|#
+       (atomic-chemical-formula ((a Chemical-Formula with 
+                (term ((:seq (:pair 2 C) (:pair 8 H) (:pair 1 N)))))))
+)
+
+(CH3CH2NH3-Plus has (wn20-synset ((:triple "CH3CH2NH3+" 0 "n") (:triple "CH_3CH_2NH_3+" 0 "n"))))

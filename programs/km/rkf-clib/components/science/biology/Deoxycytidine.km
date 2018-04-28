@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Deoxycytidine.km,v 1.7 2001/06/01 23:26:27 pnav Exp $ 
+;; 
+
+(Deoxycytidine has
+	   (superclasses (Deoxyribonucleoside))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+           (description ("A nucleoside containing cytosine and deoxyribose that
+                          when joined with a monophosphate group forms one of
+                          the four nucleotides in DNA.  Souther.")) 
+	   (cmap-correspondence ()))
+
+ (every Deoxycytidine has
+        (has-part
+         ((a Cytosine with
+             (object-of
+              ((a Be-Attached-To with
+		  (object ((the Deoxyribose has-part of Self)))
+		  (instrument ((a Covalent-CN-Bond)))
+		  (site            
+		     (((the Carbon-Atom has-part of 
+			     (the Deoxyribose has-part of Self))
+		           called "Carbon-1" )
+		      ((the Nitrogen-Atom has-part of
+			      (the Cytosine has-part of Self))
+		       called "Nitrogen-1" )))
+		  ))))
+          (a Deoxyribose)
+	  )))
+
+

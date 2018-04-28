@@ -1,0 +1,17 @@
+;;
+;; $Id: Compact-Disc.km,v 1.3 2005/04/15 06:16:41 gking Exp $
+;;
+
+(Compact-Disc has 
+  (superclasses (Computer-Storage))
+  (feature-slot ((the feature-slot of Computer-Storage)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Compact-Disc))
+  ))
+)
+
+(Compact-Disc has (wn20-synset ((:set
+				 (:triple "compact_disc" 1 "n")
+				 (:triple "compact_disk" 1 "n")
+				 (:triple "CD" 4 "n")
+))))

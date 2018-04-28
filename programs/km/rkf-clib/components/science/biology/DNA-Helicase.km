@@ -1,0 +1,26 @@
+;; 
+;;    $Id: DNA-Helicase.km,v 1.10 2001/05/15 21:19:15 jfan Exp $ 
+;; 
+
+(DNA-Helicase has
+         (superclasses (DNA-Regulatory-Protein Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("An enzyme that catalyzes the separation of strands in
+                        a DNA molecule before replication. Lehninger:PBC:G-6"))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every DNA-Helicase has
+       (purpose ((a Catalyst with
+		    (in-event ((a DNA-Replication))))))
+       )
+
+;; NOTE: specialize to subevent
+
+
+
+
+
+

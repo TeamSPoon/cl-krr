@@ -1,0 +1,23 @@
+;; 
+;;    $Id: DNA-Gene-Coding-Sequence.km,v 1.7 2001/05/30 23:31:01 souther Exp $ 
+;; 
+
+(DNA-Gene-Coding-Sequence has
+         (superclasses (DNA-Coding-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (description ("Physical and functional unit of heredity, which carries
+                        information from one generation to the next.  In
+                        molecular terms, it is the entire DNA sequence -
+                        including exons, introns, and noncoding transcription
+                        control regions - necessary for production of a
+                        functional protein or RNA. (Lodish:MCB:G-7).
+                        Note: this is the definition for gene, but applies to
+                        operons as well.")) 
+          (secondary-slot ()) )
+
+(every DNA-Gene-Coding-Sequence has
+       (purpose ((a Container with
+		    (in-event ((a Genetic-Information-Storage)))
+		       )))
+       )

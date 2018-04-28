@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Peroxisome.km,v 1.17 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Peroxisome has
+         (superclasses (Organelle Subcellular-Compartment))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Small, membrane-bounded organelle that uses molecular
+                        oxygen to oxidize organic molecules.  Contains some
+                        enzymes that produce hydrogen peroxide and others that
+                        degrade hydrogen peroxide. Alberts:ECB:G-14."))
+         (test-case ()))
+
+(every Peroxisome has  
+       (purpose ((a Container with
+		    (in-event ((a Be-Contained with
+				  (content ((a Aggregate with
+
+					       (element-type (Peroxidase)))
+					   )))))))))
+				  
+
+
+

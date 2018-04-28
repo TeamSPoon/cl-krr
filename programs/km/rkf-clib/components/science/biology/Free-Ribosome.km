@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Free-Ribosome.km,v 1.11 2001/05/23 21:10:06 jfan Exp $ 
+;; 
+
+(Free-Ribosome has
+         (superclasses (Ribosome))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("Ribosomes that are free in the cytoplasm.  Souther."))
+         (test-case ()))
+
+(every Free-Ribosome has
+  (is-inside ((a Cytoplasm)))
+  (object-of
+   ((mustnt-be-a ((a Be-Attached-To with
+		     ((object ((a Endoplasmic-Reticulum)))))))))
+  )
+
+;;; seems awkward

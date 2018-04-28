@@ -1,0 +1,23 @@
+;;
+;; $Id: NH4NO3.km,v 1.5 2006/01/28 06:09:14 jfan Exp $
+;;
+
+(NH4NO3 has (superclasses (Salt)))
+
+(every NH4NO3 has
+       (has-chemical-name ("ammonium nitrate"))
+       (has-part ((a NH4-Plus)
+		  (a NO3-Minus)))
+       
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 NH4-Plus)
+					      (:pair 1 NO3-Minus))))))
+			     )
+       )
+
+
+(every NH4NO3 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("ammonium nitrate"))
+)

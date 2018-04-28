@@ -1,0 +1,16 @@
+;;
+;; $Id: Electrolyte-Entity.km,v 1.4 2008/10/29 22:23:35 tecuci Exp $
+;;
+
+(Electrolyte-Entity has
+  (superclasses (Chemical-Entity)))
+
+(Electrolyte-Entity has
+  (user-description ("An electrolyte is a solute that produces ions in solution; an electrolytic solution conducts an electric current.")))
+
+#|
+
+(every Electrolyte-Entity has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Anion) (a Cation))))
+|#

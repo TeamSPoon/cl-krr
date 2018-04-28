@@ -1,0 +1,17 @@
+;;
+;; $Id: ComputerPeripheral.km,v 1.5 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(ComputerPeripheral has 
+  (superclasses (Computer-Equipment)))
+
+
+(ComputerPeripheral has (wn20-synset ((:set
+				       (:triple "peripheral" 1 "n")
+				       (:triple "computer_peripheral" 1 "n")
+				       (:triple "peripheral_device" 1 "n")
+))))
+(ComputerPeripheral has
+  (feature-slot ((the feature-slot of Computer-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = ComputerPeripheral)))))
+

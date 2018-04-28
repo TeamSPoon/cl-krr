@@ -1,0 +1,19 @@
+;;
+;; $Id: K2CO3.km,v 1.6 2008/11/25 21:14:36 tecuci Exp $
+;;
+
+(K2CO3 has (superclasses (Ionic-Compound)))
+
+(every K2CO3 has	
+       (has-chemical-name ("potassium carbonate"))
+       (has-part 
+	((a K-Plus) (a CO3-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 K-Plus)
+		    (:pair 1 CO3-Minus-2))))))))
+(every K2CO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a K-Plus) (a CO3-Minus-2))))
+

@@ -1,0 +1,30 @@
+<!--- $Id: Deceive.doc.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Deceive>
+<superconcept name=Lie>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Deceive>
+  <definition>The expression of information which has a <conceptref name=Truth-Value> of false that is interpreted by the <slot> recipient <slot> </definition>
+  <requiredslot name=agent>
+    <inheritedfrom name=Express>
+    <restriction>The <slot> agent </slot> must know the <slot> object </slot> of the Deceive</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Express>
+    <restriction>Must be some information you are lying about</restriction>
+  </requiredslot>
+  <requiredslot name=recipient>
+  </requiredslot>
+
+  <wnsynsets><verb>deceive#1, deceive#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>lead-on#2, delude#1, cozen#1, betray#6, lead-astray#3
+  </verb></wnsynsets>
+</component>
+</kml>
+
+

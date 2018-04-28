@@ -1,0 +1,98 @@
+;; 
+;;    $Id: Pyrimidine.km,v 1.17 2001/06/01 23:51:27 pnav Exp $ 
+;; 
+
+(Pyrimidine has
+         (superclasses (Heterocyclic-Compound Nitrogenous-Base))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A nitrogenous compound containing one heterocyclic 
+                        ring.  Two pyrimidines, cytosine and thymine, are
+                        commonly found in DNA.   Lodish:MCB:G-14.")) 
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Pyrimidine has                                   
+       (complement ((must-be-a Purine)))
+       (has-part 
+	(   
+	 (a Nitrogen-Atom uniquely-called "Nitrogen-1" with 
+	    (object-of 
+	     (
+	      (a Be-Attached-To uniquely-called "C2-N1" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C6-N1" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-6")))
+		 (instrument 	((a Conjugated-Double-Bond)))) )))
+     
+	 (a Carbon-Atom uniquely-called "Carbon-2" with 
+            (object-of
+             (         
+	      (a Be-Attached-To uniquely-called "C2-N1" with 
+		 (object 	(((the has-part of Self) uniquely-called "Nitrogen-1")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C2-N3" with
+		 (object 	(((the has-part of Self) uniquely-called "Nitrogen-3")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C2-H" with
+		 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen")))
+		 (instrument 	((a Covalent-CH-Bond)))))))
+
+	 (a Nitrogen-Atom uniquely-called "Nitrogen-3" with 
+            (object-of
+             (         
+	      (a Be-Attached-To uniquely-called "C2-N3" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C4-N3" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+		 (instrument 	((a Conjugated-Double-Bond))) ))))
+
+	 (a Carbon-Atom uniquely-called "Carbon-4" with 
+            (object-of
+             (         
+	      (a Be-Attached-To uniquely-called "C4-N3" with
+		 (object 	(((the has-part of Self) uniquely-called "Nitrogen-3")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C4-C5" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C4-H" with
+		 (object 	(((the has-part of Self) uniquely-called "C4-Hydrogen")))
+		 (instrument 	((a Covalent-CH-Bond))) ) )))
+	 
+	 (a Carbon-Atom uniquely-called "Carbon-5" with
+            (object-of
+             (         
+	      (a Be-Attached-To uniquely-called "C4-C5" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C5-C6" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-6")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C5-H" with
+		 (object 	(((the has-part of Self) uniquely-called "C5-Hydrogen")))
+		 (instrument 	((a Covalent-CH-Bond))) ) )))
+	     
+	 (a Carbon-Atom uniquely-called "Carbon-6" with
+            (object-of
+             (             
+	      (a Be-Attached-To uniquely-called "C5-C6" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C6-N1" with
+		 (object 	(((the has-part of Self) uniquely-called "Nitrogen-1")))
+		 (instrument 	((a Conjugated-Double-Bond))) )
+	      (a Be-Attached-To uniquely-called "C6-H" with
+		 (object 	(((the has-part of Self) uniquely-called "C6-Hydrogen")))
+		 (instrument 	((a Covalent-CH-Bond))) ) )))
+
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C5-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C6-Hydrogen")
+ )))
+
+
+

@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Amoeboid-Cell-Locomotion.km,v 1.11 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Amoeboid-Cell-Locomotion has
+            (superclasses (Locomotion))
+            (required-slot       (agent))
+            (primary-slot        (object))
+	    (description ("The finger-like locomotion of a cell caused by the
+                           projection and retraction of internal actin 
+                           filaments.  Souther."))
+	    )
+
+(every Amoeboid-Cell-Locomotion has 
+       (agent ((a Cell)))
+       (object ((a Cell)))
+       (instrument ((a Aggregate called "actin filament bundles" with
+
+		       (element-type (Actin-Filament)))))
+       )
+
+
+(every Amoeboid-Cell-Locomotion has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

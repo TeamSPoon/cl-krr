@@ -1,0 +1,49 @@
+;; 
+;;    $Id: UoM-Angle.km,v 1.8 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Angle has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*degree))
+ (instances (*degree *radian *grad *arcminute *arcsecond))
+)
+
+(*degree has (instance-of (UoM-Angle))
+             (name ("deg"))
+	      (wn20-synset ((:set  (:triple "degree" 0 "n")
+				   (:triple "degrees" 0 "n")
+				   ;;(:triple "°" 0 "n")
+				   ))))
+
+(*radian has (instance-of (UoM-Angle))
+             (name ("rad"))
+	      (wn20-synset ((:set (:triple "radian" 0 "n")
+				  (:triple "radians" 0 "n")
+				  (:triple "rad" 0 "n")))))
+
+(*grad has (instance-of (UoM-Angle))
+           (name ("grad"))
+	    (wn20-synset ((:set (:triple "grad" 0 "n")
+				(:triple "grads" 0 "n")))))
+
+(*arcminute has (instance-of (UoM-Angle))
+                (name ("arcmin"))
+		 (wn20-synset ((:set (:triple "arcminute" 0 "n")
+				     (:triple "arcminutes" 0 "n")
+				     (:triple "arcmin" 0 "n")
+				     ;;(:triple "'" 0 "n")
+				     ))))
+
+(*arcsecond has (instance-of (UoM-Angle))
+                (name ("arcsec"))
+		 (wn20-synset ((:set  (:triple "arcsecond" 0 "n")
+				      (:triple "arcseconds" 0 "n")
+				      (:triple "arcs" 0 "n")
+				      ;;(:triple "''" 0 "n")
+				      ))))
+
+(*degree has (conversion-multiplier (1.0)))
+(*radian has (conversion-multiplier (57.29578)))
+(*grad has (conversion-multiplier (0.90000004)))
+(*arcminute has (conversion-multiplier (0.016666668)))
+(*arcsecond has (conversion-multiplier (2.7777778e-4)))

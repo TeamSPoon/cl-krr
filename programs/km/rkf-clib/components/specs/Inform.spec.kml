@@ -1,0 +1,53 @@
+<!--- $Id: Inform.spec.kml,v 1.2 2003/09/02 21:12:59 jfan Exp $ --->
+
+<kml>
+
+<concept name=Inform><system-documentation name=Inform>
+<superconcept name=Express>
+
+<definition>
+  	
+  An <conceptref name=Express> with a required <slot>recipient</slot>
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the <conceptref name=Information> that the <slot>agent</slot> gives.
+  </slotdescription>
+  
+  <slotdescription name=recipient>
+     the <conceptref name=Tangible-Entity> that receives the information. 
+  </slotdescription>
+
+  <slotdescription name=agent>
+     the <conceptref name=Tangible-Entity> that gives the information. 
+  </slotdescription>
+	
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Margaretha informed Blommie that it was getting late.</text>
+    <slotdescription name=agent>Margaretha</slotdescription>
+    <slotdescription name=recipient>Blommie</slotdescription>
+    <slotdescription name=object>that it was getting late</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Teach>
+    The Teach action informs the recipient of some <conceptref name=Information>, but about something that the recipient didn't know before. Also it assumes a <conceptref name=Teacher>-<conceptref name=Pupil> relation.
+  </neighbor>
+<neighbor name=Deceive>
+    The Deceive action expresses information to the recipient, but the information is false.
+  </neighbor>
+</neighborlist>
+
+</kml>
+
+
+

@@ -1,0 +1,15 @@
+;; 
+;; $Id: feature-slot.km,v 1.4 2007/04/10 21:29:48 jchaw Exp $
+;; 
+
+(feature-slot has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Thing))
+  (range (Slot))
+  (fluent-status (*Non-Fluent))
+  (cardinality (N-to-N))
+  (original-slot      (t))	
+)
+
+(feature-slot-of has
+   (instance-of (CLIB-Slot-Group)))

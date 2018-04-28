@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Suppress.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Suppress 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+ 
+  causes: Decrease with 
+                      property: Combat-Strength of M-U object of Self 
+                      new-value: less-than value of Combat-Strength necessary-for Combat 
+                      duration: equals duration of Self  
+ 
+Note: prevention only for duration of Suppress action.               
+ 
+Suppress (E). 
+========. 
+1. Suppress is a tactical mission task that results in the temporary degradation of the performance of a force or weapon system below the level needed to accomplish its mission. 
+2. It occurs when a commander employs direct or indirect lethal fires, offensive information operations, or smoke on enemy personnel, weapons, and equipment to prevent or degrade enemy fires, sensors, and visual observation of friendly forces. 
+3. As opposed to the neutralization task, the original target regains its effectiveness without needing to reconstitute once the effects of the systems involved in the suppression effort lift or shift to another target. 

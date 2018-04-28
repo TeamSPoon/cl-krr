@@ -1,0 +1,52 @@
+;; 
+;;    $Id: Be-Contained.km,v 1.14 2004/07/20 22:28:55 gking Exp $ 
+;; 
+
+(Be-Contained has
+	      (superclasses (State))
+	      (required-slot (object))
+	      (primary-slot ())
+	      (secondary-slot ())
+	      (caused-by-class (Move-Into))
+	      (defeated-by-class (Move-Out-Of))
+	      (cmap-correspondence ())
+	      (test-case ()))
+
+(every Be-Contained has
+	(object ((a Tangible-Entity)))
+	(base ((a Tangible-Entity)))
+	(origin ((a Spatial-Entity)))
+	(destination ((a Spatial-Entity))) 
+	(resulting-state-of ((must-be-a Move-Into with 
+				(object ((the object of Self)))
+				(base ((the base of Self)))
+	)))
+ 	(defeated-by ((must-be-a Move-Out-Of with 
+				(object ((the object of Self)))
+				(base ((the base of Self)))
+	)))
+)
+
+
+(every Be-Contained has
+   (text-particle ("contained"))
+)
+
+
+
+
+
+;; automatically added WN synsets
+(Be-Contained has (wn16-synset ((:set  
+                                           (:triple "contain" 2 "v")
+                                           (:triple "bear" 7 "v")
+                                           (:triple "carry" 7 "v")
+                                           (:triple "hold" 9 "v")
+))))
+
+(Be-Contained has (wn20-synset ((:set
+                                           (:triple "contain" 2 "v")
+                                           (:triple "bear" 7 "v")
+                                           (:triple "carry" 7 "v")
+                                           (:triple "hold" 8 "v")
+))))

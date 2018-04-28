@@ -1,0 +1,16 @@
+;;
+;; $Id: H.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(H has (superclasses (Non-Metal-Atom IA-Alkali-Metal-Element)))
+(every H has
+       (atomic-symbol (H))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 1 NIL))))))
+       (has-ion ((a H-Plus)(a H-Minus)))
+       (chemical-period (1)))
+
+(every H has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen"))
+)

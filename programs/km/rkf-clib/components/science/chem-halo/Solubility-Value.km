@@ -1,0 +1,16 @@
+
+;;
+;; $Id: Solubility-Value.km,v 1.2 2007/05/21 04:43:14 mrglass Exp $
+;;
+
+
+(Solubility-Value has 
+       (superclasses (Property-Value)))
+
+(every Solubility-Value has
+  (property-slot (solubility))
+   (solubility-of ((must-be-a Chemical)))
+   (same-as ((must-be-a Solubility-Value)))
+)
+
+(Solubility-Value has (description ("The solubility of a Chemical")))

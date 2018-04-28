@@ -1,0 +1,16 @@
+;;
+;; $Id: Ba.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Ba has (superclasses (Metal-Atom IIA-Alkaline-Earth-Metal-Element)))
+(every Ba has
+       (atomic-symbol (Ba))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 56 NIL))))))
+       (has-ion ((a Ba-Plus-2)))
+       (chemical-period (6)))
+
+(every Ba has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("barium"))
+)

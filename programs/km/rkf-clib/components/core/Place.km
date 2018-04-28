@@ -1,0 +1,53 @@
+;; 
+;;    $Id: Place.km,v 1.11 2005/04/10 18:48:30 gking Exp $ 
+;; 
+
+(Place has
+       (superclasses (Spatial-Entity))
+       (required-slot ())
+       (primary-slot ())
+       (secondary-slot ())
+       (cmap-correspondence ())
+       (test-case ()))
+
+;; see Spatial-Entity.km for partition:
+;;   (a Partition with (members (Tangible-Entity Place)))
+
+(every Place has
+       (location ((exactly 0 Place)))
+
+       (is-near ((forall (the location-of of Self) (the is-near of It))))
+       (abuts ((forall (the location-of of Self) (the abuts of It))))
+       (is-above ((forall (the location-of of Self) (the is-above of It))))
+       (is-below ((forall (the location-of of Self) (the is-below of It))))
+       (is-along ((forall (the location-of of Self) (the is-along of It))))
+       (is-at ((forall (the location-of of Self) (the is-at of It))))
+       (is-at-of ((forall (the location-of of Self) (the is-at-of of It))))
+       (is-beside ((forall (the location-of of Self) (the is-beside of It))))
+       (is-between ((forall (the location-of of Self) (the is-between of It))))
+       (is-behind ((forall (the location-of of Self) (the is-behind of It))))
+       (is-in-front-of ((forall (the location-of of Self) (the is-in-front-of of It))))
+       (is-inside ((forall (the location-of of Self) (the is-inside of It))))
+       (encloses ((forall (the location-of of Self) (the encloses of It))))
+       (is-on ((forall (the location-of of Self) (the is-on of It))))
+       (has-on-it ((forall (the location-of of Self) (the has-on-it of It))))
+       (is-opposite ((forall (the location-of of Self) (the is-opposite of It))))
+       (is-outside ((forall (the location-of of Self) (the is-outside of It))))
+       (does-not-enclose ((forall (the location-of of Self) (the does-not-enclose of It))))
+       (is-over ((forall (the location-of of Self) (the is-over of It))))
+       (is-under ((forall (the location-of of Self) (the is-under of It))))
+)
+
+(Place has (wn20-synset ((:set
+			  (:triple "location" 1 "n")
+))))
+
+
+
+
+
+
+
+
+
+

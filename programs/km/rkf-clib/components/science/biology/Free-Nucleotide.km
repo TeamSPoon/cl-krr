@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Free-Nucleotide.km,v 1.11 2001/08/08 01:54:32 kbarker Exp $ 
+;; 
+
+(Free-Nucleotide has
+         (superclasses (Free-Nucleotide-Sequence Nucleotide))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A nucleotide which is not part of DNA or RNA, and is
+                        free in the medium.  Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Free-Nucleotide has
+       (object-of
+	((mustnt-be-a Be-Attached-To with
+		      (object ((a Nucleotide-Sequence))))
+	 (mustnt-be-a Be-Attached-To with
+		      (object ((a Nucleotide))))))
+       )

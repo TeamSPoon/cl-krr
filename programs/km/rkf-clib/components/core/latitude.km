@@ -1,0 +1,25 @@
+;; 
+;; $Id: latitude.km,v 1.8 2007/04/11 21:23:40 jchaw Exp $
+;; 
+
+(latitude has
+   (instance-of (EntityProperty))
+   (superslots  ())
+   (subslots    ())
+   (domain      (Spatial-Entity))
+   (range       (Angle-Value))
+   (scalar-constant-class (Latitude-Constant))
+   (cardinal-unit-class   (UoM-Angle))
+   (inverse     (latitude-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1))
+)
+
+(latitude has (wn20-synset ((:set
+                               (:triple "latitude" 1 "n")
+))))
+
+(latitude-of has
+	(instance-of (EntityProperty)))

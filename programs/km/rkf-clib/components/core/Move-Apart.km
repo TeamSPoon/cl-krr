@@ -1,0 +1,131 @@
+;; 
+;;    $Id: Move-Apart.km,v 1.22 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Move-Apart has
+  (superclasses        (Action))
+  (required-slot       (object origin))
+  (primary-slot        (agent subevent))
+  (cmap-correspondence (
+			(:seq object "the things being moved apart")
+			(:seq agent "the doer")
+			(:seq origin "starting point")
+			(:seq subevent "subevents")
+		       ))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Move-Apart has
+  (object         ((at-least 2 Tangible-Entity)
+                   (a Tangible-Entity)
+                   (a Tangible-Entity)))
+  (origin         ((a Spatial-Entity)))
+  (soft-pcs-list (
+		  (forall (the object of Self) where t
+			  (forall2 (the object of Self) where (It2 /= It)
+				   (:triple It
+					    is-at
+					    It2)))))
+  ;; The subevents of this scenario.
+  (first-subevent ((the subevent of Self)))
+  (subevent       ((forall (the object of Self)
+                     (a Move with
+                        (object (It))
+                        (origin ((the origin of Self)))
+			(path ((if (has-value (the path of Self)) 
+				   then
+				   (the path of Self))))
+			(away-from ((if (has-value (the away-from of Self)) 
+					then
+					(the away-from of Self))))
+			(toward ((if (has-value (the toward of Self)) 
+				     then
+				     (the toward of Self))))
+			(destination ((if (has-value 
+					   (the destination of Self)) 
+					  then
+					  (the destination of Self))))
+			)))))
+
+(every Move-Apart has
+  (text-active-verbseq-sg ("causes to move apart"))
+  (text-active-verbseq-pl ("cause to move apart"))
+  (text-passive-verbseq-sg ("moves apart"))
+  (text-passive-verbseq-pl ("move apart"))
+)
+
+
+(Move-Apart has 
+  (test-case ( '(
+		 (*Blue-Cow    has (instance-of (Living-Entity)))
+		 (*Purple-Cow  has (instance-of (Living-Entity)))
+		 (*Farmer-Bill has (instance-of (Living-Entity)))
+		 (*Prairie     has (instance-of (Place)))
+		
+		 (*Blue-Cow   has (location (*Prairie)))
+		 (*Purple-Cow has (location (*Prairie)))
+                            
+		 ;; *Purple-Cow and *Blue-Cow dispersed from the *Prairie
+		 (a Move-Apart with
+		    (object  (*Blue-Cow *Purple-Cow))
+		    (agent   (*Farmer-Bill))	
+		    (origin  (*Prairie)))
+		 (do-script (thelast Move-Apart))
+
+		 ;; Test1: *Blue-Cow is not at the *Prairie
+		 ((the location of *Blue-Cow) /= *Prairie)
+
+		 ;; Test2: *Purple-Cow is not at the *Prairie
+		 ((the location of *Purple-Cow) /= *Prairie)
+
+		 ;; Test3: Each subevent was a move from 
+		 ;;	   involing the object.
+		 (forall (the subevent of (thelast Move-Apart))
+		    ((It isa Move) and
+		     ((:set *Blue-Cow *Purple-Cow) includes 
+                      (the object of It)))) 
+
+                 (new-situation)
+                 (*me has (instance-of (Living-Entity))
+                          (is-near (*my-brother *my-sister *the-folks)))
+                 (*my-brother has (instance-of (Living-Entity))
+                          (is-near (*me *my-sister *the-folks)))
+                 (*my-sister has (instance-of (Living-Entity))
+                          (is-near (*my-brother *me *the-folks)))
+                 (*the-folks has (instance-of (Living-Entity)))
+
+                 (a Move-Apart with
+                    (object (*me *my-brother *my-sister))
+                    (origin (*the-folks)))
+		 (do-script (thelast Move-Apart))
+
+                 (not ((the is-near of *me) includes *my-brother))
+                 (not ((the is-near of *me) includes *my-sister))
+                 (not ((the is-near of *me) includes *the-folks))
+                 (not ((the is-near of *my-brother) includes *me))
+                 (not ((the is-near of *my-brother) includes *my-sister))
+                 (not ((the is-near of *my-brother) includes *the-folks))
+                 (not ((the is-near of *my-sister) includes *my-brother))
+                 (not ((the is-near of *my-sister) includes *me))
+                 (not ((the is-near of *my-sister) includes *the-folks))
+
+		)))
+)
+
+
+
+;; automatically added WN synsets
+(Move-Apart has (wn16-synset ((:set  
+                                         (:triple "separate" 2 "v")
+                                         (:triple "disunite" 2 "v")
+                                         (:triple "divide" 5 "v")
+                                         (:triple "part" 5 "v")
+))))
+
+(Move-Apart has (wn20-synset ((:set
+                                         (:triple "separate" 2 "v")
+                                         (:triple "disunite" 2 "v")
+                                         (:triple "divide" 5 "v")
+                                         (:triple "part" 5 "v")
+))))
+(every Move-Apart has (text-nominalization ("moving")))

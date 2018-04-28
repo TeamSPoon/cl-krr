@@ -1,0 +1,124 @@
+;;
+;;  $Id: Interpret.km,v 1.14 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(Interpret has
+        (superclasses   (Action))
+        (required-slot  (agent object))
+        (primary-slot   ())
+        (secondary-slot ())
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Interpret has
+  (agent ((a Tangible-Entity)))
+  (object ((a Message)))
+  (result ((the Information object of        ;; magic link to expressed info
+                (the result-of of
+                     (the object of Self))))
+  )
+  (resulting-state ((a Be-Known)))
+
+  (add-list ((:triple
+	      (the resulting-state of Self)
+      	      object
+ 	      (the result of Self) [Interpret-add-1])
+	     (:triple 
+	      (the resulting-state of Self)
+      	      experiencer
+	      (the agent of Self) [Interpret-add-2])
+	    ))
+)
+  
+(comment [Interpret-add-1] (:seq (the object of Self) " is interpreted.")
+   "An interpret causes some information to be known.")
+    
+(comment [Interpret-add-2] (:seq (the agent of Self) " interprets.")
+   "Some information becomes known to some entity.")
+
+
+  
+#|
+(every Interpret has
+  (text-active-verbseq-sg ("interprets"))
+  (text-active-verbseq-pl ("interpret"))
+
+  (text-subj ((if (has-value (the agent of Self))
+               then (the agent of Self)
+               else (if (has-value (the instrument of Self))
+                     then (the instrument of Self)
+                     else (the recipient of Self)))))
+
+  (text-argslots ((:seq donor instrument)))        ; recipient will be subj
+
+  (text-active-sentence (
+     (:seq (if ((the text-subj of Self) /= (the recipient of Self))
+            then (:seq
+                    (the text-subj-phrase of Self)
+                    (if ((the number of (the text-subj of Self)) = 1)
+                     then ("causes")
+                     else ("cause"))
+                    (andify (the text-phrase of (the recipient of Self)))
+                    ("to")
+                    (the text-active-verbseq-pl of Self)
+                 )
+            else (:seq
+                    (the text-subj-phrase of Self)
+                    (the text-active-phrase of Self)
+                 ))
+           (the text-dobj-phrase of Self)
+           (the text-arguments of Self)
+  )))
+)
+|#
+
+;; nothing extra to say about contextual info
+
+(Interpret has 
+ (test-case ('( 
+       	       (*Tale has
+		(instance-of (Information)))
+	       (*Bubba has
+		(instance-of (Tangible-Entity)))
+	       
+	       ;; *Bubba interprets *Tale
+               (*AnExpress has
+                (instance-of (Express))
+                (object (*Tale))
+               )
+	       (*AnInterpret has
+   		(instance-of (Interpret))
+		(agent   (*Bubba))
+		(object  ((the result of *AnExpress)))
+               )
+	       (do-and-next *AnInterpret)
+	       
+	       ;; Test 1: *Bubba now knows *Tale
+	       ((the object of (the resulting-state of *AnInterpret)) = *Tale)
+	       
+	       ;; Test 2: *Bubba know *Tale
+	       ((the experiencer of (the resulting-state of *AnInterpret)) = *Bubba)
+	      )))
+)
+
+
+
+
+
+
+;; automatically added WN synsets
+(Interpret has (wn16-synset ((:set  
+                                        (:triple "interpret" 1 "v")
+                                        (:triple "interpret" 6 "v")
+                                        (:triple "understand" 1 "v")
+                                        (:triple "understand" 3 "v")
+))))
+
+
+(Interpret has (wn20-synset ((:set
+                                        (:triple "interpret" 1 "v")
+                                        (:triple "interpret" 6 "v")
+                                        (:triple "understand" 1 "v")
+                                        (:triple "understand" 3 "v")
+))))
+(every Interpret has (text-nominalization ("interpreting")))

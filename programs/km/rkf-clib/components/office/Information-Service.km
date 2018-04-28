@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Information-Service.km,v 1.1 2005/08/25 01:47:26 billj Exp $
+;;
+
+; IRIS_class: InformationService
+
+;; a Service offering information
+(Information-Service has (superclasses (Service)))
+
+(every Information-Service has
+       (object ((a Information)))
+       (subevent ((a Communicate with
+		     (donor ((the donor of Self)))
+		     (recipient ((the recipient of Self)))
+		     (object ((the object of Self)))))))
+
+;; stubby

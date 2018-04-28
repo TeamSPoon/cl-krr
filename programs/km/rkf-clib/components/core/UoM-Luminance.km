@@ -1,0 +1,59 @@
+;; 
+;; $Id: UoM-Luminance.km,v 1.9 2010/01/29 18:24:38 kbarker Exp $
+;; 
+
+(UoM-Luminance has
+  (superclasses (Unit-of-Measurement))
+  (base-unit (*candela-per-meter-squared))
+  (instances (*nit *lambert *footlambert *millilambert *stilb *candela-per-meter-squared *candela-per-foot-squared *candela-per-centimeter-squared)))
+
+(*nit has (instance-of (UoM-Luminance))
+      (name ("nits"))
+      (wn20-synset ((:set (:triple "nit" 0 "n")
+			  (:triple "nits" 0 "n")))))
+
+(*lambert has (instance-of (UoM-Luminance))
+      (name ("L"))
+      (wn20-synset ((:set (:triple "lambert" 0 "n")
+			  (:triple "lamberts" 0 "n")))))
+
+(*footlambert has (instance-of (UoM-Luminance))
+      (name ("fL"))
+      (wn20-synset ((:set (:triple "footlambert" 0 "n")
+			  (:triple "footlamberts" 0 "n")))))
+
+(*millilambert has (instance-of (UoM-Luminance))
+      (name ("mL"))
+      (wn20-synset ((:set (:triple "millilambert" 0 "n")
+			  (:triple "millilamberts" 0 "n")))))
+
+(*stilb has (instance-of (UoM-Luminance))
+      (name ("stilbs"))
+      (wn20-synset ((:set  (:triple "stilb" 0 "n")
+			   (:triple "stilbs" 0 "n")))))
+
+(*candela-per-meter-squared has (instance-of (UoM-Luminance))
+      (name ("cd/m^2"))
+      (wn20-synset ((:set  (:triple "candela per meter squared" 0 "n")
+			   (:triple "candelas per meter squared" 0 "n")))))
+
+(*candela-per-foot-squared has (instance-of (UoM-Luminance))
+      (name ("cd/ft^2"))
+      (wn20-synset ((:set  (:triple "candela per foot squared" 0 "n")
+			   (:triple "candelas per foot squared" 0 "n")))))
+
+(*candela-per-centimeter-squared has (instance-of (UoM-Luminance))
+      (name ("cd/cm^2"))
+      (wn20-synset ((:set (:triple "candela per centimeter squared" 0 "n")
+			  (:triple "candelas per centimeter squared" 0 "n")))))
+
+
+
+(*nit has (conversion-multiplier (1.0)))
+(*lambert has (conversion-multiplier (3.183098862e+3)))
+(*footlambert has (conversion-multiplier (3.4262591)))
+(*millilambert has (conversion-multiplier (3.183098862)))
+(*stilb has (conversion-multiplier (10000.0)))
+(*candela-per-meter-squared has (conversion-multiplier (1.0)))
+(*candela-per-foot-squared has (conversion-multiplier (10.7639104)))
+(*candela-per-centimeter-squared has (conversion-multiplier (10000.0)))

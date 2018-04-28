@@ -1,0 +1,15 @@
+;; 
+;;    $Id: Monoprotic-Acid.km,v 1.8 2008/06/04 22:41:50 tecuci Exp $ 
+;; 
+(Monoprotic-Acid has
+		 (superclasses (Bronsted-Lowry-Acid))
+		 (test-case ()))
+
+(a Partition with (members (Monoprotic-Acid Polyprotic-Acid)))
+
+(Monoprotic-Acid has (user-description ("An acid that yields one H+ ion per molecule of acid.")))
+
+(every Monoprotic-Acid has-definition
+       (instance-of (Ionic-Compound-Substance))
+       (has-basic-structural-unit ((a Monoprotic-Acid-Compound))))
+				   

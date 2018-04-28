@@ -1,0 +1,65 @@
+<!--- $Id: Close.doc.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Close>
+<superconcept name=Make-Inaccessible>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Close>
+  <definition>Causes an object to be closed, thereby preventing various actions</definition>
+  <requiredslot name=object>
+    <restriction>exactly 1 Portal</restriction>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is not the <slot>object</slot> of any
+      <conceptref name=Be-Closed> state	
+    </restriction>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Open> state
+    </restriction>
+    <restriction>the <slot>object</slot> <slot>is-part-of</slot> a
+      <conceptref name=Enclosure>
+    </restriction>    
+    <restriction>the <conceptref name=Portal> of the <conceptref name=Enclosure>
+      which the <slot>object</slot> <slot>is-part-of</slot> must not
+      be in a <conceptref name=Be-Blocked> state
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Closed> state
+    </restriction>
+    <restriction>the <conceptref name=Portal> of the <conceptref name=Enclosure>
+      which the <slot>object</slot> <slot>is-part-of</slot> is now
+      in a <conceptref name=Be-Blocked> state
+    </restriction>
+    <restriction>the <slot>location</slot> of the <slot>object</slot> is the
+      the <conceptref name=Portal> of the <conceptref name=Enclosure> that
+      <slot>object</slot> <slot>is-part-of</slot>
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be closed</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>Thing used to accomplish the Close</restriction>
+  </primaryslot>
+  <wnsynsets><verb>close#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>shut#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+The Close action puts an <slot>object</slot> into the 
+<conceptref name=Be-Closed> state while at the same time 
+taking the object out of the <conceptref name=Be-Opened> 
+state. The action <conceptref name=Open> does the exact 
+opposite.
+</musing>
+
+</kml>
+
+

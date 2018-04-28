@@ -1,0 +1,64 @@
+
+;;
+;; $Id: Compute-Concentration-from-Quantity-and-Volume.km,v 1.2 2005/09/02 18:25:46 jfan Exp $
+;;
+
+(Compute-Concentration-from-Quantity-and-Volume has (superclasses (Method)))
+
+(every Compute-Concentration-from-Quantity-and-Volume has 
+  (output (
+      (if ((has-value 
+                (the1 of (the value of (the Quantity-Value input of Self))))
+           and
+           (has-value 
+                (the1 of (the value of (the Volume-Value input of Self))))
+          )
+       then
+         (a Concentration-Value with
+            (value (
+               (:pair (
+                 (the1 of 
+                       (the value of
+                            (the output of 
+                                 (a Unit-Conversion with
+                                    (input ((the Quantity-Value input of Self)))
+                                    (target-unit (*mole))))))
+                  /
+                 (the1 of 
+                       (the value of
+                            (the output of 
+                                 (a Unit-Conversion with
+                                    (input ((the Volume-Value input of Self)))
+                                    (target-unit (*liter))))))
+                 )
+                 *molar
+                 [Compute-Concentration-from-Quantity-and-Volume-output-1]
+            )))
+         )
+       else
+         (a Concentration-Value)
+   )))
+)
+
+(comment [Compute-Concentration-from-Quantity-and-Volume-output-1]
+  (:seq (the1 of (the value of (the Quantity-Value input of Self)))
+        (the2 of (the value of (the Quantity-Value input of Self)))
+        "/"
+        (the1 of (the value of (the Volume-Value input of Self)))
+        (the2 of (the value of (the Volume-Value input of Self)))
+        "="
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  "To find the concentration of a Chemical in a mixture, divide the quantity of the chemical by the volume of the mixture:"
+  (:set (:triple (the Quantity-Value input of Self) 
+                 value 
+                 (the value of (the Quantity-Value input of Self))
+        )
+        (:triple (the Volume-Value input of Self) 
+                 value 
+                 (the value of (the Volume-Value input of Self))
+        )
+  )
+)
+

@@ -1,0 +1,27 @@
+;; 
+;;    $Id: physical-state.km,v 1.7 2008/07/04 18:10:25 jchaw Exp $ 
+;; 
+
+(physical-state has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Substance))    
+   (range       (State-Value))
+   (categorical-constant-class (State-Constant))
+   (inverse 	(physical-state-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1))
+)
+
+(physical-state has (wn20-synset ((:set
+                               (:triple "state" 8 "n")
+                               (:triple "state of matter" 1 "n")
+			       (:triple "physical state" 0 "n")
+			       ))))
+
+(physical-state-of has
+	(instance-of (EntityProperty)))
+

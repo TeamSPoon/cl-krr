@@ -1,0 +1,44 @@
+
+;;
+;; $Id: Compute-Ionic-Compound-from-Formula.km,v 1.5 2008/07/14 16:36:56 tecuci Exp $
+;;
+
+(Compute-Ionic-Compound-from-Formula has
+				     (superclasses (Method)))
+
+(every Compute-Ionic-Compound-from-Formula has
+       ;;(input ((a Thing)))
+       (output
+	((a Ionic-Compound with
+	    (has-part ((if ((allof TheValue
+				   where (not (has-value 
+					       (the term of (the has-chemical-formula of It)))))
+			    and 
+			    (has-value (the nested-atomic-chemical-formula of Self)))
+			   then
+			 (the output of 
+			      (a Compute-Ionic-Compound-Parts-from-Nested-Formula with
+				 (input ((the input of Self))))))))
+	    
+	    (has-chemical-formula ((if ((the has-part of Self)
+					and
+					(not ((the classes of (the Cation has-part of Self)) includes Cation))
+					and
+					(not ((the classes of (the Anion has-part of Self)) includes Anion)))
+				       then
+				     (the output of 
+					  (a Compute-Chemical-Formula-of-Ionic-Compound with
+					     (input ((the Cation has-part of Self)
+						     (the Anion has-part of Self))))))))
+
+	    (nested-atomic-chemical-formula ((a Chemical-Formula with
+					   (term ((the input of Self))))))
+	    
+	    (atomic-chemical-formula
+	     ((the output of
+		   (a Compute-Atomic-Formula-from-Nested-Formula with
+		      (input ((the nested-atomic-chemical-formula of Self)))))))
+	    (has-chemical-name
+	     ((the output of
+		   (a Compute-Chemical-Name-from-Formula-of-Ionic-Compound with
+		      (input ((the term of (the has-chemical-formula of Self))))))))))))

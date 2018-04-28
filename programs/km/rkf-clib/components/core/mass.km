@@ -1,0 +1,25 @@
+;; 
+;;    $Id: mass.km,v 1.13 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(mass has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Mass-Value))
+   (scale-class (Mass-Scale))
+   (scalar-constant-class (Mass-Constant))
+   (cardinal-unit-class   (UoM-Mass))   
+   (inverse 	(mass-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(mass has (wn20-synset ((:set
+                               (:triple "mass" 1 "n")
+))))
+
+(mass-of has
+	(instance-of (EntityProperty)))

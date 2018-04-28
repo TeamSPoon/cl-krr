@@ -1,0 +1,119 @@
+
+;;
+;; $Id: Meeting.km,v 1.12 2005/01/07 05:15:47 billj Exp $
+;;
+
+(meeting-start has        (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-length has       (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-end has          (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-room has         (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-building has     (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-invitee has      (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-participant has  (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-date has         (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-meal has         (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-agenda has       (instance-of (Interface-Slot)) (domain (Meeting)) (range (Document Action)) (fluent-status (*Inertial-Fluent)))
+(meeting-minutes has      (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-result has       (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-action-item has  (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-objective has    (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-material has     (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-follow-on has    (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+(meeting-announcement has (instance-of (Interface-Slot)) (domain (Meeting)) (fluent-status (*Inertial-Fluent)))
+
+;; meeting-date:        (:seq (a Day-Constant) (a Number) (a Number) (a Number))     ;; day m d y
+;; meeting-start:       (:triple (a Number) (a Number) (a Time-Zone-Constant))       ;; h m
+;; meeting-end:         (:triple (a Number) (a Number) (a Time-Zone-Constant))       ;; h m
+;; meeting-length:      (:pair (a Number) (a UoM-Duration))
+;* meeting-invitee:     (a Person)                        ;; any number of Person instances
+;; meeting-participant: (a Person)                        ;; any number of Person instances
+;; meeting-room:        (a Room)                          ;; a single Room instance
+;; meeting-building:    (a Building)                      ;; a single Building instance
+;; meeting-meal:        (a Meal)
+;* meeting-agenda:      (a Document) and/or (a String) and/or (a Action)
+;* meeting-minutes:     (a Document) and/or (a String) and/or (a Action)
+;* meeting-result:      (any KM expression)
+;* meeting-action-item: (a Document) and/or (a String) and/or (a Action)
+;; meeting-objective:   (a Event)                         ;; Action/State/Goal
+;* meeting-material:    (a Document)
+;* meeting-follow-on:   (a Meeting)
+;* meeting-announcement:(a Document) and/or (a String) and/or (a Email)
+
+(Meeting has
+  (superclasses (Activity))
+  (description ("a gathering of elements of an organization"))
+)
+
+(every Meeting has
+  ;; meeting-date interface
+  ;; meeting-start interface
+  ;; meeting-end interface
+  (time-during ((a Time-Interval with
+            (time-begins (
+               (a Time-Instant with
+                  (time-value (
+                     (:pair (the1 of (the meeting-start of Self)) *hour)
+                      (:pair (the2 of (the meeting-start of Self)) *minute)
+                      (:pair (the2 of (the meeting-date of Self)) *month)
+                      (:pair (the3 of (the meeting-date of Self)) *day)
+                      (:pair (theN 4 of (the meeting-date of Self)) *year)
+                      (the1 of (the meeting-date of Self))   ; day of week
+                      (the3 of (the meeting-start of Self))  ; time zone
+               )))
+            ))
+            (time-ends (
+               (a Time-Instant with
+                  (time-value (
+                     (:pair (the1 of (the meeting-end of Self)) *hour)
+                     (:pair (the2 of (the meeting-end of Self)) *minute)
+                     (the3 of (the meeting-end of Self))     ; time zone
+               )))
+            ))
+  )))
+
+  ;; meeting-participant interface
+  (in-event-of ((forall (the meeting-participant of Self)
+                 (a Attendee with (played-by (It)))
+  )))
+
+  ;; meeting-length interface
+  (duration ((a Duration-Value with
+                (value ((the meeting-length of Self)))
+  )))
+
+  ;; meeting-room interface
+  ;; meeting-building interface
+  (site ((a Room with (is-part-of ((the meeting-building of Self))))))
+  (site ((the meeting-room of Self)))
+
+  ;; meeting-meal interface
+  (time-int-contains ((the meeting-meal of Self)))
+
+  ;; meeting-objective interface
+  (objective ((the meeting-objective of Self)))
+)
+
+(Meeting has
+  (test-case ('(
+                (*Grunt1 has (instance-of (Person)))
+                (*Grunt2 has (instance-of (Person)))
+
+                (*M1 has (instance-of (Meeting))
+                         (meeting-start ((:pair 14 *hour)))
+                         (meeting-participant (*Grunt1)))
+                (*M2 has (instance-of (Meeting))
+                         (meeting-start ((:pair 14 *hour)))
+                         (meeting-participant (*Grunt2)))
+                (*M3 has (instance-of (Meeting))
+                         (meeting-start ((:pair 15 *hour))))
+
+                ((the played-by of (the Attendee in-event-of of *M1)) includes *Grunt1)
+                ((the played-by of (the Attendee in-event-of of *M2)) includes *Grunt2)
+
+                (*M3 has (meeting-participant (*Grunt2)))
+                ((the played-by of (the Attendee in-event-of of *M3)) includes *Grunt2)
+
+                (*M2 has (meeting-participant (*Grunt1)))
+                ((the played-by of (the Attendee in-event-of of *M2)) includes *Grunt1)
+))))
+

@@ -1,0 +1,45 @@
+<!--- $Id: Compute-Quantity-of-Chemical.spec.kml,v 1.1 2002/11/20 22:00:28 jfan Exp $ --->
+
+<kml>
+<concept name=Compute-Quantity-of-Chemical>
+
+
+<superconcept name=Method>
+
+  <definition>
+    A Compute-Quantity-of-Chemical is the <conceptref name=Method> to compute the amount of 
+    certain type of Chemical in a compound.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=input>
+     The type of the sought-after Chemical  and the compound.
+   </slotdescription>
+   <slotdescription name=output>
+     A quantity value to denote the amount.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>One mole of Na2CO3 contains 2 mole of Na+.</text>
+     <slotdescription name=input> Na+ and 1 mole of Na2CO3</slotdescription>
+     <slotdescription name=output> 2 mole.</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Compute-Quantity-from-Concentration-and-Volume>
+  Compute-Quantity-from-Concentration-and-Volume computes the quantity of a solute
+  given its concentration and the volume of the solution.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

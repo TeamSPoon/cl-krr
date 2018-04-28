@@ -1,0 +1,18 @@
+;;
+;; $Id: K2CrO4.km,v 1.6 2008/11/25 21:36:45 tecuci Exp $
+;;
+
+(K2CrO4 has (superclasses (Ionic-Compound)))
+
+(every K2CrO4 has	
+       (has-chemical-name ("potassium chromate"))
+       (has-part 
+	((a K-Plus) (a CrO4-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 2 K-Plus)
+			 (:pair 1 CrO4-Minus-2))))))))
+(every K2CrO4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a K-Plus) (a CrO4-Minus-2))))
+

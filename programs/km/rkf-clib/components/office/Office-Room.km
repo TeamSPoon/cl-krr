@@ -1,0 +1,19 @@
+;; 
+;; $Id: Office-Room.km,v 1.1 2003/09/08 18:06:26 porter Exp $
+;; 
+
+(Office-Room has
+	     (superclasses (Room))
+	     (description ("a room where work is conducted"))
+)
+
+(every Office-Room has
+       (purpose ((a Role with 
+		    (in-event ((a Office-Work with 
+				  (site (Self)))))))))
+
+
+
+
+
+

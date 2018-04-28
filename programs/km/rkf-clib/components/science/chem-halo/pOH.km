@@ -1,0 +1,19 @@
+;; 
+;;    $Id: pOH.km,v 1.7 2007/11/09 22:23:11 tecuci Exp $
+;; 
+
+(pOH has
+    (instance-of 		(Property))
+    (user-description           ("An expression of the alkalinity of a solution; the negative logarithm of the hydroxyl-ion concentration."))
+    (superslots 		())
+    (subslots 			())
+    (domain      		(Substance))    
+    (range       		(POH-Value))    
+    (cardinal-unit-class 	(UoM-Unitless)) 
+    (scalar-constant-class (PH-Constant))
+    (fluent-status 		(*Inertial-Fluent))
+    (inverse 			(pOH-of))
+    ; (inherit-with-overrides 	(t))
+    (cardinality 		(N-to-1)))
+
+(pOH-of has (instance-of (Property)))

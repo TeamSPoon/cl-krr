@@ -1,0 +1,34 @@
+<!--- $Id: Conceal.doc.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Conceal>
+<superconcept name=Make-Inaccessible>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Conceal>
+  <definition>Cause an object to be physically or visibly hidden (possibly to another object)</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be Concealed</restriction>
+  </primaryslot>
+  <primaryslot name=base>
+    <comment>the Entity that the <slot>object</slot> is Concealed from</comment>
+  </primaryslot>
+  <wnsynsets><verb>conceal#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>hide#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Conceal puts an <slot>object</slot> in a <conceptref name=Be-Concealed> 
+state, which can be undone by <conceptref name=Expose>.
+</musing>
+
+</kml>
+
+

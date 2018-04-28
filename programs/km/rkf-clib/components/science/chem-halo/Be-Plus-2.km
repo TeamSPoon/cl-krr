@@ -1,0 +1,23 @@
+;;
+;; $Id: Be-Plus-2.km,v 1.8 2008/11/29 01:35:24 tecuci Exp $
+;;
+
+(Be-Plus-2 has (superclasses (Metal-Cation)))
+
+(every Be-Plus-2 has
+       (has-chemical-name ("beryllium"))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 Be)))))))
+       (is-ion-of ((a Be)))
+       (charge ((a Charge-Value with
+		   (value ((:pair 2 *unity)))))))
+
+(every Be-Plus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Be)))))))
+  (charge ((a Charge-Value with (value ((:pair 2 *unity))))))
+)
+
+(Be-Plus-2 has (wn20-synset ((:triple "Be+2" 0 "n"))))

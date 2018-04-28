@@ -1,0 +1,49 @@
+<!--- $Id: Ion.spec.kml,v 1.1 2005/08/01 20:59:18 jchaw Exp $ --->
+<kml>
+
+<concept name=Ion><system-documentation name=Ion>
+<superconcept name=Chemical-Entity>
+
+<definition>
+
+  An atom or group of atoms that carries an electrical charge
+
+</definition>
+
+<requiredslotlist>
+  <slotdescription name=chemical-formula>
+    the <conceptref name=Chemical-Formula> of the molecule composition
+  </slotdescription>
+  
+  <slotdescription name=charge>
+    the amount of electrical charge the ion carries.  Must be non-zero.
+    See <conceptref name=Charge-Value>
+  </slotdescription>
+</requiredslotlist>
+
+<neighborlist>
+
+  <neighbor name=Ionic-Compound>
+    A type of chemical composed of an ionic molecule, containing a
+    <conceptref name=Cation> and an <conceptref name=Anion>
+  </neighbor>
+
+  <neighbor name=Molecule>
+    A stable chemical entity that carries no charge, and has at least
+    two atoms or ions
+  </neighbor>
+
+  <neighbor name=Atom>
+    The smallest particle that maintains its chemical identity through
+    all chemical and physical changes.
+  </neighbor>
+
+  <neighbor name=Subatomic-Particle>
+    A particle that is one of the constituents of an atom
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

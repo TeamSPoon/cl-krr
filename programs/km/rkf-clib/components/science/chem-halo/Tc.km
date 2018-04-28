@@ -1,0 +1,15 @@
+;;
+;; $Id: Tc.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Tc has (superclasses (Metal-Atom VIIB-Element)))
+(every Tc has
+       (atomic-symbol (Tc))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 43 NIL))))))
+       (chemical-period (5)))
+
+(every Tc has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("technetium"))
+)

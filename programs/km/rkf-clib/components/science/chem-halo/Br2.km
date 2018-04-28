@@ -1,0 +1,25 @@
+;;
+;; $Id: Br2.km,v 1.7 2006/03/07 21:52:18 jfan Exp $
+;;
+
+(Br2 has (superclasses (Non-Metal-Molecule)))
+
+(every Br2 has	
+       (has-part ((a Br)))
+       (has-chemical-name ("bromine gas"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 Br)))))))
+       (has-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 Br)))))))
+       )
+
+
+(every Br2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("bromine gas"))
+)

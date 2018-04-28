@@ -1,0 +1,22 @@
+;; 
+;;    $Id: equation-symbol.km,v 1.9 2008/07/15 20:39:31 kbarker Exp $
+;; 
+
+(equation-symbol has
+   (instance-of (KM-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Equation-Set))
+;;   (range (Thing))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+   (original-slot      (t))	
+;   (dont-cache-values  (t))
+   ;(combine-values-by-appending (t))
+)
+
+(equation-symbol now-has (shaken-ui-hidden-slot (f)))
+
+(equation-symbol-of has
+   (instance-of (KM-Slot-Group))
+   (combine-values-by-appending (t)))

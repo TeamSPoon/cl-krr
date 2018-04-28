@@ -1,0 +1,15 @@
+;;
+;; $Id: categorical-constant-class.km,v 1.9 2007/04/10 21:29:48 jchaw Exp $
+;;
+
+(categorical-constant-class has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Property))
+   (range  (Constant))
+   (cardinality (N-to-N))
+   (original-slot      (t))	
+   (fluent-status (*Non-Fluent))
+) 
+
+(categorical-constant-class-of has
+   (instance-of (CLIB-Slot-Group)))

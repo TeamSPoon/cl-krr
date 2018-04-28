@@ -1,0 +1,15 @@
+;; 
+;;    $Id: Ray.km,v 1.2 2005/10/21 19:23:30 pzyeh Exp $ 
+;; 
+
+(Ray has (superclasses (Line)))
+
+(every Ray has
+  (has-part ((a Point called "end point")))
+)
+
+(Ray has
+  (wn20-synset ((:set (:triple "ray" 3 "n")
+		      (:triple "vector" 2 "n")
+))))
+

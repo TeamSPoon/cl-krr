@@ -1,0 +1,21 @@
+(has-conjugate has
+  (instance-of   (Meronymic-Relation))
+  (superslots    ())
+  (subslots      ())
+  (domain 	 (Chemical))
+  (range         (Chemical))
+  (inverse       (is-conjugate-of))
+  (fluent-status (*Inertial-Fluent))
+  (cardinality   (N-to-N)))
+
+(has-conjugate has 
+  (text-gloss ("has conjugate")))
+
+(is-conjugate-of has
+   (instance-of (Meronymic-Relation))
+   (combine-values-by-appending (t)))
+
+(has-conjugate has 
+  (wn20-synset ((:set (:triple "conjugate" 0 "n"))))
+)
+

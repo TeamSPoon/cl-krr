@@ -1,0 +1,16 @@
+;; 
+;; $Id: UoM-Luminous-Flux.km,v 1.8 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Luminous-Flux has
+  (superclasses (Unit-of-Measurement))
+  (base-unit (*lumen))
+  (instances (*lumen))
+)
+
+(*lumen has (instance-of (UoM-Luminous-Flux))
+        (name ("lm"))
+	(wn20-synset ((:set (:triple "lumen" 0 "n")
+			    (:triple "lumens" 0 "n")))))
+
+(*lumen has (conversion-multiplier (1.0)))

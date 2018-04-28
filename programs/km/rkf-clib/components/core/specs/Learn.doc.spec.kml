@@ -1,0 +1,32 @@
+<!--- $Id: Learn.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Learn>
+<superconcept name=Interpret>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Learn>
+  <definition>Causes <conceptref name=Information> to be known to the <slot>agent</slot> that he didn't know before
+  </definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Interpret>
+    <restriction><conceptref name=Information>
+    </restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+    <inheritedfrom name=Interpret>
+    <restriction><slot>agent</slot><conceptref name=Tangible-Entity>
+    </restriction>
+  </requiredslot>
+
+  <wnsynsets><verb>learn#1, learn#2, learn#3, learn#4
+  </verb></wnsynsets>
+  <wnsynsets><verb>get word#1, pick up#5, find out#2, discover#2, see#6, memorize#1, study#4 
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

@@ -1,0 +1,84 @@
+;; 
+;;    $Id: Salt-Solution.km,v 1.14 2010/05/18 15:21:04 kbarker Exp $ 
+;; 
+
+(Salt-Solution has
+	       (superclasses (Solution)))
+
+(every Salt-Solution has-definition
+       (instance-of (Solution))
+       (base ((a Salt-Substance)
+	      (exactly 1 Chemical)
+	))
+       )
+
+(every Salt-Solution has
+       
+       ;; The pH of a salt solution depends on the hydrolysis of the salt ions,
+       ;; which will have an effect on pH given by the application of law L.53. Either: 
+       ;; 1.the salt's cation will decrease the pH below 7 (below neutral) or 
+       ;; 2.the salt's anion will increase it above 7 (above neutral). 
+       ;; Else, if both the anion and the cation of a salt in solution affect the pH, 
+       ;; the ion with the largest dissociation constant will determine the influence 
+       ;; on the pH as per the rules stated in L.53. If dissociation constants are 
+       ;; unknown, consider the solution nearly neutral (pH ~ 7).
+       (pH ((if ((the1 of (the value of (the solubility of (the base of Self)))) /= *insoluble)
+             then (
+             (a PH-Value) &
+	     (#'(LAMBDA ()
+		      (LET* ((BASE (KM-UNIQUE0 `(|the| |base| |of| |Self|)))
+			     (UNID-CATION (KM-UNIQUE0 `(|the| |Cation-Substance| |has-part| |of| ,BASE)))
+			     (CATION (KM-UNIQUE0 `(,UNID-CATION 
+						     &
+						     (|the| |output| |of| (|a| |Identify-Chemical| |with|
+								       (|input| (,UNID-CATION)))))))
+			     (CATION-ACID-ROLE (KM-UNIQUE0 `(|the+| |Acid-Role| |plays| |of| ,CATION)))
+			     (CATION-EFFECT 
+			      (KM-UNIQUE0 `(|the| |output| |of |
+						  (|a| |Compute-Effect-of-Hydrolysis-of-Ions| |with|
+						     (|input| (|Self| ,CATION))))))
+			     (CATION-KA 
+			      (KM-UNIQUE0 `(|the1| |of|
+						   (|the| |value| |of|
+							((|the| |ka| |of| ,CATION-ACID-ROLE)
+							 |or|
+							 (|the| |default-ka| |of| ,CATION-ACID-ROLE))))))
+
+			     (UNID-ANION (KM-UNIQUE0 `(|the| |Anion-Substance| |has-part| |of| ,BASE)))
+			     (ANION (KM-UNIQUE0 `(,UNID-ANION 
+						    &
+						    (|the| |output| |of| (|a| |Identify-Chemical| |with|
+								      (|input| (,UNID-ANION)))))))
+			     (ANION-BASE-ROLE (KM-UNIQUE0 `(|the+| |Base-Role| |plays| |of| ,ANION)))
+			     (ANION-EFFECT 
+			      (KM-UNIQUE0 `(|the| |output| |of|
+						  (|a| |Compute-Effect-of-Hydrolysis-of-Ions| |with|
+						     (|input| (|Self| ,ANION))))))
+			     (ANION-KB 
+			      (KM-UNIQUE0 `(|the1| |of|
+						   (|the| |value| |of|
+							((|the| |kb| |of| ,ANION-BASE-ROLE)
+							 |or|
+							 (|the| |default-kb| |of| ,ANION-BASE-ROLE)))))))
+			    
+			    (IF (AND CATION-EFFECT ANION-EFFECT)
+				;; both have effect, 
+				(IF (AND CATION-KA ANION-KB)
+				    ;; k known, highest k wins
+				    (IF (> CATION-KA ANION-KB)
+					CATION-EFFECT
+					ANION-EFFECT)
+				    ;; at least one k not known -> assume it's neutral
+				    (KM-UNIQUE0 `(|a| |PH-Value| |with|
+						      (|value| ((:|pair| 7 |nil|))))))
+				;; just one has effect
+				(IF CATION-EFFECT
+				    CATION-EFFECT
+				    (IF ANION-EFFECT
+					ANION-EFFECT
+					(KM-UNIQUE0 `(|a| |PH-Value| |with|
+							  (|value| ((:|pair| 7 |nil|))))))))))))
+	     )))
+	   )
+
+

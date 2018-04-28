@@ -1,0 +1,12 @@
+;;
+;; $Id: KOH.km,v 1.1 2003/04/04 19:37:28 jchaw Exp $
+;;
+(KOH has 
+  (superclasses (Ionic-Compound)))
+
+(every KOH has
+       (has-part ((a K-Plus) (a OH-Minus)))
+       (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 K-Plus) (:pair 1 OH-Minus)))))))
+       )

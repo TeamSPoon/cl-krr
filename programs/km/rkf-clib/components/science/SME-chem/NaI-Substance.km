@@ -1,0 +1,71 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _NaI-Substance2653
+
+
+|#
+
+(disable-classification)
+
+(NaI-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every NaI-Substance has (has-basic-structural-unit ((a NaI))))
+
+(_NaI-Substance8028 has
+  (prototype-of (NaI-Substance))
+  (prototype-scope (NaI-Substance))
+  (prototype-participants (_Electrolyte-Status-Value8034 _Ionic-Compound8033 _Anion-Substance8032 _Cation-Substance8031 _State-Value8030 _Solubility-Value8029 _NaI-Substance8028)))
+
+(_NaI-Substance8028 has
+  (instance-of (NaI-Substance))
+  (electrolyte-status (_Electrolyte-Status-Value8034))
+  (has-basic-structural-unit (_Ionic-Compound8033))
+  (has-part (_Cation-Substance8031 _Anion-Substance8032))
+  (physical-state (_State-Value8030))
+  (solubility (_Solubility-Value8029)))
+
+(_Solubility-Value8029 has (instance-of (Solubility-Value)))
+
+(_State-Value8030 has (instance-of (State-Value)))
+
+(_Cation-Substance8031 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance8032 has (instance-of (Anion-Substance)))
+
+(_Ionic-Compound8033 has (instance-of (NaI)))
+
+(_Electrolyte-Status-Value8034 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *strong nil))))
+
+(enable-classification)
+
+(explanation (:triple _NaI-Substance8028 electrolyte-status _Electrolyte-Status-Value8034) (((@ SME entered)) (every NaI-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value8034 value (:pair *strong nil)) (((@ SME entered)) (every NaI-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong nil)))))))))
+
+(explanation (:triple _NaI-Substance8028 instance-of NaI-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value8029 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value8030 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance8031 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance8032 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound8033 instance-of NaI) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value8034 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every NaI-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+(every NaI-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Electrolyte)))))))
+
+|#
+
+|#
+

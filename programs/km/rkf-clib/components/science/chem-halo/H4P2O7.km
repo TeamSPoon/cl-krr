@@ -1,0 +1,14 @@
+;; $Id: H4P2O7.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(H4P2O7 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H4P2O7 has
+	(has-chemical-name ("pyrophosphoric acid"))
+	(has-part ((a H-Plus)(a P2O7-Minus-4)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 4 H-Plus)
+			(:pair 1 P2O7-Minus-4)))))))
+)
+(every H4P2O7 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a P2O7-Minus-4))))
+

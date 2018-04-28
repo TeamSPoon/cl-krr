@@ -1,0 +1,16 @@
+
+;;
+;;  $Id: property-of-slot.km,v 1.7 2007/04/11 21:31:10 jchaw Exp $
+;;
+
+(property-of-slot has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Property-Value))
+  (range (Slot))
+  (cardinality (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Non-Fluent))
+)
+
+(property-of-slot-of has
+   (instance-of (CLIB-Slot-Group)))

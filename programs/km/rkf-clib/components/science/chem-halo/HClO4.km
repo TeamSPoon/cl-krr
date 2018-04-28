@@ -1,0 +1,19 @@
+;;
+;; $Id: HClO4.km,v 1.5 2006/01/24 20:27:29 jfan Exp $
+;;
+
+(HClO4 has (superclasses (Ionic-Compound)))
+
+(every HClO4 has	
+       (has-chemical-name ("perchloric acid"))
+       (has-part 
+	((a H-Plus) (a ClO4-Minus)))
+       (has-chemical-formula 	
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 H-Plus)
+		    (:pair 1 ClO4-Minus))))))))
+(every HClO4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a ClO4-Minus))))
+

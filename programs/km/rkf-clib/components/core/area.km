@@ -1,0 +1,27 @@
+;; 
+;;    $Id: area.km,v 1.15 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(area has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Area-Value))
+   (scale-class (Area-Scale))
+   (scalar-constant-class   (Area-Constant))
+   (cardinal-unit-class     (UoM-Area))  
+   (inverse (area-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))
+   (cardinality (N-to-1)))
+
+(area has (wn20-synset ((:set
+                               (:triple "area" 6 "n")
+                               (:triple "expanse" 2 "n")
+                               (:triple "surface area" 1 "n")
+))))
+
+(area-of has
+	(instance-of (EntityProperty)))

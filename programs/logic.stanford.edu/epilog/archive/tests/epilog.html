@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>Compulog</title>
+<script type='text/javascript' src='/epilog/javascript/epilog.js'></script>
+<script type='text/javascript' src='/epilog/javascript/debugger.js'></script>
+<script type='text/javascript'>
+
+function check(form,value)
+ {var answer = eval(form);
+  var widget = document.getElementById('results');
+  var row = widget.insertRow(widget.rows.length);
+  var cell = row.insertCell(0);
+  cell.appendChild(document.createTextNode(form));
+  cell.appendChild(document.createElement('br'));
+  cell.appendChild(document.createTextNode(value));
+  cell.appendChild(document.createElement('br'));
+  cell.appendChild(document.createTextNode(answer));
+  if (!equalp(answer,value)) {cell.setAttribute('style','color:#ff0000')};
+  return true}
+
+function test ()
+ {basetest()
+  facttest()
+  viewtest()
+  testtest()
+  comptest()}
+
+function basetest ()
+ {check("symbolp('a')",true)
+  check("symbolp('X')",true)
+  check("symbolp(seq('p','a'))",false)
+  check("varp('a')",false)
+  check("varp('X')",true)
+  check("varp(seq('p','a'))",false)
+  check("constantp('a')",true)
+  check("constantp('X')",false)
+  check("constantp(seq('p','a'))",false)}
+
+function facttest ()
+ {database = seq()
+  rulebase = seq()
+  check("insert(read('p(a)'),database)",read('p(a)'))
+  insert(read('p(b)'),database)
+  insert(read('p(c)'),database)
+  insert(read('q(b)'),database)
+  insert(read('q(c)'),database)
+  insert(read('pp(a,b)'),database)
+  insert(read('pp(b,c)'),database)
+  insert(read('pp(c,d)'),database)
+  insert(read('qq(b,c)'),database)
+  insert(read('qq(c,d)'),database)
+  insert(read('rr(X,Y,Z) :- pp(X,Y) & qq(Y,Z)'),rulebase)
+
+  check("indexees('pp',database)",readdata('pp(a,b) pp(b,c) pp(c,d)'))
+  check("indexees('a',database)",readdata('p(a) pp(a,b)'))
+  check("indexees('b',database)",readdata('p(b) q(b) pp(a,b) pp(b,c) qq(b,c)'))}
+
+function viewtest ()
+ {check("viewfindp(read('true'),database,rulebase)",'true')
+  check("viewfindp(read('false'),database,rulebase)",false)
+  check("viewfindp(read('same(a,a)'),database,rulebase)",'true')
+  check("viewfindp(read('same(a,b)'),database,rulebase)",false)
+  check("viewfindp(read('distinct(a,a)'),database,rulebase)",false)
+  check("viewfindp(read('distinct(a,b)'),database,rulebase)",'true')
+  check("viewfindp(read('~true'),database,rulebase)",false)
+  check("viewfindp(read('~false'),database,rulebase)",'true')
+  check("viewfindp(read('true & true'),database,rulebase)",'true')
+  check("viewfindp(read('true & false'),database,rulebase)",false)
+  check("viewfindp(read('false & true'),database,rulebase)",false)
+  check("viewfindp(read('false & false'),database,rulebase)",false)
+  check("viewfindp(read('true | true'),database,rulebase)",'true')
+  check("viewfindp(read('true | false'),database,rulebase)",'true')
+  check("viewfindp(read('false | true'),database,rulebase)",'true')
+  check("viewfindp(read('false | false'),database,rulebase)",false)
+  check("viewfindp(read('p(a)'),database,rulebase)",'true')
+  check("viewfindp(read('p(d)'),database,rulebase)",false)
+  check("viewfindp(read('~p(d)'),database,rulebase)",'true')
+  check("viewfindp(read('~p(a)'),database,rulebase)",false)
+  check("viewfindp(read('p(b) & q(b)'),database,rulebase)",'true')
+  check("viewfindp(read('p(a) & q(a)'),database,rulebase)",false)
+  check("viewfindp(read('p(a) | q(a)'),database,rulebase)",'true')
+  check("viewfindp(read('p(d) | q(d)'),database,rulebase)",false)
+
+  check("viewfindx('X',read('p(X)'),database,rulebase)",'a')
+  check("viewfindx('X',read('p(X) & q(X)'),database,rulebase)",'b')
+  check("viewfindx('X',read('p(X) | q(X)'),database,rulebase)",'a')
+  check("viewfindx(read('rr(X,Y,Z)'),read('rr(X,Y,Z)'),database,rulebase)",seq('rr','a','b','c'))
+  check("viewfindx(read('rr(X,X,X)'),read('rr(X,X,X)'),database,rulebase)",false)
+
+  check("viewfinds('X',read('p(X)'),database,rulebase)",seq('a','b','c'))
+  check("viewfinds('X',read('p(X) & q(X)'),database,rulebase)",seq('b','c'))
+  check("viewfinds('X',read('p(X) | q(X)'),database,rulebase)",seq('a','b','c'))
+  check("viewfinds(read('rr(X,Y,Z)'),read('rr(X,Y,Z)'),database,rulebase)",
+        seq(seq('rr','a','b','c'),seq('rr','b','c','d')))
+  check("viewfinds(read('rr(X,X,X)'),read('rr(X,X,X)'),database,rulebase)",seq())}
+
+function testtest ()
+ {check("viewfindp(read('~q(a)'),database,rulebase)",
+        'Just to see if you are paying attention')}
+
+function comptest ()
+ {check("compfindp(read('true'),database,rulebase)",'true')
+  check("compfindp(read('false'),database,rulebase)",false)
+  check("compfindp(read('same(a,a)'),database,rulebase)",'true')
+  check("compfindp(read('same(a,b)'),database,rulebase)",false)
+  check("compfindp(read('distinct(a,a)'),database,rulebase)",false)
+  check("compfindp(read('distinct(a,b)'),database,rulebase)",'true')
+  check("compfindp(read('~true'),database,rulebase)",false)
+  check("compfindp(read('~false'),database,rulebase)",'true')
+  check("compfindp(read('true & true'),database,rulebase)",'true')
+  check("compfindp(read('true & false'),database,rulebase)",false)
+  check("compfindp(read('false & true'),database,rulebase)",false)
+  check("compfindp(read('false & false'),database,rulebase)",false)
+  check("compfindp(read('true | true'),database,rulebase)",'true')
+  check("compfindp(read('true | false'),database,rulebase)",'true')
+  check("compfindp(read('false | true'),database,rulebase)",'true')
+  check("compfindp(read('false | false'),database,rulebase)",false)
+  check("compfindp(read('p(a)'),database,rulebase)",'true')
+  check("compfindp(read('p(d)'),database,rulebase)",false)
+  check("compfindp(read('~p(d)'),database,rulebase)",'true')
+  check("compfindp(read('~p(a)'),database,rulebase)",false)
+  check("compfindp(read('p(b) & q(b)'),database,rulebase)",'true')
+  check("compfindp(read('p(a) & q(a)'),database,rulebase)",false)
+  check("compfindp(read('p(a) | q(a)'),database,rulebase)",'true')
+  check("compfindp(read('p(d) | q(d)'),database,rulebase)",false)
+
+  check("compfindx('X',read('p(X)'),database,rulebase)",'a')
+  check("compfindx('X',read('p(X) & q(X)'),database,rulebase)",'b')
+  check("compfindx('X',read('p(X) | q(X)'),database,rulebase)",'a')
+  check("compfindx(read('rr(X,Y,Z)'),read('rr(X,Y,Z)'),database,rulebase)",seq('rr','a','b','c'))
+  check("compfindx(read('rr(X,X,X)'),read('rr(X,X,X)'),database,rulebase)",false)
+
+  check("compfinds('X',read('p(X)'),database,rulebase)",seq('a','b','c'))
+  check("compfinds('X',read('p(X) & q(X)'),database,rulebase)",seq('b','c'))
+  check("compfinds('X',read('p(X) | q(X)'),database,rulebase)",seq('a','b','c'))
+  check("compfinds(read('rr(X,Y,Z)'),read('rr(X,Y,Z)'),database,rulebase)",
+        seq(seq('rr','a','b','c'),seq('rr','b','c','d')))
+  check("compfinds(read('rr(X,X,X)'),read('rr(X,X,X)'),database,rulebase)",seq())}
+
+</script>
+</head>
+<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0' bgcolor='#ffffff'>
+<center>
+<table width='640' cellspacing='0' cellpadding='0' border='0'><tr><td>
+<br/>
+<center>
+<font face='Arial' size='6'><b>Epilog Tests</b></font>
+</center>
+<br/>
+<hr/>
+
+<!--=======================================================================-->
+
+<center>
+<table id='results' width='100%' cellspacing='10' cellpadding = '0' border='0' style='font-family:courier;font-size:14px'></table>
+</center>
+
+<!--=======================================================================-->
+
+<center>
+<table id='debugger' style='display:none'><tr><td>
+<br/>
+Input:<br/>
+<textarea id='scriptarea' rows='3' cols='80'></textarea>
+<br/>
+<input type='button' value="Eval" onClick='tryit()'/>
+<br/>
+<br/>
+Output:<br/>
+<div id='valuearea'>
+<br/>
+</div>
+<br/>
+</td></tr></table>
+</center>
+
+<!--=======================================================================-->
+<hr/>
+<center>
+<font size='3'>Comments <span onClick='toggle("debugger")'>and</span> complaints <span onClick='toggle("rulearea")'>to</span> <tt><a href='mailto:genesereth@stanford.edu'>genesereth@stanford.edu</a></tt>.</font>
+</center>
+</td></tr></table>
+</center>
+
+<!--=======================================================================-->
+
+<script type='text/javascript'>
+test()
+</script>
+</body>
+</html>

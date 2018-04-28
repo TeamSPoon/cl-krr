@@ -1,0 +1,16 @@
+;; 
+;;  $Id: complete-ionic-equation.km,v 1.6 2007/04/11 22:12:41 jchaw Exp $
+;; 
+
+(complete-ionic-equation has
+	  (instance-of (CLIB-Slot-Group))
+	  (domain      (Reaction)) ;; this may be too loose, should it be just Metathesis?
+	  (range       (Chemical-Equation-Expression))
+	  (fluent-status (*Inertial-Fluent))
+	  ; (inherit-with-overrides (t))
+	  (inverse     (complete-ionic-equation-of))
+	  (cardinality (N-to-1))
+          (original-slot      (t))	
+	  )
+
+(complete-ionic-equation-of has (instance-of (CLIB-Slot-Group)))

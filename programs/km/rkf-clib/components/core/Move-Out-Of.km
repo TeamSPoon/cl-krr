@@ -1,0 +1,178 @@
+;; 
+;;    $Id: Move-Out-Of.km,v 1.46 2005/11/08 16:06:04 kbarker Exp $
+;; 
+
+(Move-Out-Of has
+	   (superclasses   (Move-Through))
+	   (required-slot  (object base origin))
+	   (primary-slot   (agent))
+	   (cmap-correspondence (
+				 (:seq object "the thing moved")
+				 (:seq agent "the mover")
+				 (:seq base "the enclosure")
+				 (:seq origin "moved from")
+				 (:seq destination "moved to")
+				 (:seq path "moved through or along")
+				 (:seq toward "moved toward")
+				 (:seq away-from "moved away from")
+				 ))
+         #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Move-Out-Of has
+       
+       (defeats ((allof (the object-of of (the object of Self))
+			where
+			(((the classes of It) = Be-Contained) and
+			 ((the base of It) = (the base of Self))))))
+       (object      ((must-be-a Tangible-Entity)))
+       (base        ((must-be-a Tangible-Entity with  
+				;; it has to be a must-be-a instead of "a" because
+				(plays ((a Container with
+					   (content ((the object of Self)))))) 
+				;; if it's an "a" then after an Exit action, this inherited rule
+				;; will conflict with the local value that doesn't have any content
+				(encloses ((the origin of Self)))
+				(has-region ((a Spatial-Entity))))
+		     ))
+       (origin	    ((a Spatial-Entity with 
+                        (is-inside ((the base of Self))))))
+       (destination ((a Spatial-Entity with 
+                        (is-outside ((the base of Self))))))
+       (path        ((a Spatial-Entity with 
+			(plays ((a Portal))) 	    
+			(is-region-of ((the base of Self)))
+	)))
+
+       (soft-pcs-list (
+		       (forall (the object of Self)
+			       (:triple (It)
+					is-inside
+					(the base of Self)))))
+
+       (pcs-list (
+                  (forall (the object of Self)
+                    (:triple It
+                             object-of
+                             (mustnt-be-a Be-Confined with
+                               (base ((the base of Self)))) [Move-Out-Of-pcs-1]))
+		(if (has-value (the path of Self))
+                       then
+			(forall (the path of Self)
+                       (:triple 
+			   (the path of Self)
+			   object-of
+			   (mustnt-be-a Be-Closed))))       
+
+
+))
+
+       (del-list (
+                  (:triple (the Container plays of (the base of Self))
+                           content
+                           (the content of (the Container plays of (the base of Self) [Move-Out-Of-del-1])))
+		  ((forall (the defeats of Self)
+				(:set
+					(:triple It object (the object of Self))
+					(:triple It base (the base of Self))
+			))[Move-Out-Of-del-2])
+	))
+	(interrupted-by ((must-be-a Move-Into with 
+				(object ((the object of Self)))
+				(base ((the base of Self))))))
+
+)
+
+(comment [Move-Out-Of-pcs-1] (:seq (the object of Self) " must not be confined in " (the base of Self))
+	 "Only an unconfined thing can move out of the thing that contains it.")
+
+(comment [Move-Out-Of-del-1] (:seq (the base of Self) " no longer contains " (the object of Self))
+	 "A move out of stops something from being contained by something else.")
+
+(comment [Move-Out-Of-del-2] (:seq (the object of Self) " is no longer in the Be-Contained State.")
+	"A move out of takes somthing out of the state of being contained"
+)
+
+(every Move-Out-Of has
+  (text-active-verbseq-sg ("moves"))
+  (text-active-verbseq-pl ("move"))
+  (text-passive-verbseq-sg ("gets moved"))
+
+  (text-argslots ((:seq base path)))
+  (text-base ("out of"))
+  (text-path ("through"))
+
+)
+
+
+;; contextual info needs to be added
+(every Move-Out-Of has
+   (preparatory-event ((:default
+	(a Shut-Out with
+	   (object ((the object of Self)))
+	   (base   ((the base of Self))))
+	(a Open with
+	   (object ((the base of Self))))
+	(a Move-Into with
+	   (object ((the object of Self)))
+	   (base   ((the base of Self))))
+))))
+
+
+(Move-Out-Of has 
+	     (test-case ('(
+                            (*student has (instance-of (Tangible-Entity)))
+			    (*bag has 
+				  (instance-of (Tangible-Entity))
+				  (location ((a Place)))
+				  (plays ((a Container with
+					     (content (*book))))))
+			    (*book has (instance-of (Tangible-Entity))
+				       (location ((a Place)))
+                                       (is-inside (*bag)))
+			    (*outside has (instance-of (Place))
+                                          (is-outside (*bag)))
+			    (a Move-Out-Of with
+			       (agent (*student))
+			       (object (*book))
+                               (base (*bag))
+                               (destination (*outside))
+			       (origin ((a Place with (is-inside (*bag))))))
+			    (do-and-next (thelast Move-Out-Of))
+			    (the text-gen of (thelast Move-Out-Of))
+                            (the location of *book)
+                            (the location of *bag)
+                            (the is-outside of *book)
+                            (the does-not-enclose of *bag)
+
+			    ;Test 1: *book is not inside of the *bag anymore
+			    (not ((the is-inside of (the location of *book))
+                                  includes
+                                  (the location of *bag)))
+
+			    ;Test 2: *book is outside of the *bag
+			    ((the is-outside of (the location of *book)) 
+                             includes *bag)
+			    
+			    ;Test 3: *bag is assumed to be a container
+			    ((the Container plays of *bag) isa Container)
+))))
+
+
+
+
+;; automatically added WN synsets
+(Move-Out-Of has (wn16-synset ((:set  
+                                          (:triple "exit" 1 "v")
+                                          (:triple "go_out" 1 "v")
+                                          (:triple "get_out" 1 "v")
+                                          (:triple "leave" 5 "v")
+))))
+
+(Move-Out-Of has (wn20-synset ((:set
+                                          (:triple "exit" 1 "v")
+                                          (:triple "go_out" 1 "v")
+                                          (:triple "get_out" 1 "v")
+                                          (:triple "leave" 5 "v")
+))))
+(every Move-Out-Of has (text-nominalization ("moving")))

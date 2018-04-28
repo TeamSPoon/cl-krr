@@ -1,0 +1,19 @@
+;; 
+;; $Id: input.km,v 1.7 2008/02/27 21:52:27 jchaw Exp $
+;; 
+
+(input has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Thing))
+   #|(range (Thing))|#
+   (inverse (input-of))
+   (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+   (cardinality (N-to-N))
+   (combine-values-by-appending (t))
+)
+
+(input-of has
+   (instance-of (CLIB-Slot-Group))
+   (combine-values-by-appending (t)))
+

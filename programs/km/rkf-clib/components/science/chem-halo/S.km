@@ -1,0 +1,17 @@
+;;
+;; $Id: S.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(S has (superclasses (Non-Metal-Atom VIA-Chalcogen-Element)))
+(every S has
+       (has-molecular-name ("sulfide"))
+       (atomic-symbol (S))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 16 NIL))))))
+       (has-ion ((a S-Minus-2)))
+       (chemical-period (3)))
+
+(every S has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("sulfur"))
+)

@@ -1,0 +1,82 @@
+<!--- $Id: Support.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Support>
+<system-documentation name=Support>
+<superconcept name=Obstruct>
+
+<definition>
+
+  Support puts the <slot>object</slot> into a <conceptref name=Be-Supported>
+  state, which prevents it from <conceptref name=Fall>ing. 
+  <conceptref name=Let-Fall> takes the
+  object out of the <conceptref name=Be-Supported> state.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's Supported.  The object is put in a
+     <conceptref name=Be-Supported> state by this action. 
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the object to be supported
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing used to support the object; "the support"
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Tom supported the roof with a heavy beam..</text>
+    <slotdescription name=object>the roof</slotdescription>
+    <slotdescription name=agent>Tom</slotdescription>
+    <slotdescription name=instrument>heavy beam</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Block>
+     Prevent things from moving through some place, or along some
+     object, by blocking such movements.
+  </neighbor>
+  
+  <neighbor name=Confine>
+     Confine is more specific than Obstruct.  It prevents the object
+     from moving out of its enclosure.
+  </neighbor>
+
+  <neighbor name=Hold>
+     Hold is more specific than Obstruct.  The object that's held can 
+     only be moved by the thing holding it.
+  </neighbor>
+
+  <neighbor name=Restrain>
+     Restrain is more specific than Obstruct.  It prevents the 
+     object from moving at all.
+  </neighbor>
+
+  <neighbor name=Shut-Out>
+     Shut-Out is more specific than Obstruct.  It prevents
+     the object from moving into an enclosure.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

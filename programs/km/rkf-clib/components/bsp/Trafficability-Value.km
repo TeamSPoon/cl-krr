@@ -1,0 +1,17 @@
+
+;;
+;; $Id: Trafficability-Value.km,v 1.2 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+
+(Trafficability-Value has 
+       (superclasses (Property-Value)))
+
+(every Trafficability-Value has
+   (property-slot (trafficability))
+   (trafficability-of ((must-be-a Thing)))
+   (less-than ((must-be-a Trafficability-Value)))
+   (greater-than ((must-be-a Trafficability-Value)))
+   (same-as ((must-be-a Trafficability-Value)))
+)
+

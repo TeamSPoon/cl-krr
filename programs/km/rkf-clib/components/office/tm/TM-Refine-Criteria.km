@@ -1,0 +1,85 @@
+;;
+;; This is the Stubby encoding of refine_criteria 
+;; 
+;; There is not much to say about the expected effects of initiating this task.
+;; As for the expected effects of completing this task, a new specification (i.e. 
+;; criteria) is created. This information is captured by the result slot and its 
+;; filler.
+;;
+(TM-Refine-Criteria has (superclasses (TM-Task-Model)))
+
+(every TM-Refine-Criteria has
+
+       ;;----------------------------------------------------------------
+       ;; SPARK parameters.
+       ;;----------------------------------------------------------------
+       (base 	((a Entity)))		;; The object of this event corresponds to $item. 
+       (object 	((a Specification)))	;; The base of this event corresponds to $criteria.
+       (result 	((a Specification)))	;; The result of this event corresponds to $newcriteria.
+
+       ;;----------------------------------------------------------------
+       ;; Additional axioms.
+       ;;----------------------------------------------------------------
+       (instrument ((must-be-a Entity)))
+
+       (soft-pcs-list (
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the instrument of Self)))
+			   then
+			 (forall (the instrument of Self)
+				 (:set (:triple It
+						object-of
+						(a Be-Controlled with
+						   (agent ((the agent of Self)))))
+				       (:triple It 
+						object-of 
+						(mustnt-be-a Be-Inaccessible 
+							     with
+							     (base ((the agent of Self))))))))
+		       
+		       (if (has-value (the instrument of Self))
+			   then
+			 (forall (the instrument of Self)
+				 (:triple It object-of (mustnt-be-a Be-Inaccessible))))
+		       
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the object of Self)))
+			   then
+			 (forall (the object of Self)
+				 (:triple It
+					  object-of
+					  (mustnt-be-a Be-Inaccessible with
+						       (base ((the agent of Self)))))))
+		       
+		       (forall (the object of Self)
+			       (:triple It
+					object-of
+					(mustnt-be-a Be-Inaccessible)))
+		       ))
+       
+       (preparatory-event ((:default
+			    (if ((the agent of Self) /= (the object of Self))
+				then
+			      (a Move with 
+				 (object      ((the agent of Self)))
+				 (destination ((the object of Self)))
+				 ))
+			    (a Move with 
+			       (object	     ((the instrument of Self)))
+			       (destination ((the object of Self)))
+			       )
+			    ))
+			  )
+
+       ;; The Precondition states that $criteria must be the criteria of the object 
+       ;; (i.e. $item) being refined.
+       (pcs-list ((:triple
+		    (the object of Self)
+		    result-of
+		    (a Specify with
+		       (object ((the base of Self)))))
+       ))	
+       (duration ((a Duration-Value)))
+
+)
+  

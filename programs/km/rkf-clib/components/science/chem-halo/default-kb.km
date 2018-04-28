@@ -1,0 +1,20 @@
+;; 
+;;  $Id: default-kb.km,v 1.5 2006/09/29 18:57:36 jchaw Exp $
+;; 
+
+(default-kb has
+  (instance-of 		  (Property))
+  (domain      		  (Base-Role))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (inverse     		  (default-kb-of))
+  (cardinality 		  (N-to-1))
+  (scale-class         (KI-Scale))
+  (scalar-constant-class (KI-Constant))
+)
+
+(default-kb has (user-description ("Default kb value, where Kb is a quantitative descriptor for describing the strength of bases.")))
+
+(default-kb-of has (instance-of (Property)))

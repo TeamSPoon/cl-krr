@@ -1,0 +1,21 @@
+;; 
+;; $Id: Room.km,v 1.4 2006/04/12 19:31:19 jchaw Exp $
+;; 
+
+(Room has
+  (superclasses (Architectural-Structure))
+  (description ("an architectural structure playing a container within a building"))
+)
+
+(every Room has
+  (plays ((a Container)))
+  (has-part ((a Floor) (a Wall) (a Ceiling)))
+  (is-part-of ((a Building)))
+)
+
+;; see Floor.km, Wall.km and Ceiling.km for more interesting axioms
+
+
+(Room has (wn20-synset ((:set 
+			(:triple "room" 1 "n")
+			))))

@@ -1,0 +1,18 @@
+;;
+;; $Id: Intel-Processor.km,v 1.3 2004/04/01 20:32:49 kbarker Exp $
+;;
+
+(Intel-Processor has 
+  (superclasses (Processor))
+  (feature-slot ((the feature-slot of Processor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Intel-Processor))
+  ))
+)
+
+(every Intel-Processor has
+  (result-of ((a Produce with (agent (*Intel-Corporation)))))
+)
+
+(*Intel-Corporation has (instance-of (Corporation)))
+

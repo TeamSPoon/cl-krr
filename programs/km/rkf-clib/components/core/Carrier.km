@@ -1,0 +1,27 @@
+;;
+;;    $Id: Carrier.km,v 1.7 2004/07/20 22:28:55 gking Exp $
+;;
+
+(Carrier has
+            (superclasses (Role))
+            (required-slot ())
+            (primary-slot ())
+            (secondary-slot ())
+            (cmap-correspondence ())
+            (test-case ()))
+
+(every Carrier has
+       (in-event ((a Transmit))) ;;would be nice if I could say an Express or an Intepret
+       (played-by ((a Entity with
+                      (instrument-of ((the in-event of Self)))))))
+
+
+
+;; automatically added WN synsets
+(Carrier has (wn16-synset ((:set  
+                                      (:triple "carrier" 6 "n")
+))))
+
+(Carrier has (wn20-synset ((:set
+                                      (:triple "carrier" 6 "n")
+))))

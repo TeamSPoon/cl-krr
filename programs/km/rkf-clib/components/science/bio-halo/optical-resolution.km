@@ -1,0 +1,27 @@
+;; 
+;;    $Id: optical-resolution.km,v 1.2 2007/12/21 17:02:40 jchaw Exp $ 
+;; 
+
+(optical-resolution has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Physical-Object))
+   (range       (Length-Value))
+   (scale-class (Optical-Resolution-Scale))
+   (scalar-constant-class (Optical-Resolution-Constant))
+   (cardinal-unit-class   (UoM-Length)) 
+   (inverse 	(optical-resolution-of))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(optical-resolution-of has
+	(instance-of (EntityProperty)))
+
+(optical-resolution has (wn20-synset ((:set
+                               (:triple "resolution" 2 "n")
+                               (:triple "resolving power" 1 "n")
+))))
+

@@ -1,0 +1,16 @@
+;; $Id: Phenolphthalein.km,v 1.1 2007/12/13 22:41:15 mrglass Exp $ 
+(Phenolphthalein has (superclasses (Chemical)))
+(every Phenolphthalein now-has
+	(has-chemical-name ("Phenolphthalein"))
+   (color (
+         (if ((the1 of (the value of (the pH of (the Solution has-part of (the Mixture is-part-of of Self)))))
+               >=
+               9)
+            then
+            (a Color-Value with (value (*pink)))
+            else
+            (a Color-Value with (value (*colorless))))))
+   )
+
+
+

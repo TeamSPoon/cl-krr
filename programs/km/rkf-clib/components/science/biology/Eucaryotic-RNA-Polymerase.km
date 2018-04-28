@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Eucaryotic-RNA-Polymerase.km,v 1.8 2001/05/18 13:14:43 souther Exp $ 
+;; 
+
+(Eucaryotic-RNA-Polymerase has
+         (superclasses (RNA-Polymerase))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("The RNA polymerase which carries out transcription in
+                        in eucaryotic organisms."))
+         (test-case ()))
+
+(every Eucaryotic-RNA-Polymerase has   
+       (purpose ((a Catalyst with
+		    (in-event ((a Eucaryotic-DNA-Transcription))))
+		    ))
+       )
+
+

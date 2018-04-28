@@ -1,0 +1,19 @@
+;; $Id: H-Plus.km,v 1.5 2008/05/14 20:16:55 kunal Exp $ 
+(H-Plus has (superclasses (Cation)))
+(every H-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("hydrogen"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)))))))
+        (is-ion-of ((a H)))
+)
+
+(every H-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen"))
+  (charge ((a Charge-Value with
+	      (value ((:pair +1 *unity)))))))
+
+(H-Plus has (wn20-synset ((:triple "H+" 0 "n"))))

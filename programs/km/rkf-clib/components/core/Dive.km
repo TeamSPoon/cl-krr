@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Dive.km,v 1.3 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Dive has
+  (superclasses       	(Let-Fall))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Dive has
+  (agent ((a Animal)))
+  (object ((the agent of Self)))
+  (caused-by ((a Propel with
+                 (agent ((the agent of Self)))
+                 (object ((the object of Self)))
+                 (origin ((the origin of Self)))
+  )))
+)
+
+
+(every Dive has
+  (text-active-verbseq-sg ("dives"))
+  (text-active-verbseq-pl ("dive"))
+
+  (text-argslots ((:seq origin destination)))
+)
+
+
+(Dive has (wn20-synset ((:set
+                               (:triple "dive" 2 "v")
+))))
+
+
+(every Dive has (text-nominalization ("diving")))

@@ -1,0 +1,299 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1LiOH1HCl--1LiCl1H2O ----------
+
+(Reaction-1LiOH1HCl--1LiCl1H2O has (superclasses (Reaction)))
+
+(_Reaction-1LiOH1HCl--1LiCl1H2O3263 has 
+  (instance-of (Reaction-1LiOH1HCl--1LiCl1H2O))
+  (prototype-of (Reaction-1LiOH1HCl--1LiCl1H2O))
+  (prototype-scope (Reaction-1LiOH1HCl--1LiCl1H2O))
+  (prototype-participants (_Property-Node3376
+                           _Property-Node3375
+                           _Property-Node3374
+                           _Property-Node3373
+                           _Chemical3371
+                           _Coefficient-Value3370
+                           _Chemical-Entity3369
+                           _Chemical3363
+                           _Coefficient-Value3362
+                           _Chemical-Entity3361
+                           _Chemical-Entity3356
+                           _Chemical3354
+                           _Coefficient-Value3353
+                           _Chemical-Entity3351
+                           _Chemical3350
+                           _Coefficient-Value3349
+                           _Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (big-nodes (_Property-Node3373
+              _Property-Node3374
+              _Property-Node3375
+              _Property-Node3376))
+  (raw-material (_Chemical3363
+                 _Chemical3371))
+  (result (_Chemical3350
+           _Chemical3354))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3350 t)
+                    (:seq raw-material _Chemical3363 t)
+                    (:seq raw-material _Chemical3371 t)
+                    (:seq result _Chemical3354 t))))
+
+(_Property-Node3376 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3353))
+  (contains-edge ((:triple _Coefficient-Value3353 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Property-Node3375 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3349))
+  (contains-edge ((:triple _Coefficient-Value3349 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Property-Node3374 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3370))
+  (contains-edge ((:triple _Coefficient-Value3370 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Property-Node3373 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3362))
+  (contains-edge ((:triple _Coefficient-Value3362 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Chemical3371 has 
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity3369))
+  (coefficient (_Coefficient-Value3370))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3370 t)))
+  (raw-material-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Coefficient-Value3370 has 
+  (contains-node-of (_Property-Node3374))
+  (coefficient-of (_Chemical3371))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Chemical-Entity3369 has 
+  (is-basic-structural-unit-of (_Chemical3371))
+  (instance-of (Chemical-Entity
+                HCl))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Chemical3363 has 
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (has-basic-structural-unit (_Chemical-Entity3361))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3362))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3362 t)))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Coefficient-Value3362 has 
+  (contains-node-of (_Property-Node3373))
+  (coefficient-of (_Chemical3363))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Chemical-Entity3361 has 
+  (is-basic-structural-unit-of (_Chemical3363))
+  (instance-of (Chemical-Entity
+                LiOH))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Chemical-Entity3356 has 
+  (instance-of (Chemical-Entity
+                H2O))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3354))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Chemical3354 has 
+  (has-basic-structural-unit (_Chemical-Entity3356))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3353))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3353 t)))
+  (result-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Coefficient-Value3353 has 
+  (contains-node-of (_Property-Node3376))
+  (coefficient-of (_Chemical3354))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Chemical-Entity3351 has 
+  (instance-of (Chemical-Entity
+                LiCl))
+  (is-basic-structural-unit-of (_Chemical3350))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Chemical3350 has 
+  (has-basic-structural-unit (_Chemical-Entity3351))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3349))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3349 t)))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(_Coefficient-Value3349 has 
+  (contains-node-of (_Property-Node3375))
+  (coefficient-of (_Chemical3350))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1LiOH1HCl--1LiCl1H2O3263)))
+
+(explanation (:triple _Reaction-1LiOH1HCl--1LiCl1H2O3263 result _Chemical3354)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Reaction-1LiOH1HCl--1LiCl1H2O3263 raw-material _Chemical3371)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Reaction-1LiOH1HCl--1LiCl1H2O3263 raw-material _Chemical3363)
+  ((a Chemical (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction raw-material))))
+(explanation (:triple _Reaction-1LiOH1HCl--1LiCl1H2O3263 result _Chemical3350)
+  ((a Chemical (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction result))))
+(explanation (:triple _Reaction-1LiOH1HCl--1LiCl1H2O3263 chemical-equation _Chemical-Equation-Expression3265)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1LiOH1HCl--1LiCl1H2O3263) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1LiOH1HCl--1LiCl1H2O3263) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1LiOH1HCl--1LiCl1H2O3263) (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1LiOH1HCl--1LiCl1H2O3263 instance-of Reaction-1LiOH1HCl--1LiCl1H2O)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical3371 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3371 coefficient _Coefficient-Value3370)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical3371 has-basic-structural-unit _Chemical-Entity3369)
+  ((a Chemical-Entity (@ _Chemical3371 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3371 instance-of Chemical)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Coefficient-Value3370 value (:pair 1 *unity))
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Coefficient-Value3370 instance-of Coefficient-Value)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical-Entity3369 atomic-chemical-formula _Chemical-Formula3305)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3369)) or (the term of (the has-chemical-formula of _Chemical-Entity3369)) (@ _Chemical-Entity3369 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3369)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3369))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3369)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3369)))))))))) (@ _Chemical-Entity3369 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3369 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3369 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3369 nested-atomic-chemical-formula _Chemical-Formula3296)
+  ((_Chemical-Formula3296)))
+(explanation (:triple _Chemical-Entity3369 nested-atomic-chemical-formula _Chemical-Formula3296)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity3369)) and (the has-chemical-formula of _Chemical-Entity3369) (@ _Chemical-Entity3369 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity3369)))) (@ _Chemical-Entity3369 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity3369 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3369 has-chemical-formula _Chemical-Formula3294)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 H-Plus) (:pair 1 Cl-Minus)))) (@ _Chemical-Entity3369 HCl has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3369 has-chemical-formula _Chemical-Formula3294)
+  ((if ((the has-part of _Chemical-Entity3369) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity3369)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity3369)))) (@ _Chemical-Entity3369 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity3369) (the Anion has-part of _Chemical-Entity3369)))) (@ _Chemical-Entity3369 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity3369) (@ _Chemical-Entity3369 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3369 instance-of HCl)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical-Entity3369 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3371 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3363 has-basic-structural-unit _Chemical-Entity3361)
+  ((a Chemical-Entity (@ _Chemical3363 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3363 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3363 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction raw-material))))
+(explanation (:triple _Chemical3363 coefficient _Coefficient-Value3362)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical3363 instance-of Chemical)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Coefficient-Value3362 value (:pair 1 *unity))
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Coefficient-Value3362 instance-of Coefficient-Value)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical-Entity3361 atomic-chemical-formula _Chemical-Formula3344)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3361)) or (the term of (the has-chemical-formula of _Chemical-Entity3361)) (@ _Chemical-Entity3361 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3361)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3361))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3361)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3361)))))))))) (@ _Chemical-Entity3361 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3361 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3361 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3361 nested-atomic-chemical-formula _Chemical-Formula3335)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity3361)) and (the has-chemical-formula of _Chemical-Entity3361) (@ _Chemical-Entity3361 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity3361)))) (@ _Chemical-Entity3361 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity3361 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3361 has-chemical-formula _Chemical-Formula3333)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Li-Plus) (:pair 1 OH-Minus)))) (@ _Chemical-Entity3361 LiOH has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3361 has-chemical-formula _Chemical-Formula3333)
+  ((if ((the has-part of _Chemical-Entity3361) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity3361)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity3361)))) (@ _Chemical-Entity3361 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity3361) (the Anion has-part of _Chemical-Entity3361)))) (@ _Chemical-Entity3361 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity3361) (@ _Chemical-Entity3361 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3361 instance-of LiOH)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical-Entity3361 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3363 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3356 atomic-chemical-formula _Chemical-Formula3320)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3356)) or (the term of (the has-chemical-formula of _Chemical-Entity3356)) (@ _Chemical-Entity3356 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3356)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3356))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3356)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3356)))))))))) (@ _Chemical-Entity3356 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3356 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3356 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3356 nested-atomic-chemical-formula _Chemical-Formula3318)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 O)))) (@ _Chemical-Entity3356 H2O nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3356 instance-of H2O)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical-Entity3356 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3354 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3354 instance-of Entity)
+  ((a Entity (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Event (result must-be-a)))))
+(explanation (:triple _Chemical3354 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3354 coefficient _Coefficient-Value3353)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical3354 has-basic-structural-unit _Chemical-Entity3356)
+  ((a Chemical-Entity (@ _Chemical3354 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3354 instance-of Chemical)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Coefficient-Value3353 value (:pair 1 *unity))
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Coefficient-Value3353 instance-of Coefficient-Value)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical-Entity3351 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3350 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3351 instance-of LiCl)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical3350 has-basic-structural-unit _Chemical-Entity3351)
+  ((a Chemical-Entity (@ _Chemical3350 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3350 instance-of Entity)
+  ((a Entity (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Event (result must-be-a)))))
+(explanation (:triple _Chemical3350 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3350 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1LiOH1HCl--1LiCl1H2O3263 Reaction result))))
+(explanation (:triple _Chemical3350 coefficient _Coefficient-Value3349)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Chemical3350 instance-of Chemical)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Coefficient-Value3349 value (:pair 1 *unity))
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+(explanation (:triple _Coefficient-Value3349 instance-of Coefficient-Value)
+  ((added-at Reaction-1LiOH1HCl--1LiCl1H2O "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

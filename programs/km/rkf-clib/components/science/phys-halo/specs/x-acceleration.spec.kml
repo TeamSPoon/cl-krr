@@ -1,0 +1,39 @@
+<!--- $Id: x-acceleration.spec.kml,v 1.2 2006/03/01 20:24:28 kbarker Exp $ --->
+<kml>
+<property-doc name=x-acceleration>
+<gpd-documentation name=Property>
+
+<from name=Event>
+<to name=Acceleration-Value>
+
+<description> 
+  the rate of change of velocity on the x axis with respect to time
+</description>
+
+<compatible-properties>
+  <conceptref name=acceleration>
+  <conceptref name=y-acceleration>
+  <conceptref name=average-acceleration>
+</compatible-properties>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Acceleration>
+<p>
+    <examplesentence>
+      <text>10 meter per second squared</text>
+      <slotdescription name=number>10</slotdescription>
+      <slotdescription name=unit of measure>meter-pre-second-squred</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>....</scalars>
+<scale name=>..</scale>
+    <!-- p>
+    <examplesentence>
+    </examplesentence -->
+  </scalar-value-description>
+</value-description>
+</kml>

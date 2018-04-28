@@ -1,0 +1,88 @@
+<!--- $Id: Absorb.doc.spec.kml,v 1.1 2005/08/01 20:57:30 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Absorb>
+<superconcept name=Take-In>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Absorb>
+  <definition>take up a fluid into oneself</definition>
+  <requiredslot name=object>
+    <restriction>a Fluid</restriction>
+    <restriction><slot>location</slot>changes</restriction>
+  </requiredslot>
+
+  <requiredslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= within the Enclosure</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+
+  <requiredslot name=agent>
+    <inheritedfrom name=Take-In>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+  </requiredslot>
+
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= outside the Enclosure</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+
+  <primaryslot name=path>
+    <restriction>Portal</restriction>
+    <restriction>= a Portal of the Enclosure</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+
+  <wnsynsets><verb>absorb#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+</component>
+
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=absorb2>
+  <sense-definition>acquire or gain knowledge or skills
+</sense-definition>
+</sense>
+<sense tag=absorb3>
+  <sense-definition>to engage or engross wholly
+</sense-definition>
+</sense>
+<sense tag=absorb4>
+  <sense-definition>to receive without recoil or echo
+</sense-definition>
+</sense>
+<sense tag=absorb5>
+  <sense-definition>take up as in debts or payments</sense-definition>
+</sense>
+<sense tag=absorb6>
+  <sense-definition>to be able to take in</sense-definition>
+</sense>
+<sense tag=absorb7>
+  <sense-definition>to include</sense-definition>
+</sense>
+<sense tag=absorb8>
+  <sense-definition>to attract</sense-definition>
+</sense>
+
+</senselist>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNabsorb#1><equiv tag=absorb1></sense>
+<sense tag=WNabsorb#2><equiv tag=absorb2></sense>
+<sense tag=WNabsorb#3><equiv tag=absorb5></sense>
+<sense tag=WNabsorb#4><equiv tag=absorb6></sense>
+<sense tag=WNabsorb#5><equiv tag=absorb7></sense>
+<sense tag=WNabsorb#6><equiv tag=absorb8></sense>
+<sense tag=WNabsorb#7><equiv tag=absorb3></sense>
+<sense tag=WNabsorb#8><equiv tag=absorb3></sense>
+
+</senselist>
+</reference></kml>
+

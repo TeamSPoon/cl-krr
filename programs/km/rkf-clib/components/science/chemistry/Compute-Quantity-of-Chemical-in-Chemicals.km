@@ -1,0 +1,58 @@
+;;
+;; $Id: Compute-Quantity-of-Chemical-in-Chemicals.km,v 1.1 2002/12/31 16:53:35 kbarker Exp $
+;;
+
+(Compute-Quantity-of-Chemical-in-Chemicals has (superclasses (Method)))
+
+(every Compute-Quantity-of-Chemical-in-Chemicals has
+  (input ((a Class) (a Chemical)))
+  (output (
+    (a Quantity-Value with
+       (value (
+         (:pair 
+          (the sum of
+               (forall-bag 
+                  (the bag of (the Chemical input of Self))
+                  (the1 of
+                     (the value of
+                        (the output of 
+                             (a Compute-Quantity-of-Chemical-in-Chemical with
+                                (input ((the Class input of Self) It))
+                  ))))
+               )
+          )
+          *mole
+          [Compute-Quantity-of-Chemical-in-Chemicals-output-1]
+          )
+       ))
+  )))
+)
+
+
+(comment [Compute-Quantity-of-Chemical-in-Chemicals-output-1]
+  (:seq "the quantity of"
+        (the text-gen of (an instance of (the Class input of Self)))
+        "in"
+        (andify (the text-gen of (the Chemical input of Self)))
+        "is thus"
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  (:seq "In" (andify (the text-gen of (the Chemical input of Self)))
+        ", the quantity of" 
+        (the text-gen of (an instance of (the Class input of Self)))
+        "is the sum of the quantity of"
+        (the text-gen of (an instance of (the Class input of Self)))
+        "in its parts:"
+  )
+  (forall (the Chemical input of Self)
+          (:triple (a Compute-Quantity-of-Chemical-in-Chemical with
+                      (input ((the Class input of Self) It))
+                   )
+                   output
+                   *
+          )
+  )
+)
+
+

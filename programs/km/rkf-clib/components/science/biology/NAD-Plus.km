@@ -1,0 +1,24 @@
+;; 
+;;    $Id: NAD-Plus.km,v 1.5 2001/05/19 02:50:15 souther Exp $ 
+;; 
+
+(NAD-Plus has
+         (superclasses (Electron-Carrier))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Molecule that participates in an oxidation reaction by
+                        accepting a hydride ion (H-) from a donor molecule 
+                        thereby producing NADH, which serves as an activated
+                        carrier of electrons; important in the energy-producing
+                        breakdown of sugars and fats.  Alberts:ECB:G-12."))
+         (test-case ()))
+
+(every NAD-Plus has     
+       (purpose ((a Vehicle with
+		    (in-event ((a Electron-Transfer))))))
+       )
+
+
+

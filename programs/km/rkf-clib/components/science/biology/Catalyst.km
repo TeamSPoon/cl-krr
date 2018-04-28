@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Catalyst.km,v 1.18 2004/07/20 22:27:06 gking Exp $ 
+;; 
+
+(Catalyst has
+        (superclasses (Role))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (description ("A molecule that accelerates a chemical reaction without
+                       itself undergoing a change.  Alberts:ECB:G-3."))
+        (cmap-correspondence ()))  
+
+(every Catalyst has
+       (in-event ((a Catalyze)))
+       (played-by ((a Chemical-Entity with
+                      (instrument-of ((the in-event of Self))))))
+       )
+
+(every Catalyst has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))
+
+;; automatically added WN synsets
+(Catalyst has (wn16-synset ((:set  
+                                       (:triple "catalyst" 1 "n")
+                                       (:triple "accelerator" 3 "n")
+))))
+
+
+(Catalyst has (wn20-synset ((:set
+                                       (:triple "catalyst" 1 "n")
+                                       (:triple "accelerator" 3 "n")
+))))

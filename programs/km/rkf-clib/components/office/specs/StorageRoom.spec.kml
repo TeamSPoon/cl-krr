@@ -1,0 +1,28 @@
+<!--- $Id: StorageRoom.spec.kml,v 1.1 2005/08/24 22:01:57 billj Exp $ --->
+<kml>
+
+<concept name=StorageRoom>
+<system-documentation name=StorageRoom>
+<superconcept name=Room>
+
+<definition>
+	 A Room used for storage.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the StorageRoom is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Room>
+     A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

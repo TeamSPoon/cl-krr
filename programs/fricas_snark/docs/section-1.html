@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1 Introduction &#8212; fricas_snark 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="fricas_snark 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="2 Propositions" href="section-2.html" />
+    <link rel="prev" title="FriCAS :: fricas_snark" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="section-2.html" title="2 Propositions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="FriCAS :: fricas_snark"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">fricas_snark 1.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<span id="id1"></span><h1>1 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The package <em>fricas_snark</em> is an interface to SNARK, SRI&#8217;s New Automated
+Reasoning Kit, a theorem prover intended for
+applications in artificial intelligence and software engineering. SNARK is
+geared toward dealing with large sets of assertions; it can be specialized
+with strategic controls that tune its performance; and it has facilities
+for integrating special-purpose reasoning procedures with general-purpose
+inference.</p>
+<p>The goal is to have a powerful automated theorem prover (ATP in the sequel)
+combined with the algebraic power of FriCAS. Since SNARK is being developed
+in Common Lisp (on which FriCAS is mainly built on), it is not difficult to
+interface the prover on the Lisp level (see <code class="docutils literal"><span class="pre">src/snark.lisp</span></code>). A new domain
+called <code class="docutils literal"><span class="pre">Propositions</span></code> (abbrev. <code class="docutils literal"><span class="pre">PROP</span></code>) builds the link between FriCAS&#8217;
+algebraic language (SPAD) and SNARK&#8217;s own logic language in CL which is close
+to the <a class="reference internal" href="#kif" id="id2">[KIF]</a> standard (actually KIF is an option).</p>
+<p>The end user will be able to use most of SNARK&#8217;s features on the SPAD level,
+however, it is always possible, of course, to access the CL level by using
+FriCAS&#8217; Lisp interface - <code class="docutils literal"><span class="pre">)lisp</span></code> or <code class="docutils literal"><span class="pre">)fin</span></code>. So this documentation will
+focus on the <code class="docutils literal"><span class="pre">Proposition</span></code> domain, whereas for the Common Lisp part (CL in
+the following) we refer to the SNARK documentation <a class="reference internal" href="#tutorial" id="id3">[tutorial]</a>, <a class="reference internal" href="#paper" id="id4">[paper]</a>,
+<a class="reference internal" href="#home" id="id5">[home]</a>, <a class="reference internal" href="#author" id="id6">[author]</a>. For the understanding of the ATP it is certainly necessary
+to be acquainted with the SNARK tutorial.</p>
+<table class="docutils citation" frame="void" id="tutorial" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[tutorial]</a></td><td><a class="reference external" href="http://www.ai.sri.com/snark/tutorial/tutorial.html">http://www.ai.sri.com/snark/tutorial/tutorial.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="paper" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[paper]</a></td><td><a class="reference external" href="http://www.sri.com/work/publications/guide-snark">http://www.sri.com/work/publications/guide-snark</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="home" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[home]</a></td><td><a class="reference external" href="http://www.ai.sri.com/~stickel/snark.html">http://www.ai.sri.com/~stickel/snark.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="author" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[author]</a></td><td><a class="reference external" href="https://en.wikipedia.org/wiki/Mark_E._Stickel">https://en.wikipedia.org/wiki/Mark_E._Stickel</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="kif" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[KIF]</a></td><td><a class="reference external" href="http://logic.stanford.edu/kif/dpans.html">http://logic.stanford.edu/kif/dpans.html</a></td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">FriCAS :: fricas_snark</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="section-2.html"
+                        title="next chapter">2 Propositions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/section-1.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="section-2.html" title="2 Propositions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="FriCAS :: fricas_snark"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">fricas_snark 1.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Kurt Pagani.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

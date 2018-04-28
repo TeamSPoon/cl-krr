@@ -1,0 +1,18 @@
+;; $Id: HS-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(HS-Minus has (superclasses (Anion)))
+(every HS-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("bisulfide"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)(:pair 1 S)))))))
+)
+
+
+(every HS-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("bisulfide"))
+)
+
+(HS-Minus has (wn20-synset ((:triple "HS-" 0 "n"))))

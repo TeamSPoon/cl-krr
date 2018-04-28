@@ -1,0 +1,30 @@
+<!--- $Id: Inquire.doc.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Inquire>
+<superconcept name=Express>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Inquire>
+  <definition>The expression of <conceptref name=Information> that plays the role of a <conceptref name=Question>.</definition>
+  <requiredslot name=agent>
+    <inheritedfrom name=Express>
+    <restriction>The <slot> agent </slot> must know the <slot> object </slot> of the Inquire</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Express>
+    <restriction>Must have a question to inquire about.</restriction>
+  </requiredslot>
+  <requiredslot name=recipient>
+   </requiredslot>
+
+  <wnsynsets><verb>inquire#1
+  </verb></wnsynsets>
+  <wnsynsets><verb> ask#1, ask#3, ask#7, enquire#1
+  </verb></wnsynsets>
+</component>
+</kml>
+
+

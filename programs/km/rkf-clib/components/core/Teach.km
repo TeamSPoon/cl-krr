@@ -1,0 +1,64 @@
+;;
+;;    $Id: Teach.km,v 1.13 2010/07/05 14:39:18 kbarker Exp $
+;;
+
+(Teach has 
+	(superclasses (Communicate))
+	(required-slot (agent object recipient))
+	(primary-slot ())
+	(secondary-slot ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Teach has
+	(agent ((a Tangible-Entity with (plays ((a Teacher))))))
+	(recipient ((a Tangible-Entity with (plays ((a Pupil))))))
+	(objective ((the Learn subevent of Self)))
+
+        ;; Details of the subevents are in Communicate; here we
+        ;; just force the Interpret subevent to be a Learn
+        (subevent ((a Express) (a Convey) (a Learn)))
+)
+
+
+(Teach has 
+ (test-case ('( 
+       	       (*Fire-Is-Darn-Hot has
+	        (instance-of (Information)))
+	       (*Alexander has
+	        (instance-of (Tangible-Entity)))
+	       (*Aristotle has
+		(instance-of (Tangible-Entity))
+		(experiencer-of ((a Be-Known with (object (*Fire-Is-Darn-Hot)))))
+	       ) 		
+		
+	       ;; *Alexander is taught that *Fire-Is-Darn-Hot
+	       (*Teach has
+   		(instance-of (Teach))
+		(agent 	     (*Aristotle))
+		(recipient   (*Alexander))
+		(object      (*Fire-Is-Darn-Hot)))
+	       (do-script *Teach)
+		(has-value (the recipient of (thelast Teach)))
+		((the object of (the Be-Known experiencer-of of *Aristotle)) includes *Fire-Is-Darn-Hot)
+		((the object of (the Be-Known experiencer-of of *Alexander)) includes *Fire-Is-Darn-Hot)
+
+		((the plays of *Aristotle) isa Teacher)
+		((the plays of *Alexander) isa Pupil)
+))))
+
+
+;; automatically added WN synsets
+(Teach has (wn16-synset ((:set  
+                                    (:triple "teach" 1 "v")
+                                    (:triple "learn" 5 "v")
+                                    (:triple "instruct" 1 "v")
+))))
+
+
+(Teach has (wn20-synset ((:set
+                                    (:triple "teach" 1 "v")
+                                    (:triple "learn" 5 "v")
+                                    (:triple "instruct" 1 "v")
+))))
+(every Teach has (text-nominalization ("teaching")))

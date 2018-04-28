@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Lead-Iodide-Substance9159
+
+
+|#
+
+(disable-classification)
+
+(Lead-Iodide-Substance has (superclasses (Iodide-Substance)))
+
+(every Lead-Iodide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Lead-Iodide-Substance679 has
+  (prototype-of (Lead-Iodide-Substance Iodide-Substance))
+  (prototype-scope (Lead-Iodide-Substance (the-class Iodide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Pb-Plus-2) (a I-Minus)))))))))
+  (prototype-participants (_Cation685 _I-Minus686 _Chemical-Entity681 _Lead-Iodide-Substance679)))
+
+(_Chemical-Entity681 has (instance-of (Ionic-Compound)) (has-part (_Cation685 _I-Minus686)))
+
+(_Cation685 has (instance-of (Pb-Plus-2)))
+
+(_I-Minus686 has (instance-of (I-Minus)))
+
+(_Lead-Iodide-Substance679 has (instance-of (Lead-Iodide-Substance)) (has-basic-structural-unit (_Chemical-Entity681)))
+
+(enable-classification)
+
+(explanation (:triple _Lead-Iodide-Substance679 has-basic-structural-unit _Chemical-Entity681) (((@ SME entered)) (every Lead-Iodide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity681 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation685 instance-of Pb-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _I-Minus686 instance-of I-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Lead-Iodide-Substance679 instance-of Lead-Iodide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Lead-Iodide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

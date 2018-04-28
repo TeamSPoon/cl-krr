@@ -1,0 +1,132 @@
+
+;;; ---------- Definition of prototype for Cisternae ----------
+
+(Cisternae has (superclasses (Membrane-Enclosure)))
+
+(_Cisternae588 has 
+  (instance-of (Cisternae))
+  (prototype-of (Cisternae))
+  (prototype-scope (Cisternae))
+  (prototype-participants (_Cisternae588
+                           _Physical-Object605
+                           _Tangible-Entity606
+                           _Cisternal-space607
+                           _Spatial-Entity608
+                           _Living-Entity609))
+  (prototype-participant-of (_Cisternae588))
+  (has-clones (_Placeholder-Class587589
+               _Cisternae634
+               _Cisternae167
+               _Cisternae288
+               _Cisternae334))
+  (has-built-clones (_Placeholder-Class587589
+                     _Cisternae634
+                     _Cisternae167
+                     _Cisternae288
+                     _Cisternae334))
+  (is-part-of (_Living-Entity609))
+  (encloses (_Cisternal-space607
+             _Physical-Object605))
+  (edge-coordinate ((:seq encloses _Physical-Object605 201 559)
+                    (:seq encloses _Cisternal-space607 201 559)))
+  (edge-visibility ((:seq encloses _Physical-Object605 t)
+                    (:seq encloses _Cisternal-space607 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Physical-Object605 has 
+  (prototype-participant-of (_Cisternae588))
+  (is-inside (_Cisternae588))
+  (instance-of (Physical-Object))
+  (has-clones (_Physical-Object590
+               _Physical-Object638
+               _Physical-Object162
+               _Physical-Object323
+               _Physical-Object333))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 356 600)))
+  (edge-coordinate ((:seq is-inside _Cisternae588 549 606)))
+  (edge-visibility ((:seq is-inside _Cisternae588 f))))
+
+(_Tangible-Entity606 has 
+  (prototype-participant-of (_Cisternae588))
+  (has-region (_Cisternal-space607))
+  (instance-of (Tangible-Entity))
+  (cloned-from (_Tangible-Entity598))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-region _Cisternal-space607 202 500)))
+  (edge-visibility ((:seq has-region _Cisternal-space607 f)))
+  (node-coordinate ((:pair 52 500)))
+  (has-clones (_Tangible-Entity637
+               _Tangible-Entity164
+               _Tangible-Entity322
+               _Tangible-Entity332)))
+
+(_Cisternal-space607 has 
+  (prototype-participant-of (_Cisternae588))
+  (is-inside (_Cisternae588))
+  (location-of (_Spatial-Entity608))
+  (instance-of (Cisternal-space))
+  (cloned-from (_Cisternal-space593))
+  (clone-built-from (_Cisternal-space593))
+  (is-region-of (_Tangible-Entity606))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 352 518)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq is-inside _Cisternae588 545 524)))
+  (edge-visibility ((:seq is-inside _Cisternae588 f)))
+  (has-clones (_Cisternal-space636
+               _Cisternal-space165
+               _Cisternal-space321
+               _Cisternal-space331)))
+
+(_Spatial-Entity608 has 
+  (prototype-participant-of (_Cisternae588))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity601
+               _Spatial-Entity635
+               _Spatial-Entity166
+               _Spatial-Entity320
+               _Spatial-Entity330))
+  (cloned-from (_Spatial-Entity597))
+  (location (_Cisternal-space607))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq location _Cisternal-space607 202 535)))
+  (edge-visibility ((:seq location _Cisternal-space607 f)))
+  (node-coordinate ((:pair 52 535))))
+
+(_Living-Entity609 has 
+  (prototype-participant-of (_Cisternae588))
+  (has-part (_Cisternae588))
+  (instance-of (Living-Entity))
+  (has-clones (_Living-Entity591
+               _Living-Entity633
+               _Living-Entity170
+               _Living-Entity319
+               _Living-Entity329))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Cisternae588 -100 600)))
+  (edge-visibility ((:seq has-part _Cisternae588 f)))
+  (node-coordinate ((:pair -250 600))))
+
+(explanation (:triple _Cisternae588 encloses _Physical-Object605) ((a Physical-Object (@ _Cisternae588 Membrane-Enclosure encloses))))
+(explanation (:triple _Cisternae588 is-part-of _Living-Entity609) ((a Living-Entity (@ _Cisternae588 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Cisternae588 encloses _Cisternal-space607) ((added-at Cisternae "User defined")))
+(explanation (:triple _Physical-Object605 instance-of Physical-Object) ((a Physical-Object (@ _Cisternae588 Membrane-Enclosure encloses))))
+(explanation (:triple _Tangible-Entity606 instance-of Tangible-Entity) ((cloned-from _Cisternal-space593 _Cisternal-space607)))
+(explanation (:triple _Tangible-Entity606 has-region _Cisternal-space607) ((cloned-from _Cisternal-space593 _Cisternal-space607)))
+(explanation (:triple _Tangible-Entity606 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Cisternal-space607 Region is-region-of))))
+(explanation (:triple _Cisternal-space607 instance-of Cisternal-space) ((added-at Cisternae "User defined")))
+(explanation (:triple _Cisternal-space607 is-region-of _Tangible-Entity606) ((cloned-from _Cisternal-space593 _Cisternal-space607)))
+(explanation (:triple _Cisternal-space607 location-of _Spatial-Entity608) ((cloned-from _Cisternal-space593 _Cisternal-space607)))
+(explanation (:triple _Cisternal-space607 location-of _Spatial-Entity608) ((a Spatial-Entity (@ _Cisternal-space607 Place location-of))))
+(explanation (:triple _Cisternal-space607 is-region-of _Tangible-Entity606) ((a Tangible-Entity (@ _Cisternal-space607 Region is-region-of))))
+(explanation (:triple _Spatial-Entity608 instance-of Spatial-Entity) ((cloned-from _Cisternal-space593 _Cisternal-space607)))
+(explanation (:triple _Spatial-Entity608 location _Cisternal-space607) ((cloned-from _Cisternal-space593 _Cisternal-space607)))
+(explanation (:triple _Spatial-Entity608 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cisternal-space607 Place location-of))))
+(explanation (:triple _Living-Entity609 instance-of Living-Entity) ((a Living-Entity (@ _Cisternae588 Membrane-Enclosure is-part-of))))
+
+;;; ---------- end of prototype definition ----------
+
+(Cisternae now-has (user-description ("The individual membrane sacs that make up the endoplasmic reticulum or the Golgi apparatus.")))

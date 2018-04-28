@@ -1,0 +1,34 @@
+;; 
+;;    $Id: UTP.km,v 1.7 2001/06/01 23:26:55 pnav Exp $ 
+;; 
+
+(UTP has
+         (superclasses (Ribonucleotide Nucleoside-Triphosphate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Nucleoside triphosphate used in the synthesis of
+                        RNA.  Souther.")) 
+         (test-case ()))
+
+(every UTP has
+  (has-part
+    ((a Triphosphate with
+	(object-of
+	  ((a Be-Attached-To with
+	      (object ((the Uridine has-part of Self)))
+	      (site   (((the Carbon-Atom has-part of
+			     (the Ribose has-part of
+				  (the Uridine has-part of Self)))
+			called "Carbon-5")
+		       ((the Oxygen-Atom has-part of
+                             ((the Monophosphate has-part of
+				   (the Triphosphate has-part of Self))
+			      called "Phosphate-1"))
+			called "Oxygen-1")))
+	      (instrument ((a Covalent-CO-Bond))) ))))
+     (a Uridine)
+    )))           
+
+

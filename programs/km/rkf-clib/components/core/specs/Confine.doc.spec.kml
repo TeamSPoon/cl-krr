@@ -1,0 +1,73 @@
+<!--- $Id: Confine.doc.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Confine>
+<superconcept name=Obstruct>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Confine>
+  <definition>prevent an object from being moved out of its enclosure</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <requiredslot name=location>
+      <restriction>is inside an enclosure</restriction>
+    </requiredslot>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Confined> whose <slot>location</slot> is the Place
+      inside the enclosure
+    </restriction>
+  </requiredslot>
+  <primaryslot name=location>
+    <restriction>the Place inside the enclosure</restriction>
+  </primaryslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Obstruct>
+    <restriction>causes <slot>object</slot> to be Confined</restriction>
+  </primaryslot>
+  <wnsynsets><verb>confine#3, confine#4
+  </verb></wnsynsets>
+  <wnsynsets><verb>enclose#2, hold_in#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+In order to Confine an <slot>object</slot> to an enclosure, it must already be
+inside the enclosure. The resulting state <conceptref name=Be-Confined> can be
+"undone" by <conceptref name=Release>'ing the <slot>object</slot>
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=confine2>
+  <sense-definition>restrain</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=confine3>
+  <sense-definition>limit</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=confine4>
+  <sense-definition>deprive of freedom</sense-definition>
+  <transitivity>intransitive/transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNconfine#1><equiv tag=confine3></sense>
+<sense tag=WNconfine#2><equiv tag=confine3></sense>
+<sense tag=WNconfine#3><equiv tag=confine1></sense>
+<sense tag=WNconfine#4><equiv tag=confine1></sense>
+<sense tag=WNconfine#5><equiv tag=confine4></sense>
+<sense tag=WNconfine#6><equiv tag=confine2></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

@@ -1,0 +1,22 @@
+;;
+;;	$id: Strong-Base.km
+;;
+
+(Strong-Base has
+      (superclasses (Base))
+      (subclasses (
+       LiOH-Substance
+       NaOH-Substance
+       KOH-Substance
+       RbOH-Substance
+       CsOH-Substance
+       Ca_OH_2-Substance
+       Sr_OH_2-Substance
+       Ba_OH_2-Substance 
+      ))
+      (has-example ((a NaOH-Substance)))
+      (description ("A Strong Base is a base that is completely dissociated in an aqueous solution."))
+      (test-case ()))
+
+(every Strong-Base has
+   (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong nil)))))))

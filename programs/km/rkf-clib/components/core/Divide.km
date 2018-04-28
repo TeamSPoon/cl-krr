@@ -1,0 +1,137 @@
+;; 
+;;    $Id: Divide.km,v 1.21 2006/05/01 18:34:40 kbarker Exp $ 
+;; 
+
+(Divide has
+	(superclasses (Break))
+	(required-slot (object))
+	(primary-slot ())
+	(secondary-slot ())
+	(cmap-correspondence (
+			      (:seq agent "the Divider")
+			      (:seq object "the thing Divided")
+			      (:seq instrument "the thing used to Divide")))
+	(test-case ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+;; Divide creates 2 new things in addition to destroying the original
+;; (Jarred 1/21/01) Although we do not have an explicit "<" operator we do have
+;; a less-than slot. An example would be similiar to the commented out mass slot
+;; below
+
+(every Divide has
+       (add-list ((:triple 
+		   Self
+		   result
+		   (an instance of 
+                          (the instance-of of (the object of Self)) with
+                       (uniquely-called ("result1"))
+		       (material 
+                         ((forall (the material of (the object of Self))
+                           ((an instance of (the instance-of of It))))))
+		       ;; age is smaller than the object's age
+		       (animacy ((the animacy of (the object of Self))))
+		       ;; area is smaller than the object
+		       (breakability ((the breakability of (the object of Self))))
+		       ;; capacity is smaller
+		       (color 	((the color of (the object of Self))))
+		       (consistency ((the consistency of (the object of Self))))
+		       (density 	((the density of (the object of Self))))
+		       ;; depth maybe smaller
+		       ;; height maybe smaller
+		       ;; length maybe smaller
+
+		       ;; (mass (a Mass-Value with 
+		       ;;	(less-than (the mass of (the object of  Self)))))
+
+ 
+		       (sentience 	((the sentience of (the object of Self))))
+		       (sex 	((the sex of (the object of Self))))
+		       ;; shape may or may not be the same
+		       ;; size is smaller
+		       (smell  	((the smell of (the object of Self))))	
+		       (taste 	((the taste of (the object of Self))))
+		       (temperature ((the temperature of (the object of Self))))
+		       (texture 	((the texture of (the object of Self))))
+		       ;; thickness is smaller
+		       (trait 	((the trait of (the object of Self))))
+		       (wetness 	((the wetness of (the object of Self))))
+		       ;; width maybe smaller
+		       ;; volume maybe smaller
+		       ) [Divide-add-1])
+		  (:triple
+		   Self
+		   result
+		   (an instance of
+                          (the instance-of of (the object of Self)) with
+                       (uniquely-called ("result2"))
+		       (material ((forall (the material of (the object of Self))
+					  ((an instance of (the instance-of of It))))))
+		       ;; age is smaller than the object's age
+		       (animacy ((the animacy of (the object of Self))))
+		       ;; area is smaller than the object
+		       (breakability ((the breakability of (the object of Self))))
+		       ;; capacity is smaller
+		       (color 	((the color of (the object of Self))))
+		       (consistency ((the consistency of (the object of Self))))
+		       (density 	((the density of (the object of Self))))
+		       ;; depth maybe smaller
+		       ;; height maybe smaller
+		       ;; length maybe smaller
+		       ;; mass is smller
+		       (sentience 	((the sentience of (the object of Self))))
+		       (sex 	((the sex of (the object of Self))))
+		       ;; shape may or may not be the same
+		       ;; size is smaller
+		       (smell  	((the smell of (the object of Self))))	
+		       (taste 	((the taste of (the object of Self))))
+		       (temperature ((the temperature of (the object of Self))))
+		       (texture 	((the texture of (the object of Self))))
+		       ;; thickness is smaller
+		       (trait 	((the trait of (the object of Self))))
+		       (wetness 	((the wetness of (the object of Self))))
+		       ;; width maybe smaller
+		       ;; volume maybe smaller
+		       ) [Divide-add-2]))))
+
+(comment [Divide-add-1] (:seq "A new, smaller instance of " (the object of Self) " has been created.")
+	 "A divide creates two new, smaller instances of something.")
+
+(comment [Divide-add-2] (:seq "A new, smaller instance of " (the object of Self) " has been created.")
+	 "A divide creates two new, smaller instances of something.")
+
+
+(every Divide has
+  (text-active-verbseq-sg ("divides"))
+  (text-active-verbseq-pl ("divide"))
+  (text-passive-verbseq-sg ("gets divided"))
+  (text-passive-verbseq-pl ("get divided"))
+
+  (text-argslots ((:seq base instrument result)))
+
+  (text-result ("into"))
+)
+
+
+
+
+;; automatically added WN synsets
+(Divide has (wn16-synset ((:set  
+                                     (:triple "divide" 1 "v")
+                                     (:triple "carve_up" 1 "v")
+                                     (:triple "dissever" 1 "v")
+                                     (:triple "separate" 4 "v")
+                                     (:triple "split" 1 "v")
+                                     (:triple "split_up" 2 "v")
+))))
+
+(Divide has (wn20-synset ((:set
+                                     (:triple "divide" 1 "v")
+                                     (:triple "carve_up" 1 "v")
+                                     (:triple "dissever" 1 "v")
+                                     (:triple "separate" 4 "v")
+                                     (:triple "split" 1 "v")
+                                     (:triple "split_up" 2 "v")
+))))
+(every Divide has (text-nominalization ("division")))

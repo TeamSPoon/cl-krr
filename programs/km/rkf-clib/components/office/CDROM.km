@@ -1,0 +1,16 @@
+;;
+;; $Id: CDROM.km,v 1.3 2005/04/15 06:16:41 gking Exp $
+;;
+
+(CDROM has 
+  (superclasses (Compact-Disc))
+  (feature-slot ((the feature-slot of Compact-Disc)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = CDROM))
+  ))
+)
+
+(CDROM has (wn20-synset ((:set
+			  (:triple "CD-ROM" 1 "n")
+			  (:triple "compact_disc_read-only_memory" 1 "n")
+))))

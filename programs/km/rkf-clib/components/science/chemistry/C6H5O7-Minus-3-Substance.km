@@ -1,0 +1,15 @@
+;; 
+;;    $Id: C6H5O7-Minus-3-Substance.km,v 1.2 2003/09/10 16:59:49 jchaw Exp $
+;; 
+
+(C6H5O7-Minus-3-Substance has (superclasses (Anion-Substance)))
+(every C6H5O7-Minus-3-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 2.5e-8 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a C6H5O7-Minus-3)))
+)

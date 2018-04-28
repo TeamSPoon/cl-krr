@@ -1,0 +1,25 @@
+;; 
+;;    $Id: length.km,v 1.14 2007/04/11 21:23:40 jchaw Exp $ 
+;; 
+
+(length has
+   (instance-of 	(EntityProperty))
+   (superslots 		())
+   (subslots 		())
+   (domain      	(Spatial-Entity))    
+   (range       	(Length-Value))
+   (scale-class         (Length-Scale))
+   (scalar-constant-class (Length-Constant))
+   (cardinal-unit-class   (UoM-Length))
+   (inverse 		(length-of))
+   (fluent-status 	(*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality 	(N-to-1)))
+
+(length has (wn20-synset ((:set
+                               (:triple "length" 1 "n")
+))))
+
+(length-of has
+	(instance-of (EntityProperty)))

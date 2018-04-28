@@ -1,0 +1,19 @@
+;; 
+;;    $Id: text-dobj.km,v 1.6 2006/09/27 16:18:16 jchaw Exp $
+;; 
+
+;; text-dobj takes the value of either the object or result of an Event
+
+(text-dobj has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   (range (Entity))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+   (dont-cache-values (t))
+   (inherit-with-overrides (t))
+)
+
+(text-dobj-of has (instance-of (NL-Slot-Group)))

@@ -1,0 +1,13 @@
+;; 
+;;    $Id: Line-Segment.km,v 1.1 2005/09/30 20:34:16 kbarker Exp $ 
+;; 
+
+(Line-Segment has (superclasses (Line)))
+
+(every Line-Segment has
+  (length ((must-be-a Length-Value)))
+  (has-part ((a Point called "end point 1")
+             (a Point called "end point 2")
+  ))
+)
+

@@ -1,0 +1,200 @@
+<!--- $Id: Break.doc.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Break::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Break>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Break>
+  <definition>damage an existing Tangible-Entity so that it can no longer
+    serve its function</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>must already exist</restriction>
+    <restriction>becomes broken</restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Broken> <conceptref name=State></restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to Break</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>used in Breaking the <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=by-means-of>
+    <restriction>an Event necessary to the Breaking of the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>break#3, break#17
+  </verb></wnsynsets>
+  <wnsynsets><verb>break_down#4, conk_out#1, die#4, fail#4, give_out#4, give_way#4, go#30, 
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Strictly, to Break is to cause to <conceptref name=Be-Broken>. The
+interpretation is that the <slot>object</slot> is no longer able to
+serve its <slot>function</slot>.
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=break2>
+  <sense-definition>interrupt</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=break3>
+  <sense-definition>separate into parts/pieces</sense-definition>
+  <transitivity>intransitive/transitive</transitivity>
+</sense>
+<sense tag=break4>
+  <sense-definition>ruin/damage severely</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=break5>
+  <sense-definition>violate or invalidate rules/laws/agreements</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=break6>
+  <sense-definition>trespass</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=break7>
+  <sense-definition>tame</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=break8>
+  <sense-definition>surpass</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=break9>
+  <sense-definition>expose</sense-definition>
+  <transitivity>intransitive/transitive</transitivity>
+</sense>
+<sense tag=break10>
+  <sense-definition>appear/emerge</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+<sense tag=break11>
+  <sense-definition>diverge/flee</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+<sense tag=break12>
+  <sense-definition>cushion/dampen/weaken</sense-definition>
+  <transitivity>intransitive/transitive</transitivity>
+</sense>
+<sense tag=break13>
+  <sense-definition>end/stop</sense-definition>
+  <transitivity>intransitive/transitive</transitivity>
+</sense>
+<sense tag=break14>
+  <sense-definition>happen</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+<sense tag=break15>
+  <sense-definition>erupt/rupture/pierce/crack</sense-definition>
+  <transitivity>intransitive/transitive</transitivity>
+</sense>
+<sense tag=break16>
+  <sense-definition>find a solution/flaw</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=break17>
+  <sense-definition>demote</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNbreak#1><equiv tag=break2></sense>
+<sense tag=WNbreak#2><equiv tag=break3></sense>
+<sense tag=WNbreak#3><equiv tag=break1></sense>
+<sense tag=WNbreak#4><equiv tag=break4></sense>
+<sense tag=WNbreak#5><equiv tag={break3, break4}></sense>
+<sense tag=WNbreak#6><equiv tag=break5></sense>
+<sense tag=WNbreak#7><equiv tag=break11></sense>
+<sense tag=WNbreak#8><equiv tag=break3></sense>
+<sense tag=WNbreak#9><equiv tag=break9></sense>
+<sense tag=WNbreak#10><equiv tag=break13></sense>
+<sense tag=WNbreak#11><equiv tag=break6></sense>
+<sense tag=WNbreak#12><equiv tag=break7></sense>
+<sense tag=WNbreak#13><equiv tag=break5></sense>
+<sense tag=WNbreak#14><equiv tag=break8></sense>
+<sense tag=WNbreak#15><equiv tag=break9></sense>
+<sense tag=WNbreak#16><equiv tag=break10></sense>
+<sense tag=WNbreak#17><equiv tag=break1></sense>
+<sense tag=WNbreak#18><equiv tag={break2, break11}></sense>
+<sense tag=WNbreak#19><equiv tag=break11></sense>
+<sense tag=WNbreak#20><equiv tag=none></sense>
+<sense tag=WNbreak#21><equiv tag=break12></sense>
+<sense tag=WNbreak#22><equiv tag=break7></sense>
+<sense tag=WNbreak#23><equiv tag=break13></sense>
+<sense tag=WNbreak#24><equiv tag=break2></sense>
+<sense tag=WNbreak#25><equiv tag=break13></sense>
+<sense tag=WNbreak#26><equiv tag=break13></sense>
+<sense tag=WNbreak#27><equiv tag=break10></sense>
+<sense tag=WNbreak#28><equiv tag=break14></sense>
+<sense tag=WNbreak#29><equiv tag=break4></sense>
+<sense tag=WNbreak#30><equiv tag=break5></sense>
+<sense tag=WNbreak#31><equiv tag={break2, break13}></sense>
+<sense tag=WNbreak#32><equiv tag=break3></sense>
+<sense tag=WNbreak#33><equiv tag=break3></sense>
+<sense tag=WNbreak#34><equiv tag=break17></sense>
+<sense tag=WNbreak#35><equiv tag=break4></sense>
+<sense tag=WNbreak#36><equiv tag=break11></sense>
+<sense tag=WNbreak#37><equiv tag=break10></sense>
+<sense tag=WNbreak#38><equiv tag=break3></sense>
+<sense tag=WNbreak#39><equiv tag=none></sense>
+<sense tag=WNbreak#40><equiv tag=break3></sense>
+<sense tag=WNbreak#41><equiv tag=break3></sense>
+<sense tag=WNbreak#42><equiv tag=none></sense>
+<sense tag=WNbreak#43><equiv tag=break3></sense>
+<sense tag=WNbreak#44><equiv tag=break3></sense>
+<sense tag=WNbreak#45><equiv tag=break3></sense>
+<sense tag=WNbreak#46><equiv tag=break15></sense>
+<sense tag=WNbreak#47><equiv tag=break15></sense>
+<sense tag=WNbreak#48><equiv tag=break15></sense>
+<sense tag=WNbreak#49><equiv tag=break9></sense>
+<sense tag=WNbreak#50><equiv tag=break2></sense>
+<sense tag=WNbreak#51><equiv tag=break2></sense>
+<sense tag=WNbreak#52><equiv tag=none></sense>
+<sense tag=WNbreak#53><equiv tag=break16></sense>
+<sense tag=WNbreak#54><equiv tag=break16></sense>
+<sense tag=WNbreak#55><equiv tag=break11></sense>
+<sense tag=WNbreak#56><equiv tag=break13></sense>
+<sense tag=WNbreak#57><equiv tag=break14></sense>
+<sense tag=WNbreak#58><equiv tag=break15></sense>
+<sense tag=WNbreak#59><equiv tag=none></sense>
+<sense tag=WNbreak#60><equiv tag=none></sense>
+<sense tag=WNbreak#61><equiv tag=break15></sense>
+<sense tag=WNbreak#62><equiv tag=break12></sense>
+<sense tag=WNbreak#63><equiv tag=break12></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

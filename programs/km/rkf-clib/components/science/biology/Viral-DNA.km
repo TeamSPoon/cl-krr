@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Viral-DNA.km,v 1.8 2001/05/18 18:08:08 pzyeh Exp $ 
+;; 
+
+(Viral-DNA has
+	(superclasses (Viral-Nucleic-Acid DNA-Molecule))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+	(description ("The DNA of a virus.  Souther. "))
+	(cmap-correspondence ()))
+
+(every Viral-DNA has
+       (is-part-of ((a DNA-Virus))))
+
+;; note: molecule here means single or double strand, cf misnomer of
+;;h-bonded double stranded dna molecule.
+

@@ -1,0 +1,22 @@
+
+;; 
+;;  $Id: Armored-Battalion.km,v 1.5 2002/10/12 16:04:02 kbarker Exp $
+;; 
+
+(Armored-Battalion has
+   (superclasses (Armor-Unit Battalion)))
+
+(every Armored-Battalion has-definition
+   (instance-of (Armor-Unit Battalion)))
+
+(every Armored-Battalion has
+   (possesses ((if ((the value of (the allegiance of Self)) = *Blue)
+                then
+                   (a M1A1)
+                else
+                   (if ((the value of (the allegiance of Self)) = *Red)
+                    then
+                       (a T72))
+   )))
+)
+

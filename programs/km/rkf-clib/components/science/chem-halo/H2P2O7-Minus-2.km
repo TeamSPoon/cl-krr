@@ -1,0 +1,19 @@
+;; $Id: H2P2O7-Minus-2.km,v 1.6 2008/05/15 17:19:10 kunal Exp $ 
+(H2P2O7-Minus-2 has (superclasses (Anion)))
+(every H2P2O7-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("dihydrogen pyrophosphate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 H)(:pair 2 P)(:pair 7 O)))))))
+)
+
+
+(every H2P2O7-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("dihydrogen pyrophosphate"))
+)
+
+
+(H2P2O7-Minus-2 has (wn20-synset ((:triple "H2P2O7-2" 0 "n") (:triple "H_2P_2O_7-2" 0 "n"))))

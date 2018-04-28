@@ -1,0 +1,23 @@
+;; $Id: Camera.km,v 1.14 2005/05/23 18:52:00 kbarker Exp $
+(Camera has
+	(description ("Any device the purpose of which is to record or detect visible or still images."))
+	(superclasses (Sensor)))
+
+(every 
+ Camera has 
+ (purpose 
+  ((a Instrument-Role with 
+      (in-event-of ((a CameraRecording with (object ((a Light))))))))))
+
+(Camera has (wn20-synset ((:set
+		       (:triple "camera" 1 "n")
+		       (:triple "photographic_camera" 1 "n")
+))))
+
+
+
+
+(Camera has
+  (feature-slot ((the feature-slot of Sensor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Camera)))))
+

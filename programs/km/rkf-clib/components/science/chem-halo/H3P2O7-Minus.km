@@ -1,0 +1,18 @@
+;; $Id: H3P2O7-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $ 
+(H3P2O7-Minus has (superclasses (Anion)))
+(every H3P2O7-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("trihydrogen pyrophosphate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 3 H)(:pair 2 P)(:pair 7 O)))))))
+)
+
+
+(every H3P2O7-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("trihydrogen pyrophosphate"))
+)
+
+(H3P2O7-Minus has (wn20-synset ((:triple "H3P2O7-" 0 "n") (:triple "H_3P_2O_7-" 0 "n"))))

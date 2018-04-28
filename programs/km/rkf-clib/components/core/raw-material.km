@@ -1,0 +1,51 @@
+;; 
+;;    $Id: raw-material.km,v 1.19 2008/09/05 20:29:55 tecuci Exp $
+;; 
+
+(raw-material has
+   (instance-of (Participant-Relation))
+   (superslots ())
+   (subslots ())
+   (domain      (Event))
+   (range       (Tangible-Entity))
+   (inverse (raw-material-of))
+   (text-slot (text-raw-material))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   (cardinality (N-to-N)))
+
+(raw-material-of has
+	(instance-of (Participant-Relation))
+	(combine-values-by-appending (t))
+	(text-slot (text-raw-material-of)))
+
+(text-raw-material has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-raw-material-of has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Tangible-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(raw-material has (text-gloss ("consumes")))
+(raw-material-of has (text-gloss ("is consumed by")))
+
+(raw-material has (wn20-synset ((:set
+                              (:triple "reactant" 1 "n")
+			      (:triple "raw material" 0 "n")
+			      ))))
+

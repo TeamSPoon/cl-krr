@@ -1,0 +1,218 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-4Al3O2--2Al2O3 ----------
+
+(Reaction-4Al3O2--2Al2O3 has (superclasses (Reaction)))
+
+(_Reaction-4Al3O2--2Al2O33114 has 
+  (instance-of (Reaction-4Al3O2--2Al2O3))
+  (prototype-of (Reaction-4Al3O2--2Al2O3))
+  (prototype-scope (Reaction-4Al3O2--2Al2O3))
+  (prototype-participants (_Property-Node3167
+                           _Property-Node3166
+                           _Property-Node3165
+                           _Chemical-Entity3164
+                           _Chemical3162
+                           _Coefficient-Value3161
+                           _Chemical-Entity3159
+                           _Chemical3158
+                           _Coefficient-Value3157
+                           _Chemical-Entity3155
+                           _Chemical3154
+                           _Coefficient-Value3153
+                           _Reaction-4Al3O2--2Al2O33114))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114))
+  (big-nodes (_Property-Node3165
+              _Property-Node3166
+              _Property-Node3167))
+  (raw-material (_Chemical3158
+                 _Chemical3162))
+  (result (_Chemical3154))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3154 t)
+                    (:seq raw-material _Chemical3158 t)
+                    (:seq raw-material _Chemical3162 t))))
+
+(_Property-Node3167 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3153))
+  (contains-edge ((:triple _Coefficient-Value3153 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-4Al3O2--2Al2O33114))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Property-Node3166 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3161))
+  (contains-edge ((:triple _Coefficient-Value3161 value (:pair 3 *unity))))
+  (big-node-of (_Reaction-4Al3O2--2Al2O33114))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Property-Node3165 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3157))
+  (contains-edge ((:triple _Coefficient-Value3157 value (:pair 4 *unity))))
+  (big-node-of (_Reaction-4Al3O2--2Al2O33114))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Chemical-Entity3164 has 
+  (instance-of (Chemical-Entity
+                O2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3162))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Chemical3162 has 
+  (has-basic-structural-unit (_Chemical-Entity3164))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3161))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3161 t)))
+  (raw-material-of (_Reaction-4Al3O2--2Al2O33114))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Coefficient-Value3161 has 
+  (contains-node-of (_Property-Node3166))
+  (coefficient-of (_Chemical3162))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 3 *unity)))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Chemical-Entity3159 has 
+  (instance-of (Chemical-Entity
+                Al))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3158))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Chemical3158 has 
+  (has-basic-structural-unit (_Chemical-Entity3159))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-4Al3O2--2Al2O33114))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3157))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3157 t)))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Coefficient-Value3157 has 
+  (contains-node-of (_Property-Node3165))
+  (coefficient-of (_Chemical3158))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 4 *unity)))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Chemical-Entity3155 has 
+  (instance-of (Chemical-Entity
+                Al2O3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3154))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Chemical3154 has 
+  (has-basic-structural-unit (_Chemical-Entity3155))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-4Al3O2--2Al2O33114))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3153))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3153 t)))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(_Coefficient-Value3153 has 
+  (contains-node-of (_Property-Node3167))
+  (coefficient-of (_Chemical3154))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-4Al3O2--2Al2O33114)))
+
+(explanation (:triple _Reaction-4Al3O2--2Al2O33114 raw-material _Chemical3162)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Reaction-4Al3O2--2Al2O33114 raw-material _Chemical3158)
+  ((a Chemical (@ _Reaction-4Al3O2--2Al2O33114 Reaction raw-material))))
+(explanation (:triple _Reaction-4Al3O2--2Al2O33114 result _Chemical3154)
+  ((a Chemical (@ _Reaction-4Al3O2--2Al2O33114 Reaction result))))
+(explanation (:triple _Reaction-4Al3O2--2Al2O33114 chemical-equation _Chemical-Equation-Expression3116)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-4Al3O2--2Al2O33114) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-4Al3O2--2Al2O33114) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-4Al3O2--2Al2O33114) (@ _Reaction-4Al3O2--2Al2O33114 Reaction chemical-equation))))
+(explanation (:triple _Reaction-4Al3O2--2Al2O33114 instance-of Reaction-4Al3O2--2Al2O3)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3164 atomic-chemical-formula _Chemical-Formula3143)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3164)) or (the term of (the has-chemical-formula of _Chemical-Entity3164)) (@ _Chemical-Entity3164 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3164)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3164))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3164)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3164)))))))))) (@ _Chemical-Entity3164 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3164 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3164 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3164 nested-atomic-chemical-formula _Chemical-Formula3141)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 O)))) (@ _Chemical-Entity3164 O2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3164 instance-of O2)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3164 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3162 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3162 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-4Al3O2--2Al2O33114 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-4Al3O2--2Al2O33114 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3162 coefficient _Coefficient-Value3161)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical3162 has-basic-structural-unit _Chemical-Entity3164)
+  ((a Chemical-Entity (@ _Chemical3162 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3162 instance-of Chemical)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3161 value (:pair 3 *unity))
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3161 instance-of Coefficient-Value)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3159 instance-of Al)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3159 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3158 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3158 has-basic-structural-unit _Chemical-Entity3159)
+  ((a Chemical-Entity (@ _Chemical3158 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3158 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-4Al3O2--2Al2O33114 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-4Al3O2--2Al2O33114 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3158 instance-of Chemical)
+  ((a Chemical (@ _Reaction-4Al3O2--2Al2O33114 Reaction raw-material))))
+(explanation (:triple _Chemical3158 coefficient _Coefficient-Value3157)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical3158 instance-of Chemical)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3157 value (:pair 4 *unity))
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3157 instance-of Coefficient-Value)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3155 instance-of Al2O3)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3155 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3154 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3154 has-basic-structural-unit _Chemical-Entity3155)
+  ((a Chemical-Entity (@ _Chemical3154 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3154 instance-of Entity)
+  ((a Entity (@ _Reaction-4Al3O2--2Al2O33114 Event (result must-be-a)))))
+(explanation (:triple _Chemical3154 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-4Al3O2--2Al2O33114 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-4Al3O2--2Al2O33114 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3154 instance-of Chemical)
+  ((a Chemical (@ _Reaction-4Al3O2--2Al2O33114 Reaction result))))
+(explanation (:triple _Chemical3154 coefficient _Coefficient-Value3153)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Chemical3154 instance-of Chemical)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3153 value (:pair 2 *unity))
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3153 instance-of Coefficient-Value)
+  ((added-at Reaction-4Al3O2--2Al2O3 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

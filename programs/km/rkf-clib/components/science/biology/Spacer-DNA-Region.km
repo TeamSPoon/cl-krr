@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Spacer-DNA-Region.km,v 1.10 2001/06/06 02:32:30 pnav Exp $ 
+;; 
+
+(Spacer-DNA-Region has
+         (superclasses (DNA-Noncoding-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("The DNA has-region between Genes which is not transcribed.
+                        Can be up to 100,000 nucleotides long.
+                        Alberts:ECB:218."))
+         (test-case ()))
+
+;; (every Spacer-DNA-Region has  
+;;       (object-of ((mustnt-be-a DNA-Transcription)))   ;Chapter-7 term
+;;        )
+
+

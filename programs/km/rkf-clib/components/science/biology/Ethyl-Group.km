@@ -1,0 +1,49 @@
+;; 
+;;    $Id: Ethyl-Group.km,v 1.7 2001/06/01 14:59:02 pnav Exp $ 
+;; 
+
+(Ethyl-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Hydrophobic chemical group derived from Ethane.
+                             Alberts:ECB:G-11."))
+	      (cmap-correspondence ()))
+
+(every Ethyl-Group has
+       (has-part
+	((a Carbon-Atom uniquely-called "Carbon-1" with 
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen-1")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen-2")))
+                 (instrument 	((a Covalent-CH-Bond))))   
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument 	((a Covalent-CC-Bond)))) 
+	     )))
+	 (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen-1")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen-2")))
+                 (instrument 	((a Covalent-CH-Bond))))   
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen-3")))
+                 (instrument 	((a Covalent-CH-Bond))))
+             )))
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-2")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen-2")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen-3")
+	 (exactly 5 Hydrogen-Atom))))
+
+

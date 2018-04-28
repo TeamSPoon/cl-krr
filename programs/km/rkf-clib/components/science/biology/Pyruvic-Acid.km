@@ -1,0 +1,48 @@
+;; 
+;;    $Id: Pyruvic-Acid.km,v 1.5 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Pyruvic-Acid has
+	   (superclasses (Organic-Molecule Acid))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (description ("An intermediate compound in the metabolism of
+                          carbohydrates, proteins, and fats. 
+                          PubMed:MeSH:From Stedman, 26th ed.  
+                          Formula: CH3COCOOH. Souther."))
+	   (cmap-correspondence ())
+	   (test-case ()))
+
+(every Pyruvic-Acid has
+       (has-part ((a Carbonyl-Group with
+		     (object-of
+		      ((a Be-Attached-To with
+			  (object ((the Carboxyl-Group has-part of Self)))
+			  (instrument ((a Covalent-CC-Bond)))
+			  (site
+			   ((the Carbon-Atom has-part of
+				 (the Carbonyl-Group has-part of Self))
+			    (the Carbon-Atom has-part of
+                                 (the Carboxyl-Group has-part of Self))
+			    )))
+		       (a Be-Attached-To with
+                          (object ((the Methyl-Group has-part of Self)))
+                          (instrument ((a Covalent-CC-Bond)))
+                          (site
+                           ((the Carbon-Atom has-part of
+                                 (the Carbonyl-Group has-part of Self))
+                            (the Carbon-Atom has-part of
+                                 (the Methyl-Group has-part of Self))
+                            )))    
+		       )))
+		  (a Carboxyl-Group)
+		  (a Methyl-Group)
+       )))
+
+
+
+
+
+
+(every Pyruvic-Acid has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

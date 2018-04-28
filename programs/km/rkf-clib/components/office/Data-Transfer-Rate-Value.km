@@ -1,0 +1,16 @@
+;;
+;; $Id: Data-Transfer-Rate-Value.km,v 1.2 2005/02/14 22:27:41 kbarker Exp $
+;;
+
+
+(Data-Transfer-Rate-Value has 
+   (superclasses (Property-Value)))
+
+(every Data-Transfer-Rate-Value has
+   (property-slot (data-transfer-rate))
+   (data-transfer-rate-of ((must-be-a Event)))
+   (less-than ((must-be-a Data-Transfer-Rate-Value)))
+   (greater-than ((must-be-a Data-Transfer-Rate-Value)))
+   (same-as ((must-be-a Data-Transfer-Rate-Value)))
+)
+

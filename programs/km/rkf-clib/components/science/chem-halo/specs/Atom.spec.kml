@@ -1,0 +1,83 @@
+<!--- $Id: Atom.spec.kml,v 1.1 2005/09/09 14:08:27 jfan Exp $ --->
+<kml>
+
+<concept name=Atom><system-documentation name=Atom>
+<superconcept name=Chemical-Entity>
+
+<definition>
+
+The smallest particle that maintains its chemical identity through all
+chemical and physical changes. An atom does not carry charge, and is
+made of protons and electrons.
+
+</definition>
+
+<requiredslotlist>
+  <slotdescription name=symbol>
+    The atomic symbol of the atom.  
+  </slotdescription>
+
+  <slotdescription name=atomic-number>
+    The atomic number of the atom.  See <conceptref name=Atomic-Number-Value>
+  </slotdescription>
+
+  <slotdescription name=atomic-weight>
+    The atomic weight of the atom.  See <conceptref name=Atomic-Weight-Value>
+  </slotdescription>
+
+  <slotdescription name=chemical-group>
+    The group an atom belongs to. It ranges from 1A-8A, 1B-8B.
+  </slotdescription>
+
+  <slotdescription name=chemical-period>
+    The period the atom belongs to. It ranges from 1 to 7.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>An oxygen atom has atomic number 8, is in the VIA group, and has period 2.</text>
+    <slotdescription name=atomic-number>8</slotdescription>
+    <slotdescription name=chemical-group>VIA</slotdescription>
+    <slotdescription name=chemical-period>2</slotdescription>
+  </examplesentence>
+  <comment>
+  </comment>
+
+  <examplesentence>
+    <text>A calcium atom has atomic number 20, is in the IIA group, and has period 4.</text>
+    <slotdescription name=atomic-number>20</slotdescription>
+    <slotdescription name=chemical-group>IIA</slotdescription>
+    <slotdescription name=chemical-period>4</slotdescription>
+  </examplesentence>
+  <comment>
+  </comment>
+  
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Molecule>
+    A stable chemical entity that carries no charge, and has at least
+    two atoms or ions
+  </neighbor>
+
+  <neighbor name=Ion>
+    A chemical entity with a positive or a negative charge
+  </neighbor>
+
+  <neighbor name=Subatomic-Particle>
+    A particle that is one of the constituents of an atom
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

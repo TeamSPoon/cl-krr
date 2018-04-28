@@ -1,0 +1,46 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for RRNA ----------
+
+(RRNA has (superclasses (Nucleic-acid)))
+
+(_RRNA9974 has 
+  (has-basic-structural-unit (_Atom10122))
+  (instance-of (RRNA))
+  (cloned-from (_Nucleic-acid1037))
+  (clone-built-from (_Nucleic-acid1037))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom10122 183 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom10122 f)))
+  (prototype-participants (_Atom10122
+                           _RRNA9974))
+  (prototype-participant-of (_RRNA9974))
+  (prototype-of (RRNA))
+  (prototype-scope (RRNA)))
+
+(_Atom10122 has 
+  (instance-of (Atom))
+  (has-clones (_Atom9975))
+  (cloned-from (_Atom1040))
+  (is-basic-structural-unit-of (_RRNA9974))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 333 600)))
+  (prototype-participant-of (_RRNA9974)))
+
+(explanation (:triple _RRNA9974 has-basic-structural-unit _Atom10122) ((a Atom (@ _RRNA9974 Molecule has-basic-structural-unit))))
+(explanation (:triple _RRNA9974 instance-of RRNA) ((a RRNA)))
+(explanation (:triple _RRNA9974 instance-of Nucleic-acid) ((added-at RRNA "User defined")))
+(explanation (:triple _RRNA9974 has-basic-structural-unit _Atom10122) ((cloned-from _Nucleic-acid1037 _RRNA9974)))
+(explanation (:triple _Atom10122 instance-of Atom) ((a Atom (@ _RRNA9974 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom10122 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom10122 is-basic-structural-unit-of _RRNA9974) ((cloned-from _Nucleic-acid1037 _RRNA9974)))
+(explanation (:triple _Atom10122 instance-of Atom) ((cloned-from _Nucleic-acid1037 _RRNA9974)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

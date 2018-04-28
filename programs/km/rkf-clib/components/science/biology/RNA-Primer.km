@@ -1,0 +1,22 @@
+;; 
+;;    $Id: RNA-Primer.km,v 1.1 2001/05/29 02:30:03 souther Exp $
+;; 
+
+(RNA-Primer has
+     (superclasses (Oligoribonucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A short RNA sequence containing a free 3' hydroxyl group
+                    that forms base pairs with a complementary DNA template
+                    strand and functions as the starting point for addition
+                    of nucleotides to copy the template strand. modified from
+                    Lodish:MCB:G-14"))
+
+     (cmap-correspondence ()))
+
+(every RNA-Primer has
+       (length ((at-most 15 Nucleotide)))
+       (result-of ((must-be-a DNA-Priming)))
+       )
+

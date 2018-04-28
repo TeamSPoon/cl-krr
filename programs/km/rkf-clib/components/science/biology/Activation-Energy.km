@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Activation-Energy.km,v 1.6 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Activation-Energy has
+		     (superclasses (Chemical-Energy))
+		     (required-slot ())
+		     (primary-slot ())
+		     (secondary-slot ())
+                     (description ("Extra energy that a molecule must acquire
+                                    in order to surmount an energy barrier so
+                                    as to undergo a particular chemical
+                                    reaction. Alberts:ECB:G-1."))
+		     (cmap-correspondence ()))
+
+
+
+(every Activation-Energy has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

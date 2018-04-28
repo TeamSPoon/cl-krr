@@ -1,0 +1,14 @@
+;;
+;; $Id: BaCl2.km,v 1.1 2003/04/22 16:53:03 jchaw Exp $
+;;
+
+(BaCl2 has (superclasses (Ionic-Compound)))
+
+(every BaCl2 has	
+       (has-part ((a Ba-Plus-2) (a Cl-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+            (term ((:seq 
+		    (:pair 1 Ba-Plus-2) 
+		    (:pair 2 Cl-Minus))))))))
+

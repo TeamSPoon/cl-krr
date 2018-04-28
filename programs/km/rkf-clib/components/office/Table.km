@@ -1,0 +1,15 @@
+;;
+;; $Id: Table.km,v 1.2 2005/04/10 21:19:08 jchaw Exp $
+;;
+(Table has (superclasses (Furniture)))
+
+(every Table has
+       (purpose ((a Instrument-Role with
+		    (in-event ((must-be-a Support)))
+		    (played-by (Self)))))
+       )
+
+(Table has (wn20-synset ((:set
+			     (:triple "table" 2 "n")
+			     (:triple "table" 3 "n")
+))))

@@ -1,0 +1,48 @@
+;; 
+;;    $Id: DNA-Double-Strand-Replication.km,v 1.6 2001/06/06 20:49:28 pzyeh Exp $
+;; 
+
+(DNA-Double-Strand-Replication has
+  (superclasses        	(DNA-Replication))
+  (required-slot       	(object result))
+  (primary-slot        	(instrument))
+  (description 		("A process by which a copy of all or part of a DNA molecule is
+                 	  made.  Includes the replication of the replicon subunits of
+                 	  DNA. Souther."))
+  (cmap-correspondence 	()))
+
+(every DNA-Double-Strand-Replication has
+  (object     ((a DNA-Double-Strand)))
+  (instrument ((a Replication-Machine)))
+  (result     
+    ((a DNA-Double-Strand called "DNA Double Strand 1" with
+	(has-part (((the Polydeoxyribonucleotide has-part of 
+		    	 (the DNA-Double-Strand object of Self))
+		    called "Poly-DNA-1")
+		   (a Polydeoxyribonucleotide called 
+		      "Daughter-Poly-DNA-Complement-Of-Poly-DNA-1" 
+		      with
+		      (complement 
+			(((the Polydeoxyribonucleotide has-part of
+			       (the DNA-Double-Strand object of Self))
+		     	  called "Poly-DNA-1")))))))
+     (a DNA-Double-Strand called "DNA-Double-Strand-2" with
+        (has-part (((the Polydeoxyribonucleotide has-part of
+                    	  (the DNA-Double-Strand object of Self))
+		    called "Poly-DNA-2")
+		   (a Polydeoxyribonucleotide called 
+		      "Daughter-Poly-DNA-Complement-Of-Poly-DNA-2" 
+		      with
+                      (complement
+			(((the Polydeoxyribonucleotide has-part of
+                               (the DNA-Double-Strand object of Self))
+                     	  called "Poly-DNA-2")))))))
+     (exactly 2 DNA-Double-Strand)))
+)
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+;; $Id: CH3COOCH2CH3.km,v 1.1 2006/01/23 23:36:14 jfan Exp $ 
+(CH3COOCH2CH3 has (superclasses (Ionic-Compound)))
+(every CH3COOCH2CH3 has
+	(has-chemical-name ("ethylacetate"))
+	(has-part ((a H-Plus)(a C4H7O2-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 C4H7O2-Minus)))))))
+)
+(every CH3COOCH2CH3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C4H7O2-Minus))))
+

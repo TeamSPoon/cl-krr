@@ -1,0 +1,17 @@
+;; 
+;;    $Id: skolem-string.km,v 1.3 2007/04/11 21:42:43 jchaw Exp $
+;; 
+
+(skolem-string has
+   (instance-of (KM-Slot-Group))
+   (domain (Thing))
+   (range (String))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (dont-cache-values (t))
+   (original-slot      (t))	
+)
+
+(skolem-string-of has
+   (instance-of (KM-Slot-Group)))

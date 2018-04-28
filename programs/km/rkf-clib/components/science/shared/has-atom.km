@@ -1,0 +1,16 @@
+
+;; 
+;;    $Id: has-atom.km,v 1.2 2007/11/21 00:11:15 tecuci Exp $ 
+;; 
+
+(has-atom has
+	  (instance-of 	      (Meronymic-Relation))
+	  (superslots  	      ())
+	  (domain 	      (Chemical-Entity))
+	  (range 	      (Atom))
+	  (inverse 	      (is-atom-of))
+	  (fluent-status      (*Inertial-Fluent))
+	  (cardinality 	      (N-to-N)))
+
+(is-atom-of has
+  (instance-of (Meronymic-Relation)))

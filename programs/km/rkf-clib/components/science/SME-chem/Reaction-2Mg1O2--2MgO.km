@@ -1,0 +1,218 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-2Mg1O2--2MgO ----------
+
+(Reaction-2Mg1O2--2MgO has (superclasses (Reaction)))
+
+(_Reaction-2Mg1O2--2MgO2976 has 
+  (instance-of (Reaction-2Mg1O2--2MgO))
+  (prototype-of (Reaction-2Mg1O2--2MgO))
+  (prototype-scope (Reaction-2Mg1O2--2MgO))
+  (prototype-participants (_Property-Node3019
+                           _Property-Node3018
+                           _Property-Node3017
+                           _Chemical-Entity3016
+                           _Chemical3014
+                           _Coefficient-Value3013
+                           _Chemical-Entity3011
+                           _Chemical3010
+                           _Coefficient-Value3009
+                           _Chemical-Entity3007
+                           _Chemical3006
+                           _Coefficient-Value3005
+                           _Reaction-2Mg1O2--2MgO2976))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976))
+  (big-nodes (_Property-Node3017
+              _Property-Node3018
+              _Property-Node3019))
+  (raw-material (_Chemical3010
+                 _Chemical3014))
+  (result (_Chemical3006))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3006 t)
+                    (:seq raw-material _Chemical3010 t)
+                    (:seq raw-material _Chemical3014 t))))
+
+(_Property-Node3019 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3005))
+  (contains-edge ((:triple _Coefficient-Value3005 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2Mg1O2--2MgO2976))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Property-Node3018 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3013))
+  (contains-edge ((:triple _Coefficient-Value3013 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-2Mg1O2--2MgO2976))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Property-Node3017 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3009))
+  (contains-edge ((:triple _Coefficient-Value3009 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2Mg1O2--2MgO2976))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Chemical-Entity3016 has 
+  (instance-of (Chemical-Entity
+                O2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3014))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Chemical3014 has 
+  (has-basic-structural-unit (_Chemical-Entity3016))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3013))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3013 t)))
+  (raw-material-of (_Reaction-2Mg1O2--2MgO2976))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Coefficient-Value3013 has 
+  (contains-node-of (_Property-Node3018))
+  (coefficient-of (_Chemical3014))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Chemical-Entity3011 has 
+  (instance-of (Chemical-Entity
+                Mg))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3010))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Chemical3010 has 
+  (has-basic-structural-unit (_Chemical-Entity3011))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-2Mg1O2--2MgO2976))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3009))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3009 t)))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Coefficient-Value3009 has 
+  (contains-node-of (_Property-Node3017))
+  (coefficient-of (_Chemical3010))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Chemical-Entity3007 has 
+  (instance-of (Chemical-Entity
+                MgO))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3006))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Chemical3006 has 
+  (has-basic-structural-unit (_Chemical-Entity3007))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-2Mg1O2--2MgO2976))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3005))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3005 t)))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(_Coefficient-Value3005 has 
+  (contains-node-of (_Property-Node3019))
+  (coefficient-of (_Chemical3006))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2Mg1O2--2MgO2976)))
+
+(explanation (:triple _Reaction-2Mg1O2--2MgO2976 raw-material _Chemical3014)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Reaction-2Mg1O2--2MgO2976 raw-material _Chemical3010)
+  ((a Chemical (@ _Reaction-2Mg1O2--2MgO2976 Reaction raw-material))))
+(explanation (:triple _Reaction-2Mg1O2--2MgO2976 result _Chemical3006)
+  ((a Chemical (@ _Reaction-2Mg1O2--2MgO2976 Reaction result))))
+(explanation (:triple _Reaction-2Mg1O2--2MgO2976 chemical-equation _Chemical-Equation-Expression2978)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-2Mg1O2--2MgO2976) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-2Mg1O2--2MgO2976) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-2Mg1O2--2MgO2976) (@ _Reaction-2Mg1O2--2MgO2976 Reaction chemical-equation))))
+(explanation (:triple _Reaction-2Mg1O2--2MgO2976 instance-of Reaction-2Mg1O2--2MgO)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical-Entity3016 atomic-chemical-formula _Chemical-Formula2998)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3016)) or (the term of (the has-chemical-formula of _Chemical-Entity3016)) (@ _Chemical-Entity3016 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3016)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3016))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3016)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3016)))))))))) (@ _Chemical-Entity3016 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3016 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3016 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3016 nested-atomic-chemical-formula _Chemical-Formula2996)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 O)))) (@ _Chemical-Entity3016 O2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3016 instance-of O2)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical-Entity3016 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3014 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3014 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2Mg1O2--2MgO2976 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2Mg1O2--2MgO2976 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3014 coefficient _Coefficient-Value3013)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical3014 has-basic-structural-unit _Chemical-Entity3016)
+  ((a Chemical-Entity (@ _Chemical3014 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3014 instance-of Chemical)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Coefficient-Value3013 value (:pair 1 *unity))
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Coefficient-Value3013 instance-of Coefficient-Value)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical-Entity3011 instance-of Mg)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical-Entity3011 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3010 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3010 has-basic-structural-unit _Chemical-Entity3011)
+  ((a Chemical-Entity (@ _Chemical3010 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3010 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2Mg1O2--2MgO2976 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2Mg1O2--2MgO2976 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3010 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2Mg1O2--2MgO2976 Reaction raw-material))))
+(explanation (:triple _Chemical3010 coefficient _Coefficient-Value3009)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical3010 instance-of Chemical)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Coefficient-Value3009 value (:pair 2 *unity))
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Coefficient-Value3009 instance-of Coefficient-Value)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical-Entity3007 instance-of MgO)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical-Entity3007 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3006 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3006 has-basic-structural-unit _Chemical-Entity3007)
+  ((a Chemical-Entity (@ _Chemical3006 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3006 instance-of Entity)
+  ((a Entity (@ _Reaction-2Mg1O2--2MgO2976 Event (result must-be-a)))))
+(explanation (:triple _Chemical3006 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2Mg1O2--2MgO2976 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2Mg1O2--2MgO2976 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3006 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2Mg1O2--2MgO2976 Reaction result))))
+(explanation (:triple _Chemical3006 coefficient _Coefficient-Value3005)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Chemical3006 instance-of Chemical)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Coefficient-Value3005 value (:pair 2 *unity))
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+(explanation (:triple _Coefficient-Value3005 instance-of Coefficient-Value)
+  ((added-at Reaction-2Mg1O2--2MgO "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

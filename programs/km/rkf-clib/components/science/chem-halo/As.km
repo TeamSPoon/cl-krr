@@ -1,0 +1,15 @@
+;;
+;; $Id: As.km,v 1.5 2008/10/14 19:16:12 tecuci Exp $
+;;
+
+(As has (superclasses (Metalloid-Atom VA-Element)))
+(every As has
+       (atomic-symbol (As))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 33 NIL))))))
+       (has-ion ((a As-Plus-3)))
+       (chemical-period (4)))
+(every As has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("arsenic"))
+)

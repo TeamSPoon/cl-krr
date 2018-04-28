@@ -1,0 +1,57 @@
+<!--- $Id: Fall.doc.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Fall>
+<superconcept name=Move>
+
+<sme-documentation name=Fall>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Fall>
+  <definition>change location downward</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Move>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=direction>
+    <restriction>down</restriction>
+  </requiredslot>
+  <primaryslot name=destination>
+    <inheritedfrom name=Move>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <blockedslot name=agent>
+    <inheritedfrom name=Move>
+    <comment>Fall is purely intransitive, though there can be an 
+      <slot>agent</slot> of the <conceptref name=Let-Fall> concept that 
+      causes a Fall</comment>
+  </blockedslot>
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>fall#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Fall is a specialization of the <conceptref name=Move>
+component with a required <slot>direction</slot>:down slot. Since Fall is
+purely intransitive, there can be no <slot>agent</slot> causing the Fall.
+There can be other Events that cause the Fall, such as 
+<conceptref name=Let-Fall>, which can take an <slot>agent</slot>.
+</musing>
+
+</kml>
+
+

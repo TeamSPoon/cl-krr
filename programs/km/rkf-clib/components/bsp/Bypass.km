@@ -1,0 +1,33 @@
+
+;;
+;;  $Id: Bypass.km,v 1.9 2005/11/07 20:38:02 kbarker Exp $
+;;
+
+(Bypass has
+  (superclasses (Non-Engagement-Military-Task Locomotion))
+  (description ("a tactical mission task in which a military unit maneuvers around an obstacle"))
+)
+
+;; encoded as a Locomotion on a path other than a blocked one
+
+(every Bypass has
+  (agent ((a Military-Unit)))
+  (base  ((a Spatial-Entity)))       ;; either the obj or inst of a Be-Blocked
+  (path  ((constraint (not ((the base of Self) includes TheValue)))))
+
+  (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                            (value ((:pair 0.99 NIL))))))
+
+;; the object is not the enemy so the current required-force-ratio
+;; is inappropriate
+;;  (required-force-ratio 
+;;     ((a Required-Force-Ratio-Value with
+;;         (value ((:pair 1 NIL))))))
+
+  (text-nominalization ("bypassing"))
+  (text-base (""))
+  (text-argslots ((:seq base path site)))
+  (text-active-verbseq-sg ("bypasses"))
+  (text-active-verbseq-pl ("bypass"))
+)
+

@@ -1,0 +1,16 @@
+;;
+;; $Id: scalar-constant.km,v 1.7 2007/04/11 21:42:43 jchaw Exp $
+;;
+
+(scalar-constant has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Scalar))
+  (range (Constant))
+  (inverse (scalar-constant-of))
+  (cardinality (N-to-1))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+)
+
+(scalar-constant-of has
+   (instance-of (CLIB-Slot-Group)))

@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Acidic-Amino-Acid.km,v 1.13 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Acidic-Amino-Acid has                
+         (superclasses (Amino-Acid Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("An Amino-Acid which carries a net negative charge at
+                        pH 7.  Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Acidic-Amino-Acid has
+       (possesses ((a Electric-Charge with
+		      (polarity ((a Polarity-Value with
+			(value  (*negative))))))))
+       )
+
+
+(every Acidic-Amino-Acid has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

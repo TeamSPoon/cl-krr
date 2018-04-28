@@ -1,0 +1,23 @@
+;; 
+;;    $Id: purpose.km,v 1.15 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(purpose has
+	 (instance-of (Causal-Relation Agentive-Relation))
+	 (subslots ())
+	 (domain (Entity))
+	 (range (Role))
+	 (inverse (purpose-of))
+	 (cardinality (N-to-N))
+         (original-slot      (t))	
+	 (fluent-status (*Inertial-Fluent)))
+
+
+(purpose has (wn20-synset ((:set
+			    (:triple "purpose" 2 "n")
+			    (:triple "function" 0 "n")))))
+(purpose has (text-gloss ("has the purpose of being")))
+(purpose-of has (text-gloss ("is the purpose of")))
+
+(purpose-of has
+	(instance-of (Causal-Relation Agentive-Relation)))

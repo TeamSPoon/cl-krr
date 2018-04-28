@@ -1,0 +1,85 @@
+
+;; 
+;;    $Id: DNA-Mismatch-Repair.km,v 1.32 2004/02/01 22:00:05 jfan Exp $ 
+;; 
+
+(DNA-Mismatch-Repair has
+	    (superclasses         (DNA-Repair))
+	    (required-slot (object  base))
+	    (primary-slot ((instrument agent)))
+	    (description ("A DNA repair system that identifies base pair
+                           mismatches, excises a has-region of the DNA strand
+                           containing the mismatch(es), and resynthesizes the
+                           missing nucleotide pairs.  Paraphrased from
+                           Alberts:ECB:200.")))
+
+(every DNA-Mismatch-Repair has
+       (agent ((a Living-Entity)))
+       (object ((a DNA-Sequence called "mismatched DNA" with
+		   (object-of
+                    ((a Be-Attached-To with
+                        (object
+                         ((a DNA-Sequence called "template" with
+                             (is-part-of
+                              ((a DNA-Strand called "normal strand" with
+                                  (complement (((the DNA-Strand base of Self)
+						called "repaired strand")))
+                                  )))
+                             )))
+                        (instrument ((a Hydrogen-Bond)
+                                     (at-least 2 Hydrogen-Bond)))
+                        ))))
+                (a DNA-Sequence called "the new complementary sequence" with
+                   (complement (((the DNA-Sequence object of
+                                      (the Be-Attached-To object-of of
+					   ((the DNA-Sequence object of Self)
+					    called "mismatched DNA")))
+                                 called "template")))
+                   )))        
+       (instrument ((a Aggregate called "repair enzymes" with
+		       (instance-of (Enzyme))
+
+                       (element-type (Enzyme)))))
+       (base ((a DNA-Strand called "repaired strand"))) 
+       
+       (first-subevent (((the Detach subevent of Self) called "excision")))
+       
+       (subevent
+	(
+;	 (a Recognize with   ;; probably best viewed as preparatory step.
+;            (object 	(((the DNA-Sequence object of Self)
+;                      	  called "mismatched DNA")) )
+;	     (agent 	((a Deoxyribonuclease)))
+;	    )
+
+	 (a Detach called "excision" with
+            (object 	(((the DNA-Sequence object of Self)
+                      	  called "mismatched DNA")) )
+            (base 	((the DNA-Strand base of Self)))
+	    (instrument ((a Deoxyribonuclease)))
+	    (next-event (((the DNA-Synthesis subevent of Self) 
+			  called "DNA resynthesis")))
+	    )
+         (a DNA-Synthesis called "DNA resynthesis" with
+            (object (((the DNA-Sequence object of
+                           (the Be-Attached-To object-of of
+                                ((the DNA-Sequence object of Self)
+                                  called "mismatched DNA")))
+                      called "template")))
+            (result (((the DNA-Sequence object of Self)
+                      called "the new complementary sequence")) )
+            (instrument ((a DNA-Polymerase-Repair-Enzyme)))
+	    (next-event ((the DNA-Ligation subevent of Self)))
+	    )
+         (a DNA-Ligation with
+            (object (((the DNA-Sequence object of Self)
+                      called "the new complementary sequence")) )
+            (base ((the DNA-Strand base of Self)))
+            (instrument ((a DNA-Ligase)))
+            )
+	 )))
+
+
+;; how to indicate that the sequence repaired contains mismatched Base-Pair
+
+

@@ -1,0 +1,40 @@
+<!--- $Id: Cover.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+<concept name=Cover>
+<system-documentation name=Cover>
+
+<superconcept name=Barrier>
+
+  <definition>
+    A barrier that prevents movement downward to something from above.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the entity that's playing the role of Cover
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Block> event that the Entity is engaged in
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>Manhole covers prevent thousands of accidents every year.</text>
+     <comment>
+     In this example, the Cover role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Block>
+     <slotdescription name=played-by>manhole covers</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

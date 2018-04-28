@@ -1,0 +1,14 @@
+;; 
+;;  $Id: string-name.km,v 1.3 2006/09/29 18:57:37 jchaw Exp $
+;; 
+
+(string-name has
+  (instance-of (CLIB-Slot-Group)) ;; like symbol or has-acid-name
+  (domain      (Chemical-Formula))
+  (range       (String))
+  (fluent-status (*Inertial-Fluent))
+  (inverse     (string-name-of))
+  (cardinality (1-to-1))
+)
+
+(string-name-of has (instance-of (CLIB-Slot-Group)))

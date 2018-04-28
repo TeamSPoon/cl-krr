@@ -1,0 +1,36 @@
+;; 
+;;    $Id: Coding-Sequence-Type.km,v 1.4 2005/07/07 18:27:53 pzyeh Exp $
+;; 
+
+(Coding-Sequence-Type has
+          ;; (superclasses (Nucleotide-Sequence Genetic-Information-Sequence))	<-- Trimming for demo.
+	  (superclasses (Genetic-Information-Sequence))
+          (required-slot ())
+          (primary-slot ())
+          (description ("The class of DNA or RNA sequence types which contain
+                         genetic information, encoded in nucleotide triplets,
+                         termed codons.  Souther."))
+          (secondary-slot ()) )
+
+; (Coding-Sequence-Type has
+;       (has-basic-functional-unit ((a Codon)))
+;       (members ((at-least 1 Codon)))
+;       )
+                      
+#|
+(every Coding-Sequence-Type has
+       (text-base-phrase ((if (anonymous-instancep Self) then
+                              (:seq (the text-def-determiner of Self)
+                                    (the text-premods of Self)
+                                    (the text-head of Self))
+                           else
+                              (:seq (the text-head of Self))
+       )))
+                         
+       (text-phrase ((if (anonymous-instancep Self) then
+                         (:seq (the text-base-phrase of Self)
+                                 (the elements of
+                                   (the text-postmods of Self)))
+                      else (the text-base-phrase of Self))))
+)
+|#

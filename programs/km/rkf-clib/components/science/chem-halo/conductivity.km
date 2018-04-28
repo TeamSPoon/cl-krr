@@ -1,0 +1,28 @@
+;; 
+;;  $Id: conductivity.km,v 1.8 2008/07/04 18:08:51 jchaw Exp $
+;; 
+
+;; because conductivity is based on
+;; the concentration of Ions, 
+;; and there is no unit of conducitivity
+;; we just use Conductivity Unit as the unit
+
+(conductivity has
+  (instance-of (Property))
+  (domain      (Chemical))
+  (range       (Conductivity-Value))
+  (scale-class (Conductivity-Scale))
+  (scalar-constant-class (Conductivity-Constant))   
+  (cardinal-unit-class   (UoM-Conductivity))   
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     (conductivity-of))
+  (cardinality (N-to-1))
+)
+
+(conductivity-of has
+  (instance-of (Property))
+  (combine-values-by-appending (t))
+)
+
+(conductivity has (user-description (" A measure of the resistance of water to electrical flow; this resistance is a direct measure of the salinity of water, and it can be measured accurately with a conductivity sensor.")))

@@ -1,0 +1,50 @@
+;; 
+;;    $Id: Cysteine.km,v 1.9 2001/05/01 22:30:29 pnav Exp $ 
+;; 
+
+(Cysteine has                
+         (superclasses (Nonpolar-Amino-Acid Nonessential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A nonpolar amino acid with a Thiol-methyl side 
+                        chain.  Souther")) 
+         (test-case ()))
+
+(every Cysteine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 ((the Carbon-Atom has-part of 
+		       (the Methyl-Group has-part of
+			    (the Amino-Acid-Side-Chain has-part of Self)))) 
+		 )))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Methyl-Group with
+			 (object-of
+			  ((a Be-Attached-To with
+			      (object ((the Thiol-Group has-part of 
+					    (the Amino-Acid-Side-Chain 
+						 has-part of Self))))
+			      (instrument ((a Covalent-CS-Bond)))
+			      (site
+			       ((the Carbon-Atom has-part of
+				     (the Methyl-Group has-part of
+					  (the Amino-Acid-Side-Chain has-part 
+					       of Self)))
+				(the Sulfur-Atom has-part of
+                                     (the Thiol-Group has-part of
+                                          (the Amino-Acid-Side-Chain has-part
+                                               of Self)))  ))
+			      ))))
+		      (a Thiol-Group)) ))
+	)))
+ 
+
+
+

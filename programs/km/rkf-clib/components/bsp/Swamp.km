@@ -1,0 +1,17 @@
+
+;; 
+;;  $Id: Swamp.km,v 1.3 2002/07/12 16:28:18 porter Exp $
+;; 
+
+(Swamp has
+   (superclasses (Terrain))
+   (description ("A feature of the terrain")))
+
+(every Swamp has
+   (trafficability ((a Trafficability-Value with
+                       (value ((:pair *R Armor-Unit)
+                               (:pair *R Infantry-Unit)))
+   )))
+)
+
+

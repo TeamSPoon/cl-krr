@@ -1,0 +1,13 @@
+;;
+;;    $Id: CD-DVD-Combo-Drive.km,v 1.2 2004/01/23 19:23:39 kbarker Exp $
+;;
+
+(CD-DVD-Combo-Drive has 
+  (superclasses (CD-Drive DVD-Drive))
+  (feature-slot ((the feature-slot of CD-Drive)))
+  (feature-slot ((the feature-slot of DVD-Drive)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = CD-DVD-Combo-Drive))
+  ))
+)
+

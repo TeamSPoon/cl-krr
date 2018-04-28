@@ -1,0 +1,80 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Guanine ----------
+
+(Guanine has (superclasses (Nucleotide)))
+
+(_Guanine410 has 
+  (instance-of (Guanine))
+  (prototype-of (Guanine))
+  (prototype-scope (Guanine))
+  (prototype-participants (_Cytosine425
+                           _Atom419
+                           _Phosphate418
+                           _Guanine410))
+  (prototype-participant-of (_Guanine410))
+  (has-clones (_Placeholder-Class409411))
+  (has-built-clones (_Placeholder-Class409411))
+  (has-basic-structural-unit (_Atom419))
+  (has-part (_Phosphate418))
+  (cloned-from (_Nucleotide337))
+  (clone-built-from (_Nucleotide337))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq complement _Cytosine425 t)
+                    (:seq has-part _Phosphate418 t)
+                    (:seq has-basic-structural-unit _Atom419 f)))
+  (edge-coordinate ((:seq complement _Cytosine425 171 529)
+                    (:seq has-part _Phosphate418 198 583)
+                    (:seq has-basic-structural-unit _Atom419 198 627)))
+  (node-coordinate ((:pair 50 600)))
+  (complement (_Cytosine425)))
+
+(_Cytosine425 has 
+  (instance-of (Cytosine))
+  (has-clones (_Cytosine424))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (complement-of (_Guanine410))
+  (node-coordinate ((:pair 292 457)))
+  (prototype-participant-of (_Guanine410)))
+
+(_Atom419 has 
+  (instance-of (Atom))
+  (has-clones (_Atom413))
+  (cloned-from (_Atom347))
+  (is-basic-structural-unit-of (_Guanine410))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 348 621)))
+  (prototype-participant-of (_Guanine410)))
+
+(_Phosphate418 has 
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate414))
+  (cloned-from (_Phosphate346))
+  (is-part-of (_Guanine410))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 348 577)))
+  (prototype-participant-of (_Guanine410)))
+
+(explanation (:triple _Guanine410 has-basic-structural-unit _Atom419) ((cloned-from _Nucleotide337 _Guanine410)))
+(explanation (:triple _Guanine410 has-part _Phosphate418) ((cloned-from _Nucleotide337 _Guanine410)))
+(explanation (:triple _Guanine410 has-basic-structural-unit _Atom419) ((a Atom (@ _Guanine410 Molecule has-basic-structural-unit))))
+(explanation (:triple _Guanine410 has-part _Phosphate418) ((added-at Nucleotide "User defined")))
+(explanation (:triple _Guanine410 complement _Cytosine425) ((added-at Guanine "User defined")))
+(explanation (:triple _Cytosine425 instance-of Cytosine) ((added-at Guanine "User defined")))
+(explanation (:triple _Atom419 instance-of Atom) ((cloned-from _Nucleotide337 _Guanine410)))
+(explanation (:triple _Atom419 is-basic-structural-unit-of _Guanine410) ((cloned-from _Nucleotide337 _Guanine410)))
+(explanation (:triple _Atom419 instance-of Atom) ((a Atom (@ _Guanine410 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom419 instance-of Atom) ((a Atom)))
+(explanation (:triple _Phosphate418 instance-of Phosphate) ((cloned-from _Nucleotide337 _Guanine410)))
+(explanation (:triple _Phosphate418 is-part-of _Guanine410) ((cloned-from _Nucleotide337 _Guanine410)))
+(explanation (:triple _Phosphate418 instance-of Phosphate) ((added-at Nucleotide "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

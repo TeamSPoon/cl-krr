@@ -1,0 +1,315 @@
+;; 
+;;    $Id: Reaction.km,v 1.26 2005/09/08 06:42:57 jchaw Exp $ 
+;; 
+
+;; Reaction is similar to Mix
+
+(Reaction has (superclasses (Action)))
+
+(every Reaction has
+       ;;(raw-material ((must-be-a Chemical)))
+       (raw-material ((a Chemical))) ;; all reactions must have a raw-material -- jjf
+       ;;(result ((must-be-a Chemical)))
+       (result ((a Chemical))) ;; all reactions must have a result too -- jjf
+       (oxidation-state-changes 
+	((if
+	     (allof 
+	      (the value of
+		   (the oxidation-state of
+			(the has-basic-structural-unit of
+			     (the result of Self))))
+	      where
+	      (oneof2
+	       (the value of
+		    (the oxidation-state of
+			 (the has-basic-structural-unit of
+			      (the raw-material of Self))))
+	       where
+	       (((the2 of It2) = (the2 of It))
+		and
+		((the1 of It2) /= (the1 of It)))))
+	     then
+	   "yes"
+	   else 
+	   "no" [Reaction-oxidation-state-changes-1])))
+
+       (chemical-equation ((:seq (:set (forall (the raw-material of Self)
+				      (:pair
+				       (the1 of
+                                             (the value of
+                                                  (the coefficient of It)))
+				       (the string-name of 
+					    (the has-chemical-formula of 
+						 (the has-basic-structural-unit of It))))))
+			(:set (forall (the result of Self)
+				      (:pair
+				       (the1 of
+                                             (the value of
+                                                  (the coefficient of It)))
+				       (the string-name of 
+					    (the has-chemical-formula of 
+						 (the has-basic-structural-unit of It))))))
+      )))
+
+      ;; Encodes L.22(C).
+      (direction (
+	(if (not (the direction of Self))
+	    then
+	    (a Direction-Value with
+	       (value ((if (the output of 
+				(a Compute-Equilibrium-Position with
+				   (input (Self))))
+			   then
+			   (if ((the output of 
+				     (a Compute-Equilibrium-Position with
+					(input (Self))))
+			    	=
+			    	(the raw-material of Self))
+			       then
+			       *left
+			       else
+			       *right)))))
+	 [Reaction-direction-1]
+      )))
+
+      (complete-ionic-equation
+	((:seq 
+	  ;; the set of the ions in the reactants
+	   (forall 
+	    (the raw-material of Self)
+	    (if ((It isa Strong-Electrolyte)
+		 and
+		 (not (It isa Precipitate)))
+		then
+	      (forall2
+	       (the elements of
+		    (the term of
+			 (the has-chemical-formula of
+			      (the has-basic-structural-unit of It))))
+	       (:pair
+		((the1 of
+		       (the value of 
+			    (the coefficient of It)))
+		 *
+		 (the1 of It2))
+
+		(the text-gen of
+		     (an instance of (the2 of It2)))))
+	      else
+	      (:pair 
+	       (the1 of 
+		     (the value of
+			  (the coefficient of It)))
+	       (the text-gen of It))))
+	  ;; the set of the ions in the products
+	   (forall 
+	    (the result of Self)
+	    (if ((It isa Strong-Electrolyte)
+		 and
+		 (not (It isa Precipitate)))
+		then
+	      (forall2
+	       (the elements of
+		    (the term of
+			 (the has-chemical-formula of
+			      (the has-basic-structural-unit of It))))
+	       (:pair
+		((the1 of
+		       (the value of 
+			    (the coefficient of It)))
+		 *
+		 (the1 of It2))
+
+		(the text-gen of
+		     (an instance of (the2 of It2)))))
+	      else
+	      (:pair 
+	       (the1 of 
+		     (the value of
+			  (the coefficient of It)))
+	       (the text-gen of It))))
+           [Reaction-complete-ionic-equation-1]
+	  )))
+       (net-ionic-equation
+	((:seq
+	   (allof
+	    (the1 of (the complete-ionic-equation of Self))
+	    where
+	    (not (oneof2 (the2 of (the complete-ionic-equation of Self))
+			 where
+			 (It = It2))))
+	   (allof
+	    (the2 of (the complete-ionic-equation of Self))
+	    where
+	    (not (oneof2 (the1 of (the complete-ionic-equation of Self))
+			 where
+			 (It = It2))))
+           [Reaction-net-ionic-equation-1]
+	  )))
+       )
+
+
+(comment [Reaction-direction-1]
+  (:seq "Therefore, this reaction proceeds to the"
+        (the value of (the direction of Self))
+  )
+  "In acid/base equilibrium reactions, the reaction proceeds in the direction of the side where equilibrium lies"
+  (:triple (a Compute-Equilibrium-Position with (input (Self))) output *)
+)
+
+(comment [Reaction-complete-ionic-equation-1]
+  (:seq "The complete ionic equation for this reaction is therefore"
+        (the output of 
+             (a Format-Equation with 
+                (input ((the complete-ionic-equation of Self)))))
+  )
+  "The complete ionic equation of a reaction is the chemical equation with all soluble strong electrolytes shown as ions"
+  (:set (forall (the raw-material of Self) 
+                (if (It isa Strong-Electrolyte)
+                 then (:set (:triple It solubility *) 
+                            (:triple It electrolyte-status *))
+                 else (:triple It electrolyte-status *)
+                )
+        )
+        (forall (the result of Self)
+                (if (It isa Strong-Electrolyte)
+                 then (:set (:triple It solubility *) 
+                            (:triple It electrolyte-status *))
+                 else (:triple It electrolyte-status *)
+                )
+        )
+  )
+)
+
+(comment [Reaction-net-ionic-equation-1]
+  (:seq "The net ionic equation for this reaction is therefore"
+        (the output of 
+             (a Format-Equation with 
+                (input ((the net-ionic-equation of Self)))))
+  )
+  "The net ionic equation of a reaction is the complete ionic equation with ions that appear in both reactants and products omitted"
+  (:triple Self complete-ionic-equation *)
+)
+
+(comment [Reaction-oxidation-state-changes-1]
+  (if ((the oxidation-state-changes of Self) = "yes") 
+      then
+      "Therefore, the reaction causes a change in oxidation state"
+      else
+      "Therefore, the reaction causes no change in oxidation state"
+      )
+
+  (if ((the oxidation-state-changes of Self) = "no")
+      then
+      "None of the elements in this reaction undergo a change in oxidation state"
+      else
+      (:seq 
+       "In the reactants, the oxidation state(s) of the element"
+       (the text-gen of (an instance of
+        (the2 of
+	     (oneof ;;; only need to report one change in oxidation state
+	      (the value of
+		   (the oxidation-state of
+			(the has-basic-structural-unit of
+			     (the result of Self))))
+	      where
+	      (oneof2
+	       (the value of
+		    (the oxidation-state of
+			 (the has-basic-structural-unit of
+			      (the raw-material of Self))))
+	       where
+	       (((the2 of It2) = (the2 of It))
+		and
+		((the1 of It2) /= (the1 of It))))))))
+
+       "is/are"
+       "(" "nospace"
+
+       (forall ?ox1 in (the value of 
+			    (the oxidation-state of
+				 (the has-basic-structural-unit of
+				      (the raw-material of Self))))
+	       where ((the2 of ?ox1) = 
+		      (the2 of 
+			    (oneof ?ox2 in
+				   (the value of
+					(the oxidation-state of
+					     (the has-basic-structural-unit of
+						  (the result of Self))))
+				   where
+				   (oneof ?ox3 in
+					  (the value of
+					       (the oxidation-state of
+						    (the has-basic-structural-unit of
+							 (the raw-material of Self))))
+					  where
+					  (((the2 of ?ox3) = (the2 of ?ox2))
+					   and
+					   ((the1 of ?ox3) /= (the1 of ?ox2)))))))
+	       (the1 of ?ox1))
+
+       "nospace" ")."
+       "In the product, the oxidation state(s) is/are"
+       "(" "nospace"
+
+       (forall ?ox1 in (the value of 
+			    (the oxidation-state of
+				 (the has-basic-structural-unit of
+				      (the result of Self))))
+	       where ((the2 of ?ox1) = 
+		      (the2 of 
+			    (oneof ?ox2 in
+				   (the value of
+					(the oxidation-state of
+					     (the has-basic-structural-unit of
+						  (the result of Self))))
+				   where
+				   (oneof ?ox3 in
+					  (the value of
+					       (the oxidation-state of
+						    (the has-basic-structural-unit of
+							 (the raw-material of Self))))
+					  where
+					  (((the2 of ?ox3) = (the2 of ?ox2))
+					   and
+					   ((the1 of ?ox3) /= 
+					    (the1 of ?ox2)))))))
+	       (the1 of ?ox1))
+       "nospace" ")" 
+       )
+      ))
+
+
+
+
+(Reaction has 
+     (test-case ( '(
+		    (*Na2SO4 has
+			     (instance-of (Ionic-Compound-Substance))
+			     (base-of ((a Aqueous-Solution)))
+			     (has-basic-structural-unit ((a Ionic-Compound with (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 2 Na-Plus) (:pair 1 SO4-Minus-2)))))))))))
+		    
+		    (*BaCl2 has
+			    (instance-of (Ionic-Compound-Substance))
+			    (base-of ((a Aqueous-Solution)))
+			    (has-basic-structural-unit ((a Ionic-Compound with (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ba-Plus-2) (:pair 2 Cl-Minus)))))))))))
+		    
+		    ;; *R is a metathesis reaction
+		    ;; should result in NaCl(aq) & BaSO4(s)
+		    (*R has
+			(instance-of (Reaction))
+			(raw-material (*Na2SO4 *BaCl2)))
+
+		    ;; test equation slot
+		    #| commented out because string generation not working properly
+		    ((forall (the elements of (the equation of *R)) (:pair (the1 of (the value of (the1 of It))) (the2 of It)))
+		     =
+		     (:set (:pair 1 "(Na)2SO4") (:pair 1 "BaCl2")
+		      (:pair 2 "NaCl") (:pair 1 "BaSO4")))
+		    |#
+
+		    ;; test complete ionic equation slot
+
+		    ;; test net ionic equation slot
+))))

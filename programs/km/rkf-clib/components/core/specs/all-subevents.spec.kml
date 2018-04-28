@@ -1,0 +1,29 @@
+<!--- $Id: all-subevents.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+
+<kml>
+<relation-doc name=all-subevents>
+
+
+<from name=Event>
+<to name=Event>
+
+<description> 
+	Mini-events caused by a parent event.
+</description>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>The<ex-to>earthquake</ex-to> resulted in many <ex-from>tumbled houses and broken water-mains</ex-from>.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>His generous <ex-to>donation</ex-to> allowed the university to <ex-from>increase faculty size and offer more scholarships</ex-from>.</text>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=Action>
+	all-subevents is a sequence of Events caused by a parent event while an Action is a sequence of Events without a parent event.
+ </neighbor>
+</neighborlist>
+
+</kml>

@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Bond.km,v 1.8 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Bond has
+         (superclasses (Tangible-Entity))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A uniting or binding element or force. Websters 9th
+                        NCD:166"))
+         (test-case ()))
+
+(every Bond has  
+       (purpose ((a Connector with
+		    (in-event ((a Be-Attached-To))))))
+       )
+
+
+(every Bond has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

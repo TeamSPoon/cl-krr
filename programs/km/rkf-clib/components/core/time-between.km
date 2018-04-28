@@ -1,0 +1,17 @@
+;; 
+;;    $Id: time-between.km,v 1.8 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(time-between has
+       (instance-of (Temporal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Time-Interval))
+       (range (Time-Instant))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (inverse ())                       ; no inverse - it's more
+       (cardinality (N-to-N)))            ; confusing than it's worth!
+
+(time-between has (text-gloss ("occurs during")))
+

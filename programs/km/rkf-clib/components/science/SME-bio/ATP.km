@@ -1,0 +1,35 @@
+
+;;; ---------- Definition of prototype for ATP ----------
+
+(ATP has (superclasses (Organic-Molecule)))
+
+(_ATP260 has 
+  (instance-of (ATP))
+  (prototype-of (ATP))
+  (prototype-scope (ATP))
+  (prototype-participants (_Atom263
+                           _ATP260))
+  (prototype-participant-of (_ATP260))
+  (has-clones (_Placeholder-Class259261))
+  (has-built-clones (_Placeholder-Class259261))
+  (has-basic-structural-unit (_Atom263))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom263 174 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom263 t))))
+
+(_Atom263 has 
+  (instance-of (Atom))
+  (has-clones (_Atom262))
+  (is-basic-structural-unit-of (_ATP260))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 324 600)))
+  (node-visibility (t))
+  (prototype-participant-of (_ATP260)))
+
+(explanation (:triple _ATP260 has-basic-structural-unit _Atom263) ((a Atom (@ _ATP260 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom263 instance-of Atom) ((a Atom (@ _ATP260 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+

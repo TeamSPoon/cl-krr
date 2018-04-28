@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Nascent-Protein.km,v 1.8 2001/05/31 21:50:05 pnav Exp $ 
+;; 
+
+(Nascent-Protein has
+	 (superclasses (Protein))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+         (description ("A newly synthesized protein before any modifications.
+                        Souther. "))
+	 (cmap-correspondence ())
+	 (test-case ()))
+
+(every Nascent-Protein has
+       (has-region ((a Amino-Terminus with
+		     (content ((a Methionine)))))))
+
+
+

@@ -1,0 +1,91 @@
+<!--- $Id: Emit.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<kml>
+
+<concept name=Emit><system-documentation name=Emit>
+<superconcept name=Move>
+
+<definition>
+
+  To send out <conceptref name=Fluid>, <conceptref name=Particulate-Matter>, 
+  or <conceptref name=Energy>.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing emitted; must be fluid, particulate-matter, or energy
+  </slotdescription>
+
+  <slotdescription name=origin>
+     the location of the <slot>object</slot> before it's emitted.
+     Must be either the location of the <slot>agent</slot> 
+     or the location of the <slot>instrument</slot>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the <slot>object</slot> to be emitted
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing used to emit the <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that is instrumental in the emission
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after it's emitted
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot> moves 
+     along after it's emitted.  Typically, this is an object or surface
+     along which the <slot>object</slot> moves
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may.
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from.  Unlike the
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The x-ray machine emits radiation into the patient.</text>
+    <slotdescription name=object>radiation</slotdescription>
+    <slotdescription name=instrument>the x-ray machine</slotdescription>
+    <slotdescription name=destination>a place inside the patient</slotdescription>
+  </examplesentence>
+  <comment>
+    Here radiation is a form of energy.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+    Emit is a special type of Move in which the object is fluid,
+    particulate matter, or energy.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

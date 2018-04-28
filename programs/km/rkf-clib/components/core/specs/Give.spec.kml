@@ -1,0 +1,70 @@
+<!--- $Id: Give.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+<kml>
+
+<concept name=Give>
+<system-documentation name=Give>
+<superconcept name=Relinquish>
+
+  <definition> 
+      A <slot>donor</slot> relinquishes an <slot>object</slot> to a
+      <slot>recipient</slot>
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the thing that is relinguished
+  </slotdescription>
+
+  <slotdescription name=agent>
+       the entity that relinquishes the object.
+       The <slot>agent</slot> is also the <slot>donor</slot>
+  </slotdescription>
+
+  <slotdescription name=recipient>
+       the entity that <slot>possesses</slot> the object after the action
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=instrument>
+       the medium through which the object is transferred
+  </slotdescription>
+
+</primaryslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John gave his fiance a ring.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <comment>
+     The <slot>agent</slot> is also the <slot>donor</slot>
+    </comment>
+    <slotdescription name=recipient>John's fiance</slotdescription>
+    <slotdescription name=object>ring</slotdescription>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Donate>
+       Donate is a special type of Give in which the object is beneficial or 
+       valuable
+  </neighbor>  
+
+  <neighbor name=Supply>
+       Supply is a special type of Give in which the object is made available,
+       with the intention that others take it.
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

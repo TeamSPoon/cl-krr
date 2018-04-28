@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Activated-Carrier.km,v 1.11 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Activated-Carrier has
+         (superclasses (Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Small molecule carrying a chemical group in a 
+                        high-energy linkage, serving as a donor of energy or of
+                        the chemical group in may different chemical reactions.
+                        Examples include ATP, acetyl CoA, and NADH. 
+                        Alberts:ECB:G-1."))
+         (test-case ()))
+
+(every Activated-Carrier has
+       (purpose ((a Donor-Role with
+		    (in-event ((a Enzyme-Catalysis with
+				  (object 
+				   ((a Tangible-Entity with
+				       (instance-of
+					((possible-values Chemical-Group
+							  Chemical-Energy)))
+				       )))
+				  )))
+		    )))
+       (object-of
+	((a Be-Attached-To with
+	    (object ((a Chemical-Group)))
+	    (instrument  ((a High-Energy-Bond)))
+	    )))
+       )
+
+
+
+(every Activated-Carrier has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

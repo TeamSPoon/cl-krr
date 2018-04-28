@@ -1,0 +1,18 @@
+;; $Id: Hg-Plus-2.km,v 1.5 2008/05/15 17:19:10 kunal Exp $ 
+(Hg-Plus-2 has (superclasses (Metal-Cation)))
+(every Hg-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *unity))))))
+	(has-chemical-name ("mercury(II)"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Hg)))))))
+        (is-ion-of ((a Hg)))
+)
+
+(every Hg-Plus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("mercury(II)"))
+)
+
+(Hg-Plus-2 has (wn20-synset ((:triple "Hg+2" 0 "n"))))

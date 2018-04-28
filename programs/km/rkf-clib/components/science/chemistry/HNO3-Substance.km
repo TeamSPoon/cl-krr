@@ -1,0 +1,12 @@
+;; 
+;;    $Id: HNO3-Substance.km,v 1.6 2003/04/22 16:37:17 jchaw Exp $ 
+;; 
+
+(HNO3-Substance has (superclasses (Acid)))
+
+(every HNO3-Substance has
+       (plays ((a Acid-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *strong Acid)))))))))
+       (has-basic-structural-unit((a HNO3)))
+)

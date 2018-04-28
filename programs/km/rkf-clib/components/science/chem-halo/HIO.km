@@ -1,0 +1,14 @@
+;; $Id: HIO.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HIO has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HIO has
+	(has-chemical-name ("hypoiodous acid"))
+	(has-part ((a H-Plus)(a IO-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 IO-Minus)))))))
+)
+(every HIO has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a IO-Minus))))
+

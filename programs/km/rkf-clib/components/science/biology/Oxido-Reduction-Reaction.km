@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Oxido-Reduction-Reaction.km,v 1.7 2002/12/15 19:59:16 tecuci Exp $ 
+;; 
+
+(Oxido-Reduction-Reaction has
+;        (superclasses   (Oxidation Reduction))
+; bad kludge: these two superclasses clash so arbitrarily kill one
+        (superclasses   (Oxidation))
+        (required-slot  (object recipient donor))
+        (primary-slot   (agent instrument))
+	(description	("The simultaneous loss of electrons from one molecule
+                          (oxidation) and gain of by a second molecule of 
+                          electrons (reduction) by transfer from the first to 
+                          the second.  Souther.")))
+
+
+(every Oxido-Reduction-Reaction has
+  (agent        ((a Living-Entity)))
+  (object       ((a Electron)))
+  (donor        ((a Chemical-Entity)))
+  (recipient    ((a Chemical-Entity)))
+  (instrument   ((a Enzyme)))   
+
+  (text-gen ((the description of Oxido-Reduction-Reaction)))
+  )
+
+
+
+
+

@@ -1,0 +1,25 @@
+;; $Id: CH3_2_NH2-Plus.km,v 1.7 2008/10/14 19:16:13 tecuci Exp $ 
+(CH3_2_NH2-Plus has (superclasses (Cation)))
+(every CH3_2_NH2-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("dimethlyammonium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq 
+						  (:pair 2 
+							 (:seq
+							  (:pair 1 C)
+							  (:pair 3 H)))
+						  (:pair 1 N)
+						  (:pair 2 H)
+						       ))))))
+)
+
+
+(every CH3_2_NH2-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("dimethlyammonium"))
+)
+
+(CH3_2_NH2-Plus has (wn20-synset ((:triple "CH3_2_NH2+" 0 "n") (:triple "CH_3_2_NH_2+" 0 "n"))))

@@ -1,0 +1,92 @@
+
+;;
+;; $Id: Viewpoint.km,v 1.68 2008/05/27 21:26:33 jchaw Exp $
+;;
+
+(Viewpoint has (superclasses (KM-Class)))
+
+(every Viewpoint has
+  (skolem-string ((#'(LAMBDA () (STRING-TRIM "()" (FORMAT () "~A" (KM0 'Self)))))))
+
+  (viewpoint-question-title ("Question"))       ;; default section titles
+  (viewpoint-answer-title   ("Answer"))         ;; may be overridden by
+  (viewpoint-detail-title   ("Explanation"))    ;; by Viewpoint subclasses
+
+  (viewpoint-eq-solver-info
+   ((make-phrase
+     (:seq (#'(LAMBDA () (EQ-SOLVER-INFO-OUTPUT 'Self)))))))
+
+  (viewpoint-answer-page ((make-phrase
+    (:seq "<html>
+<head><title>"
+          ((the viewpoint-question of Self) or "Further Detail")
+          "</title></head>
+<body>
+<h3>"
+
+;; turn off viewpoint-question for aura demo
+;          (the viewpoint-question-title of Self)
+;          "</h3>
+;"
+;          (the viewpoint-question of Self) 
+;
+;          "
+;<h3>"
+          (the viewpoint-answer-title of Self)
+          "</h3>
+"
+          (the viewpoint-answer of Self) 
+
+          (if ((has-value (the viewpoint-detail of Self))
+               and
+               ((the viewpoint-detail of Self) /= "")
+              )
+           then (:seq "
+<h3>"
+                      (the viewpoint-detail-title of Self)
+                      "</h3>
+"
+                )
+          )
+          (the viewpoint-detail of Self)
+
+;; take out drilldown on viewpoint parents... too unpredictable
+#|
+          (if (has-value (the1 of (the viewpoint-target of (the viewpoint-parent of Self))))
+           then (:seq "<br /><br />More info on"
+                      (forall ?vp-parent in (the (viewpoint-parent *) of Self)
+                       where (has-value (the viewpoint-target of ?vp-parent))
+                         (:seq "<li>" "nospace"
+                               "<a href=#" "nospace" (the skolem-string of ?vp-parent)
+                               "nospace" ">"
+                               (the1 of (the viewpoint-target of ?vp-parent))
+                               "nospace" 
+                               "...</a></li>"
+                         )
+                      )
+                      "<hr /><a name=" 
+                      "nospace" 
+                      (the skolem-string of (the viewpoint-parent of Self)) 
+                      "/>
+"
+                      "<b><i>" "nospace" 
+                      (the1 of (the viewpoint-target of (the viewpoint-parent of Self)))
+                      "nospace" "</i></b><br /><br />
+" 
+                      (the viewpoint-answer-page of (the viewpoint-parent of Self))
+                      "<br /><br />"
+                )
+          )
+|#
+
+          "
+</body></html>
+"
+    )
+  )))
+)
+
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; viewpoint-answer and viewpoint-detail appear in the subclasses of Viewpoint
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

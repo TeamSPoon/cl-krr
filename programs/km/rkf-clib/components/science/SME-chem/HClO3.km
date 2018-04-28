@@ -1,0 +1,16 @@
+(HClO3 has
+  (superclasses (Strong-Acid)))
+
+(every HClO3 has
+       (has-chemical-name ("chloric acid"))
+       (has-part ((a H-Plus) (a ClO3-Minus)))
+       (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq
+                     (:pair 1 H-Plus)
+                     (:pair 1 ClO3-Minus)))))))
+       )
+
+(every HClO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a ClO3-Minus))))

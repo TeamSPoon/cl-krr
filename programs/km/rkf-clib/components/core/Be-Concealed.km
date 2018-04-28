@@ -1,0 +1,60 @@
+;; 
+;;    $Id: Be-Concealed.km,v 1.14 2004/07/20 22:28:55 gking Exp $ 
+;; 
+
+(Be-Concealed has
+		 (superclasses   (Be-Inaccessible))
+		 (required-slot  (object))
+		 (primary-slot   (base))
+                 (caused-by-class      (Conceal))
+                 (defeated-by-class    (Expose))
+		 (cmap-correspondence (
+				       (:seq object "the object being concealed")
+				       (:seq base "the thing the object is concealed from")
+				       )))
+
+(every Be-Concealed has
+       (object ((a Tangible-Entity)))
+       (base ((must-be-a Thing)))
+       
+       (resulting-state-of ((if (has-value (the base of Self))
+				then
+			      (must-be-a Conceal with
+					 (object ((the object of Self)))
+					 (base ((the base of Self))))
+			      else
+			      (must-be-a Conceal with
+					 (object ((the object of Self)))))))
+       
+       (defeated-by ((if (has-value (the base of Self))
+			 then
+		       (must-be-a Expose with
+				  (object ((the object of Self)))
+				  (base ((the base of Self))))
+		       else
+		       (must-be-a Expose with
+				  (object ((the object of Self))))))))
+
+(every Be-Concealed has
+  (text-particle ("concealed"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("from"))))
+
+)
+
+
+;; automatically added WN synsets
+(Be-Concealed has (wn16-synset ((:set  
+                                           (:triple "concealed" 1 "a")
+                                           (:triple "concealed" 2 "a")
+                                           (:triple "hidden" 1 "a")
+                                           (:triple "out_of_sight" 1 "a")
+))))
+
+(Be-Concealed has (wn20-synset ((:set
+                                           (:triple "concealed" 1 "a")
+                                           (:triple "concealed" 2 "a")
+                                           (:triple "hidden" 1 "a")
+                                           (:triple "out_of_sight" 1 "a")
+))))

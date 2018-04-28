@@ -1,0 +1,77 @@
+<!--- $Id: Exit.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Exit>
+<superconcept name=Move-Out-Of>
+<mixin name=Reflexive>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Exit>
+  <definition>cause self to change location out of an Enclosure</definition>
+  <requiredslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+    <restriction>= object</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>= agent</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=origin>
+    <inheritedfrom name=Move-Out-Of>
+    <restriction>Place</restriction>
+    <restriction>within the Enclosure</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <primaryslot name=destination>
+    <inheritedfrom name=Move-Out-Of>
+    <restriction>Place</restriction>
+    <restriction>outside the Enclosure</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <inheritedfrom name=Move-Out-Of>
+    <restriction>Place</restriction>
+    <restriction>a Portal of the Enclosure</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>exit#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>go_out#1, get_out#1, leave#5
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Exit is a composition of the <conceptref name=Move-Out-Of> component and
+the <conceptref name=Reflexive> clich&eacute;.<p>
+
+WordNet does not distinguish Exit from <conceptref name=Move-Out-Of>
+so the Synsets are the same.
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=exit2>
+  <sense-definition>die
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=exit3>
+  <sense-definition>lose the lead, in card games</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNexit#1><equiv tag=exit1></sense>
+<sense tag=WNexit#2><equiv tag=exit3></sense>
+<sense tag=WNexit#3><equiv tag=exit2></sense>
+
+</senselist>
+</reference>
+</kml>
+
+

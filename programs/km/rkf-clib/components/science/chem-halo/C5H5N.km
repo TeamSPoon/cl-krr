@@ -1,0 +1,20 @@
+;; 
+;;    $Id: C5H5N.km,v 1.5 2006/01/23 23:33:41 jfan Exp $
+;; 
+
+(C5H5N has (superclasses (Ionic-Compound)))
+
+(every C5H5N has
+       (has-chemical-name ("pyridine"))
+       (nested-atomic-chemical-formula (
+				 (a Chemical-Formula with
+				    (term ((:seq 
+					    (:pair 5 C)
+					    (:pair 5 H)
+					    (:pair 1 N)
+					    ))))))
+       )
+#|(every C5H5N has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Anion) (a Cation))))
+|#

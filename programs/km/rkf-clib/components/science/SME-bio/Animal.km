@@ -1,0 +1,36 @@
+;; 
+;; $Id: Animal.km,v 1.1 2007/11/29 21:16:33 tecuci Exp $
+;; 
+
+(Animal has
+  (superclasses (Organism))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("a living entity capable of locomotion"))
+)
+
+(every Animal has
+  (capability ((a Agent-Role with
+                  (in-event ((a Locomotion)))
+  )))
+)
+
+(Animal has 
+  (test-case ('(
+                (*ShinerTheCat has (instance-of (Animal)))
+                ((the instance-of of
+                      (the in-event of
+                           (the capability of *ShinerTheCat)))
+                 = Locomotion
+                )
+))))
+
+(Animal has (wn20-synset ((:set
+			   (:triple "animal" 1 "n")
+			   (:triple "animate_being" 1 "n")
+			   (:triple "beast" 1 "n")
+			   (:triple "brute" 2 "n")
+			   (:triple "creature" 1 "n")
+			   (:triple "fauna" 2 "n")
+))))

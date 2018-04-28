@@ -1,0 +1,20 @@
+;; $Id: H3P2O7-Minus-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $ 
+(H3P2O7-Minus-Substance has (superclasses (Anion-Substance)))
+(every H3P2O7-Minus-Substance has
+	(plays (((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 4.4e-3 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid))))))))
+	       ((a Base-Role with		
+		   (default-kb ((a Equilibrium-Constant-Value with
+				   (value ((:pair 3.33e-13 nil))))))
+		   (intensity ((a Intensity-Value with
+				  (value ((:pair *weak Base))))))))
+	))	
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a H3P2O7-Minus)))
+)
+(every H3P2O7-Minus-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a H3P2O7-Minus))))

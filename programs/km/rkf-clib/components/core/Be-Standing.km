@@ -1,0 +1,23 @@
+;;
+;;    $Id: Be-Standing.km,v 1.1 2005/01/11 20:14:07 kbarker Exp $
+;;
+
+(Be-Standing has (superclasses (State)))
+
+(every Be-Standing has
+  (object               ((a Entity)))
+  (resulting-state-of   ((must-be-a Stand-Up with
+                           (agent ((the object of Self))))))
+  (defeated-by          ((must-be-a Sit-Down with
+                           (agent ((the object of Self))))))
+)
+
+(every Be-Standing has
+   (text-particle ("standing"))
+)
+
+
+(Be-Standing has (wn20-synset ((:set
+			       (:triple "standing" 6 "a")
+))))
+

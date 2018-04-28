@@ -1,0 +1,111 @@
+;; 
+;;    $Id: Bacterial-DNA-Transcription.km,v 1.4 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+
+(Bacterial-DNA-Transcription has (superclasses (Action)))
+
+(every Bacterial-DNA-Transcription has
+  (instrument   ((a DNA-Polymerase)))
+  (object 	((a Bacterial-DNA-Molecule)))
+  (result 	((a RNA-Transcript)))
+
+  (first-subevent (((the Collide subevent of Self) called "CollideWithDNA")))
+
+  (subevent (
+
+    (a Collide called "CollideWithDNA" with
+       (object      ((the DNA-Polymerase instrument of Self)))
+       (base ((the Bacterial-DNA-Molecule object of Self)))
+       (next-event (((the Slide subevent of Self) called "SlideAlongDNA"))))
+
+    (a Slide called "SlideAlongDNA" with
+       (object 	((the DNA-Polymerase instrument of Self)))
+       (path 	((the Bacterial-DNA-Molecule object of Self)))
+       (rate 	(*fast))
+       (origin 	((the location of
+                       (the Collide subevent of Self))))
+       (destination ((the Promoter has-region of 
+                          (the Bacterial-DNA-Molecule object of Self))))
+       (next-event (((the Copy subevent of Self) called "TranscribeDNA"))))
+
+    (a Copy called "TranscribeDNA" with
+       (instrument ((the DNA-Polymerase instrument of Self)))
+       (object 	   ((the object of Self)))
+       (result     ((the result of Self)))
+       (first-subevent (
+          ((the Move subevent of 
+                ((the Copy subevent of Self) called "TranscribeDNA"))
+            called "MoveWhileTranscribing")))
+       (subevent (
+          (a Move called "MoveWhileTranscribing" with
+             (object     ((the DNA-Polymerase instrument of Self)))
+             (origin     ((the Promoter has-region of 
+			       (the Bacterial-DNA-Molecule object of Self))))
+             (path 	   ((the Gene has-region of 
+			       (the Bacterial-DNA-Molecule object of Self))))
+             (destination ((the Terminator has-region of 
+                                (the Bacterial-DNA-Molecule object of Self)))))))
+       (next-event (((the Detach subevent of Self) called "ReleaseTranscript"))))
+                                         
+    (a Detach called "ReleaseTranscript" with
+       (object ((the RNA-Transcript result of Self)))
+       (base ((the DNA-Polymerase instrument of Self)))
+       (location ((the Terminator has-region of 
+                       (the Bacterial-DNA-Molecule object of Self))))
+       (next-event (((the Break-Contact subevent of Self) called "LeaveDNA"))))
+
+    (a Break-Contact called "LeaveDNA" with
+       (object 	 ((the DNA-Polymerase instrument of Self)))
+       (base	 ((the Bacterial-DNA-Molecule object of Self))))
+
+)))
+
+(Bacterial-DNA-Transcription has
+  (test-case ( '(
+                 (*dna has
+                   (instance-of (Bacterial-DNA-Molecule))
+                   (has-region (*gene *promoter *terminator)))
+
+                 (*gene has (instance-of (Gene)))
+                 (*promoter has (instance-of (Promoter)))
+                 (*terminator has (instance-of (Terminator)))
+
+                 (*poly has (instance-of (DNA-Polymerase)))
+
+                 (*xscript has (instance-of (RNA-Transcript)))
+
+                 (*xscenario has
+                   (instance-of (Bacterial-DNA-Transcription))
+                   (object (*dna))
+                   (instrument (*poly))
+                   (result (*xscript)))
+
+                 (do-script *xscenario)
+
+                 ; Test2: the roles played by the participants
+		 (the object of ((the subevent of *xscenario) called "TranscribeDNA"))
+                 ((the object-of of *dna) is-superset-of (:set
+                       ((the subevent of *xscenario) called "TranscribeDNA")
+                       *xscenario))
+
+                 ((the object-of of *poly) is-superset-of (:set
+                       ((the subevent of *xscenario) called "CollideWithDNA")
+                       ((the subevent of *xscenario) called "SlideAlongDNA")
+                       ((the Move subevent of 
+                          ((the subevent of *xscenario) called "TranscribeDNA"))
+                          called "MoveWhileTranscribing")
+                       ((the subevent of *xscenario) called "LeaveDNA")))
+                 ((the base-of of *poly) is-superset-of (:set
+                       ((the subevent of *xscenario) called "ReleaseTranscript")))
+                 ((the instrument-of of *poly) is-superset-of (:set
+                       ((the subevent of *xscenario) called "TranscribeDNA")
+                       *xscenario))
+                 ((the result-of of *xscript) is-superset-of (:set
+                       (the result-of of 
+                            (the result of 
+                                 ((the subevent of *xscenario) called "TranscribeDNA")))
+                       *xscenario))
+))))
+
+(every Bacterial-DNA-Transcription has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

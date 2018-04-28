@@ -1,0 +1,24 @@
+;;
+;; $Id: N2.km,v 1.7 2006/03/07 21:52:19 jfan Exp $
+;;
+
+(N2 has (superclasses (Non-Metal-Molecule)))
+
+(every N2 has	
+       (has-part ((a N)))
+       (has-chemical-name ("nitrogen gas"))
+       #|(has-chemical-formula ((a Chemical-Formula with
+			     (term ((:seq
+				     (:pair 2 N)))))))|#
+       (nested-atomic-chemical-formula (
+			  (a Chemical-Formula with
+			     (term ((:seq
+				     (:pair 2 N)))))))
+)
+
+
+(every N2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("nitrogen gas"))
+)

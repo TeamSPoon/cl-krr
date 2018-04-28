@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Ribonucleic-Acid-Degradation.km,v 1.10 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(Ribonucleic-Acid-Degradation has
+        (superclasses   (Nucleic-Acid-Degradation))
+        (required-slot  (object))
+        (primary-slot   (agent instrument by-means-of))
+	(description	("The hydrolytic breakdown of Ribonucleic acids.
+                          Souther.")))
+
+(every Ribonucleic-Acid-Degradation has
+  (agent        ((a Living-Entity)))
+  (object       ((a RNA-Sequence)))
+  (instrument   ((a Ribonuclease)))
+  (result       ((a Aggregate with
+
+		    (element-type (RNA-Sequence)))))
+  )
+
+
+
+

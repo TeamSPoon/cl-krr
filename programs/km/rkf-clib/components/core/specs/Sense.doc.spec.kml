@@ -1,0 +1,32 @@
+<!--- $Id: Sense.doc.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<kml>
+
+<concept name=Sense::doc>
+<superconcept name=Action::doc>
+
+<sme-documentation name=Sense>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Sense>
+  <definition>an entity senses a stimulus using a sensory device</definition>
+  <requiredslot name=experiencer>
+    <restriction>a <conceptref name=Tangible-Entity> which does the Sense
+    </restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>an <conceptref name=Entity> which plays a <conceptref name=Stimulus> that is Sensed
+    </restriction>
+  </requiredslot>
+  <primaryslot name=instrument>
+    <restriction>a <conceptref name=Tangible-Entity> that is a sensory device used to sense the stimulus
+    </restriction>
+  </primaryslot>
+
+  <wnsynsets><verb>sense#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>feel#1
+  </verb></wnsynsets>
+</component>
+
+</kml>

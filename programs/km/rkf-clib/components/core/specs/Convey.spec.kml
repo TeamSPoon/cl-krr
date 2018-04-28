@@ -1,0 +1,69 @@
+<!--- $Id: Convey.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<kml>
+
+<concept name=Convey><system-documentation name=Convey>
+<superconcept name=Action>
+
+<definition>
+
+  An <slot>agent</slot> conveys a <conceptref name=Message> to a
+  <slot>recipient</slot>.  
+</definition>
+
+  <comment>
+    Convey is the second step of <conceptref name=Communicate>.
+    For perspective, here's the overall model of communication.
+    Information is first converted into a message by the 
+    <conceptref name=Express> subevent, then the message is conveyed
+    to the recipient by this event, and finally the message is 
+    converted back into information by the <conceptref name=Interpret> 
+    subevent.
+  </comment>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    the <conceptref name=Message> being conveyed
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the <conceptref name=Tangible-Entity> that conveys the message
+  </slotdescription>
+
+  <slotdescription name=recipient>
+    the <conceptref name=Tangible-Entity> that receives the message
+  </slotdescription>
+
+  <slotdescription name=base>
+    the <conceptref name=Tangible-Entity>, playing the role of a 
+    <conceptref name=Signal>, that is the embodiment of the message
+  </slotdescription>
+
+</primaryslotlist>
+
+<subeventlist>
+
+  <subeventdescription name=Embody>
+     the message is embodied as a signal
+  </subeventdescription>
+
+  <subeventdescription name=Transmit>
+     the signal is transmitted to the recipient
+  </subeventdescription>
+
+  <subeventdescription name=Sense>
+     the recipient senses the signal
+  </subeventdescription>
+
+</subeventlist>
+
+<subeventorder>
+  <conceptref name=Embody>, followed by <conceptref name=Transmit>, followed by <conceptref name=Sense>.
+</subeventorder>
+
+
+</kml>

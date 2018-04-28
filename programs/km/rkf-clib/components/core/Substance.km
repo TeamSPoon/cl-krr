@@ -1,0 +1,47 @@
+;; 
+;;    $Id: Substance.km,v 1.13 2008/06/12 21:43:46 kbarker Exp $ 
+;; 
+
+;; KJB: Instances of our Substance class are amounts of the Substance.
+;; KJB: The classes themselves refer to Substances independent of the
+;; KJB: individual "amounts" they constitute.
+
+(Substance has
+	   (superclasses (Tangible-Entity))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (cmap-correspondence ())
+	   (test-case ()))
+
+
+(every Substance has
+;  (text-def-determiner ((if (anonymous-instancep Self) then
+;                            (if (has-value (the is-possessed-by of Self)) then
+;                                (:seq (the text-def-head of (the is-possessed-by of Self))
+;                                      "'s")
+;                             else NIL
+;                            )
+;                         else NIL)
+;  ))
+
+  (text-def-determiner (NIL))
+
+  (text-indef-determiner (NIL))
+)
+
+
+
+;; automatically added WN synsets
+(Substance has (wn16-synset ((:set  
+                                        (:triple "substance" 1 "n")
+                                        (:triple "matter" 3 "n")
+))))
+
+(Substance has (wn20-synset ((:set
+                                        (:triple "substance" 1 "n")
+                                        (:triple "matter" 1 "n")
+))))
+
+;; stubby
+

@@ -1,0 +1,42 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _K5195
+
+
+|#
+
+(disable-classification)
+
+(K has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+
+(every K has (atomic-symbol (K)) (atomic-number ((a Atomic-Number-Value with (value ((:pair 19 NIL)))))) (chemical-period (4)))
+
+(_K5206 has
+  (prototype-of (K))
+  (prototype-scope (K))
+  (prototype-participants (_K-Plus5211 _K5206)))
+
+(_K5206 has (instance-of (K)) (has-ion (_K-Plus5211)))
+
+(_K-Plus5211 has (instance-of (K-Plus)))
+
+(enable-classification)
+
+(explanation (:triple _K5206 has-ion _K-Plus5211) (((@ SME entered)) (every K has (has-ion ((a K-Plus))))))
+
+(explanation (:triple _K5206 instance-of K) (((@ SME entered)) NIL))
+
+(explanation (:triple _K-Plus5211 instance-of K-Plus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every K has (has-ion ((a K-Plus))))
+
+|#
+
+|#
+

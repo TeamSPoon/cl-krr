@@ -1,0 +1,15 @@
+;;
+;;    $Id: Telephone.km,v 1.6 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(Telephone has (superclasses (Office-Equipment)))
+
+(Telephone has (wn20-synset ((:set (:triple "telephone" 1 "n")
+				   (:triple "phone" 1 "n")
+				   (:triple "telephone_set" 1 "n")
+))))
+
+(Telephone has
+  (feature-slot ((the feature-slot of Office-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Telephone)))))
+

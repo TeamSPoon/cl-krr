@@ -1,0 +1,12 @@
+;;
+;;    $Id: Basic-Solution.km
+;;
+
+(Basic-Solution has
+(superclasses (Solution)))
+
+(every Basic-Solution has-definition
+(instance-of (Solution))
+(has-solute ((a Base))))
+
+(every Basic-Solution has (pH ((a PH-Value with (value ((:pair (the difference of ((:bag 14 (the abs of (the quotient of ((:bag (the log of (the1 of (the value of ((the concentration of Self)))))(the log of 10)))))))) *unity)))(greater-than ((a PH-Value with (value ((:pair 7 *unity))))))))))

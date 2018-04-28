@@ -1,0 +1,18 @@
+;; $Id: C3H5O2-Minus.km,v 1.8 2008/05/15 22:45:41 vaibhav Exp $ 
+(C3H5O2-Minus has (superclasses (Anion)))
+(every C3H5O2-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("propionate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 3 C)(:pair 5 H)(:pair 2 O)))))))
+)
+
+
+(every C3H5O2-Minus has-definition
+  (instance-of (Chemical-Entity))
+  (charge ((a Charge-Value with (value ((:pair -1 *unity))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 3 C) (:pair 5 H) (:pair 2 O)))))))
+)
+
+(C3H5O2-Minus has (wn20-synset ((:triple "C3H5O2-" 0 "n") (:triple "C_3H_5O_2-" 0 "n"))))

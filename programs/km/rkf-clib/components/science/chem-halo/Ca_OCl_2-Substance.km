@@ -1,0 +1,11 @@
+;; 
+;;    $Id: Ca_OCl_2-Substance.km,v 1.6 2008/11/03 03:11:26 tecuci Exp $
+;; 
+
+(Ca_OCl_2-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Ca_OCl_2-Substance has
+  (has-basic-structural-unit ((a Ca_OCl_2))))
+(every Ca_OCl_2-Substance has-definition
+  (instance-of (Ionic-Compound-Substance))
+  (has-basic-structural-unit ((a Ca_OCl_2))))

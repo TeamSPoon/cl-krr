@@ -1,0 +1,24 @@
+;; 
+;; $Id: Plant.km,v 1.6 2010/01/22 15:46:46 kbarker Exp $
+;; 
+
+(Plant has
+  (superclasses (Organism))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("a living entity incapable of locomotion"))
+)
+
+(every Plant has
+  (capability ((mustnt-be-a Agent-Role with
+                  (in-event ((a Locomotion)))
+  )))
+)
+
+(Plant has (wn20-synset ((:set
+                           (:triple "plant" 2 "n")
+                           (:triple "plant_life" 1 "n")
+                           (:triple "flora" 2 "n")
+))))
+

@@ -1,0 +1,23 @@
+;; 
+;;    $Id: position.km,v 1.2 2006/10/14 02:37:31 jchaw Exp $ 
+;; 
+
+(position has
+   (instance-of (EventProperty EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Event Entity))    
+   (range       (Position-Value))
+   (categorical-constant-class (Position-Constant))
+   (inverse 	(position-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(position-of has
+   (instance-of (EventProperty EntityProperty)))
+
+(position has (wn20-synset ((:set
+                               (:triple "position" 0 "n")
+))))
+

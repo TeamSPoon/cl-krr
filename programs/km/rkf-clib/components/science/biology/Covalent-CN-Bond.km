@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Covalent-CN-Bond.km,v 1.12 2001/11/17 06:50:16 jarred Exp $ 
+;; 
+
+(Covalent-CN-Bond has
+         (superclasses (Covalent-Single-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Chemical bond between carbon and nitrogen. 
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Covalent-CN-Bond has      
+       (purpose ((a Connector with
+		    (in-event ((a Be-Attached-To with
+				  (object ((a Carbon-Atom)
+					   (a Nitrogen-Atom)
+					   (exactly 2 Atom)))
+                                      )))
+                        )))
+       (intensity ((a Intensity-Value with 
+		(value ((:pair 70 *kilocalorie/mole))))))
+;       (length ((a Length-Value with (value ((:pair ?? *nanometer))))))   
+       )

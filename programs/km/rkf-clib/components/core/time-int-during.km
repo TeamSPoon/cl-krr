@@ -1,0 +1,26 @@
+;; 
+;;    $Id: time-int-during.km,v 1.8 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(time-int-during has
+	(description ("FRAME time-int-during FILLER means that the Time-Interval FRAME is temporally wholly contained by the Time-Interval FILLER.  Specifically, the start of FRAME is later than the start of FILLER and the end of FRAME is earlier than the end of FILLER."))
+	(instance-of (Temporal-Relation))
+	(subslots ())
+	(domain (Time-Interval))
+	(range (Time-Interval))
+	(inverse (time-int-contains))
+	(fluent-status (*Inertial-Fluent))
+	(cardinality (N-to-N))
+        (original-slot      (t))	
+)
+
+;; [1..[2...2]..1]
+
+;; As of 2005-04-19 WLJ believes the above comment, i.e. "[1...[2..2]..1]" is misleading.  After Sunil
+;; has pointed it how, WLJ also believes that a comment for time-int-during should look like
+;; "[2..[1..1]..2]" and not "[1..[2...2]..1]".
+
+(time-int-contains has 
+	(instance-of (Temporal-Relation))
+	(description ("FRAME time-int-contains FILLER means that the Time-Interval FRAME temporally wholly contains the Time-Interval FILLER.  Specifically, the start of FRAME is earlier than the start of FILLER and the end of FRAME is later than the end of FILLER.")))
+

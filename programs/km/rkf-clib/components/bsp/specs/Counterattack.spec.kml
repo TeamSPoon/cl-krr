@@ -1,0 +1,80 @@
+<!--- $Id: Counterattack.spec.kml,v 1.1 2005/08/01 20:56:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Counterattack>
+<superconcept name=Attack>
+
+<definition>
+
+   attack by part or all of a defending force against an enemy attacking force
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that is counterattacking
+     against the <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=object>
+     the <conceptref name=Military-Unit> being counterattacked by the 
+     <slot>agent</slot>
+  </slotdescription>
+  
+</requiredslotlist>
+
+<comment>
+
+  It's assumed the <slot>object</slot> initiated an 
+  <conceptref name=Attack> of the <slot>agent</slot> before this 
+  counterattack occurs.
+
+</comment>
+
+<neighborlist>
+
+  <neighbor name=Attack-by-Fire>
+
+     An Attack-by-Fire is an attack using direct fires, supported by
+     indirect fires, to engage an enemy without closing with him to
+     destroy, suppress, fix, or deceive him
+
+  </neighbor>
+
+  <neighbor name=Bypass>
+
+     A Bypass is a military action by friendly forces in which a unit
+     maneuvers around an obstacle
+
+  </neighbor>
+
+  <neighbor name=Follow-and-Assume>
+
+     Follow-and-Assume is a tactical mission task to follow a force
+     conducting an offensive operation and to continue the mission if the
+     lead force is disabled
+
+  </neighbor>
+
+  <neighbor name=Follow-and-Support>
+
+     Follow-and-Support is a tactical mission task to follow and
+     support a lead force conducting an offensive operation
+
+  </neighbor>
+
+  <neighbor name=Support-by-Fire>
+
+     Support-by-Fire is a tactical mission task in which a maneuver
+     force moves to a position where it can engage the enemy by direct
+     fire in support of another maneuvering force
+
+  </neighbor>
+
+
+</neighborlist>
+
+</kml>
+
+

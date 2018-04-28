@@ -1,0 +1,12 @@
+;;
+;; $Id: ComputerNetworkPeripheral.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(ComputerNetworkPeripheral has 
+  (superclasses (Computer-Equipment)))
+
+
+(ComputerNetworkPeripheral has
+  (feature-slot ((the feature-slot of Computer-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = ComputerNetworkPeripheral)))))
+

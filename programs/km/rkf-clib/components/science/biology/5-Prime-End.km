@@ -1,0 +1,23 @@
+;; 
+;;    $Id: 5-Prime-End.km,v 1.12 2001/06/04 01:05:24 pzyeh Exp $ 
+;; 
+
+(5-Prime-End has
+         (superclasses (Nucleic-Acid-Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("The has-region of a nucleotide sequence which includes the 
+                        terminal nucleotide with a free 5' triphosphate group.
+                        Souther. "))
+         (description ("The Region of a Nucleotide-Sequence which includes the
+                        terminal Nucleotide with a free 5' Triphosphate group.
+                        Souther. "))    
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every 5-Prime-End has 
+       (is-at-of ((a 5-Prime-Nucleotide)))
+       )              
+
+

@@ -1,0 +1,31 @@
+;;
+;;    $Id: Chemical-Formula.km,v 1.17 2005/09/07 21:52:17 tecuci Exp $
+;;
+
+(Chemical-Formula has 
+		  (superclasses (KM-Class)))
+
+(every Chemical-Formula has
+       ;; what else could it be?
+       (term ((must-be-a Thing)))
+
+       #|(atomic-chemical-formula ((if (has-value (the term of Self))
+				     then
+				   #'(LAMBDA () 
+					     (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA
+						    (KM0 '(|the| |term| |of| |Self|))))))))|#
+
+       (string-name ((if (has-value (the2 of (the1 of (the term of Self))))
+			 then 
+		       #'(LAMBDA () 
+				 (LIST (CHF-TO-STRING (KM0 '(|the| |term| |of| |Self|)))))))))
+       
+(Chemical-Formula has 
+		  (test-case ( '(
+				 (*Na2CO3 has
+					  (has-chemical-formula ((a Chemical-Formula with
+								(term ((:seq (:pair 2 Na)
+									     (:pair 1 C)
+									     (:pair 3 O))))))))
+				 (((the string-name of (the has-chemical-formula of *Na2CO3)))
+				  = ("Na2CO3"))))))

@@ -1,0 +1,37 @@
+<!--- $Id: Action.doc.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Action>
+<superconcept name=Event>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Action>
+  <definition>do something, perform some act, change, happen, etc.</definition>
+  <primaryslot name=object>
+    <restriction>the Entity having the Action done to it</restriction>
+  </primaryslot>
+  <primaryslot name=agent>
+    <restriction>does the Action</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>used by the agent to do the Action</restriction>
+  </primaryslot>
+  <wnsynsets><verb>act#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>do#1, do#2, execute#6, make#1, move#8, perform#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+This is the top level concept for Events that have to do with doing
+or changing. Actions may be purely active (like <conceptref name=Locomotion>),
+purely passive (like <conceptref name=Fall>) or something in between
+(like the intransitive <conceptref name=Break>). Actions often correspond
+to changes in <conceptref name=State>.
+</musing>
+
+</kml>
+
+

@@ -1,0 +1,21 @@
+;;
+;; $Id: CH3CH2OH.km,v 1.9 2008/09/17 23:51:29 tecuci Exp $
+;;
+
+(CH3CH2OH has (superclasses (Organic-Molecule)))
+(every CH3CH2OH has
+       (has-chemical-name ("ethanol"))
+       (nested-atomic-chemical-formula	
+	((a Chemical-Formula with	
+	    (term ((:seq (:pair 1 C)
+			 (:pair 3 H)
+			 (:pair 1 C)
+			 (:pair 2 H)
+			 (:pair 1 O)
+			 (:pair 1 H))))))))
+
+
+(every CH3CH2OH has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("ethanol"))
+)

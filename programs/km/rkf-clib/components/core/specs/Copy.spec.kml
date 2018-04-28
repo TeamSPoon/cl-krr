@@ -1,0 +1,95 @@
+<!--- $Id: Copy.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<kml>
+
+<concept name=Copy><system-documentation name=Copy>
+<superconcept name=Create>
+
+<definition>
+
+  Copy some object, thereby creating a new object with some resemblance
+  to the original.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's copied, i.e. the "original"
+  </slotdescription>
+
+  <slotdescription name=result>
+     The thing that's created, i.e. the "copy".
+     The resemblance between the object and the result
+     is described with extra slots. For example,
+     the <slot>shape</slot> of the result = the <slot>shape</slot> of
+     the object. 
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the copy.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the tool or aid that was used.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the copy to occur.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John copied the painting, producing a forgery with identical
+color.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the painting</slotdescription>
+    <slotdescription name=result>a forgery with 
+       <slot>color</slot> = the <slot>color</slot> of <slot>object</slot>
+    </slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>Sam copied the answer from Mary's test. </text>
+    <slotdescription name=object>Mary's test</slotdescription>
+    <slotdescription name=result>the answer</slotdescription>
+    <slotdescription name=agent>Sam</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>Using an advanced lithography process, Julie copied the text. </text>
+    <slotdescription name=object>the text</slotdescription>
+    <slotdescription name=agent>Julie</slotdescription>
+    <slotdescription name=by-means-of>an advanced lithography process</slotdescription>
+  </examplesentence>
+  <comment>
+    The <slot>result</slot> of this copy process is left unstated.  
+    Implicitly it is "a copy of the text".
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Create>
+     Create is more general than Copy.  It involves something coming
+     into existence, but does not specify a particular process by which 
+     this is accomplished.
+  </neighbor>
+
+  <neighbor name=Produce>
+     Produce involves converting raw materials to order to 
+     create the result.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

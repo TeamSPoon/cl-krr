@@ -1,0 +1,23 @@
+;;
+;;    $Id: Input-Device.km,v 1.5 2004/09/12 13:29:14 kbarker Exp $
+;;
+
+(Input-Device has 
+  (superclasses (Computer-Accessory))
+  (feature-slot ((the feature-slot of Computer-Accessory)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Input-Device))
+  ))
+)
+
+
+(every Input-Device has 
+       (purpose	 ((a Instrument-Role with
+		     (in-event  ((must-be-a Transmit with
+					    (instrument ((Self)))
+					    ;; information is Transmitted to the Computer
+					    ;; might change part-of to some other more specialized slot
+					    (destination ((the Computer is-part-of of Self))))))
+		     (played-by (Self))
+		     )))
+       )

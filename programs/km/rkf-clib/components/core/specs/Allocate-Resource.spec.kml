@@ -1,0 +1,28 @@
+<kml>
+<concept name=Allocate-Resource>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Allocate-Resource>
+  <definition>
+     allocates an object that is playing the <conceptref name=Role> of a <conceptref name=Resource>, thus making it unavailable to the original base.
+  </definition>
+</component>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+     the <conceptref name=Entity> playing the <conceptref name=Role> of the <conceptref name=Resource>.
+   </slotdescription>
+   <slotdescription name=agent>
+     the <conceptref name=Entity> that makes the <conceptref name=Resource> unavailable.
+   </slotdescription>
+   <slotdescription name=base>
+     what the <conceptref name=Resource> is made unavailable to.
+   </slotdescription>
+
+</requiredslotlist>
+
+</kml>
+

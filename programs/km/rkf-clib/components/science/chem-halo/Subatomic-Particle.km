@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Subatomic-Particle.km,v 1.2 2006/02/07 04:34:57 jchaw Exp $ 
+;; 
+
+(Subatomic-Particle has
+         (superclasses (Chemical-Entity))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A particle that is one of the constituents of an atom."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Subatomic-Particle has   
+       (is-part-of ((a Atom)))
+       )
+
+

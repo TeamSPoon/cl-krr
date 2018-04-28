@@ -1,0 +1,56 @@
+;;
+;; $Id: Compute-Chemical-Formula-of-Ionic-Compound.km,v 1.6 2010/05/18 15:05:12 kbarker Exp $
+;;
+
+(Compute-Chemical-Formula-of-Ionic-Compound has
+					    (superclasses (Method))
+					    (description ("When an anion combines with a cation to form an ionic compound, the subscript of each ion is equal to the charge magnitude of the other ion")))
+
+(every Compute-Chemical-Formula-of-Ionic-Compound now-has
+       (input ((a Cation) (a Anion)))
+       (output (
+		;;check that the cation and anion are ok
+		((?cation == (the Cation input of Self))
+		 and
+		 (?anion == (the Anion input of Self))
+		 and
+		 (if (((the number of ?cation) = 1) 
+		      and
+		      ((the number of ?anion) = 1) 
+		      and
+		      (the1 of (the value of (the charge of ?cation)))
+		      and
+		      (0 /= (the1 of (the value of (the charge of ?cation))))
+		      and
+		      (the1 of (the value of (the charge of ?anion)))
+		      and
+		      (0 /= (the1 of (the value of (the charge of ?anion)))))
+		     then
+		   (a Chemical-Formula with
+		      (term (#'(LAMBDA () 
+				       (COMPUTE-CHF-OF-IONIC-COMPOUND 
+					;; Cation
+					;;PEC				(KM0 '(|the| |Cation| |input| |of| |Self|))
+					#|PEC|#	(KM-UNIQUE '(?cation))
+						;; Cation charge
+						(KM0 '(|the1| |of| (|the| |value| |of| (|the| |charge| |of| |?cation|)))) 
+						;; Anion
+						;;PEC				(KM0 '(|the| |Anion| |input| |of| |Self|))
+						#|PEC|# (KM-UNIQUE '(?anion))
+							;; Anion charge
+							(KM0 '(|the1| |of| (|the| |value| |of| (|the| |charge| |of| |?anion|)))))))))
+		   [Compute-Chemical-Formula-of-Ionic-Compound-output-1]
+		   ))))
+       )
+
+(comment [Compute-Chemical-Formula-of-Ionic-Compound-output-1]
+   (:seq (the Anion input of Self)
+         "+"
+         (the Cation input of Self)
+         "="
+         (the string-name of (the has-chemical-formula of (the output of Self)))
+   )
+   ""
+)
+
+

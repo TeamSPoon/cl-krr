@@ -1,0 +1,12 @@
+;;
+;; $Id: Buffer-Capacity-Value.km,v 1.1 2007/11/28 23:44:48 tecuci Exp $
+;;
+
+(Buffer-Capacity-Value has
+		       (superclasses (Property-Value)))
+
+(every Buffer-Capacity-Value has
+  (property-slot (buffer-capacity))
+)
+
+(Buffer-Capacity-Value has (description ("The amount of acid or base a buffer solution can absorb without significant changes in pH.")))

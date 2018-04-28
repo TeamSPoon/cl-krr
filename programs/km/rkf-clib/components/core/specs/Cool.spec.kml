@@ -1,0 +1,45 @@
+<!--- $Id: Cool.spec.kml,v 1.2 2008/07/21 03:08:00 tecuci Exp $ --->
+<kml>
+
+<concept name=Cool><system-documentation name=Cool>
+<superconcept name=Decrease>
+
+<definition>
+
+  A <conceptref name=Decrease> in <slot>temperature</slot>
+
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=from-value>
+    the initial value of the <slot>temperature</slot> before the cooling
+  </slotdescription>
+
+  <slotdescription name=to-value>
+    the final value of the <slot>temperature</slot> after the cooling
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The coffee cooled from hot to warm.</text>
+    <slotdescription name=base>the coffee</slotdescription>
+    <slotdescription name=from-value>hot (with respect to drinks)</slotdescription>
+    <slotdescription name=to-value>warm (with respect to drinks)</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Heat>
+     To opposite of <conceptref name=Cool>
+  </neighbor>
+
+</neighborlist>
+</kml>
+
+

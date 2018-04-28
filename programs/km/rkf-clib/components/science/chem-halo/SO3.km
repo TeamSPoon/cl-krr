@@ -1,0 +1,18 @@
+;;
+;; $Id: SO3.km,v 1.1 2007/05/17 16:31:42 tecuci Exp $
+;;
+
+(SO3 has (superclasses (Inorganic-Molecule)))
+
+(every SO3 has	
+       (has-chemical-name ("sulfur trioxide"))
+       (nested-atomic-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 S)
+		    (:pair 3 O))))))))
+
+(every SO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("sulfur trioxide"))
+)

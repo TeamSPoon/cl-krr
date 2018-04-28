@@ -1,0 +1,14 @@
+;; $Id: Hg_NO3_2.km,v 1.1 2007/12/02 05:38:51 vaibhav Exp $
+
+(Hg_NO3_2 has (superclasses (Ionic-Compound)))
+(every Hg_NO3_2 has
+        (has-chemical-name ("mercury nitrate"))
+        (has-part ((a Hg-Plus-2)(a NO3-Minus)))
+        (has-chemical-formula ((a Chemical-Formula with
+                (term ((:seq
+                        (:pair 1 Hg-Plus-2)
+                        (:pair 2 NO3-Minus)))))))
+)
+(every Hg_NO3_2 has-definition
+  (instance-of (Chemical-Entity))
+        (has-part ((a Hg-Plus-2)(a NO3-Minus))))

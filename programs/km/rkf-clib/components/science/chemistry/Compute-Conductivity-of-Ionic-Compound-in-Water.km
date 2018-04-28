@@ -1,0 +1,156 @@
+;;
+;; $Id: Compute-Conductivity-of-Ionic-Compound-in-Water.km,v 1.5 2003/02/22 17:16:36 kbarker Exp $
+;;
+
+(Compute-Conductivity-of-Ionic-Compound-in-Water has (superclasses (Method)))
+
+(every Compute-Conductivity-of-Ionic-Compound-in-Water has
+       (input ((a Chemical)))
+
+       ;; always give a qualitative value
+
+       (output ((if ((the input of Self) isa Strong-Electrolyte)
+                 then (a Conductivity-Value with
+                         (value ((:pair *high-conductivity 
+                                         Ionic-Compound-Substance)))
+                      )
+                 [Compute-Conductivity-of-Ionic-Compound-in-Water-output-1]
+       )))
+
+       (output ((if ((the input of Self) isa Weak-Electrolyte)
+                 then (a Conductivity-Value with
+                         (value ((:pair *low-conductivity 
+                                         Ionic-Compound-Substance)))
+                      )
+                 [Compute-Conductivity-of-Ionic-Compound-in-Water-output-2]
+       )))
+
+       (output ((if ((not ((the input of Self) isa Strong-Electrolyte))
+                     and
+                     (not ((the input of Self) isa Weak-Electrolyte))
+                    )
+                 then (a Conductivity-Value with
+                         (value ((:pair *no-conductivity 
+                                         Ionic-Compound-Substance)))
+                      )
+                 [Compute-Conductivity-of-Ionic-Compound-in-Water-output-3]
+       )))
+
+       ;; if it's 
+       ;; - a strong electrolyte or
+       ;; - weak electrolyte w/ disassociation value
+       ;; then give quantitative conductivity value
+       (output ((if ((numberp 
+                      (the1 of (the value of
+                                    (the output of 
+                                         (a Compute-Concentration-of-Ions with
+                                            (input ((the input of Self))))))))
+                     and
+                     (
+                      (the1 of (the value of
+                                    (the output of 
+                                         (a Compute-Concentration-of-Ions with
+                                            (input ((the input of Self)))))))
+                      /= 0
+                     )
+                    )
+                 then
+                    (a Conductivity-Value with
+                       (value ((:pair (the1 of 
+                                            (the value of
+                                                 (the output of 
+                                                      (a Compute-Concentration-of-Ions with
+                                                         (input ((the input of Self)))))))
+                                      nil
+                               )
+                    )))
+                 [Compute-Conductivity-of-Ionic-Compound-in-Water-output-4]
+       )))
+				
+)
+
+(comment [Compute-Conductivity-of-Ionic-Compound-in-Water-output-1]
+  (:seq (the text-gen of (the input of Self))
+        "is a strong electrolyte and thus has high conductivity"
+  )
+  "Strong electrolytes have high conductivity"
+  (:triple (the input of Self) electrolyte-status *)
+)
+
+(comment [Compute-Conductivity-of-Ionic-Compound-in-Water-output-2]
+  (:seq (the text-gen of (the input of Self))
+        "is a weak electrolyte and thus has low conductivity"
+  )
+  "Weak electrolytes have low conductivity"
+  (:triple (the input of Self) electrolyte-status *)
+)
+
+(comment [Compute-Conductivity-of-Ionic-Compound-in-Water-output-3]
+  (:seq (the text-gen of (the input of Self))
+        "is a non-electrolyte and thus has no conductivity"
+  )
+  "Non-electrolytes have no conductivity"
+  (:triple (the input of Self) electrolyte-status *)
+)
+
+(comment [Compute-Conductivity-of-Ionic-Compound-in-Water-output-4]
+  (:seq "The conductivity of"
+        (the text-gen of (the input of Self))
+        "is thus proportional to"
+        (the1 of (oneof (the value of (the output of Self))
+                        where (numberp (the1 of It))
+        ))
+  )
+  "The conductivity of a solution is proportional to the sum of the concentrations of all ions in the solution"
+  (:triple (a Compute-Concentration-of-Ions with (input ((the input of Self))))
+           output
+           *
+  )
+)
+
+
+(Compute-Conductivity-of-Ionic-Compound-in-Water
+ has
+ (test-case ('(
+	       ((the value of 
+		     (the conductivity of
+			  (a HCl-Substance with (base-of ((a Aqueous-Solution))))))
+		includes (:pair *high-conductivity Ionic-Compound-Substance))
+
+	       ((the value of 
+		     (the conductivity of
+			  (a NH3-Substance with (base-of ((a Aqueous-Solution))))))
+		includes (:pair *low-conductivity Ionic-Compound-Substance))
+
+	       ((the value of 
+		     (the conductivity of
+			  (a CaCO3-Substance with (base-of ((a Aqueous-Solution))))))
+		includes (:pair *no-conductivity Ionic-Compound-Substance))
+
+	       #| now test the quantitative solution |#
+	       ((the value of 
+		     (the conductivity of
+			  (the base of
+			       (a Aqueous-Solution with
+				  (base (
+					 (a NaOH-Substance 
+					    with 
+					    (concentration ((a Concentration-Value with
+							       (value ((:pair 1 *molar)))))))))))))
+		includes (:pair 2 NIL))
+	       
+	       ;; test case for the weak electrolyte still missing
+
+	       
+	       ((the value of 
+		     (the conductivity of
+			  (the base of
+			       (a Aqueous-Solution with
+				  (base (
+					 (a CaCO3-Substance 
+					    with 
+					    (concentration ((a Concentration-Value with
+							       (value ((:pair 1 *molar)))))))))))))
+		includes (:pair 0 NIL))
+))))
+

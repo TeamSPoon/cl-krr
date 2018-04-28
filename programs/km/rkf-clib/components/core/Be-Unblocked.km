@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Be-Unblocked.km,v 1.2 2004/09/09 19:14:58 kbarker Exp $
+;; 
+
+(Be-Unblocked has
+	    (superclasses   (Be-Accessible))
+	    (required-slot  (object))
+	    (primary-slot   (instrument))
+            (caused-by-class      (Unblock))
+            (defeated-by-class    (Block))
+	    (cmap-correspondence (
+				  (:seq object "the object blocked")
+				  (:seq instrument "the blockage")
+				  )))
+
+
+(every Be-Unblocked has
+
+       (object   ((a Spatial-Entity)))
+
+       (resulting-state-of ((must-be-a Unblock with
+				       (object   ((the object of Self))))))
+
+       (defeated-by ((must-be-a Block with
+				(object   ((the object of Self)))))))
+
+
+(every Be-Unblocked has
+   (text-particle ("unblocked"))
+)
+
+(Be-Unblocked has (wn20-synset ((:set (:triple "patent" 1 "a")
+                                      (:triple "unclogged" 1 "a")
+                                      (:triple "clear" 3 "a")
+                                      (:triple "open" 2 "a")
+                                      (:triple "open" 23 "a")
+))))
+

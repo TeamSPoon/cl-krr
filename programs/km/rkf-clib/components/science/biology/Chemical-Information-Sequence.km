@@ -1,0 +1,23 @@
+;;
+;;    $Id: Chemical-Information-Sequence.km,v 1.6 2005/07/07 18:27:53 pzyeh Exp $
+;;   
+
+(Chemical-Information-Sequence has
+          ;; (superclasses (Chemical-Sequence Information-Sequence))	<-- Trimming for demo.
+	  (superclasses (Chemical-Sequence))
+          (required-slot ())
+          (primary-slot ())
+          (description ("A sequence which encodes information.  Biological
+                         examples are DNA, RNA, and the amino acid sequence of
+                         proteins (which determines folding). Souther. "))
+          (secondary-slot ()) )
+
+;(every Chemical-Information-Sequence has
+
+;       (element-type (Chemical-Object))
+;       )
+
+
+
+
+;; (every Chemical-Information-Sequence has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

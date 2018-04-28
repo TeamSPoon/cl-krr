@@ -1,0 +1,39 @@
+;; 
+;;    $Id: Polyprotic-Acid-Compound.km,v 1.5 2008/06/04 22:41:50 tecuci Exp $ 
+;; 
+
+(Polyprotic-Acid-Compound has
+		 (superclasses (Bronsted-Lowry-Acid-Compound))
+		 (test-case ()))
+
+(Polyprotic-Acid-Compound has (user-description ("An acid that yields two or more H+ ion per molecule of acid.")))
+
+#|
+(every Polyprotic-Acid-Compound has-definition
+       (instance-of (Ionic-Compound))
+       (has-chemical-formula ((constraint ((if TheValue 
+					       then
+					     (oneof (the elements of (the term of TheValue))
+						    where (((the2 of It) = H-Plus)
+							   and
+							   ((the1 of It) >= 2)))
+					     ))))))
+|#
+
+(every Polyprotic-Acid-Compound has-definition
+   (instance-of (Ionic-Compound)) ;not really right, some acids (most?) are molecular.
+   ;(has-basic-structural-unit-of ((a Acid))) ;seems right, but might require too many rounds of classification
+   (has-chemical-formula (
+         (a Chemical-Formula)
+         (constraint (
+               (if (the term of TheValue)
+                  then
+                  ((not (Self isa H2O))
+                     and
+                  (oneof (the elements of (the term of TheValue))
+                     where (((the2 of It) = H-Plus)
+                        and
+                        ((the1 of It) > 1))))
+                  else
+                  (Self isa Polyprotic-Acid-Compound)
+                  ))))))

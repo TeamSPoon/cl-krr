@@ -1,0 +1,100 @@
+;; 
+;;    $Id: Unrestrain.km,v 1.19 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Unrestrain has
+	    (superclasses	(Unobstruct))
+	    (required-slot   	(object))
+	    (primary-slot 	(agent))
+	    (secondary-slot      	())
+	    (cmap-correspondence 	(
+					 (:seq object "the thing Unrestrained")
+					 (:seq agent "the Unrestrainer")
+					 (:seq instrument "the thing used to Unrestrain")
+					  ))
+#|          (sentence-type      (*punctual *conclusive))|#
+)
+
+(every Unrestrain has
+       (object ((a Tangible-Entity)))
+
+       (defeats ((if (has-value (the agent of Self))
+		     then
+		     (allof (the object-of of (the object of Self))
+			    where 
+			    ( ((the classes of It) = Be-Restrained) and
+			      ((the agent of It) = (the agent of Self))))
+		     else
+		     (allof (the object-of of (the object of Self))
+			    where
+			    ((the classes of It) = Be-Restrained)))))
+
+       ;; Like Unobstruct, the precondition does not need to be 
+       ;; specified because it is the same as the del-list.
+       ;; (pcs-list ())
+
+       (del-list ((forall (the defeats of Self)
+			  (:triple It object (the object of Self) [Unrestrain-del-1])))))
+ 
+(comment [Unrestrain-del-1] (:seq (the object of Self) " is no longer restrained.")
+	 "An unrestrain removes restraints on something.")
+
+(every Unrestrain has
+  (text-active-verbseq-sg ("unrestrains"))
+  (text-active-verbseq-pl ("unrestrain"))
+  (text-passive-verbseq-sg ("gets unrestrained"))
+  (text-passive-verbseq-pl ("get unrestrained"))
+)
+
+(every Unrestrain has
+       (preparatory-event ((:default
+			  (a Restrain with
+			     (object ((the object of Self))))))
+))
+
+
+
+;; nothing extra to say about contextual info
+
+(Unrestrain has 
+    (test-case      ('(
+		       (*mugger has (instance-of (Physical-Object)))
+		       
+		       (a Restrain with 
+			(object (*mugger)))
+		       
+		       (do-and-next (thelast Restrain))
+		       
+		       (has-value (the Be-Restrained object-of of *mugger))
+		       
+		       (a Move with (object (*mugger)))
+		       (not (try-do (thelast Move)))
+		       
+		       (a Unrestrain with 
+			(object (*mugger)))
+
+		       (do-and-next (thelast Unrestrain))
+		       
+		       (not
+			(has-value (the Be-Restrained object-of of *mugger)))
+
+		       (try-do (thelast Move))
+		       ))))
+
+
+
+
+
+;; automatically added WN synsets
+(Unrestrain has (wn16-synset ((:set  
+                                         (:triple "let_loose" 2 "v")
+                                         (:triple "loose" 2 "v")
+                                         (:triple "unleash" 3 "v")
+))))
+
+(Unrestrain has (wn20-synset ((:set
+                                         (:triple "let_loose" 2 "v")
+                                         (:triple "loose" 2 "v")
+                                         (:triple "unleash" 3 "v")
+))))
+(every Unrestrain has (text-nominalization ("unrestraining")))

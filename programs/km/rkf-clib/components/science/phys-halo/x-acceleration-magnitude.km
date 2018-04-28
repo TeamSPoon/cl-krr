@@ -1,0 +1,27 @@
+;;    $Id: x-acceleration-magnitude.km,v 1.7 2008/10/27 17:13:31 kbarker Exp $
+
+(x-acceleration-magnitude has
+	      (instance-of (EventProperty))
+	      (superslots ())
+	      (subslots ())
+	      (domain (Move Acceleration-Vector-Value))
+	      (range (Acceleration-Magnitude-Value))
+	      (scale-class (Acceleration-Magnitude-Scale))
+	      (scalar-constant-class (Acceleration-Magnitude-Constant))
+	      (cardinal-unit-class (UoM-Acceleration-Magnitude))
+	      (inverse (x-acceleration-magnitude-of))
+	      ; (inherit-with-overrides (t))
+	      (cardinality (N-to-1))
+	      (fluent-status (*Inertial-Fluent)))
+
+(x-acceleration-magnitude has (wn20-synset ((:set 
+				   (:triple "x acceleration magnitude" 0 "n")
+;				   (:triple "x acceleration" 0 "n")
+;				   (:triple "horizontal acceleration" 0 "n")
+))))
+
+(x-acceleration-magnitude-of has (instance-of (EventProperty)))
+
+
+
+(x-acceleration-magnitude has (name ("magnitude of the horizontal acceleration")))

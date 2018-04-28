@@ -1,0 +1,210 @@
+<!--- $Id: Move.doc.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Move::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Move>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Move>
+  <definition>change location</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> must not be <slot>object</slot> of a 
+      <conceptref name=Be-Restrained>
+    </restriction>
+    <restriction>if <slot>object</slot> is <slot>object</slot> of a 
+      <conceptref name=Be-Held>, <slot>agent</slot> must be <slot>agent</slot>
+      of that <conceptref name=Be-Held>
+    </restriction>
+    <restriction><slot>path</slot> must not be the <slot>object</slot> of
+    a <conceptref name=Be-Blocked>
+    </restriction>
+    <restriction>if <slot>object</slot> is the <slot>object</slot>
+      of a <conceptref name=Be-Attached-To>, the <slot>path</slot> of this
+      Move must be the <slot>location</slot> of the <slot>destination</slot>
+      of the <conceptref name=Be-Attached-To>
+    </restriction>
+    <restriction>if <slot>object</slot> is one of the <slot>object</slot>s
+      of a <conceptref name=Be-Attached-To>, the other <slot>object</slot> 
+      and the <slot>instrument</slot> of the <conceptref name=Be-Attached-To> 
+      also Move (nothing is known of the new <slot>location</slot> of the 
+      second <slot>object</slot> or the <slot>instrument</slot> except that
+      the new <slot>location</slot> still abuts the <slot>location</slot>
+      the the <slot>object</slot> of this Move).
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+  </primaryslot>
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>move#1, move#2, move#3, move#4, move#7, move#12, move#14, move#15
+  </verb></wnsynsets>
+  <wnsynsets><verb>displace#4, go#1, go#21, locomote#1, travel#1
+  </verb></wnsynsets>
+</component>
+
+<hr>
+<h3>Core Senses:</h3>
+<senselist>
+<sense tag=move1>
+  <sense-definition>change location</sense-definition>
+  <transitivity>intransitive</transitivity>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>location changes</restriction>
+  </requiredslot>
+</sense>
+<sense tag=move2>
+  <sense-definition>cause to change location</sense-definition>
+  <transitivity>transitive</transitivity>
+  <requiredslot name=agent>
+    <restriction>causes object's location to change</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>location changes</restriction>
+  </requiredslot>
+</sense>
+</senselist>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=move3>
+  <sense-definition>be not still</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+<sense tag=move4>
+  <sense-definition>inspire emotion</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=move5>
+  <sense-definition>persuade</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=move6>
+  <sense-definition>propose</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+<sense tag=move7>
+  <sense-definition>act</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+<sense tag=move8>
+  <sense-definition>progress</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+</senselist>
+
+<musing>
+There are several variations on senses 1 and 2 that have abstract
+location: change affiliation/job; change time of event; change topic.
+</musing>
+
+<reference source=Levin>
+<langelement>Move</langelement> is what's sometimes called an
+<term>ergative</term> verb: loosely, a verb that can be both
+transitive and intransitive, where the participant represented by the
+direct object of the transitive is the subject of the intransitive.
+Levin distinguishes different variations on this transitivity
+alternation. <langelement>Move</langelement> is the
+<term>causative/inchoative</term> alternation:
+<example>Agent V<sub>trans</sub> Object = Agent causes Object to
+V<sub>intrans</sub></example><p>
+
+So where does the <term>inchoative</term> come in? The resulting state
+of move is <example>Object in new location</example>.
+</reference>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDmove1><equiv tag={move1, move2}></sense>
+<sense tag=COBUILDmove2><equiv tag=move1></sense>
+<sense tag=COBUILDmove3><equiv tag=move1></sense>
+<sense tag=COBUILDmove4><equiv tag=move2><comment>abstract location</comment></sense>
+<sense tag=COBUILDmove5><equiv tag=move1></sense>
+<sense tag=COBUILDmove7><equiv tag=move1><comment>manner=fast</comment>
+</sense><sense tag=COBUILDmove8><equiv tag=move2><comment>abstract location=time</comment></sense>
+<sense tag=COBUILDmove9><equiv tag=move1><comment>abstract location</comment></sense>
+<sense tag=COBUILDmove10><equiv tag=move1><comment>abstract location=topic</comment></sense>
+<sense tag=COBUILDmove11><equiv tag=move1><comment>abstract location=attitude</comment></sense>
+<sense tag=COBUILDmove12><equiv tag=move5></sense>
+<sense tag=COBUILDmove13><equiv tag=move3></sense>
+<sense tag=COBUILDmove14><equiv tag=move5></sense>
+<sense tag=COBUILDmove15><equiv tag=move4></sense>
+<sense tag=COBUILDmove16><equiv tag=move1><comment>abstract location=social circle</comment></sense>
+<sense tag=COBUILDmove17><equiv tag=move6></sense>
+<sense tag=COBUILDmove18><equiv tag=none><comment>remove (BrE)</comment></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+<sense tag=LDOCEmove1><equiv tag={move1, move2}></sense>
+<sense tag=LDOCEmove2><equiv tag=move8></sense>
+<sense tag=LDOCEmove3><equiv tag=move1></sense>
+<sense tag=LDOCEmove4><equiv tag=move1></sense>
+<sense tag=LDOCEmove5><equiv tag=move4></sense>
+<sense tag=LDOCEmove6><equiv tag=move5></sense>
+<sense tag=LDOCEmove7><equiv tag=move6></sense>
+<sense tag=LDOCEmove8><equiv tag=move7></sense>
+<sense tag=LDOCEmove9><equiv tag={move1, move2}><comment>move merchandise</comment></sense>
+<sense tag=LDOCEmove10><equiv tag=move1><comment>abstract location=social circle</comment></sense>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+<sense tag=NODEmove1><equiv tag={move1, move2}></sense>
+<sense tag=NODEmove2><equiv tag={move1, move2}><comment>abstract locations</comment></sense>
+<sense tag=NODEmove2><equiv tag={move4, move5, move7}></sense>
+<sense tag=NODEmove3><equiv tag=move8></sense>
+<sense tag=NODEmove3><equiv tag=move1><comment>manner=fast</comment></sense>
+<sense tag=NODEmove3><equiv tag={move1, move2}><comment>move merchandise</comment></sense>
+<sense tag=NODEmove4><equiv tag=move1><comment>abstract location=social circle</comment></sense>
+<sense tag=NODEmove5><equiv tag=move6></sense>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNmove#1><equiv tag=move1></sense>
+<sense tag=WNmove#2><equiv tag=move2></sense>
+<sense tag=WNmove#3><equiv tag=move2></sense>
+<sense tag=WNmove#4><equiv tag=move1><comment>abstract locations</comment></sense>
+<sense tag=WNmove#5><equiv tag=move7></sense>
+<sense tag=WNmove#6><equiv tag=move3></sense>
+<sense tag=WNmove#7><equiv tag=move1><comment>abstract location</comment></sense>
+<sense tag=WNmove#8><equiv tag=move7></sense>
+<sense tag=WNmove#9><equiv tag=move4></sense>
+<sense tag=WNmove#10><equiv tag=move5></sense>
+<sense tag=WNmove#11><equiv tag=move4></sense>
+<sense tag=WNmove#12><equiv tag={move1, move2}><comment>move merchandise</comment></sense>
+<sense tag=WNmove#13><equiv tag=move8></sense>
+<sense tag=WNmove#14><equiv tag=move1><comment>abstract location=social circle</comment></sense>
+<sense tag=WNmove#15><equiv tag=move1></sense>
+<sense tag=WNmove#16><equiv tag=move6></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

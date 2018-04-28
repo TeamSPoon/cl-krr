@@ -1,0 +1,170 @@
+;; 
+;;    $Id: Send.km,v 1.32 2006/04/17 14:15:41 kbarker Exp $ 
+;; 
+
+(Send has
+      (superclasses 	   (Action))
+      (required-slot  	   (recipient agent donor object))
+      (primary-slot 	   (instrument origin path destination subevent))
+      (secondary-slot 	   ())
+      (cmap-correspondence (
+			    (:seq recipient   "recipient")
+                            (:seq agent       "sender")
+                            (:seq donor       "donor")
+			    (:seq object      "the thing sent")
+			    (:seq subevent    "subevent")	
+                            (:seq instrument  "instrument")
+			    (:seq origin      "moved from")
+			    (:seq path 	      "moved through")
+                            (:seq destination "moved to")
+			   ))
+    #|(sentence-type      (*punctual *conclusive))|#
+)
+
+(every Send has 
+  (recipient 	  ((a Tangible-Entity)))
+  (agent 	  ((a Entity)))
+  (donor 	  ((the agent of Self)))	
+  (object	  ((a Tangible-Entity)))
+  (origin    	  ((the donor of Self)))
+  (path 	  ((must-be-a Spatial-Entity)))
+  (destination    ((the recipient of Self)))
+
+  ;; SOFT PCS: The soft preconditions for this action should be
+  ;;           capture by the its subevents.
+  ;; (soft-pcs-list ())
+
+  ;; The subevents of this scenario.
+  (first-subevent ((the Relinquish subevent of Self)))
+  (subevent ((a Relinquish with
+		(agent      	((the agent of Self)))
+		(object     	((the object of Self)))
+		(next-event 	((the Move subevent of Self))))
+	     (a Move with
+		(object     	((the object of Self)))
+		(origin 	((the origin of Self)))
+		(path           ((the path of Self)))
+		(destination	((the destination of Self)))
+		(next-event 	((the Deliver subevent of Self))))
+	     (a Deliver with
+		(object     	((the object of Self)))
+		(donor		((the donor of Self)))
+		(recipient  	((the recipient of Self))))))
+)
+
+(every Send has
+  (text-active-verbseq-sg ("sends"))
+  (text-active-verbseq-pl ("send"))
+  (text-passive-verbseq-sg ("gets sent"))
+  (text-passive-verbseq-pl ("get sent"))
+)
+
+
+(every Send has
+  ;; During-Condition: if path is specified, then this
+  ;; is the transient location of the object.
+  ;;
+  ;; Note: Not sure as to the status of during-condition.
+  ;;	   Need to fix accordingly when a decision has
+  ;;	   been made.
+  (dcs-list 	    ((if (has-value (the path of Self))
+                         then
+			 ((forall (the object of Self)
+                           (:triple
+			     It	
+			     location
+			     (if ((the path of Self) isa Place)
+                              then (the path of Self)
+                              else (the location of (the path of Self)))))))))
+
+  (preparatory-event (((:default
+		       (forall (the object of Self)
+			 (a Move with
+			    (object (It))
+			    (destination ((the origin of Self))))))))
+))
+
+(Send has 
+  (test-case ('(
+		 (*Fresno has (instance-of (Place)))
+		 (*Detroit has (instance-of (Place)))
+                 (*Blue-Package has            
+			(instance-of (Physical-Object))
+			(location (*Fresno)))
+		 (*Victor has
+			(instance-of (Tangible-Entity))
+			(possesses   (*Blue-Package))
+			(location    (*Fresno)))
+		 (*Maurice has 
+			(instance-of (Tangible-Entity))
+			(location    (*Detroit)))
+
+		 ;; *Victor sent *Blue-Package to *Maurice.
+		 (*Send has
+			(instance-of (Send))
+			(agent 	     (*Victor))
+			(recipient   (*Maurice))			
+			(object      (*Blue-Package)))
+		 (do-script *Send)
+		 (the text-gen of (thelast Send))
+		 (forall (the subevent of (thelast Send)) (the text-gen of It))
+		 ;; Test 1: *Maurice has *Blue-Package and he is
+		 ;;	    still in *Detroit
+		 ((the possesses of *Maurice) = *Blue-Package)
+		 ((the location of *Maurice) = *Detroit) 
+
+		 ;; Test 2: *Victor does not have *Blue-Package, 
+		 ;;	    but he is still in *Fresno
+		 ((the possesses of *Victor) /= *Blue-Package)
+		 ((the location of *Victor) = *Fresno)   
+
+		 ;; Test 3: The *Blue-Package is now in *Detroit
+		 ((the location of *Blue-Package) = *Detroit)
+
+		 ;; Test 4: *Blue-Package was in *Fresno in the 
+		 ;;	    previous situation, but is no longer
+		 ((the location of *Blue-Package) /= *Fresno)
+
+
+                 (new-situation)
+
+                 (*virus has (instance-of (Physical-Object)))
+                 (*CDC has (instance-of (Spatial-Entity))
+                           (location (*Atlanta)))
+                 (*Atlanta has (instance-of (Place)))
+                 (*Bossie has (instance-of (Living-Entity))
+                              (possesses (*virus)))
+                 (*river has (instance-of (Tangible-Entity)))
+
+                 (a Send with
+                         (object (*virus))
+                         (path (*river))
+                         (donor (*Bossie))
+                         (recipient (*CDC)))
+                 (do-script (thelast Send))
+
+                 ((the is-possessed-by of *virus) = *CDC) 
+                 ((the is-possessed-by of *virus) /= *Bossie) 
+                 ((the location of *virus) = *Atlanta)
+	       )))
+)
+
+
+;; automatically added WN synsets
+(Send has (wn16-synset ((:set  
+                                   (:triple "send" 2 "v")
+                                   (:triple "send" 3 "v")
+                                   (:triple "mail" 2 "v")
+                                   (:triple "post" 9 "v")
+                                   (:triple "send_out" 1 "v")
+))))
+
+(Send has (wn20-synset ((:set
+                                   (:triple "send" 2 "v")
+                                   (:triple "send" 3 "v")
+                                   (:triple "mail" 2 "v")
+                                   (:triple "post" 11 "v")
+                                   (:triple "send_out" 1 "v")
+))))
+
+(every Send has (text-nominalization ("sending")))

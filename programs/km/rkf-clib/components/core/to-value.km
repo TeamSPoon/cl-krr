@@ -1,0 +1,19 @@
+
+;;
+;;  $Id: to-value.km,v 1.10 2008/02/13 20:19:21 kbarker Exp $
+;;
+
+(to-value has
+  (instance-of (Property-Relation))
+  (domain (Increase Decrease))
+  (range (Property-Value))
+  (inverse (to-value-of))
+  (cardinality (N-to-1))
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (original-slot      (t))	
+)
+
+(to-value-of has
+	(instance-of (Property-Relation))
+)

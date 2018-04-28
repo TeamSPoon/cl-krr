@@ -1,0 +1,9 @@
+;;    $Id: Complete-Dissociation-Reaction.km,v 1.1 2007/11/30 21:06:50 mrglass Exp $
+(Complete-Dissociation-Reaction has (superclasses (Dissociation-Reaction)))
+
+(Complete-Dissociation-Reaction has (user-description ("Strong electrolytes, when placed in water, completely dissociate into their component ions.")))
+
+(every Complete-Dissociation-Reaction has-definition
+   (instance-of (Dissociation-Reaction))
+   (raw-material ((a Ionic-Compound-Substance with 
+            (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong nil))))))))))

@@ -1,0 +1,66 @@
+<!--- $Id: Container.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+
+<kml>
+<concept name=Container>
+<system-documentation name=Container>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Barrier>
+
+  <definition>
+    Container is the <conceptref name=Role> played by an Entity which is 
+    the <slot>instrument</slot> of a <conceptref name=Be-Contained> event.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the entity that's playing the role of container.  
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Be-Contained> event that the entity is engaged in
+   </slotdescription>
+   <slotdescription name=encloses>
+     the <conceptref name=Spatial-Entity>(s) that is inside the container
+   </slotdescription>
+   <slotdescription name=does-not-enclose>
+     the <conceptref name=Spatial-Entity>(s) that is outside the container
+   </slotdescription>
+</requiredslotlist>
+
+<primaryslotlist>
+   <slotdescription name=content>
+     the Entity(s) that are contained by the container
+   </slotdescription>
+   <slotdescription name=capacity>
+     the capacity of the container, expressed as a 
+     <conceptref name=Capacity-Value>
+   </slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>a cell contains cytoplasm.</text>
+     <comment>
+     In this example, the Container role is described with these properties:
+     </comment>
+     <slotdescription name=in-event>Be-Contained with 
+        object=cytoplasm</slotdescription>
+     <slotdescription name=played-by>cell</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Portal>
+     A Portal is the region of a Container through which things can 
+     <conceptref name=Move-Through>
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

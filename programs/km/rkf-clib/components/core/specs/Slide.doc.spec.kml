@@ -1,0 +1,60 @@
+<!--- $Id: Slide.doc.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Slide::doc>
+<superconcept name=Move-Through>
+
+<sme-documentation name=Slide>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Slide>
+  <definition>change location through a Place while maintaining contact with the surface</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Move-Through>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=path>
+    <inheritedfrom name=Move-Through>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=pre-condition>
+    <restriction>Both the <slot>object</slot> and the thing whose 
+		 <slot>location</slot> is the <slot>path</slot> are
+		 in a <conceptref name=Be-Touching> state with each other
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Move-Through>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+  </primaryslot>
+  <primaryslot name=origin>
+    <inheritedfrom name=Move-Through>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=destination>
+    <inheritedfrom name=Move-Through>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>slide#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Slide is a specialization of the <conceptref name=Move-Through>
+component with the additional requirement that the 
+<slot>object</slot> and the thing whose <slot>location</slot>
+is the <slot>path</slot> must in a <conceptref name=Be-Touching>
+state.
+</musing>
+
+</kml>
+
+

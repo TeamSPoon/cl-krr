@@ -1,0 +1,39 @@
+<!--- $Id: base.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=base>
+
+
+<from name=Event>
+<to name=Thing>
+
+<description> 
+Event references something as a major or relatively fixed thing.
+</description>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>Vlad <ex-from>attached</ex-from> the sign to <ex-to>the post</ex-to>.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>Gern <ex-from>unstuck</ex-from> the flower from <ex-to>the bus</ex-to>.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>The computer <ex-from>collided</ex-from> with <ex-to>the pavement below</ex-to>.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>Ingemar was <ex-from>exposed</ex-from> to much <ex-to>probing</ex-to>.</text>
+  </examplesentence>
+</examplesentencelist>
+<neighborlist>
+ <neighbor name=object>
+	object is an entity directly acted upon in some event; base is
+        the thing the object is submitted to in the event. 
+ </neighbor>
+ <neighbor name=destination>
+	destination is the place where movement ends
+ </neighbor>
+ <neighbor name=origin>
+	origin is the place where movement begins
+ </neighbor>
+</neighborlist>
+</kml>

@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Ammonium-Sulfide-Substance3702
+
+
+|#
+
+(disable-classification)
+
+(Ammonium-Sulfide-Substance has (superclasses (Sulfide-Substance)))
+
+(every Ammonium-Sulfide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Ammonium-Sulfide-Substance437 has
+  (prototype-of (Ammonium-Sulfide-Substance Sulfide-Substance))
+  (prototype-scope (Ammonium-Sulfide-Substance (the-class Sulfide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a NH4-Plus) (a S-Minus-2)))))))))
+  (prototype-participants (_NH4-Plus443 _S-Minus-444 _Chemical-Entity439 _Ammonium-Sulfide-Substance437)))
+
+(_Chemical-Entity439 has (instance-of (Ionic-Compound)) (has-part (_NH4-Plus443 _S-Minus-444)))
+
+(_NH4-Plus443 has (instance-of (NH4-Plus)))
+
+(_S-Minus-444 has (instance-of (S-Minus-2)))
+
+(_Ammonium-Sulfide-Substance437 has (instance-of (Ammonium-Sulfide-Substance)) (has-basic-structural-unit (_Chemical-Entity439)))
+
+(enable-classification)
+
+(explanation (:triple _Ammonium-Sulfide-Substance437 has-basic-structural-unit _Chemical-Entity439) (((@ SME entered)) (every Ammonium-Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity439 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _NH4-Plus443 instance-of NH4-Plus) (((@ SME entered)) NIL))
+
+(explanation (:triple _S-Minus-444 instance-of S-Minus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ammonium-Sulfide-Substance437 instance-of Ammonium-Sulfide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Ammonium-Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

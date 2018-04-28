@@ -1,0 +1,25 @@
+;; 
+;;    $Id: consistency.km,v 1.11 2007/04/10 21:29:48 jchaw Exp $ 
+;; 
+
+(consistency has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Consistency-Value))
+   (categorical-constant-class (Consistency-Constant))
+   (inverse 	(consistency-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(consistency has (wn20-synset ((:set
+                               (:triple "consistency" 1 "n")
+                               (:triple "consistence" 2 "n")
+                               (:triple "body" 8 "n")
+))))
+
+(consistency-of has
+	(instance-of (EntityProperty)))

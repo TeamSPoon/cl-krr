@@ -1,0 +1,13 @@
+;; $Id: HONH3-Plus.km,v 1.2 2003/02/23 20:08:59 jchaw Exp $ 
+(HONH3-Plus has (superclasses (Cation)))
+(every HONH3-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("Hydroxylammonium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H) 
+						       (:pair 1 O)
+						       (:pair 1 N)
+						       (:pair 3 H)
+						       ))))))
+)

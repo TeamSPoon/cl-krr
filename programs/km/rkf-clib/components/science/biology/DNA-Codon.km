@@ -1,0 +1,47 @@
+;; 
+;;    $Id: DNA-Codon.km,v 1.26 2002/06/21 19:16:59 tecuci Exp $ 
+;; 
+
+(DNA-Codon has
+  (superclasses  	(Codon))
+  (required-slot 	())
+  (primary-slot 	())
+  (secondary-slot 	())
+  (cmap-correspondence  ())
+  (description 		("Sequence of three nucleotides in a DNA molecule that
+                          represents the instruction for incorporation of a
+                          specific amino acid into a polypeptide chain.
+                          cf Alberts:ECB:G-5 (codon)."))
+  (test-case ()))
+
+(every DNA-Codon has   
+
+       (element-type (Deoxyribonucleotide))
+       (purpose
+          ((a Container with
+	      (in-event ((a Genetic-Information-Storage with
+			    (object ((Genetic-Code)))   
+			   )))
+	      )))
+       )
+
+; immediate purpose:
+;       (purpose ((a Template with
+;                   (in-event ((a DNA-Transcription))))))  ; Chapter-7 term
+
+; higher level purpose:
+;       (purpose ((a Code with
+;                   (in-event ((a Gene-Expression with  ; Chapter-7 term
+;                                 (code ((a DNA-Codon)))
+;                                 (decoding ((a Amino-Acid))))))
+;                   )))  
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Amino-Acid-Sequence.km,v 1.29 2002/06/21 19:16:58 tecuci Exp $ 
+;; 
+
+(Amino-Acid-Sequence has
+	      (superclasses (Chemical-Information-Sequence))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+	      (description ("A chain of amino acids linked by peptide bonds.
+                             Souther. "))
+	      (cmap-correspondence ()))
+
+
+(every Amino-Acid-Sequence has
+       (has-part ((a Amino-Acid)))
+
+       (element-type (Amino-Acid))
+       (element ((at-least 1 Amino-Acid)))
+       (has-region ((a Carboxyl-Terminus)
+		    (a Amino-Terminus)))
+       )
+
+
+
+
+
+
+
+
+
+
+
+
+

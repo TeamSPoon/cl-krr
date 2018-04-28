@@ -1,0 +1,15 @@
+;; 
+;;    $Id: Polyprotic-Acid.km,v 1.6 2008/06/04 22:41:50 tecuci Exp $ 
+;; 
+
+(Polyprotic-Acid has
+		 (superclasses (Bronsted-Lowry-Acid))
+		 (test-case ()))
+
+(Polyprotic-Acid has (user-description ("An acid that yields two or more H+ ion per molecule of acid.")))
+
+(every Polyprotic-Acid has-definition
+       (instance-of (Ionic-Compound-Substance))
+       (has-basic-structural-unit ((a Polyprotic-Acid-Compound))))
+
+

@@ -1,0 +1,33 @@
+
+;;
+;; $Id: Density-Value.km,v 1.15 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(Density-Value has 
+       (superclasses (Property-Value)))
+
+(Density-Value has
+   (test-case ('(
+                 (Drink has (superclasses (Substance)))
+                 (Ice has (superclasses (Substance)))
+                 (*mycoffee has (instance-of (Drink))
+                                (density ((a Density-Value))))
+                 (*mybeer has (instance-of (Drink))
+                              (density
+                                 ((a Density-Value with
+                                     (value ((:pair 23 *gram/liter)
+                                             (:pair *rare Drink)
+                                             (:pair *dense Ice)
+                                     ))
+                                     (less-than
+                                        ((the density of *mycoffee)))
+                              ))))
+
+                 (the value of (the density of *mybeer))
+
+                 ((the less-than of (the density of *mybeer))
+                       includes (the density of *mycoffee))
+                 ((the greater-than of (the density of *mycoffee))
+                       includes (the density of *mybeer))
+))))
+(Density-Value has (description ("the quantity per unit volume, unit area, or unit length")))

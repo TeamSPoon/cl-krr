@@ -1,0 +1,22 @@
+;; 
+;;  $Id: atomic-number.km,v 1.1 2008/10/17 20:50:57 jchaw Exp $
+;; 
+
+(atomic-number has
+	       (instance-of (EntityProperty))
+	       (superslots ())
+	       (subslots ())
+	       (domain      (Atom))
+	       (range       (Atomic-Number-Value))
+	       (cardinal-unit-class (UoM-Unitless))
+	       (scalar-constant-class (Atomic-Number-Constant))
+	       (fluent-status (*Inertial-Fluent))
+	       (inherit-with-overrides (t))
+	       (inverse     (atomic-number-of))
+	       (cardinality (N-to-1))
+               (original-slot      (t))	
+)
+
+(atomic-number has (user-description ("The number of protons in a nucleus. It determines the chemical properties of an element.")))
+
+(atomic-number-of has (instance-of (EntityProperty)))

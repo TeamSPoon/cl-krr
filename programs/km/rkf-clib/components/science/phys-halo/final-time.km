@@ -1,0 +1,27 @@
+;; 
+;;    $Id: final-time.km,v 1.5 2008/06/03 21:54:20 jchaw Exp $
+;; 
+
+(final-time has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Move))
+   (range       (Duration-Value))
+   (scalar-constant-class (Time-Constant))
+   (cardinal-unit-class   (UoM-Duration))
+   (inverse 	(final-time-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1))
+)
+
+(final-time has (wn20-synset ((:set
+                               (:triple "final time" 0 "n")
+))))
+
+(final-time-of has (instance-of (EventProperty)))
+
+(final-time-of has (instance-of (EventProperty)))
+
+(final-time has (name ("final time")))

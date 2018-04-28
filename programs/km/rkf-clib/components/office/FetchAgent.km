@@ -1,0 +1,20 @@
+;; $Id: FetchAgent.km,v 1.4 2005/02/22 21:18:23 jchaw Exp $
+
+;; Note the terms in this file were created to add some tweaks to the
+;; Purchasing Scenario during the weeks from January 24 to February 4
+;; 2005.
+
+(FetchAgent has (superclasses (SoftwareAgent)))
+
+(typeHasVendor has (description ("FRAME typeHasVendor FILLER means that FRAME is an organization that is a recognized vendor for products of type FILLER.  For example, Hewlett-Packard is a vendor for Flatbed Scanners.")) (instance-of (Interface-Slot)) (domain (Class)) (range (Organization))(inverse (isVendorOfType)))
+
+(isFetchAgentOf has (instance-of (Interface-Slot))(domain (FetchAgent))(range (Website))(inverse (hasFetchAgent)))
+(wrapsForProduct has (instance-of (Interface-Slot))(domain (FetchAgent))(range (Class))(inverse (productWrappedBy)))
+
+
+
+
+
+
+
+

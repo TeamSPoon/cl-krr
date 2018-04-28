@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Instrument-Role.km,v 1.4 2004/07/20 22:29:23 gking Exp $
+;; 
+
+(Instrument-Role has
+	    (superclasses (Role))
+	    (required-slot ())
+	    (primary-slot ())
+	    (secondary-slot ())
+	    (cmap-correspondence ())
+	    (test-case ()))
+
+(every Instrument-Role has
+       (in-event ((must-be-a Event)))
+       (played-by ((a Entity with
+		      (instrument-of ((the in-event of Self)))))))
+
+
+
+
+;; automatically added WN synsets
+(Instrument-Role has (wn16-synset ((:set  
+                                              (:triple "instrument" 2 "n")
+                                              (:triple "instrument" 3 "n")
+                                              (:triple "tool" 2 "n")
+                                              (:triple "pawn" 2 "n")
+))))
+
+(Instrument-Role has (wn20-synset ((:set
+                                              (:triple "instrument" 2 "n")
+                                              (:triple "instrument" 3 "n")
+                                              (:triple "tool" 2 "n")
+                                              (:triple "pawn" 2 "n")
+))))

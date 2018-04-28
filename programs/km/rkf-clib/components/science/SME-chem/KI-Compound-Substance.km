@@ -1,0 +1,36 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _KI-Compound-Substance3415
+
+
+|#
+
+(KI-Compound-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(_KI-Compound-Substance2968 has
+  (prototype-of (KI-Compound-Substance))
+  (prototype-scope (KI-Compound-Substance))
+  (prototype-participants (_Solubility-Value2969 _KI-Compound-Substance2968)))
+
+(_KI-Compound-Substance2968 has (instance-of (KI-Compound-Substance)) (solubility (_Solubility-Value2969)))
+
+(_Solubility-Value2969 has (instance-of (Solubility-Value)) (value ((:pair *soluble Chemical))))
+
+(explanation (:triple _Solubility-Value2969 value (:pair *soluble Chemical)) (((@ SME entered)) (every KI-Compound-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))))
+
+(explanation (:triple _KI-Compound-Substance2968 instance-of KI-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value2969 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every KI-Compound-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+|#
+
+|#
+

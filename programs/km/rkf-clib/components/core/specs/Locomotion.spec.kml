@@ -1,0 +1,95 @@
+<!--- $Id: Locomotion.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<kml>
+
+<concept name=Locomotion><system-documentation name=Locomotion>
+<superconcept name=Move>
+
+<definition>
+
+  An entity moves itself.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the entity that moves. 
+  </slotdescription>
+  <comment>
+     In locomotion an entity moves itself.  Therefore, the
+     <slot>agent</slot> (the entity that causes the move) is the same
+     as the <slot>object</slot> (the thing being moved).
+  </comment>
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>agent</slot> before it moves.
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>agent</slot> after it moves.
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>agent</slot> moves
+     along.  Typically, this is an object or surface along which the
+     <slot>agent</slot> is moving.
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>agent</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>agent</slot> need not reach this
+    Place, but it may.
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>agent</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>agent</slot> need not start at this
+    Place, but it may.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The horse galloped from the pasture into the barn.</text>
+    <slotdescription name=agent>the horse</slotdescription>
+    <slotdescription name=origin>the pasture</slotdescription>
+    <slotdescription name=destination>inside the barn</slotdescription>
+  </examplesentence>
+  <comment>
+    Here "gallop" is translated to "locomotion".  One might use
+    <slot>intensity</slot> and <slot>manner</slot> to better capture
+    the meaning of "gallop".
+  </comment>
+
+  <examplesentence>
+    <text>John left the parking lot to go to the restaurant.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=origin>the parking lot</slotdescription>
+    <slotdescription name=destination>the restaurant</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The protozoa used its flagellum to move toward the cell.</text>
+    <slotdescription name=agent>the protozoa</slotdescription>
+    <slotdescription name=instrument>its flagellum</slotdescription>
+    <slotdescription name=toward>the cell</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+    Locomotion is a special type of Move in which an entity moves itself.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

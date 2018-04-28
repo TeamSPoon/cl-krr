@@ -1,0 +1,25 @@
+;;
+;;    $Id: average-acceleration.km,v 1.11 2008/06/03 21:54:20 jchaw Exp $
+;;
+
+(average-acceleration has
+	      (instance-of (EventProperty))
+	      (superslots ())
+	      (subslots ())
+	      (domain (Move))
+	      (range (Acceleration-Vector-Value))
+	      ;(scale-class (Acceleration-Scale))
+	      ;(scalar-constant-class (Acceleration-Constant))
+	      ;(cardinal-unit-class (UoM-Acceleration))
+	      (inverse (average-acceleration-of))
+	      ; (inherit-with-overrides (t))
+	      (cardinality (N-to-1))
+	      (fluent-status (*Inertial-Fluent)))
+
+(average-acceleration has (wn20-synset ((:set 
+					 (:triple "average acceleration" 0 "n")))))
+
+(average-acceleration-of has (instance-of (EventProperty)))
+
+
+(average-acceleration has (name ("average acceleration")))

@@ -1,0 +1,45 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _HI-Substance8306
+
+
+|#
+
+(disable-classification)
+
+(HI-Substance has (superclasses (Strong-Acid)))
+
+(every HI-Substance has (has-basic-structural-unit ((a HI))))
+
+(_HI-Substance8347 has
+  (prototype-of (HI-Substance))
+  (prototype-scope (HI-Substance))
+  (prototype-participants (_Electrolyte-Status-Value8353 _HI-Substance8347)))
+
+(_HI-Substance8347 has (instance-of (HI-Substance)) (electrolyte-status (_Electrolyte-Status-Value8353)))
+
+(_Electrolyte-Status-Value8353 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *strong Acid))))
+
+(enable-classification)
+
+(explanation (:triple _HI-Substance8347 electrolyte-status _Electrolyte-Status-Value8353) (((@ SME entered)) (every HI-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value8353 value (:pair *strong Acid)) (((@ SME entered)) (every HI-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Acid)))))))))
+
+(explanation (:triple _HI-Substance8347 instance-of HI-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value8353 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every HI-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+(every HI-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Acid)))))))
+
+|#
+
+|#
+

@@ -1,0 +1,16 @@
+
+;;
+;; $Id: B.km,v 1.6 2008/10/14 19:16:12 tecuci Exp $
+;;
+
+(B has (superclasses (Metalloid-Atom IIIA-Element)))
+(every B has
+       (atomic-symbol (B))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 5 NIL))))))
+       (chemical-period (2)))
+
+(every B has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("boron"))
+)

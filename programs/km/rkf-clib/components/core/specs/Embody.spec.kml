@@ -1,0 +1,39 @@
+<!--- $Id: Embody.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<kml>
+
+<concept name=Embody><system-documentation name=Embody>
+<superconcept name=Create>
+
+<definition>
+
+  A <conceptref name=Tangible-Entity> is created as the physical embodiment
+  of a <conceptref name=Message>.
+
+</definition>
+
+<comment>
+   Embody is the first step of <conceptref name=Convey> (which itself 
+   is a step of <conceptref name=Communicate>). For perspective, 
+   here's the overall model of convey.  First, a <conceptref name=Message>
+   is embodied as a Tangible-Entity. Second, that entity, playing the role
+   of a <conceptref name=Signal>, is <conceptref name=Transmit>ed to
+   a <slot>recipient</slot>. Finally, the signal is <conceptref name=Sense>d
+   by the recipient and converted back into a message.
+
+   The <conceptref name=Language> of the communication is a feature of the
+   <conceptref name=Message>.
+</comment>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    <conceptref name=Message> being embodied
+  </slotdescription>
+
+  <slotdescription name=result>
+    the <conceptref name=Tangible-Entity> that embodies the message
+  </slotdescription>
+
+</requiredslotlist>
+
+</kml>

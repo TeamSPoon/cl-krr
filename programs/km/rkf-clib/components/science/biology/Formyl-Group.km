@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Formyl-Group.km,v 1.5 2001/06/19 03:29:49 souther Exp $ 
+;; 
+
+(Formyl-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Chemical group consisting of a carbon atom linked
+                             to a hydrogen and to an oxygen by a double bond.
+                             Souther."))
+	      (cmap-correspondence ()))
+
+(every Formyl-Group has
+       (has-part ((a Oxygen-Atom)
+		  (a Hydrogen-Atom)
+                  (a Carbon-Atom with
+                     (object-of
+                        ((a Be-Attached-To with
+                           (object ((the Oxygen-Atom has-part of Self)))
+                           (instrument ((a Double-Covalent-CO-Bond)))
+			   )
+			 (a Be-Attached-To with
+                           (object ((the Hydrogen-Atom has-part of Self)))
+                           (instrument ((a Covalent-CH-Bond)))
+                           )       
+			 )))
+		  )))
+
+

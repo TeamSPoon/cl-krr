@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Protein-Region.km,v 1.9 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Protein-Region has
+         (superclasses (Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("Any has-region of a protein, such as the carboxy terminal
+                        or amino terminal end.  Souther."))
+         (test-case ()))
+
+(every Protein-Region has  
+       (is-region-of ((a Protein)))
+       )
+
+(every Protein-Region has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

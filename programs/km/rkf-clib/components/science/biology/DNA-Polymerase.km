@@ -1,0 +1,23 @@
+;; 
+;;    $Id: DNA-Polymerase.km,v 1.14 2001/05/15 21:19:20 jfan Exp $ 
+;; 
+
+(DNA-Polymerase has
+                (superclasses (Polymerase))
+                (required-slot ())
+                (primary-slot ())
+                (secondary-slot ())
+		(description ("Enzyme that catalyzes the synthesis or repair 
+                               of a DNA molecule from nucleoside triphosphate
+                               precursors using a DNA template.  Souther. see 
+                               Alberts: ECB:G-16."))
+                (cmap-correspondence ()))
+
+(every DNA-Polymerase has
+       (purpose ((a Catalyst with
+                    (in-event ((a DNA-Synthesis))))
+                  ))
+)
+
+
+

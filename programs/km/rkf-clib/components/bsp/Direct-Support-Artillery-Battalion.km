@@ -1,0 +1,29 @@
+
+;; 
+;;  $Id: Direct-Support-Artillery-Battalion.km,v 1.2 2002/09/04 21:42:52 kbarker Exp $
+;; 
+
+(Direct-Support-Artillery-Battalion has
+   (superclasses (Artillery-Battalion)))
+
+(every Direct-Support-Artillery-Battalion has
+   (possesses ((if ((the value of (the allegiance of Self)) = *Blue)
+                then
+                   (a SP-Howitzer-155mm)
+                else
+
+                   (if ((the value of (the allegiance of Self)) = *Red)
+                    then
+                       (if (has-value (the element-of of Self))
+                        then
+                           (if
+                              ((the element-of of Self) isa Artillery-Brigade)
+                            then
+                               (a SP-Howitzer-152mm)
+                            else
+                               (a SP-Howitzer-122mm))
+                        else
+                           (a SP-Howitzer-122mm)))
+   )))
+)
+

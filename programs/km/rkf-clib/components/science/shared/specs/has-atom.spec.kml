@@ -1,0 +1,33 @@
+<!--- $Id: has-atom.spec.kml,v 1.3 2008/02/06 00:57:07 hari5851 Exp $ --->
+<kml>
+<relation-doc name=has-atom>
+
+
+<from name=Chemical-Entity>
+<to name=Atom>
+
+<description>
+The type of constituent atoms of a Chemical-Entity.
+</description>
+
+<examplesentencelist>
+ <examplesentence>
+<text><ex-from>Water</ex-from> has atoms <ex-to>Hydrogen and Oxygen</ex-to>.</text>
+  </examplesentence>
+
+ <examplesentence>
+  <text><ex-from>Hydrogen Chloride</ex-from> has atoms <ex-to>Hydrogen and Chlorine</ex-to>.</text>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+<neighbor name=has-part>
+    has-part which denotes the fact that an Entity is a
+physical part of another one. This physical partonomy is not true for
+has-atom. E.g. the has-atom of Na+ is Na, which is not a physical part
+of Na+ (Na+ was obtained from Na by removing an electron).
+ </neighbor>
+</neighborlist>
+
+</kml>
+

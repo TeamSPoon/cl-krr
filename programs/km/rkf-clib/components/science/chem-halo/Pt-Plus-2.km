@@ -1,0 +1,24 @@
+;;
+;; $Id: Pt-Plus-2.km,v 1.8 2008/11/29 03:57:54 tecuci Exp $
+;;
+
+(Pt-Plus-2 has (superclasses (Metal-Cation)))
+
+(every Pt-Plus-2 has
+       (has-chemical-name ("platinum (II)"))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 Pt)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair 2 *unity))))))
+       (is-ion-of ((a Pt)))
+)
+
+(every Pt-Plus-2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Pt)))))))
+  (charge ((a Charge-Value with (value ((:pair 2 *unity))))))
+)
+
+
+(Pt-Plus-2 has (wn20-synset ((:triple "Pt+2" 0 "n"))))

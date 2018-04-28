@@ -1,0 +1,18 @@
+
+;;
+;; $Id: rating.km,v 1.4 2005/08/25 18:21:12 jfan Exp $
+;;
+
+(rating has
+  (instance-of           (EntityProperty))
+  (domain                (Intangible-Entity))    ;; for Message and Information
+  (range                 (Rating-Value))
+  (scale-class           (Rating-Scale))
+  (scalar-constant-class (Rating-Constant))
+  (cardinal-unit-class   (UoM-Unitless))
+  (inverse               (rating-of))
+  (fluent-status         (*Inertial-Fluent))
+  (cardinality           (N-to-1))
+)
+
+

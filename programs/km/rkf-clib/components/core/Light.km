@@ -1,0 +1,25 @@
+;; $Id: Light.km,v 1.3 2005/01/13 15:29:50 porter Exp $
+
+(Light has
+	(description ("Electromagnetic energy vibrations in the visible frequency range that propagate through a region."))
+	(superclasses (Energy)))
+
+
+;; This...
+;;
+;; (every Light has (object-of ((a Transmit))))
+;; 
+;; ... is not quite true.  Some instances of Light propogate
+;; completely outside the context of the transmission of messages
+;; conveying information.  A slightly weaker version of the above,
+;; however, is true.
+
+(every Light has (object-of ((a Move))))
+
+(Light has (wn20-synset ((:set
+			   (:triple "light" 1 "n")
+			   (:triple "visible_light" 1 "n")
+			   (:triple "visible_radiation" 1 "n")
+))))
+
+

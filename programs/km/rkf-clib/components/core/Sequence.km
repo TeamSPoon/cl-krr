@@ -1,0 +1,81 @@
+;; 
+;;    $Id: Sequence.km,v 1.21 2006/01/17 23:03:55 jfan Exp $ 
+;; 
+
+(Sequence has
+         (superclasses (Entity))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ()))
+
+;; the constraint below commented out because:
+;; it gives problem to formula terms such as (:seq (:pair 1 C) (:pair 4 H))
+(every Sequence has
+       ;; first element of the sequence 
+       (first-element ((<> Self)
+		       (oneof (the element-type of Self) 	
+			      where ((oneof2 (the classes of It) 
+					     where (TheValue isa It2))))))
+       )
+
+(Sequence has
+	  (test-case ('(
+                (*e1 has (instance-of (Entity))
+		     (next-element (*e2)))
+                (*e2 has (instance-of (Entity))
+		     (next-element (*e3)))
+                (*e3 has (instance-of (Entity)))
+
+                (*e4 has (instance-of (Entity))
+		     (next-element (*e5)))
+                (*e5 has (instance-of (Entity)))
+
+                (*e6 has (instance-of (Entity))
+		     (next-element (*e7)))
+                (*e7 has (instance-of (Entity))
+		     (next-element (*e8)))
+                (*e8 has (instance-of (Entity))
+		     (next-element (*e9)))
+                (*e9 has (instance-of (Entity)))
+		
+                (*S1 has 
+		     (instance-of (Sequence))
+
+
+		     (element-type (Entity))
+		     (first-element (*e1))
+		     (element (*e1 *e2 *e3)))
+
+                (*S2 has 
+		     (instance-of (Sequence))
+
+
+		     (element-type (Entity))
+		     (first-element (*e4))
+		     (element (*e4 *e5)))
+
+                (*S3 has 
+		     (instance-of (Sequence))
+
+
+		     (element-type (Entity))
+		     (first-element (*e6))
+		     (element (*e6 *e7 *e8 *e9)))
+		
+                (*S4 has
+		     (instance-of (Sequence))
+
+
+       	             (element-type (Entity))
+		     (first-element (*S1))
+		     (element (*S1 *S2 *S3)))
+
+		((the element of *S1) = (:set *e1 *e2 *e3))
+
+		((the element of *S4) = (:set *S1 *S2 *S3))))))
+
+(Sequence has (wn20-synset ((:set
+			     (:triple "series" 1 "n")
+))))
+

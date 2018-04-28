@@ -1,0 +1,83 @@
+<!--- $Id: Relinquish.doc.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Relinquish>
+<superconcept name=Lose>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Relinquish>
+  <definition>intentional change of possession of an object by the donor</definition>
+  <requiredslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+    <restriction>= <slot>donor</slot>
+  </requiredslot>
+  <requiredslot name=donor>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Relinquish</restriction>
+    <inheritedfrom name=Lose>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Lose>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=recipient>
+    <inheritedfrom name=Lose>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Relinquish</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Lose>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>relinquish#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>cede#2, deliver#11, free#9, give_up#6, give_up#8, release#8, surrender#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Relinquish is a specialization of the <conceptref name=Lose> component
+with a required <slot>agent</slot> slot that is the <slot>donor</slot>.
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=relinquish2>
+  <sense-definition>to withdraw or retreat from : leave behind
+</sense-definition>
+</sense>
+<sense tag=relinquish3>
+  <sense-definition>to stop holding physically : release</sense-definition>
+</sense>
+<sense tag=relinquish4>
+  <sense-definition>to give over possession or control of : yield
+</sense-definition>
+</sense>
+<sense tag=relinquish5>
+  <sense-definition>to do without, waive, dispense with
+
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=relinquish6>
+  <sense-definition>abandon, give up with intent of never claiming again
+</sense-definition>
+</sense>
+
+
+
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNrelinquish#1><equiv tag=relinquish1></sense>
+<sense tag=WNrelinquish#2><equiv tag=relinquish4></sense>
+<sense tag=WNrelinquish#3><equiv tag=relinquish5></sense>
+<sense tag=WNrelinquish#4><equiv tag=relinquish6></sense>
+
+</senselist>
+</reference>
+
+</kml>
+
+

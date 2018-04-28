@@ -1,0 +1,11 @@
+;;
+;; $Id: Fr-Plus.km,v 1.2 2003/03/26 19:45:24 wilder Exp $
+;;
+
+(Fr-Plus has (superclasses (Metal-Cation)))
+
+(every Fr-Plus has
+       (charge ((a Charge-Value with
+		   (value ((:pair 1 *electronic-charge))))))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term ((:seq (:pair 1 Fr))))))))

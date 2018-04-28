@@ -1,0 +1,16 @@
+
+;;
+;; $Id: Critique-Score-Value.km,v 1.2 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+
+(Critique-Score-Value has 
+       (superclasses (Property-Value)))
+
+(every Critique-Score-Value has
+   (property-slot (critique-score))
+   (less-than ((must-be-a Critique-Score-Value)))
+   (greater-than ((must-be-a Critique-Score-Value)))
+   (same-as ((must-be-a Critique-Score-Value)))
+)
+

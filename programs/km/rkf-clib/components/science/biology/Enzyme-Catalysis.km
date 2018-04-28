@@ -1,0 +1,45 @@
+;; 
+;;    $Id: Enzyme-Catalysis.km,v 1.21 2002/12/15 19:59:16 tecuci Exp $ 
+;; 
+
+(Enzyme-Catalysis has
+		  (superclasses    (Catalyze))
+		  (required-slot   (substrate result))
+		  (primary-slot    (agent  instrument))
+		  (description     ("A chemical reaction whose rate is 
+                                     facilitated by the presence of an enzyme 
+                                     which is not altered by the reaction. 
+                                     Souther.")) )
+
+
+(every Enzyme-Catalysis has
+       (agent        ((a Suborganismal-Entity)))
+       (substrate ((a Chemical-Entity)))
+       (result       ((a Chemical-Entity)
+                      (at-least 1 Chemical-Entity)))
+       (instrument   ((a Enzyme)))
+
+;        (subevent 
+; 	(
+; 	 (a Attach called "enzyme-substrate binding" with
+; 	    (object
+; 	     ((a Chemical-Entity substrate of Self)))
+; 	    (base ((the Enzyme instrument of Self)))
+;  	    (instrument ((a Noncovalent-Bond)
+; 			 (at-least 1 Noncovalent-Bond)))
+; 	    (site
+; 	     ((the Active-Site has-part of (the Enzyme instrument of Self))))
+; 	    )
+; 	 (a Detach called "enzyme-substrate dissociation" with
+;             (object
+;              ((a Chemical-Entity substrate of Self)))
+;             (base ((the Enzyme instrument of Self)))
+; 	    )))
+        )
+
+
+;; doesn't include activation energy
+
+
+
+

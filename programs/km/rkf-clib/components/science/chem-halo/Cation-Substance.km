@@ -1,0 +1,17 @@
+;    $Id: Cation-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $
+
+;; (Cation-Substance has (superclasses (Chemical)))
+(Cation-Substance has (superclasses (Ionic-Substance)))
+
+#|
+(every Cation-Substance has-definition
+       (instance-of (Chemical))
+       (has-basic-structural-unit ((a Cation))))
+|#
+
+(every Cation-Substance has
+       ;; by definition all ions are soluble
+       (solubility ((a Solubility-Value with
+		       (value ((:pair *soluble Chemical))))))
+       (has-basic-structural-unit ((a Cation))))
+

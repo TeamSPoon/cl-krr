@@ -1,0 +1,66 @@
+<!--- $Id: Break-Contact.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Break-Contact><system-documentation name=Break-Contact>
+<superconcept name=Action>
+
+<definition>
+
+  Break-Contact separates an <slot>object</slot> and a <slot>base</slot> 
+  which are touching.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    The thing which is initially touching the <slot>base</slot>, i.e. 
+    they are in a <conceptref name=Be-Touching> state.
+  </slotdescription>
+
+  <slotdescription name=base>
+    the thing which is initially touching the <slot>object</slot>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the <slot>object</slot> and the <slot>base</slot> 
+    to separate.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The chair was touching the wall until John separated them.</text>
+    <slotdescription name=object>the chair</slotdescription>
+    <slotdescription name=base>the wall</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The sharpshooter moved his finger off the trigger.</text>
+    <slotdescription name=agent>the sharpshooter</slotdescription>
+    <slotdescription name=object>the sharpshooter's finger</slotdescription>
+    <slotdescription name=base>the trigger</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Detach>
+    An object and a base may break contact if they are merely touching.  
+    In contrast, an object and a base must be attached for them to be 
+    detached.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

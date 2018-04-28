@@ -1,0 +1,69 @@
+<!--- $Id: Add.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Add><system-documentation name=Add>
+<superconcept name=Action>
+
+<definition>
+
+  Add a part to an object. The new part becomes related to the object
+  by way of the <slot>has-part</slot> relationship.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing (a <conceptref name=Physical-Object>) that's added to the
+     <slot>base</slot> as a new part
+  </slotdescription>
+
+  <slotdescription name=base>
+     the thing (a <conceptref name=Physical-Object>) that acquires the
+     <slot>object</slot> as a new part
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the add to occur
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) that is used to add the <slot>object</slot>
+    to the <slot>base</slot>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Sara put the wheel on the car with a lug wrench.</text>
+    <slotdescription name=agent>Sara</slotdescription>
+    <slotdescription name=object>the wheel</slotdescription>
+    <slotdescription name=base>the car</slotdescription>
+    <slotdescription name=instrument>lug wrench</slotdescription>
+  </examplesentence>
+  <comment>
+     Here "put the wheel on the car" is translated to "add the wheel as 
+     a part of the car."
+  </comment>
+
+<neighborlist>
+
+  <neighbor name=Attach>
+    Attach connects together two objects, such as a dog and a leash.
+    In contrast, Add makes one object a part of another.
+  </neighbor>
+
+  <neighbor name=Remove>
+    Remove is the opposite of Add.
+  </neighbor>
+</neighborlist>
+
+</kml>
+
+

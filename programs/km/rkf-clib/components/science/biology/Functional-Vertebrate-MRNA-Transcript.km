@@ -1,0 +1,40 @@
+;; 
+;;    $Id: Functional-Vertebrate-MRNA-Transcript.km,v 1.15 2001/06/19 19:56:40 pzyeh Exp $ 
+;; 
+
+(Functional-Vertebrate-MRNA-Transcript has
+  (superclasses   	(Functional-MRNA-Transcript))
+  (required-slot  	())
+  (primary-slot   	())
+  (secondary-slot 	())
+  (description 	  	("The RNA transcript in vertebrates after all the 
+                          post-transcription processing has been completed. 
+                          Differs from lower organisms in that the RNA capping
+                          involves methylating the ribose of the second 
+                          ribonucleotide as well. Souther. ")) 
+  (cmap-correspondence 	())
+  (test-case 		()))
+
+(every Functional-Vertebrate-MRNA-Transcript has
+       (has-part
+	((a Ribonucleotide called "Second-Ribonucleotide")
+	 (a Methyl-Group with 
+	    (object-of 
+	     ((a Be-Attached-To uniquely-called "MG-SR" with
+		 (object (((the Ribonucleotide has-part of Self) 
+			   called "Second-Ribonucleotide")))
+		 (site
+		  ((the Hydroxyl-Group has-part of
+			((the Carbon-Atom has-part of
+			      (the Ribose has-part of
+				   ((the Ribonucleotide has-part of Self)
+				    called "Second-Ribonucleotide")))
+			 called "Carbon-2"))
+		   (the Carbon-Atom has-part of
+			(the Methyl-Group has-part of Self))))
+		 (instrument ((a Covalent-Bond))) ))))))) 
+		
+
+
+
+

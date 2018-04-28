@@ -1,0 +1,16 @@
+;;
+;; $Id: Ar-Molecule.km,v 1.2 2008/11/03 00:15:56 tecuci Exp $
+;;
+
+(Ar-Molecule has (superclasses (Monoatomic-Molecule Inorganic-Molecule)))
+
+(every Ar-Molecule has
+       (has-part ((a Ar)))
+       (has-chemical-name ("argon"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ar)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ar)))))))
+       (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ar))))))))
+
+(Ar-Molecule has (wn20-synset ((:set (:triple "argon" 0 "n")
+				     (:triple "molecular argon" 0 "n")
+				     ))))

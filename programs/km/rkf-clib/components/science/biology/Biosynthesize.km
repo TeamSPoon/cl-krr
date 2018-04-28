@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Biosynthesize.km,v 1.21 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Biosynthesize has
+	       (superclasses   (Produce Enzyme-Catalysis))
+	       (required-slot  (result))
+	       (primary-slot   (raw-material agent instrument))
+	       (description	("The production of a more complex substance 
+                                  from simpler substances by a living entity. 
+                                  Souther, 2001.")))
+
+(every Biosynthesize has
+       (agent        ((a Living-Entity)))
+       (raw-material ((a Chemical-Entity)
+		      (at-least 1 Chemical-Entity)))
+       (substrate ((the Chemical-Entity raw-material of Self)))
+       (result       ((a Chemical-Entity)))
+       (instrument   ((a Synthase)))
+       )
+
+
+(every Biosynthesize has
+       (text-argslots ((:seq raw-material instrument)))
+
+       (text-active-verbseq-sg ("biosynthesizes"))
+       (text-active-verbseq-pl ("biosynthesize"))
+       (text-passive-verbseq-sg ("gets biosynthesized"))
+       (text-passive-verbseq-pl ("get biosynthesized"))
+)
+
+
+(every Biosynthesize has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

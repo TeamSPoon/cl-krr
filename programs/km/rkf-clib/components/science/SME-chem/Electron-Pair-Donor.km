@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Electron-Pair-Donor.km,v 1.1 2008/05/08 16:51:36 mrglass Exp $ 
+;; 
+
+(Electron-Pair-Donor has
+		     (superclasses (Chemical-Entity)))
+(Electron-Pair-Donor has
+		     (user-description("A Chemical that donates an unshared pair of electrons for binding the proton. A Lewis Base.")))
+(every Electron-Pair-Donor has-definition
+       (instance-of (Chemical-Entity [Electron-Pair-Donor-instance-of-1]))
+       (donor-of ((a Transfer with
+		     (object ((a Electron) (a Electron)))))))
+
+(every Electron-Pair-Donor has
+       (plays ((a Lewis-Base-Role))))
+
+(comment [Electron-Pair-Donor-instance-of-1]
+   (:seq "Therefore," (the text-gen of Self) "is a Lewis Base")
+  "By definition, a chemical entity that donates a pair of electrons is a Lewis
+Base"
+)

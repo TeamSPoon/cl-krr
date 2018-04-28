@@ -1,0 +1,18 @@
+;; $Id: H4IO6-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $ 
+(H4IO6-Minus has (superclasses (Anion)))
+(every H4IO6-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("tetrahydrogen orthoperiodate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 4 H)(:pair 1 I)(:pair 6 O)))))))
+)
+
+
+(every H4IO6-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("tetrahydrogen orthoperiodate"))
+)
+
+(H4IO6-Minus has (wn20-synset ((:triple "H4IO6-" 0 "n") (:triple "H_4IO_6-" 0 "n"))))

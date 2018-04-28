@@ -1,0 +1,20 @@
+;; 
+;;    $Id: interrupted-by.km,v 1.6 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(interrupted-by has
+  (instance-of 	 (CLIB-Slot-Group))
+  (superslots 	 ())
+  (subslots 	 ())
+  (domain 	 (Event))
+  (range	 (Event))
+  (inverse 	 (interrupts))
+  (cardinality 	 (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Non-Fluent)))
+
+(interrupts has
+   (instance-of (CLIB-Slot-Group)))
+
+
+

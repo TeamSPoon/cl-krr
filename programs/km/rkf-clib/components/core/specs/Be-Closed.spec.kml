@@ -1,0 +1,49 @@
+<!--- $Id: Be-Closed.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Closed><system-documentation name=Be-Closed>
+
+<superconcept name=Be-Blocked>
+
+<definition>
+
+  The <conceptref name=Portal> through a <conceptref name=Barrier> is
+  closed, preventing movement through the Portal.  A Portal is put into this 
+  state by <conceptref name=Close> and taken out of the state by
+  <conceptref name=Open>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the <conceptref name=Portal> that is closed
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>The jar is closed.</text>
+     <slotdescription name=object>the mouth of the jar</slotdescription>
+   </examplesentence>
+   <comment>
+   The mouth of the jar plays the role of portal, and is therefore the object
+   of the Be-Closed state.  In contrast, the jar lid plays the role of 
+   <conceptref name=Portal-Covering> when the jar is closed.
+   </comment>
+   
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Close>
+      Close is the action that puts a portal in the state of Be-Closed.
+   </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

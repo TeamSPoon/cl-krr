@@ -1,0 +1,11 @@
+;; 
+;;    $Id: PbS-Substance.km,v 1.4 2008/11/03 03:11:27 tecuci Exp $
+;; 
+
+(PbS-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every PbS-Substance has
+  (has-basic-structural-unit ((a PbS))))
+(every PbS-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a PbS))))

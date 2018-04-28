@@ -1,0 +1,19 @@
+;; $Id: HSO4-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(HSO4-Minus has (superclasses (Anion)))
+(every HSO4-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("hydrogen sulfate" "bisulfate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 S) (:pair 4 O)))))))
+)
+
+
+(every HSO4-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen sulfate"
+                      "bisulfate"))
+)
+
+(HSO4-Minus has (wn20-synset ((:triple "HSO4-" 0 "n") (:triple "HSO_4-" 0 "n"))))

@@ -1,0 +1,38 @@
+;; 
+;; $Id: Status-Constant.km,v 1.4 2004/12/23 17:13:11 kbarker Exp $
+;; 
+
+(Status-Constant has (superclasses (Constant)))
+
+;; For now, the different kinds of status (project status, urgency, ...) are
+;; all lumped here, making status categorical. If these are broken out into
+;; more specific properties, things like urgency would be scalar.
+
+(*ProjectStatusFlag_initiation has (instance-of (Status-Constant)))
+(*ProjectStatusFlag_on_schedule has (instance-of (Status-Constant)))
+(*ProjectStatusFlag_delayed has (instance-of (Status-Constant)))
+(*ProjectStatusFlag_canceled has (instance-of (Status-Constant)))
+(*ProjectStatusFlag_completed has (instance-of (Status-Constant)))
+(*UrgencyStatusLevel_0 has (instance-of (Status-Constant)))
+(*UrgencyStatusLevel_5 has (instance-of (Status-Constant)))
+(*UrgencyStatusLevel_4 has (instance-of (Status-Constant)))
+(*UrgencyStatusLevel_3 has (instance-of (Status-Constant)))
+(*UrgencyStatusLevel_2 has (instance-of (Status-Constant)))
+(*UrgencyStatusLevel_1 has (instance-of (Status-Constant)))
+(*CalendarStatus_needs_action has (instance-of (Status-Constant)))
+(*CalendarStatus_accepted has (instance-of (Status-Constant)))
+(*CalendarStatus_declined has (instance-of (Status-Constant)))
+(*CalendarStatus_tentative has (instance-of (Status-Constant)))
+(*CalendarStatus_delegated has (instance-of (Status-Constant)))
+(*CalendarStatus_complete has (instance-of (Status-Constant)))
+(*CalendarStatus_in_process has (instance-of (Status-Constant)))
+(*CalendarStatus_confirmed has (instance-of (Status-Constant)))
+(*CalendarStatus_canceled has (instance-of (Status-Constant)))
+(*CalendarStatus_fb_free has (instance-of (Status-Constant)))
+(*CalendarStatus_fb_busy has (instance-of (Status-Constant)))
+(*CalendarStatus_fb_busy_tentative has (instance-of (Status-Constant)))
+(*CalendarStatus_fb_busy_unavailable has (instance-of (Status-Constant)))
+(*CalendarStatus_draft has (instance-of (Status-Constant)))
+(*CalendarStatus_final has (instance-of (Status-Constant)))
+(*CalendarStatus_suggested has (instance-of (Status-Constant)))
+

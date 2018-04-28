@@ -1,0 +1,138 @@
+<!--- $Id: gpd07170201-CritiqueScores.html,v 1.3 2003/09/10 20:44:15 jchaw Exp $ --->
+<html>
+<head>
+<title>SHAKEN Critique Scores</title>
+</head>
+
+<body bgcolor=white>
+
+<h5>SHAKEN gpd 07170201</h5>
+
+<table border=0 width="100%" bgcolor=#8C3016 cellpadding=0>
+<tr><td><font color=white><h1>SHAKEN Critique Scores</font></td></tr>
+</table></h1><p>
+
+<h2>Critique Scores</h2>
+
+SHAKEN allows the user to associate critiquing scores with Patterns
+through its Properties mechanism. SHAKEN recognizes twenty-four
+"critique dimensions". They are:<ul>
+<li>Blue-Reserve-Availability
+<li>Casualties
+<li>COA-Effectiveness
+<li>COA-Efficiency
+<li>Command-and-Control
+<li>Deception-Operation-Use
+<li>Enemy-Artillery-Engagement
+<li>Enemy-Maneuver-Engagement
+<li>Enemy-Reserve-Force-Engagement
+<li>Enemy-Vulnerability-Exploitation
+<li>Engagement-of-Main-Elements-of-Enemy-Combat-Power
+<li>Logistics-Support
+<li>Maneuver-Effectiveness
+<li>Mission-Accomplishment
+<li>Position-for-Follow-On
+<li>Preparedness-for-Enemy-Response
+<li>Relative-Combat-Power
+<li>Resource-Use
+<li>Risk
+<li>Security
+<li>Simplicity
+<li>Synchronization
+<li>Time-Constraints
+<li>Use-of-Terrain
+</ul><p>
+
+A Pattern is rated on one or more of these dimensions. Ratings are
+taken from a four-point scale: very poor, poor, good, very good.
+For example, a Pattern might be rated poor with respect to Risk
+but very good with respect to Time-Constraints.<p>
+
+The rest of this document is meant as a guide to show how to
+associate critique scores with a Pattern by way of an example. The
+example Pattern may be overly simple (a Brigade crossing a narrow
+bridge), but it serves to illustrate critique scores.<p>
+
+<center><img src=Bridge01.gif></center><p>
+
+The Pattern in the example is called <tt>Brigade-on-Bridge</tt>.
+It was defined as a new concept, based on the more general concept
+of <tt>Pattern</tt>. Since it was based on <tt>Pattern</tt>, it 
+automatically includes the knowledge associated with <tt>Pattern</tt>.
+Right-click on <tt>Brigade-on-Bridge</tt> and select <tt>Show Complete
+Description</tt> to see what knowledge is associated with it.<p>
+
+<center><img src=Bridge02.gif></center><p>
+
+Every concept built from <tt>Pattern</tt> automatically has a 
+<tt>Critique-Score-Value</tt> associated with it.<p>
+
+<center><img src=Bridge03.gif></center><p>
+
+In order to express the knowledge that having a Brigade cross a
+bridge is dangerous, we would like to give <tt>Brigade-on-Bridge</tt>
+a rating on the Risk dimension. To associate a Risk rating with 
+<tt>Brigade-on-Bridge</tt>, right-click on the 
+<tt>Critique-Score-Value</tt> and select <tt>Properties...</tt> from 
+the menu.<p>
+
+<center><img src=Bridge04.gif></center><p>
+
+A new window pops up called <tt>Critique-Score-Value Properties</tt>.
+There are three "tabs" near the top of the window. Click on the tab
+called <tt>Values</tt>. This is where you are allowed to add, change
+or remove critique dimension ratings.
+To choose a rating of <tt>verypoor</tt>, <tt>poor</tt>, <tt>good</tt>
+or <tt>verygood</tt> to associate with the rating, you must first
+select <tt>Critique-Score-Value</tt> in the box at the bottom left of
+the <tt>Critique-Score-Value Properties</tt> window.<p>
+
+<center><img src=Bridge05.gif></center><p>
+
+You now must specify the critique dimension you wish to rate. Click
+on the <tt>Specialize...</tt> button 
+in the <tt>Critique-Score-Value Properties</tt> window.<p>
+
+<center><img src=Bridge06.gif></center><p>
+
+A new window pops up called <tt>Specialize concept</tt>. Type in
+the name of the critique dimension you want to rate. You must type
+in one of the twenty-four dimensions listed at the beginning of 
+this document, and it must be typed in exactly as shown (hyphens
+and capitalization are important).<p>
+
+<center><img src=Bridge07.gif></center><p>
+
+The last step is to choose one of the four rating values. These
+appear in a drop-down menu as <tt>*rating-verypoor</tt>,
+<tt>*rating-poor</tt>, <tt>*rating-good</tt>, <tt>*rating-verygood</tt>.<p>
+
+<center><img src=Bridge08.gif></center><p>
+
+To store your rating, click on the <tt>Add</tt> button in the
+<tt>Critique-Score-Value Properties</tt> window. You should see
+your critique score of <tt>*rating-poor&nbsp;Risk</tt> ("poor with respect 
+to Risk") appear under <tt>Defined Properties</tt>. Click on the 
+<tt>Ok</tt> button when you're done.<p>
+
+<center><img src=Bridge09.gif></center><p>
+
+Your critique score rating should appear in the green
+<tt>Critique-Score-Value</tt> box.<p>
+
+<center><img src=Bridge11.gif></center><p>
+
+You can specify ratings for as many of the twenty-four dimensions
+as you want on a Pattern. Simply repeat the steps in this example
+typing in a different critique dimension in the <tt>Specialize concept</tt>
+window. All the ratings you define will appear in the green
+<tt>Critique-Score-Value</tt> box.<p>
+
+<center><img src=Bridge12.gif></center><p>
+
+
+
+<hr noshade size=12 color=#8C3016>
+
+</body>
+</html>

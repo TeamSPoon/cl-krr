@@ -1,0 +1,39 @@
+<!--- $Id: worth.spec.kml,v 1.4 2006/03/01 20:20:47 kbarker Exp $ --->
+<kml>
+<property-doc name=worth>
+<gpd-documentation name=Property>
+
+<from name=Entity>
+<to name=Worth-Value>
+
+<description> 
+  an indefinite quantity of something having a specified value
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Worth>
+<p>
+    <examplesentence>
+      <text>10 dollars worth of gas</text>
+      <slotdescription name=number>10</slotdescription>
+      <slotdescription name=unit of measure>*usdollar</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>cheap, inexpensive, expensive</scalars>
+<scale name=*cheap-expensive-scale>cheap..inexpensive..expensive</scale>
+
+    <p>
+    <examplesentence>
+      <text>cheap date</text>
+      <slotdescription name=value>cheap</slotdescription>
+      <slotdescription name=relative to>Date</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+

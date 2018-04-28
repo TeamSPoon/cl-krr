@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Genome.km,v 1.22 2004/07/20 22:27:06 gking Exp $ 
+;; 
+
+(Genome has
+             (superclasses (Aggregate Genetic-Information))
+             (required-slot ())
+             (primary-slot ())
+             (secondary-slot ())
+             (description ("The total genetic information carried by a cell or
+                            an organism (or the DNA molecules that carry this
+                            information. Alberts:ECB:G-8."))
+             (cmap-correspondence ())
+             (test-case ()))
+
+(every Genome has
+
+       (element-type (Gene)))
+
+
+(every Genome has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))
+
+
+;; automatically added WN synsets
+(Genome has (wn16-synset ((:set  
+                                     (:triple "genome" 1 "n")
+                                     (:triple "protein_molecule" 1 "n")
+))))
+
+(Genome has (wn20-synset ((:set
+                                     (:triple "genome" 1 "n")
+                                     (:triple "protein_molecule" 1 "n")
+))))

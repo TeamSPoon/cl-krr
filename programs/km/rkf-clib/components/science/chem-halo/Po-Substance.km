@@ -1,0 +1,8 @@
+;; $Id: Po-Substance.km,v 1.4 2008/11/03 03:11:27 tecuci Exp $
+
+(Po-Substance has (superclasses (Metalloid)))
+(every Po-Substance has
+  (has-basic-structural-unit ((a Po))))
+(every Po-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Po))))

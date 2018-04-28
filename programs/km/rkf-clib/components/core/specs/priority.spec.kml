@@ -1,0 +1,37 @@
+<!--- $Id: priority.spec.kml,v 1.3 2006/03/01 20:20:46 kbarker Exp $ --->
+<kml>
+<property-doc name=priority>
+<gpd-documentation name=Property>
+
+<from name=Thing>
+<to name=Unitless-Value>
+
+<description> 
+  a property of something meriting attention before competing alternatives.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units <conceptref name=UoM-Unitless>
+<p>
+    <examplesentence>
+      <text>this bug has priority level 5</text>
+      <slotdescription name=number>5</slotdescription>
+      <slotdescription name=unit of measure>none</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>low, medium, high, urgent</scalars>
+<scale name=*low-urgent-scale>low..medium..high..urgent</scale>
+    <p>
+    <examplesentence>
+      <text>an urgent meeting</text>
+      <slotdescription name=value>urgent</slotdescription>
+      <slotdescription name=relative to>Meeting</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>

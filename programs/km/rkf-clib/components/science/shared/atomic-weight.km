@@ -1,0 +1,22 @@
+;;
+;;  $Id: atomic-weight.km,v 1.1 2008/10/17 20:50:57 jchaw Exp $
+;;
+
+(atomic-weight has
+	       (instance-of (Property))
+	       (superslots  ())
+	       (subslots    ())
+	       (domain      (Atom))
+	       (range       (Atomic-Weight-Value))
+	       (cardinal-unit-class (UoM-Mass))
+	       (scalar-constant-class (Atomic-Weight-Constant))
+	       (fluent-status (*Inertial-Fluent))
+	       (inherit-with-overrides (t))
+	       (inverse     (atomic-weight-of))
+	       (cardinality (N-to-1))
+               (original-slot      (t))	
+)
+
+(atomic-weight has (user-description ("The mass of a neutral atom of a nuclide. The atomic weight of an atom is the weight of the atom based on a scale where 12C = 12. The atomic weight of an element is the weighted average of each isotope.")))
+
+(atomic-weight-of has (instance-of (Property)))

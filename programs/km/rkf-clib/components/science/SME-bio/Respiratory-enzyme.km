@@ -1,0 +1,194 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Respiratory-enzyme ----------
+
+(Respiratory-enzyme has (superclasses (Enzyme Protein)))
+
+(_Respiratory-enzyme161 has 
+  (instance-of (Respiratory-enzyme))
+  (prototype-of (Respiratory-enzyme))
+  (prototype-scope (Respiratory-enzyme))
+  (prototype-participants (_Amino-Acid7792
+                           _Respiratory-enzyme161
+                           _Polymer180
+                           _Organic-Molecule181
+                           _Atom182))
+  (prototype-participant-of (_Respiratory-enzyme161))
+  (has-clones (_Placeholder-Class160164
+               _Respiratory-enzyme5991
+               _Respiratory-enzyme6001
+               _Respiratory-enzyme6011
+               _Respiratory-enzyme6019
+               _Respiratory-enzyme6027
+               _Respiratory-enzyme6036
+               _Respiratory-enzyme6044
+               _Respiratory-enzyme6053
+               _Respiratory-enzyme6061
+               _Respiratory-enzyme6069
+               _Respiratory-enzyme5963
+               _Respiratory-enzyme6907
+               _Respiratory-enzyme4117
+               _Respiratory-enzyme1388
+               _Respiratory-enzyme5012
+               _Respiratory-enzyme7512
+               _Respiratory-enzyme6738
+               _Respiratory-enzyme3604
+               _Respiratory-enzyme7786))
+  (has-built-clones (_Placeholder-Class160164
+                     _Respiratory-enzyme5991
+                     _Respiratory-enzyme6001
+                     _Respiratory-enzyme6011
+                     _Respiratory-enzyme6019
+                     _Respiratory-enzyme6027
+                     _Respiratory-enzyme6036
+                     _Respiratory-enzyme6044
+                     _Respiratory-enzyme6053
+                     _Respiratory-enzyme6061
+                     _Respiratory-enzyme6069
+                     _Respiratory-enzyme5963
+                     _Respiratory-enzyme6907
+                     _Respiratory-enzyme4117
+                     _Respiratory-enzyme1388
+                     _Respiratory-enzyme5012
+                     _Respiratory-enzyme7512
+                     _Respiratory-enzyme6738
+                     _Respiratory-enzyme3604
+                     _Respiratory-enzyme7786))
+  (has-basic-structural-unit (_Atom182
+                              _Amino-Acid7792))
+  (has-part (_Polymer180))
+  (cloned-from (_Protein305))
+  (clone-built-from (_Protein305))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom182 t)
+                    (:seq has-part _Polymer180 t)
+                    (:seq has-basic-structural-unit _Amino-Acid7792 t)))
+  (edge-coordinate ((:seq has-part _Polymer180 517 355)
+                    (:seq has-basic-structural-unit _Atom182 519 448)))
+  (node-coordinate ((:pair 318 406))))
+
+(_Amino-Acid7792 has 
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing6070))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Respiratory-enzyme161))
+  (prototype-participant-of (_Respiratory-enzyme161)))
+
+(_Polymer180 has 
+  (prototype-participant-of (_Respiratory-enzyme161))
+  (is-part-of (_Respiratory-enzyme161))
+  (has-part (_Organic-Molecule181))
+  (instance-of (Polymer))
+  (cloned-from (_Polymer308
+                _Polymer268))
+  (clone-built-from (_Polymer268))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 591 355)))
+  (edge-coordinate ((:seq has-part _Organic-Molecule181 748 361)))
+  (edge-visibility ((:seq has-part _Organic-Molecule181 t)))
+  (has-clones (_Polymer5990
+               _Polymer6000
+               _Polymer6010
+               _Polymer6018
+               _Polymer6026
+               _Polymer6035
+               _Polymer6043
+               _Polymer6052
+               _Polymer6060
+               _Polymer6068
+               _Polymer6609
+               _Polymer6905
+               _Polymer7074
+               _Polymer7217
+               _Polymer7342
+               _Polymer7510
+               _Polymer7620
+               _Polymer7667
+               _Polymer7784)))
+
+(_Organic-Molecule181 has 
+  (prototype-participant-of (_Respiratory-enzyme161))
+  (instance-of (Organic-Molecule))
+  (has-clones (_Organic-Molecule178
+               _Organic-Molecule5989
+               _Organic-Molecule5999
+               _Organic-Molecule6008
+               _Organic-Molecule6017
+               _Organic-Molecule6025
+               _Organic-Molecule6034
+               _Organic-Molecule6042
+               _Organic-Molecule6051
+               _Organic-Molecule6059
+               _Organic-Molecule6067
+               _Organic-Molecule6610
+               _Organic-Molecule6906
+               _Organic-Molecule7075
+               _Organic-Molecule7218
+               _Organic-Molecule7343
+               _Organic-Molecule7511
+               _Organic-Molecule7621
+               _Organic-Molecule7668
+               _Organic-Molecule7785))
+  (cloned-from (_Organic-Molecule271))
+  (is-part-of (_Polymer180))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 773 311))))
+
+(_Atom182 has 
+  (prototype-participant-of (_Respiratory-enzyme161))
+  (is-basic-structural-unit-of (_Respiratory-enzyme161))
+  (instance-of (Atom))
+  (has-clones (_Atom169
+               _Atom5988
+               _Atom5998
+               _Atom6006
+               _Atom6016
+               _Atom6024
+               _Atom6033
+               _Atom6041
+               _Atom6050
+               _Atom6058
+               _Atom6066
+               _Atom6611
+               _Atom6908
+               _Atom7076
+               _Atom7219
+               _Atom7344
+               _Atom7513
+               _Atom7622
+               _Atom7669
+               _Atom7787))
+  (cloned-from (_Atom309))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 669 449))))
+
+(explanation (:triple _Respiratory-enzyme161 has-basic-structural-unit _Amino-Acid7792) ((cloned-from _Protein305 _Respiratory-enzyme161)))
+(explanation (:triple _Respiratory-enzyme161 has-part _Polymer180) ((added-at Protein "User defined")))
+(explanation (:triple _Respiratory-enzyme161 has-basic-structural-unit _Atom182) ((a Atom (@ _Respiratory-enzyme161 Molecule has-basic-structural-unit))))
+(explanation (:triple _Respiratory-enzyme161 instance-of Protein) ((a Protein)))
+(explanation (:triple _Respiratory-enzyme161 has-part _Polymer180) ((cloned-from _Protein305 _Respiratory-enzyme161)))
+(explanation (:triple _Respiratory-enzyme161 has-basic-structural-unit _Atom182) ((cloned-from _Protein305 _Respiratory-enzyme161)))
+(explanation (:triple _Amino-Acid7792 instance-of Amino-Acid) ((cloned-from _Protein305 _Respiratory-enzyme161)))
+(explanation (:triple _Polymer180 has-part _Organic-Molecule181) ((added-at Polymer "User defined")))
+(explanation (:triple _Polymer180 has-part _Organic-Molecule181) ((cloned-from _Polymer268 _Polymer180)))
+(explanation (:triple _Polymer180 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer180 instance-of Polymer) ((cloned-from _Protein305 _Respiratory-enzyme161)))
+(explanation (:triple _Polymer180 is-part-of _Respiratory-enzyme161) ((cloned-from _Protein305 _Respiratory-enzyme161)))
+(explanation (:triple _Organic-Molecule181 instance-of Organic-Molecule) ((added-at Polymer "User defined")))
+(explanation (:triple _Organic-Molecule181 instance-of Organic-Molecule) ((cloned-from _Polymer268 _Polymer180)))
+(explanation (:triple _Organic-Molecule181 is-part-of _Polymer180) ((cloned-from _Polymer268 _Polymer180)))
+(explanation (:triple _Atom182 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom182 instance-of Atom) ((a Atom (@ _Respiratory-enzyme161 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom182 instance-of Atom) ((cloned-from _Protein305 _Respiratory-enzyme161)))
+(explanation (:triple _Atom182 is-basic-structural-unit-of _Respiratory-enzyme161) ((cloned-from _Protein305 _Respiratory-enzyme161)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

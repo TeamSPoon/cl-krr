@@ -1,0 +1,50 @@
+;;
+;;    $Id: Computer.km,v 1.17 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Computer has 
+  (superclasses (Computer-Equipment))
+  (feature-slot ((the feature-slot of Computer-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) 
+                  where ((the domain of It) = Computer))
+  ))
+)
+
+(every Computer has 
+;       (purpose ((a Instrument-Role with
+;                    (in-event ((must-be-a Compute)))
+;                    (played-by (Self))
+;                ))
+;       )
+
+       (has-part ((the hasHardDrive of Self)
+                  (the hasProcessor of Self)
+                  (the hasModem of Self)
+                  (the hasNetworkCard of Self)
+                  (the hasVideoCard of Self)
+                  (the hasSoundCard of Self)
+                  (the hasOpticalDrive of Self)
+                  (the hasDisplay of Self)
+       ))
+)
+
+
+
+(hasProcessor has (instance-of (Interface-Slot)) (domain (Computer)) (range (Processor)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isProcessorOf)))
+(hasHardDrive has (instance-of (Interface-Slot)) (domain (Computer)) (range (Hard-Drive)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isHardDriveOf)))
+(hasModem  has (instance-of (Interface-Slot)) (domain (Computer)) (range (Modem)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isModemOf)))
+(hasNetworkCard has (instance-of (Interface-Slot)) (domain (Computer)) (range (Network-Card)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isNetworkCardOf)))
+(hasVideoCard has (instance-of (Interface-Slot)) (domain (Computer)) (range (Video-Card)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isVideoCardOf)))
+(hasSoundCard has (instance-of (Interface-Slot)) (domain (Computer)) (range (Sound-Card)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isSoundCardOf)))
+(hasOpticalDrive has (instance-of (Interface-Slot)) (domain (Computer)) (range (Optical-Drive)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isOpticalDriveOf)))
+(hasDisplay has (instance-of (Interface-Slot)) (domain (Computer)) (range (Computer-Display)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isDisplayOf)))
+(hasOperatingSystem has (instance-of (Interface-Slot)) (domain (Computer)) (range (Operating-System)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isOperatingSystemOf)))
+
+(Computer has (wn20-synset ((:set
+			     (:triple "computer" 1 "n")
+			     (:triple "computing_machine" 1 "n")
+			     (:triple "computing_device" 1 "n")
+			     (:triple "data_processor" 1 "n")
+			     (:triple "electronic_computer" 1 "n")
+			     (:triple "information_processing_system" 1 "n")
+))))

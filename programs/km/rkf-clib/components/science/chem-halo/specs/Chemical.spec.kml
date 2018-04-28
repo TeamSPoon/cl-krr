@@ -1,0 +1,55 @@
+<!--- $Id: Chemical.spec.kml,v 1.1 2005/09/09 14:08:30 jfan Exp $ --->
+
+<kml>
+<concept name=Chemical>
+
+<superconcept name=Substance>
+
+  <definition>
+    A Chemical is a substance described by chemical properties such as 
+    molecular composition and reactivity.
+  </definition>
+
+<primaryslotlist>
+
+  <slotdescription name=has-basic-structural-unit>
+    the <conceptref name=Chemical-Entity> (e.g. 
+    <conceptref name=Molecule> or <conceptref name=Ion>)
+    which is the fundamental building block of this Chemical
+  </slotdescription>
+
+  <slotdescription name=has-part>
+    the <conceptref name=Chemical>s which comprise this one
+  </slotdescription>
+
+  <slotdescription name=quantity>
+    the amount of this chemical, usually given in moles.  See
+    <conceptref name=Quantity-Value>.
+  </slotdescription>
+
+  <slotdescription name=concentration>
+    the concentration (molarity) of this chemical in a solvent or
+    solution.  See <conceptref name=Concentration-Value>.
+  </slotdescription>
+
+  <slotdescription name=state>
+    the state (of matter) of this chemical: gas, aqueous (in
+    solution), liquid, or solid (precipitate).  See
+    <conceptref name=State-Value>.
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+   <neighbor name=Chemical-Entity>
+     The basic structural units - such as <conceptref name=Molecule>s and  
+     <conceptref name=Ion>s - that comprise Chemicals
+
+  </neighbor>
+
+
+</neighborlist>
+
+</kml>
+

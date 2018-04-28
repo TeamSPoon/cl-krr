@@ -1,0 +1,64 @@
+;; 
+;; $Id: Job-Role.km,v 1.6 2004/10/21 22:56:40 pzyeh Exp $
+;; 
+
+;;
+;; This concept corresponds to OccupationalRole in IRIS.
+;;
+(Job-Role has
+  (superclasses   (Participant))
+  (required-slot  ())
+  (primary-slot   ())
+  (secondary-slot ())
+)
+
+(every Job-Role has
+  (in-event ((must-be-a Event)))
+
+)
+
+;; temporary interface slots for SRI; these will be superceded by the
+;; human/employee domain ontology
+
+(job-employee-number has (instance-of (Interface-Slot)) (domain (Job-Role)) (range (String)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(job-phone-extension has (instance-of (Interface-Slot)) (domain (Job-Role)) (range (String)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+(job-email-address has (instance-of (Interface-Slot)) (domain (Job-Role)) (range (String)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+(job-supervisor has (instance-of (Interface-Slot)) (domain (Job-Role)) (range (Job-Role)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+(job-assistant has (instance-of (Interface-Slot)) (domain (Job-Role)) (range (Job-Role)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+(job-director-of has (instance-of (Interface-Slot)) (domain (Job-Role)) (range (Organization)) (inverse (job-director)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+(job-principal-investigator-of has (instance-of (Interface-Slot)) (domain (Job-Role)) (range (Project)) (inverse (job-principal-investigator)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+(job-office has (instance-of (Interface-Slot)) (domain (Job-Role)) (range (Office-Room)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-N)))
+
+(Job-Role has
+  (test-case ('(
+                (*Office-CBY-A-513 has (instance-of (Office-Room)))
+                (*TheFixitShop has (instance-of (Organization)))
+                (*FixitNow has (instance-of (Project)))
+                (*NoNameApprentice has
+                            (instance-of (Person))
+                            (plays ((a Job-Role called "Peon" with
+                                       (job-assistant-of (*Alain))
+                                       (job-supervisor (*Alain))
+                            )))
+                )
+                (*Alain has (instance-of (Person))
+                            (plays ((a Job-Role called "The Fixer" with
+                                       (job-employee-number ("38P"))
+                                       (job-phone-extension ("*512" "0"))
+                                       (job-office (*Office-CBY-A-513))
+                                       (job-email-address ("Alain@TheFixitShop.com"
+                                                           "TheFixer@TheFixitShop.com"))
+                                       (job-director-of (*TheFixitShop))
+                                       (job-principal-investigator-of (*FixitNow))
+                                       (job-assistant (*NoNameApprentice))
+                                       (job-supervisor-of (*NoNameApprentice))
+                            )))
+                )
+
+                ((the job-employee-number of (the Job-Role plays of *Alain)) = "38P")
+                ((the job-phone-extension of (the Job-Role plays of *Alain)) includes "0")
+                ((the job-email-address of (the Job-Role plays of *Alain)) 
+                 includes "Alain@TheFixitShop.com")
+
+))))
+

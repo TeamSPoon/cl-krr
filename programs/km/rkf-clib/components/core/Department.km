@@ -1,0 +1,17 @@
+;;
+;; $Id: Department.km,v 1.2 2004/09/08 19:49:43 tecuci Exp $
+;;
+
+(Department has 
+  (superclasses (Organization))
+  (description ("an organization that is part of an institution"))
+)
+
+(every Department has
+  (is-part-of ((must-be-a Institution)))
+)
+
+;; stubby
+
+(Department  has (wn20-synset ((:set (:triple "department" 1 "n")
+				     (:triple "section" 11 "n"))))) 

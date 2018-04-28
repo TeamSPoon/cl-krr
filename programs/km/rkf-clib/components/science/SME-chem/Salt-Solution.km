@@ -1,0 +1,14 @@
+;; 
+;;    $Id: Salt-Solution.km,v 1.2 2007/12/13 20:59:41 mrglass Exp $ 
+;; 
+
+(Salt-Solution has
+	       (superclasses (Solution)))
+
+(every Salt-Solution has (pH ((a PH-Value with (value ((:pair 7 *unity)))))))
+
+(every Salt-Solution has-definition
+       (instance-of (Solution))
+       (has-solute ((a Salt-Substance)
+		    (exactly 1 Chemical)))
+)

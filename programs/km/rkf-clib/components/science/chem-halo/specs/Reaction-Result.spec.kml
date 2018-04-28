@@ -1,0 +1,43 @@
+<!--- $Id: Reaction-Result.spec.kml,v 1.1 2005/09/09 14:08:40 jfan Exp $ --->
+
+<kml>
+<concept name=Reaction-Result>
+
+
+<superconcept name=Chemical>
+
+  <definition>
+    A Reaction-Result is the <conceptref name=Chemical> that is the result of a <conceptref name=Reaction> action.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=has-part>
+     The parts of the resulting Reaction-Result.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>H2O results from an reaction between H2 and O2.</text>
+     <slotdescription name=has-part>H2Ol</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Chemical>
+     A Chemical is a substance described by chemical properties such as 
+    molecular composition and reactivity. It may or may not be the result of
+    a mix action.
+  </neighbor>
+    <neighbor name=Mixture>
+     A Mixture is the <conceptref name=Chemical> that is the result of a <conceptref name=Mix> action.
+  </neighbor>
+</neighborlist>
+
+</kml>
+
+

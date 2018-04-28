@@ -1,0 +1,36 @@
+<!--- $Id: Be-Inaccessible.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Inaccessible>
+<superconcept name=State>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Inaccessible>
+  <definition>an object is inaccessible</definition>
+  <requiredslot name=object>
+    <restriction>an Entity</restriction>
+  </requiredslot>
+
+  <primaryslot name=base>
+    <restriction>the Entity that the <slot>object</slot> is inaccessible to</restriction>
+  </primaryslot>
+
+  <wnsynsets><adj>inaccessible#1, unaccessible#1
+  </adj></wnsynsets>
+  <wnsynsets>--
+  </wnsynsets>
+</component>
+
+<musing>
+<conceptref name=Make-Inaccessible> puts an <slot>object</slot> into the
+Be-Inaccessible state, hindering it from taking part in Actions as an
+<slot>object</slot> or <slot>instrument</slot>. 
+<conceptref name=Make-Accessible> takes an <slot>object</slot> out of
+this state.
+</musing>
+
+</kml>
+
+

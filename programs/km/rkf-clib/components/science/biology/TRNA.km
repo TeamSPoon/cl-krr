@@ -1,0 +1,28 @@
+;; 
+;;    $Id: TRNA.km,v 1.9 2001/05/17 21:05:00 pzyeh Exp $ 
+;; 
+
+(TRNA has
+         (superclasses (RNA-Transcript))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Small RNA molecule used in protein synthesis as an
+                        adaptor between a specific codon in mRNA, and specific
+                        amino acids.  Each type of tRNA molecule is covalently
+                        linked to a particular amino acid and recognizes a
+                        particular codon or set of codons by base-pairing.
+                        Alberts:ECB:G-18."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every TRNA has
+        ; (length (80 Nucleotide))   ;; an-average-of 80 Nucleotide
+        ;(primary-shape ((a Linear)))
+        ;(secondary-shape ((a Cloverleaf)))
+        ;(tertiary-shape ((a L-shape)))
+        (has-part ((a RNA-Anticodon)    ;;; complementarity
+                   (a Amino-Acid-Binding-Site))))   
+
+
+

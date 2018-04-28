@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Macromolecule.km,v 1.11 2002/06/21 19:17:00 tecuci Exp $ 
+;; 
+
+(Macromolecule has
+	       (superclasses (Polymer))
+	       (required-slot ())
+	       (primary-slot ())
+	       (secondary-slot ())
+	       (cmap-correspondence ())
+               (description ("Polymer molecule, such as a protein, nucleic 
+                              acid, or polysaccharide, with a molecular mass
+                              greater than a few thousand daltons. 
+                              Alberts:ECB:G-11"))
+	       (test-case ()))
+
+(every Macromolecule has  
+
+           (element-type (Monomer)))   ;;; basic unit
+
+

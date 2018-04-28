@@ -1,0 +1,24 @@
+;;    $Id: initial-y-position.km,v 1.6 2008/07/25 17:52:38 kbarker Exp $
+
+(initial-y-position has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Move))
+  (range (Length-Value))
+  (scalar-constant-class (Position-Constant))
+  (cardinal-unit-class (UoM-Length))
+  (inverse (initial-y-position-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(initial-y-position has (wn20-synset ((:set 
+				       (:triple "initial y position" 0 "n")
+				       (:triple "initial vertical position" 0 "n")
+))))
+
+(initial-y-position-of has (instance-of (EventProperty)))
+
+(initial-y-position has (name ("initial vertical position")))

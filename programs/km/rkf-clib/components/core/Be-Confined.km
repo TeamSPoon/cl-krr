@@ -1,0 +1,47 @@
+;; 
+;;    $Id: Be-Confined.km,v 1.20 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Confined has
+  (superclasses   (Be-Obstructed))
+  (required-slot  (object base))
+  (primary-slot   ())
+  (caused-by-class      (Confine))
+  (defeated-by-class    (Release))
+  (cmap-correspondence (
+		  	(:seq object "the thing Being-Confined")
+		   	(:seq base "the confining enclosure")
+		       )))
+
+(every Be-Confined has
+  (base ((a Tangible-Entity)))
+
+  (object   ((a Tangible-Entity with (is-inside ((the base of Self))))))
+  
+  (resulting-state-of ((must-be-a Confine with
+				  (object ((the object of Self)))
+				  (base ((the base of Self))))))
+  (defeated-by ((must-be-a Release with
+			   (object ((the object of Self)))
+			   (base ((the base of Self))))))
+)
+
+(every Be-Confined has
+   (text-particle ("confined"))
+)
+
+
+
+
+;; automatically added WN synsets
+(Be-Confined has (wn16-synset ((:set  
+                                          (:triple "confined" 4 "a")
+                                          (:triple "enclosed" 1 "a")
+                                          (:triple "fenced_in" 1 "a")
+                                          (:triple "penned" 1 "a")
+))))
+
+(Be-Confined has (wn20-synset ((:set (:triple "confined" 2 "a")
+                                     (:triple "fenced_in" 1 "a")
+                                     (:triple "penned" 1 "a")
+))))

@@ -1,0 +1,63 @@
+;; 
+;;    $Id: Eucaryotic-Cytoplasm.km,v 1.29 2002/06/21 19:16:59 tecuci Exp $ 
+;; 
+
+(Eucaryotic-Cytoplasm has
+	  (superclasses (Cytoplasm))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("The cytoplasm of a eucaryotic cell containing the
+                         nucleus and other organelles. Souther. "))
+	  (cmap-correspondence ()))
+
+(every Eucaryotic-Cytoplasm has
+       (has-part (                        ; SME "contains"
+		  (a Endoplasmic-Reticulum)
+		  (a Golgi-Apparatus)
+		  (a Centriole)
+		  (exactly 2 Centriole)
+		  (a Cytoskeleton)
+		  (a Aggregate called "lysosomes" with
+
+		     (element-type (Lysosome)))
+		  (a Aggregate called "peroxisomes" with
+
+		     (element-type (Peroxisome)))
+		  (a Aggregate called "mitochondria" with
+
+		     (element-type (Mitochondrion)))
+		  (a Aggregate called "vesicles" with
+
+		     (element-type (Vesicle)))
+		 (a Aggregate called "microtubules" with
+
+		    (element-type (Microtubule)))
+		 (a Aggregate called "intermediate-filaments" with
+
+		    (element-type (Intermediate-Filament)))
+		 (a Aggregate called "actin-filaments" with
+
+		    (element-type (Actin-Filament)))
+		 (a Cytosol with
+		    (has-part (                ;; has part?? or contains
+			       (a Aggregate called "Cytoplasmic-Protein" with  
+
+				  (element-type (Cytoplasmic-Protein)))
+			       (a Aggregate called "GTP-Aggregate" with
+
+				  (element-type (GTP) ))
+			       (a Aggregate called "ATP-Aggregate" with
+
+				  (element-type (ATP)))
+			       (a Aggregate called  "CTP-Aggregate" with
+
+				  (element-type (CTP)))
+			       (a Aggregate called  "UTP-Aggregate" with
+
+				  (element-type (UTP)))
+			       )))
+		 
+		 )))
+
+

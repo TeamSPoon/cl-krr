@@ -1,0 +1,86 @@
+<!--- $Id: Transfer.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<kml>
+
+<concept name=Transfer>
+<system-documentation name=Transfer>
+<superconcept name=Action>
+
+  <definition>
+        Change of possession of an object.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the thing that is possessed by the <slot>donor</slot> before
+       the Transfer and by the <slot>recipient</slot> afterwards.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+       the entity that causes the Transfer
+  </slotdescription>
+
+  <slotdescription name=donor>
+       the entity that <slot>possesses</slot> the object before the Transfer
+  </slotdescription>
+
+  <slotdescription name=recipient>
+       the entity that <slot>possesses</slot> the object after the Transfer
+  </slotdescription>
+
+  <slotdescription name=instrument>
+       the medium of transfer of the <slot>object</slot>
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Mick gave his car to his brother.</text>
+    <slotdescription name=agent>Mick</slotdescription>
+    <slotdescription name=object>car</slotdescription>
+    <slotdescription name=donor>Mick</slotdescription>
+    <slotdescription name=recipient>Mick's brother</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+        Move involves a change in location, while Transfer involves a
+        change in ownership.  Some actions involve involve both, and
+        they should be coded as compounds with two subevents.
+  </neighbor>
+
+  <neighbor name=Deliver>
+        Deliver is a special type of Transfer performed by an 
+        <slot>agent</slot> who is not the <slot>donor</slot>
+  </neighbor>  
+
+  <neighbor name=Lose>
+        Lose is a special type of Transfer in which a <slot>donor</slot>
+        is mandatory
+  </neighbor>  
+
+  <neighbor name=Receive>
+        Receive is a special type of Transfer in which a <slot>recipient</slot>
+        is mandatory
+  </neighbor>  
+
+  <neighbor name=Withdraw>
+        Withdraw is a special type of Transfer in which the 
+        <slot>object</slot> is withdrawn from a <slot>base</slot>,
+        thereby removing it from a <conceptref name=Be-Stored> state
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

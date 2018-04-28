@@ -1,0 +1,28 @@
+;;
+;;    $Id: Harm.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;;
+(Harm has 
+  (superclasses        (Impair))
+  (required-slot       (object))
+  (primary-slot        (agent instrument by-means-of))
+  (secondary-slot      ())
+  (cmap-correspondence ((:seq agent  "the entity doing harm")
+			(:seq object "the thing harmed")
+  ))
+)
+
+;; A Harm is a biological kind of impair. The object is not put
+;; into a Be-Harmed state.
+(every Harm has
+  (object ((a Living-Entity)))
+)
+
+;; For text gen.
+(every Harm has
+  (text-active-verbseq-sg  ("harms"))
+  (text-active-verbseq-pl  ("harm"))
+  (text-passive-verbseq-sg ("gets harmed"))
+  (text-passive-verbseq-pl ("get harmed"))
+)
+
+(every Harm has (text-nominalization ("harm")))

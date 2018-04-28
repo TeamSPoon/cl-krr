@@ -1,0 +1,72 @@
+<!--- $Id: Propel.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+<kml>
+
+<concept name=Propel><system-documentation name=Propel>
+<superconcept name=Move>
+
+<definition>
+
+  An <slot>object</slot> <conceptref name=Move>s toward a 
+  <conceptref name=Target>.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that's propelled toward the <slot>destination</slot>
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the <conceptref name=Spatial-Entity>, 
+    playing the role of a <conceptref name=Target>, 
+    to which the <slot>object</slot> is propelled
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the Propel to occur
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the Entity used to propel the <slot>object</slot>
+  </slotdescription>
+
+  <musing>
+    The other relationships used for <conceptref name=Move> can
+    be used for Propel, too.
+  </musing>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Tom shot a peanut to the squirrel with his sling shot.</text>
+    <slotdescription name=object>peanut</slotdescription>
+    <slotdescription name=destination>squirrel</slotdescription>
+    <slotdescription name=agent>Tom</slotdescription>
+    <slotdescription name=instrument>sling shot</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+    Propel is a type of Move in which the destination is a target
+  </neighbor>
+
+  <neighbor name=Slide>
+    Slide is a type of Move-Through with one extra property: 
+    throughout the move the object touches the path it's moving along
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

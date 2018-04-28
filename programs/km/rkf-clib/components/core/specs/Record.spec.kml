@@ -1,0 +1,94 @@
+<!-- $Id: Record.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ -->
+<kml>
+
+<concept name=Record><system-documentation name=Record>
+<superconcept name=Create>
+
+<definition>
+
+An action involving a <conceptref name=Sensor> such that a 
+<conceptref name=Recording> is created as the result.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=result>
+     The thing that's recorded.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the tool or aid that was used in the record. 
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the record.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the record.
+  </slotdescription>
+
+</primaryslotlist>
+
+
+<primaryslotlist>
+
+  <slotdescription name=object>
+The (tangible) thing recorded, e.g. sound, light, brainwaves, etc. 
+  </slotdescription>
+
+</primaryslotlist>
+
+
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Bob made an EEG recording of Fred's brainwaves.</text>
+    <slotdescription name=agent>Bob</slotdescription>
+    <slotdescription name=object>Fred's brainwaves</slotdescription>
+    <slotdescription name=instrument>EEG device</slotdescription>
+    <slotdescription name=result>EEG recording</slotdescription>
+  </examplesentence>
+
+
+  <examplesentence>
+    <text>Pioneer 10's sensor recorded faint radio sources.</text>
+    <slotdescription name=agent>(none)</slotdescription>
+    <slotdescription name=object>faint radio sources</slotdescription>
+    <slotdescription name=instrument>sensor aboard Pioneer 10 spacecraft</slotdescription>
+    <slotdescription name=result>encoded sensor data</slotdescription>
+  </examplesentence>
+
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Write>
+
+The <slot>object</slot> of Write is <conceptref name=Information>
+which is intangible.  By contrast, the <slot>object</slot> of Record
+is detectable by a sensor and thus tangible.
+
+  </neighbor>
+
+   <neighbor name=Sense>
+
+Sense requires an <slot>experiencer</slot> but Record can happen
+autonomously.
+   </neighbor name=Sense>
+
+</neighborlist>
+
+</kml>
+
+
+
+
+

@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Ribonucleoside-Triphosphate.km,v 1.4 2001/07/11 22:45:34 souther Exp $
+;; 
+
+(Ribonucleoside-Triphosphate has
+         (superclasses (Nucleoside Triphosphate Nucleotide))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A Ribonucleotide in which the 5' terminal group 
+                        is a triphosphate, e.g. TTP. Souther."))
+         (test-case ()))
+
+(every Ribonucleoside-Triphosphate has
+  (has-part ((a Triphosphate with
+		(object-of
+		  ((a Be-Attached-To with
+		      (object ((the Ribonucleoside has-part of Self)))
+		      (site   (((the Carbon-Atom has-part of
+				     (the Pentose has-part of
+					  (the Ribonucleoside has-part of Self)))
+				called "Carbon-5")
+			       ((the Oxygen-Atom has-part of
+				     ((the Monophosphate has-part of
+					   (the Triphosphate has-part of Self))
+				      called "Phosphate-1"))
+				called "Oxygen-1")))
+		      (instrument ((a Covalent-CO-Bond)))))))
+	     (a Ribonucleoside))))
+
+

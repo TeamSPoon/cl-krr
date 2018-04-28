@@ -1,0 +1,23 @@
+
+;;
+;; $Id: Listener.km,v 1.2 2006/06/27 21:42:35 kbarker Exp $
+;;
+
+(Listener has (superclasses (Role)))
+
+(every Listener has
+  (in-event ((a Communicate with
+                (recipient ((the played-by of Self)))
+                (subevent ((a Express)                          ;; from Communicate
+                           (a Convey with                       ;; specialized here
+                              (base ((a Sound)))                   ;; base = medium = object of Transmit
+                           )
+                           (a Interpret with                    ;; from Communicate
+                              (agent ((the played-by of Self)))
+                           )
+                ))
+  )))
+  (played-by ((a Animal)))
+)
+
+

@@ -1,0 +1,48 @@
+; 
+;;    $Id: Lewis-Acid-Role.km,v 1.1 2008/05/08 16:53:33 mrglass Exp $ 
+;; 
+
+(Lewis-Acid-Role has
+                 (superclasses (Role))
+                 (test-case ()))
+
+(Lewis-Acid-Role has (user-description ("A Substance that acts as an electron pair acceptor.")))
+
+(every Lewis-Acid-Role has
+       (lewis-acid-strength (
+          (if (oneof (the elements of 
+                          (the term of 
+                               (the atomic-chemical-formula of 
+                                    (the played-by of Self))))
+                     where ((oneof2 (the all-superclasses of (the2 of It))
+                                    where (It2 = Metal-Atom)
+                            )
+                            or
+                            ((the2 of It) = Metal-Atom)
+                           )
+              )
+           then
+              (a Lewis-Acid-Strength-Value with
+                 (value ((:pair (the abs of 
+                                     (the1 of 
+                                           (the value of 
+                                                (the charge of 
+                                                     (the played-by of Self))))
+                                )
+                                NIL
+                 )))
+              )
+           [Lewis-Acid-Role-lewis-acid-strength-1]
+       )))
+)
+
+(comment [Lewis-Acid-Role-lewis-acid-strength-1]
+  (:seq (the text-gen of (the played-by of Self))
+        "is a metal cation with charge"
+        (the1 of (the value of (the charge of (the played-by of Self))))
+        "and will be a stronger Lewis acid than a metal cation with charge <"
+        (the1 of (the value of (the charge of (the played-by of Self))))
+  )
+  "Only cations can be Lewis acids; if a cation is a metal, its strength as a Lewis acid increases with the cation charge"
+)
+

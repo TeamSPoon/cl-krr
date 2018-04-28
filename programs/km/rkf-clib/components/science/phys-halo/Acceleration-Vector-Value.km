@@ -1,0 +1,63 @@
+;;
+;;    $Id: Acceleration-Vector-Value.km,v 1.8 2008/07/04 15:18:13 kbarker Exp $
+;;
+
+(Acceleration-Vector-Value has
+                    (description ("A vector measure of the change in velocity over time"))
+		    (superclasses (Property-Vector-Value)))
+
+(every Acceleration-Vector-Value has 
+  (primary-slot (acceleration))
+  (secondary-slot (acceleration-magnitude))
+  (x-component-slot (x-acceleration-magnitude))
+  (y-component-slot (y-acceleration-magnitude))
+  (acceleration-magnitude ((a Acceleration-Magnitude-Value)))
+  (direction ((a Angle-Value)))
+  (x-acceleration-magnitude ((a Acceleration-Magnitude-Value)))
+  (y-acceleration-magnitude ((a Acceleration-Magnitude-Value)))
+
+	(component-of (( a System with
+                  ( equation (( a Equation-Set with
+                                ( equation-uses (( the y-acceleration-magnitude of Self )
+                                                 ( the acceleration-magnitude of Self )
+                                                 ( the direction of Self )))
+                                ( equation-symbol (( :pair (QUOTE a_y) ( the y-acceleration-magnitude of Self ))
+                                                   ( :pair (QUOTE a) ( the acceleration-magnitude of Self ))
+                                                   ( :pair (QUOTE theta) ( the direction of Self ))))
+                                ( equation-expression (( QUOTE ( = a_y ( * a (sin theta)))))))
+
+                              ( a Equation-Set with
+                                ( equation-uses (( the x-acceleration-magnitude of Self )
+                                                 ( the acceleration-magnitude of Self )
+                                                 ( the direction of Self )))
+                                ( equation-symbol (( :pair (QUOTE a_x) ( the x-acceleration-magnitude of Self ))
+                                                   ( :pair (QUOTE a) ( the acceleration-magnitude of Self ))
+                                                   ( :pair (QUOTE theta) ( the direction of Self ))))
+                                ( equation-expression (( QUOTE ( = a_x ( * a (cos theta)))))))
+
+                              ( a Equation-Set with
+                                ( equation-uses (( the acceleration-magnitude of Self )
+                                                 ( the x-acceleration-magnitude of Self )
+                                                 ( the y-acceleration-magnitude of Self )))
+                                ( equation-symbol (( :pair (QUOTE a) ( the acceleration-magnitude of Self ))
+                                                   ( :pair (QUOTE a_x) ( the x-acceleration-magnitude of Self ))
+                                                   ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of Self ))))
+                                ( equation-expression (( QUOTE ( = a (sqrt (+ (expt a_y 2) (expt a_x 2))))))))
+
+                              ( a Equation-Set with
+                                ( equation-uses (( the direction of Self )
+                                                 ( the x-acceleration-magnitude of Self )
+                                                 ( the y-acceleration-magnitude of Self )))
+                                ( equation-symbol (( :pair (QUOTE theta) ( the direction of Self ))
+                                                   ( :pair (QUOTE a_x) ( the x-acceleration-magnitude of Self ))
+                                                   ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of Self ))))
+                                ( equation-expression (( QUOTE ( = theta ( atan a_y a_x ))))))))))))
+
+;;Note: *Gravity is now strictly a vector value
+(*Gravity now-has 
+	  (instance-of (Acceleration-Vector-Value))
+	  (acceleration-magnitude ((a Acceleration-Magnitude-Value with 
+				      (value ((:pair 9.8 *meter-per-second-squared)))))))
+
+
+

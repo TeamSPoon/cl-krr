@@ -1,0 +1,17 @@
+;;
+;;    $Id: Template.km,v 1.4 2009/12/16 17:04:47 kbarker Exp $
+;;
+
+(Template has
+            (superclasses (Role))
+            (required-slot ())
+            (primary-slot ())
+            (secondary-slot ())
+            (cmap-correspondence ())
+	    (description ("A role played by an object in a copy event, serving as the thing from which a copy is made."))
+            (test-case ()))
+
+(every Template has
+       (in-event ((a Copy)))
+       (played-by ((a Tangible-Entity with
+                      (object-of ((the in-event of Self)))))))

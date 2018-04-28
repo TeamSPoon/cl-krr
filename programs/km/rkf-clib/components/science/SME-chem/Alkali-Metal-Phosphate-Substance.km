@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Alkali-Metal-Phosphate-Substance12248
+
+
+|#
+
+(disable-classification)
+
+(Alkali-Metal-Phosphate-Substance has (superclasses (Phosphate-Substance)))
+
+(every Alkali-Metal-Phosphate-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Alkali-Metal-Phosphate-Substance711 has
+  (prototype-of (Alkali-Metal-Phosphate-Substance Phosphate-Substance))
+  (prototype-scope (Alkali-Metal-Phosphate-Substance (the-class Phosphate-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Alkali-Metal-Cation) (a PO4-Minus-3)))))))))
+  (prototype-participants (_PO4-Minus-12867 _Cation717 _Chemical-Entity713 _Alkali-Metal-Phosphate-Substance711)))
+
+(_Chemical-Entity713 has (instance-of (Ionic-Compound)) (has-part (_PO4-Minus-12867 _Cation717)))
+
+(_PO4-Minus-12867 has (instance-of (PO4-Minus-3)))
+
+(_Cation717 has (instance-of (Alkali-Metal-Cation)))
+
+(_Alkali-Metal-Phosphate-Substance711 has (instance-of (Alkali-Metal-Phosphate-Substance)) (has-basic-structural-unit (_Chemical-Entity713)))
+
+(enable-classification)
+
+(explanation (:triple _Alkali-Metal-Phosphate-Substance711 has-basic-structural-unit _Chemical-Entity713) (((@ SME entered)) (every Alkali-Metal-Phosphate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity713 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _PO4-Minus-12867 instance-of PO4-Minus-3) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation717 instance-of Alkali-Metal-Cation) (((@ SME entered)) NIL))
+
+(explanation (:triple _Alkali-Metal-Phosphate-Substance711 instance-of Alkali-Metal-Phosphate-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Alkali-Metal-Phosphate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

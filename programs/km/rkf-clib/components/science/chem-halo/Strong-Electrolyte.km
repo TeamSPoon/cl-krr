@@ -1,0 +1,23 @@
+; 
+;;    $Id: Strong-Electrolyte.km,v 1.8 2008/11/11 21:37:35 tecuci Exp $ 
+;; 
+
+(Strong-Electrolyte has
+  (superclasses (Electrolyte))
+  (test-case ())
+)
+
+(Strong-Electrolyte has
+  (user-description ("A substance that is completely ionized in solution, for example, strong acids, strong bases, and most salts.")))
+
+(every Strong-Electrolyte has-definition
+       (instance-of (Electrolyte))
+       (electrolyte-status ((a Electrolyte-Status-Value with (value
+							      ((:pair *strong Chemical)))))))
+(every Strong-Electrolyte has
+       (conductivity ((a Conductivity-Value with (value ((:pair *high-conductivity Chemical)))))))
+
+#|(Strong-Electrolyte has 
+		    (test-case
+		     ('(((a NaCl-Substance) isa Strong-Electrolyte)))))
+|#

@@ -1,0 +1,29 @@
+<!--- $Id: nested-atomic-chemical-formula.spec.kml,v 1.3 2008/02/06 00:57:07 hari5851 Exp $ --->
+<kml>
+<relation-doc name=nested-atomic-chemical-formula>
+
+
+<from name=Chemical-Entity>
+<to name=Chemical-Formula>
+
+<description>
+The chemical formula of Chemical-Entity that takes into account nesting.
+</description>
+
+<examplesentencelist>
+ <examplesentence>
+<text>The nested atomic chemical formula of <ex-from>(CH<sub>3</sub>)<sub>2</sub>NH</ex-from> is <ex-to>2 CH<sub>3</sub>, 1 N and 1 H</ex-to>.</text>
+  </examplesentence>
+
+ <examplesentence>
+  <text>The nested atomic chemical formula of <ex-from>HCl</ex-from> is <ex-to>1 H and 1 Cl</ex-to>.</text>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=has-chemical-formula>
+    nested-atomic-chemical-formula captures the subcomponents of a Chemical-Entity.
+ </neighbor>
+</neighborlist>
+
+</kml>

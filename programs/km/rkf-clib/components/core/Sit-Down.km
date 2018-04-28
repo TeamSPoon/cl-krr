@@ -1,0 +1,61 @@
+;;
+;; $Id: Sit-Down.km,v 1.5 2005/10/25 03:02:11 sdbaji Exp $
+;;
+
+(Sit-Down has 
+  (superclasses (Orient))  
+  (description ("The act of sitting down. To go to a state of Be-Sitting."))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Sit-Down has
+  (agent    ((a Entity)))
+  (object   ((the agent of Self)))
+  (resulting-state ((a Be-Sitting)))
+  (defeats  ((allof (the object-of of (the agent of Self))
+                    where
+                    (((the classes of It) = Be-Standing) and
+                     ((the object of It) includes (the agent of Self))))))
+  
+  ;; Pre and Post conditions.
+  (pcs-list ((forall (the object of Self)
+                     (:triple
+                      It
+                      object-of
+                      (mustnt-be-a Be-Sitting with
+                                   (object ((the agent of Self)))) [Sit-Down-pcs-1]))))
+  (add-list ((:triple
+              (the resulting-state of Self)
+              object
+              (the agent of Self) [Sit-Down-add-1])
+  ))
+
+  (del-list ((forall (the defeats of Self)
+                     (:triple It object (the agent of Self) [Sit-Down-del-1]))
+  ))
+)
+
+
+(comment [Sit-Down-pcs-1] (:seq (the agent of Self) " must not be sitting already.")
+         "Something cannot sit down if it is already sitting.")
+
+(comment [Sit-Down-add-1] (:seq (the agent of Self) " is now sitting")
+         "A Sit-Down causes an Entity to be sitting.")
+
+(comment [Sit-Down-del-1] (:seq (the agent of Self) " is no longer standing")
+         "If an Entity is standing, a Sit-Down stops the Entity from standing.")
+
+
+(every Sit-Down has
+  (text-active-verbseq-sg ("sits"))
+  (text-active-verbseq-pl ("sit"))
+)
+
+
+(Sit-Down has (wn20-synset ((:set
+			(:triple "sit" 3 "v")
+			(:triple "sit_down" 1 "v")
+))))
+
+
+(every Sit-Down has (text-nominalization ("sitting")))

@@ -1,0 +1,17 @@
+;; 
+;;    $Id: disjunctive-next-events.km,v 1.14 2008/09/05 16:19:59 kbarker Exp $ 
+;; 
+
+
+(disjunctive-next-events has
+  (instance-of 	 (Meronymic-Relation))
+  (superslots 	 (next-event))
+  (domain 	 (Event))
+  (range 	 (Event))
+  (fluent-status (*Non-Fluent))
+  (original-slot      (t))	
+  (cardinality 	 (N-to-N)))
+
+(disjunctive-next-events-of has
+  (superslots  (prev-event))
+  (instance-of (Meronymic-Relation)))

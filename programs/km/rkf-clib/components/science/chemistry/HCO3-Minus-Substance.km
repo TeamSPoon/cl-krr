@@ -1,0 +1,18 @@
+;; $Id: HCO3-Minus-Substance.km,v 1.4 2003/09/10 16:59:50 jchaw Exp $ 
+
+(HCO3-Minus-Substance has (superclasses (Anion-Substance)))
+(every HCO3-Minus-Substance has
+	(plays (((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 5.6e-11 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid))))))))
+	       ((a Base-Role with		
+		   (default-kb ((a Equilibrium-Constant-Value with
+				   (value ((:pair 2.33e-8 nil))))))
+		   (intensity ((a Intensity-Value with
+				  (value ((:pair *weak Base))))))))
+	       ))
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a HCO3-Minus)))
+)

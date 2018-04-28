@@ -1,0 +1,30 @@
+<!--- $Id: Na-Substance.spec.kml,v 1.1 2005/11/11 21:20:48 jfan Exp $ --->
+
+<kml>
+<concept name=Na>
+
+<superconcept name=Chemical>
+
+  <definition>
+    A Na is defined to be a Chemical with a
+    <conceptref name=Na> as its basic structural unit
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=has-basic-structural-unit>
+    must be a Na
+  </slotdescription>
+
+</requiredslotlist>
+
+<neighborlist>
+
+   <neighbor name=Anion-Substance>
+    A Chemical with a <conceptref name=Anion> as its basic structural unit
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

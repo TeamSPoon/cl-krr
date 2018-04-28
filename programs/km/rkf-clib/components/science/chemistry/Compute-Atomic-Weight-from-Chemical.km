@@ -1,0 +1,36 @@
+;; $Id: Compute-Atomic-Weight-from-Chemical.km,v 1.5 2003/09/23 15:39:10 jfan Exp $
+
+(Compute-Atomic-Weight-from-Chemical has
+				     (superclasses (Method))
+				     (description ("compute the atomic weight of a particle")))
+
+;;; The weights are currently returned as a set. Thus similar values are
+;;; represented with 1 instance only. Such behaviour may result in
+;;; incorrect computation for output. The weights should be returned as a
+;;; bag instead.
+
+(every Compute-Atomic-Weight-from-Chemical has
+       (input ((a Chemical-Entity)))
+       (output 
+	((a Atomic-Weight-Value with 
+	    (value 
+	     ((:pair
+	       (the sum of 
+		    (the 
+		     bag of
+		     (forall2 
+		      (forall 
+		       (the elements of 
+			    (the term of 
+				 (the atomic-chemical-formula of 
+				      (the input of Self))))
+		       (:pair (the1 of It)
+			      (the1 of 
+				    (the value of
+					 (the atomic-weight of
+					      (an instance of (the2 of It)))))))
+		       
+		      ((the1 of It2) * 
+		       (the2 of It2)))
+		      ))
+	       *dalton)))))))

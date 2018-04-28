@@ -1,0 +1,48 @@
+;; 
+;;    $Id: Monophosphate.km,v 1.14 2001/06/01 14:59:17 pnav Exp $ 
+;; 
+
+(Monophosphate has
+     (superclasses (Phosphoryl-Group))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A compound containing a single phosphate group.
+                    Souther. "))
+     (cmap-correspondence ()))
+
+(every Monophosphate has
+       (has-part 
+	((a Phosphorus-Atom with
+	    (object-of
+	     (
+	      (a Be-Attached-To with
+		 (object	(((the has-part of Self) uniquely-called "Oxygen-1")))
+		 (instrument 	((a Covalent-PO-Bond))))
+	      
+	      (a Be-Attached-To with
+		 (object	(((the has-part of Self) uniquely-called "Oxygen-2")))
+		 (instrument 	((a Covalent-PO-Bond))))
+	      
+	      (a Be-Attached-To with
+		 (object	(((the has-part of Self) uniquely-called "Oxygen-3")))
+		 (instrument 	((a Covalent-PO-Bond))))
+	      
+	      (a Be-Attached-To with
+		 (object	(((the has-part of Self) uniquely-called "Oxygen-4")))
+		 (instrument 	((a Covalent-PO-Bond))) ))))
+	 
+	 (a Oxygen-Atom uniquely-called "Oxygen-1")
+	 (a Oxygen-Atom uniquely-called "Oxygen-2")
+	 (a Oxygen-Atom uniquely-called "Oxygen-3")
+	 (a Oxygen-Atom uniquely-called "Oxygen-4")
+	)))
+
+
+
+
+
+
+
+
+

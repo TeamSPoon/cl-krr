@@ -1,0 +1,22 @@
+;;
+;;    $Id: WorkResourceAssignment.km,v 1.1 2004/11/05 16:59:41 pzyeh Exp $
+;;
+
+(WorkResourceAssignment has
+  (superclasses        (ResourceAssignment))
+  (required-slot       ())
+  (primary-slot        ()))
+
+;;
+;; Still need to encode the constraint on this concept.
+;;
+;; (every WorkResourceAssignment has)
+;;
+
+(assignedUnits has
+  (instance-of   (Interface-Slot))
+  (domain        (WorkResourceAssignment))
+  (range         (Number))
+  (cardinality   (N-to-N))
+  (fluent-status (*Inertial-Fluent)))
+

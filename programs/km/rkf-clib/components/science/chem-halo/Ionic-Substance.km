@@ -1,0 +1,10 @@
+;    $Id: Ionic-Substance.km,v 1.4 2008/11/03 03:11:27 tecuci Exp $
+
+(Ionic-Substance has (superclasses (Chemical)))
+
+(Ionic-Substance has (user-description ("A substance of an ionic compound.")))
+
+(every Ionic-Substance has-definition
+       (instance-of (Chemical))
+       (has-basic-structural-unit ((a Ion))))
+

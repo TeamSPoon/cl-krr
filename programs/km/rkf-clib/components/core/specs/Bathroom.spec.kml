@@ -1,0 +1,28 @@
+<!--- $Id: Bathroom.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<kml>
+
+<concept name=Bathroom>
+<system-documentation name=Bathroom>
+<superconcept name=Room>
+
+<definition>
+	 A Room containing a bath or shower and usually a washbasin and toilet.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the Bathroom is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Room>
+     A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

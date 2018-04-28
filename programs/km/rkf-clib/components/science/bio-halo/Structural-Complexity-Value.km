@@ -1,0 +1,13 @@
+;;
+;; $Id: Structural-Complexity-Value.km,v 1.1 2005/08/02 16:16:07 pzyeh Exp $
+;;
+(Structural-Complexity-Value has (superclasses (Property-Value)))
+
+(every Structural-Complexity-Value has
+  (property-slot (structural-complexity))
+  (structural-complexity-of ((must-be-a Tangible-Entity)))
+  (less-than 	((must-be-a Structural-Complexity-Value)))
+  (greater-than ((must-be-a Structural-Complexity-Value)))
+  (same-as 	((must-be-a Structural-Complexity-Value)))
+)   
+

@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Subcellular-Compartment.km,v 1.8 2001/06/19 03:29:50 souther Exp $ 
+;; 
+
+(Subcellular-Compartment has
+         (superclasses (Organic-Compartment))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A compartment within the cell, surrounded by a
+                        membrane.  Examples are mitochondrial matrix,
+                        the nucleoplasm, and the compartment within the
+                        endoplasmic reticulum. "))
+         (test-case ()))  
+
+(every Subcellular-Compartment has
+       (has-part ((a Internal-Membrane))))
+
+
+
+
+

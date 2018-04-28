@@ -1,0 +1,34 @@
+;; 
+;; $Id: Annotation.km,v 1.15 2005/01/03 21:21:43 kbarker Exp $
+;; 
+
+;; IRIS_class: Annotation
+
+(Annotation has
+  (superclasses (InformationObject)))
+
+(every Annotation has
+  (hasResponse ((a Information)))
+)
+
+(hasResponse has 
+  (instance-of (Interface-Slot)) 
+  (domain (Annotation)) 
+  (range (Message Annotation WeblogPosting)) 
+  (inverse (isResponseTo))
+  (cardinality (N-to-N)))
+
+;; range is OntologyObject, OntologyObjectExtension in iris
+(hasAnnotation has (instance-of (Interface-Slot)) (domain (Thing)) (range (Annotation)) (inverse (isAnnotationOf)) (cardinality (N-to-N)))
+(hasNote has (instance-of (Interface-Slot)) (superslots (hasAnnotation)) (domain (Thing)) (range (Note)) (inverse (isNoteOf)) (cardinality (N-to-N)))
+(hasSubjectCategory has (instance-of (Interface-Slot)) (superslots (hasAnnotation)) (domain (Thing)) (range (SubjectCategory)) (inverse (isSubjectCategoryOf)) (cardinality (N-to-N)))
+
+
+#|
+(isResponseTo has 
+  (instance-of (Interface-Slot))
+  (domain (Annotation)) 
+  (range (Message Annotation WeblogPosting)) 
+  (cardinality (N-to-N)))
+|#
+

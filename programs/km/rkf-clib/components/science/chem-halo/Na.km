@@ -1,0 +1,17 @@
+
+;;
+;; $Id: Na.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Na has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+(every Na has
+   (has-ion ((a Na-Plus)))
+       (atomic-symbol (Na))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 11 NIL))))))
+       (chemical-period (3)))
+
+(every Na has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("sodium"))
+)

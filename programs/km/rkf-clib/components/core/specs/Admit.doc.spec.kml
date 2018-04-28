@@ -1,0 +1,91 @@
+<!--- $Id: Admit.doc.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Admit::doc>
+<superconcept name=Unobstruct::doc>
+
+<sme-documentation name=Admit>
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Admit>
+  <definition>allow an object to be moved into an enclosure</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <requiredslot name=location>
+      <restriction>is not inside the enclosure</restriction>
+    </requiredslot>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Shut-Out> whose <slot>location</slot> is a Place
+      outside the enclosure
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is not the <slot>object</slot> of a 
+      <conceptref name=Be-Shut-Out> whose <slot>location</slot> is a Place
+      outside the enclosure
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Unobstruct::doc>
+    <restriction>causes <slot>object</slot> to be Admitted</restriction>
+  </primaryslot>
+  <wnsynsets><verb>admit#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>allow_in#1, let_in#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+In order to Admit an <slot>object</slot> to an enclosure, it must not be
+inside the enclosure and must be the <slot>object</slot> of a state 
+<conceptref name=Be-Shut-Out> with <slot>location</slot> outside the 
+enclosure. Note that Admit does not result in the <slot>object</slot>
+being inside the enclosure, but merely allows it to 
+<conceptref name=Move-Into>.<p> 
+
+(An <slot>object</slot> is put into a <conceptref name=Be-Shut-Out> by the
+<conceptref name=Shut-Out> action).
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=admit2>
+  <sense-definition>to concede as true or valid
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=admit3>
+  <sense-definition>give access or entrance to
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=admit4>
+  <sense-definition>afford possibility
+
+</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=admit5>
+  <sense-definition>to accomadate, hold, have room for</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNadmit#1><equiv tag=admit2></sense>
+<sense tag=WNadmit#2><equiv tag=admit1></sense>
+<sense tag=WNadmit#3><equiv tag=admit1></sense>
+<sense tag=WNadmit#4><equiv tag=admit1></sense>
+<sense tag=WNadmit#5><equiv tag=admit4><equiv tag=admit10></sense>
+<sense tag=WNadmit#6><equiv tag=admit3></sense>
+<sense tag=WNadmit#7><equiv tag=admit5></sense>
+<sense tag=WNadmit#8><equiv tag=admit1></sense>
+</senselist>
+</reference>
+</kml>
+
+

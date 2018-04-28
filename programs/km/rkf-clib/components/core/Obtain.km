@@ -1,0 +1,72 @@
+;; 
+;;    $Id: Obtain.km,v 1.14 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Obtain has
+	(superclasses (Receive))
+	(required-slot  (recipient object))
+	(primary-slot 	(donor instrument))
+	(secondary-slot ())
+	(cmap-correspondence (
+			      (:seq object "the thing obtained")
+			      (:seq agent "obtainer")
+                              (:seq donor "donor")
+                              (:seq recipient "recipient")
+                              (:seq instrument "instrument")
+			     ))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Obtain has
+  (agent     ((the recipient of Self)))
+  (recipient ((the agent of Self)))
+)
+
+(every Obtain has
+  (text-active-verbseq-sg ("obtains"))
+  (text-active-verbseq-pl ("obtain"))
+  (text-passive-verbseq-sg ("is obtained"))
+  (text-passive-verbseq-pl ("are obtained"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Obtain has
+  (test-case ('( 
+		 (*Johnathan has (instance-of (Tangible-Entity)))
+		 (*Big-Green-Book has (instance-of (Tangible-Entity)))
+
+		 ;; *Johnathan Obtaining the *Big-Green-Book
+		 (a Obtain with
+			(agent (*Johnathan))
+			(object (*Big-Green-Book)))
+		 (do-and-next (thelast Obtain))
+		 (the text-gen of (thelast Obtain))
+		 ;; Test 1: *Johnation has possesion of the book.
+		 ((the possesses of *Johnathan) = *Big-Green-Book)
+	
+		 ;; Test 2: the Book is possessed-by *Johnathan
+		 ((the is-possessed-by of *Big-Green-Book) = *Johnathan)
+
+		 ;; Test 3: the agent should be the recipient
+		 ((the agent of (thelast Obtain)) = 
+		  (the recipient of (thelast Obtain)))
+	       )))
+)
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Obtain has (wn16-synset ((:set  
+                                     (:triple "obtain" 1 "v")
+))))
+
+(Obtain has (wn20-synset ((:set
+                                     (:triple "obtain" 1 "v")
+))))
+(every Obtain has (text-nominalization ("obtaining")))

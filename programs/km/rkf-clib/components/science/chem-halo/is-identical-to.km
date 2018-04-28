@@ -1,0 +1,17 @@
+
+;; $Id: is-identical-to.km,v 1.1 2006/05/09 15:22:30 kbarker Exp $
+
+(is-identical-to has
+  (instance-of   (Relation))
+  (domain 	 (Chemical))
+  (range         (Chemical))
+  (inverse       (is-identical-to))
+  (fluent-status (*Inertial-Fluent))
+  (cardinality   (N-to-N)))
+
+(is-identical-to has 
+  (text-gloss ("is identical to")))
+
+(is-identical-to has
+  (combine-values-by-appending (t)))
+

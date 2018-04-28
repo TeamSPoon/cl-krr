@@ -1,0 +1,91 @@
+;; 
+;;    $Id: Convey.km,v 1.11 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(Convey has
+        (superclasses  (Action))
+        (required-slot (object))
+	(primary-slot  (agent recipient))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+
+(every Convey has
+        (recipient ((a Tangible-Entity)))
+        (agent ((a Tangible-Entity)))
+        (object ((a Message)))
+        (base ((a Tangible-Entity)))
+        (first-subevent ((the Embody subevent of Self)))
+	(subevent ((a Embody with (object ((the object of Self)))
+				  (agent ((the agent of Self)))
+                                  (result ((the base of Self)))
+				  (next-event ((the Transmit subevent of Self))))
+		  (a Transmit with (object ((the base of Self)))
+			            (destination ((the recipient of Self))) 
+				    (next-event ((the Receive subevent of Self))))
+		  (a Sense with (object ((the base of Self)))
+				   (experiencer ((the recipient of Self)))
+                                   (result ((the object of Self)))
+				   (agent ((the recipient of Self)))
+))))
+
+
+#|
+(every Convey has
+  (text-active-verbseq-sg ("conveys"))
+  (text-active-verbseq-pl ("convey"))
+  (text-recipient ((if (has-value (the recipient of Self))
+                    then ("to"))))
+
+  (text-argslots ((:seq agent recipient object instrument)))
+
+)
+|#
+
+(Convey has                   
+  (test-case ('( 
+                 (*Commence-Attack has 
+			(instance-of (Message)))
+                 (*Headquarters has 
+			(instance-of (Tangible-Entity)))
+                 (*Camp-1 has 
+			(instance-of (Tangible-Entity)))
+
+		 ;; Headquarters gives Camp-1 the order to attack
+                 (*Convey has
+                        (instance-of (Convey))
+                        (agent (*Headquarters))
+                        (recipient (*Camp-1))
+                        (object (*Commence-Attack))
+		 )
+
+                 (do-and-next *Convey)
+		 
+		 (the text-gen of (thelast Convey)))))
+)
+
+
+;; automatically added WN synsets
+(Convey has (wn16-synset ((:set  
+                                     (:triple "convey" 1 "v")
+                                     (:triple "convey" 2 "v")
+                                     (:triple "convey" 3 "v")
+                                     (:triple "impart" 4 "v")
+                                     (:triple "carry" 4 "v")
+                                     (:triple "express" 3 "v")
+                                     (:triple "transmit" 1 "v")
+                                     (:triple "communicate" 3 "v")
+))))
+
+(Convey has (wn20-synset ((:set
+                                     (:triple "convey" 1 "v")
+                                     (:triple "convey" 2 "v")
+                                     (:triple "convey" 3 "v")
+                                     (:triple "impart" 4 "v")
+                                     (:triple "carry" 4 "v")
+                                     (:triple "express" 4 "v")
+                                     (:triple "transmit" 1 "v")
+                                     (:triple "communicate" 1 "v")
+))))
+
+(every Convey has (text-nominalization ("conveying")))

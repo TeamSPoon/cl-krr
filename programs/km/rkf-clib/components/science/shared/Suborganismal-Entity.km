@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Suborganismal-Entity.km,v 1.1 2006/06/28 05:46:09 pzyeh Exp $
+;; 
+
+(Suborganismal-Entity has
+      (superclasses (Living-Entity))
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (description ("Suborganismal 'living' components of organisms, 
+                     including systems, organs, tissues, and cells."))
+       (cmap-correspondence ()))
+
+(every Suborganismal-Entity has      
+       (is-part-of ((a Organism)))
+       )
+
+
+
+
+;(every Suborganismal-Entity has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

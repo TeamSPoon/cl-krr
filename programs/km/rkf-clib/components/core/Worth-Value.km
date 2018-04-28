@@ -1,0 +1,34 @@
+;;
+;; $Id: Worth-Value.km,v 1.5 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(Worth-Value has 
+       (superclasses (Property-Value)))
+
+(Worth-Value has
+   (test-case ('(
+                 (new-situation)
+                 (*BomberOfStoneIPA has (instance-of (Tangible-Entity)))
+                 (*Bubba has (instance-of (Tangible-Entity)))
+                 (*GrapevineMarket has (instance-of (Tangible-Entity)))
+                 (a Buy with
+                    (agent (*Bubba))
+                    (donor (*GrapevineMarket))
+                    (object (*BomberOfStoneIPA))
+                    (instrument ((a Money with
+                                    (worth ((a Worth-Value with
+                                               (value ((:pair 3.99 *usdollar)
+                                                       (:pair *cheap Tangible-Entity)))
+                 )))))))
+                 (do-and-next (thelast Buy))
+                 ((the possesses of *Bubba) includes (*BomberOfStoneIPA))
+
+                 (*MyCar has (instance-of (Tangible-Entity)))
+                 (Camel has (superclasses (Tangible-Entity)))
+
+                 (*MyCar has (worth ((the worth of
+                                        (a Aggregate with
+                                           (element ((exactly 10 Camel)))
+                 )))))
+))))
+(Worth-Value has (description ("an indefinite quantity of something having a specified value")))

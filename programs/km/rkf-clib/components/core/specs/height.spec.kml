@@ -1,0 +1,41 @@
+<!--- $Id: height.spec.kml,v 1.3 2006/03/01 20:20:46 kbarker Exp $ --->
+<kml>
+<property-doc name=height>
+<gpd-documentation name=Property>
+
+<from name=Spatial-Entity>
+<to name=Length-Value>
+
+<description> 
+  height is a property for describing how big the vertical distance between the top and bottom of a Spatial-Entity is
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Length>
+<p>
+    <examplesentence>
+      <text>6 feet tall</text>
+      <slotdescription name=number>6</slotdescription>
+      <slotdescription name=unit of measure>feet</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>short, long</scalars>
+<scale name=*short-long-scale>short..long</scale>
+    <p>
+    <examplesentence>
+      <text>tall house but short building.</text>
+      <slotdescription name=value>tall</slotdescription>
+      <slotdescription name=relative to>House</slotdescription><p>
+
+      <slotdescription name=value>short</slotdescription>
+      <slotdescription name=relative to>Building</slotdescription>
+    </examplesentence>
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+

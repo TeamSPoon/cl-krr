@@ -1,0 +1,29 @@
+
+;; $Id: weight-force.km,v 1.10 2008/07/03 18:40:58 kbarker Exp $
+
+(weight-force has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Exert-Force))
+  (range (Force-Vector-Value))
+  ;(scale-class (Force-Scale))
+  ;(scalar-constant-class (Force-Constant))
+  ;(cardinal-unit-class (UoM-Force))
+  (inverse (weight-force-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(weight-force has (wn20-synset ((:set
+                               (:triple "weight" 1 "n")
+                               (:triple "force" 3 "n")
+			       (:triple "weight force" 0 "n")
+			       ))))
+
+(weight-force-of has (instance-of (EventProperty)))
+
+
+
+(weight-force has (name ("weight")))

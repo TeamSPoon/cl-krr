@@ -1,0 +1,21 @@
+;; 
+;;    $Id: HAsO4-Minus-2-Substance.km,v 1.4 2003/09/10 16:59:50 jchaw Exp $
+;; 
+
+(HAsO4-Minus-2-Substance has (superclasses (Anion-Substance)))
+(every HAsO4-Minus-2-Substance has
+	(plays (((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 3.0e-12 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid))))))))
+	       ((a Base-Role with		
+		   (default-kb ((a Equilibrium-Constant-Value with
+				   (value ((:pair 0.0000001 nil))))))
+		   (intensity ((a Intensity-Value with
+				  (value ((:pair *weak Base))))))))
+	       ))
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a HAsO4-Minus-2)))
+)
+

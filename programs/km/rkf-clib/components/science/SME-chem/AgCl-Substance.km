@@ -1,0 +1,11 @@
+;; $Id: AgCl-Substance.km,v 1.1 2007/12/02 05:38:50 vaibhav Exp $
+
+(AgCl-Substance has (superclasses (Ionic-Compound-Substance)))
+(every AgCl-Substance has
+        (has-basic-structural-unit ((a AgCl)))
+        (has-chemical-name ("silver chloride"))
+)
+(every AgCl-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a AgCl))))
+

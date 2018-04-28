@@ -1,0 +1,25 @@
+;; 
+;;    $Id: animacy.km,v 1.10 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(animacy has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Entity))    
+   (range       (Animacy-Value))
+   (categorical-constant-class (Animacy-Constant))
+   (inverse 	(animacy-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))
+   (cardinality (N-to-1)))
+
+(animacy has (wn20-synset ((:set
+                               (:triple "animateness" 1 "n")
+                               (:triple "aliveness" 2 "n")
+                               (:triple "liveness" 1 "n")
+))))
+
+(animacy-of has
+	(instance-of (EntityProperty)))

@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Chemical-Reduction.km,v 1.4 2003/02/17 22:16:18 jfan Exp $ 
+;; 
+
+(Chemical-Reduction has
+		    (superclasses (Receive)))
+
+(every Chemical-Reduction has-definition
+       (instance-of (Receive [Chemical-Reduction-instance-of-1]))
+       (recipient ((a Atom)))
+       (object ((a Electron))))
+
+
+(every Chemical-Reduction has
+       (object ((a Electron with
+		   (object-of ((a Chemical-Oxidation)))))))
+
+
+(comment [Chemical-Reduction-instance-of-1]
+  (:seq (the text-gen of (the donor of Self))
+        "gains electrons and is therefore reduced"
+  )
+  "When an atom gains electrons it is said to be reduced"
+)
+
+
+(Chemical-Reduction 
+ has
+ (test-case ('(
+	       ((a Receive with (recipient ((a O))) (object ((a Electron))))
+		isa
+		Chemical-Reduction)
+	       ))))

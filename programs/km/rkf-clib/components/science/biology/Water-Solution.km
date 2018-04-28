@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Water-Solution.km,v 1.1 2002/11/22 22:42:21 pzyeh Exp $ 
+;; 
+
+(Water-Solution has
+	 (superclasses (Chemical-Solution))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+         (description ("A solution in which water is the solvent for dissolved
+                        particles. Souther."))
+	 (cmap-correspondence ()))
+
+(every Water-Solution has 
+       (material  ((a Water)
+		  (a Substance)
+		  (at-least 2 Substance)
+		  )))
+

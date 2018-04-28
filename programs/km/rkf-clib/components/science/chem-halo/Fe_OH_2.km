@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Fe_OH_2.km,v 1.5 2006/01/23 23:33:41 jfan Exp $
+;; 
+
+(Fe_OH_2 has (superclasses (Ionic-Compound)))
+
+(every Fe_OH_2 has	
+       (has-chemical-name ("iron(II) hydroxide" "ferrous hydroxide"))
+       (has-part 
+	((a Fe-Plus-2) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+            (term ((:seq
+		    (:pair 1 Fe-Plus-2)
+		    (:pair 2 OH-Minus))))))))
+(every Fe_OH_2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Fe-Plus-2) (a OH-Minus))))
+

@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Phosphorus-Atom.km,v 1.9 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Phosphorus-Atom has
+         (superclasses (Atom))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A solid, nonmetallic element that is a necessary
+                        constituent for bones and nerves, and as a phosphate
+                        forms high-energy bonds that provide the energy for
+                        all biosynthetic reactions.  Souther. "))
+                       
+         (test-case ()))
+
+(every Phosphorus-Atom has
+       (has-part
+        (
+         (a Proton)
+         (exactly 15 Proton)
+         (a Neutron)
+         (exactly 16 Neutron)
+         (a Electron)
+         (exactly 15 Electron)
+         ))
+       (mass ((a Mass-Value with
+		(value ((:pair 31 *dalton))))))
+       )
+
+(every Phosphorus-Atom has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

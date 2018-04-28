@@ -1,0 +1,59 @@
+;; 
+;;    $Id: result.km,v 1.22 2008/09/05 20:29:39 tecuci Exp $ 
+;; 
+
+(result has
+        (instance-of 	    (Participant-Relation))
+	(superslots 	    ())
+	(subslots 	    ())
+        (domain 	    (Event))
+        (range 		    (Entity))
+	(inverse 	    (result-of))
+        (text-slot          (text-result))
+	(fluent-status 	    (*Inertial-Fluent))
+        (original-slot      (t))
+	(cardinality 	    (N-to-N)))
+
+(result-of has
+	(instance-of (Participant-Relation))
+	(combine-values-by-appending (t))
+        (text-slot (text-result-of)))
+
+(text-result has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-result-of has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(result has (text-gloss ("produces")))
+(result-of has (text-gloss ("is produced by")))
+
+(result has (wn20-synset ((:set
+                                (:triple "resultant_role" 1 "n")
+                                (:triple "result" 4 "n")
+                                (:triple "consequent" 1 "a")
+                                (:triple "ensuant" 1 "a")
+                                (:triple "resultant" 1 "a")
+                                (:triple "resulting" 1 "a")
+                                (:triple "sequent" 2 "a")
+                                (:triple "product" 2 "n")
+                                (:triple "production" 4 "n")
+                                (:triple "product" 4 "n")
+))))
+

@@ -1,0 +1,79 @@
+<!--- $Id: Store.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+<kml>
+
+<concept name=Store><system-documentation name=Store>
+<superconcept name=Action>
+
+<definition>
+
+  One <slot>object</slot> is stored in another which is the 
+  <slot>base</slot>. This action puts the object into a 
+  <conceptref name=Be-Stored> state.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The <conceptref name=Entity> that's stored
+  </slotdescription>
+
+  <slotdescription name=base>
+     The <conceptref name=Tangible-Entity> that the object is stored in.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that stores the object in the base
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the instrument or tool used to store the object in the base
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that is instrumental in storing the object in the base
+  </slotdescription>
+  
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John stored the paintings in a safe.</text>
+    <slotdescription name=object>the paintings</slotdescription>
+    <slotdescription name=base>safe</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+  </examplesentence>
+  <comment>
+     The painting are now stored in the safe, and conversely, 
+     the safe contains the paintings.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Be-Stored>
+     Store causes an object to be put into a Be-Stored state.
+  </neighbor>
+
+  <neighbor name=Withdraw>
+     Withdraw is the opposite of Store.  It takes an object
+     out of a Be-Stored state.
+  </neighbor>
+
+  <neighbor name=Move-Into>
+     Move-Into moves something physical into a container. Store is in a way
+     more general than Move-Into in that it can be used for abstract things
+     (such as information).
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

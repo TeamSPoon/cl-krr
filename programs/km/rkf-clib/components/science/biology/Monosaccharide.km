@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Monosaccharide.km,v 1.9 2001/05/21 04:36:50 souther Exp $ 
+;; 
+
+(Monosaccharide has
+         (superclasses (Monomer Carbohydrate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("Any simple sugar with the formula (CH2O)n where n =
+                        3-7.  Alberts:MBC:G-16. Monosaccharides are the basic
+                        unit of sugars and polysaccharides. Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Monosaccharide has 
+       (is-basic-structural-unit-of ((must-be-a Polysaccharide)))
+       )
+
+
+

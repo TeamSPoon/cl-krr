@@ -1,0 +1,19 @@
+;; $Id: ClO3-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $ 
+(ClO3-Minus has (superclasses (Anion)))
+(every ClO3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("chlorate"))
+	(has-acid-name ("chloric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cl) (:pair 3 O)))))))
+)
+
+
+(every ClO3-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("chlorate"))
+)
+
+(ClO3-Minus has (wn20-synset ((:triple "ClO3-" 0 "n") (:triple "ClO_3-" 0 "n"))))

@@ -1,0 +1,47 @@
+;; 
+;;    $Id: Screen.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Screen 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor  with 
+                   agent-in: mustnt-be-a Combat, Attack, etc. 
+  object: Military-Unit <----> Acted on 
+  duration: *short 
+ 
+  objective:  
+          Observe 
+              agent: MU called "friendly forces" agent of Self 
+              object: Action with 
+                               agent: MU called "enemy forces" object of Self 
+          Identify 
+              agent: MU called "friendly forces" agent of Self 
+              object: Action with 
+                               agent: MU called "enemy forces" object of Self 
+          Report 
+              agent: MU called "friendly forces" agent of Self 
+              object: Action with 
+                               agent: MU called "enemy forces" object of Self 
+          Destroy 
+              agent: MU called "friendly forces" agent of Self 
+              object: MU called "enemy reconnaissance forces"  
+              supported-by: Support-by-fire with 
+                                          agent: MU called "friendly supporting forces"  
+ 
+Note: No encoding of (5-10),  
+ 
+Screen (S). 
+======. 
+1. A unit performing a screen observes, identifies, and reports enemy actions. 
+2. Generally, a screening force engages and destroys enemy reconnaissance elements within its capabilities-augmented by indirect fires-but otherwise fights only in self-defense. 
+3. The screen has the minimum combat power necessary to provide the desired early warning, which allows the commander to retain the bulk of his combat power for commitment at the decisive place and time. 
+4. A screen provides the least amount of protection of any security mission; it does not have the combat power to develop the situation. 
+5. A screen is appropriate to cover gaps between forces, exposed flanks, or the rear of stationary and moving forces. 
+6. The commander can place a screen in front of a stationary formation when the likelihood of enemy action is small, the expected enemy force is small, or the main body needs only limited time, once it is warned, to react effectively. 
+7. Designed to provide minimum security with minimum forces, a screen is usually an economy-of-force operation based on calculated risk. 
+8. If a significant enemy force is expected or a significant amount of time and space is needed to provide the required degree of protection, the commander should assign and resource a guard or cover mission instead of a screen. 
+9. The security element forward of a moving force must conduct a guard or cover because a screen lacks the combat power to defeat or contain the lead elements of an enemy force. 
+10. A security force normally conducts a screen by establishing a series of OPs and patrols to ensure adequate surveillance of the assigned area. 
+The commander uses reconnaissance patrols (mounted, dismounted, and aerial), relocates OPs, and employs technical assets to ensure continuous and overlapping surveillance. 
+The commander also employs terrain data base analytical support systems to ensure the integration of his reconnaissance and surveillance assets to provide that necessary coverage. 
+ 

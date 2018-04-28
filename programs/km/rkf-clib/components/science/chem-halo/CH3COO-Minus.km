@@ -1,0 +1,28 @@
+;;
+;; $Id: CH3COO-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $
+;;
+
+(CH3COO-Minus has (superclasses (Anion)))
+
+(every CH3COO-Minus has
+       (has-chemical-name ("acetate"))
+       (has-acid-name ("acetic"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term 
+	     ((:seq (:pair 1 C)
+		    (:pair 3 H)
+		    (:pair 1 C)
+		    (:pair 1 O)
+		    (:pair 1 O)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair -1 *unity)))))))
+
+
+(every CH3COO-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("acetate"))
+)
+
+(CH3COO-Minus has (wn20-synset ((:triple "CH3COO-" 0 "n") (:triple "CH_3COO-" 0 "n"))))

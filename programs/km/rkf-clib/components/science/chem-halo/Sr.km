@@ -1,0 +1,16 @@
+;;
+;; $Id: Sr.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Sr has (superclasses (Metal-Atom IIA-Alkaline-Earth-Metal-Element)))
+(every Sr has
+       (atomic-symbol (Sr))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 38 NIL))))))
+       (has-ion ((a Sr-Plus-2)))
+       (chemical-period (5)))
+
+(every Sr has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("strontium"))
+)

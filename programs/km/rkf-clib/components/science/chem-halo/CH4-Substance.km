@@ -1,0 +1,12 @@
+;; 
+;;    $Id: CH4-Substance.km,v 1.6 2008/11/03 03:11:26 tecuci Exp $ 
+;; 
+
+(CH4-Substance has (superclasses (Hydrocarbon-Substance)))
+	
+(every CH4-Substance has
+       (has-chemical-name ("methane"))	
+       (has-basic-structural-unit ((a CH4))))
+(every CH4-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a CH4))))

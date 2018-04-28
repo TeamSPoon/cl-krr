@@ -1,0 +1,17 @@
+
+;; 
+;;  $Id: Forest.km,v 1.4 2002/10/12 18:46:21 kbarker Exp $
+;; 
+
+(Forest has
+   (superclasses (Terrain))
+   (description ("A feature of the terrain")))
+
+(every Forest has
+   (trafficability ((a Trafficability-Value with
+                       (value ((:pair *SR Armor-Unit)
+                               (:pair *SR Mechanized-Infantry-Unit)
+                               (:pair *R Light-Infantry-Unit)))
+   )))
+)
+

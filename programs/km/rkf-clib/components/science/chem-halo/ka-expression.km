@@ -1,0 +1,19 @@
+
+;; 
+;;    $Id: ka-expression.km,v 1.4 2006/09/29 18:57:37 jchaw Exp $ 
+;; 
+
+(ka-expression has
+  (instance-of    	  (EventProperty))
+  (superslots     	  ())
+  (subslots       	  ())
+  (domain         	  (Hydrolysis Acid-Role))
+  (range          	  (Equilibrium-Constant-Expression))
+  (fluent-status  	  (*Inertial-Fluent))
+  (cardinality    	  (N-to-1))
+  ; (inherit-with-overrides (t))
+  (inverse		  (ka-expression-of)))
+
+(ka-expression has (user-description ("Ka is expressed as followed, for the equilibrium reaction HA + H2O <--> A(-) + H3O(+), Ka = [A(-)][H3O(+)]/[HA] . This formula gives the ratio ionized / not ionized. Thus when Ka is high, the denominator ionized is greater and thus the stronger the acid.")))
+
+(ka-expression-of has (instance-of (EventProperty)))

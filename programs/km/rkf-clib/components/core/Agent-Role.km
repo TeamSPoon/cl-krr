@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Agent-Role.km,v 1.4 2004/07/20 22:28:55 gking Exp $
+;; 
+
+(Agent-Role has
+       (superclasses (Role))
+       (required-slot ())
+       (primary-slot ())
+       (secondary-slot ())
+       (cmap-correspondence ())
+       (test-case ()))
+
+(every Agent-Role has
+       (in-event ((must-be-a Event)))
+       (played-by ((a Entity with
+		      (agent-of ((the in-event of Self)))))))
+
+
+
+
+
+;; automatically added WN synsets
+(Agent-Role has (wn16-synset ((:set  
+                                         (:triple "agent" 1 "n")
+                                         (:triple "agent" 3 "n")
+                                         (:triple "causal_agency" 1 "n")
+                                         (:triple "causal_agent" 1 "n")
+                                         (:triple "cause" 4 "n")
+))))
+
+(Agent-Role has (wn20-synset ((:set
+                                         (:triple "agent" 1 "n")
+                                         (:triple "agent" 2 "n")
+                                         (:triple "causal_agency" 1 "n")
+                                         (:triple "causal_agent" 1 "n")
+                                         (:triple "cause" 4 "n")
+))))

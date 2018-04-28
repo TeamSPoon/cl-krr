@@ -1,0 +1,42 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Telophase ----------
+
+(Telophase has (superclasses (Divide)))
+
+(_Telophase516 has 
+  (instance-of (Telophase))
+  (prototype-of (Telophase))
+  (prototype-scope (Telophase))
+  (prototype-participants (_Tangible-Entity519
+                           _Telophase516))
+  (prototype-participant-of (_Telophase516))
+  (has-clones (_Placeholder-Class515517))
+  (has-built-clones (_Placeholder-Class515517))
+  (object (_Tangible-Entity519))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 91 386)))
+  (edge-coordinate ((:seq object _Tangible-Entity519 264 392)))
+  (edge-visibility ((:seq object _Tangible-Entity519 t))))
+
+(_Tangible-Entity519 has 
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity518))
+  (object-of (_Telophase516))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 414 386)))
+  (prototype-participant-of (_Telophase516)))
+
+(explanation (:triple _Telophase516 object _Tangible-Entity519) ((a Tangible-Entity (@ _Telophase516 Break object))))
+(explanation (:triple _Telophase516 object _Tangible-Entity519) ((a Tangible-Entity (@ _Telophase516 Damage object))))
+(explanation (:triple _Telophase516 object _Tangible-Entity519) ((a Tangible-Entity (@ _Telophase516 Impair object))))
+(explanation (:triple _Tangible-Entity519 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Telophase516 Break object))))
+(explanation (:triple _Tangible-Entity519 instance-of Thing) ((a Thing (@ _Telophase516 Action (object must-be-a)))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

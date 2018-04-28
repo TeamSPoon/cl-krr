@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Cell-Wall.km,v 1.13 2001/09/25 19:32:28 kbarker Exp $ 
+;; 
+
+(Cell-Wall has
+	  (superclasses (Organic-Structure))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+          (description ("Mechanically strong fibrous layer deposited by a cell
+                        outside its plasma membrane.  Prominent in most plants,
+                        bacteria, algae, and fungi but not present in most 
+                        animal cells.  Alberts:ECB:G-4."))
+	  (cmap-correspondence ()))
+
+(every Cell-Wall has
+       (is-part-of ((a Cell)))
+       (encloses ((a Plasma-Membrane with
+		     (is-part-of ((the Cell is-part-of of Self)))
+		     )))
+       (purpose ((a Instrument-Role with
+		    (in-event ((a Be-Supported with
+				  (object ((a Cell)))
+				  )))
+		    )))
+       )
+
+

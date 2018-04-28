@@ -1,0 +1,126 @@
+;; 
+;;    $Id: Expose.km,v 1.28 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Expose has
+  (superclasses 	(Make-Accessible))
+  (required-slot 	(object))
+  (primary-slot 	(agent base))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "the object Exposed")
+			 (:seq agent "the Exposer")
+			 (:seq base "the thing to which the object is Exposed")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Expose has
+  ;; no resulting-state since by default everything is Exposed	
+  (object 	((a Tangible-Entity)))
+  (agent  	((must-be-a Entity)))
+  (base  	((must-be-a Thing)))
+
+  ;; SOFT PCS:
+  (soft-pcs-list ((if (has-value (the agent of Self))
+		      then
+		      (forall (the object of Self)
+			(:triple (the location of It)
+				 object-of
+				 (a Be-Known with
+				    (experiencer ((the agent of Self)))))))))
+
+  ;; an Expose defeats all the Be-Concealed states the object might be in
+  (defeats ((if (has-value (the base of Self))
+                then
+                (allof (the object-of of (the object of Self))
+                       where 
+                       (((the classes of It) = Be-Concealed) and
+			((the base of It) = (the base of Self))))
+                else
+                (allof (the object-of of (the object of Self))
+                       where
+                       ((the classes of It) = Be-Concealed)))))
+		 
+  ;; The precondition is not needed since it is the same as the del-list.
+  ;; (pcs-list ())
+  (del-list 	((forall (the defeats of Self)
+			 (:triple (It) object (the object of Self) [Expose-del-1])))))
+
+(comment [Expose-del-1] (:seq (the object of Self) " is no longer concealed.")
+	 "An expose stops something from being concealed.")
+
+(every Expose has
+  (text-active-verbseq-sg ("exposes"))
+  (text-active-verbseq-pl ("expose"))
+  (text-passive-verbseq-sg ("gets exposed"))
+  (text-passive-verbseq-pl ("get exposed"))
+
+  (text-argslots ((:seq base instrument path result)))
+)
+
+(every Expose has
+	(preparatory-event ((:default
+		(a Conceal with
+		   (object ((the object of Self)))
+		   (agent  ((the agent of Self)))
+		   (base   ((the base of Self)))
+)))))
+
+
+(Expose has (test-case ('(
+			  (*Weapon has (instance-of (Physical-Object)))
+			  
+			  (a Conceal with 
+			     (object (*Weapon)))
+			  
+			  (try-do-and-next (thelast Conceal))
+			  
+			  (has-value (the Be-Concealed object-of of *Weapon))
+			  
+			  #|(See has (superclasses (Action)))|#
+
+			  (a See with 
+			     (object (*Weapon)))
+			  
+			  ;; Event's precondition that object is not in inaccessible state is gone
+			  ;; no need to do this test case
+			  ;;(not (try-do (thelast See)))
+			  
+			  (a Expose with 
+			     (object (*Weapon)))
+			  
+			  (try-do-and-next (thelast Expose))
+			  
+			  (not
+			   (has-value (the Be-Concealed object-of of *Weapon)))
+			  
+			  (try-do (thelast See))
+			  ))))
+
+
+
+
+
+;; automatically added WN synsets
+(Expose has (wn16-synset ((:set  
+                                     (:triple "expose" 3 "v")
+                                     (:triple "expose" 4 "v")
+                                     (:triple "expose" 5 "v")
+                                     (:triple "expose" 7 "v")
+                                     (:triple "disclose" 2 "v")
+                                     (:triple "display" 1 "v")
+                                     (:triple "exhibit" 2 "v")
+))))
+
+(Expose has (wn20-synset ((:set
+                                     (:triple "expose" 3 "v")
+                                     (:triple "expose" 4 "v")
+                                     (:triple "expose" 5 "v")
+                                     (:triple "expose" 7 "v")
+                                     (:triple "disclose" 2 "v")
+                                     (:triple "display" 1 "v")
+                                     (:triple "exhibit" 2 "v")
+))))
+
+(every Expose has (text-nominalization ("exposing")))

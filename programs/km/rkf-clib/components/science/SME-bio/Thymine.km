@@ -1,0 +1,80 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Thymine ----------
+
+(Thymine has (superclasses (Nucleotide)))
+
+(_Thymine385 has 
+  (instance-of (Thymine))
+  (prototype-of (Thymine))
+  (prototype-scope (Thymine))
+  (prototype-participants (_Adenine399
+                           _Atom394
+                           _Phosphate393
+                           _Thymine385))
+  (prototype-participant-of (_Thymine385))
+  (has-clones (_Placeholder-Class384386))
+  (has-built-clones (_Placeholder-Class384386))
+  (has-basic-structural-unit (_Atom394))
+  (has-part (_Phosphate393))
+  (cloned-from (_Nucleotide337))
+  (clone-built-from (_Nucleotide337))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq complement _Adenine399 t)
+                    (:seq has-part _Phosphate393 t)
+                    (:seq has-basic-structural-unit _Atom394 f)))
+  (edge-coordinate ((:seq complement _Adenine399 207 634)
+                    (:seq has-part _Phosphate393 201 583)
+                    (:seq has-basic-structural-unit _Atom394 201 627)))
+  (node-coordinate ((:pair 53 609)))
+  (complement (_Adenine399)))
+
+(_Adenine399 has 
+  (instance-of (Adenine))
+  (has-clones (_Adenine398))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (complement-of (_Thymine385))
+  (node-coordinate ((:pair 362 659)))
+  (prototype-participant-of (_Thymine385)))
+
+(_Atom394 has 
+  (instance-of (Atom))
+  (has-clones (_Atom387))
+  (cloned-from (_Atom347))
+  (is-basic-structural-unit-of (_Thymine385))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 351 621)))
+  (prototype-participant-of (_Thymine385)))
+
+(_Phosphate393 has 
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate388))
+  (cloned-from (_Phosphate346))
+  (is-part-of (_Thymine385))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 351 577)))
+  (prototype-participant-of (_Thymine385)))
+
+(explanation (:triple _Thymine385 has-basic-structural-unit _Atom394) ((cloned-from _Nucleotide337 _Thymine385)))
+(explanation (:triple _Thymine385 has-part _Phosphate393) ((cloned-from _Nucleotide337 _Thymine385)))
+(explanation (:triple _Thymine385 has-basic-structural-unit _Atom394) ((a Atom (@ _Thymine385 Molecule has-basic-structural-unit))))
+(explanation (:triple _Thymine385 has-part _Phosphate393) ((added-at Nucleotide "User defined")))
+(explanation (:triple _Thymine385 complement _Adenine399) ((added-at Thymine "User defined")))
+(explanation (:triple _Adenine399 instance-of Adenine) ((added-at Thymine "User defined")))
+(explanation (:triple _Atom394 instance-of Atom) ((cloned-from _Nucleotide337 _Thymine385)))
+(explanation (:triple _Atom394 is-basic-structural-unit-of _Thymine385) ((cloned-from _Nucleotide337 _Thymine385)))
+(explanation (:triple _Atom394 instance-of Atom) ((a Atom (@ _Thymine385 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom394 instance-of Atom) ((a Atom)))
+(explanation (:triple _Phosphate393 instance-of Phosphate) ((cloned-from _Nucleotide337 _Thymine385)))
+(explanation (:triple _Phosphate393 is-part-of _Thymine385) ((cloned-from _Nucleotide337 _Thymine385)))
+(explanation (:triple _Phosphate393 instance-of Phosphate) ((added-at Nucleotide "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,18 @@
+;; $Id: HSeO4-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(HSeO4-Minus has (superclasses (Anion)))
+(every HSeO4-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("hydrogen selenate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)(:pair 1 Se)(:pair 4 O)))))))
+)
+
+
+(every HSeO4-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen selenate"))
+)
+
+(HSeO4-Minus has (wn20-synset ((:triple "HSeO4-" 0 "n") (:triple "HSeO_4-" 0 "n"))))

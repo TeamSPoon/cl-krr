@@ -1,0 +1,66 @@
+<!--- $Id: Harm.spec.kml,v 1.2 2005/08/11 21:03:03 pzyeh Exp $ --->
+<kml>
+
+<concept name=Harm><system-documentation name=Harm>
+<superconcept name=Impair>
+
+<definition>
+  Harm an object that is a living thing so it becomes weakened. The object 
+  can still perform its function, but at a diminished capacity.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that's harmed. The object is a living thing.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the harm to occur.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing that was used to harm the object.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the harm to occur.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The man harmed the dog by neglecting the dog.</text>
+    <slotdescription name=agent>the Man</slotdescription>
+    <slotdescription name=object>the Dog</slotdescription>
+    <slotdescription name=by-means-of>Neglect</slotdescription>
+  </examplesentence>
+  <comment>
+     The dog is a living thing that becomes weakened or diminished.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Impair>
+     An impair is a general kind of harm where the object does not
+     have to be a living thing.
+  </neighbor>
+
+  <neighbor name=Damage>
+     A damage is similar to a harm, but the object being damaged is
+     not a living thing.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

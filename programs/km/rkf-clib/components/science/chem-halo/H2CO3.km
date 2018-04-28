@@ -1,0 +1,17 @@
+;;
+;; $Id: H2CO3.km,v 1.6 2008/06/04 22:41:48 tecuci Exp $ 
+;;
+
+(H2CO3 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H2CO3 has
+	(has-chemical-name ("acarbonic acid" "bicarbonate"))
+	(has-part ((a H-Plus)(a CO3-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 2 H-Plus)
+			(:pair 1 CO3-Minus-2)))))))
+)
+(every H2CO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a CO3-Minus-2))))
+

@@ -1,0 +1,17 @@
+;;
+;; $Id: Computer-Network.km,v 1.5 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+;; an Aggregate of Computer-Equipment
+(Computer-Network has (superclasses (Aggregate Computer-Equipment)))
+
+(every Computer-Network has
+       (element-type (Computer-Equipment)))
+
+(Computer-Network has (wn20-synset ((:set
+				     (:triple "computer_network" 1 "n")
+))))
+(Computer-Network has
+  (feature-slot ((the feature-slot of Computer-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Computer-Network)))))
+

@@ -1,0 +1,19 @@
+;;
+;; $Id: SO2.km,v 1.7 2006/03/16 23:08:29 jfan Exp $
+;;
+
+(SO2 has (superclasses (Inorganic-Molecule)))
+
+(every SO2 has	
+       (has-chemical-name ("sulfur dioxide"))
+       (nested-atomic-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 S)
+		    (:pair 2 O))))))))
+
+(every SO2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("sulfur dioxide"))
+)

@@ -1,0 +1,34 @@
+<!--- $Id: Convey.doc.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<kml>
+
+<concept name=Convey::doc>
+<superconcept name=Action::doc>
+
+<sme-documentation name=Convey>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Convey>
+  <definition>convey a message from one entity to another</definition>
+  <requiredslot name=object>
+    <restriction>A <conceptref name=Message> which is the <slot>result</slot> of an
+      <conceptref name=Encode>.
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>a <conceptref name=Tangible-Entity> which is the <slot>agent</slot> of
+      the <conceptref name=Embody> <slot>subevent</slot> of the Convey
+    </restriction>
+  </primaryslot>
+  <primaryslot name=recipient>
+    <restriction>a <conceptref name=Tangible-Entity> which is the <slot>agent</slot> of
+      the <conceptref name=Sense> <slot>subevent</slot> of the Convey
+    </restriction>
+  </primaryslot>
+  <wnsynsets><verb>convey#1, convey#2, convey#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>impart#4, carry#4, express#3, transmit#1, communicate#3
+  </verb></wnsynsets>
+</component>
+
+</kml>

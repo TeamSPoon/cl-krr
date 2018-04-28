@@ -1,0 +1,40 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Phospholipid-bilayer ----------
+
+(Phospholipid-bilayer has (superclasses (Membrane)))
+
+(_Phospholipid-bilayer9191 has 
+  (instance-of (Phospholipid-bilayer))
+  (prototype-of (Phospholipid-bilayer))
+  (prototype-scope (Phospholipid-bilayer))
+  (prototype-participants (_Phospholipid9220
+                           _Phospholipid-bilayer9191))
+  (prototype-participant-of (_Phospholipid-bilayer9191))
+  (has-clones (_Placeholder-Class91909192))
+  (has-built-clones (_Placeholder-Class91909192))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600)))
+  (has-basic-structural-unit (_Phospholipid9220))
+  (edge-coordinate ((:seq has-basic-structural-unit _Phospholipid9220 215 581)))
+  (edge-visibility ((:seq has-basic-structural-unit _Phospholipid9220 t))))
+
+(_Phospholipid9220 has 
+  (instance-of (Phospholipid))
+  (has-clones (_Phospholipid9219))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Phospholipid-bilayer9191))
+  (node-coordinate ((:pair 380 561)))
+  (prototype-participant-of (_Phospholipid-bilayer9191)))
+
+(explanation (:triple _Phospholipid-bilayer9191 has-basic-structural-unit _Phospholipid9220) ((added-at Phospholipid-bilayer "User defined")))
+(explanation (:triple _Phospholipid-bilayer9191 instance-of Placeholder-Class9190) ((added-at Placeholder-Class9190 "User defined")))
+(explanation (:triple _Phospholipid9220 instance-of Phospholipid) ((added-at Phospholipid-bilayer "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

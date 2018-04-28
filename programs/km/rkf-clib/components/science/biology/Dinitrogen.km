@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Dinitrogen.km,v 1.8 2001/06/01 23:26:30 pnav Exp $ 
+;; 
+
+(Dinitrogen has
+         (superclasses (Nitrogen-Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Molecule made up of two covalently bonded nitrogen 
+                        atoms.  Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Dinitrogen has
+         (has-part ((a Nitrogen-Atom called "Nitrogen 1")
+		    (a Nitrogen-Atom called "Nitrogen 2" with
+		       (object-of 
+			((a Be-Attached-To with
+			    (object (((the Nitrogen-Atom has-part of Self)
+				     called "Nitrogen 1")))
+;			    (instrument ((a Triple-Covalent-NN-Bond)))
+			    ))))
+		    (exactly 2 Nitrogen-Atom)))
+	 )
+
+

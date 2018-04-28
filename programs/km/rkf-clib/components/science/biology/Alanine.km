@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Alanine.km,v 1.13 2001/05/18 13:13:49 souther Exp $ 
+;; 
+
+(Alanine has                
+         (superclasses (Nonpolar-Amino-Acid Nonessential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A nonpolar amino acid with a methyl group side chain.
+                        Souther")) 
+         (test-case ()))
+
+(every Alanine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 ((the Carbon-Atom has-part of 
+		       (the Methyl-Group has-part of
+			    (the Amino-Acid-Side-Chain has-part of Self)))) 
+		 )))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Methyl-Group))))
+	)))

@@ -1,0 +1,12 @@
+;;    $Id: Dissolve.km,v 1.2 2005/11/11 16:30:32 kbarker Exp $
+(Dissolve has
+	  (superclasses (Create))
+)
+
+(base has (domain (Dissolve)))
+
+(every Dissolve has
+       (object ((a Chemical)))
+       (base ((a Chemical)))
+       (result ((a Solution with
+		   (base ((the object of Self)))))))

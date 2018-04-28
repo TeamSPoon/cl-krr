@@ -1,0 +1,55 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Vacuole-Membrane ----------
+
+(Vacuole-Membrane has (superclasses (Membrane-Enclosure)))
+
+(_Vacuole-Membrane259 has 
+  (instance-of (Vacuole-Membrane))
+  (prototype-of (Vacuole-Membrane))
+  (prototype-scope (Vacuole-Membrane))
+  (prototype-participants (_Living-Entity269
+                           _Physical-Object264
+                           _Vacuole-Membrane259))
+  (prototype-participant-of (_Vacuole-Membrane259))
+  (has-clones (_Placeholder-Class258260))
+  (has-built-clones (_Placeholder-Class258260))
+  (is-part-of (_Living-Entity269))
+  (encloses (_Physical-Object264))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 9 116))))
+
+(_Living-Entity269 has 
+  (instance-of (Living-Entity))
+  (has-clones (_Living-Entity263))
+  (has-part (_Vacuole-Membrane259))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Vacuole-Membrane259 -141 133)))
+  (edge-visibility ((:seq has-part _Vacuole-Membrane259 t)))
+  (node-coordinate ((:pair -250 617)))
+  (prototype-participant-of (_Vacuole-Membrane259)))
+
+(_Physical-Object264 has 
+  (instance-of (Physical-Object))
+  (has-clones (_Physical-Object261))
+  (is-inside (_Vacuole-Membrane259))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq is-inside _Vacuole-Membrane259 -141 98)))
+  (edge-visibility ((:seq is-inside _Vacuole-Membrane259 t)))
+  (node-coordinate ((:pair -250 582)))
+  (prototype-participant-of (_Vacuole-Membrane259)))
+
+(explanation (:triple _Vacuole-Membrane259 encloses _Physical-Object264) ((a Physical-Object (@ _Vacuole-Membrane259 Membrane-Enclosure encloses))))
+(explanation (:triple _Vacuole-Membrane259 is-part-of _Living-Entity269) ((a Living-Entity (@ _Vacuole-Membrane259 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Living-Entity269 instance-of Living-Entity) ((a Living-Entity (@ _Vacuole-Membrane259 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Physical-Object264 instance-of Physical-Object) ((a Physical-Object (@ _Vacuole-Membrane259 Membrane-Enclosure encloses))))
+(explanation (:triple _Physical-Object264 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Vacuole-Membrane259 Spatial-Entity (encloses must-be-a)))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

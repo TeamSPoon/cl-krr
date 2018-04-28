@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Electron-Donor.km,v 1.10 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Electron-Donor has
+         (superclasses (Chemical-Entity))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Atom or molecule that gives up electrons readily.
+                        In the process, it is said to become oxidized.
+                        Alberts:ECB:G-7"))
+         (test-case ()))
+
+(every Electron-Donor has
+       (purpose ((a Donor-Role with
+		    (in-event ((a Oxidation))))
+		 )))
+
+(every Electron-Donor has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

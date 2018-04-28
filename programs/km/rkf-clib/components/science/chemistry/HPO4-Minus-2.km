@@ -1,0 +1,9 @@
+;; $Id: HPO4-Minus-2.km,v 1.5 2003/02/22 18:28:27 jfan Exp $ 
+(HPO4-Minus-2 has (superclasses (Anion)))
+(every HPO4-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *electronic-charge))))))
+	(has-chemical-name ("hydrogen phosphate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 P) (:pair 4 O)))))))
+)

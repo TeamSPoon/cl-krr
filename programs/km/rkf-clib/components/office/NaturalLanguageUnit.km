@@ -1,0 +1,8 @@
+;; $Id: NaturalLanguageUnit.km,v 1.2 2005/03/11 16:13:26 billj Exp $
+
+(NaturalLanguageUnit has
+	(superclasses (LinguisticUnit)))
+	
+(has-transcription has (instance-of (Interface-Slot))(domain (NaturalLanguageUnit))(range (String))(fluent-status (*Inertial-Fluent))(cardinality (N-to-N)))
+
+;; the range of has-transcription is a primitive data type (i.e. String), therefore it should not have an explicit inverse. 

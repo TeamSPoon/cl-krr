@@ -1,0 +1,44 @@
+;; 
+;;    $Id: Barrier.km,v 1.24 2006/04/14 18:45:20 kbarker Exp $ 
+;; 
+
+(Barrier has
+         (superclasses 	 (Role))
+         (required-slot  ())
+         (primary-slot   ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 )
+
+(every Barrier has
+       	(in-event ((a Block with
+			(object ((the location of Self))))))
+       	;; this commented out for the time being because it asserts all parts of a Barrier is a Portal       
+       	;;(has-region ((must-be-a Portal)))
+
+	(played-by ((a Tangible-Entity with
+			(instrument-of ((the in-event of Self)))
+			(is-between ((a Spatial-Entity)
+				     (a Spatial-Entity with
+					(abuts ((excluded-values 
+						 (the first of (the is-between of (the played-by of Self)))))))))))))
+
+
+
+
+;; automatically added WN synsets
+(Barrier has (wn16-synset ((:set  
+                                      (:triple "barrier" 1 "n")
+                                      (:triple "barrier" 3 "n")
+                                      (:triple "obstruction" 1 "n")
+                                      (:triple "impediment" 2 "n")
+                                      (:triple "impedimenta" 1 "n")
+))))
+
+(Barrier has (wn20-synset ((:set
+                                      (:triple "barrier" 1 "n")
+                                      (:triple "barrier" 3 "n")
+                                      (:triple "obstruction" 1 "n")
+                                      (:triple "impediment" 2 "n")
+                                      (:triple "impedimenta" 1 "n")
+))))

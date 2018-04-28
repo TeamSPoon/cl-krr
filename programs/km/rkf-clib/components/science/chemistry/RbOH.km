@@ -1,0 +1,14 @@
+;;
+;; $Id: RbOH.km,v 1.1 2003/04/22 05:19:25 jchaw Exp $
+;;
+
+(RbOH has (superclasses (Ionic-Compound)))
+
+(every RbOH has	
+       (has-part 
+	((a Rb-Plus) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Rb-Plus)
+			 (:pair 1 OH-Minus)))))))
+       )

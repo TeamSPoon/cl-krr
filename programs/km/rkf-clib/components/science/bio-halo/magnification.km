@@ -1,0 +1,25 @@
+;; 
+;;    $Id: magnification.km,v 1.1 2007/12/20 21:54:23 kbarker Exp $
+;; 
+
+(magnification has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Physical-Object))    
+   (range       (Unitless-Value))
+   (scale-class (Magnification-Scale))
+   (scalar-constant-class (Magnification-Constant))
+   (cardinal-unit-class   (UoM-Unitless))
+   (inverse 	(magnification-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(magnification has (wn20-synset ((:set
+                               (:triple "magnification" 2 "n")
+))))
+
+(magnification-of has
+	(instance-of (EntityProperty)))

@@ -1,0 +1,34 @@
+;;
+;;    $Id: Damage.km,v 1.6 2005/10/25 03:02:08 sdbaji Exp $
+;;
+(Damage has 
+  (superclasses        (Impair))
+  (required-slot       (object))
+  (primary-slot        (agent instrument by-means-of))
+  (secondary-slot      ())
+  (cmap-correspondence ((:seq agent  "the entity doing damage")
+			(:seq object "the thing damaged")
+  ))
+)
+
+;; A damage is a non-biological kind of impair. The object being
+;; damaged is put into a Be-Damaged state.
+(every Damage has
+  (object	   ((a Tangible-Entity)))
+  (resulting-state ((a Be-Damaged)))
+  (add-list 	   ((:triple
+		      (the resulting-state of Self)
+		      object
+		      (the object of Self))))
+)
+
+;; For text gen.
+(every Damage has
+  (text-active-verbseq-sg  ("damages"))
+  (text-active-verbseq-pl  ("damage"))
+  (text-passive-verbseq-sg ("gets damaged"))
+  (text-passive-verbseq-pl ("get damaged"))
+)
+
+
+(every Damage has (text-nominalization ("damage")))

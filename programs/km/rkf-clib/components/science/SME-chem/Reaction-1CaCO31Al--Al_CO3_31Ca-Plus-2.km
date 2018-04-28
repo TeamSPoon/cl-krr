@@ -1,0 +1,13 @@
+;;
+;;    $Id: Reaction-1CaCO31Al--Al_CO3_31Ca-Plus-2.km,v 1.1 2007/12/02 05:38:51 vaibhav Exp $
+;;
+
+(Reaction-1CaCO31Al--Al_CO3_31Ca-Plus-2 has (superclasses (Reaction)))
+
+(every Reaction-1CaCO31Al--Al_CO3_31Ca-Plus-2 has-definition
+(instance-of (Reaction))
+(raw-material ((a CaCO3-Substance) (a Al-Substance))))
+
+(every Reaction-1CaCO31Al--Al_CO3_31Ca-Plus-2 has
+(raw-material ((a CaCO3-Substance) (a Al-Substance)))
+(result ((a Al_CO3_3-Substance) (a Chemical with (has-basic-structural-unit ((a Ca-Plus-2)))))))

@@ -1,0 +1,80 @@
+;; 
+;;    $Id: Give.km,v 1.15 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Give has
+         (superclasses 	 (Relinquish))
+         (required-slot  (recipient agent donor object))
+         (primary-slot 	 (instrument))
+         (secondary-slot ())
+         (cmap-correspondence (
+			       (:seq object "the thing Given")      
+                               (:seq agent "the Giver")
+                               (:seq donor "the original possessor")
+                               (:seq recipient "the final possessor")
+                               (:seq instrument "the thing used to Give")
+			      ))
+       #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Give has 
+  (recipient ((a Tangible-Entity)))
+)
+
+(every Give has
+  (text-active-verbseq-sg ("gives"))
+  (text-active-verbseq-pl ("give"))
+  (text-passive-verbseq-sg ("is given"))
+  (text-passive-verbseq-pl ("are given"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Give has 
+  (test-case ('( 
+		 (*Purple-Shirt has
+			(instance-of (Tangible-Entity)))
+		 (*Randy has
+			(instance-of (Tangible-Entity))
+			(possesses   (*Purple-Shirt)))
+		 (*Samuel has
+			(instance-of (Tangible-Entity)))
+
+		 ;; *Randy gave *Samuel a *Purple-Shirt
+		 (a Give with
+			(donor 	   (*Randy))
+			(recipient (*Samuel))
+			(object    (*Purple-Shirt)))
+		 (do-and-next (thelast Give))
+		 (the text-gen of (thelast Give))
+		 ;; Test 1: *Samuel has *Purple-Shirt
+		 ((the possesses of *Samuel) = *Purple-Shirt)
+
+		 ;; Test 2: *Randy does not have *Purple-Shirt
+		 ((the possesses of *Randy) = nil)
+
+		 ;; Test 3: *Purple-Shirt is owned by *Samuel
+		 ((the is-possessed-by of *Purple-Shirt) = *Samuel)
+
+		 ;; Test 4: *Randy is both the agent and the donor
+		 ( ((the agent of (thelast Give)) = *Randy) and
+                   ((the donor of (thelast Give)) = *Randy) )
+	       )))
+)
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Give has (wn16-synset ((:set  
+                                   (:triple "give" 3 "v")
+))))
+
+(Give has (wn20-synset ((:set
+                                   (:triple "give" 3 "v")
+))))
+(every Give has (text-nominalization ("giving")))

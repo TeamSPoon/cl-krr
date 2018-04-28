@@ -1,0 +1,11 @@
+
+;; 
+;;  $Id: Task-Organized-Platoon.km,v 1.2 2002/08/30 19:02:17 kbarker Exp $
+;; 
+
+(Task-Organized-Platoon has
+   (superclasses (Task-Organized-Unit Platoon)))
+
+(every Task-Organized-Platoon has-definition
+   (instance-of (Task-Organized-Unit Platoon)))
+

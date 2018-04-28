@@ -1,0 +1,12 @@
+;; 
+;;    $Id: C2H4-Substance.km,v 1.3 2008/11/03 03:11:25 tecuci Exp $ 
+;; 
+
+(C2H4-Substance has (superclasses (Hydrocarbon-Substance)))
+	
+(every C2H4-Substance has
+       (has-chemical-name ("ethlene" "ethene"))	
+       (has-basic-structural-unit ((a C2H4))))
+(every C2H4-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a C2H4))))

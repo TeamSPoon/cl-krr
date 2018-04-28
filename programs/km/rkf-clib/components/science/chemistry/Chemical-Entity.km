@@ -1,0 +1,166 @@
+;; 
+;;    $Id: Chemical-Entity.km,v 1.10 2010/05/18 15:21:03 kbarker Exp $ 
+;; 
+
+(Chemical-Entity has
+	     (superclasses (Physical-Object))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+;; now try to compute the atomic formula whenever needed:
+(every Chemical-Entity has
+       (atomic-chemical-formula (
+	   (if (not (the atomic-chemical-formula of Self))
+	       then
+	     (a Chemical-Formula with
+		(term (
+		       (:default
+			(if (the term of 
+				 (the nested-atomic-chemical-formula of Self))
+			    then
+			  #'(LAMBDA ()
+				    (DENEST-ATOMIC-FORMULA
+				     (KM-UNIQUE0 
+				      '(|the| |term| |of|
+					      (|the| |nested-atomic-chemical-formula| |of| |Self|)))))
+			  else 
+			  (if (the term of (the has-chemical-formula of Self))
+			      then
+			    #'(LAMBDA ()
+				      (LIST 
+				       (COMPUTE-ATOMIC-CHEMICAL-FORMULA
+					(KM0 '(|the| |term| |of| 
+					       (|the| |has-chemical-formula| |of| |Self|))))))))))))))))
+
+(every Chemical-Entity has
+       ;;(oxidation-state ((the output of (a Compute-Oxidation-State with (input (Self)))
+       ;; the above computation could be erroneous as illustrated by the computation of Ag2SO4
+       ;; make sure the input of a Compute-Oxidation-State is not an Ionic-Compound
+       (oxidation-state
+	((if (not (Self isa Ionic-Compound))
+	     then
+	   (the output of (a Compute-Oxidation-State with (input (Self))))
+       [Chemical-Entity-oxidation-state-1]
+       )))
+)
+
+
+(every Chemical-Entity has
+  (text-has-part        ("made of"))
+  (text-result-of       ("product of"))
+  (text-raw-material-of ("reactant in"))
+  (text-premodslots     ((:seq)))
+  (text-postmodslots    ((:seq has-part result-of raw-material-of)))
+
+  (text-gen ((make-phrase (the text-phrase of Self))))
+  (text-description ((the text-gen of Self)))
+
+;; these equivalences are unique to Chemical-Entities
+;; <-- Trimming for demo.
+;;  (text-base-phrase ((the text-head of Self)))
+;;  (text-phrase      ((the text-base-phrase of Self)))
+;;
+;;  (text-def-head ((the text-head of Self)))
+
+  (text-head   ((if ((the elements of (the term of (the has-chemical-formula of Self)))
+                     = (:set (:pair 1 H-Plus) (:pair 1 OH-Minus)))
+                 then (:seq "H2O" NIL)
+  )))
+
+  (text-def-determiner ((if ((has-value (the string-name of (the has-chemical-formula of Self)))
+                             or
+                             (has-value (the string-name of (the atomic-chemical-formula of Self)))
+                            )
+                         then (:seq "")
+                         else (:seq "the")
+  )))
+
+  (text-head   ((if ((the elements of (the term of (the has-chemical-formula of Self)))
+                     /= (:set (:pair 1 H-Plus) (:pair 1 OH-Minus))) then
+    (if (has-value (the string-name of (the has-chemical-formula of Self)))
+     then
+        (:seq (the string-name of (the has-chemical-formula of Self))
+              (if (has-value (the value of (the charge of Self)))
+               then
+                  (if ((the1 of (the value of (the charge of Self))) > 0)
+                   then
+                      (:seq
+                         (if ((the1 of (the value of (the charge of Self))) > 1)
+                          then (the1 of (the value of (the charge of Self)))
+                         )
+                         "nospace"
+                         "+"
+                      )
+                   else
+                      (if ((the1 of (the value of (the charge of Self))) < 0)
+                       then
+                          (:seq
+                             (if ((the1 of (the value of
+                                                (the charge of Self))) < -1)
+                              then (0 - (the1 of (the value of
+                                                      (the charge of Self))))
+                             )
+                             "nospace"
+                             "-"
+                          )
+                      )
+                  )
+              )
+        )
+     else (if (has-value (the string-name of 
+                              (the atomic-chemical-formula of Self)))
+           then
+              (:seq (the string-name of (the atomic-chemical-formula of Self))
+                    (if (has-value (the value of (the charge of Self)))
+                     then
+                        (if ((the1 of (the value of (the charge of Self))) > 0)
+                         then
+                            (:seq
+                               (if ((the1 of (the value of (the charge of Self))) > 1)
+                                then (the1 of (the value of (the charge of Self)))
+                               )
+                               "nospace"
+                               "+"
+                            )
+                         else
+                            (if ((the1 of (the value of (the charge of Self))) < 0)
+                             then
+                                (:seq
+                                   (if ((the1 of (the value of
+                                                      (the charge of Self))) < -1)
+                                    then (the1 of (the value of
+                                                       (the charge of Self)))
+                                   )
+                                   "nospace"
+                                   "-"
+                                )
+                            )
+                        )
+                    )
+              )
+           else (if (the called of Self)
+                 then (:seq (the called of Self))
+                 else (the name of Self)
+                )
+    ))
+  )))
+)
+
+(comment [Chemical-Entity-oxidation-state-1]
+  (:seq "Therefore, the oxidation states for"
+        (the text-gen of Self)
+        "are"
+        (andify (forall (the value of (the oxidation-state of Self))
+                        (:seq (the text-gen of (an instance of (the2 of It)))
+                              "nospace" ":" "nospace"
+                              (the1 of It)
+                        )
+                )
+        )
+  )
+  (:seq "Computing the oxidation states for" (the text-gen of Self))
+  (:triple (a Compute-Oxidation-State with (input (Self))) output *)
+)

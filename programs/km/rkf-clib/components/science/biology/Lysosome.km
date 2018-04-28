@@ -1,0 +1,44 @@
+;; 
+;;    $Id: Lysosome.km,v 1.16 2002/06/21 19:17:00 tecuci Exp $ 
+;; 
+
+(Lysosome has
+	  (superclasses (Organelle Subcellular-Compartment))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (cmap-correspondence ())
+	  (description ("Intracellular membrane-bound organelle containing
+                        digestive enzymes.  The interior of a lysosome is
+                        strongly acidic, and its enzymes are active at an acid
+                        pH. Alberts:ECB:G-11."))
+	  (test-case ()))
+
+(every Lysosome has
+       (purpose ((a Container with
+		    (in-event 
+		     ((a Be-Confined with
+			 (object ((a Aggregate with
+
+				     (element-type (Catabolic-Enzyme))))
+				 ))))
+		    )))
+       (has-part
+	(
+	 (a Aggregate with
+
+	    (element-type (Protease)))
+         (a Aggregate with
+
+            (element-type (Nuclease)))
+         (a Aggregate with
+
+            (element-type (Phosphatase)))
+         (a Aggregate with
+
+            (element-type (Lipase))))
+	)
+)
+
+
+                                        

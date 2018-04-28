@@ -1,0 +1,14 @@
+;; 
+;;    $Id: C2H5NH2-Substance.km,v 1.2 2003/09/10 16:59:49 jchaw Exp $
+;; 
+
+(C2H5NH2-Substance has (superclasses (Base)))
+(every C2H5NH2-Substance has
+       (plays ((a Base-Role with
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 6.4e-4 nil))))))
+		  (intensity ((a Intensity-Value with
+			(value ((:pair *weak Base)))))))))
+	(has-chemical-name ("Ethylamine"))
+	(has-basic-structural-unit ((a C2H5NH2)))
+)

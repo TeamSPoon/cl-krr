@@ -1,0 +1,137 @@
+<!--- $Id: Send.doc.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Send>
+<superconcept name=Action>
+<subevent name=Relinquish>
+<subevent name=Move>
+<subevent name=Deliver>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Send>
+  <definition>intentional change of possession of an object by the donor to a recipient, involving a Dispatch, Move and Deliver of the object</definition>
+  <requiredslot name=recipient>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Give</restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+    <restriction>= <slot>donor</slot>
+  </requiredslot>
+  <requiredslot name=donor>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Give</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=instrument>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= <slot>location</slot> of <slot>donor</slot>
+    <restriction>original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <restriction>Place</restriction>
+    <restriction>transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= <slot>location</slot> of <slot>recipient</slot>
+    <restriction>final <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <requiredslot name=subevent>
+    <restriction>a <conceptref name=Relinquish></restriction>
+    <restriction><slot>agent</slot> = <slot>agent</slot> of Send</restriction>
+    <restriction><slot>object</slot> = <slot>object</slot> of Send</restriction>
+  </requiredslot>
+  <requiredslot name=subevent>
+    <restriction>a <conceptref name=Move></restriction>
+    <restriction><slot>agent</slot> = <slot>agent</slot> of <conceptref name=Deliver> of Send</restriction>
+    <restriction><slot>object</slot> = <slot>object</slot> of Send</restriction>
+    <restriction><slot>origin</slot> = <slot>origin</slot> of Send</restriction>
+    <restriction><slot>path</slot> = <slot>path</slot> of Send</restriction>
+    <restriction><slot>destination</slot> = <slot>destination</slot> of Send</restriction>
+  </requiredslot>
+  <requiredslot name=subevent>
+    <restriction>a <conceptref name=Deliver></restriction>
+    <restriction><slot>agent</slot> = <slot>agent</slot> of <conceptref name=Move> of Send</restriction>
+    <restriction><slot>object</slot> = <slot>object</slot> of Send</restriction>
+    <restriction><slot>recipient</slot> = <slot>recipient</slot> of Send</restriction>	
+  </requiredslot>
+  <wnsynsets><verb>send#2, send#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>mail#2, post#9, send_out#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+The WordNet synsets are not quite as specific as our Send.
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=send2>
+  <sense-definition>to direct, order, or request to go 
+</sense-definition>
+</sense>
+<sense tag=send3>
+  <sense-definition>to dispatch by a means of communication</sense-definition>
+</sense>
+<sense tag=send4>
+  <sense-definition>to cause to be carried to a destination
+</sense-definition>
+</sense>
+<sense tag=send5>
+  <sense-definition>to strike or thrust so as to impel violently</sense-definition>
+</sense>
+<sense tag=send6>
+  <sense-definition>to cause to assume a specified state</sense-definition>
+</sense>
+<sense tag=send7>
+  <sense-definition>to cause to issue
+
+</sense-definition>
+</sense>
+<sense tag=send8>
+  <sense-definition>to cause to move
+
+ </sense-definition>
+</sense>
+<sense tag=send9>
+  <sense-definition>to suffer the hurt or injury of <sendd a broken nose>
+
+</sense-definition>
+</sense>
+<sense tag=send10>
+  <sense-definition>to convert incoming radio waves into perceptible signals
+</sense-definition>
+</sense>
+<sense tag=send11>
+  <sense-definition>broadcast over the airwaves, as in radio or television
+</sense-definition>
+</sense>
+
+
+
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNsend#1><equiv tag=send5></sense>
+<sense tag=WNsend#2><equiv tag=send2></sense>
+<sense tag=WNsend#3><equiv tag=send4></sense>
+<sense tag=WNsend#4><equiv tag=send8></sense>
+<sense tag=WNsend#5><equiv tag=send6></sense>
+<sense tag=WNsend#6><equiv tag=send4></sense>
+<sense tag=WNsend#7><equiv tag=send4></sense>
+<sense tag=WNsend#8><equiv tag=send9></sense>
+
+</senselist>
+</reference>
+
+</kml>
+
+

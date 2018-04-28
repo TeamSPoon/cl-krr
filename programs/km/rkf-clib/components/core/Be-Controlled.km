@@ -1,0 +1,26 @@
+;;
+;;    $Id: Be-Controlled.km,v 1.3 2004/09/09 19:14:58 kbarker Exp $
+;;
+
+(Be-Controlled has
+  (superclasses         (State))
+  (required-slot        (object))
+  (primary-slot         ())
+  (caused-by-class      (Take-Control))
+  (defeated-by-class    (Take-Control))
+  (cmap-correspondence  (
+                         (:seq object "the thing that's controlled")
+                        )))
+
+(every Be-Controlled has 
+       (object ((a Entity)))
+)
+
+(every Be-Controlled has
+   (text-particle ("controlled"))
+)
+
+(Be-Controlled has (wn20-synset ((:set (:triple "controlled" 1 "a")
+))))
+
+

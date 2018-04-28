@@ -1,0 +1,13 @@
+;; $Id: C5H5NH-Plus.km,v 1.4 2003/04/21 21:36:01 jchaw Exp $ 
+(C5H5NH-Plus has (superclasses (Cation)))
+(every C5H5NH-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("pyridinium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 5 C) 
+						       (:pair 5 H)
+						       (:pair 1 N)
+						       (:pair 1 H)
+						       ))))))
+)

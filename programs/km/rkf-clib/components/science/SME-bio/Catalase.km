@@ -1,0 +1,83 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Catalase ----------
+
+(Catalase has (superclasses (Enzyme)))
+
+(_Catalase450 has 
+  (instance-of (Catalase))
+  (prototype-of (Catalase))
+  (prototype-scope (Catalase))
+  (prototype-participants (_Amino-Acid6619
+                           _Catalase450
+                           _Polymer456
+                           _Atom458))
+  (prototype-participant-of (_Catalase450))
+  (has-clones (_Placeholder-Class449451
+               _Catalase1375))
+  (has-built-clones (_Placeholder-Class449451
+                     _Catalase1375))
+  (has-basic-structural-unit (_Atom458
+                              _Amino-Acid6619))
+  (has-part (_Polymer456))
+  (cloned-from (_Protein305))
+  (clone-built-from (_Protein305))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom458 t)
+                    (:seq has-part _Polymer456 t)
+                    (:seq has-basic-structural-unit _Amino-Acid6619 t)))
+  (edge-coordinate ((:seq has-part _Polymer456 201 583)
+                    (:seq has-basic-structural-unit _Atom458 201 627)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Amino-Acid6619 has 
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing1376))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Catalase450))
+  (prototype-participant-of (_Catalase450)))
+
+(_Polymer456 has 
+  (prototype-participant-of (_Catalase450))
+  (is-part-of (_Catalase450))
+  (instance-of (Polymer))
+  (has-clones (_Polymer453
+               _Polymer1374))
+  (cloned-from (_Polymer308))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 351 577))))
+
+(_Atom458 has 
+  (prototype-participant-of (_Catalase450))
+  (is-basic-structural-unit-of (_Catalase450))
+  (instance-of (Atom))
+  (has-clones (_Atom452
+               _Atom1373))
+  (cloned-from (_Atom309))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 351 621))))
+
+(explanation (:triple _Catalase450 has-basic-structural-unit _Amino-Acid6619) ((cloned-from _Protein305 _Catalase450)))
+(explanation (:triple _Catalase450 has-part _Polymer456) ((added-at Protein "User defined")))
+(explanation (:triple _Catalase450 has-basic-structural-unit _Atom458) ((a Atom (@ _Catalase450 Molecule has-basic-structural-unit))))
+(explanation (:triple _Catalase450 instance-of Protein) ((a Protein)))
+(explanation (:triple _Catalase450 has-part _Polymer456) ((cloned-from _Protein305 _Catalase450)))
+(explanation (:triple _Catalase450 has-basic-structural-unit _Atom458) ((cloned-from _Protein305 _Catalase450)))
+(explanation (:triple _Amino-Acid6619 instance-of Amino-Acid) ((cloned-from _Protein305 _Catalase450)))
+(explanation (:triple _Polymer456 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer456 instance-of Polymer) ((cloned-from _Protein305 _Catalase450)))
+(explanation (:triple _Polymer456 is-part-of _Catalase450) ((cloned-from _Protein305 _Catalase450)))
+(explanation (:triple _Atom458 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom458 instance-of Atom) ((a Atom (@ _Catalase450 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom458 instance-of Atom) ((cloned-from _Protein305 _Catalase450)))
+(explanation (:triple _Atom458 is-basic-structural-unit-of _Catalase450) ((cloned-from _Protein305 _Catalase450)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

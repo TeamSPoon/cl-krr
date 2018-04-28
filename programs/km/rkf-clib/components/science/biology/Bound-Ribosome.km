@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Bound-Ribosome.km,v 1.11 2001/06/02 19:46:00 pzyeh Exp $ 
+;; 
+
+(Bound-Ribosome has
+         (superclasses (Ribosome))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("Ribosomes that are bound to the endoplasmic reticulum.
+                        Areas with bound ribosomes are called rough endoplasmic
+                        reticulum. Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Bound-Ribosome has 
+       (object-of
+	((a Be-Attached-To with
+	    (base ((a Endoplasmic-Reticulum)))
+	    (site ((a Internal-Membrane with
+		      (is-part-of ((the base of 
+					(the Be-Attached-To object-of of Self))
+				   )))))
+	    )))
+       )
+	    
+
+

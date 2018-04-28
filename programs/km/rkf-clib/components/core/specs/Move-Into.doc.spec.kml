@@ -1,0 +1,63 @@
+<!--- $Id: Move-Into.doc.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Move-Into>
+<superconcept name=Move-Through>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Move-Into>
+  <definition>change location into an Enclosure</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Move-Through>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <restriction>Container</restriction>
+    <restriction>the Enclosure</restriction>
+  </requiredslot>
+  <requiredslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>within the Enclosure</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> must not be <slot>object</slot> of a
+      <conceptref name=Be-Shut-Out> whose location is outside the Enclosure
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Move-Through>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+  </primaryslot>
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>outside the Enclosure</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <restriction>Place</restriction>
+    <restriction>a Portal of the Enclosure</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>move_into#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>enter#1, come_in#1, get_into#2, get_in#1, go_into#1, go_in#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Move-Into is a specialization of the <conceptref name=Move-Through>
+component with the required <slot>base</slot>:Container slot. <br> 
+Move-Into puts an <slot>object</slot> into a <conceptref name=Be-Contained> state. 
+As well as adding the <slot> object </slot> to the <slot> content </slot> of the
+<slot> base </slot> of the Move-Into.
+<conceptref name=Move-Out-Of> takes the <slot>object</slot> out of the
+<conceptref name=Be-Contained> state.
+</musing>
+
+</kml>
+
+

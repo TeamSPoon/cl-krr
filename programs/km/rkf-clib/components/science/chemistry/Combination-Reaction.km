@@ -1,0 +1,39 @@
+;; 
+;;    $Id: Combination-Reaction.km,v 1.4 2005/09/02 18:14:31 jfan Exp $
+;; 
+
+(Combination-Reaction has
+		      (superclasses (Reaction)))
+
+#|
+(every Combination-Reaction has-definition
+       (instance-of (Reaction [Combination-Reaction-instance-of-1]))
+       (result ((exactly 1 Chemical)))
+       (raw-material ((at-least 2 Chemical)))
+)
+
+(comment [Combination-Reaction-instance-of-1]
+  "Therefore, this is a combination reaction"
+
+  "By definition, a reaction with multiple reactants and exactly one result is
+a combination reaction"
+)
+|#
+
+(Combination-Reaction has
+   (test-case ('(
+		 ((a Reaction with
+                    (raw-material
+                     ((a CO2-Substance)
+                      (a CaO-Substance with
+                         (physical-state ((a State-Value with
+                                    (value (*solid))))))))
+                    (result
+                     ((a CaCO3-Substance with
+                         (physical-state ((a State-Value with
+                                    (value (*solid)))))))))
+		  isa
+		  Combination-Reaction)
+		 ))))
+
+

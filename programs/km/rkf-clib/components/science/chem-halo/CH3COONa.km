@@ -1,0 +1,20 @@
+;;
+;; $Id: CH3COONa.km,v 1.6 2007/03/13 18:15:19 jchaw Exp $
+;;
+
+(CH3COONa has (superclasses (Salt)))
+
+(every CH3COONa has	
+       (has-chemical-name ("sodium acetate"))
+       (has-part 
+	((a Na-Plus) (a CH3COO-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 Na-Plus)
+		    (:pair 1 CH3COO-Minus))))))))
+
+(every CH3COONa has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a CH3COO-Minus))))
+

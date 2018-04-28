@@ -1,0 +1,40 @@
+;; 
+;;    $Id: is-above.km,v 1.16 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(is-above has
+       (instance-of (Spatial-Relation)) ;;; more general than over (which applies only
+       (superslots ())      ;;; to surfaces)
+       (subslots ())
+       (domain (Spatial-Entity))
+       (range (Spatial-Entity))
+       (fluent-status (*Inertial-Fluent))
+       (inverse (is-below))
+       (text-slot (text-is-above))
+       (original-slot      (t))	 
+       (cardinality (N-to-N)))
+
+(text-is-above has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-is-below))
+)
+
+(text-is-below has (instance-of (NL-Slot-Group)))
+
+(is-above has (wn20-synset ((:set
+                                  (:triple "above" 2 "r")
+                                  (:triple "higher_up" 1 "r")
+                                  (:triple "in_a_higher_place" 1 "r")
+                                  (:triple "to_a_higher_place" 1 "r")
+))))
+
+(is-below has 
+	(instance-of (Spatial-Relation))
+	(text-gloss ("is below")))

@@ -1,0 +1,44 @@
+<!--- $Id: Invade.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<kml>
+<concept name=Invade>
+<superconcept name=Tresspass>
+<superconcept name=Intentional>
+<component tag=Invade>
+  <definition>Invade is an Intentional Trespass</definition>
+
+<requiredslotlist>
+<requiredslot name=agent>
+    <inheritedfrom name=Locomotion>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+    <restriction>= <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Locomotion>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>= <slot>agent</slot></restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+
+</requiredslotlist>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>The Allies invaded Normandy.</text>
+	<comment> This is represented as an Invasion with the following properties:
+	    <slotdescription name=agent>the Allies</slotdescription>
+    	    <slotdescription name=destination>Normandy</slotdescription>
+  	</comment>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Trespass>
+	Entry without authorization
+  </neighbor>
+</neighborlist>
+
+</kml>

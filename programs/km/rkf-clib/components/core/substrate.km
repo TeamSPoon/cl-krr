@@ -1,0 +1,20 @@
+
+;; 
+;;    $Id: substrate.km,v 1.6 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(substrate has
+   (instance-of (Meronymic-Relation))
+   (superslots ())
+   (subslots ())
+   (domain      (Event))
+   (range       (Tangible-Entity))
+   (inverse (substrate-of))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   (cardinality (N-to-N)))
+
+(substrate-of has
+	(instance-of (Meronymic-Relation)))
+
+

@@ -1,0 +1,34 @@
+
+;;
+;; $Id: Compute-Molecular-Compound-from-Formula.km,v 1.2 2003/02/14 15:53:50 kbarker Exp $
+;;
+
+(Compute-Molecular-Compound-from-Formula has
+					 (superclasses (Method)))
+
+(every Compute-Molecular-Compound-from-Formula has
+       ;;(input ((a Thing)))
+       (output
+	((a Molecular-Compound with
+	    (has-part ((an instance of (the2 of (the1 of (the input of Self))))
+		       (an instance of (the2 of (the2 of (the input of Self))))))
+	    (nested-atomic-chemical-formula
+	     ((a Chemical-Formula with
+		 (term ((the input of Self))))))
+	    (atomic-chemical-formula
+	     ((a Chemical-Formula with
+		 (term ((the input of Self))))))
+	    (has-chemical-formula
+	     ((a Chemical-Formula with
+		 (term ((the input of Self))))))
+	    (has-chemical-name
+	     ((#'(LAMBDA ()
+		   (COMPUTE-TWO-COMPONENT-MOLECULE-NAME
+		    (KM-UNIQUE0 '(the1 of (the1 of (the input of Self))))
+		    (GET-DB 'SYMBOL
+			    (STRING (KM-UNIQUE0 '(the2 of (the1 of (the input of Self)))))
+			    'NAME)
+		    (KM-UNIQUE0 '(the1 of (the2 of (the input of Self))))
+		    (KM-UNIQUE0
+		     '(the has-molecular-name of
+		       (an instance of (the2 of (the2 of (the input of Self)))))))))))))))

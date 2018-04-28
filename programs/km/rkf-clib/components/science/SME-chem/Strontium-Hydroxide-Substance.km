@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Strontium-Hydroxide-Substance10723
+
+
+|#
+
+(disable-classification)
+
+(Strontium-Hydroxide-Substance has (superclasses (Hydroxide-Substance)))
+
+(every Strontium-Hydroxide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Strontium-Hydroxide-Substance830 has
+  (prototype-of (Strontium-Hydroxide-Substance Hydroxide-Substance))
+  (prototype-scope (Strontium-Hydroxide-Substance (the-class Hydroxide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Sr-Plus-2) (a OH-Minus)))))))))
+  (prototype-participants (_Sr-Plus-836 _OH-Minus837 _Chemical-Entity832 _Strontium-Hydroxide-Substance830)))
+
+(_Chemical-Entity832 has (instance-of (Ionic-Compound)) (has-part (_Sr-Plus-836 _OH-Minus837)))
+
+(_Sr-Plus-836 has (instance-of (Sr-Plus-2)))
+
+(_OH-Minus837 has (instance-of (OH-Minus)))
+
+(_Strontium-Hydroxide-Substance830 has (instance-of (Strontium-Hydroxide-Substance)) (has-basic-structural-unit (_Chemical-Entity832)))
+
+(enable-classification)
+
+(explanation (:triple _Strontium-Hydroxide-Substance830 has-basic-structural-unit _Chemical-Entity832) (((@ SME entered)) (every Strontium-Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity832 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Sr-Plus-836 instance-of Sr-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _OH-Minus837 instance-of OH-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Strontium-Hydroxide-Substance830 instance-of Strontium-Hydroxide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Strontium-Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

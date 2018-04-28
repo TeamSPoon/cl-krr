@@ -1,0 +1,47 @@
+;;
+;; $Id: Organization.km,v 1.3 2005/04/25 02:46:34 gking Exp $
+;;
+
+(Organization has 
+  (superclasses (Aggregate))
+  (description ("an aggregate of roles"))
+)
+
+;; an Organization has Roles as elements (not necessarily people-roles)
+;; it also may have a purpose, a has-goal and organization sub-parts
+
+(every Organization has
+  (element-type (Role))
+  (in-organization-of ((the element of Self)))
+)
+
+(Organization has
+  (test-case ('(
+                (BrauMeister has (superclasses (Role)))
+                (MarketingDude has (superclasses (Role)))
+                (*BrauCorp has (instance-of (Organization))
+                               (element ((a BrauMeister)
+                                         (a MarketingDude)))
+                )
+                (*Gustav has (instance-of (Person))
+                             (plays ((the BrauMeister element of *BrauCorp)))
+                )
+
+                ((the number-of-elements of *BrauCorp) = 2)
+                (the plays of *Gustav)
+                ((the played-by of (the BrauMeister element of *BrauCorp)) = *Gustav)
+                (the in-organization-of of *BrauCorp)
+                ((the in-organization of (the plays of *Gustav)) = *BrauCorp)
+                (not (the played-by of (the MarketingDude element of *BrauCorp)))
+))))
+
+(Organization has (wn20-synset ((:set
+				 (:triple "administration" 2 "n")
+				 (:triple "governance"1 "n")
+				 (:triple "governing_body" 1 "n")
+				 (:triple "establishment" 3 "n")
+				 (:triple "brass" 3 "n")
+				 (:triple "organization" 3 "n")
+				 (:triple "organisation" 2 "n")
+))))
+

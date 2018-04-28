@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Eucaryotic-DNA-Transcription.km,v 1.11 2002/06/21 19:17:00 tecuci Exp $ 
+;; 
+
+(Eucaryotic-DNA-Transcription has
+        (superclasses    (DNA-Transcription))
+        (required-slot   (result))
+        (primary-slot    (raw-material agent instrument))
+        (description ("Copying of one strand of DNA into a complementary RNA
+                       sequence by the enzyme RNA Polymerase in eucaryotes. cf
+                       Alberts:ECB:G-18")))
+
+(every Eucaryotic-DNA-Transcription has
+  (agent        ((a Eucaryotic-Cell)))
+  (object       ((a Eucaryotic-DNA-Strand)))
+  (raw-material       ((a Aggregate with
+
+                    (element-type (Ribonucleotide)))))
+  (result       ((a Gene-Transcript)))
+)

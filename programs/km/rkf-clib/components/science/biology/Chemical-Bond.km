@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Chemical-Bond.km,v 1.14 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Chemical-Bond has
+	      (superclasses (Bond Chemical-Entity))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Linkage between two atoms that holds them together
+                             in a chemical compound.  Types found in living
+                             cells include ionic bonds, covalent bonds, polar
+                             bonds, and hydrogen bonds.  Alberts:ECB:G-4."))
+	      (cmap-correspondence ()))
+
+(every Chemical-Bond has  
+        (purpose ((a Connector with
+                        (in-event ((a Be-Attached-To with
+				      (object ((a Chemical-Entity)
+					       (a Chemical-Entity) 
+					       (exactly 2 Chemical-Entity)))
+				      )))
+			)))
+	)
+
+(every Chemical-Bond has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

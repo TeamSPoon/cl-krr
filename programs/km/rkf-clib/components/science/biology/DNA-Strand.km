@@ -1,0 +1,51 @@
+;; 
+;;    $Id: DNA-Strand.km,v 1.28 2002/01/28 17:41:59 jfan Exp $ 
+;; 
+
+
+(DNA-Strand has
+         (superclasses (Polydeoxyribonucleotide Free-Nucleotide-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("One of two complementary anti-parallel chains that make
+                        up the DNA double helical molecule.  Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every DNA-Strand has
+       (purpose ((a Template with 
+		    (in-event ((a DNA-Replication))))
+		 ))
+       (length ((at-least 3200 Nucleotide)))  ;; Hepatitus B virus (smallest)
+       (has-functional-part
+	((a DNA-Gene-Coding-Sequence) 
+	 (a DNA-Noncoding-Sequence)))
+       (has-structural-part
+	 ((a Deoxyribose-Monophosphate called "sugar-phosphate backbone" with
+	    (object-of
+	     ((a Be-Attached-To with
+                 (object ((the Nitrogenous-Base has-part of Self)))
+                 (instrument ((a Covalent-CN-Bond)))
+                 (site
+		  (((the Carbon-Atom has-part of
+			 (the Deoxyribose has-part of Self))
+		    called "Carbon-1" )
+		   (the Nitrogen-Atom has-part of
+			(the Nitrogenous-Base has-part of Self))
+		   )))) ))
+	 (a Nitrogenous-Base)
+	 ))
+       (has-region 	 (
+                  (a 5-Prime-End)
+	      	  (a 3-Prime-End)
+                 ))
+       )
+    
+
+; different cross-cuts of DNA regions need to be noted and differentiated.
+; notion that genes are also a functional unit (now coded as a has-region of a
+; DNA coding region
+
+
+

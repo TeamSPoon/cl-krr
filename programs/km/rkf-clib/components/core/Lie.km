@@ -1,0 +1,73 @@
+;;
+;; $Id: Lie.km,v 1.11 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(Lie has
+	(superclasses (Express))
+	(required-slot (agent object))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Lie has
+        (object ((a Information with
+                    (truth ((a Truth-Value with (value (*false))))))))
+
+        ; if it's a lie, the agent must know the info is false
+        (pcs-list ((:triple (the agent of Self)
+                            experiencer-of
+                            (a Be-Known with
+                               (object ((a Information with
+                                           (information-content ((the truth of (the object of Self)))))))
+                               (experiencer ((the agent of Self)))
+                            )
+        )))
+)
+
+; not sufficient, so comment out for now
+;(every Lie has-definition
+;	(instance-of (Express))
+;	(object ((a Information with (truth ((a Truth-Value with (value (*false)))))))))
+
+(every Lie has 
+  (text-active-verbseq-sg ("lies"))
+  (text-active-verbseq-pl ("lie"))
+)
+
+(Lie has
+	(test-case ('(
+		(*little-white-lie has 
+                   (instance-of (Information))
+		   (truth ((a Truth-Value with (value (*false))))))
+		(*Liar has (instance-of (Tangible-Entity)))
+		(*lie has
+			(instance-of (Lie))
+			(agent (*Liar))
+			(object (*little-white-lie))
+		)
+		(do-and-next *lie)
+                (_LieBeKnown == (theoneof (the instances of Be-Known)
+                                 where ((the object of It) = *little-white-lie))
+                )
+		((the experiencer of _LieBeKnown) = *Liar)
+		((the value of 
+                      (the truth of
+                           (the object of _LieBeKnown))) = *false)
+		
+		
+))))
+
+
+;; automatically added WN synsets
+(Lie has (wn16-synset ((:set  
+                                  (:triple "lie" 5 "v")
+                                  (:triple "misinform" 1 "v")
+                                  (:triple "mislead" 2 "v")
+))))
+
+
+(Lie has (wn20-synset ((:set
+                                  (:triple "lie" 5 "v")
+                                  (:triple "misinform" 1 "v")
+                                  (:triple "mislead" 2 "v")
+))))
+(every Lie has (text-nominalization ("lying")))

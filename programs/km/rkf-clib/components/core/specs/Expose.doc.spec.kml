@@ -1,0 +1,52 @@
+<!--- $Id: Expose.doc.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Expose::doc>
+<superconcept name=Make-Accessible::doc>
+
+<sme-documentation name=Expose>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Expose>
+  <definition>exposes a Tangible-Entity (possibly to some thing)</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Concealed> state
+    </restriction>
+  </requiredslot>
+
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is no longer the <slot>object</slot> of a 
+      <conceptref name=Be-Concealed> state
+    </restriction>
+  </requiredslot>
+
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be Exposed</restriction>
+  </primaryslot>
+
+  <primaryslot name=base>  
+    <restriction>the Thing that the <slot>object</slot> is Exposed to</restriction>
+  </primaryslot>
+
+  <wnsynsets><verb>expose#3, expose#4, expose#5, expose#7
+  </verb></wnsynsets>
+  <wnsynsets><verb>disclose#2, display#1, exhibit#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Expose takes an <slot>object</slot> in a <conceptref name=Be-Concealed> state
+(the result of a <conceptref name=Conceal> action) and removes it from 
+that state.
+</musing>
+
+</kml>
+
+

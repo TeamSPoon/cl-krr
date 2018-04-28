@@ -1,0 +1,78 @@
+<!--- $Id: Penetrate-Defenses.spec.kml,v 1.1 2005/08/01 20:56:42 jchaw Exp $ --->
+<kml>
+
+<concept name=Penetrate-Defenses>
+<superconcept name=Military-Task>
+<superconcept name=Penetrate>
+
+<definition>
+
+   A form of maneuver to seek to rupture enemy defenses on a narrow front
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that penetrates the defense
+     of the <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=object>
+     the <conceptref name=Military-Unit> whose defense becomes penetrated
+     by the <slot>agent</slot>
+  </slotdescription>
+
+  <slotdescription name=site>
+     the place (a <conceptref name=Spatial-Entity>) where the 
+     <slot>object</slot> is penetrated
+  </slotdescription>
+  
+</requiredslotlist>
+
+<neighborlist>
+
+  <neighbor name=Attack> 
+
+     An Attack is an offensive operation that destroys or defeats
+     enemy forces, seizes and secures terrain, or both
+
+  </neighbor>
+
+  <neighbor name=Attack-by-Fire>
+
+     An Attack-by-Fire is an attack using direct fires, supported by
+     indirect fires, to engage an enemy without closing with him to
+     destroy, suppress, fix, or deceive him
+
+  </neighbor>
+
+  <neighbor name=Follow-and-Assume>
+
+     Follow-and-Assume is a tactical mission task to follow a force
+     conducting an offensive operation and to continue the mission if the
+     lead force is disabled
+
+  </neighbor>
+
+  <neighbor name=Follow-and-Support>
+
+     Follow-and-Support is a tactical mission task to follow and
+     support a lead force conducting an offensive operation
+
+  </neighbor>
+
+  <neighbor name=Support-by-Fire>
+
+     Support-by-Fire is a tactical mission task in which a maneuver
+     force moves to a position where it can engage the enemy by direct
+     fire in support of another maneuvering force
+
+  </neighbor>
+
+
+</neighborlist>
+
+</kml>
+
+

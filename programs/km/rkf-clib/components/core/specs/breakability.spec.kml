@@ -1,0 +1,28 @@
+<!--- $Id: breakability.spec.kml,v 1.2 2005/11/10 22:48:37 tecuci Exp $ --->
+<kml>
+<property-doc name=breakability>
+<gpd-documentation name=Property>
+
+<from name=Entity>
+<to name=Breakability-Value>
+
+<description> 
+  the breakability of an Entity
+</description>
+
+<value-description>
+<scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>unbreakable, delicate, brittle, fragile, breakable</scalars>
+<scale name=*breakable-unbreakable-scale>unbreakable..delicate..brittle..fragile..breakable</scale>
+    <p>
+    <examplesentence>
+      <text>my vase is delicate relative to Bones</text>
+      <slotdescription name=value>delicate</slotdescription>
+      <slotdescription name=relative to>Bones</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+

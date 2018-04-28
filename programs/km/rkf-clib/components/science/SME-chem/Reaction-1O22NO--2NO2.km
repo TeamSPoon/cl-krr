@@ -1,0 +1,218 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1O22NO--2NO2 ----------
+
+(Reaction-1O22NO--2NO2 has (superclasses (Reaction)))
+
+(_Reaction-1O22NO--2NO23106 has 
+  (instance-of (Reaction-1O22NO--2NO2))
+  (prototype-of (Reaction-1O22NO--2NO2))
+  (prototype-scope (Reaction-1O22NO--2NO2))
+  (prototype-participants (_Property-Node3149
+                           _Property-Node3148
+                           _Property-Node3147
+                           _Chemical-Entity3146
+                           _Chemical3144
+                           _Coefficient-Value3143
+                           _Chemical-Entity3141
+                           _Chemical3140
+                           _Coefficient-Value3139
+                           _Chemical-Entity3137
+                           _Chemical3136
+                           _Coefficient-Value3135
+                           _Reaction-1O22NO--2NO23106))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106))
+  (big-nodes (_Property-Node3147
+              _Property-Node3148
+              _Property-Node3149))
+  (raw-material (_Chemical3140
+                 _Chemical3144))
+  (result (_Chemical3136))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3136 t)
+                    (:seq raw-material _Chemical3140 t)
+                    (:seq raw-material _Chemical3144 t))))
+
+(_Property-Node3149 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3135))
+  (contains-edge ((:triple _Coefficient-Value3135 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1O22NO--2NO23106))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Property-Node3148 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3143))
+  (contains-edge ((:triple _Coefficient-Value3143 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1O22NO--2NO23106))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Property-Node3147 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3139))
+  (contains-edge ((:triple _Coefficient-Value3139 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1O22NO--2NO23106))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Chemical-Entity3146 has 
+  (instance-of (Chemical-Entity
+                NO))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3144))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Chemical3144 has 
+  (has-basic-structural-unit (_Chemical-Entity3146))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3143))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3143 t)))
+  (raw-material-of (_Reaction-1O22NO--2NO23106))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Coefficient-Value3143 has 
+  (contains-node-of (_Property-Node3148))
+  (coefficient-of (_Chemical3144))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Chemical-Entity3141 has 
+  (instance-of (Chemical-Entity
+                O2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3140))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Chemical3140 has 
+  (has-basic-structural-unit (_Chemical-Entity3141))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1O22NO--2NO23106))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3139))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3139 t)))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Coefficient-Value3139 has 
+  (contains-node-of (_Property-Node3147))
+  (coefficient-of (_Chemical3140))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Chemical-Entity3137 has 
+  (instance-of (Chemical-Entity
+                NO2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3136))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Chemical3136 has 
+  (has-basic-structural-unit (_Chemical-Entity3137))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1O22NO--2NO23106))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3135))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3135 t)))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(_Coefficient-Value3135 has 
+  (contains-node-of (_Property-Node3149))
+  (coefficient-of (_Chemical3136))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1O22NO--2NO23106)))
+
+(explanation (:triple _Reaction-1O22NO--2NO23106 raw-material _Chemical3144)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Reaction-1O22NO--2NO23106 raw-material _Chemical3140)
+  ((a Chemical (@ _Reaction-1O22NO--2NO23106 Reaction raw-material))))
+(explanation (:triple _Reaction-1O22NO--2NO23106 result _Chemical3136)
+  ((a Chemical (@ _Reaction-1O22NO--2NO23106 Reaction result))))
+(explanation (:triple _Reaction-1O22NO--2NO23106 chemical-equation _Chemical-Equation-Expression3108)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1O22NO--2NO23106) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1O22NO--2NO23106) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1O22NO--2NO23106) (@ _Reaction-1O22NO--2NO23106 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1O22NO--2NO23106 instance-of Reaction-1O22NO--2NO2)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical-Entity3146 atomic-chemical-formula _Chemical-Formula3128)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3146)) or (the term of (the has-chemical-formula of _Chemical-Entity3146)) (@ _Chemical-Entity3146 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3146)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3146))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3146)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3146)))))))))) (@ _Chemical-Entity3146 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3146 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3146 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3146 nested-atomic-chemical-formula _Chemical-Formula3126)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 1 O)))) (@ _Chemical-Entity3146 NO nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3146 instance-of NO)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical-Entity3146 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3144 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3144 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1O22NO--2NO23106 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1O22NO--2NO23106 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3144 coefficient _Coefficient-Value3143)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical3144 has-basic-structural-unit _Chemical-Entity3146)
+  ((a Chemical-Entity (@ _Chemical3144 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3144 instance-of Chemical)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Coefficient-Value3143 value (:pair 2 *unity))
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Coefficient-Value3143 instance-of Coefficient-Value)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical-Entity3141 instance-of O2)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical-Entity3141 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3140 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3140 has-basic-structural-unit _Chemical-Entity3141)
+  ((a Chemical-Entity (@ _Chemical3140 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3140 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1O22NO--2NO23106 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1O22NO--2NO23106 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3140 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1O22NO--2NO23106 Reaction raw-material))))
+(explanation (:triple _Chemical3140 coefficient _Coefficient-Value3139)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical3140 instance-of Chemical)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Coefficient-Value3139 value (:pair 1 *unity))
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Coefficient-Value3139 instance-of Coefficient-Value)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical-Entity3137 instance-of NO2)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical-Entity3137 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3136 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3136 has-basic-structural-unit _Chemical-Entity3137)
+  ((a Chemical-Entity (@ _Chemical3136 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3136 instance-of Entity)
+  ((a Entity (@ _Reaction-1O22NO--2NO23106 Event (result must-be-a)))))
+(explanation (:triple _Chemical3136 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1O22NO--2NO23106 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1O22NO--2NO23106 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3136 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1O22NO--2NO23106 Reaction result))))
+(explanation (:triple _Chemical3136 coefficient _Coefficient-Value3135)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Chemical3136 instance-of Chemical)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Coefficient-Value3135 value (:pair 2 *unity))
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+(explanation (:triple _Coefficient-Value3135 instance-of Coefficient-Value)
+  ((added-at Reaction-1O22NO--2NO2 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

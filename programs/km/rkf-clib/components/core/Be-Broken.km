@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Be-Broken.km,v 1.15 2005/11/07 20:48:01 kbarker Exp $ 
+;; 
+
+(Be-Broken has
+	   (superclasses (Be-Damaged))
+	   (required-slot (object))
+	   (primary-slot ())
+	   (secondary-slot ())
+           (caused-by-class      (Break))
+           (defeated-by-class    (Repair))
+	   (cmap-correspondence ()))
+
+(every Be-Broken has
+       (object ((a Physical-Object)))
+       (defeated-by ((must-be-a Repair with
+				(object ((the object of Self))))))
+       (resulting-state-of ((must-be-a Break with
+				       (object ((the object of Self)))))))
+
+(every Be-Broken has
+   (text-particle ("broken"))
+)
+
+
+
+
+;; automatically added WN synsets
+(Be-Broken has (wn16-synset ((:set  
+                                        (:triple "broken" 11 "a")
+                                        (:triple "busted" 3 "a")
+))))
+
+(Be-Broken has (wn20-synset ((:set
+                                        (:triple "broken" 11 "a")
+                                        (:triple "busted" 3 "a")
+))))

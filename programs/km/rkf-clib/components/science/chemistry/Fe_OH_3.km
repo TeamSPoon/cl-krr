@@ -1,0 +1,14 @@
+;; 
+;;    $Id: Fe_OH_3.km,v 1.1 2003/04/22 05:04:53 jchaw Exp $
+;; 
+
+(Fe_OH_3 has (superclasses (Ionic-Compound)))
+
+(every Fe_OH_3 has	
+       (has-part 
+	((a Fe-Plus-3) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+            (term ((:seq
+		    (:pair 1 Fe-Plus-3)
+		    (:pair 2 OH-Minus))))))))

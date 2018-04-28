@@ -1,0 +1,17 @@
+
+;;
+;; $Id: Combat-Power-Ratio-Value.km,v 1.2 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+(Combat-Power-Ratio-Value has 
+       (superclasses (Property-Value)))
+
+(every Combat-Power-Ratio-Value has
+   (property-slot (combat-power-ratio))
+   (combat-power-ratio-of ((must-be-a Event)))
+
+   (less-than ((must-be-a Combat-Power-Ratio-Value)))
+   (greater-than ((must-be-a Combat-Power-Ratio-Value)))
+   (same-as ((must-be-a Combat-Power-Ratio-Value)))
+)
+

@@ -1,0 +1,47 @@
+;; 
+;;    $Id: Be-Open.km,v 1.20 2004/07/20 22:28:55 gking Exp $ 
+;; 
+
+(Be-Open has
+  (superclasses 	(Be-Unblocked))
+  (required-slot 	(object))
+  (primary-slot	 	())
+  (secondary-slot 	())
+  (caused-by-class      (Open))
+  (defeated-by-class    (Close))
+  (cmap-correspondence 	(
+			 (:seq object "the thing that is open")
+			)))
+
+(every Be-Open has
+;;LOOSE SPEAK what about opening the object its self, the container.
+;;An example would be a zip-lock bag (Jarred)
+
+  (object		((a Spatial-Entity with 
+			    (plays ((a Portal))))))
+  (resulting-state-of 	((must-be-a Open with
+			   (object ((the object of Self))))))
+  (defeated-by 		((must-be-a Close with
+			   (object ((the object of Self)))))))
+
+(every Be-Open has
+   (text-particle ("open"))
+)
+
+(Be-Open has (test-case ()))
+
+
+;; automatically added WN synsets
+(Be-Open has (wn16-synset ((:set
+                                      (:triple "open" 1 "a")
+                                      (:triple "unfastened" 2 "a")
+                                      (:triple "open" 5 "a")
+                                      (:triple "opened" 1 "a")
+))))
+
+(Be-Open has (wn20-synset ((:set
+                                      (:triple "open" 1 "a")
+                                      (:triple "unfastened" 2 "a")
+                                      (:triple "open" 5 "a")
+                                      (:triple "opened" 1 "a")
+))))

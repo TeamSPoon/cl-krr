@@ -1,0 +1,132 @@
+;; 
+;;    $Id: Conjugate-Acid-Base-Pair.km,v 1.8 2003/09/24 02:27:24 jfan Exp $ 
+;; 
+
+(Conjugate-Acid-Base-Pair has
+			  (superclasses (Aggregate)))
+
+;; a conjugate acid base pair is made of 2 substances
+;; 1 acting as a donor of proton, 1 acting as a recipient of proton
+(every Conjugate-Acid-Base-Pair has
+       (element ((a Chemical)))
+       (context ((if (((the element of Self) isa Acid)
+			 or
+			 (the Acid-Role plays of (the element of Self))
+			 or
+			 (the Lewis-Acid-Role plays of (the element of Self))
+			 or
+			 ((the has-basic-structural-unit of (the element of Self)) isa Acid)
+			 or
+			 (the Acid-Role plays of (the has-basic-structural-unit of (the element of Self)))
+			 or
+			 (the Lewis-Acid-Role plays of (the has-basic-structural-unit of (the element of Self)))
+			 )
+			then
+		      (the output of (a Compute-Conjugate-Base with
+					(input ((the element of Self)))))
+                    [Conjugate-Acid-Base-Pair-context-1]
+       )))
+       (context ((if (((the element of Self) isa Base)
+			 or
+			 (the Base-Role plays of (the element of Self))
+			 or
+			 (the Lewis-Base-Role plays of (the element of Self))
+			 or
+			 ((the has-basic-structural-unit of (the element of Self)) isa Base)
+			 or
+			 (the Base-Role plays of (the has-basic-structural-unit of (the element of Self)))
+			 or
+			 (the Lewis-Base-Role plays of (the has-basic-structural-unit of (the element of Self)))
+			 )
+			then
+		      (the output of (a Compute-Conjugate-Acid with
+					(input ((the element of Self)))))
+                    [Conjugate-Acid-Base-Pair-context-2]
+       )))
+
+       (complement ((if ((the context of Self) /= "none") 
+			then
+		      (if ((the number of (the context of Self)) > 1)
+			  then
+			(the context of Self)
+			else
+			(if (has-value 
+			     (the output of 
+				  (a Identify-Chemical with
+				  (input ((the context of Self))))))
+			    then ((the output of (a Identify-Chemical with
+						    (input ((the context of Self))))))
+			    else (the context of Self))))))
+       )
+
+(comment [Conjugate-Acid-Base-Pair-context-1]
+  (:seq "The conjugate base of"
+        (the text-gen of (the element of Self))
+        "is thus"
+        (the text-gen of (the complement of Self))
+  )
+  (:seq "Finding the conjugate base of"
+        (the text-gen of (the element of Self))
+        "nospace" ":"
+  )
+  (:triple (a Compute-Conjugate-Base with 
+              (input ((the element of Self)))
+           )
+           output
+           *
+  )
+)
+
+(comment [Conjugate-Acid-Base-Pair-context-2]
+  (:seq "The conjugate acid of"
+        (the text-gen of (the element of Self))
+        "is thus"
+        (the text-gen of (the complement of Self))
+  )
+  (:seq "Finding the conjugate acid of"
+        (the text-gen of (the element of Self))
+        "nospace" ":"
+  )
+  (:triple (a Compute-Conjugate-Acid with 
+              (input ((the element of Self)))
+           )
+           output
+           *
+  )
+)
+
+
+(Conjugate-Acid-Base-Pair 
+ has
+ (test-case (' (
+		((the elements of
+		      (the term of
+			   (the atomic-chemical-formula of
+				(the has-basic-structural-unit of
+				     (the complement of
+					  (a Conjugate-Acid-Base-Pair with
+					     (element ((a Anion-Substance with
+							  (has-basic-structural-unit ((a NO2-Minus))))))))))))
+		 = (:set (:pair 1 H) (:pair 1 N) (:pair 2 O)))
+
+		((the complement of
+		      (a Conjugate-Acid-Base-Pair with
+			 (element ((a NO2-Minus-Substance)))))
+		 isa HNO2-Substance)
+
+		((the elements of
+		      (the term of
+			   (the atomic-chemical-formula of
+				(the has-basic-structural-unit of
+				     (the complement of
+					  (a Conjugate-Acid-Base-Pair with
+					     (element ((a Cation-Substance with
+							  (has-basic-structural-unit ((a NH4-Plus))))))))))))
+		      = (:set (:pair 1 N) (:pair 3 H)))
+
+		((the complement of
+		      (a Conjugate-Acid-Base-Pair with
+			 (element ((a NH4-Plus-Substance)))))
+		 isa NH3-Substance)
+		
+		))))

@@ -1,0 +1,26 @@
+
+;;
+;;  $Id: Cross.km,v 1.5 2005/11/07 20:38:02 kbarker Exp $
+;;
+
+(Cross has
+  (superclasses (Non-Engagement-Military-Task Locomotion))
+  (description ("a tactical mission task to move over or across a terrain"))
+)
+
+
+(every Cross has
+  (agent ((a Military-Unit)))
+  (path ((a Spatial-Entity)))
+
+  (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                            (value ((:pair 0.99 NIL))))))
+
+
+  (text-nominalization ("crossing"))
+  (text-path (""))
+  (text-argslots ((:seq path)))
+  (text-active-verbseq-sg ("crosses"))
+  (text-active-verbseq-pl ("cross"))
+)
+

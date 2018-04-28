@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Molecular-Compound.km,v 1.7 2005/08/29 22:14:50 jfan Exp $ 
+;; 
+
+(Molecular-Compound has
+		    (superclasses (Compound))
+		    (test-case ()))
+
+(every Molecular-Compound has
+       (has-part ((mustnt-be-a Ion)))
+       (has-chemical-formula ((if (not (the has-chemical-formula of Self))
+				  then
+				(a Chemical-Formula with
+				   (term ((the term of 
+					       (the nested-atomic-chemical-formula of Self))))))))
+       )
+
+

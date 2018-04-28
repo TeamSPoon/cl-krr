@@ -1,0 +1,13 @@
+;;
+;; $Id: NaOH-Substance.km,v 1.2 2003/03/26 22:48:42 jchaw Exp $
+;;
+
+(NaOH-Substance has (superclasses (Base)))
+
+(every NaOH-Substance has
+       (plays ((a Base-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *strong Base)))))))))
+   (has-basic-structural-unit ((a NaOH)))
+)
+

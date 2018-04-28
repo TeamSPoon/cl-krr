@@ -1,0 +1,16 @@
+;;
+;; $Id: CO-Compound.km,v 1.2 2006/03/16 23:08:28 jfan Exp $
+;;
+
+(CO-Compound has (superclasses (Inorganic-Molecule)))
+
+(every CO-Compound has	
+       (has-chemical-name ("carbon monoxide"))
+       (nested-atomic-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 C)
+		    (:pair 1 O))))))))
+(every CO-Compound has-definition
+       (instance-of (Chemical-Entity))
+       (has-chemical-name ("carbon monoxide")))

@@ -1,0 +1,79 @@
+;; 
+;;    $Id: UoM-Length.km,v 1.15 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(UoM-Length has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*meter))
+ (instances (*kilometer *inch *foot *mile *yard *meter *centimeter *millimeter 
+             *micrometer *nanometer)))
+
+(*kilometer has (instance-of (UoM-Length))
+            (name ("km"))
+	    (wn20-synset ((:set (:triple "kilometer" 0 "n")
+				(:triple "kilometers" 0 "n")
+				(:triple "km" 0 "n")))))
+
+(*inch has (instance-of (UoM-Length))
+            (name ("in"))
+	    (wn20-synset ((:set (:triple "inch" 0 "n")
+				(:triple "inches" 0 "n")
+				(:triple "in" 0 "n")))))
+
+(*foot  has (instance-of (UoM-Length))
+            (name ("ft"))
+	    (wn20-synset ((:set (:triple "foot" 0 "n")
+				(:triple "feet" 0 "n")
+				(:triple "ft" 0 "n")))))
+
+(*mile  has (instance-of (UoM-Length))
+            (name ("mi"))
+	    (wn20-synset ((:set (:triple "mile" 0 "n")
+				(:triple "miles" 0 "n")
+				(:triple "mi" 0 "n")))))
+
+(*yard  has (instance-of (UoM-Length))
+            (name ("yd"))
+	    (wn20-synset ((:set  (:triple "yard" 0 "n")
+				 (:triple "yards" 0 "n")))))
+
+(*meter  has (instance-of (UoM-Length))
+            (name ("m"))
+	    (wn20-synset ((:set (:triple "meter" 0 "n")
+				(:triple "meters" 0 "n")
+				(:triple "m" 0 "n")))))
+
+(*centimeter  has (instance-of (UoM-Length))
+            (name ("cm"))
+	    (wn20-synset ((:set (:triple "centimeter" 0 "n")
+				(:triple "centimeters" 0 "n")
+				(:triple "cm" 0 "n")))))
+
+(*millimeter  has (instance-of (UoM-Length))
+            (name ("mm"))
+	    (wn20-synset ((:set (:triple "millimeter" 0 "n")
+				(:triple "millimeters" 0 "n")
+				(:triple "mm" 0 "n")))))
+
+(*micrometer  has (instance-of (UoM-Length))
+            (name ("um"))
+	    (wn20-synset ((:set (:triple "micrometer" 0 "n")
+				(:triple "micrometers" 0 "n")))))
+
+(*nanometer  has (instance-of (UoM-Length))
+            (name ("nm"))
+	    (wn20-synset ((:set (:triple "nanometer" 0 "n")
+				(:triple "nm" 0 "n")))))
+
+
+
+(*kilometer has (conversion-multiplier (1000.0)))
+(*inch has (conversion-multiplier (0.0254)))
+(*foot has (conversion-multiplier (0.3048)))
+(*mile has (conversion-multiplier (1609.344)))
+(*yard has (conversion-multiplier (0.9144)))
+(*meter has (conversion-multiplier (1.0)))
+(*centimeter has (conversion-multiplier (0.01)))
+(*millimeter has (conversion-multiplier (0.001)))
+(*micrometer has (conversion-multiplier (1.0e-6)))
+(*nanometer has (conversion-multiplier (1.0e-9)))

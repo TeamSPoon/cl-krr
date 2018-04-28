@@ -1,0 +1,22 @@
+;;
+;; $Id: C8H18.km,v 1.1 2007/12/02 05:33:31 vaibhav Exp $
+;;
+
+(C8H18 has (superclasses (Hydrocarbon-Molecule)))
+
+(every C8H18 has
+       (has-chemical-name ("octane"))
+       (nested-atomic-chemical-formula
+        ((a Chemical-Formula with
+            (term ((:seq
+                    (:pair 8 C)
+                    (:pair 18 H))))))))
+
+
+
+(every C8H18 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("octane"))
+)
+

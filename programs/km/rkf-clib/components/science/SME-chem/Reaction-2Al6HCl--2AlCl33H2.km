@@ -1,0 +1,298 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-2Al6HCl--2AlCl33H2 ----------
+
+(Reaction-2Al6HCl--2AlCl33H2 has (superclasses (Reaction)))
+
+(_Reaction-2Al6HCl--2AlCl33H23404 has 
+  (instance-of (Reaction-2Al6HCl--2AlCl33H2))
+  (prototype-of (Reaction-2Al6HCl--2AlCl33H2))
+  (prototype-scope (Reaction-2Al6HCl--2AlCl33H2))
+  (prototype-participants (_Property-Node3493
+                           _Property-Node3492
+                           _Property-Node3491
+                           _Property-Node3490
+                           _Chemical3488
+                           _Coefficient-Value3487
+                           _Chemical-Entity3486
+                           _Chemical-Entity3480
+                           _Chemical3479
+                           _Coefficient-Value3478
+                           _Chemical-Entity3477
+                           _Chemical3475
+                           _Coefficient-Value3474
+                           _Chemical-Entity3472
+                           _Chemical3471
+                           _Coefficient-Value3470
+                           _Reaction-2Al6HCl--2AlCl33H23404))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (big-nodes (_Property-Node3490
+              _Property-Node3491
+              _Property-Node3492
+              _Property-Node3493))
+  (raw-material (_Chemical3479
+                 _Chemical3488))
+  (result (_Chemical3471
+           _Chemical3475))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3471 t)
+                    (:seq raw-material _Chemical3479 t)
+                    (:seq raw-material _Chemical3488 t)
+                    (:seq result _Chemical3475 t))))
+
+(_Property-Node3493 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3474))
+  (contains-edge ((:triple _Coefficient-Value3474 value (:pair 3 *unity))))
+  (big-node-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Property-Node3492 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3470))
+  (contains-edge ((:triple _Coefficient-Value3470 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Property-Node3491 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3487))
+  (contains-edge ((:triple _Coefficient-Value3487 value (:pair 6 *unity))))
+  (big-node-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Property-Node3490 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3478))
+  (contains-edge ((:triple _Coefficient-Value3478 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Chemical3488 has 
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity3486))
+  (coefficient (_Coefficient-Value3487))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3487 t)))
+  (raw-material-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Coefficient-Value3487 has 
+  (contains-node-of (_Property-Node3491))
+  (coefficient-of (_Chemical3488))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 6 *unity)))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Chemical-Entity3486 has 
+  (is-basic-structural-unit-of (_Chemical3488))
+  (instance-of (Chemical-Entity
+                HCl))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Chemical-Entity3480 has 
+  (instance-of (Chemical-Entity
+                Al))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3479))
+  (atomic-symbol (Al))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Chemical3479 has 
+  (has-basic-structural-unit (_Chemical-Entity3480))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3478))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3478 t)))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Coefficient-Value3478 has 
+  (contains-node-of (_Property-Node3490))
+  (coefficient-of (_Chemical3479))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Chemical-Entity3477 has 
+  (instance-of (Chemical-Entity
+                H2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3475))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Chemical3475 has 
+  (has-basic-structural-unit (_Chemical-Entity3477))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3474))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3474 t)))
+  (result-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Coefficient-Value3474 has 
+  (contains-node-of (_Property-Node3493))
+  (coefficient-of (_Chemical3475))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 3 *unity)))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Chemical-Entity3472 has 
+  (instance-of (Chemical-Entity
+                AlCl3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3471))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Chemical3471 has 
+  (has-basic-structural-unit (_Chemical-Entity3472))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-2Al6HCl--2AlCl33H23404))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3470))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3470 t)))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(_Coefficient-Value3470 has 
+  (contains-node-of (_Property-Node3492))
+  (coefficient-of (_Chemical3471))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2Al6HCl--2AlCl33H23404)))
+
+(explanation (:triple _Reaction-2Al6HCl--2AlCl33H23404 result _Chemical3475)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Reaction-2Al6HCl--2AlCl33H23404 raw-material _Chemical3488)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Reaction-2Al6HCl--2AlCl33H23404 raw-material _Chemical3479)
+  ((a Chemical (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction raw-material))))
+(explanation (:triple _Reaction-2Al6HCl--2AlCl33H23404 result _Chemical3471)
+  ((a Chemical (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction result))))
+(explanation (:triple _Reaction-2Al6HCl--2AlCl33H23404 chemical-equation _Chemical-Equation-Expression3406)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-2Al6HCl--2AlCl33H23404) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-2Al6HCl--2AlCl33H23404) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-2Al6HCl--2AlCl33H23404) (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction chemical-equation))))
+(explanation (:triple _Reaction-2Al6HCl--2AlCl33H23404 instance-of Reaction-2Al6HCl--2AlCl33H2)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical3488 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3488 coefficient _Coefficient-Value3487)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical3488 has-basic-structural-unit _Chemical-Entity3486)
+  ((a Chemical-Entity (@ _Chemical3488 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3488 instance-of Chemical)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Coefficient-Value3487 value (:pair 6 *unity))
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Coefficient-Value3487 instance-of Coefficient-Value)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical-Entity3486 atomic-chemical-formula _Chemical-Formula3446)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3486)) or (the term of (the has-chemical-formula of _Chemical-Entity3486)) (@ _Chemical-Entity3486 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3486)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3486))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3486)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3486)))))))))) (@ _Chemical-Entity3486 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3486 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3486 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3486 nested-atomic-chemical-formula _Chemical-Formula3437)
+  ((_Chemical-Formula3437)))
+(explanation (:triple _Chemical-Entity3486 nested-atomic-chemical-formula _Chemical-Formula3437)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity3486)) and (the has-chemical-formula of _Chemical-Entity3486) (@ _Chemical-Entity3486 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity3486)))) (@ _Chemical-Entity3486 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity3486 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3486 has-chemical-formula _Chemical-Formula3435)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 H-Plus) (:pair 1 Cl-Minus)))) (@ _Chemical-Entity3486 HCl has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3486 has-chemical-formula _Chemical-Formula3435)
+  ((if ((the has-part of _Chemical-Entity3486) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity3486)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity3486)))) (@ _Chemical-Entity3486 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity3486) (the Anion has-part of _Chemical-Entity3486)))) (@ _Chemical-Entity3486 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity3486) (@ _Chemical-Entity3486 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3486 instance-of HCl)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical-Entity3486 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3488 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3480 atomic-chemical-formula _Chemical-Formula3463)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3480)) or (the term of (the has-chemical-formula of _Chemical-Entity3480)) (@ _Chemical-Entity3480 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3480)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3480))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3480)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3480)))))))))) (@ _Chemical-Entity3480 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3480 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3480 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3480 atomic-chemical-formula _Chemical-Formula3463)
+  ((the nested-atomic-chemical-formula of _Chemical-Entity3480 (@ _Chemical-Entity3480 Atom atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3480 nested-atomic-chemical-formula _Chemical-Formula3463)
+  ((if (the atomic-symbol of _Chemical-Entity3480 (@ _Chemical-Entity3480 Atom nested-atomic-chemical-formula)) then (a Chemical-Formula with (term ((:seq (:pair 1 (the atomic-symbol of _Chemical-Entity3480))))) (@ _Chemical-Entity3480 Atom nested-atomic-chemical-formula)) (@ _Chemical-Entity3480 Atom nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3480 instance-of Al)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical-Entity3480 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3479 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3479 has-basic-structural-unit _Chemical-Entity3480)
+  ((a Chemical-Entity (@ _Chemical3479 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3479 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3479 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction raw-material))))
+(explanation (:triple _Chemical3479 coefficient _Coefficient-Value3478)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical3479 instance-of Chemical)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Coefficient-Value3478 value (:pair 2 *unity))
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Coefficient-Value3478 instance-of Coefficient-Value)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical-Entity3477 atomic-chemical-formula _Chemical-Formula3461)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3477)) or (the term of (the has-chemical-formula of _Chemical-Entity3477)) (@ _Chemical-Entity3477 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3477)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3477))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3477)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3477)))))))))) (@ _Chemical-Entity3477 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3477 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3477 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3477 nested-atomic-chemical-formula _Chemical-Formula3459)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H)))) (@ _Chemical-Entity3477 H2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3477 instance-of H2)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical-Entity3477 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3475 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3475 instance-of Entity)
+  ((a Entity (@ _Reaction-2Al6HCl--2AlCl33H23404 Event (result must-be-a)))))
+(explanation (:triple _Chemical3475 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3475 coefficient _Coefficient-Value3474)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical3475 has-basic-structural-unit _Chemical-Entity3477)
+  ((a Chemical-Entity (@ _Chemical3475 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3475 instance-of Chemical)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Coefficient-Value3474 value (:pair 3 *unity))
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Coefficient-Value3474 instance-of Coefficient-Value)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical-Entity3472 instance-of AlCl3)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical-Entity3472 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3471 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3471 has-basic-structural-unit _Chemical-Entity3472)
+  ((a Chemical-Entity (@ _Chemical3471 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3471 instance-of Entity)
+  ((a Entity (@ _Reaction-2Al6HCl--2AlCl33H23404 Event (result must-be-a)))))
+(explanation (:triple _Chemical3471 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3471 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2Al6HCl--2AlCl33H23404 Reaction result))))
+(explanation (:triple _Chemical3471 coefficient _Coefficient-Value3470)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Chemical3471 instance-of Chemical)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Coefficient-Value3470 value (:pair 2 *unity))
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+(explanation (:triple _Coefficient-Value3470 instance-of Coefficient-Value)
+  ((added-at Reaction-2Al6HCl--2AlCl33H2 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

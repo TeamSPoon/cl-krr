@@ -1,0 +1,20 @@
+;; 
+;;    $Id: component.km,v 1.9 2008/05/12 04:40:35 jchaw Exp $
+;; 
+
+(component has
+   (instance-of (KM-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (System))
+   (range (Thing))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   (cardinality (N-to-1))
+;   (dont-cache-values  (t))
+)
+
+(component now-has (shaken-ui-hidden-slot (f)))
+
+(component-of has
+   (instance-of (KM-Slot-Group)))

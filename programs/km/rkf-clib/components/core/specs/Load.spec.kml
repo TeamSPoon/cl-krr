@@ -1,0 +1,101 @@
+<!--- $Id: Load.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<kml>
+
+<concept name=Load><system-documentation name=Load>
+<superconcept name=Move-Into>
+
+<definition>
+
+  Insert something into a device, 
+  thereby causing the device to be <conceptref name=Activate>d.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that is inserted
+  </slotdescription>
+
+  <slotdescription name=base>
+     the Tangible-Entity, playing the role of <conceptref name=Container>,
+     into which the <slot>object</slot> is inserted.  The Load action 
+     <slot>causes</slot> an <conceptref name=Activate> of the 
+     <slot>base</slot>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the load to occur
+  </slotdescription>
+
+  <slotdescription name=path>
+    the <conceptref name=Portal> through which the 
+    <slot>object</slot> enters the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the load.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-outside</slot> the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the load.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-inside</slot> the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves during 
+    the load.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from during 
+    the load.  Unlike the
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The sheriff loaded the gun with six bullets.</text>
+    <slotdescription name=object>six bullets</slotdescription>
+    <slotdescription name=base>gun</slotdescription>
+    <slotdescription name=agent>the sheriff</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move-Into>
+     Load is a special type of Move-Into which causes the base
+     to be <conceptref name=Activate>d
+  </neighbor>
+
+  <neighbor name=Enter>
+     Enter is a special type of Move-Into in which the
+     <slot>object</slot> moves of its own volition, i.e. 
+     it locomotes
+  </neighbor>
+
+  <neighbor name=Take-In>
+     Take-In is a special type of Move-Into in which a Tangible-Entity,
+     playing the role of a <conceptref name=Container>, takes something
+     from the outside into itself
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

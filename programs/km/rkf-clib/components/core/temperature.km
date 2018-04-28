@@ -1,0 +1,25 @@
+;; 
+;;    $Id: temperature.km,v 1.13 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(temperature has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))
+   (range       (Temperature-Value))
+   (scale-class (Temperature-Scale))    
+   (scalar-constant-class (Temperature-Constant))
+   (cardinal-unit-class   (UoM-Temperature))
+   (inverse 	(temperature-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(temperature has (wn20-synset ((:set
+                               (:triple "temperature" 1 "n")
+))))
+
+(temperature-of has
+	(instance-of (EntityProperty)))

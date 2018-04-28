@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Protein-Domain.km,v 1.6 2001/05/31 21:50:10 pnav Exp $ 
+;; 
+
+(Protein-Domain has
+	 (superclasses (Polypeptide))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+	 (cmap-correspondence ())
+         (description ("Compact and stably folded has-region of polypeptide. 
+                        Alberts:ECB:G-6."))
+	 (test-case ()))
+
+(every Protein-Domain has
+       (is-part-of  ((a Protein))))
+
+
+

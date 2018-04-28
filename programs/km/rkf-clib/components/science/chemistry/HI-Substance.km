@@ -1,0 +1,11 @@
+;; 
+;;    $Id: HI-Substance.km,v 1.5 2003/04/22 18:24:57 jchaw Exp $
+;; 
+
+(HI-Substance has (superclasses (Acid)))
+
+(every HI-Substance has
+       (plays ((a Acid-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *strong Acid)))))))))
+       (has-basic-structural-unit ((a HI))))

@@ -1,0 +1,18 @@
+;; 
+;;    $Id: information-language.km,v 1.4 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(information-language has
+  (instance-of (CLIB-Slot-Group))
+  (superslots ())
+  (subslots ())
+  (domain (Message))
+  (range (Language))
+  (inverse (information-language-of))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+  (cardinality (N-to-N))
+)
+
+(information-language-of has
+   (instance-of (CLIB-Slot-Group)))

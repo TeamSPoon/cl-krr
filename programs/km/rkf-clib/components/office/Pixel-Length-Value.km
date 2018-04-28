@@ -1,0 +1,16 @@
+;;
+;; $Id: Pixel-Length-Value.km,v 1.2 2005/02/14 22:27:41 kbarker Exp $
+;;
+
+
+(Pixel-Length-Value has 
+   (superclasses (Property-Value)))
+
+(every Pixel-Length-Value has
+   (property-slot (pixel-length))
+   (pixel-length-of ((must-be-a Computer-Display)))
+   (less-than ((must-be-a Pixel-Length-Value)))
+   (greater-than ((must-be-a Pixel-Length-Value)))
+   (same-as ((must-be-a Pixel-Length-Value)))
+)
+

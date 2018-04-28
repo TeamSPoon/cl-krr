@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Methyl-Group.km,v 1.15 2001/06/01 14:59:17 pnav Exp $ 
+;; 
+
+(Methyl-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Hydrophobic chemical group derived from methane.
+                             Alberts:ECB:G-11."))
+	      (cmap-correspondence ()))
+
+(every Methyl-Group has
+       (has-part
+	((a Carbon-Atom with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Hydrogen-1")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Hydrogen-2")))
+                 (instrument ((a Covalent-CH-Bond))) )   
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Hydrogen-3")))
+                 (instrument ((a Covalent-CH-Bond))) )   
+	      )))
+	 (a Hydrogen-Atom uniquely-called "Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "Hydrogen-2") 
+	 (a Hydrogen-Atom uniquely-called "Hydrogen-3")
+	 (exactly 3 Hydrogen-Atom))))
+
+

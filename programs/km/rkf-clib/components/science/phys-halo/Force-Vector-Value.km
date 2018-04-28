@@ -1,0 +1,56 @@
+;;
+;;    $Id: Force-Vector-Value.km,v 1.8 2008/07/04 15:18:13 kbarker Exp $
+;;
+
+(Force-Vector-Value has 
+  (description ("A vector measure of the push or pull exerted on an object"))
+  (superclasses (Property-Vector-Value)))
+
+(every Force-Vector-Value has
+	(primary-slot (applied-force average-force friction-force net-force normal-force tangential-force total-force weight-force))
+	(secondary-slot (force-magnitude))
+  (x-component-slot (x-force-magnitude))
+  (y-component-slot (y-force-magnitude))
+  	(force-magnitude (( a Force-Magnitude-Value )))
+  	(direction (( a Angle-Value )))
+  	(x-force-magnitude (( a Force-Magnitude-Value )))
+  	(y-force-magnitude (( a Force-Magnitude-Value )))
+
+	(component-of (( a System with
+                  ( equation (( a Equation-Set with
+                                ( equation-uses (( the y-force-magnitude of Self )
+                                                 ( the force-magnitude of Self )
+                                                 ( the direction of Self )))
+                                ( equation-symbol (( :pair (QUOTE f_y) ( the y-force-magnitude of Self ))
+                                                   ( :pair (QUOTE f) ( the force-magnitude of Self ))
+                                                   ( :pair (QUOTE theta) ( the direction of Self ))))
+                                ( equation-expression (( QUOTE ( = f_y ( * f (sin theta)))))))
+
+                              ( a Equation-Set with
+                                ( equation-uses (( the x-force-magnitude of Self )
+                                                 ( the force-magnitude of Self )
+                                                 ( the direction of Self )))
+                                ( equation-symbol (( :pair (QUOTE f_x) ( the x-force-magnitude of Self ))
+                                                   ( :pair (QUOTE f) ( the force-magnitude of Self ))
+                                                   ( :pair (QUOTE theta) ( the direction of Self ))))
+                                ( equation-expression (( QUOTE ( = f_x ( * f (cos theta)))))))
+
+                              ( a Equation-Set with
+                                ( equation-uses (( the force-magnitude of Self )
+                                                 ( the x-force-magnitude of Self )
+                                                 ( the y-force-magnitude of Self )))
+                                ( equation-symbol (( :pair (QUOTE f) ( the force-magnitude of Self ))
+                                                   ( :pair (QUOTE f_x) ( the x-force-magnitude of Self ))
+                                                   ( :pair (QUOTE f_y) ( the y-force-magnitude of Self ))))
+                                ( equation-expression (( QUOTE ( = f (sqrt (+ (expt f_y 2) (expt f_x 2))))))))
+
+                              ( a Equation-Set with
+                                ( equation-uses (( the direction of Self )
+                                                 ( the x-force-magnitude of Self )
+                                                 ( the y-force-magnitude of Self )))
+                                ( equation-symbol (( :pair (QUOTE theta) ( the direction of Self ))
+                                                   ( :pair (QUOTE f_x) ( the x-force-magnitude of Self ))
+                                                   ( :pair (QUOTE f_y) ( the y-force-magnitude of Self ))))
+                                ( equation-expression (( QUOTE ( = theta ( atan f_y f_x ))))))))))))
+
+

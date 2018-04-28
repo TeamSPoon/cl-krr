@@ -1,0 +1,18 @@
+;; 
+;; $Id: bit-length.km,v 1.1 2004/10/18 20:01:53 kbarker Exp $
+;; 
+
+(bit-length has
+  (instance-of (Property))
+  (superslots  ())
+  (subslots    ())
+  (domain      (Computer-Equipment))    
+  (range       (Bit-Length-Value))
+  (scalar-constant-class (Bit-Length-Constant))
+  (cardinal-unit-class (UoM-Bit-Length))
+  (inverse     (bit-length-of))
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (cardinality (N-to-1))
+)
+

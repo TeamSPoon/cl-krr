@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Bacterial-RNA-Transcript.km,v 1.8 2001/05/18 13:14:01 souther Exp $ 
+;; 
+
+(Bacterial-RNA-Transcript has
+         (superclasses (RNA-Transcript))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("RNA product of DNA transcription in bacteria.
+                        Alberts:MBC:1994."))
+         (test-case ()))
+
+(every Bacterial-RNA-Transcript has
+       (result-of ((must-be-a Bacterial-DNA-Transcription)))
+       )
+
+
+

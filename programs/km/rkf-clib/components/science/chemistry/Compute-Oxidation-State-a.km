@@ -1,0 +1,226 @@
+;
+;; $Id: Compute-Oxidation-State-a.km,v 1.10 2005/08/25 16:22:58 jfan Exp $
+;;
+(Compute-Oxidation-State-a has
+                         (superclasses (Method)))
+
+(every Compute-Oxidation-State-a has
+       ;; input can be any kind of Chemical-Entity
+       (input ((a Chemical-Entity))) 
+       ;; Fluorine always has oxidation state -1
+       (output (
+         (forall (the2 of 
+                       (the elements of
+                            (the term of 
+                                 (the atomic-chemical-formula of 
+                                      (the input of Self)))))
+                 where (It = F)
+                 (:pair -1 F)
+          [Compute-Oxidation-State-a-output-1]
+         )
+       ))
+
+       ;; alkali metal atoms (except H)
+       (output (
+         (forall (the2 of
+                       (the elements of
+                            (the term of
+                                 (the atomic-chemical-formula of
+                                      (the input of Self)))))
+                 where ((oneof2 (the all-subclasses of Alkali-Metal-Element)
+                                where (It = It2)
+                        )
+                        and
+                        (It /= H)
+                       )
+                 (:pair 1 It)
+          [Compute-Oxidation-State-a-output-2]
+       )))
+ 
+       ;; alkali earth atoms
+       (output (
+         (forall (the2 of
+                       (the elements of
+                            (the term of
+                                 (the atomic-chemical-formula of
+                                      (the input of Self)))))
+                 where (
+                   (oneof2 (the all-subclasses of Alkaline-Earth-Metal-Element)
+                           where (It = It2)
+                   )
+                   or
+                   (oneof2 (the all-subclasses of IIA-Element)
+                           where (It = It2)
+                   )
+                 )
+                 (:pair 2 It)
+          [Compute-Oxidation-State-a-output-3]
+       )))
+
+       ;; hydrogen
+       (output (
+         (forall (the2 of
+                       (the elements of
+                            (the term of
+                                 (the atomic-chemical-formula of
+                                      (the input of Self)))))
+                 where (It = H)
+                 (if                  ;; it is NOT metal-hydride
+                    (not
+                      (((the number of
+                             (the elements of
+                                  (the term of
+                                       (the atomic-chemical-formula of
+                                            (the input of Self)))))
+                        = 2
+                       )
+                       and
+                       (oneof2 (the elements of 
+                                    (the term of
+                                         (the atomic-chemical-formula of
+                                              (the input of Self))))
+                               where
+                               ((((the2 of It2) is-subsumed-by Alkali-Metal-Element)
+                                and
+                                ((the2 of It2) /= H))
+                               or
+                               ((the2 of It2) is-subsumed-by Alkaline-Earth-Metal-Element)
+                               or
+                               ((the2 of It2) is-subsumed-by IIA-Element))
+                       )
+                      )
+                    )
+                  then (:pair 1 H)
+                  else (:pair -1 H)
+                 )
+          [Compute-Oxidation-State-a-output-4]
+       )))
+
+       ;; halogens
+       (output (
+         (forall (the2 of
+                       (the elements of
+                            (the term of
+                                 (the atomic-chemical-formula of
+                                      (the input of Self)))))
+                 where ((oneof2 (the all-subclasses of Halogen-Element)
+                                where (It = It2)
+                        )
+                        and
+                        (It /= F)
+                        and
+                        (not (oneof2                 ;; no oxygen
+                                (the elements of
+                                   (the term of
+                                        (the atomic-chemical-formula of
+                                             (the input of Self))))
+                              where
+                              ((the2 of It2) = O)
+                             )
+                        )
+                        and                          ;; and only one halogen
+                        ((the number of
+                              (allof2 (the elements of
+                                          (the term of
+                                               (the atomic-chemical-formula of
+                                                    (the input of Self))))
+                                     where
+                                     ((the2 of It2) is-subsumed-by Halogen-Element)))
+                         = 1
+                        )
+                       )
+                 (:pair -1 It)
+          [Compute-Oxidation-State-a-output-5]
+	  )))
+       )
+
+(comment [Compute-Oxidation-State-a-output-1]
+  (:seq "Therefore, the oxidation number of F in" 
+        (the text-gen of (the input of Self))
+        "is -1"
+  )
+  "The oxidation number of Fluorine is always -1"
+)
+
+(comment [Compute-Oxidation-State-a-output-2]
+  (:seq "Therefore, the alkali metal atoms ("
+        "nospace"
+        (andify 
+          (forall (the2 of
+                        (the elements of
+                             (the term of
+                                  (the atomic-chemical-formula of
+                                       (the input of Self)))))
+                  where ((oneof2 (the all-subclasses of Alkali-Metal-Element)
+                                 where (It = It2)
+                         )
+                         and
+                         (It /= H)
+                        )
+                  (the text-gen of (an instance of It))
+          )
+        )
+        "nospace"
+        ") in"
+        (the text-gen of (the input of Self))
+        "have an oxidation number of +1"
+  )
+  "Alkali metal atoms within compounds have an oxidation number of +1"
+)
+
+(comment [Compute-Oxidation-State-a-output-3]
+  (:seq "Therefore, the alkali earth atoms ("
+        "nospace"
+        (andify 
+          (forall (the2 of
+                        (the elements of
+                             (the term of
+                                  (the atomic-chemical-formula of
+                                       (the input of Self)))))
+                  where (
+                    (oneof2 (the all-subclasses of Alkaline-Earth-Metal-Element)
+                            where (It = It2)
+                    )
+                    or
+                    (oneof2 (the all-subclasses of IIA-Element)
+                            where (It = It2)
+                    )
+                  )
+                  (the text-gen of (an instance of It))
+          )
+        )
+        "nospace"
+        ") in"
+        (the text-gen of (the input of Self))
+        "have an oxidation number of +2"
+  )
+  "Alkali earth atoms within compounds have an oxidation number of +2"
+)
+
+(comment [Compute-Oxidation-State-a-output-4]
+  (:seq (the text-gen of (the input of Self))
+        (if (forall (the output of Self)
+                    where ((the2 of It) = H)
+                    ((the1 of It) = -1)
+            )
+         then "is a metal hydride compound, so the oxidation number of H is -1"
+         else "is not a metal hydride compound, so the oxidation number of H is +1"
+        )
+  )
+  "Hydrogen has an oxidation number of -1 in a metal hydride compound, otherwise it is +1"
+)
+
+(comment [Compute-Oxidation-State-a-output-5]
+  (:seq (the text-gen of (the input of Self))
+        "does not contain oxygen or another halogen, so the oxidation number of the halogen"
+        (forall (the output of Self)
+                where (oneof2 (the all-subclasses of Halogen-Element) 
+                              where ((the2 of It) = It2)
+                      )                              ;; there will only be one
+                (:seq (the text-gen of (an instance of (the2 of It))) 
+                      "is" (the1 of It))
+        )
+  )
+  "A halogen (other than Fluorine) within a compound that does not contain oxygen or another halogen has an oxidation number of -1"
+)
+

@@ -1,0 +1,14 @@
+;;
+;; $Id: MgSO4.km,v 1.1 2003/04/22 05:29:05 jchaw Exp $
+;;
+
+(MgSO4 has (superclasses (Ionic-Compound)))
+
+(every MgSO4 has	
+       (has-part 
+	((a Mg-Plus-2) (a SO4-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Mg-Plus-2)
+			 (:pair 1 SO4-Minus-2)))))))
+)

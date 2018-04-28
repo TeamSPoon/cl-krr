@@ -1,0 +1,19 @@
+;; 
+;;    $Id: allegiance.km,v 1.5 2002/09/20 14:29:37 kbarker Exp $
+;; 
+
+(allegiance has
+   (instance-of (Property))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Entity))              ;; Military-Units, Terrain, etc.
+   (range       (Allegiance-Value))
+   (categorical-constant-class (Allegiance-Constant))
+   (inverse 	(allegiance-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(allegiance-of has
+   (combine-values-by-appending (t)))
+

@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Catabolic-Enzyme.km,v 1.10 2001/05/15 21:19:07 jfan Exp $ 
+;; 
+
+(Catabolic-Enzyme has
+         (superclasses (Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("An enzyme involved in the breakdown of large molecules
+                        into smaller accompanied by the release of energy.
+                        Souther (see Alberts:ECB:G-3 on catabolic)."))
+         (test-case ()))
+
+(every Catabolic-Enzyme has
+       (purpose ((a Catalyst with
+                    (in-event ((a Catabolize))))
+                 ))
+       )          
+
+
+
+
+
+

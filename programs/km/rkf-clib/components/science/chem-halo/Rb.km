@@ -1,0 +1,15 @@
+;;
+;; $Id: Rb.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Rb has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+(every Rb has
+       (atomic-symbol (Rb))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 39 NIL))))))
+       (has-ion ((a Rb-Plus)))
+       (chemical-period (5)))
+(every Rb has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("rubidium"))
+)

@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Polysaccharide.km,v 1.9 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Polysaccharide has
+         (superclasses (Macromolecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Linear or branched polymer composed of sugars.
+                        Examples are glycogen and cellulose.
+                        Alberts:ECB:G-14."))
+         (test-case ()))
+
+(every Polysaccharide has    
+
+       (element-type (Monosaccharide))
+       )
+
+
+

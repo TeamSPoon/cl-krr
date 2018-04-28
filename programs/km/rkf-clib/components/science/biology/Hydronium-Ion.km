@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Hydronium-Ion.km,v 1.9 2001/06/01 23:26:38 pnav Exp $ 
+;; 
+
+(Hydronium-Ion has
+	       (superclasses (Single-Cation Inorganic-Molecule))
+	       (required-slot ())
+	       (primary-slot ())
+	       (secondary-slot ())
+	       (description ("The positive ion resulting from the addition of a
+                        proton to a water molecule. Souther."))
+	       (cmap-correspondence ())
+	       (test-case ()))
+
+(every Hydronium-Ion has
+       (has-part (
+		  (a Hydrogen-Atom called "first hydrogen")
+		  (a Hydrogen-Atom called "second hydrogen")
+		  (a Hydrogen-Atom called "third hydrogen")
+		  (a Oxygen-Atom with
+		     (object-of
+		      ((a Be-Attached-To with
+			  (object ((((the Hydrogen-Atom has-part of Self)
+				     called "first hydrogen"))
+				   (((the Hydrogen-Atom has-part of Self)
+				     called "the second hydrogen"))
+				   (((the Hydrogen-Atom has-part of Self)
+				     called "the third hydrogen"))
+				   )))))))))
+
+
+

@@ -1,0 +1,9 @@
+;;
+;; $Id: H-Plus-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $ 
+;;
+
+(H-Plus-Substance has (superclasses (Cation-Substance)))
+
+(every H-Plus-Substance has-definition
+       (instance-of (Ionic-Substance))
+       (has-basic-structural-unit ((a H-Plus))))

@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Inorganic-Substance.km,v 1.9 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Inorganic-Substance has
+		     (superclasses (Chemical))
+		     (required-slot ())
+		     (primary-slot ())
+		     (secondary-slot ())
+		     (description ("Any chemical substance which does not 
+                                    contain hydrocarbons."))
+		     (cmap-correspondence ()))
+
+(every Inorganic-Substance has
+       (has-structural-part
+        ((mustnt-be-a Carbohydrate)
+         )))   
+
+(every Inorganic-Substance has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

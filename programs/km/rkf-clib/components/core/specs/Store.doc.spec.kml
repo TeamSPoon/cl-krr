@@ -1,0 +1,51 @@
+<!--- $Id: Store.doc.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Store::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Store>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Store>
+  <definition>To Store an Entity in a Tangible-Entity</definition>
+  <requiredslot name=object>
+    <restriction>a Entity</restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Stored> <conceptref name=State>. <slot>base</slot>
+      is the <slot>base</slot> of a <conceptref name=Be-Stored> 
+      <conceptref name=State>.
+    </restriction>
+    <restriction>the <slot>base</slot> now has the <slot>object</slot> as
+      one of its <slot>content</slot>s.
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be stored in the <slot>base</slot></restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>a Entity</restriction>
+    <restriction>used in Storing the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>store#1, store#2, store#3
+  </verb></wnsynsets>bank#5, cache#1, deposit#2, garner#2, hive_up#1, hoard#1, hold_on#5, keep#3, lay_aside#1, lay_away#1, lay_in#1, put_in#3, salt_away#1, save#5, save_up#1, squirrel_away#1, stack_away#1, stash#1, stash_away#1, stow#2
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Strictly, to Store is to cause the <slot>object</slot> and <slot>base</slot>
+to be in a <conceptref name=Be-Stored> State. In addition, the <slot>base</slot>
+now has the <slot>object</slot> as one of its <slot>content</slot>s.
+</musing>
+
+</kml>
+
+

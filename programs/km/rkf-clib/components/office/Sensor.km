@@ -1,0 +1,24 @@
+;;
+;; $Id: Sensor.km,v 1.13 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(Sensor has
+	(description ("Any device that responds to a physical stimulus (e.g. light, sound, motion, magnetism, thermal energy, etc) and converts it into a signal for recording and/or display purposes."))
+	(superclasses (Device)))
+
+(Sensor has (wn20-synset ((:set
+			   (:triple "sensor" 1 "n")
+			   (:triple "detector" 1 "n")
+			   (:triple "sensing_element" 1 "n")
+))))
+
+
+
+
+
+
+
+(Sensor has
+  (feature-slot ((the feature-slot of Device)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Sensor)))))
+

@@ -1,0 +1,57 @@
+<!--- $Id: temporally-meets.spec.kml,v 1.4 2002/08/28 20:25:42 tecuci Exp $ --->
+
+<kml>
+
+<relation-doc name=temporally-meets/temporally-met-by>
+
+
+<from name=Time-Interval>
+<to name=Time-Interval>
+
+<description> 
+  asserts that two Time-Intervals meet (abut) each other
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-from>(The time of) the wedding</ex-from> was immediately
+    followed by <ex-to>(the time of) the reception</ex-to>.</text>
+  </examplesentence>
+
+  <comment>
+     Here's how this example might be represented.
+     First, the wedding is related to its Time-Interval using the
+     <slot>time</slot> relation.  Similarly, the reception is related
+     to its Time-Interval. Then, those two Time-Intervals are related 
+     by the temporally-meets relation.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=before>
+   Asserts that one Time-Interval comes before another
+ </neighbor>
+
+ <neighbor name=during>
+   Asserts that one Time-Interval is during (completely contained
+   within) another
+ </neighbor>
+
+ <neighbor name=temporally-overlaps>
+   Asserts that one Time-Interval overlaps another, but may not be
+   completely contained within it
+ </neighbor>
+
+ <neighbor name=temporally-starts>
+   Asserts that two Time-Intervals begin together
+ </neighbor>
+
+ <neighbor name=temporally-finishes>
+   Asserts that two Time-Intervals end together
+ </neighbor>
+
+</neighborlist>
+
+</kml>

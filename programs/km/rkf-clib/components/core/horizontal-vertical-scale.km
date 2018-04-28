@@ -1,0 +1,25 @@
+;; 
+;;    $Id: horizontal-vertical-scale.km,v 1.2 2007/07/02 20:43:32 jchaw Exp $
+;; 
+
+(*horizontal-vertical-scale has
+ (instance-of (Slope-Scale))
+
+ (element-type (Slope-Constant))
+ (element ((:seq *horizontal *gradual *steep *vertical)))
+)
+
+(*horizontal has (wn20-synset ((:set
+                               (:triple "horizontal" 1 "a")))))
+
+(*vertical has (wn20-synset ((:set
+                               (:triple "vertical" 1 "a")
+                               (:triple "perpendicular" 2 "a")))))
+
+(*steep has (wn20-synset ((:set
+                               (:triple "steep" 1 "a")
+                               (:triple "steep" 3 "a")))))
+
+(*gradual has (wn20-synset ((:set
+                               (:triple "gradual" 1 "a")
+                               (:triple "gradual" 2 "a")))))

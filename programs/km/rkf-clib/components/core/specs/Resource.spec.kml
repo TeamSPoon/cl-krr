@@ -1,0 +1,82 @@
+<!--- $Id: Resource.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+<concept name=Resource>
+<system-documentation name=Resource>
+
+<superconcept name=Role>
+
+  <definition>
+    A resource is the <conceptref name=Role> played by an entity which
+    enables an event to occur. Some resources are <conceptref name=Consume>d
+    by the event.  
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the <conceptref name=Entity> that's playing the role of Resource
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Event> in which the entity is the Resource
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+   <slotdescription name=instrument>
+     frequently, this is the relationship between the event and the resource
+   </slotdescription>
+   
+   <slotdescription name=raw-material>
+     frequently, this is the relationship between the event and the resource
+   </slotdescription>
+
+</primaryslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The fuel in my tank is a resource for my engine's combustion.</text>
+     <comment>
+     In this example, the Resource role is described with these properties:
+     </comment>
+     <slotdescription name=in-event> my engine's combustion
+     <slotdescription name=played-by> fuel in my tank
+     <p>
+     Finally, the "fuel in my tank" is the <slot>raw-material</slot> of 
+     "my engine's combustion"
+     </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Renewable-Resource>
+     A resource that can be <conceptref name=Replenish>ed
+  </neighbor>
+
+  <neighbor name=Nonrenewable-Resource>
+     A resource that cannot be <conceptref name=Replenish>ed
+  </neighbor>
+
+  <neighbor name=Consume>
+     The act of consuming a resource
+  </neighbor>
+
+  <neighbor name=Replenish>
+     The act of replenishing a resource
+  </neighbor>
+
+  <neighbor name=Money>
+     A resource used in <conceptref name=Buy>ing and <conceptref name=Sell>ing
+  </neighbor>
+
+</neighborlist>
+
+
+</kml>
+

@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Carboxyl-Terminus.km,v 1.9 2001/05/31 21:49:54 pnav Exp $ 
+;; 
+
+(Carboxyl-Terminus has
+         (superclasses (Protein-Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("That end of a polypeptide chain which carries an 
+                        unattached carboxylic acid group. Alberts:ECB:G-3"))
+         (test-case ()))
+
+(every Carboxyl-Terminus has
+       (is-region-of ((must-be-a Amino-Acid-Sequence)))
+       (has-part
+	((a Amino-Acid with
+	    ;; NOTE: Temporarily ommitted! Lacking notion polarity. As a result,
+	    ;; 	     We cannot fully what is meant.
+	    ;;
+            ;; (location ((the Carboxyl-Terminus is-region-of Self)))
+            (has-part
+             ((a Carboxyl-Group with
+                 (object-of
+                  ((mustnt-be-a Be-Attached-To with
+                      (object ((a Amino-Group with
+                                  (is-part-of ((a Amino-Acid))
+                                              )))
+                              )))
+                  )))
+             ))))
+       )     

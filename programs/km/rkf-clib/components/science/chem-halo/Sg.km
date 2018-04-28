@@ -1,0 +1,15 @@
+;;
+;; $Id: Sg.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Sg has (superclasses (Metal-Atom VIB-Element)))
+(every Sg has
+       (atomic-symbol (Sg))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 106 NIL))))))
+       (chemical-period (7)))
+
+(every Sg has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("seaborgium"))
+)

@@ -1,0 +1,42 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Cytosol ----------
+
+(Cytosol has (superclasses (Subcellular-Entity)))
+
+(_Cytosol402 has 
+  (instance-of (Cytosol))
+  (prototype-of (Cytosol))
+  (prototype-scope (Cytosol))
+  (prototype-participants (_Cytoplasm410
+                           _Cytosol402))
+  (prototype-participant-of (_Cytosol402))
+  (has-clones (_Placeholder-Class401404))
+  (has-built-clones (_Placeholder-Class401404))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600)))
+  (is-inside (_Cytoplasm410))
+  (edge-coordinate ((:seq is-inside _Cytoplasm410 173 577)))
+  (edge-visibility ((:seq is-inside _Cytoplasm410 t))))
+
+(_Cytoplasm410 has 
+  (instance-of (Cytoplasm))
+  (has-clones (_Cytoplasm409))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (encloses (_Cytosol402))
+  (node-coordinate ((:pair 296 553)))
+  (prototype-participant-of (_Cytosol402)))
+
+(explanation (:triple _Cytosol402 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cytoplasm410 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Cytosol402 is-inside _Cytoplasm410) ((added-at Cytosol "User defined")))
+(explanation (:triple _Cytosol402 instance-of Placeholder-Class401) ((added-at Placeholder-Class401 "User defined")))
+(explanation (:triple _Cytoplasm410 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cytosol402 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Cytoplasm410 instance-of Cytoplasm) ((added-at Cytosol "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

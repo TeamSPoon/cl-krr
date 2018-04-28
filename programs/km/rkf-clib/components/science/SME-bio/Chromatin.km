@@ -1,0 +1,878 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Chromatin ----------
+
+(Chromatin has (superclasses (Chromosome)))
+
+(_Chromatin537 has 
+  (instance-of (Chromatin))
+  (prototype-of (Chromatin))
+  (prototype-scope (Chromatin))
+  (prototype-participants (_Nucleotide751
+                           _Deoxyribose750
+                           _Chromatid749
+                           _Chromatid748
+                           _Organic-Molecule746
+                           _Polymer745
+                           _Polymer744
+                           _Cytosine743
+                           _Atom742
+                           _Phosphate741
+                           _Guanine740
+                           _Adenine739
+                           _Atom738
+                           _Phosphate728
+                           _Thymine727
+                           _Guanine725
+                           _Atom722
+                           _Phosphate672
+                           _Cytosine670
+                           _Thymine669
+                           _Atom668
+                           _Phosphate665
+                           _Adenine664
+                           _Atom663
+                           _Phosphate641
+                           _Nucleotide640
+                           _Spatial-Entity639
+                           _Atom547
+                           _DNA546
+                           _Atom545
+                           _Protein544
+                           _Chromatin537
+                           _Polymer1455
+                           _Spatial-Entity1456
+                           _Centromere1457
+                           _Chromatid1458
+                           _Amino-Acid7078
+                           _Eukaryotic-Cell2585))
+  (prototype-participant-of (_Chromatin537))
+  (has-clones (_Chromatin170))
+  (has-built-clones (_Chromatin170))
+  (has-basic-structural-unit (_DNA546
+                              _Protein544))
+  (has-part (_Protein544
+             _Chromatid1458))
+  (cloned-from (_Chromosome164
+                _Tangible-Entity172))
+  (clone-built-from (_Chromosome164))
+  (internally-expanded (t))
+  (edge-visibility ((:seq has-basic-structural-unit _Protein544 t)
+                    (:seq has-basic-structural-unit _DNA546 t)
+                    (:seq has-part _Chromatid1458 t)
+                    (:seq has-part _Protein544 t)
+                    (:seq has-region _Centromere1457 t)
+                    (:seq is-inside _Eukaryotic-Cell2585 t)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Protein544 203 546)
+                    (:seq has-basic-structural-unit _DNA546 203 546)
+                    (:seq has-part _Chromatid1458 211 649)
+                    (:seq has-part _Protein544 211 649)
+                    (:seq has-region _Centromere1457 163 490)
+                    (:seq is-inside _Eukaryotic-Cell2585 36 472)))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (has-region (_Centromere1457))
+  (is-inside (_Eukaryotic-Cell2585))
+  (node-never-visible (f))
+  (edge-never-visible ((:seq has-basic-structural-unit _Protein544 t)
+                       (:seq has-basic-structural-unit _DNA546 t)
+                       (:seq has-part _Chromatid1458 t)
+                       (:seq has-part _Protein544 t)
+                       (:seq has-region _Centromere1457 t)
+                       (:seq is-inside _Eukaryotic-Cell2585 t))))
+
+(_Nucleotide751 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_DNA546))
+  (instance-of (Nucleotide))
+  (has-clones (_Nucleotide276))
+  (cloned-from (_Nucleotide338))
+  (node-visibility (f))
+  (node-coordinate ((:pair 651 686)))
+  (node-never-visible (t)))
+
+(_Deoxyribose750 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_DNA546))
+  (instance-of (Deoxyribose))
+  (has-clones (_Deoxyribose275))
+  (cloned-from (_Deoxyribose337))
+  (node-visibility (f))
+  (node-coordinate ((:pair 651 651)))
+  (node-never-visible (t)))
+
+(_Chromatid749 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_DNA546))
+  (instance-of (Chromatid))
+  (has-clones (_Chromatid274))
+  (cloned-from (_Chromatid203
+                _Chromatid530))
+  (clone-built-from (_Chromatid203))
+  (node-visibility (f))
+  (node-coordinate ((:pair 651 616)))
+  (node-never-visible (t)))
+
+(_Chromatid748 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_DNA546))
+  (instance-of (Chromatid))
+  (has-clones (_Chromatid273))
+  (cloned-from (_Chromatid529))
+  (node-visibility (f))
+  (node-coordinate ((:pair 651 581)))
+  (node-never-visible (t)))
+
+(_Organic-Molecule746 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_Polymer745))
+  (instance-of (Organic-Molecule))
+  (has-clones (_Organic-Molecule272))
+  (cloned-from (_Organic-Molecule271
+                _Organic-Molecule327))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1350 50)))
+  (node-never-visible (t)))
+
+(_Polymer745 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_DNA546))
+  (instance-of (Polymer))
+  (has-part (_Organic-Molecule746))
+  (cloned-from (_Polymer268
+                _Polymer326))
+  (clone-built-from (_Polymer268))
+  (node-visibility (f))
+  (node-coordinate ((:pair 651 546)))
+  (edge-coordinate ((:seq has-part _Organic-Molecule746 808 552)))
+  (edge-visibility ((:seq has-part _Organic-Molecule746 f)))
+  (has-clones (_Polymer271))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Organic-Molecule746 t))))
+
+(_Polymer744 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_DNA546))
+  (has-part (_Nucleotide640
+             _Adenine664
+             _Cytosine670
+             _Thymine727
+             _Guanine740))
+  (instance-of (Polymer))
+  (has-clones (_Polymer270))
+  (cloned-from (_Polymer268
+                _Polymer332))
+  (clone-built-from (_Polymer268))
+  (edge-visibility ((:seq has-part _Guanine740 f)
+                    (:seq has-part _Thymine727 f)
+                    (:seq has-part _Cytosine670 f)
+                    (:seq has-part _Adenine664 f)
+                    (:seq has-part _Nucleotide640 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Guanine740 808 517)
+                    (:seq has-part _Thymine727 808 517)
+                    (:seq has-part _Cytosine670 808 517)
+                    (:seq has-part _Adenine664 808 517)
+                    (:seq has-part _Nucleotide640 808 517)))
+  (node-coordinate ((:pair 651 511)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Guanine740 t)
+                       (:seq has-part _Thymine727 t)
+                       (:seq has-part _Cytosine670 t)
+                       (:seq has-part _Adenine664 t)
+                       (:seq has-part _Nucleotide640 t))))
+
+(_Cytosine743 has 
+  (prototype-participant-of (_Chromatin537))
+  (complement-of (_Guanine740))
+  (instance-of (Cytosine))
+  (has-clones (_Cytosine266))
+  (cloned-from (_Cytosine425
+                _Cytosine1531))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1158 93)))
+  (node-never-visible (t)))
+
+(_Atom742 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_Guanine740))
+  (instance-of (Atom))
+  (has-clones (_Atom265))
+  (cloned-from (_Atom347
+                _Atom419
+                _Atom1530))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1158 49)))
+  (node-never-visible (t)))
+
+(_Phosphate741 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_Guanine740))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate264))
+  (cloned-from (_Phosphate346
+                _Phosphate418
+                _Phosphate1528))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1158 5)))
+  (node-never-visible (t)))
+
+(_Guanine740 has 
+  (prototype-participant-of (_Chromatin537))
+  (instance-of (Guanine))
+  (is-part-of (_Polymer744))
+  (complement (_Cytosine743))
+  (has-basic-structural-unit (_Atom742))
+  (has-part (_Phosphate741))
+  (cloned-from (_Nucleotide337
+                _Guanine410
+                _Guanine333))
+  (clone-built-from (_Nucleotide337
+                     _Guanine410))
+  (edge-visibility ((:seq has-part _Phosphate741 f)
+                    (:seq has-basic-structural-unit _Atom742 f)
+                    (:seq complement _Cytosine743 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate741 1008 11)
+                    (:seq has-basic-structural-unit _Atom742 1008 55)
+                    (:seq complement _Cytosine743 1008 99)))
+  (node-coordinate ((:pair 850 50)))
+  (has-clones (_Guanine263))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Phosphate741 t)
+                       (:seq has-basic-structural-unit _Atom742 t)
+                       (:seq complement _Cytosine743 t))))
+
+(_Adenine739 has 
+  (prototype-participant-of (_Chromatin537))
+  (complement-of (_Thymine727))
+  (instance-of (Adenine))
+  (has-clones (_Adenine262))
+  (cloned-from (_Adenine399
+                _Adenine1527))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1259 93)))
+  (node-never-visible (t)))
+
+(_Atom738 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_Thymine727))
+  (instance-of (Atom))
+  (has-clones (_Atom261))
+  (cloned-from (_Atom347
+                _Atom394
+                _Atom1526))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1259 49)))
+  (node-never-visible (t)))
+
+(_Phosphate728 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_Thymine727))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate260))
+  (cloned-from (_Phosphate346
+                _Phosphate393
+                _Phosphate1525))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1259 5)))
+  (node-never-visible (t)))
+
+(_Thymine727 has 
+  (prototype-participant-of (_Chromatin537))
+  (instance-of (Thymine))
+  (is-part-of (_Polymer744))
+  (complement (_Adenine739))
+  (has-basic-structural-unit (_Atom738))
+  (has-part (_Phosphate728))
+  (cloned-from (_Nucleotide337
+                _Thymine385
+                _Thymine334))
+  (clone-built-from (_Nucleotide337
+                     _Thymine385))
+  (edge-visibility ((:seq has-part _Phosphate728 f)
+                    (:seq has-basic-structural-unit _Atom738 f)
+                    (:seq complement _Adenine739 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate728 1109 11)
+                    (:seq has-basic-structural-unit _Atom738 1109 55)
+                    (:seq complement _Adenine739 1109 99)))
+  (node-coordinate ((:pair 950 50)))
+  (has-clones (_Thymine259))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Phosphate728 t)
+                       (:seq has-basic-structural-unit _Atom738 t)
+                       (:seq complement _Adenine739 t))))
+
+(_Guanine725 has 
+  (prototype-participant-of (_Chromatin537))
+  (complement-of (_Cytosine670))
+  (instance-of (Guanine))
+  (has-clones (_Guanine258))
+  (cloned-from (_Guanine423
+                _Guanine1524))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1361 93)))
+  (node-never-visible (t)))
+
+(_Atom722 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_Cytosine670))
+  (instance-of (Atom))
+  (has-clones (_Atom257))
+  (cloned-from (_Atom347
+                _Atom421
+                _Atom1523))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1361 49)))
+  (node-never-visible (t)))
+
+(_Phosphate672 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_Cytosine670))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate256))
+  (cloned-from (_Phosphate346
+                _Phosphate420
+                _Phosphate1522))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1361 5)))
+  (node-never-visible (t)))
+
+(_Cytosine670 has 
+  (prototype-participant-of (_Chromatin537))
+  (instance-of (Cytosine))
+  (is-part-of (_Polymer744))
+  (complement (_Guanine725))
+  (has-basic-structural-unit (_Atom722))
+  (has-part (_Phosphate672))
+  (cloned-from (_Nucleotide337
+                _Cytosine402
+                _Cytosine335))
+  (clone-built-from (_Nucleotide337
+                     _Cytosine402))
+  (edge-visibility ((:seq has-part _Phosphate672 f)
+                    (:seq has-basic-structural-unit _Atom722 f)
+                    (:seq complement _Guanine725 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate672 1211 11)
+                    (:seq has-basic-structural-unit _Atom722 1211 55)
+                    (:seq complement _Guanine725 1211 99)))
+  (node-coordinate ((:pair 1050 50)))
+  (has-clones (_Cytosine255))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Phosphate672 t)
+                       (:seq has-basic-structural-unit _Atom722 t)
+                       (:seq complement _Guanine725 t))))
+
+(_Thymine669 has 
+  (prototype-participant-of (_Chromatin537))
+  (complement-of (_Adenine664))
+  (instance-of (Thymine))
+  (has-clones (_Thymine254))
+  (cloned-from (_Thymine400
+                _Thymine331))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1458 93)))
+  (node-never-visible (t)))
+
+(_Atom668 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_Adenine664))
+  (instance-of (Atom))
+  (has-clones (_Atom253))
+  (cloned-from (_Atom347
+                _Atom392
+                _Atom330))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1458 49)))
+  (node-never-visible (t)))
+
+(_Phosphate665 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_Adenine664))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate248))
+  (cloned-from (_Phosphate346
+                _Phosphate391
+                _Phosphate329))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1458 5)))
+  (node-never-visible (t)))
+
+(_Adenine664 has 
+  (prototype-participant-of (_Chromatin537))
+  (instance-of (Adenine))
+  (is-part-of (_Polymer744))
+  (complement (_Thymine669))
+  (has-basic-structural-unit (_Atom668))
+  (has-part (_Phosphate665))
+  (cloned-from (_Nucleotide337
+                _Adenine378
+                _Adenine328))
+  (clone-built-from (_Nucleotide337
+                     _Adenine378))
+  (edge-visibility ((:seq has-part _Phosphate665 f)
+                    (:seq has-basic-structural-unit _Atom668 f)
+                    (:seq complement _Thymine669 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate665 1308 11)
+                    (:seq has-basic-structural-unit _Atom668 1308 55)
+                    (:seq complement _Thymine669 1308 99)))
+  (node-coordinate ((:pair 1150 50)))
+  (has-clones (_Adenine247))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Phosphate665 t)
+                       (:seq has-basic-structural-unit _Atom668 t)
+                       (:seq complement _Thymine669 t))))
+
+(_Atom663 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_Nucleotide640))
+  (instance-of (Atom))
+  (has-clones (_Atom246))
+  (cloned-from (_Atom347
+                _Atom1521))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1569 71)))
+  (node-never-visible (t)))
+
+(_Phosphate641 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_Nucleotide640))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate197))
+  (cloned-from (_Phosphate346
+                _Phosphate1520))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1569 27)))
+  (node-never-visible (t)))
+
+(_Nucleotide640 has 
+  (prototype-participant-of (_Chromatin537))
+  (instance-of (Nucleotide))
+  (is-part-of (_Polymer744))
+  (has-basic-structural-unit (_Atom663))
+  (has-part (_Phosphate641))
+  (cloned-from (_Organic-Molecule271
+                _Nucleotide337
+                _Organic-Molecule336))
+  (clone-built-from (_Nucleotide337))
+  (edge-visibility ((:seq has-part _Phosphate641 f)
+                    (:seq has-basic-structural-unit _Atom663 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate641 1419 33)
+                    (:seq has-basic-structural-unit _Atom663 1419 77)))
+  (node-coordinate ((:pair 1250 50)))
+  (has-clones (_Nucleotide196))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Phosphate641 t)
+                       (:seq has-basic-structural-unit _Atom663 t))))
+
+(_Spatial-Entity639 has 
+  (prototype-participant-of (_Chromatin537))
+  (location (_Centromere1457))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity195))
+  (cloned-from (_Spatial-Entity171))
+  (node-visibility (f))
+  (edge-coordinate ((:seq location _Centromere1457 933 56)))
+  (edge-visibility ((:seq location _Centromere1457 f)))
+  (node-coordinate ((:pair 750 50)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq location _Centromere1457 t))))
+
+(_Atom547 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_DNA546))
+  (instance-of (Atom))
+  (has-clones (_Atom193))
+  (cloned-from (_Atom414
+                _Atom531))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 651 467)))
+  (node-visibility (f))
+  (node-never-visible (t)))
+
+(_DNA546 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_Chromatin537))
+  (instance-of (DNA))
+  (has-part (_Nucleotide751
+             _Deoxyribose750
+             _Chromatid749
+             _Chromatid748
+             _Polymer745
+             _Polymer744))
+  (has-basic-structural-unit (_Atom547))
+  (cloned-from (_DNA413
+                _DNA272))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 361 577)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom547 501 473)
+                    (:seq has-part _Polymer744 501 605)
+                    (:seq has-part _Polymer745 501 605)
+                    (:seq has-part _Chromatid748 501 605)
+                    (:seq has-part _Chromatid749 501 605)
+                    (:seq has-part _Deoxyribose750 501 605)
+                    (:seq has-part _Nucleotide751 501 605)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom547 f)
+                    (:seq has-part _Polymer744 f)
+                    (:seq has-part _Polymer745 f)
+                    (:seq has-part _Chromatid748 f)
+                    (:seq has-part _Chromatid749 f)
+                    (:seq has-part _Deoxyribose750 f)
+                    (:seq has-part _Nucleotide751 f)))
+  (has-clones (_DNA192))
+  (clone-built-from (_DNA272))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-basic-structural-unit _Atom547 t)
+                       (:seq has-part _Polymer744 t)
+                       (:seq has-part _Polymer745 t)
+                       (:seq has-part _Chromatid748 t)
+                       (:seq has-part _Chromatid749 t)
+                       (:seq has-part _Deoxyribose750 t)
+                       (:seq has-part _Nucleotide751 t))))
+
+(_Atom545 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_Protein544))
+  (instance-of (Atom))
+  (has-clones (_Atom191))
+  (cloned-from (_Atom416
+                _Atom309))
+  (internally-expanded (f))
+  (node-coordinate ((:pair -16 110)))
+  (node-visibility (f))
+  (node-never-visible (t)))
+
+(_Protein544 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-basic-structural-unit-of (_Chromatin537))
+  (is-part-of (_Chromatin537))
+  (has-basic-structural-unit (_Atom545
+                              _Amino-Acid7078))
+  (has-part (_Polymer1455))
+  (instance-of (Protein))
+  (cloned-from (_Protein415
+                _Protein305))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 345 731)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-part _Polymer1455 -16 110)
+                    (:seq has-basic-structural-unit _Amino-Acid7078 -16 110)
+                    (:seq has-basic-structural-unit _Atom545 -16 110)))
+  (edge-visibility ((:seq has-part _Polymer1455 f)
+                    (:seq has-basic-structural-unit _Amino-Acid7078 t)
+                    (:seq has-basic-structural-unit _Atom545 t)))
+  (has-clones (_Protein180))
+  (clone-built-from (_Protein305))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Polymer1455 t)
+                       (:seq has-basic-structural-unit _Amino-Acid7078 t)
+                       (:seq has-basic-structural-unit _Atom545 t))))
+
+(_Polymer1455 has 
+  (prototype-participant-of (_Chromatin537))
+  (instance-of (Polymer))
+  (is-part-of (_Protein544))
+  (has-clones (_Polymer169))
+  (cloned-from (_Polymer308))
+  (node-visibility (f))
+  (node-coordinate ((:pair -16 110)))
+  (node-never-visible (t)))
+
+(_Spatial-Entity1456 has 
+  (prototype-participant-of (_Chromatin537))
+  (location (_Centromere1457))
+  (instance-of (Spatial-Entity))
+  (cloned-from (_Spatial-Entity213))
+  (node-visibility (t))
+  (edge-visibility ((:seq location _Centromere1457 t)))
+  (has-clones (_Spatial-Entity168))
+  (edge-coordinate ((:seq location _Centromere1457 488 467)))
+  (node-coordinate ((:pair 462 345)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq location _Centromere1457 t))))
+
+(_Centromere1457 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-region-of (_Chromatin537))
+  (instance-of (Centromere))
+  (location-of (_Spatial-Entity639
+                _Spatial-Entity1456))
+  (has-clones (_Centromere164))
+  (cloned-from (_Centromere214
+                _Centromere167))
+  (node-visibility (t))
+  (clone-built-from (_Centromere167))
+  (node-coordinate ((:pair 277 441)))
+  (node-never-visible (t)))
+
+(_Chromatid1458 has 
+  (prototype-participant-of (_Chromatin537))
+  (is-part-of (_Chromatin537))
+  (instance-of (Chromatid))
+  (has-clones (_Chromatid163))
+  (cloned-from (_Chromatid215))
+  (node-visibility (t))
+  (node-coordinate ((:pair 361 625)))
+  (node-never-visible (t)))
+
+(_Amino-Acid7078 has 
+  (prototype-participant-of (_Chromatin537))
+  (instance-of (Amino-Acid))
+  (is-basic-structural-unit-of (_Protein544))
+  (has-clones (_Amino-Acid161))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 648 735))))
+
+(_Eukaryotic-Cell2585 has 
+  (prototype-participant-of (_Chromatin537))
+  (encloses (_Chromatin537))
+  (instance-of (Eukaryotic-Cell))
+  (has-clones (_Eukaryotic-Cell160))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 21 344))))
+
+(explanation (:triple _Chromatin537 has-region _Centromere1457) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Chromatin537 has-part _Chromatid1458) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Chromatin537 has-part _Protein544) ((added-at Chromosome "User defined")))
+(explanation (:triple _Chromatin537 has-basic-structural-unit _DNA546) ((added-at Chromosome "User defined")))
+(explanation (:triple _Chromatin537 has-basic-structural-unit _DNA546) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Chromatin537 has-part _Protein544) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Chromatin537 instance-of Tangible-Entity) ((cloned-from _Centromere167 _Centromere1457)))
+(explanation (:triple _Chromatin537 has-region _Centromere1457) ((cloned-from _Centromere167 _Centromere1457)))
+(explanation (:triple _Chromatin537 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Centromere1457 Region is-region-of))))
+(explanation (:triple _Chromatin537 is-inside _Eukaryotic-Cell2585) ((added-at Chromatin "User defined")))
+(explanation (:triple _Chromatin537 has-basic-structural-unit _Protein544) ((added-at Chromatin "User defined")))
+(explanation (:triple _Nucleotide751 instance-of Nucleotide) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Nucleotide751 is-part-of _DNA546) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Deoxyribose750 instance-of Deoxyribose) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Deoxyribose750 is-part-of _DNA546) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Chromatid749 instance-of Chromatid) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Chromatid749 is-part-of _DNA546) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Chromatid748 instance-of Chromatid) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Chromatid748 is-part-of _DNA546) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Organic-Molecule746 is-part-of _Polymer745) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Organic-Molecule746 instance-of Organic-Molecule) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Organic-Molecule746 instance-of Organic-Molecule) ((cloned-from _Polymer268 _Polymer745)))
+(explanation (:triple _Organic-Molecule746 is-part-of _Polymer745) ((cloned-from _Polymer268 _Polymer745)))
+(explanation (:triple _Polymer745 instance-of Polymer) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer745 has-part _Organic-Molecule746) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer745 is-part-of _DNA546) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer745 has-part _Organic-Molecule746) ((cloned-from _Polymer268 _Polymer745)))
+(explanation (:triple _Polymer744 instance-of Polymer) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer744 has-part _Guanine740) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer744 has-part _Thymine727) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer744 has-part _Cytosine670) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer744 has-part _Adenine664) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer744 has-part _Nucleotide640) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer744 is-part-of _DNA546) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Polymer744 has-part _Nucleotide640) ((cloned-from _Polymer268 _Polymer744)))
+(explanation (:triple _Cytosine743 complement-of _Guanine740) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Cytosine743 instance-of Cytosine) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Cytosine743 instance-of Cytosine) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Cytosine743 complement-of _Guanine740) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Atom742 is-basic-structural-unit-of _Guanine740) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom742 instance-of Atom) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom742 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom742 instance-of Atom) ((a Atom (@ _Guanine740 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom742 is-basic-structural-unit-of _Guanine740) ((cloned-from _Nucleotide337 _Guanine740)))
+(explanation (:triple _Atom742 instance-of Atom) ((cloned-from _Nucleotide337 _Guanine740)))
+(explanation (:triple _Atom742 instance-of Atom) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Atom742 is-basic-structural-unit-of _Guanine740) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Phosphate741 is-part-of _Guanine740) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate741 instance-of Phosphate) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate741 is-part-of _Guanine740) ((cloned-from _Nucleotide337 _Guanine740)))
+(explanation (:triple _Phosphate741 instance-of Phosphate) ((cloned-from _Nucleotide337 _Guanine740)))
+(explanation (:triple _Phosphate741 instance-of Phosphate) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Phosphate741 is-part-of _Guanine740) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Guanine740 is-part-of _Polymer744) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Guanine740 instance-of Nucleotide) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Guanine740 instance-of Guanine) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Guanine740 has-part _Phosphate741) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Guanine740 has-basic-structural-unit _Atom742) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Guanine740 complement _Cytosine743) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Guanine740 has-basic-structural-unit _Atom742) ((a Atom (@ _Guanine740 Molecule has-basic-structural-unit))))
+(explanation (:triple _Guanine740 has-part _Phosphate741) ((cloned-from _Nucleotide337 _Guanine740)))
+(explanation (:triple _Guanine740 has-basic-structural-unit _Atom742) ((cloned-from _Nucleotide337 _Guanine740)))
+(explanation (:triple _Guanine740 complement _Cytosine743) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Guanine740 has-part _Phosphate741) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Guanine740 has-basic-structural-unit _Atom742) ((cloned-from _Guanine410 _Guanine740)))
+(explanation (:triple _Adenine739 complement-of _Thymine727) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Adenine739 instance-of Adenine) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Adenine739 instance-of Adenine) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Adenine739 complement-of _Thymine727) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Atom738 is-basic-structural-unit-of _Thymine727) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom738 instance-of Atom) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom738 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom738 instance-of Atom) ((a Atom (@ _Thymine727 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom738 is-basic-structural-unit-of _Thymine727) ((cloned-from _Nucleotide337 _Thymine727)))
+(explanation (:triple _Atom738 instance-of Atom) ((cloned-from _Nucleotide337 _Thymine727)))
+(explanation (:triple _Atom738 instance-of Atom) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Atom738 is-basic-structural-unit-of _Thymine727) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Phosphate728 is-part-of _Thymine727) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate728 instance-of Phosphate) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate728 is-part-of _Thymine727) ((cloned-from _Nucleotide337 _Thymine727)))
+(explanation (:triple _Phosphate728 instance-of Phosphate) ((cloned-from _Nucleotide337 _Thymine727)))
+(explanation (:triple _Phosphate728 instance-of Phosphate) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Phosphate728 is-part-of _Thymine727) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Thymine727 is-part-of _Polymer744) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Thymine727 instance-of Nucleotide) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Thymine727 instance-of Thymine) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Thymine727 has-part _Phosphate728) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Thymine727 has-basic-structural-unit _Atom738) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Thymine727 complement _Adenine739) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Thymine727 has-basic-structural-unit _Atom738) ((a Atom (@ _Thymine727 Molecule has-basic-structural-unit))))
+(explanation (:triple _Thymine727 has-part _Phosphate728) ((cloned-from _Nucleotide337 _Thymine727)))
+(explanation (:triple _Thymine727 has-basic-structural-unit _Atom738) ((cloned-from _Nucleotide337 _Thymine727)))
+(explanation (:triple _Thymine727 complement _Adenine739) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Thymine727 has-part _Phosphate728) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Thymine727 has-basic-structural-unit _Atom738) ((cloned-from _Thymine385 _Thymine727)))
+(explanation (:triple _Guanine725 complement-of _Cytosine670) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Guanine725 instance-of Guanine) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Guanine725 instance-of Guanine) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Guanine725 complement-of _Cytosine670) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Atom722 is-basic-structural-unit-of _Cytosine670) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom722 instance-of Atom) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom722 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom722 instance-of Atom) ((a Atom (@ _Cytosine670 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom722 is-basic-structural-unit-of _Cytosine670) ((cloned-from _Nucleotide337 _Cytosine670)))
+(explanation (:triple _Atom722 instance-of Atom) ((cloned-from _Nucleotide337 _Cytosine670)))
+(explanation (:triple _Atom722 instance-of Atom) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Atom722 is-basic-structural-unit-of _Cytosine670) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Phosphate672 is-part-of _Cytosine670) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate672 instance-of Phosphate) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate672 is-part-of _Cytosine670) ((cloned-from _Nucleotide337 _Cytosine670)))
+(explanation (:triple _Phosphate672 instance-of Phosphate) ((cloned-from _Nucleotide337 _Cytosine670)))
+(explanation (:triple _Phosphate672 instance-of Phosphate) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Phosphate672 is-part-of _Cytosine670) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Cytosine670 is-part-of _Polymer744) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Cytosine670 instance-of Nucleotide) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Cytosine670 instance-of Cytosine) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Cytosine670 has-part _Phosphate672) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Cytosine670 has-basic-structural-unit _Atom722) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Cytosine670 complement _Guanine725) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Cytosine670 has-basic-structural-unit _Atom722) ((a Atom (@ _Cytosine670 Molecule has-basic-structural-unit))))
+(explanation (:triple _Cytosine670 has-part _Phosphate672) ((cloned-from _Nucleotide337 _Cytosine670)))
+(explanation (:triple _Cytosine670 has-basic-structural-unit _Atom722) ((cloned-from _Nucleotide337 _Cytosine670)))
+(explanation (:triple _Cytosine670 complement _Guanine725) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Cytosine670 has-part _Phosphate672) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Cytosine670 has-basic-structural-unit _Atom722) ((cloned-from _Cytosine402 _Cytosine670)))
+(explanation (:triple _Thymine669 complement-of _Adenine664) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Thymine669 instance-of Thymine) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Thymine669 instance-of Thymine) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Thymine669 complement-of _Adenine664) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Atom668 is-basic-structural-unit-of _Adenine664) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom668 instance-of Atom) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom668 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom668 instance-of Atom) ((a Atom (@ _Adenine664 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom668 is-basic-structural-unit-of _Adenine664) ((cloned-from _Nucleotide337 _Adenine664)))
+(explanation (:triple _Atom668 instance-of Atom) ((cloned-from _Nucleotide337 _Adenine664)))
+(explanation (:triple _Atom668 instance-of Atom) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Atom668 is-basic-structural-unit-of _Adenine664) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Phosphate665 is-part-of _Adenine664) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate665 instance-of Phosphate) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate665 is-part-of _Adenine664) ((cloned-from _Nucleotide337 _Adenine664)))
+(explanation (:triple _Phosphate665 instance-of Phosphate) ((cloned-from _Nucleotide337 _Adenine664)))
+(explanation (:triple _Phosphate665 instance-of Phosphate) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Phosphate665 is-part-of _Adenine664) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Adenine664 instance-of Nucleotide) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Adenine664 instance-of Adenine) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Adenine664 has-part _Phosphate665) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Adenine664 has-basic-structural-unit _Atom668) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Adenine664 complement _Thymine669) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Adenine664 is-part-of _Polymer744) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Adenine664 has-basic-structural-unit _Atom668) ((a Atom (@ _Adenine664 Molecule has-basic-structural-unit))))
+(explanation (:triple _Adenine664 has-part _Phosphate665) ((cloned-from _Nucleotide337 _Adenine664)))
+(explanation (:triple _Adenine664 has-basic-structural-unit _Atom668) ((cloned-from _Nucleotide337 _Adenine664)))
+(explanation (:triple _Adenine664 complement _Thymine669) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Adenine664 has-part _Phosphate665) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Adenine664 has-basic-structural-unit _Atom668) ((cloned-from _Adenine378 _Adenine664)))
+(explanation (:triple _Atom663 is-basic-structural-unit-of _Nucleotide640) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom663 instance-of Atom) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom663 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom663 instance-of Atom) ((a Atom (@ _Nucleotide640 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom663 instance-of Atom) ((cloned-from _Nucleotide337 _Nucleotide640)))
+(explanation (:triple _Atom663 is-basic-structural-unit-of _Nucleotide640) ((cloned-from _Nucleotide337 _Nucleotide640)))
+(explanation (:triple _Phosphate641 is-part-of _Nucleotide640) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate641 instance-of Phosphate) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Phosphate641 instance-of Phosphate) ((cloned-from _Nucleotide337 _Nucleotide640)))
+(explanation (:triple _Phosphate641 is-part-of _Nucleotide640) ((cloned-from _Nucleotide337 _Nucleotide640)))
+(explanation (:triple _Nucleotide640 is-part-of _Polymer744) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Nucleotide640 instance-of Nucleotide) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Nucleotide640 instance-of Organic-Molecule) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Nucleotide640 has-part _Phosphate641) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Nucleotide640 has-basic-structural-unit _Atom663) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Nucleotide640 instance-of Organic-Molecule) ((cloned-from _Polymer268 _Polymer744)))
+(explanation (:triple _Nucleotide640 is-part-of _Polymer744) ((cloned-from _Polymer268 _Polymer744)))
+(explanation (:triple _Nucleotide640 has-basic-structural-unit _Atom663) ((a Atom (@ _Nucleotide640 Molecule has-basic-structural-unit))))
+(explanation (:triple _Nucleotide640 has-part _Phosphate641) ((cloned-from _Nucleotide337 _Nucleotide640)))
+(explanation (:triple _Nucleotide640 has-basic-structural-unit _Atom663) ((cloned-from _Nucleotide337 _Nucleotide640)))
+(explanation (:triple _Spatial-Entity639 instance-of Spatial-Entity) ((cloned-from _Centromere167 _Centromere1457)))
+(explanation (:triple _Spatial-Entity639 location _Centromere1457) ((cloned-from _Centromere167 _Centromere1457)))
+(explanation (:triple _Spatial-Entity639 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Centromere1457 Place location-of))))
+(explanation (:triple _Atom547 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom547 instance-of Atom) ((a Atom (@ _DNA546 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom547 is-basic-structural-unit-of _DNA546) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Atom547 instance-of Atom) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Atom547 instance-of Atom) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _Atom547 is-basic-structural-unit-of _DNA546) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 instance-of Nucleic-acid) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 has-basic-structural-unit _Atom547) ((a Atom (@ _DNA546 Molecule has-basic-structural-unit))))
+(explanation (:triple _DNA546 instance-of DNA) ((added-at Chromosome "User defined")))
+(explanation (:triple _DNA546 is-basic-structural-unit-of _Chromatin537) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _DNA546 instance-of DNA) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _DNA546 has-basic-structural-unit _Atom547) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _DNA546 has-part _Deoxyribose750) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 has-part _Nucleotide751) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 has-part _Polymer744) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 has-part _Polymer745) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 has-part _Chromatid748) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 has-part _Chromatid749) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 has-basic-structural-unit _Atom547) ((cloned-from _DNA272 _DNA546)))
+(explanation (:triple _DNA546 instance-of DNA) ((a DNA)))
+(explanation (:triple _Atom545 instance-of Atom) ((cloned-from _Protein305 _Protein544)))
+(explanation (:triple _Atom545 is-basic-structural-unit-of _Protein544) ((cloned-from _Protein305 _Protein544)))
+(explanation (:triple _Atom545 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom545 instance-of Atom) ((a Atom (@ _Protein544 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom545 is-basic-structural-unit-of _Protein544) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Atom545 instance-of Atom) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Protein544 has-part _Polymer1455) ((added-at Protein "User defined")))
+(explanation (:triple _Protein544 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein544 has-part _Polymer1455) ((cloned-from _Protein305 _Protein544)))
+(explanation (:triple _Protein544 has-basic-structural-unit _Atom545) ((cloned-from _Protein305 _Protein544)))
+(explanation (:triple _Protein544 has-basic-structural-unit _Atom545) ((a Atom (@ _Protein544 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein544 instance-of Protein) ((added-at Chromosome "User defined")))
+(explanation (:triple _Protein544 is-part-of _Chromatin537) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Protein544 instance-of Protein) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Protein544 has-basic-structural-unit _Atom545) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Protein544 has-basic-structural-unit _Amino-Acid7078) ((cloned-from _Protein305 _Protein544)))
+(explanation (:triple _Polymer1455 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer1455 instance-of Polymer) ((cloned-from _Protein305 _Protein544)))
+(explanation (:triple _Polymer1455 is-part-of _Protein544) ((cloned-from _Protein305 _Protein544)))
+(explanation (:triple _Spatial-Entity1456 location _Centromere1457) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Spatial-Entity1456 instance-of Spatial-Entity) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Centromere1457 instance-of Place) ((a Place (@ _Spatial-Entity1456 Spatial-Entity (location must-be-a)))))
+(explanation (:triple _Centromere1457 instance-of Centromere) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Centromere1457 location-of _Spatial-Entity639) ((cloned-from _Centromere167 _Centromere1457)))
+(explanation (:triple _Centromere1457 is-region-of _Chromatin537) ((cloned-from _Centromere167 _Centromere1457)))
+(explanation (:triple _Centromere1457 is-region-of _Chromatin537) ((a Tangible-Entity (@ _Centromere1457 Region is-region-of))))
+(explanation (:triple _Centromere1457 location-of _Spatial-Entity639) ((a Spatial-Entity (@ _Centromere1457 Place location-of))))
+(explanation (:triple _Chromatid1458 instance-of Chromatid) ((cloned-from _Chromosome164 _Chromatin537)))
+(explanation (:triple _Amino-Acid7078 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein544)))
+(explanation (:triple _Eukaryotic-Cell2585 instance-of Eukaryotic-Cell) ((added-at Chromatin "User defined")))
+(explanation (:triple _Eukaryotic-Cell2585 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Chromatin537 Spatial-Entity (is-inside must-be-a)))))
+
+;;; ---------- end of prototype definition ----------
+
+(Chromatin now-has (user-description ("Chromatin is the DNA-protein complex organized into a long thin fiber which thicken and coil to form chromosomes.")))
+(enable-classification)
+

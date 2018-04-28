@@ -1,0 +1,84 @@
+;;    $Id: MessageHeader.km,v 1.20 2005/08/23 21:57:54 billj Exp $
+
+(MessageHeader has (superclasses (DataRecord)))
+
+
+(hasBCCAddress has  (instance-of (Interface-Slot)) (domain (MessageHeader Note)) (range (ContactRecordSubAddressComponent)) (inverse (isBCCAddressOf)) (cardinality (N-to-N)))
+
+(hasCCAddress has  (instance-of (Interface-Slot)) (domain (MessageHeader Note)) (range (ContactRecordSubAddressComponent)) (inverse (isCCAddressOf)) (cardinality (N-to-N)))
+
+(hasCertificate has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Certification)) (inverse (isCertificateOf)) (cardinality (N-to-N)))
+
+(hasContentTransferEncoding has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-1)))
+
+(hasDeliverAfterRestriction has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-1)))
+
+(hasDeliverBeforeRestriction has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-1)))
+
+(hasDeliveryReceiptConfirmationData has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-N)))
+
+(hasDeliveryReceiptRequestedFlag has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Boolean)) (cardinality (N-to-1)))
+
+(hasDeliverySignatureRequiredFlag has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Boolean)) (cardinality (N-to-1)))
+
+(hasExpirationDate has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Time-Instant)) (cardinality (N-to-1))(inverse (isExpirationDateOf)))
+
+(hasFromAddress has  (instance-of (Interface-Slot)) (domain (MessageHeader Note)) (range (ContactRecordSubAddressComponent)) (inverse (isFromAddressOf)) (cardinality (N-to-N)))
+
+(hasGuaranteedDeliveryRestriction has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Boolean)) (cardinality (N-to-1)))
+
+(hasMessageBody has  (instance-of (Interface-Slot)) (domain (MessageHeader Electronic-Message)) (range (MessageBody)) (inverse (isMessageBodyOf)) (cardinality (N-to-N)))
+
+(hasMessageIsEncryptedFlag has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Boolean)) (cardinality (N-to-1)))
+
+(hasMessageTitle has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-1)))
+
+(hasOriginalRecipient has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (EMailAddress)) (inverse (isOriginalRecipientOf)) (cardinality (N-to-N)))
+
+(hasOriginalRecipientMessagePath has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-N)))
+
+(hasOriginatingIPAddress has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-1)))
+
+(hasOriginatingOrganization has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Organization)) (cardinality (N-to-N)) (inverse (isOriginatingOrganizationOf)))
+
+(hasReadDate has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Time-Instant)) (cardinality (N-to-1))(inverse (isReadDateOf)))
+
+(hasReadReceiptConfirmationData has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-1)))
+
+(hasReadReceiptRequestedFlag has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Boolean)) (cardinality (N-to-1)))
+
+(hasReceiptReplyToAddress has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (ContactRecordSubAddressComponent)) (inverse (isReceiptReplyToAddressOf)) (cardinality (N-to-N)))
+
+(hasReceivedDate has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Time-Instant)) (cardinality (N-to-1))(inverse (isReceivedDateOf)))
+
+(hasRepliedDate has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Time-Instant)) (cardinality (N-to-1))(inverse (isRepliedDateOf)))
+
+(hasReplyToAddress has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (ContactRecordSubAddressComponent)) (inverse (isReplyToAddressOf)) (cardinality (N-to-N)))
+
+(hasResentMessageHeaderID has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-N)))
+
+(hasResponse has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Message Annotation WeblogPosting)) (inverse (isResponseTo)) (cardinality (N-to-N)))
+
+(hasReturnPath has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-N)))
+
+(hasSecurityReceiptConfirmationData has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-N)))
+
+(hasSecurityReceiptRequested has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Boolean)) (cardinality (N-to-N)))
+
+(hasSentDate has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Time-Instant)) (cardinality (N-to-1))(inverse (isSentDateOf)))
+
+(hasToAddress has  (instance-of (Interface-Slot)) (domain (MessageHeader Note)) (range (ContactRecordSubAddressComponent)) (inverse (isToAddressOf)) (cardinality (N-to-N)))
+
+(isMessageHeaderOf has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (MessageBody)) (cardinality (N-to-N))(inverse (hasMessageHeader)))
+
+(isResponseTo has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (Message WeblogPosting Annotation)) (cardinality (N-to-N)))
+
+(isReplyToMessageHeaderID has  (instance-of (Interface-Slot)) (domain (MessageHeader)) (range (String)) (cardinality (N-to-N)))
+
+
+
+
+
+
+
+

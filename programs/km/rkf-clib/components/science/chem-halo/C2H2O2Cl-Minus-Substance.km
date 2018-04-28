@@ -1,0 +1,18 @@
+;; 
+;;    $Id: C2H2O2Cl-Minus-Substance.km,v 1.4 2008/11/03 03:11:25 tecuci Exp $
+;; 
+
+(C2H2O2Cl-Minus-Substance has (superclasses (Anion-Substance)))
+(every C2H2O2Cl-Minus-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 7.14e-11 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a C2H2O2Cl-Minus)))
+)
+(every C2H2O2Cl-Minus-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a C2H2O2Cl-Minus))))

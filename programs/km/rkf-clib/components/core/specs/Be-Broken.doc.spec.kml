@@ -1,0 +1,33 @@
+<!--- $Id: Be-Broken.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Broken>
+<superconcept name=State>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Broken>
+  <definition>object unable to serve its function</definition>
+  <requiredslot name=object>
+    <restriction>has a function slot: <slot>object</slot> plays some
+      role in some Event</requirement>
+    <restriction><slot>object</slot> must not play that role in any such Event
+    </restriction>
+  </requiredslot>
+  <wnsynsets><adj>broken#11
+  </adj></wnsynsets>
+  <wnsynsets><adj>busted#3
+  </adj></wnsynsets>
+</component>
+
+<musing>
+The restriction that an <slot>object</slot> of Be-Broken not serve its
+function could be handled in slot semantics. For example, an 
+<slot>instrument</slot> of an Event must not be filled by an Entity
+whose function it is to fill that slot in such an Event.
+</musing>
+
+</kml>
+
+

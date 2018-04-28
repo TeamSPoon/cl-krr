@@ -1,0 +1,23 @@
+;; 
+;; $Id: power.km,v 1.6 2007/04/11 21:31:10 jchaw Exp $
+;; 
+
+(power has
+  (instance-of            (EntityProperty))
+  (domain                 (Spatial-Entity))    
+  (range                  (Power-Value))
+  (scalar-constant-class  (Power-Constant))
+  (cardinal-unit-class    (UoM-Power))
+  (inverse                (power-of))
+  (fluent-status          (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (original-slot      (t))	
+  (cardinality            (N-to-1))
+)
+
+(power has (wn20-synset ((:set
+                               (:triple "power" 2 "n")
+))))
+
+(power-of has
+	(instance-of (EntityProperty)))

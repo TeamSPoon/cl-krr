@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Phosphorylation.km,v 1.14 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Phosphorylation has
+        (superclasses        (Add Enzyme-Catalysis))
+        (required-slot       (object base))
+        (primary-slot        (agent instrument))
+	(description	("The transfer of a phosphate to a molecule.
+                          The bond formed is high energy and
+                          permits the charged molecule to undergo reactions
+                          that would otherwise be energetically unfavorable.
+                          Souther.")))
+
+(every Phosphorylation has
+       (object       ((a Phosphoryl-Group)))
+       (substrate ((the Molecule base of Self)))
+       (agent  ((a Cell)))
+       (base ((a Molecule)))
+       (instrument ((a Kinase)))   
+       )
+
+
+
+
+
+(every Phosphorylation has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

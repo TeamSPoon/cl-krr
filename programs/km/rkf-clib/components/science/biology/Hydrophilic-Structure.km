@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Hydrophilic-Structure.km,v 1.10 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Hydrophilic-Structure has
+         (superclasses (Chemical-Entity))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Any chemical object which attracts water. Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Hydrophilic-Structure has
+       (object-of ((a Move-Together with
+		      (object ((a Water-Molecule)
+			       (at-least 1 Water-Molecule)))))))
+			     
+
+
+
+(every Hydrophilic-Structure has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

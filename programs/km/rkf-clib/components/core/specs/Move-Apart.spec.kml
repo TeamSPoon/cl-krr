@@ -1,0 +1,112 @@
+<!--- $Id: Move-Apart.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Move-Apart><system-documentation name=Move-Apart>
+<superconcept name=Action>
+
+<definition>
+
+  Several <slot>object</slot>s change their location from the 
+  same <conceptref name=Place>, which is the <slot>origin</slot>. 
+  Move-Apart is an <conceptref name=Action> involving 
+  multiple <slot>object</slot>s that <conceptref name=Move> 
+  the <slot>origin</slot>.
+  
+  The difference between Move-Apart and <conceptref name=Disperse>
+  is that Disperse is reflexive and Move-Apart is not.  
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    the things that move apart
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the place where the <slot>object</slot>s move apart from
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the move apart to occur
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot>s after the move
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot>s move
+     along.  Typically, this is an object or surface along which the
+     <slot>object</slot>s are moving
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot>s move.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot>s need not reach this
+    Place, but they may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot>s move away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot>s need not start at this
+    Place, but they may
+  </slotdescription>
+
+</primaryslotlist>
+
+<subeventlist>
+    
+  <subeventdescription name=Move>
+    for each <slot>object</slot> there is a <conceptref name=Move> 
+    where the <slot>origin</slot> is the <slot>origin</slot> of the
+    Move-Apart and the <slot>agent</slot> is the <slot>agent</slot> of
+    the Move-Apart.
+  </subeventdescription>
+    
+</subeventlist>
+    
+<subeventorder>
+  All the <conceptref name=Move>s occur simultaneously.
+</subeventorder>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The officer told Billy and Mike to move away from the car</text>
+    <slotdescription name=object>Billy and Mike</slotdescription>
+    <slotdescription name=agent>the officer</slotdescription>
+    <slotdescription name=origin>the car</slotdescription>
+  </examplesentence>
+  <comment>
+    here "move away from" is translated to "move-apart".
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Disperse>
+    Disperse is the reflexive version of Move-Apart (i.e. the agent
+    and the object are the same). Its opposite is come-together.   
+  </neighbor>
+
+  <neighbor name=Move-Together>
+    Move-Together is the opposite of Move-Apart, and should be used
+    when specifying several objects moving to the same destination. 
+  </neighbor>
+
+  <neighbor name=Come-Together>
+    Come-Together is the reflexive version of Move-Together (i.e.
+    the agent and the object are not the same). Its opposite is 
+    Disperse.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

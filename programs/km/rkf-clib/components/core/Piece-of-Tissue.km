@@ -1,0 +1,22 @@
+;; 
+;; $Id: Piece-of-Tissue.km,v 1.3 2005/06/17 18:41:56 kbarker Exp $
+;; 
+
+(Piece-of-Tissue has
+  (superclasses (Piece-of-Substance))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (cmap-correspondence ())
+)
+
+(every Piece-of-Tissue has
+  (material ((a Tissue)))
+)
+
+#| give preference to wn links in the substance
+(Piece-of-Tissue has (wn20-synset ((:set
+				    (:triple "tissue" 2 "n")
+				    (:triple "tissue_paper" 1 "n")
+))))
+|#

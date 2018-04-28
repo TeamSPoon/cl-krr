@@ -1,0 +1,45 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _HNO3-Substance593
+
+
+|#
+
+(disable-classification)
+
+(HNO3-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every HNO3-Substance has (has-basic-structural-unit ((a HNO3))))
+
+(_HNO3-Substance634 has
+  (prototype-of (HNO3-Substance))
+  (prototype-scope (HNO3-Substance))
+  (prototype-participants (_Electrolyte-Status-Value640 _HNO3-Substance634)))
+
+(_HNO3-Substance634 has (instance-of (HNO3-Substance)) (electrolyte-status (_Electrolyte-Status-Value640)))
+
+(_Electrolyte-Status-Value640 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *strong Acid))))
+
+(enable-classification)
+
+(explanation (:triple _HNO3-Substance634 electrolyte-status _Electrolyte-Status-Value640) (((@ SME entered)) (every HNO3-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value640 value (:pair *strong Acid)) (((@ SME entered)) (every HNO3-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Acid)))))))))
+
+(explanation (:triple _HNO3-Substance634 instance-of HNO3-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value640 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every HNO3-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+(every HNO3-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Acid)))))))
+
+|#
+
+|#
+

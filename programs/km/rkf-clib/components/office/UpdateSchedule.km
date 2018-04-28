@@ -1,0 +1,8 @@
+
+;; $Id: UpdateSchedule.km,v 1.2 2004/11/24 16:13:33 kbarker Exp $
+
+(UpdateSchedule has (superclasses (InformationObject)))
+
+(hasNextUpdate has (instance-of (Interface-Slot)) (domain (UpdateSchedule)) (range (Time-Instant)) (inverse (isNextUpdateOf)) (cardinality (N-to-1)))
+(hasUpdateFrequency has (instance-of (Interface-Slot)) (domain (UpdateSchedule)) (range (Frequency-Value)) (inverse (isUpdateFrequencyOf)) (cardinality (N-to-1)))
+

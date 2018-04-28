@@ -1,0 +1,11 @@
+;; $Id: H2SO4.km,v 1.4 2003/09/10 16:59:50 jchaw Exp $ 
+
+(H2SO4 has (superclasses (Ionic-Compound)))
+(every H2SO4 has
+	(has-chemical-name (""))
+	(has-part ((a H-Plus)(a SO4-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 2 H-Plus)
+			(:pair 1 SO4-Minus-2)))))))
+)

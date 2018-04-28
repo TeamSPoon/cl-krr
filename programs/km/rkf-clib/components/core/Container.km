@@ -1,0 +1,58 @@
+; 
+;;    $Id: Container.km,v 1.27 2006/03/31 01:20:25 jchaw Exp $ 
+;; 
+
+;; a Container role
+(Container has (superclasses (Barrier)))
+(every Container has
+       (played-by     ((a Tangible-Entity with 
+                          (encloses ((a Spatial-Entity 
+                                        with (is-inside ((the played-by of Self))))))
+                          (does-not-enclose ((a Spatial-Entity 
+                                                with (is-outside ((the played-by of Self))))))
+                          (is-between ((the encloses of (the played-by of Self))
+				       (the does-not-enclose of (the played-by of Self))))
+                          (shape ((a Shape-Value with
+                                     (value (*hollow-volume))))))))
+       (in-event ((a Be-Contained with
+                     (object ((the content of Self)))
+                     (instrument ((the played-by of Self))))))
+       (content ((must-be-a Tangible-Entity with 
+                            ;;the above line cannot be (a Tangible-Entity with 
+                            ;; b/c otherwise the test case on Enter will have
+                            ;; *John unify w/ the default Tangible-Entity, whose location is inside
+                            ;; but *John's orig location was outside, thus the default Tangible-Entity's orig
+                            ;; location becomes outside too! in other words, the content is outside of the container!!
+;;;;;;                          (location ((the Place encloses of Self))))))
+                            (is-inside ((the played-by of Self))))))
+       ;;above line has to have "the Place" modifier
+       ;;b/c otherwise in test case on Enter
+       ;;after Enter, *John and _Place are both enclosed by Container
+       ;;the content of *House will have 2 locations!!!
+       (capacity      ((must-be-a Capacity-Value))))
+
+(Container has 
+  (test-case ('(
+                (*SchroedingersCat has (instance-of (Animal)))
+                (*SchroedingersBox has 
+                  (instance-of (Artifact))
+                  (plays ((a Container with
+                             (content (*SchroedingersCat)))))
+                )
+
+                ((the content of (the plays of *SchroedingersBox))
+                 includes *SchroedingersCat)
+                ((the is-inside of *SchroedingersCat)
+                 includes *SchroedingersBox)
+))))
+
+
+
+;; automatically added WN synsets
+(Container has (wn16-synset ((:set  
+                                        (:triple "container" 1 "n")
+))))
+
+(Container has (wn20-synset ((:set
+                                        (:triple "container" 1 "n")
+))))

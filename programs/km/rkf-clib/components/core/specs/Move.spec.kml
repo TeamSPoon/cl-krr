@@ -1,0 +1,95 @@
+<!--- $Id: Move.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Move><system-documentation name=Move>
+<superconcept name=Action>
+
+<definition>
+
+  An <slot>object</slot> changes location.  A move can be described
+  in numerous ways, using a wide variety of spatial relationships.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that moves
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the move to occur.
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the move.
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the move.
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot> moves
+     along.  Typically, this is an object or surface along which the
+     <slot>object</slot> is moving.
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may.
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John put the mail on the table.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the mail</slotdescription>
+    <slotdescription name=destination>a Place which <slot>is-on</slot>
+                     the table</slotdescription>
+  </examplesentence>
+  <comment>
+     Here "put on the table" is translated to "move" to a Place which
+     is on the table.
+  </comment>
+
+  <examplesentence>
+    <text>The bowling ball veered away from the gutter and toward the head pin.</text>
+    <slotdescription name=object>the bowling ball</slotdescription>
+    <slotdescription name=away-from>the gutter</slotdescription>
+    <slotdescription name=toward>the head pin</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Transfer>
+    Whereas Move involves a change in location, Transfer involves a
+    change in possession.  
+  </neighbor>
+
+  <neighbor name=Send>
+    Whereas Move involves a change in location and Transfer involves a
+    change in possession, Send involves both within the same action.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

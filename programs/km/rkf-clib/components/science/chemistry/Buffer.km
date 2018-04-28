@@ -1,0 +1,11 @@
+;;
+;; $Id: Buffer.km,v 1.1 2003/02/11 21:45:20 wilder Exp $
+;;
+
+(Buffer has (superclasses (Solution)))
+
+(every Buffer has-definition
+       (instance-of (Solution))
+       (buffer-status ((a Buffer-Status-Value with
+			  (value ((:pair *buffer nil)))))))
+

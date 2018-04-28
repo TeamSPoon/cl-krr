@@ -1,0 +1,16 @@
+;;
+;; $Id: CH3COOH.km,v 1.5 2006/01/23 23:44:00 jfan Exp $
+;;
+
+(CH3COOH has (superclasses (Ionic-Compound)))
+(every CH3COOH has
+       (has-chemical-name ("hydrogen acetate" "acetic acid" "ethanoic acid"))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 H-Plus)
+		    (:pair 1 CH3COO-Minus))))))))
+(every CH3COOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a CH3COO-Minus) (a H-Plus))))
+

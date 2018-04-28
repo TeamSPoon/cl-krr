@@ -1,0 +1,56 @@
+<!--- $Id: Attach.doc.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Attach::doc>
+<superconcept name=Make-Contact::doc>
+
+<sme-documentation name=Attach>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Attach>
+  <definition>establish a link between an object and a base</definition>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Attached-To> state whose <slot>base</slot>
+      is the <slot>base</slot> of the Attach
+    </restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <inheritedfrom name=Make-Contact::doc>
+    <restriction>the receiver of the <slot>object</slot> of the Attach
+    </restriction>
+  </requriedslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Make-Contact::doc>
+    <restriction>causes <slot>object</slot> to be Attached to the
+    <slot>base</slot></restriction>
+  </primaryslot>
+  <primaryslot name=location>
+    <inheritedfrom name=Make-Contact::doc>
+    <restriction>a Place</restriction>
+    <comment>The <slot>location</slot> is the <slot>base</slot>'s 
+       <slot>location</slot>
+    </comment>
+  </primaryslot>
+  <wnsynsets><verb>attach#1, attach#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>connect#1, link#2, tie#4
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Attach puts its object into a <conceptref name=Be-Attached-To> state, which 
+can be undone by <conceptref name=Detach::doc>ing the <slot>object</slot>.
+The two Entities are not on equal footing. The <slot>base</slot> 
+may be <conceptref name=Move::doc>d. The <slot>object</slot> may only be 
+<conceptref name=Move::doc>d along the <slot>base</slot> Entity (that 
+is, a <conceptref name=Move::doc> with <slot>path</slot> equal to the 
+<slot>location</slot> of the <slot>base</slot> of the 
+<conceptref name=Be-Attached-To>).
+</musing>
+
+</kml>
+
+

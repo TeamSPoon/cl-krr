@@ -1,0 +1,15 @@
+;;
+;; $Id: N2O.km,v 1.1 2007/11/13 23:30:56 mrglass Exp $
+;;
+
+(N2O has (superclasses (Molecule)))
+
+(every N2O has
+  (nested-atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 2 N) (:pair 1 O)))))))
+  (atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 2 N) (:pair 1 O)))))))
+  (has-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 2 N) (:pair 1 O)))))))
+  )
+

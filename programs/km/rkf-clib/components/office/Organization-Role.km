@@ -1,0 +1,15 @@
+;; 
+;; $Id: Organization-Role.km,v 1.3 2005/06/02 00:20:16 billj Exp $
+;; 
+
+(Organization-Role has
+  (superclasses (Role))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+)
+
+(every Organization-Role has
+  (in-organization ((must-be-a Organization)))
+)
+

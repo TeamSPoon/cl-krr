@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Double-Covalent-CN-Bond.km,v 1.7 2001/11/17 06:50:19 jarred Exp $ 
+;; 
+
+(Double-Covalent-CN-Bond has
+         (superclasses (Double-Covalent-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Double covalent bond between carbon and nitrogen.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Double-Covalent-CN-Bond has      
+       (purpose ((a Instrument-Role with
+		    (in-event ((a Be-Attached-To with
+				  (object ((a Carbon-Atom)
+					   (a Nitrogen-Atom)
+					   (exactly 2 Atom)))
+                                      )))
+                        )))
+       (intensity ((a Intensity-Value with (value ((:pair 147 *kilocalorie/mole))))))
+;       (length ((a Length-Value with (value ((:pair ?? *nanometer))))))
+       )
+
+

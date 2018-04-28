@@ -1,0 +1,28 @@
+;; 
+;; $Id: Flow.km,v 1.1 2006/06/07 20:26:52 kbarker Exp $
+;; 
+
+(Flow has (superclasses (Move)))
+
+; Flow is a specialization of Move in which the object is a Fluid-Substance
+
+(every Flow has
+  (object ((a Fluid-Substance)))
+)
+
+(every Flow has
+  (text-active-verbseq-sg ("flows"))
+  (text-active-verbseq-pl ("flow"))
+  (text-passive-verbseq-sg ("flows"))
+  (text-passive-verbseq-pl ("flow"))
+)
+
+(Flow has (wn20-synset ((:set
+                                    (:triple "flow" 2 "v")
+                                    (:triple "run" 6 "v")
+                                    (:triple "feed" 8 "v")
+                                    (:triple "course" 2 "v")
+))))
+
+(every Flow has (text-nominalization ("flow")))
+

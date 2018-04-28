@@ -1,0 +1,14 @@
+;; $Id: Na2SO4.km,v 1.5 2006/01/24 20:27:30 jfan Exp $ 
+(Na2SO4 has (superclasses (Ionic-Compound)))
+(every Na2SO4 has
+	(has-chemical-name ("sodium sulfate"))
+	(has-part ((a Na-Plus)(a SO4-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 2 Na-Plus)
+			(:pair 1 SO4-Minus-2)))))))
+)
+(every Na2SO4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a SO4-Minus-2))))
+

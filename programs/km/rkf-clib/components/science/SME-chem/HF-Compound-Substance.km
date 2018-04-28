@@ -1,0 +1,45 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _HF-Compound-Substance13704
+
+
+|#
+
+(disable-classification)
+
+(HF-Compound-Substance has (superclasses (Weak-Acid)))
+
+(every HF-Compound-Substance has (plays ((a Acid-Role with (default-ka ((a Equilibrium-Constant-Value with (value ((:pair 6.8e-4 nil)))))) (intensity ((a Intensity-Value with (value ((:pair *weak Acid))))))))) (has-chemical-name ("Hydrofluoric")) (has-basic-structural-unit ((a HF-Compound))))
+
+(_HF-Compound-Substance13764 has
+  (prototype-of (HF-Compound-Substance))
+  (prototype-scope (HF-Compound-Substance))
+  (prototype-participants (_Electrolyte-Status-Value13771 _HF-Compound-Substance13764)))
+
+(_HF-Compound-Substance13764 has (instance-of (HF-Compound-Substance)) (electrolyte-status (_Electrolyte-Status-Value13771)))
+
+(_Electrolyte-Status-Value13771 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *weak nil))))
+
+(enable-classification)
+
+(explanation (:triple _HF-Compound-Substance13764 electrolyte-status _Electrolyte-Status-Value13771) (((@ SME entered)) (every HF-Compound-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value13771 value (:pair *weak Acid)) (((@ SME entered)) (every HF-Compound-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak Acid)))))))))
+
+(explanation (:triple _HF-Compound-Substance13764 instance-of HF-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value13771 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every HF-Compound-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+(every HF-Compound-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak Acid)))))))
+
+|#
+
+|#
+

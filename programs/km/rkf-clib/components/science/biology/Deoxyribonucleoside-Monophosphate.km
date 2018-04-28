@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Deoxyribonucleoside-Monophosphate.km,v 1.1 2001/06/12 19:18:03 souther Exp $
+;; 
+
+(Deoxyribonucleoside-Monophosphate has
+         (superclasses (Nucleoside-Monophosphate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A deoxyribonucleotide in which the 5' terminal group 
+                        is a monophosphate, e.g. D-TMP. Souther."))
+         (test-case ()))
+
+(every Deoxyribonucleoside-Monophosphate has
+  (has-part ((a Monophosphate with
+		(object-of
+		  ((a Be-Attached-To with
+		      (object ((the Deoxyribonucleoside has-part of Self)))
+		      (site   (((the Carbon-Atom has-part of
+				     (the Deoxyribose has-part of
+					  (the Deoxyribonucleoside has-part of Self)))
+				called "Carbon-5")
+			       ((the Oxygen-Atom has-part of
+				     (the Monophosphate has-part of Self))
+				called "Oxygen-1")))
+		      (instrument ((a Covalent-CO-Bond)))))))
+	     (a Deoxyribonucleoside))))
+
+

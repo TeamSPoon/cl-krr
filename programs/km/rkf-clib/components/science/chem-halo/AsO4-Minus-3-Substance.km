@@ -1,0 +1,19 @@
+;; 
+;;    $Id: AsO4-Minus-3-Substance.km,v 1.4 2008/11/03 03:11:25 tecuci Exp $
+;; 
+ 
+(AsO4-Minus-3-Substance has (superclasses (Anion-Substance)))
+(every AsO4-Minus-3-Substance has
+	(plays (
+		((a Base-Role with	
+		    (default-kb ((a Equilibrium-Constant-Value with
+				    (value ((:pair 0.0033 nil))))))
+		    (intensity ((a Intensity-Value with
+				   (value ((:pair *weak Base))))))))
+	))
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a AsO4-Minus-3)))
+)
+(every AsO4-Minus-3-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a AsO4-Minus-3))))

@@ -1,0 +1,65 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _PbI2-Substance3315
+
+
+|#
+
+(PbI2-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(_PbI2-Substance2832 has
+  (prototype-of (PbI2-Substance))
+  (prototype-scope (PbI2-Substance))
+  (prototype-participants (_Cation2839 _Anion2838 _Anion-Substance2837 _Cation-Substance2836 _State-Value2835 _Chemical-Entity2834 _Solubility-Value2833 _PbI2-Substance2832)))
+
+(_PbI2-Substance2832 has
+  (instance-of (PbI2-Substance))
+  (has-part (_Cation-Substance2836 _Anion-Substance2837))
+  (physical-state (_State-Value2835))
+  (has-basic-structural-unit (_Chemical-Entity2834 (exactly 1 Ionic-Compound)))
+  (solubility (_Solubility-Value2833)))
+
+(_Solubility-Value2833 has (instance-of (Solubility-Value)) (value ((:pair *insoluble Chemical))))
+
+(_Chemical-Entity2834 has (instance-of (PbI2)) (has-part (_Anion2838 _Cation2839)))
+
+(_State-Value2835 has (instance-of (State-Value)))
+
+(_Cation-Substance2836 has (instance-of (Cation-Substance)) (has-basic-structural-unit (_Cation2839)))
+
+(_Anion-Substance2837 has (instance-of (Anion-Substance)) (has-basic-structural-unit (_Anion2838)))
+
+(_Anion2838 has (instance-of (I-Minus)))
+
+(_Cation2839 has (instance-of (Pb-Plus-2)))
+
+(explanation (:triple _Solubility-Value2833 value (:pair *insoluble Chemical)) (((@ SME entered)) (every PbI2-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))))
+
+(explanation (:triple _PbI2-Substance2832 instance-of PbI2-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value2833 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity2834 instance-of PbI2) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value2835 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance2836 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance2837 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion2838 instance-of I-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation2839 instance-of Pb-Plus-2) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every PbI2-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+|#
+
+|#
+

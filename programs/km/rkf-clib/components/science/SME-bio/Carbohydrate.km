@@ -1,0 +1,35 @@
+
+;;; ---------- Definition of prototype for Carbohydrate ----------
+
+(Carbohydrate has (superclasses (Organic-Molecule)))
+
+(_Carbohydrate669 has 
+  (instance-of (Carbohydrate))
+  (prototype-of (Carbohydrate))
+  (prototype-scope (Carbohydrate))
+  (prototype-participants (_Atom672
+                           _Carbohydrate669))
+  (prototype-participant-of (_Carbohydrate669))
+  (has-clones (_Placeholder-Class668670))
+  (has-built-clones (_Placeholder-Class668670))
+  (has-basic-structural-unit (_Atom672))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom672 230 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom672 t))))
+
+(_Atom672 has 
+  (instance-of (Atom))
+  (has-clones (_Atom671))
+  (is-basic-structural-unit-of (_Carbohydrate669))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 380 600)))
+  (node-visibility (t))
+  (prototype-participant-of (_Carbohydrate669)))
+
+(explanation (:triple _Carbohydrate669 has-basic-structural-unit _Atom672) ((a Atom (@ _Carbohydrate669 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom672 instance-of Atom) ((a Atom (@ _Carbohydrate669 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+

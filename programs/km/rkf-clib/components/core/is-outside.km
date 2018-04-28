@@ -1,0 +1,31 @@
+;; 
+;;    $Id: is-outside.km,v 1.15 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(is-outside has
+	 (instance-of (Spatial-Relation))
+	 (superslots ())
+	 (domain (Spatial-Entity))
+	 (range (Spatial-Entity))
+	 (inverse (does-not-enclose))
+	 (text-slot (text-is-outside))
+	 (fluent-status (*Inertial-Fluent))
+         (original-slot      (t))	
+	 (cardinality (N-to-N)))
+
+(text-is-outside has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-is-outside-of has (instance-of (NL-Slot-Group)))
+
+(does-not-enclose has 
+	(instance-of (Spatial-Relation))
+	(text-gloss ("does not enclose")))

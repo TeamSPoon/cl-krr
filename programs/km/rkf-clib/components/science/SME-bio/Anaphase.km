@@ -1,0 +1,367 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Anaphase ----------
+
+(Anaphase has (superclasses (Move-Apart)))
+
+(_Anaphase497 has 
+  (instance-of (Anaphase))
+  (prototype-of (Anaphase))
+  (prototype-scope (Anaphase))
+  (prototype-participants (_Tangible-Entity1180
+                           _Centromere1179
+                           _Move1178
+                           _Tangible-Entity1177
+                           _Centromere1176
+                           _Move1175
+                           _Tangible-Entity514
+                           _Move513
+                           _Tangible-Entity512
+                           _Spatial-Entity511
+                           _Move510
+                           _Anaphase497))
+  (prototype-participant-of (_Anaphase497))
+  (has-clones (_Placeholder-Class496498
+               _Anaphase188
+               _Anaphase214
+               _Anaphase236
+               _Anaphase362
+               _Anaphase378
+               _Anaphase569
+               _Anaphase486
+               _Anaphase699
+               _Anaphase747
+               _Anaphase1033
+               _Anaphase1154
+               _Anaphase1193))
+  (has-built-clones (_Placeholder-Class496498
+                     _Anaphase188
+                     _Anaphase214
+                     _Anaphase236
+                     _Anaphase362
+                     _Anaphase378
+                     _Anaphase569
+                     _Anaphase486
+                     _Anaphase699
+                     _Anaphase747
+                     _Anaphase1033
+                     _Anaphase1154
+                     _Anaphase1193))
+  (object (_Tangible-Entity514
+           _Tangible-Entity512))
+  (subevent (_Move513
+             _Move510
+             _Move1175
+             _Move1178))
+  (first-subevent (_Move513
+                   _Move510
+                   _Move1175
+                   _Move1178))
+  (origin (_Spatial-Entity511))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq constraint-node object-at-least ())
+                    (:seq object (at-least 2 Tangible-Entity) ())
+                    (:seq origin _Spatial-Entity511 f)
+                    (:seq object _Tangible-Entity512 t)
+                    (:seq object _Tangible-Entity514 t)
+                    (:seq first-subevent _Move1178 t)
+                    (:seq first-subevent _Move1175 t)
+                    (:seq first-subevent _Move510 t)
+                    (:seq first-subevent _Move513 t)
+                    (:seq subevent _Move1178 f)
+                    (:seq subevent _Move1175 f)
+                    (:seq subevent _Move510 f)
+                    (:seq subevent _Move513 f)))
+  (edge-coordinate ((:seq origin _Spatial-Entity511 210 396)
+                    (:seq object _Tangible-Entity512 217 658)
+                    (:seq object _Tangible-Entity514 217 658)
+                    (:seq first-subevent _Move1178 58 405)
+                    (:seq first-subevent _Move1175 58 405)
+                    (:seq first-subevent _Move510 58 405)
+                    (:seq first-subevent _Move513 58 405)
+                    (:seq subevent _Move1178 221 663)
+                    (:seq subevent _Move1175 221 663)
+                    (:seq subevent _Move510 221 663)
+                    (:seq subevent _Move513 221 663)))
+  (node-coordinate ((:pair 22 549))))
+
+(_Tangible-Entity1180 has 
+  (has-clones (_Thing1208
+               _Tangible-Entity1216))
+  (instance-of (Tangible-Entity))
+  (object-of (_Move1178))
+  (node-visibility (t))
+  (node-coordinate ((:pair 520 201)))
+  (prototype-participant-of (_Anaphase497)))
+
+(_Centromere1179 has 
+  (has-clones (_Thing1209
+               _Centromere1215))
+  (instance-of (Centromere))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (object-of (_Move1178))
+  (node-coordinate ((:pair 526 230)))
+  (prototype-participant-of (_Anaphase497)))
+
+(_Move1178 has 
+  (has-clones (_Thing1210
+               _Move1214))
+  (object (_Tangible-Entity1180
+           _Centromere1179))
+  (instance-of (Move))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq next-event _Move510 448 468)
+                    (:seq next-event _Move513 448 468)
+                    (:seq object _Centromere1179 378 242)
+                    (:seq object _Tangible-Entity1180 378 242)))
+  (edge-visibility ((:seq next-event _Move510 t)
+                    (:seq next-event _Move513 t)
+                    (:seq object _Centromere1179 t)
+                    (:seq object _Tangible-Entity1180 t)))
+  (first-subevent-of (_Anaphase497))
+  (subevent-of (_Anaphase497))
+  (next-event (_Move513
+               _Move510))
+  (node-coordinate ((:pair 244 452)))
+  (prototype-participant-of (_Anaphase497)))
+
+(_Tangible-Entity1177 has 
+  (has-clones (_Thing1211
+               _Tangible-Entity1219))
+  (instance-of (Tangible-Entity))
+  (object-of (_Move1175))
+  (node-visibility (t))
+  (node-coordinate ((:pair 515 116)))
+  (prototype-participant-of (_Anaphase497)))
+
+(_Centromere1176 has 
+  (has-clones (_Thing1212
+               _Centromere1218))
+  (instance-of (Centromere))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (object-of (_Move1175))
+  (node-coordinate ((:pair 523 153)))
+  (prototype-participant-of (_Anaphase497)))
+
+(_Move1175 has 
+  (has-clones (_Thing1213
+               _Move1217))
+  (object (_Tangible-Entity1177
+           _Centromere1176))
+  (instance-of (Move))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq next-event _Move510 469 356)
+                    (:seq next-event _Move513 469 356)
+                    (:seq object _Centromere1176 361 173)
+                    (:seq object _Tangible-Entity1177 361 173)))
+  (edge-visibility ((:seq next-event _Move510 t)
+                    (:seq next-event _Move513 t)
+                    (:seq object _Centromere1176 t)
+                    (:seq object _Tangible-Entity1177 t)))
+  (first-subevent-of (_Anaphase497))
+  (subevent-of (_Anaphase497))
+  (next-event (_Move513
+               _Move510))
+  (node-coordinate ((:pair 262 346)))
+  (prototype-participant-of (_Anaphase497)))
+
+(_Tangible-Entity514 has 
+  (prototype-participant-of (_Anaphase497))
+  (object-of (_Anaphase497
+              _Move513))
+  (instance-of (Chromatid))
+  (has-clones (_Tangible-Entity501
+               _Tangible-Entity191
+               _Tangible-Entity209
+               _Chromatid247
+               _Chromatid539
+               _Chromatid541
+               _Chromatid473
+               _Chromatid493
+               _Chromatid707
+               _Chromatid753
+               _Chromatid1038
+               _Chromatid1150
+               _Chromatid1189))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 374 648))))
+
+(_Move513 has 
+  (prototype-participant-of (_Anaphase497))
+  (subevent-of (_Anaphase497))
+  (first-subevent-of (_Anaphase497))
+  (origin (_Spatial-Entity511))
+  (instance-of (Move))
+  (object (_Tangible-Entity514))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-visibility ((:seq origin _Spatial-Entity511 f)
+                    (:seq object _Tangible-Entity514 t)))
+  (edge-coordinate ((:seq origin _Spatial-Entity511 671 406)
+                    (:seq object _Tangible-Entity514 718 587)))
+  (node-coordinate ((:pair 720 392)))
+  (has-clones (_Move192
+               _Move210
+               _Move232
+               _Move366
+               _Move418
+               _Move472
+               _Move492
+               _Move706
+               _Move752
+               _Move1037
+               _Move1151
+               _Move1190))
+  (prev-event (_Move1175
+               _Move1178)))
+
+(_Tangible-Entity512 has 
+  (prototype-participant-of (_Anaphase497))
+  (object-of (_Anaphase497
+              _Move510))
+  (instance-of (Chromatid))
+  (has-clones (_Tangible-Entity500
+               _Tangible-Entity193
+               _Tangible-Entity211
+               _Chromatid242
+               _Chromatid538
+               _Chromatid540
+               _Chromatid477
+               _Chromatid491
+               _Chromatid704
+               _Chromatid751
+               _Chromatid1036
+               _Chromatid1146
+               _Chromatid1186))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 374 683))))
+
+(_Spatial-Entity511 has 
+  (prototype-participant-of (_Anaphase497))
+  (origin-of (_Anaphase497
+              _Move510
+              _Move513))
+  (instance-of (Spatial-Entity))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 380 386)))
+  (has-clones (_Spatial-Entity194
+               _Spatial-Entity212
+               _Spatial-Entity234
+               _Spatial-Entity364
+               _Spatial-Entity380
+               _Spatial-Entity474
+               _Spatial-Entity490
+               _Spatial-Entity703
+               _Spatial-Entity750
+               _Spatial-Entity1035
+               _Spatial-Entity1149
+               _Spatial-Entity1188)))
+
+(_Move510 has 
+  (prototype-participant-of (_Anaphase497))
+  (subevent-of (_Anaphase497))
+  (first-subevent-of (_Anaphase497))
+  (instance-of (Move))
+  (object (_Tangible-Entity512))
+  (origin (_Spatial-Entity511))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-visibility ((:seq object _Tangible-Entity512 t)
+                    (:seq origin _Spatial-Entity511 f)))
+  (edge-coordinate ((:seq object _Tangible-Entity512 813 619)
+                    (:seq origin _Spatial-Entity511 671 460)))
+  (node-coordinate ((:pair 720 427)))
+  (has-clones (_Move195
+               _Move213
+               _Move235
+               _Move363
+               _Move419
+               _Move475
+               _Move487
+               _Move701
+               _Move748
+               _Move1034
+               _Move1147
+               _Move1187))
+  (prev-event (_Move1175
+               _Move1178)))
+
+(explanation (:triple _Anaphase497 object _Tangible-Entity512) ((a Tangible-Entity (@ _Anaphase497 Move-Apart object))))
+(explanation (:triple _Anaphase497 object _Tangible-Entity514) ((a Tangible-Entity (@ _Anaphase497 Move-Apart object))))
+(explanation (:triple _Anaphase497 subevent _Move510) ((forall (the object of _Anaphase497 (@ _Anaphase497 Move-Apart subevent)) (a Move with (object ((It (@ _Anaphase497 Move-Apart subevent Move object)))) (origin ((the origin of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move origin)))) (path ((if (has-value (the path of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move path)) then (the path of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move path)) (@ _Anaphase497 Move-Apart subevent Move path)))) (away-from ((if (has-value (the away-from of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move away-from)) then (the away-from of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move away-from)) (@ _Anaphase497 Move-Apart subevent Move away-from)))) (toward ((if (has-value (the toward of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move toward)) then (the toward of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move toward)) (@ _Anaphase497 Move-Apart subevent Move toward)))) (destination ((if (has-value (the destination of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move destination)) then (the destination of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move destination)) (@ _Anaphase497 Move-Apart subevent Move destination)))) (@ _Anaphase497 Move-Apart subevent)) (@ _Anaphase497 Move-Apart subevent))))
+(explanation (:triple _Anaphase497 subevent _Move513) ((forall (the object of _Anaphase497 (@ _Anaphase497 Move-Apart subevent)) (a Move with (object ((It (@ _Anaphase497 Move-Apart subevent Move object)))) (origin ((the origin of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move origin)))) (path ((if (has-value (the path of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move path)) then (the path of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move path)) (@ _Anaphase497 Move-Apart subevent Move path)))) (away-from ((if (has-value (the away-from of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move away-from)) then (the away-from of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move away-from)) (@ _Anaphase497 Move-Apart subevent Move away-from)))) (toward ((if (has-value (the toward of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move toward)) then (the toward of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move toward)) (@ _Anaphase497 Move-Apart subevent Move toward)))) (destination ((if (has-value (the destination of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move destination)) then (the destination of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move destination)) (@ _Anaphase497 Move-Apart subevent Move destination)))) (@ _Anaphase497 Move-Apart subevent)) (@ _Anaphase497 Move-Apart subevent))))
+(explanation (:triple _Anaphase497 origin _Spatial-Entity511) ((a Spatial-Entity (@ _Anaphase497 Move-Apart origin))))
+(explanation (:triple _Anaphase497 first-subevent _Move510) ((the subevent of _Anaphase497 (@ _Anaphase497 Move-Apart first-subevent))))
+(explanation (:triple _Anaphase497 first-subevent _Move513) ((the subevent of _Anaphase497 (@ _Anaphase497 Move-Apart first-subevent))))
+(explanation (:triple _Anaphase497 subevent _Move513) ((the first-subevent of _Anaphase497)))
+(explanation (:triple _Anaphase497 subevent _Move510) ((the first-subevent of _Anaphase497)))
+(explanation (:triple _Anaphase497 subevent _Move513) ((the first-subevent of _Anaphase497 (@ _Anaphase497 Event subevent))))
+(explanation (:triple _Anaphase497 subevent _Move510) ((the first-subevent of _Anaphase497 (@ _Anaphase497 Event subevent))))
+(explanation (:triple _Anaphase497 first-subevent _Move1175) ((the subevent of _Anaphase497 (@ _Anaphase497 Move-Apart first-subevent))))
+(explanation (:triple _Anaphase497 first-subevent _Move1175) ((added-at Anaphase "User defined")))
+(explanation (:triple _Anaphase497 subevent _Move1175) ((the first-subevent of _Anaphase497)))
+(explanation (:triple _Anaphase497 subevent _Move1175) ((the first-subevent of _Anaphase497 (@ _Anaphase497 Event subevent))))
+(explanation (:triple _Anaphase497 first-subevent _Move1178) ((the subevent of _Anaphase497 (@ _Anaphase497 Move-Apart first-subevent))))
+(explanation (:triple _Anaphase497 first-subevent _Move1178) ((added-at Anaphase "User defined")))
+(explanation (:triple _Anaphase497 subevent _Move1178) ((the first-subevent of _Anaphase497)))
+(explanation (:triple _Anaphase497 subevent _Move1178) ((the first-subevent of _Anaphase497 (@ _Anaphase497 Event subevent))))
+(explanation (:triple _Tangible-Entity1180 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Move1178 Move object))))
+(explanation (:triple _Tangible-Entity1180 instance-of Thing) ((a Thing (@ _Move1178 Action (object must-be-a)))))
+(explanation (:triple _Centromere1179 instance-of Centromere) ((added-at Anaphase "User defined")))
+(explanation (:triple _Centromere1179 instance-of Thing) ((a Thing (@ _Move1178 Action (object must-be-a)))))
+(explanation (:triple _Move1178 instance-of Move) ((added-at Anaphase "User defined")))
+(explanation (:triple _Move1178 object _Tangible-Entity1180) ((a Tangible-Entity (@ _Move1178 Move object))))
+(explanation (:triple _Move1178 object _Centromere1179) ((added-at Anaphase "User defined")))
+(explanation (:triple _Move1178 instance-of Event) ((a Event (@ _Anaphase497 Event (subevent must-be-a)))))
+(explanation (:triple _Move1178 next-event _Move513) ((added-at Anaphase "User defined")))
+(explanation (:triple _Move1178 next-event _Move510) ((added-at Anaphase "User defined")))
+(explanation (:triple _Tangible-Entity1177 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Move1175 Move object))))
+(explanation (:triple _Tangible-Entity1177 instance-of Thing) ((a Thing (@ _Move1175 Action (object must-be-a)))))
+(explanation (:triple _Centromere1176 instance-of Centromere) ((added-at Anaphase "User defined")))
+(explanation (:triple _Centromere1176 instance-of Thing) ((a Thing (@ _Move1175 Action (object must-be-a)))))
+(explanation (:triple _Move1175 instance-of Move) ((added-at Anaphase "User defined")))
+(explanation (:triple _Move1175 object _Tangible-Entity1177) ((a Tangible-Entity (@ _Move1175 Move object))))
+(explanation (:triple _Move1175 object _Centromere1176) ((added-at Anaphase "User defined")))
+(explanation (:triple _Move1175 instance-of Event) ((a Event (@ _Anaphase497 Event (subevent must-be-a)))))
+(explanation (:triple _Move1175 next-event _Move513) ((added-at Anaphase "User defined")))
+(explanation (:triple _Move1175 next-event _Move510) ((added-at Anaphase "User defined")))
+(explanation (:triple _Tangible-Entity514 instance-of Chromatid) ((added-at Anaphase "User defined")))
+(explanation (:triple _Tangible-Entity514 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Anaphase497 Move-Apart object))))
+(explanation (:triple _Tangible-Entity514 instance-of Thing) ((a Thing (@ _Anaphase497 Action (object must-be-a)))))
+(explanation (:triple _Tangible-Entity514 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Move513 Move object))))
+(explanation (:triple _Tangible-Entity514 instance-of Thing) ((a Thing (@ _Move513 Action (object must-be-a)))))
+(explanation (:triple _Move513 object _Tangible-Entity514) ((_Tangible-Entity514 (@ _Anaphase497 Move-Apart subevent Move object))))
+(explanation (:triple _Move513 instance-of Move) ((a Move with (object ((_Tangible-Entity514 (@ _Anaphase497 Move-Apart subevent Move object)))) (origin ((the origin of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move origin)))) (path ((if (has-value (the path of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move path)) then (the path of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move path)) (@ _Anaphase497 Move-Apart subevent Move path)))) (away-from ((if (has-value (the away-from of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move away-from)) then (the away-from of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move away-from)) (@ _Anaphase497 Move-Apart subevent Move away-from)))) (toward ((if (has-value (the toward of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move toward)) then (the toward of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move toward)) (@ _Anaphase497 Move-Apart subevent Move toward)))) (destination ((if (has-value (the destination of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move destination)) then (the destination of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move destination)) (@ _Anaphase497 Move-Apart subevent Move destination)))) (@ _Anaphase497 Move-Apart subevent))))
+(explanation (:triple _Move513 instance-of Event) ((a Event (@ _Anaphase497 Event (subevent must-be-a)))))
+(explanation (:triple _Move513 origin _Spatial-Entity511) ((the origin of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move origin))))
+(explanation (:triple _Move513 object _Tangible-Entity514) ((a Tangible-Entity (@ _Move513 Move object))))
+(explanation (:triple _Move513 instance-of Event) ((a Event with (time-during ((a Time-Interval with (time-after ((the time-during of _Move1175 (@ _Move1175 Event (next-event must-be-a) Event time-during Time-Interval time-after)))) (@ _Move1175 Event (next-event must-be-a) Event time-during)))) (@ _Move1175 Event (next-event must-be-a)))))
+(explanation (:triple _Move513 instance-of Event) ((a Event with (time-during ((a Time-Interval with (time-after ((the time-during of _Move1178 (@ _Move1178 Event (next-event must-be-a) Event time-during Time-Interval time-after)))) (@ _Move1178 Event (next-event must-be-a) Event time-during)))) (@ _Move1178 Event (next-event must-be-a)))))
+(explanation (:triple _Tangible-Entity512 instance-of Chromatid) ((added-at Anaphase "User defined")))
+(explanation (:triple _Tangible-Entity512 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Anaphase497 Move-Apart object))))
+(explanation (:triple _Tangible-Entity512 instance-of Thing) ((a Thing (@ _Anaphase497 Action (object must-be-a)))))
+(explanation (:triple _Tangible-Entity512 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Move510 Move object))))
+(explanation (:triple _Tangible-Entity512 instance-of Thing) ((a Thing (@ _Move510 Action (object must-be-a)))))
+(explanation (:triple _Spatial-Entity511 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Anaphase497 Move-Apart origin))))
+(explanation (:triple _Spatial-Entity511 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move510 Move (origin must-be-a)))))
+(explanation (:triple _Move510 object _Tangible-Entity512) ((_Tangible-Entity512 (@ _Anaphase497 Move-Apart subevent Move object))))
+(explanation (:triple _Move510 instance-of Move) ((a Move with (object ((_Tangible-Entity512 (@ _Anaphase497 Move-Apart subevent Move object)))) (origin ((the origin of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move origin)))) (path ((if (has-value (the path of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move path)) then (the path of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move path)) (@ _Anaphase497 Move-Apart subevent Move path)))) (away-from ((if (has-value (the away-from of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move away-from)) then (the away-from of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move away-from)) (@ _Anaphase497 Move-Apart subevent Move away-from)))) (toward ((if (has-value (the toward of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move toward)) then (the toward of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move toward)) (@ _Anaphase497 Move-Apart subevent Move toward)))) (destination ((if (has-value (the destination of _Anaphase497) (@ _Anaphase497 Move-Apart subevent Move destination)) then (the destination of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move destination)) (@ _Anaphase497 Move-Apart subevent Move destination)))) (@ _Anaphase497 Move-Apart subevent))))
+(explanation (:triple _Move510 instance-of Event) ((a Event (@ _Anaphase497 Event (subevent must-be-a)))))
+(explanation (:triple _Move510 origin _Spatial-Entity511) ((the origin of _Anaphase497 (@ _Anaphase497 Move-Apart subevent Move origin))))
+(explanation (:triple _Move510 object _Tangible-Entity512) ((a Tangible-Entity (@ _Move510 Move object))))
+(explanation (:triple _Move510 instance-of Event) ((a Event with (time-during ((a Time-Interval with (time-after ((the time-during of _Move1175 (@ _Move1175 Event (next-event must-be-a) Event time-during Time-Interval time-after)))) (@ _Move1175 Event (next-event must-be-a) Event time-during)))) (@ _Move1175 Event (next-event must-be-a)))))
+(explanation (:triple _Move510 instance-of Event) ((a Event with (time-during ((a Time-Interval with (time-after ((the time-during of _Move1178 (@ _Move1178 Event (next-event must-be-a) Event time-during Time-Interval time-after)))) (@ _Move1178 Event (next-event must-be-a) Event time-during)))) (@ _Move1178 Event (next-event must-be-a)))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,16 @@
+;;
+;;    $Id: CaloChatTableElement.km,v 1.6 2005/02/22 21:18:23 jchaw Exp $
+;; 
+
+(CaloChatTableElement has
+ (superclasses (ChatDataStructure))      
+ (required-slot          ()) 
+ (primary-slot     	    ())  
+ (secondary-slot         ())
+ )
+
+(hasTableColumnIndex has  (instance-of (Interface-Slot))  (domain (CaloChatTableElement CaloChatTableHeader)) (range (Integer))  (cardinality (N-to-N)))
+
+;;  The slot hasPlainTextContent maps to the has-part slot in Form-Document.km
+;;  The user may want to consult the relevant CLIB webpage for Form-Document.km
+;;  http://www.cs.utexas.edu/users/mfkb/RKF/tree/

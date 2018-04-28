@@ -1,0 +1,52 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Hydrocarbon-Substance2237
+
+
+|#
+
+(disable-classification)
+
+(Hydrocarbon-Substance has (superclasses (Organic-Molecule-Substance)))
+
+(_Hydrocarbon-Substance1079 has
+  (prototype-of (Hydrocarbon-Substance Organic-Molecule-Substance))
+  (prototype-scope (Hydrocarbon-Substance (the-class Organic-Molecule-Substance with (has-basic-structural-unit ((a Hydrocarbon-Molecule))))))
+  (prototype-participants (_C1085 _H1084 _Charge-Value1083 _Hydrocarbon-Molecule1082 _Hydrocarbon-Substance1079)))
+
+(_Hydrocarbon-Substance1079 has (instance-of (Hydrocarbon-Substance)) (has-basic-structural-unit (_Hydrocarbon-Molecule1082)))
+
+(_Hydrocarbon-Molecule1082 has
+  (instance-of (Hydrocarbon-Molecule))
+  (has-basic-structural-unit (_H1084 _C1085 (at-least 1 H) (at-least 1 C)))
+  (charge (_Charge-Value1083)))
+
+(_Charge-Value1083 has (instance-of (Charge-Value)))
+
+(_H1084 has (instance-of (H)))
+
+(_C1085 has (instance-of (C)))
+
+(enable-classification)
+
+(explanation (:triple _Hydrocarbon-Substance1079 instance-of Hydrocarbon-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Hydrocarbon-Molecule1082 instance-of Hydrocarbon-Molecule) (((@ SME entered)) NIL))
+
+(explanation (:triple _Charge-Value1083 instance-of Charge-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _H1084 instance-of H) (((@ SME entered)) NIL))
+
+(explanation (:triple _C1085 instance-of C) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+
+|#
+
+|#
+

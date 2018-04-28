@@ -1,0 +1,17 @@
+;;
+;; $Id: Br.km,v 1.6 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Br has (superclasses (Non-Metal-Atom VIIA-Halogen-Element)))
+(every Br has
+       (has-molecular-name ("bromine"))
+       (atomic-symbol (Br))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 35 NIL))))))
+       (has-ion ((a Br-Minus)))
+       (chemical-period (4)))
+
+(every Br has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("bromine"))
+)

@@ -1,0 +1,23 @@
+;;
+;;   $Id: Wet.km,v 1.13 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Wet has 
+  (superclasses  (Increase))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Wet has-definition
+  (instance-of (Increase))
+  (from-value ((a Wetness-Value)))
+)
+
+(every Wet has
+  (from-value ((a Wetness-Value with (wetness-of ((the base of Self))))))
+  (base ((a Tangible-Entity with (wetness ((the from-value of Self))))))
+)
+
+(Wet has (wn20-synset ((:set
+			(:triple "wet" 1 "v")
+))))
+(every Wet has (text-nominalization ("wetting")))

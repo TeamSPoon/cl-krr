@@ -1,0 +1,31 @@
+;; 
+;; $Id: WeblogPosting.km,v 1.5 2005/02/22 22:19:07 jchaw Exp $
+;; 
+
+;; IRIS_class: WeblogPosting
+
+;; in iris this is a subclass of InformationPurpose
+(WeblogPosting has
+	       (superclasses (Computer-File)))
+
+(every WeblogPosting has
+       (hasExcerptedEntry ((a String)))
+       (hasExtendedEntry ((a String)))
+       ;; one of Message Annotation WeblogPosting
+       (hasResponse ((a Information)))
+       (isPostingOf ((a Information)))
+       ;(isReponseTo ((a Thing)))
+)
+
+(hasExcerptedEntry has (instance-of (Interface-Slot)) (domain (WeblogPosting)) (range (String)) (cardinality (N-to-N)))
+
+(hasExtendedEntry has (instance-of (Interface-Slot)) (domain (WeblogPosting)) (range (String)) (cardinality (N-to-N)))
+
+(hasResponse has    (instance-of (Interface-Slot))   (domain (WeblogPosting))   (range (Message Annotation WeblogPosting))    (inverse (isResponseTo))   (cardinality (N-to-N)))
+
+;; range should be Discussion-Board (a Service) WeblogPosting (a Computer-File)
+(isPostingOf has (instance-of (Interface-Slot)) (domain (WeblogPosting)) #|(range (Thing))|# (cardinality (N-to-N)))
+
+;(isResponseTo has (instance-of (Interface-Slot)) (domain (WeblogPosting)) (range (Message Annotation WeblogPosting)) (cardinality (N-to-N)))
+
+

@@ -1,0 +1,17 @@
+;;
+;; $Id: I.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(I has (superclasses (Non-Metal-Atom VIIA-Halogen-Element)))
+(every I has
+       (has-molecular-name ("iodide"))
+       (atomic-symbol (I))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 53 NIL))))))
+       (has-ion ((a I-Minus)))
+       (chemical-period (5)))
+
+(every I has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("iodine"))
+)

@@ -1,0 +1,27 @@
+
+;; $Id: net-force.km,v 1.9 2007/09/27 15:08:40 jchaw Exp $
+
+(net-force has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Exert-Force))
+  (range (Force-Vector-Value))
+  ;(scale-class (Force-Scale))
+  ;(scalar-constant-class (Force-Constant))
+  ;(cardinal-unit-class (UoM-Force))
+  (inverse (net-force-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(net-force has (wn20-synset ((:set
+                               (:triple "force" 3 "n")
+			       (:triple "net force" 0 "n")
+			       ))))
+
+(net-force-of has (instance-of (EventProperty)))
+
+
+(net-force has (name ("net force")))

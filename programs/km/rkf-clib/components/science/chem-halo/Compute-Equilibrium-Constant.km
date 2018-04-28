@@ -1,0 +1,79 @@
+;
+;;    $Id: Compute-Equilibrium-Constant.km,v 1.1 2005/09/01 15:53:23 jfan Exp $
+;;
+(Compute-Equilibrium-Constant has
+  (superclasses (Method)))
+
+;;
+;; This method encodes L.26. It involves the method Compute-Concentration-Change-Constant
+;; to compute the change in concentration constant x in a Keq expression. Once this value 
+;; is obtained, it calls the lisp function CALC-EQUILIBRIUM-CONSTANT to calculate the Keq 
+;; constant.
+;;
+(every Compute-Equilibrium-Constant has
+  (input  ((a Equilibrium-Reaction)))
+  (output (#'(LAMBDA ()
+               (CALC-EQUILIBRIUM-CONSTANT 
+                 (KM0 '(|the| |term| |of| (|the| |keq-expression| |of| (|the| |input| |of| |Self|))))
+                 (FIRST (KM0 '(|the| |output| |of|
+                                (|a| |Compute-Concentration-Change-Constant| |with|
+                                  (|input| ((|the| |input| |of| |Self|)))))))
+                 (KM0 '(|the| |instance-of| |of| (|the| |input| |of| |Self|)))
+               )
+              [Compute-Equilibrium-Constant-output-1]
+             )
+  ))
+)
+
+(comment [Compute-Equilibrium-Constant-output-1]
+  (:seq "The equilibrium constant of"
+        (the input of Self)
+        "is thus Keq ="
+        (if ((the input of Self) isa Hydrolysis)
+         then (:seq "{(" "nospace"
+                    (the output of (a Compute-Concentration-Change-Constant with
+                                      (input ((the input of Self))))
+                    )
+                    "nospace" ")^2}/{" "nospace"
+                    (the1 of 
+                        (the value of 
+                             (the concentration of
+                                  ((the raw-material of (the input of Self)) called "Reactant")))
+                    )
+                    "-"
+                    (the output of (a Compute-Concentration-Change-Constant with
+                                      (input ((the input of Self))))
+                    )
+                    "nospace" "} ="
+              )
+        )
+        (the1 of (the value of (the output of Self)))
+  )
+  (if ((the input of Self) isa Hydrolysis)
+   then (if (has-value (the Acid-Role plays of ((the raw-material of (the input of Self)) called "Reactant")))
+         then (:seq "In the hydrolysis of an acid, Keq = {[H+]^2}/{["
+                    "nospace"
+                    (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+                    "nospace"
+                    "]initial - [H+]}"
+              )
+         else (if (has-value (the Base-Role plays of ((the raw-material of (the input of Self)) called "Reactant")))
+               then (:seq "In the hydrolysis of an acid, Keq = {[OH-]^2}/{["
+                          "nospace"
+                          (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+                          "nospace"
+                          "] - [OH-]}"
+                    )
+              )
+        )
+   else         ;; not hydrolysis
+        "In a general equilibrium reaction the equilibrium constant Keq is computed by solving the Keq expression"
+  )
+  (:triple (a Compute-Concentration-Change-Constant with
+              (input ((the input of Self)))
+           )
+           output
+           *
+  )
+)
+

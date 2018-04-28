@@ -1,0 +1,28 @@
+<!--- $Id: Elevator.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<kml>
+
+<concept name=Elevator>
+<system-documentation name=Elevator>
+<superconcept name=Room>
+
+<definition>
+	 A Room that is raised and lowered mechanically in a vertical shaft in order to move people from one floor to another in a building.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the Elevator is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Room>
+     A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

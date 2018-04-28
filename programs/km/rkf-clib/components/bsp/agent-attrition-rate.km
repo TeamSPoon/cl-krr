@@ -1,0 +1,18 @@
+;; 
+;;    $Id: agent-attrition-rate.km,v 1.5 2002/10/02 13:42:30 kbarker Exp $
+;; 
+
+(agent-attrition-rate has
+   (instance-of (Property))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Military-Task))    
+   (range       (Agent-Attrition-Rate-Value))
+   (cardinal-unit-class   (UoM-Unitless))
+   (scalar-constant-class (Agent-Attrition-Rate-Constant))
+   (inverse 	(agent-attrition-rate-of))
+   (inherit-with-overrides (t))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+)
+

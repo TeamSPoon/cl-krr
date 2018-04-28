@@ -1,0 +1,38 @@
+<!--- $Id: apex-duration.spec.kml,v 1.2 2008/05/14 18:09:47 kunal Exp $ --->
+<kml>
+<property-doc name=apex-duration>
+<gpd-documentation name=Property>
+
+<from name=Event>
+<from name=Time-Interval>
+<to name=Duration-Value>
+
+<description> 
+  The duration the object takes to reach the apex of its flight.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Duration>
+<p>
+    <examplesentence>
+      <text>The ball took 10s to reach the highest point.</text>
+      <slotdescription name=number>10</slotdescription>
+      <slotdescription name=unit of measure>s</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+<scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>forever, brief</scalars>
+<scale name=forever-brief-scale>forever..brief</scale>
+    <p>
+    <examplesentence>
+      <text>brief moment</text>
+      <slotdescription name=value>brief</slotdescription>
+      <slotdescription name=relative to>Moment</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>

@@ -1,0 +1,65 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for FeBr3 ----------
+
+(FeBr3 has (superclasses (Ionic-Compound)))
+
+(_FeBr32762 has 
+  (instance-of (FeBr3))
+  (prototype-of (FeBr3))
+  (prototype-scope (FeBr3))
+  (prototype-participants (_Cation2959
+                           _Anion2957
+                           _FeBr32762))
+  (prototype-participant-of (_FeBr32762))
+  (has-part (_Anion2957
+             _Cation2959))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Cation2959 t)
+                    (:seq has-part _Anion2957 t)
+                    (:seq has-chemical-formula _Chemical-Formula2960 t)
+                    (:seq atomic-chemical-formula _Chemical-Formula2961 t)))
+  (internally-expanded (t)))
+
+(_Cation2959 has 
+  (instance-of (Cation))
+  (is-part-of (_FeBr32762))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_FeBr32762)))
+
+(_Anion2957 has 
+  (instance-of (Anion))
+  (is-part-of (_FeBr32762))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_FeBr32762)))
+
+(explanation (:triple _FeBr32762 atomic-chemical-formula _Chemical-Formula2961)
+  ((added-at FeBr3 "User defined")))
+(explanation (:triple _FeBr32762 nested-atomic-chemical-formula _Chemical-Formula2962)
+  ((_Chemical-Formula2962)))
+(explanation (:triple _FeBr32762 has-chemical-formula _Chemical-Formula2960)
+  ((added-at FeBr3 "User defined")))
+(explanation (:triple _FeBr32762 nested-atomic-chemical-formula _Chemical-Formula2962)
+  ((if ((not (the nested-atomic-chemical-formula of _FeBr32762)) and (the has-chemical-formula of _FeBr32762) (@ _FeBr32762 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _FeBr32762)))) (@ _FeBr32762 Ionic-Compound nested-atomic-chemical-formula)) (@ _FeBr32762 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _FeBr32762 has-part _Cation2959)
+  ((a Cation (@ _FeBr32762 Ionic-Compound has-part))))
+(explanation (:triple _FeBr32762 has-part _Anion2957)
+  ((a Anion (@ _FeBr32762 Ionic-Compound has-part))))
+(explanation (:triple _FeBr32762 instance-of FeBr3)
+  ((added-at FeBr3 "User defined")))
+(explanation (:triple _Cation2959 instance-of Cation)
+  ((added-at FeBr3 "User defined")))
+(explanation (:triple _Cation2959 instance-of Cation)
+  ((a Cation (@ _FeBr32762 Ionic-Compound has-part))))
+(explanation (:triple _Anion2957 instance-of Anion)
+  ((added-at FeBr3 "User defined")))
+(explanation (:triple _Anion2957 instance-of Anion)
+  ((a Anion (@ _FeBr32762 Ionic-Compound has-part))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

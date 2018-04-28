@@ -1,0 +1,16 @@
+;; 
+;; $Id: computer-storage-size.km,v 1.3 2004/03/04 22:42:48 pzyeh Exp $
+;; 
+
+(computer-storage-size has
+   (instance-of (Property))
+   (domain (Computer-Storage))    
+   (range (Computer-Storage-Size-Value))
+   (scalar-constant-class (Computer-Storage-Size-Constant))
+   (cardinal-unit-class (UoM-Computer-Storage-Size))
+   (inverse (computer-storage-size-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (cardinality (N-to-1))
+)
+

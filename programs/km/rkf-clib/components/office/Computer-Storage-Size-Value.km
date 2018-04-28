@@ -1,0 +1,15 @@
+
+;;
+;; $Id: Computer-Storage-Size-Value.km,v 1.4 2005/02/14 22:27:41 kbarker Exp $
+;;
+
+(Computer-Storage-Size-Value has (superclasses (Property-Value)))
+
+(every Computer-Storage-Size-Value has
+   (property-slot (computer-storage-size))
+   (computer-storage-size-of ((must-be-a Computer-Storage)))
+   (less-than ((must-be-a Computer-Storage-Size-Value)))
+   (greater-than ((must-be-a Computer-Storage-Size-Value)))
+   (same-as ((must-be-a Computer-Storage-Size-Value)))
+)
+

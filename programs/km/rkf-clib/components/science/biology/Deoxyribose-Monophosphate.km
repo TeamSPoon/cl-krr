@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Deoxyribose-Monophosphate.km,v 1.5 2003/09/10 16:42:38 jchaw Exp $
+;; 
+
+(Deoxyribose-Monophosphate has
+       (superclasses (Deoxyribose-Sugar-Phosphate))
+       (required-slot ())
+       (primary-slot ())
+       (secondary-slot ())
+       (cmap-correspondence ())
+       (description ("A deoxyribose sugar phosphate.  Souther"))
+       (test-case ()))
+
+(every Deoxyribose-Monophosphate has
+       (has-part
+          ((a Monophosphate with
+              (object-of
+               ((a Be-Attached-To with
+                   (object ((the Deoxyribose has-part of Self)))
+                   (site
+                         (((the Carbon-Atom has-part of
+                                 (the Deoxyribose has-part of Self))
+                           called "Carbon-5")
+                          ((the Oxygen-Atom has-part of
+                                (the Monophosphate has-part of Self))
+                            called "Oxygen-1")))
+		   (instrument ((a Covalent-CO-Bond)))
+		   )))
+	      )
+	   (a Deoxyribose)
+       )))
+
+

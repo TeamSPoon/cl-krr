@@ -1,0 +1,32 @@
+
+;;
+;; $Id: Personal-Purchase.km,v 1.1 2004/01/28 22:29:50 kbarker Exp $
+;;
+
+(Personal-Purchase has 
+  (superclasses (Purchase))
+  (description ("a purchase paid for by an individual for his/her own benefit"))
+)
+
+;; see Purchase.km for inherited axioms
+
+(every Personal-Purchase has-definition
+  (instance-of (Purchase))
+  (agent ((a Person)))
+  (beneficiary ((the agent of Self)))
+)
+
+(every Personal-Purchase has
+  (agent ((a Person)))
+  (beneficiary ((the agent of Self)))
+
+  (first-subevent ((the Specify subevent of Self)))
+  (subevent ((a Specify with (next-event ((the Match subevent of Self))))
+             (a Match with   (next-event ((the Select subevent of Self))))
+             (a Select with  (next-event ((the Place-Order subevent of Self))))
+             (a Place-Order with   (next-event ((the Buy subevent of Self))))
+             (a Buy)
+  ))
+)
+
+

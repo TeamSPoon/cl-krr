@@ -1,0 +1,41 @@
+<!--- $Id: Make-Inaccessible.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Make-Inaccessible::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Move>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Make-Inaccessible>
+  <definition>make an object inaccessible</definition>
+  <requiredslot name=object>
+    <restriction>an Entity</restriction>
+  </requiredslot>
+
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be inaccessible</restriction>
+  </primaryslot>
+
+  <primaryslot name=base>
+    <restriction>the Entity that the <slot>object</slot> is inaccessible to</restriction>
+  </primaryslot>
+
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Make-Inaccessible is the top-level concept for actions that prevent an Entity 
+from taking part as object or instrument in Actions.
+It puts the <slot>object</slot> in a <conceptref name=Be-Inaccessible> 
+state, which can be undone by <conceptref name=Make-Accessible::doc>.
+</musing>
+
+</kml>
+
+

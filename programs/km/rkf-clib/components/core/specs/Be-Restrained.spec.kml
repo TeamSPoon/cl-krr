@@ -1,0 +1,76 @@
+<!--- $Id: Be-Restrained.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Restrained>
+<system-documentation name=Be-Restrained>
+
+<superconcept name=Be-Obstructed>
+
+<definition>
+	An <slot>object</slot> in a <conceptref name=Be-Restrained> state
+	is unable to <conceptref name=Move>.
+  An object is put in this state by <conceptref name=Restrain>.
+
+  An object is taken out of this state by <conceptref name=Unrestrain>.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    	the thing that is unable to <conceptref name=Move> (i.e. is restrained).
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Fido couldn't run away, being restrained by the chain.</text>
+    <slotdescription name=object>Fido/slotdescription>
+  </examplesentence>
+  <comment>
+     	Fido is in a Be-Restrained state and not in a Be-Held state, as there
+	is no agent holding it.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Be-Obstructed>
+	<conceptref name=Be-Obstructed> is more general, preventing all movements.
+  </neighbor>
+  <neighbor name=Be-Confined>
+	<conceptref name=Be-Confined> restricts the movement of the object 
+	out of a certain enclosure.
+  </neighbor>
+  <neighbor name=Be-Contained>
+	An <slot>object</slot> is contained in a container.
+	It can <conceptref name=Move-Out> of it at any time.
+  </neighbor>
+  <neighbor name=Be-Held>
+	<conceptref name=Be-Held> has an <slot>agent</slot> that is allowed 
+	to <conceptref name=Move> the <slot>object</slot>.
+  </neighbor>
+  <neighbor name=Be-Shut-Out
+	The <slot>object</slot> of a <conceptref name=Be-Shut-Out>
+	is unable to <conceptref name=Move-Into> an enclosure.
+  </neighbor>
+  <neighbor name=Be-Supported>
+	The <slot>object</slot> of a <concpetref name=Be-Supported>
+	is prevented from <conceptref name=Fall>ing.
+  </neighbor>
+
+</neighborlist>
+
+<comment>
+An object being in a <conceptref name=Be-Restrained> state affects the 
+actions that can be done on it (i.e. the object is unable to <conceptref name=Move>). 
+There are actions that put an object into this state (<conceptref name=Restrain>), 
+and that take an object out of this state (<conceptref name=Unrestrain>).
+</comment>
+
+</kml>
+
+

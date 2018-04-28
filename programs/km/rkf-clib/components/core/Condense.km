@@ -1,0 +1,29 @@
+;;
+;;   $Id: Condense.km,v 1.2 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Condense has 
+  (superclasses  (Increase))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Condense has-definition
+  (instance-of (Increase))
+  (from-value ((a Density-Value)))
+)
+
+(every Condense has
+  (from-value ((a Density-Value with (density-of ((the base of Self))))))
+  (base ((a Tangible-Entity with (density ((the from-value of Self))))))
+)
+
+(Condense has (wn20-synset ((:set
+			   (:triple "condense" 7 "v")
+			   (:triple "concentrate" 6 "v")
+			   (:triple "contract" 7 "v")
+			   (:triple "compress" 1 "v")
+			   (:triple "compact" 3 "v")
+			   (:triple "pack together" 1 "v")
+))))
+
+(every Condense has (text-nominalization ("condensing")))

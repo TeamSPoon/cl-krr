@@ -1,0 +1,29 @@
+<!--- $Id: entails.spec.kml,v 1.4 2002/08/28 20:25:40 tecuci Exp $ --->
+<kml>
+<relation-doc name=entails/entails-of>
+
+
+<from name=Event>
+<to name=Event>
+
+<description> 
+	an Event entails another Event.
+</description>
+
+<examplesentencelist>
+ <examplesentence>
+<text><ex-from>Being born</ex-from> entails <ex-to>dying</ex-to>.</text>
+  </examplesentence>
+ <examplesentence>
+<text>If you <ex-from>kick</ex-from> my dog he <ex-to>will bite</ex-to> you.</text>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=enables>
+	Enables is weaker than entails: it does not assert that the second 
+        Event will necessarily occur, it says that it can occur.
+  </enables>
+</neighborlist>
+
+</kml>

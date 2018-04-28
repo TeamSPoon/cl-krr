@@ -1,0 +1,25 @@
+;; 
+;;    $Id: has-region.km,v 1.9 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(has-region has
+	  (instance-of (Meronymic-Relation))
+	  (superslots ())
+	  (subslots ())
+	  (domain (Tangible-Entity))
+	  (range (Spatial-Entity))
+	  (inverse (is-region-of))
+	  (cardinality (N-to-N))
+  (original-slot      (t))	
+	  (fluent-status (*Inertial-Fluent)))
+
+
+(has-region has (wn20-synset ((:set
+			       (:triple "region" 0 "n")))))
+
+
+
+(has-region has (text-gloss ("has subregion")))
+(is-region-of has 
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("is a region of")))

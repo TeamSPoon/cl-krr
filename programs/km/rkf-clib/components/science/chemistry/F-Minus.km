@@ -1,0 +1,10 @@
+;; $Id: F-Minus.km,v 1.4 2003/02/22 16:24:30 jchaw Exp $ 
+(F-Minus has (superclasses (Anion)))
+(every F-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("fluoride"))
+	(has-acid-name ("hydrofluoric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 F)))))))
+)

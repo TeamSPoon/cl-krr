@@ -1,0 +1,50 @@
+;; 
+;; $Id: Bridge.km,v 1.3 2006/04/12 19:33:24 jchaw Exp $
+;; 
+
+(Bridge has
+  (superclasses (Architectural-Structure))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("an architectural structure that acts as conduit over a barrier"))
+  (cmap-correspondence ())
+)
+
+(every Bridge has
+  (plays ((a Conduit)))   ;; can be path of a Move
+  (is-over ((a Entity with
+               (plays ((a Barrier)))
+  )))
+)
+
+(Bridge has
+  (test-case ('(
+                (*TooFar has (instance-of (Bridge)))
+                (*RiverKwai has (instance-of (Tangible-Entity))
+                                (plays ((a Barrier)))
+                )
+
+                (do-and-next (the in-event of (the plays of *RiverKwai)))
+
+                (a Move with 
+                   (object ((a Artifact)))
+                   (path ((the object of 
+                               (the in-event of
+                                    (the plays of *RiverKwai)))))
+                )
+
+                (not (try-do (thelast Move)))
+
+                (a Move with
+                   (object ((a Artifact)))
+                   (path (*TooFar))
+                )
+
+                (do-and-next (thelast Move))
+))))
+
+(Bridge has (wn20-synset ((:set
+			   (:triple "bridge" 1 "n")
+			   (:triple "span" 5 "n")
+			   ))))

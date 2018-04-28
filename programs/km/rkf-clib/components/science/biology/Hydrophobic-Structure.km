@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Hydrophobic-Structure.km,v 1.9 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Hydrophobic-Structure has
+         (superclasses (Chemical-Entity))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Any chemical object which repels water. Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+
+
+
+(every Hydrophobic-Structure has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

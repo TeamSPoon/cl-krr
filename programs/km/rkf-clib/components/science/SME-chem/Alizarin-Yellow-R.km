@@ -1,0 +1,15 @@
+;; $Id: Alizarin-Yellow-R.km,v 1.1 2007/12/13 22:33:56 mrglass Exp $ 
+(Alizarin-Yellow-R has (superclasses (Chemical)))
+(every Alizarin-Yellow-R now-has
+	(has-chemical-name ("Alizarin Yellow R"))
+   (color (
+         (if ((the Solution has-part of (the Mixture is-part-of of Self)) isa Acidic-Solution)
+            then
+            (a Color-Value with (value (*yellow))))
+         (if ((the Solution has-part of (the Mixture is-part-of of Self)) isa Basic-Solution)
+            then
+            (a Color-Value with (value (*red))))))
+   )
+
+
+

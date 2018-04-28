@@ -1,0 +1,49 @@
+;;
+;;   $Id: Expand.km,v 1.15 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Expand has 
+  (superclasses  (Increase))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Expand has-definition
+  (instance-of (Increase))
+  (from-value ((a Volume-Value)))
+)
+
+(every Expand has
+  (from-value ((a Volume-Value with (volume-of ((the base of Self))))))
+  (base ((a Tangible-Entity with (volume ((the from-value of Self))))))
+)
+
+(Expand has
+   (test-case ('(
+                 (*myballoon has (instance-of (Physical-Object))
+                             (volume (*myballoonsvolume)))
+                 (*myballoonsvolume has (instance-of (Volume-Value))
+                                        (value ((:pair 3 *liter))))
+
+                 (a Increase with (from-value (*myballoonsvolume))
+                                  (base (*myballoon))
+                 )
+
+                 ((thelast Increase) isa Expand)
+
+                 (do-and-next (thelast Expand))
+
+                 ((the greater-than of (the volume of *myballoon))
+                       includes *myballoonsvolume)
+
+))))
+
+(Expand has (wn20-synset ((:set
+			   (:triple "expand" 1 "v")
+			   (:triple "expand" 2 "v")
+			   (:triple "expand" 3 "v")
+			   (:triple "spread_out" 4 "v")
+			   (:triple "enlarge" 1 "v")
+			   (:triple "enlarge" 3 "v")
+))))
+
+(every Expand has (text-nominalization ("expansion")))

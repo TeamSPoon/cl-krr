@@ -1,0 +1,11 @@
+;;
+;; $Id: ComputerCopyMachine.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(ComputerCopyMachine has 
+  (superclasses (ComputerPeripheral Photocopier)))
+
+(ComputerCopyMachine has
+  (feature-slot ((the feature-slot of ComputerPeripheral) (the feature-slot of Photocopier)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = ComputerCopyMachine)))))
+

@@ -1,0 +1,57 @@
+;; 
+;;    $Id: Ionic-Compound-Substance.km,v 1.9 2008/11/03 03:11:27 tecuci Exp $ 
+;; 
+
+(Ionic-Compound-Substance has
+			  (superclasses (Strong-Electrolyte))
+			  (test-case ()))
+
+(every Ionic-Compound-Substance has-definition 
+       (instance-of (Chemical [Ionic-Compound-Substance-instance-of-1]))
+       (has-basic-structural-unit ((a Ionic-Compound)
+				   ;; *PZY* -- 05/09/2006
+				   ;; (exactly 1 Ionic-Compound)
+	)))
+
+(comment [Ionic-Compound-Substance-instance-of-1]
+  (:seq (the text-gen of Self)
+        "is made up of"
+        (the text-gen of 
+             (the Anion has-part of (the has-basic-structural-unit of Self)))
+        "and"
+        (the text-gen of 
+             (the Cation has-part of (the has-basic-structural-unit of Self)))
+  )
+  "A chemical is an ionic compound if it is made up of a cation and an anion" 
+)
+
+(every Ionic-Compound-Substance has
+       (has-part ((a Cation-Substance with
+		     (has-basic-structural-unit ((the Cation has-part of (the has-basic-structural-unit of Self)))))
+		  (a Anion-Substance with
+		     (has-basic-structural-unit ((the Anion has-part of (the has-basic-structural-unit of Self)))))))
+       
+       (physical-state (
+             (if ((oneof (the is-ion-of of (the has-part of (the has-basic-structural-unit of Self))) 
+                      where (It isa Metal-Atom))
+                and
+                (oneof (the is-ion-of of (the has-part of (the has-basic-structural-unit of Self))) 
+                      where (It isa Non-Metal-Atom)))
+             then
+             (a State-Value with (value (*solid))))))
+       
+       )
+
+(Ionic-Compound-Substance has 
+		(test-case ( '((*Na2CO3 has
+					(instance-of (Ionic-Compound-Substance))
+					(has-basic-structural-unit 
+					((a Ionic-Compound with
+					    (has-part ((a Na-Plus)
+						       (a CO3-Minus-2)))))))
+			       
+			       ((the term of (the has-chemical-formula of (the has-basic-structural-unit of *Na2CO3))) 
+				= 
+				((:seq (:pair 2 Na-Plus) (:pair 1 CO3-Minus-2))))))))
+			       
+			       

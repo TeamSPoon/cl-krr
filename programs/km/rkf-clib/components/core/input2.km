@@ -1,0 +1,14 @@
+;; 
+;; $Id: input2.km,v 1.1 2008/02/12 22:42:15 jchaw Exp $
+;; 
+
+(input2 has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Thing))
+  (inverse (input2-of))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot (t))
+  (cardinality (N-to-N)))
+
+(input2-of has
+  (instance-of (CLIB-Slot-Group)))

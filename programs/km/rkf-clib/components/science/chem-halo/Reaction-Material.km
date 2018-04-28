@@ -1,0 +1,94 @@
+; 
+;;    $Id: Reaction-Material.km,v 1.10 2008/08/31 20:07:16 tecuci Exp $ 
+;; 
+
+(Reaction-Material has (superclasses (Role)))
+
+#|(every Reaction-Material has-definition
+       (instance-of (Chemical))
+       (raw-material-of ((a Reaction))))
+|#
+
+(every Reaction-Material has
+       (coefficient (;;(must-be-a Coefficient-Value)
+		     ((?in-reactions == (the raw-material-of of (the played-by of Self)))
+		      and
+		      (?in-reactions-with-result == (oneof ?in-reactions where (the result of It)))
+		      and
+		      ((?proper-reaction == (oneof ?in-reactions-with-result
+						   where
+						   (allof2 (:set (the raw-material of It)
+								 (the result of It))
+							   where (the term of (the atomic-chemical-formula of 
+										   (the has-basic-structural-unit of It2))))))
+		       and 
+		       (if ?proper-reaction
+			   then
+			 ((a Coefficient-Value) &
+			  (#'(LAMBDA () 
+				     (BALANCED-EQUATION-COEFFICIENT 
+				      ;; the reaction
+				      (KM-UNIQUE0 '|?proper-reaction|)
+				      ;; the chemical
+				      (KM-UNIQUE0 '(the played-by of Self))))))
+			 )))))
+       
+       (quantity (;;(must-be-a Quantity-Value)
+		  (if ((not (the quantity of (the played-by of Self)))
+		       and
+		       (the1 of (the value of (the coefficient of Self)))
+		       and
+		       ;; shouldn't use this formula for Equilibrium reactions
+		       (not ((oneof (the raw-material-of of (the played-by of Self))
+				    where (It isa Equilibrium-Reaction)))))
+                      then
+                      (the output of 
+                           (a Compute-Quantity-from-Reaction with
+                              (input (
+                                 (allof 
+                                    (:set (the raw-material of 
+                                               (the raw-material-of of (the played-by of Self)))
+                                          (the result of 
+                                               (the raw-material-of of (the played-by of Self)))
+                                    )
+                                  where (It /= Self)
+                                 )
+                                 (the coefficient of Self))))
+                       [Reaction-Material-quantity-1]
+                      )
+       )))
+)
+       
+(comment [Reaction-Material-quantity-1]
+  (:seq "Therefore, the quantity of"
+        (the text-gen of (the played-by of Self))
+        "="
+        (the1 of (the value of (the quantity of (the played-by of Self))))
+        (the2 of (the value of (the quantity of (the played-by of Self))))
+  )
+  "The quantity of a reactant of a reaction can be computed from its coefficient in the balanced equation and the quantity and coefficient of some other reactant or product in the reaction"
+  (:set
+;        (:triple (a Compute-Balanced-Equation with
+;                    (input ((the raw-material-of of (the played-by of Self))))
+;                 )
+;                 output
+;                 *
+;        )
+        (:triple (a Compute-Quantity-from-Reaction with
+                    (input ((allof (:set (the raw-material of
+                                              (the raw-material-of of (the played-by of Self)))
+                                         (the result of
+                                              (the raw-material-of of (the played-by of Self)))
+                                   )
+                             where
+                                   (It /= Self)
+                            )
+                            (the coefficient of Self)))
+                 )
+                 output
+                 *
+        )
+  
+  )
+)
+

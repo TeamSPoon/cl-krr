@@ -1,0 +1,17 @@
+;;
+;;    $Id: Nonelectrolyte.km,v 1.5 2008/05/14 17:25:47 tecuci Exp $
+;;
+
+(Nonelectrolyte has
+		(superclasses (Chemical))
+		(wn20-synset ((:triple "non-electrolyte" 0 "n")
+			      (:triple "nonelectrolyte" 0 "n"))))
+
+(every Nonelectrolyte has-definition
+       (instance-of (Chemical))
+       (electrolyte-status ((a Electrolyte-Status-Value with
+			       (value ((:pair *non Chemical)))))))
+
+(Nonelectrolyte has
+  (user-description ("A nonelectrolyte is a substance that does not ionise in water and consequently gives a nonconducting solution.")))
+

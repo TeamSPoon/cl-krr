@@ -1,0 +1,78 @@
+;; 
+;; $Id: UoM-Duration.km,v 1.11 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Duration has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*second))
+ (instances (*day *week *month *year *hour 
+	     *minute *second *millisecond 
+	     *nanosecond *microsecond))
+)
+                                         
+(*day         has (instance-of (UoM-Duration))
+              (name ("d"))
+	      (wn20-synset ((:set (:triple "day" 0 "n")
+				  (:triple "days" 0 "n")))))
+
+(*week        has (instance-of (UoM-Duration))
+              (name ("w"))
+	      (wn20-synset ((:set (:triple "week" 0 "n")
+				  (:triple "weeks" 0 "n")))))
+
+(*month       has (instance-of (UoM-Duration))
+              (name ("mo"))
+	      (wn20-synset ((:set (:triple "month" 0 "n")
+				  (:triple "months" 0 "n")))))
+
+(*year        has (instance-of (UoM-Duration))
+              (name ("y"))
+	      (wn20-synset ((:set (:triple "year" 0 "n")
+				  (:triple "years" 0 "n")))))
+
+(*hour        has (instance-of (UoM-Duration))
+              (name ("h"))
+	      (wn20-synset ((:set (:triple "hour" 0 "n")
+				  (:triple "hours" 0 "n")
+				  (:triple "h" 0 "n")))))
+			     
+(*minute      has (instance-of (UoM-Duration))
+              (name ("min"))
+	      (wn20-synset ((:set (:triple "minute" 0 "n")
+				  (:triple "minutes" 0 "n")
+				  (:triple "min" 0 "n")))))
+
+(*second      has (instance-of (UoM-Duration))
+              (name ("s"))
+	      (wn20-synset ((:set (:triple "second" 0 "n")
+				  (:triple "seconds" 0 "n")
+				  (:triple "s" 0 "n")))))
+
+(*millisecond has (instance-of (UoM-Duration))
+              (name ("ms"))
+	      (wn20-synset ((:set (:triple "millisecond" 0 "n")
+				  (:triple "milliseconds" 0 "n")
+				  (:triple "ms" 0 "n")))))
+
+(*nanosecond  has (instance-of (UoM-Duration))
+              (name ("ns"))
+	      (wn20-synset ((:set (:triple "nanosecond" 0 "n")
+				  (:triple "nanoseconds" 0 "n")
+				  (:triple "ns" 0 "n")))))
+
+(*microsecond has (instance-of (UoM-Duration))
+              (name ("us"))
+	      (wn20-synset ((:set (:triple "microsecond" 0 "n")
+				  (:triple "microseconds" 0 "n")))))
+
+
+(*day has (conversion-multiplier (86400.0)))
+(*week has (conversion-multiplier (604800.0)))
+(*month has (conversion-multiplier (2629728.0)))
+(*year has (conversion-multiplier (3.1556736e+7)))
+(*hour has (conversion-multiplier (3600.0)))
+(*minute has (conversion-multiplier (60.0)))
+(*second has (conversion-multiplier (1.0)))
+(*millisecond has (conversion-multiplier (0.001)))
+(*nanosecond has (conversion-multiplier (1.0e-9)))
+(*microsecond has (conversion-multiplier (1.0e-6)))

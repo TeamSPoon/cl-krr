@@ -1,0 +1,67 @@
+
+(UoM-Speed has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*meter-per-second))
+ (instances (*centimeter-per-second *foot-per-second 
+             *meter-per-second *mile-per-second 
+             *kilometer-per-hour *kilometer-per-second *mile-per-hour)))
+
+(*centimeter-per-second has
+ (instance-of (UoM-Speed))
+ (name ("cm/s"))
+ (wn20-synset ((:set (:triple "centimeter per second" 0 "n")
+		     (:triple "centimeters per second" 0 "n")
+		     (:triple "cm/s" 0 "n")))))
+
+(*foot-per-second has
+ (instance-of (UoM-Speed))
+ (name ("ft/s"))
+ (wn20-synset ((:set (:triple "foot per second" 0 "n")
+		     (:triple "feet per second" 0 "n")
+		     (:triple "ft/s" 0 "n")))))
+
+(*meter-per-second has
+  (instance-of (UoM-Speed))
+  (name ("m/s"))
+  (wn20-synset ((:set (:triple "meter per second" 0 "n")
+		      (:triple "meters per second" 0 "n")
+		      (:triple "m/s" 0 "n")))))
+
+(*mile-per-second has
+  (instance-of (UoM-Speed))
+  (name ("mi/s"))
+  (wn20-synset ((:set (:triple "mile per second" 0 "n")
+		      (:triple "miles per second" 0 "n")))))
+
+(*kilometer-per-hour has
+  (instance-of (UoM-Speed))
+  (name ("km/h"))
+  (wn20-synset ((:set (:triple "kilometer per hour" 0 "n")
+		      (:triple "kilometers per hour" 0 "n")
+		      (:triple "km/h" 0 "n")))))
+
+(*kilometer-per-second has
+  (instance-of (UoM-Speed))
+  (name ("km/s"))
+  (wn20-synset ((:set (:triple "kilometer per second" 0 "n")
+		      (:triple "kilometers per second" 0 "n")
+		      (:triple "km/s" 0 "n")))))
+
+(*mile-per-hour has
+  (instance-of (UoM-Speed))
+  (name ("mph"))
+  (wn20-synset ((:set (:triple "mile per hour" 0 "n")
+		      (:triple "miles per hour" 0 "n")
+		      (:triple "mph" 0 "n")))))
+
+
+
+
+
+(*centimeter-per-second has (conversion-multiplier (0.01)))
+(*foot-per-second has (conversion-multiplier (0.3048)))
+(*meter-per-second has (conversion-multiplier (1.0)))
+(*mile-per-second has (conversion-multiplier (1609.344)))
+(*kilometer-per-hour has (conversion-multiplier (0.2777778)))
+(*kilometer-per-second has (conversion-multiplier (1000.0)))
+(*mile-per-hour has (conversion-multiplier (0.44704)))

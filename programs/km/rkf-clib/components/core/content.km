@@ -1,0 +1,34 @@
+;; 
+;;    $Id: content.km,v 1.20 2007/04/10 21:29:48 jchaw Exp $ 
+;; 
+(content has
+	 (instance-of (Meronymic-Relation))
+	 (superslots ())
+	 (subslots ())
+	 (domain (Container));;(domain (Tangible-Entity))  ; s.b. Container (when Roles fully op'nl)
+	 (range (Entity))
+	 (inverse (content-of))
+         (text-slot (text-content))
+	 (fluent-status (*Inertial-Fluent))
+         (original-slot      (t))	
+	 (cardinality (N-to-N)))
+
+
+(text-content has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Tangible-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-content-of has (instance-of (NL-Slot-Group)))
+
+(content has (text-gloss ("contains")))
+(content-of has 
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("is the content of")))
+

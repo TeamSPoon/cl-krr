@@ -1,0 +1,50 @@
+;; 
+;;    $Id: Right-Triangle.km,v 1.4 2008/05/27 21:57:39 jchaw Exp $ 
+;; 
+
+(Right-Triangle has (superclasses (Triangle)))
+
+(every Right-Triangle has
+       (has-part (((a Line-Segment called "side A")
+		   and
+		   (a Line-Segment called "side B")
+		   and
+		   (?lenA == (the length of ((the Line-Segment has-part of Self) called "side A")))
+		   and
+		   (?lenB == (the length of ((the Line-Segment has-part of Self) called "side B")))
+		   and
+		   (?lenA2 == (?lenA property-mult ?lenA))
+		   and
+		   (?lenB2 == (?lenB property-mult ?lenB))
+		   and
+		   (?lenH2 == (?lenA2 property-plus ?lenB2))
+		   and
+		   (?lenH == (?lenH2 property-expt ((a Unitless-Value with (value ((:pair 2 *unity)))))))  ;;Incorrect equation! need CLib arithmetic support.
+		   and
+		   (a Line-Segment called "Hypotenuse" with
+		      ;(length (?lenH))    ;;depends on fixing the incorrect equation
+		      )
+		   )))
+)
+
+(Right-Triangle has
+  (wn20-synset ((:set (:triple "right triangle" 1 "n")
+                      (:triple "right-angled triangle" 1 "n")
+))))
+
+#|;;Testcase not working until incorrect equation is fixed in defn.
+(Right-Triangle has 
+      (test-case         ('(
+                            (new-situation)
+                            (a Right-Triangle with
+			       (has-part ((a Vertex)
+					  (a Vertex)
+					  (a Vertex)
+					  (a Line-Segment called "side A"
+					     with (length ((a Length-Value with (value ((:pair 10 *meter)))))))
+					  (a Line-Segment called "side B"
+					     with (length ((a Length-Value with (value ((:pair 10 *meter))))))))))
+			    ((the value of ((the has-part of (thelast Right-Triangle)) called "Hypotenuse")) = (:pair 31.622776 *meter))))))
+|#
+
+

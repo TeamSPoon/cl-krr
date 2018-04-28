@@ -1,0 +1,18 @@
+;;
+;; $Id: Na2S.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(Na2S has (superclasses (Ionic-Compound)))
+
+(every Na2S has	
+       (has-chemical-name ("sodium sulfide"))
+       (has-part 
+	((a Na-Plus) (a S-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 2 Na-Plus)
+			 (:pair 1 S-Minus-2)))))))
+       )(every Na2S has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a S-Minus-2))))
+

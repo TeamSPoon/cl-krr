@@ -1,0 +1,11 @@
+;; $Id: HF-Compound.km,v 1.1 2005/08/19 22:13:20 porter Exp $ 
+
+(HF-Compound has (superclasses (Ionic-Compound)))
+(every HF-Compound has
+	(has-chemical-name (""))
+	(has-part ((a H-Plus)(a F-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 F-Minus)))))))
+)

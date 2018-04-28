@@ -1,0 +1,32 @@
+<!--- $Id: Question.doc.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+<kml>
+
+<concept name=Question>
+<superconcept name=Role>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Question>
+  <definition>Question is the <conceptref name=Role> played by <conceptref name=Information> 
+    	which is the <slot>object</slot> of a <conceptref name=Inquire>.
+  </definition>
+  <requiredslot name=played-by>
+    <restriction>a Information</restriction>
+  </requiredslot>
+  <requiredslot name=in-event>
+    <restriction>a Inquire</restriction>
+   </requiredslot>
+<requiredslot name=played-by>
+    <restriction>a Information that is the <slot> object </slot> of the <slot> in-event </slot></restriction>
+   </requiredslot>
+  
+  <wnsynsets><verb>question #1, question #3
+  </verb></wnsynsets>
+  <wnsynsets><verb>inquiry#2, enquiry#1, query#1, interrogation#1, interrogative-sentence#1
+  </verb></wnsynsets>
+</component>
+
+
+</kml>
+
+

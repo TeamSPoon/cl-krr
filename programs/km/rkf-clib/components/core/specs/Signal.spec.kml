@@ -1,0 +1,44 @@
+<!--- $Id: Signal.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+<kml>
+<concept name=Signal>
+<system-documentation name=Signal>
+
+<superconcept name=Role>
+
+  <definition>
+    Signal is the <conceptref name=Role> played by <conceptref name=Entity> 
+    which is the <slot>object</slot> of a <conceptref name=Transmit>.
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the Entity that's playing the role of Signal during the Transmit
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Transmit> event that the Signal is being sent
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+
+     <text>"Mr. Watson come here" was the first message transmitted over a phone line.</text>
+     <comment>
+     In this example, the role of Signal is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Transmit> with
+         object="Mr. Watson come here"</slotdescription>
+     <slotdescription name=played-by>"Mr. Watson come here"</slotdescription>
+     </comment>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+
+
+

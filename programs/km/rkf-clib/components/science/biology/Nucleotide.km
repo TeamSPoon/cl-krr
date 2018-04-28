@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Nucleotide.km,v 1.16 2001/06/01 23:26:43 pnav Exp $ 
+;; 
+
+(Nucleotide has
+	    (superclasses (Monomer))
+	    (required-slot ())
+	    (primary-slot ())
+	    (secondary-slot ())
+            (description ("Nucleoside with one or more phosphate groups joined
+                           in ester linkages to the sugar part.  DNA and RNA
+                           are polymers of nucleotides. Alberts:ECB:G-13."))
+	    (cmap-correspondence ())
+	    (test-case ()))
+
+(every Nucleotide has
+  (has-part (
+	     (a Phosphoryl-Group with
+		(object-of
+		  ((a Be-Attached-To with
+		      (object ((the Nucleoside has-part of Self)))
+		      (site   (((the Carbon-Atom has-part of
+				     (the Pentose has-part of
+					  (the Nucleoside has-part of Self)))
+				called "Carbon-5")
+			       (the Oxygen-Atom has-part of
+				    (the Phosphoryl-Group has-part of Self))))
+		      (instrument ((a Covalent-CO-Bond)))))))
+
+	     (a Nucleoside with
+		(has-part ((a Hydroxyl-Group)))))))
+
+
+
+

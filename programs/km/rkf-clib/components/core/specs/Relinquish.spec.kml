@@ -1,0 +1,67 @@
+<!--- $Id: Relinquish.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+<kml>
+
+<concept name=Relinquish>
+<system-documentation name=Relinquish>
+<superconcept name=Lose>
+
+  <definition> 
+      Intentional change of possession of an <slot>object</slot> by 
+      the <slot>donor</slot>
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the thing that is relinquished
+  </slotdescription>
+
+  <slotdescription name=agent>
+       the entity that relinquishes possession of the object.
+       The <slot>agent</slot> is also the <slot>donor</slot>
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=recipient>
+       the entity that <slot>possesses</slot> the object after the action
+  </slotdescription>
+
+  <slotdescription name=caused-by>
+       the action that caused the loss
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John relinquished his dog because of the attack.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <comment>
+     The <slot>agent</slot> is also the <slot>donor</slot>
+    </comment>
+    <slotdescription name=object>dog</slotdescription>
+    <slotdescription name=caused-by>the attack</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Lose>
+       Relinquish is a special type of Lose in which the action is intentional
+  </neighbor>  
+
+  <neighbor name=Give>
+       Give is a special type of Relinquish which always involves a
+       <slot>recipient</slot>
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

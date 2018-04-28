@@ -1,0 +1,103 @@
+;; 
+;;    $Id: Emit.km,v 1.26 2005/11/08 16:11:32 kbarker Exp $ 
+;; 
+
+(Emit has
+      (superclasses (Move))
+      (required-slot (object origin))
+      (primary-slot (agent destination path))
+      (secondary-slot ())
+      (cmap-correspondence (
+			    (:seq object "the thing emitted")
+			    (:seq base "the enclosure")
+			    (:seq destination "final location")
+			    (:seq agent "the mover")
+			    (:seq origin "original location")
+			    (:seq path "the portal")
+			    ))
+    #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Emit has
+  (text-active-verbseq-sg ("emits"))
+  (text-active-verbseq-pl ("emit"))
+  (text-passive-verbseq-sg ("gets emitted"))
+  (text-passive-verbseq-pl ("get emitted"))
+)
+
+
+(every Emit has
+       (object ((constraint ((TheValue &? (a Fluid-Substance)) or 
+;;			     (TheValue &? (a Particulate-Matter)) or 
+			     (TheValue &? (a Energy))))))
+       (origin (((a Spatial-Entity) &
+                 (if (has-value (the agent of Self))
+		  then
+		  (the agent of Self)
+		  else 
+		     (if (has-value (the instrument of Self))
+                      then
+                      (the instrument of Self)))))))
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+		
+
+(Emit has 
+      (test-case 	 ('(
+                            (*Sun has
+				     (instance-of (Physical-Object))
+                                     (location ((a Place))))
+			    (*Earth has
+				     (instance-of (Physical-Object))
+                                     (location ((a Place))))
+			    (*SunLight has
+				     (instance-of (Energy))
+                                     (location ((a Place))))
+			    
+			; *SunLight moves from where he used to be to *Earth
+			    (a Emit with
+			       (object 	(*SunLight))
+			       (origin (*Sun))
+			       (destination (*Earth)))
+
+			    (do-and-next (thelast Emit))
+				(the text-gen of (thelast Emit))
+			    
+			    ; Test1: *SunLight is in *Earth
+			    ((the location of *SunLight) = (the location of *Earth))
+			    
+			    ; Test2: *SunLight is not in *Sun anymore
+			    ((the location of *SunLight) /= (the location of *Sun))
+
+                            (new-situation)
+                            (*stink-bomb has (instance-of (Physical-Object))
+                                     (location ((a Place))))
+                            (*noisome-fumes has (instance-of (Fluid-Substance))
+                                     (location ((a Place))))
+                            (a Emit with
+                               (object (*noisome-fumes))
+                               (instrument (*stink-bomb)))
+
+			    (do-and-next (thelast Emit))
+			    
+                            ((the origin of (thelast Emit)) = *stink-bomb)
+                            (not ((the location of *noisome-fumes) = 
+                                  (the location of *stink-bomb)))
+))))
+
+
+
+;; automatically added WN synsets
+(Emit has (wn16-synset ((:set  
+                                   (:triple "emit" 2 "v")
+                                   (:triple "give_out" 1 "v")
+                                   (:triple "give_off" 2 "v")
+))))
+
+(Emit has (wn20-synset ((:set
+                                   (:triple "emit" 2 "v")
+                                   (:triple "give_out" 1 "v")
+                                   (:triple "give_off" 2 "v")
+))))
+(every Emit has (text-nominalization ("emission")))

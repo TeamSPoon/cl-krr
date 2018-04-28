@@ -1,0 +1,49 @@
+<!--- $Id: volume.spec.kml,v 1.3 2006/03/01 20:20:47 kbarker Exp $ --->
+<kml>
+<property-doc name=volume/Volume-Value>
+<system-documentation name=Property-Value>
+<gpd-documentation name=Property>
+
+<from name=Tangible-Entity>
+<to name=Volume-Value>
+
+<description> 
+  volume is a property for describing the amount of space occupied by a three-dimensional object as measured in cubic units
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Volume>
+<p>
+    <examplesentence>
+      <text>2 liter bottle</text>
+      <slotdescription name=number>2</slotdescription>
+      <slotdescription name=unit of measure>liter</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative
+    value relative to?)<p>
+<scalars>small, large</scalars>
+<scale name=*small-large-scale>small..large</scale>
+    <p>
+    <examplesentence>
+      <text>This car's trunk is small for a full-size car.</text>
+      <slotdescription name=value>small</slotdescription>
+      <slotdescription name=relative to>the trunk of a full-size car</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+
+<compute-method-list> 
+
+   <compute-method context=Mixture>
+     The volume of a mixture is the sum of the volumes of the parts
+     mixed.  See <conceptref name=Add-Volumes>
+   </compute-method>
+
+</compute-method-list> 
+
+</kml>

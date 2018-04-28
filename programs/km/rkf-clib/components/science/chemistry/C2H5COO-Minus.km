@@ -1,0 +1,15 @@
+;; $Id: C2H5COO-Minus.km,v 1.1 2003/04/23 23:43:59 jchaw Exp $
+(C2H5COO-Minus has (superclasses (Anion)))
+(every C2H5COO-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("propanoate"))
+	(has-acid-name ("propanoic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with 
+		    (term 
+		     ((:seq (:pair 2 C)
+			    (:pair 5 H)
+			    (:pair 1 C)
+			    (:pair 1 O)
+			    (:pair 1 O))))))))

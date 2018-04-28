@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Inorganic-Molecule.km,v 1.8 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Inorganic-Molecule has
+         (superclasses (Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("Molecule lacking a carbohydrate skeleton.  Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Inorganic-Molecule has
+       (has-structural-part
+	((mustnt-be-a Hydrocarbon)
+	 )))
+
+(every Inorganic-Molecule has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

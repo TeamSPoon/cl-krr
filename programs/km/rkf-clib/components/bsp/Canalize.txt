@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Canalize.txt,v 1.4 2003/09/10 16:23:21 jchaw Exp $
+;; 
+
+Canalize 
+  superclass: Tactical-Mission-Task  
+  superclass: Confine 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+  base: a Region with 
+                  width: *narrow 
+                  ?length: *long 
+ 
+  by-means-of: 
+               Fire: 
+                   agent: MU called "friendly forces" agent of Self 
+                   destination: Military-Unit called "enemy forces"  object of Self 
+               Block:  
+                   agent: MU called "friendly forces" 
+                   object: Tangible-Entity 
+                   base: MU called "enemy forces" 
+ 
+ 
+Canalize (E). 
+========. 
+Canalize is a tactical mission task in which the commander restricts enemy movement to a narrow zone by exploiting terrain coupled with the use of obstacles, fires, or friendly maneuver. 

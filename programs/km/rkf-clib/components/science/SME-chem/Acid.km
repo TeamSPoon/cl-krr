@@ -1,0 +1,61 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Acid231
+
+
+|#
+
+(disable-classification)
+
+(Acid has (superclasses (Ionic-Compound-Substance)))
+
+(_Acid408 has
+  (prototype-of (Acid Ionic-Compound-Substance))
+  (prototype-scope (Acid (the-class Ionic-Compound-Substance with (plays ((a Acid-Role))))))
+  (prototype-participants (_Acid-Role413 _Ionic-Compound412 _Anion-Substance411 _Cation-Substance410 _State-Value409 _Acid408)))
+
+(_Acid408 has
+  (instance-of (Acid))
+  (plays (_Acid-Role413))
+  (has-basic-structural-unit (_Ionic-Compound412))
+  (has-part (_Cation-Substance410 _Anion-Substance411))
+  (physical-state (_State-Value409)))
+
+(_State-Value409 has (instance-of (State-Value)))
+
+(_Cation-Substance410 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance411 has (instance-of (Anion-Substance)))
+
+(_Ionic-Compound412 has (instance-of (Ionic-Compound)))
+
+(_Acid-Role413 has (instance-of (Acid-Role)))
+
+(enable-classification)
+
+(explanation (:triple _Acid408 plays _Acid-Role413) (((@ SME entered)) (every Acid has (plays ((a Acid-Role))))))
+
+(explanation (:triple _Acid408 instance-of Acid) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value409 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance410 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance411 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound412 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Acid-Role413 instance-of Acid-Role) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Acid has (plays ((a Acid-Role))))
+
+|#
+
+|#
+

@@ -1,0 +1,20 @@
+;; $Id: C2O4-Minus-2.km,v 1.7 2008/10/14 19:16:13 tecuci Exp $ 
+(C2O4-Minus-2 has (superclasses (Anion)))
+(every C2O4-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("oxalate"))
+	(has-acid-name ("Oxalic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 C)(:pair 4 O)))))))
+)
+
+
+(every C2O4-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("oxalate"))
+)
+
+
+(C2O4-Minus-2 has (wn20-synset ((:triple "C2O4-2" 0 "n"))))

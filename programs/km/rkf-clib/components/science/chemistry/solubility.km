@@ -1,0 +1,17 @@
+;; 
+;;    $Id: solubility.km,v 1.3 2002/12/06 21:19:49 kbarker Exp $ 
+;; 
+
+(solubility has
+   (instance-of (Property))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Chemical))    
+   (range       (Solubility-Value))
+   (scalar-constant-class (Solubility-Constant))
+   (inverse 	(solubility-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+

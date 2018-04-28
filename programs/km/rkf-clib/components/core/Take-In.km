@@ -1,0 +1,92 @@
+;; 
+;;    $Id: Take-In.km,v 1.24 2008/08/04 22:33:47 jchaw Exp $ 
+;; 
+
+(Take-In has
+         (superclasses 	 (Move-Into))
+         (required-slot  (agent object destination))
+         (primary-slot 	 (agent origin path))
+         (secondary-slot ())
+	 (cmap-correspondence (
+			       (:seq agent "the one causing the take-in")
+			       (:seq object "the Tangible-Entity taken-in")
+			       (:seq destination "final location")
+			       (:seq origin "original location")
+			       (:seq path "the portal")
+			       ))
+       #|(sentence-type  (*punctual *conclusive))|#
+)
+
+; Take something from the outside into oneself
+(every Take-In has 
+	(object ((a Tangible-Entity)))
+
+        (agent ((a Tangible-Entity
+                  with (plays ((a Container)))
+        )))
+
+        (base ((the agent of Self)))
+)
+
+(every Take-In has
+  (text-active-verbseq-sg ("takes in"))
+  (text-active-verbseq-pl ("take in"))
+  (text-passive-verbseq-sg ("gets taken in"))
+  (text-passive-verbseq-pl ("get taken in"))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+                        
+(Take-In has 
+       (test-case ('(
+		     (*John has  
+			(instance-of (Tangible-Entity)))
+			    
+		     (*Nasal-Passage has  (instance-of (Spatial-Entity)))
+
+                     (*Air has 
+                        (instance-of (Tangible-Entity))
+                        (is-outside (*John)))
+
+		     ; *John takes-in air
+		     (a Take-In with
+		      (agent (*John))
+                      (object (*Air))
+                      (path (*Nasal-Passage)))
+
+		     (do-and-next (thelast Take-In))
+		     (the text-gen of (thelast Take-In))
+		     ; Test1: the *Air went through the *Nasal-Passage
+		     ((the path of (thelast Take-In)) = *Nasal-Passage)
+
+		     ; Test2: *Lungs now contain *Air
+		     ((the content of (the Container plays of *John)) = *Air)
+		     
+		     ; Test3: *Air is now located inside *John
+		     ((the is-inside of (the location of *Air)) includes *John)
+
+		     ; Test4: *Air is no longer located outside *John
+		     ((the is-outside of (the location of *Lungs)) /= *John)
+))))
+
+
+
+;; automatically added WN synsets
+(Take-In has (wn16-synset ((:set  
+                                      (:triple "sorb" 1 "v")
+                                      (:triple "take_up" 8 "v")
+))))
+
+(Take-In has (wn20-synset ((:set
+                                      (:triple "sorb" 1 "v")
+                                      (:triple "take_up" 8 "v")
+                                      (:triple "consume" 2 "v")
+                                      (:triple "ingest" 1 "v")
+                                      (:triple "take in" 15 "v")
+                                      (:triple "take" 18 "v")
+                                      (:triple "have" 6 "v")
+))))
+
+(every Take-In has (text-nominalization ("taking in")))

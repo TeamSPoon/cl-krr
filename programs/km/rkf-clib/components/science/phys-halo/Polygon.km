@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Polygon.km,v 1.2 2005/10/21 19:23:30 pzyeh Exp $ 
+;; 
+
+(Polygon has (superclasses (Geometric-Object)))
+
+(every Polygon has
+  (area          ((must-be-a Area-Value)))
+  (volume        ((exactly 0 Volume-Value)))
+  (circumference ((exactly 0 Length-Value)))
+
+  (has-part ((at-least 3 Line-Segment)
+             (at-least 3 Vertex)
+             (constraint ((the number of (the Line-Segment has-part of Self))
+                          = (the number of (the Vertex has-part of Self))
+             ))
+  ))
+)
+
+(Polygon has (wn20-synset ((:set (:triple "polygon" 1 "n")
+				 (:triple "polygonal shape" 1 "n")
+))))
+

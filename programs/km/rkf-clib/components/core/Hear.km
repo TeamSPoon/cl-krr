@@ -1,0 +1,20 @@
+;;
+;;   $Id: Hear.km,v 1.5 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(Hear has 
+	(description ("Sensing a sound auditorily.")) 
+	(superclasses (Sense))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Hear has
+	(object ((a Sound)(must-be-a Sound))))
+
+
+(Hear has (wn20-synset ((:set
+			   (:triple "hear" 1 "v")
+))))
+
+
+(every Hear has (text-nominalization ("hearing")))

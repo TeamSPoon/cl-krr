@@ -1,0 +1,297 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 ----------
+
+(Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 has (superclasses (Reaction)))
+
+(_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 has 
+  (instance-of (Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3))
+  (prototype-of (Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3))
+  (prototype-scope (Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3))
+  (prototype-participants (_Property-Node2128
+                           _Property-Node2127
+                           _Property-Node2126
+                           _Property-Node2125
+                           _Chemical2123
+                           _Coefficient-Value2122
+                           _Chemical-Entity2121
+                           _Chemical2115
+                           _Coefficient-Value2114
+                           _Chemical-Entity2112
+                           _Chemical2108
+                           _Coefficient-Value2107
+                           _Chemical-Entity2106
+                           _Chemical-Entity2100
+                           _Chemical2099
+                           _Coefficient-Value2098
+                           _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (big-nodes (_Property-Node2125
+              _Property-Node2126
+              _Property-Node2127
+              _Property-Node2128))
+  (raw-material (_Chemical2115
+                 _Chemical2123))
+  (result (_Chemical2099
+           _Chemical2108))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical2099 t)
+                    (:seq raw-material _Chemical2115 t)
+                    (:seq raw-material _Chemical2123 t)
+                    (:seq result _Chemical2108 t))))
+
+(_Property-Node2128 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2107))
+  (contains-edge ((:triple _Coefficient-Value2107 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Property-Node2127 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2098))
+  (contains-edge ((:triple _Coefficient-Value2098 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Property-Node2126 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2122))
+  (contains-edge ((:triple _Coefficient-Value2122 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Property-Node2125 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2114))
+  (contains-edge ((:triple _Coefficient-Value2114 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Chemical2123 has 
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity2121))
+  (coefficient (_Coefficient-Value2122))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2122 t)))
+  (raw-material-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Coefficient-Value2122 has 
+  (contains-node-of (_Property-Node2126))
+  (coefficient-of (_Chemical2123))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Chemical-Entity2121 has 
+  (is-basic-structural-unit-of (_Chemical2123))
+  (instance-of (Chemical-Entity
+                NaOH))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Chemical2115 has 
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (has-basic-structural-unit (_Chemical-Entity2112))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2114))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2114 t)))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Coefficient-Value2114 has 
+  (contains-node-of (_Property-Node2125))
+  (coefficient-of (_Chemical2115))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Chemical-Entity2112 has 
+  (is-basic-structural-unit-of (_Chemical2115))
+  (instance-of (Chemical-Entity
+                Mg_NO3_2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Chemical2108 has 
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity2106))
+  (coefficient (_Coefficient-Value2107))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2107 t)))
+  (result-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Coefficient-Value2107 has 
+  (contains-node-of (_Property-Node2128))
+  (coefficient-of (_Chemical2108))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Chemical-Entity2106 has 
+  (is-basic-structural-unit-of (_Chemical2108))
+  (instance-of (Chemical-Entity
+                NaNO3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Chemical-Entity2100 has 
+  (instance-of (Chemical-Entity
+                Mg_OH_2))
+  (is-basic-structural-unit-of (_Chemical2099))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Chemical2099 has 
+  (has-basic-structural-unit (_Chemical-Entity2100))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2098))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2098 t)))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(_Coefficient-Value2098 has 
+  (contains-node-of (_Property-Node2127))
+  (coefficient-of (_Chemical2099))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012)))
+
+(explanation (:triple _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 result _Chemical2108)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 raw-material _Chemical2123)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 raw-material _Chemical2115)
+  ((a Chemical (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction raw-material))))
+(explanation (:triple _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 result _Chemical2099)
+  ((a Chemical (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction result))))
+(explanation (:triple _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 chemical-equation _Chemical-Equation-Expression2014)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012) (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 instance-of Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical2123 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical2123 coefficient _Coefficient-Value2122)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical2123 has-basic-structural-unit _Chemical-Entity2121)
+  ((a Chemical-Entity (@ _Chemical2123 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2123 instance-of Chemical)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value2122 value (:pair 2 *unity))
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value2122 instance-of Coefficient-Value)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity2121 atomic-chemical-formula _Chemical-Formula2054)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity2121)) or (the term of (the has-chemical-formula of _Chemical-Entity2121)) (@ _Chemical-Entity2121 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2121)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2121))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity2121)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity2121)))))))))) (@ _Chemical-Entity2121 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity2121 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity2121 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2121 nested-atomic-chemical-formula _Chemical-Formula2045)
+  ((_Chemical-Formula2045)))
+(explanation (:triple _Chemical-Entity2121 atomic-chemical-formula _Chemical-Formula2054)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Na) (:pair 1 O) (:pair 1 H)))) (@ _Chemical-Entity2121 NaOH atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2121 nested-atomic-chemical-formula _Chemical-Formula2045)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity2121)) and (the has-chemical-formula of _Chemical-Entity2121) (@ _Chemical-Entity2121 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity2121)))) (@ _Chemical-Entity2121 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity2121 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2121 has-chemical-formula _Chemical-Formula2043)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Na-Plus) (:pair 1 OH-Minus)))) (@ _Chemical-Entity2121 NaOH has-chemical-formula))))
+(explanation (:triple _Chemical-Entity2121 has-chemical-formula _Chemical-Formula2043)
+  ((if ((the has-part of _Chemical-Entity2121) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity2121)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity2121)))) (@ _Chemical-Entity2121 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity2121) (the Anion has-part of _Chemical-Entity2121)))) (@ _Chemical-Entity2121 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity2121) (@ _Chemical-Entity2121 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity2121 instance-of NaOH)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity2121 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2123 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2115 has-basic-structural-unit _Chemical-Entity2112)
+  ((a Chemical-Entity (@ _Chemical2115 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2115 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical2115 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction raw-material))))
+(explanation (:triple _Chemical2115 coefficient _Coefficient-Value2114)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical2115 instance-of Chemical)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value2114 value (:pair 1 *unity))
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value2114 instance-of Coefficient-Value)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity2112 instance-of Mg_NO3_2)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity2112 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2115 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2108 instance-of Entity)
+  ((a Entity (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Event (result must-be-a)))))
+(explanation (:triple _Chemical2108 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2108 coefficient _Coefficient-Value2107)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical2108 has-basic-structural-unit _Chemical-Entity2106)
+  ((a Chemical-Entity (@ _Chemical2108 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2108 instance-of Chemical)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value2107 value (:pair 2 *unity))
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value2107 instance-of Coefficient-Value)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity2106 atomic-chemical-formula _Chemical-Formula2089)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity2106)) or (the term of (the has-chemical-formula of _Chemical-Entity2106)) (@ _Chemical-Entity2106 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2106)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2106))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity2106)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity2106)))))))))) (@ _Chemical-Entity2106 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity2106 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity2106 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2106 nested-atomic-chemical-formula _Chemical-Formula2080)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity2106)) and (the has-chemical-formula of _Chemical-Entity2106) (@ _Chemical-Entity2106 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity2106)))) (@ _Chemical-Entity2106 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity2106 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2106 has-chemical-formula _Chemical-Formula2078)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Na-Plus) (:pair 1 NO3-Minus)))) (@ _Chemical-Entity2106 NaNO3 has-chemical-formula))))
+(explanation (:triple _Chemical-Entity2106 has-chemical-formula _Chemical-Formula2078)
+  ((if ((the has-part of _Chemical-Entity2106) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity2106)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity2106)))) (@ _Chemical-Entity2106 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity2106) (the Anion has-part of _Chemical-Entity2106)))) (@ _Chemical-Entity2106 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity2106) (@ _Chemical-Entity2106 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity2106 instance-of NaNO3)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity2106 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2108 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity2100 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2099 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity2100 instance-of Mg_OH_2)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical2099 has-basic-structural-unit _Chemical-Entity2100)
+  ((a Chemical-Entity (@ _Chemical2099 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2099 instance-of Entity)
+  ((a Entity (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Event (result must-be-a)))))
+(explanation (:triple _Chemical2099 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2099 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO32012 Reaction result))))
+(explanation (:triple _Chemical2099 coefficient _Coefficient-Value2098)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Chemical2099 instance-of Chemical)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value2098 value (:pair 1 *unity))
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value2098 instance-of Coefficient-Value)
+  ((added-at Reaction-1Mg_NO3_22NaOH--1Mg_OH_22NaNO3 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

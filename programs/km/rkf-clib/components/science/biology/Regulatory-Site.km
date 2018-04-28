@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Regulatory-Site.km,v 1.9 2001/06/01 23:26:50 pnav Exp $ 
+;; 
+
+(Regulatory-Site has
+         (superclasses (Binding-Site))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A site on a molecule to which a regulatory ligand
+                        binds and alters the activity or function of that
+                        molecule. Souther."))
+         (test-case ()))
+
+(every Regulatory-Site has
+         (location-of ((a Attach called "bind" with
+                         (object ((a Ligand)))
+			 )))
+	 )
+
+

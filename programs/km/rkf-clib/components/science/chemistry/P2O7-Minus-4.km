@@ -1,0 +1,10 @@
+;; $Id: P2O7-Minus-4.km,v 1.2 2003/02/22 16:25:23 jchaw Exp $ 
+(P2O7-Minus-4 has (superclasses (Anion)))
+(every P2O7-Minus-4 has
+	(charge ((a Charge-Value with
+		(value ((:pair -4 *electronic-charge))))))
+	(has-chemical-name ("pyrophosphate"))
+	(has-acid-name ("pyrophosphoric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 P)(:pair 7 O)))))))
+)

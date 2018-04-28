@@ -1,0 +1,35 @@
+<!--- $Id: destination.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=destination>
+
+
+<from name=Event>
+<to name=Spatial-Entity>
+
+<description> 
+When an entity moves, the destination is where it ends up. 
+</description>
+
+<examplesentencelist>
+ <examplesentence>
+    <text>John <ex-from>moved</ex-from> to <ex-to>Chicago</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The hamburger <ex-from>slid</ex-from> into the trashbin. 
+    (<slot>destination</slot>=<ex-to>inside the trashbin</ex-to>)</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The storm <ex-from>moved</ex-from> toward the mountains, but ended up in <ex-to>the desert</ex-to>.</text>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=toward>
+        toward indicates the place an event transpires toward, without
+        actually ending there.
+ </neighbor>
+</neighborlist>
+
+</kml>

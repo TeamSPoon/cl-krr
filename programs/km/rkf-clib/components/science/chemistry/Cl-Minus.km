@@ -1,0 +1,10 @@
+;; $Id: Cl-Minus.km,v 1.6 2003/04/22 16:34:54 jchaw Exp $ 
+(Cl-Minus has (superclasses (Anion)))
+(every Cl-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("chloride"))
+	(has-acid-name ("hydrochloric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cl)))))))
+)

@@ -1,0 +1,35 @@
+
+;;; ---------- Definition of prototype for Phospholipid ----------
+
+(Phospholipid has (superclasses (Lipid)))
+
+(_Phospholipid517 has 
+  (instance-of (Phospholipid))
+  (prototype-of (Phospholipid))
+  (prototype-scope (Phospholipid))
+  (prototype-participants (_Atom520
+                           _Phospholipid517))
+  (prototype-participant-of (_Phospholipid517))
+  (has-clones (_Placeholder-Class516518))
+  (has-built-clones (_Placeholder-Class516518))
+  (has-basic-structural-unit (_Atom520))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom520 223 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom520 t))))
+
+(_Atom520 has 
+  (instance-of (Atom))
+  (has-clones (_Atom519))
+  (is-basic-structural-unit-of (_Phospholipid517))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 373 600)))
+  (node-visibility (t))
+  (prototype-participant-of (_Phospholipid517)))
+
+(explanation (:triple _Phospholipid517 has-basic-structural-unit _Atom520) ((a Atom (@ _Phospholipid517 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom520 instance-of Atom) ((a Atom (@ _Phospholipid517 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+

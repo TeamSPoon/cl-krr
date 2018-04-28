@@ -1,0 +1,17 @@
+;;    $Id: Budget.km,v 1.4 2005/04/15 17:09:09 jchaw Exp $
+(Budget has
+	(superclasses (InformationObject))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+	(cmap-correspondence ())
+	(test-case ()))
+
+(expendedFunds has (instance-of (Interface-Slot)) (domain (Budget)) (range (Worth-Value)) (cardinality (N-to-1))(inverse (isExpendedFundsOf))) 
+(remainingFunds has (instance-of (Interface-Slot)) (domain (Budget)) (range (Worth-Value)) (cardinality (N-to-1))(inverse (isRemainingFundsOf)))
+(requiredFunds has (instance-of (Interface-Slot)) (domain (Budget)) (range (Worth-Value)) (cardinality (N-to-1))(inverse (isRequiredFundsOf)))
+
+(Budget has (wn20-synset ((:set
+				(:triple "budget" 1 "n")
+				(:triple "budget" 2 "n")
+))))

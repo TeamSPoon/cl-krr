@@ -1,0 +1,11 @@
+;;
+;; $Id: LiOH-Substance.km,v 1.3 2003/04/15 05:34:46 jchaw Exp $
+;;
+
+(LiOH-Substance has (superclasses (Base)))
+
+(every LiOH-Substance has
+       (plays ((a Base-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *strong Base)))))))))
+       (has-basic-structural-unit ((a LiOH))))

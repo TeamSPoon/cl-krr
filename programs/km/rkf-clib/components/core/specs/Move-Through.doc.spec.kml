@@ -1,0 +1,48 @@
+<!--- $Id: Move-Through.doc.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Move-Through>
+<superconcept name=Move>
+
+<sme-documentation name=Move-Through>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Move-Through>
+  <definition>change location through a Place</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Move>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=path>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Move>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+  </primaryslot>
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>follow#4, travel-along#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Move-Through is a specialization of the <conceptref name=Move>
+component with a required <slot>path</slot>:Place slot.
+</musing>
+
+</kml>
+
+

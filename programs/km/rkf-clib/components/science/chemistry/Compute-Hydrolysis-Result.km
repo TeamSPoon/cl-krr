@@ -1,0 +1,455 @@
+;;
+;; $Id: Compute-Hydrolysis-Result.km,v 1.9 2003/04/22 04:48:26 jchaw Exp $
+;;
+(Compute-Hydrolysis-Result has
+  (superclasses (Method)))
+
+;;
+;; NOTE: Changed encoding again. Only special cases are handled separately.
+;;
+(every Compute-Hydrolysis-Result has
+  (input  ((a Chemical)))
+
+  ;; 
+  ;; Exception although chemical has an H it actually gains another H.
+  ;;
+  (output ((if ((the input of Self) isa NH3-Substance)
+               then
+               (:set (a Anion-Substance with
+                        (has-basic-structural-unit ((a OH-Minus))))
+                     (a Cation-Substance with
+                        (has-basic-structural-unit ((a NH4-Plus)))))
+            [Compute-Hydrolysis-Result-output-1]
+  )))
+  ;;
+  ;; The following are 7 special cases where the addition of an H+ creates a
+  ;; balanced compound or the origin input has an H but does not loss it.
+  ;;
+  (output ((if (((the input of Self) isa Anion-Substance)
+                and
+                ((the has-basic-structural-unit of (the input of Self)) isa Cl-Minus))
+                then
+                (:set (a Anion-Substance with
+                         (has-basic-structural-unit ((a OH-Minus))))
+                      (a HCl-Substance))
+            [Compute-Hydrolysis-Result-output-2]
+  )))
+
+  (output ((if (((the input of Self) isa Anion-Substance)
+                and
+                ((the has-basic-structural-unit of (the input of Self)) isa NO3-Minus))
+                then
+                (:set (a Anion-Substance with
+                         (has-basic-structural-unit ((a OH-Minus))))
+                      (a HNO3-Substance))
+            [Compute-Hydrolysis-Result-output-3]
+  )))
+
+  (output ((if (((the input of Self) isa Anion-Substance)
+                and
+                ((the has-basic-structural-unit of (the input of Self)) isa F-Minus))
+                then
+                (:set (a Anion-Substance with
+                         (has-basic-structural-unit ((a OH-Minus))))
+                      (a HF-Substance))
+            [Compute-Hydrolysis-Result-output-4]
+  )))
+
+  (output ((if (((the input of Self) isa Anion-Substance)
+                and
+                ((the has-basic-structural-unit of (the input of Self)) isa CH3COO-Minus))
+                then
+                (:set (a Anion-Substance with
+                         (has-basic-structural-unit ((a OH-Minus))))
+                      (a HC2H3O2-Substance))
+            [Compute-Hydrolysis-Result-output-5]
+  )))
+
+  (output ((if (((the input of Self) isa Anion-Substance)
+                and
+                ((the has-basic-structural-unit of (the input of Self)) isa HS-Minus))
+                then
+                (:set (a Anion-Substance with
+                         (has-basic-structural-unit ((a OH-Minus))))
+                      (a H2S-Substance))
+            [Compute-Hydrolysis-Result-output-6]
+  )))
+
+  (output ((if (((the input of Self) isa Anion-Substance)
+                and
+                ((the has-basic-structural-unit of (the input of Self)) isa H-Minus))
+                then
+                (:set (a Anion-Substance with
+                         (has-basic-structural-unit ((a OH-Minus))))
+                      (a H2-Substance))
+            [Compute-Hydrolysis-Result-output-7]
+  )))
+
+  (output ((if (((the input of Self) isa Anion-Substance)
+                and
+                ((the has-basic-structural-unit of (the input of Self)) isa CH3-Minus))
+                then
+                (:set (a Anion-Substance with
+                         (has-basic-structural-unit ((a OH-Minus))))
+                      (a CH4-Substance))
+            [Compute-Hydrolysis-Result-output-8]
+  )))
+  ;;
+  ;; The input has a H+, and it is not one of the special cases.
+  ;; Therefore, it loses a H+.
+  ;;
+  (output (
+    (if ((not ((the has-basic-structural-unit of (the input of Self))
+               and
+               (oneof (:set Cl-Minus NO3-Minus F-Minus CH3COO-Minus HS-Minus H-Minus CH3-Minus)
+                      where
+                      ((the has-basic-structural-unit of (the input of Self)) isa It))))
+         and
+         (not ((the input of Self) isa NH3-Substance))
+         and
+         (oneof (the elements of 
+                     (the term of (the has-chemical-formula of
+                        (the has-basic-structural-unit of (the input of Self)))))
+                where
+                ((the2 of It) = H-Plus)))
+        then
+        (:set
+          (a Chemical with
+             (has-basic-structural-unit ((a H3O-Plus))))
+          (a Chemical with
+             (has-basic-structural-unit (
+               (a Chemical-Entity with
+		  ;; Reduce the charge by 1.
+		  (charge ((if (the1 of (the value of (the charge of 
+			      	 (the has-basic-structural-unit of 
+				   (the input of Self)))))
+			       then
+		    	       (a Charge-Value with
+                       	   	  (value ((:pair ((the1 of (the value of (the charge of
+                              			    (the has-basic-structural-unit of
+                                   	  	      (the input of Self)))))
+				      		  - 1)
+				     		 *electronic-charge)))))))
+		  (has-chemical-formula (
+              	    (a Chemical-Formula with
+                       (term (
+                         ;; the raw-material losses 1 H+
+                         (if (oneof (the elements of
+                                         (the term of (the has-chemical-formula of
+                                              (the has-basic-structural-unit of (the input of Self)))))
+                               where
+                               (((the2 of It) = H-Plus)
+                                and
+                                ((the1 of It) = 1)))
+                             then
+                             ;; remove the H+ if there is only 1 H+
+                             (forall-seq (the term of (the has-chemical-formula of
+                                              (the has-basic-structural-unit of (the input of Self))))
+                               where 
+                               (((the2 of It) /= H-Plus) or
+                                ((the1 of It) /= 1))
+                               It)
+                             else
+                             ;; reduce the H+ by 1 (ASSUME there is a H+ in the formula)
+                             (forall-seq (the term of (the has-chemical-formula of
+                                              (the has-basic-structural-unit of (the input of Self))))
+                               (if ((the2 of It) = H-Plus)
+                                   then
+                                   (:pair ((the1 of It) - 1) H-Plus)
+                                   else
+                                   It)))))))))))))
+     [Compute-Hydrolysis-Result-output-9]
+  )))
+  ;;
+  ;; The input has a H, and it is not one of the special cases.
+  ;; Therefore, it loses a H.
+  ;;
+  (output (
+    (if ((not ((the has-basic-structural-unit of (the input of Self))
+               and
+               (oneof (:set Cl-Minus NO3-Minus F-Minus CH3COO-Minus HS-Minus H-Minus CH3-Minus)
+                      where
+                      ((the has-basic-structural-unit of (the input of Self)) isa It))))
+         and
+         (not ((the input of Self) isa NH3-Substance))
+         and
+         (oneof (the elements of 
+                     (the term of (the has-chemical-formula of
+                        (the has-basic-structural-unit of (the input of Self)))))
+                where
+                ((the2 of It) = H)))
+        then
+        (:set
+          (a Chemical with
+             (has-basic-structural-unit ((a H3O-Plus))))
+          (a Chemical with
+             (has-basic-structural-unit (
+               (a Chemical-Entity with
+		  ;; Reduce the charge by 1.
+		  (charge ((if (the1 of (the value of (the charge of 
+			      	 (the has-basic-structural-unit of 
+				   (the input of Self)))))
+			       then
+		    	       (a Charge-Value with
+                       	   	  (value ((:pair ((the1 of (the value of (the charge of
+                              			    (the has-basic-structural-unit of
+                                   	  	      (the input of Self)))))
+				      		  - 1)
+				     		 *electronic-charge)))))))
+		  (has-chemical-formula (
+              	    (a Chemical-Formula with
+                       (term (
+                         ;; the raw-material losses 1 H
+                         (if (oneof (the elements of
+                                         (the term of (the has-chemical-formula of
+                                              (the has-basic-structural-unit of (the input of Self)))))
+                               where
+                               (((the2 of It) = H)
+                                and
+                                ((the1 of It) = 1)))
+                             then
+                             ;; remove the H if there is only 1 H
+                             (forall-seq (the term of (the has-chemical-formula of
+                                              (the has-basic-structural-unit of (the input of Self))))
+                               where 
+                               (((the2 of It) /= H) or
+                                ((the1 of It) /= 1))
+                               It)
+                             else
+                             ;; reduce the H by 1 (ASSUME there is a H in the formula)
+                             (forall-seq (the term of (the has-chemical-formula of
+                                              (the has-basic-structural-unit of (the input of Self))))
+                               (if ((the2 of It) = H)
+                                   then
+                                   (:pair ((the1 of It) - 1) H)
+                                   else
+                                   It)))))))))))))
+     [Compute-Hydrolysis-Result-output-10]
+  )))
+  ;;
+  ;; The input does not have a H or H+, and it is not one of the special cases.
+  ;; Therefore, it gains a H+.
+  ;;
+  (output (
+    (if ((not ((the has-basic-structural-unit of (the input of Self))
+               and
+               (oneof (:set Cl-Minus HSO4-Minus NO3-Minus H2PO4-Minus
+                            F-Minus CH3COO-Minus HCO3-Minus HS-Minus
+                            H-Minus CH3-Minus)
+                      where
+                      ((the has-basic-structural-unit of (the input of Self)) isa It))))
+         and
+         (not ((the input of Self) isa NH3-Substance))
+         and
+         (not (oneof (the elements of 
+                          (the term of (the has-chemical-formula of
+                               (the has-basic-structural-unit of (the input of Self)))))
+                     where
+                     (((the2 of It) = H-Plus) or
+                      ((the2 of It) = H)))))
+        then
+        (:set
+          (a Chemical with
+             (has-basic-structural-unit ((a OH-Minus))))
+          (a Chemical with
+             (has-basic-structural-unit (
+               (a Chemical-Entity with
+	     	  ;; Increase the charge by 1.
+	     	  (charge ((if (the1 of (the value of (the charge of 
+			    	 (the has-basic-structural-unit of 
+			      	   (the input of Self)))))
+			       then
+		    	       (a Charge-Value with
+                       	     	  (value ((:pair ((the1 of (the value of (the charge of
+                              		       	    (the has-basic-structural-unit of
+                                   	  	      (the input of Self)))))
+				      	     	  + 1)
+				     	         *electronic-charge)))))))
+           	  (has-chemical-formula (
+             	    (a Chemical-Formula with
+                       (term (
+                         (the append of
+                              (:seq (:seq (:pair 1 H-Plus))
+                                    (the term of (the has-chemical-formula of
+                                         (the has-basic-structural-unit of
+                                              (the input of Self))))))))))))))))
+     [Compute-Hydrolysis-Result-output-11]
+  )))
+)
+
+;; Exception although chemical has an H it actually gains another H.
+(comment [Compute-Hydrolysis-Result-output-1]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  (:seq "The hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is exceptional: although it contains H, it gains another H in hydrolysis"
+  )
+)
+
+;; The following are 7 special cases where the addition of an H+ creates a
+;; balanced compound or the origin input has an H but does not loss it.
+(comment [Compute-Hydrolysis-Result-output-2]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  "In the hydrolysis of a base, the base gains an H+"
+)
+
+(comment [Compute-Hydrolysis-Result-output-3]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  "In the hydrolysis of a base, the base gains an H+"
+)
+
+(comment [Compute-Hydrolysis-Result-output-4]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  "In the hydrolysis of a base, the base gains an H+"
+)
+
+(comment [Compute-Hydrolysis-Result-output-5]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  (:seq "The hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is exceptional: although it contains H, it gains another H in hydrolysis"
+  )
+)
+
+(comment [Compute-Hydrolysis-Result-output-6]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  (:seq "The hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is exceptional: although it contains H, it gains another H in hydrolysis"
+  )
+)
+
+(comment [Compute-Hydrolysis-Result-output-7]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  (:seq "The hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is exceptional: although it contains H, it gains another H in hydrolysis"
+  )
+)
+
+(comment [Compute-Hydrolysis-Result-output-8]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  (:seq "The hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is exceptional: although it contains H, it gains another H in hydrolysis"
+  )
+)
+
+;; The input has a H+, and it is not one of the special cases.
+;; Therefore, it loses a H+.
+(comment [Compute-Hydrolysis-Result-output-9]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  "In the hydrolysis of an acid, the acid loses an H+"
+)
+
+;; The input has a H, and it is not one of the special cases.
+;; Therefore, it loses a H.
+(comment [Compute-Hydrolysis-Result-output-10]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  "In the hydrolysis of an acid, the acid loses an H"
+)
+
+;; The input does not have a H or H+, and it is not one of the special cases.
+;; Therefore, it gains a H+.
+(comment [Compute-Hydrolysis-Result-output-11]
+  (:seq "The product of hydrolysis of"
+        (the text-gen of (the input of Self))
+        "is therefore"
+        (andify (the text-gen of (the output of Self)))
+  )
+  "In the hydrolysis of a base, the base gains an H+"
+)
+
+(Compute-Hydrolysis-Result has
+  (test-case (
+    '(
+        ((the has-basic-structural-unit of 
+             (the second of 
+                 (the output of
+                   (a Compute-Hydrolysis-Result with
+                      (input ((a NH3-Substance)))))))
+         isa
+         NH4-Plus)
+
+        ((the term of 
+           (the has-chemical-formula of 
+             (the has-basic-structural-unit of 
+               (the second of 
+                 (the output of
+                   (a Compute-Hydrolysis-Result with
+                      (input ((a Chemical with
+                                 (has-basic-structural-unit (
+                                   (a HCO3-Minus))))))))))))
+         =
+         (:seq (:pair 1 C) (:pair 3 O)))
+
+        ((the term of 
+           (the has-chemical-formula of 
+             (the has-basic-structural-unit of 
+               (the second of 
+                 (the output of
+                   (a Compute-Hydrolysis-Result with
+                      (input ((a HCl-Substance)))))))))
+         =
+         (:seq (:pair 1 Cl-Minus)))
+
+        ((the term of 
+           (the has-chemical-formula of 
+             (the has-basic-structural-unit of 
+               (the second of 
+                 (the output of
+                   (a Compute-Hydrolysis-Result with
+                      (input ((a Chemical with
+                                 (has-basic-structural-unit (
+                                   (a CO3-Minus-2))))))))))))
+         =
+         (:seq (:pair 1 H-Plus) (:pair 1 C) (:pair 3 O)))
+
+        ((the second of 
+           (the output of
+             (a Compute-Hydrolysis-Result with
+                (input ((a Chemical with
+                           (has-basic-structural-unit ((a Cl-Minus)))))))))
+         isa HCl-Substance)
+))))
+

@@ -1,0 +1,17 @@
+;; 
+;;    $Id: viewed-as.km,v 1.3 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(viewed-as has
+   (instance-of   	(CLIB-Slot-Group))
+   (superslots    	())
+   (subslots 	  	())
+   (domain        	(Thing))
+   (range         	(Thing))
+   (inverse 		(view-of))
+   (original-slot      (t))	
+   (fluent-status 	(*Inertial-Fluent))
+   (cardinality 	(N-to-N)))
+
+(view-of has
+   (instance-of (CLIB-Slot-Group)))

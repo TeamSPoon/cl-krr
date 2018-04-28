@@ -1,0 +1,27 @@
+;; 
+;;  $Id: Follow-and-Assume.km,v 1.8 2005/11/07 20:38:02 kbarker Exp $ 
+;;
+
+(Follow-and-Assume has
+		   (superclasses (Non-Engagement-Military-Task Follow))
+		   (description ("a tactical mission task to follow a force conducting an offensive operation and to continue the mission if the lead force is disabled")))
+
+(every Follow-and-Assume has
+       (agent ((a Military-Unit)))
+       (base ((a Military-Unit with
+                 (allegiance ((the allegiance of (the agent of Self))))
+                 (agent-of ((a Military-Task))))))
+       (path ((a Spatial-Entity)))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.95 NIL))))))
+
+
+       (text-nominalization ("following and assuming"))
+       (text-active-verbseq-sg ("is the follow-and-assume force"))
+       (text-active-verbseq-pl ("are the follow-and-assume forces"))
+
+       (text-base ("for"))
+       (text-argslots ((:seq base path)))
+)
+

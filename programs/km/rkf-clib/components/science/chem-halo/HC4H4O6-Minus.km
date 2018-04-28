@@ -1,0 +1,18 @@
+;; $Id: HC4H4O6-Minus.km,v 1.8 2008/05/15 22:45:41 vaibhav Exp $ 
+(HC4H4O6-Minus has (superclasses (Anion)))
+(every HC4H4O6-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("bitartrate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)(:pair 4 C)(:pair 4 H)(:pair 6 O)))))))
+)
+
+
+(every HC4H4O6-Minus has-definition
+  (instance-of (Chemical-Entity))
+  (charge ((a Charge-Value with (value ((:pair -1 *unity))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 4 C) (:pair 4 H) (:pair 6 O)))))))
+)
+
+(HC4H4O6-Minus has (wn20-synset ((:triple "HC4H4O6-" 0 "n") (:triple "HC_4H_4O_6-" 0 "n"))))

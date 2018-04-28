@@ -1,0 +1,19 @@
+;;
+;; $Id: CH3COO-Minus.km,v 1.6 2003/04/21 19:46:47 jchaw Exp $
+;;
+
+(CH3COO-Minus has (superclasses (Anion)))
+
+(every CH3COO-Minus has
+       (has-chemical-name ("acetate"))
+       (has-acid-name ("acetic"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term 
+	     ((:seq (:pair 1 C)
+		    (:pair 3 H)
+		    (:pair 1 C)
+		    (:pair 1 O)
+		    (:pair 1 O)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair -1 *electronic-charge)))))))

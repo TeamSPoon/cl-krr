@@ -1,0 +1,38 @@
+
+;;
+;; $Id: Compute-Acid-Compound-from-Formula.km,v 1.5 2010/05/18 15:05:12 kbarker Exp $
+;;
+
+(Compute-Acid-Compound-from-Formula has
+				    (superclasses (Method))
+				    (description ("derive an acid based on a formula")))
+
+(every Compute-Acid-Compound-from-Formula has
+       ;;(input ((a Thing)))
+       (has-part ((a H-Plus)
+		  (if (has-value (the input of Self))
+		      then
+		    (an instance of 
+			(#'(LAMBDA ()
+				   (IF (IS-ANONYMOUS-ACID 
+					(KM-UNIQUE0 `(|the| |input| |of| |Self|)))
+				       '(|Anion|)
+				       (GET-FORMULA-ANION-COMPONENT
+					(KM-UNIQUE0 '(|the| |input| |of| |Self|))
+					(KM-UNIQUE0 '(|a| |H-Plus|))))))))))
+       (output ((if (#'(LAMBDA ()
+			      (IS-ANONYMOUS-ACID (KM-UNIQUE0 `(|the| |input| |of| |Self|)))))
+		    then
+		    (a Acid-Compound with
+		       (nested-atomic-chemical-formula ((a Chemical-Formula with
+							   (term ((the input of Self)))))))
+		  else
+		(a Acid-Compound with
+		   (has-part ((the has-part of Self)))
+		   )))))
+       
+
+;; possible test cases
+;; (the output of (a Compute-Acid-Compound-from-Formula with (input ((:seq (:pair 1 H-Plus) (:pair 1 X))))))
+;; (the output of (a Compute-Acid-Compound-from-Formula with (input ((:seq (:pair 2 H) (:pair 1 C) (:pair 3 O))))))
+;; (the output of (a Compute-Acid-Compound-from-Formula with (input ((:seq (:pair 3 H) (:pair 1 P) (:pair 4 O))))))

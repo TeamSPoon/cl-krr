@@ -1,0 +1,17 @@
+;;
+;; $Id: O.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(O has (superclasses (Non-Metal-Atom VIA-Chalcogen-Element)))
+(every O has
+	(has-molecular-name ("oxide"))
+       (atomic-symbol (O))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 8 NIL))))))
+       (has-ion ((a O-Minus-2)))
+       (chemical-period (2)))
+
+(every O has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("oxygen"))
+)

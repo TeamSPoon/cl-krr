@@ -1,0 +1,18 @@
+
+;;
+;; $Id: F.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(F has (superclasses (Non-Metal-Atom VIIA-Halogen-Element)))
+(every F has
+       (has-molecular-name ("fluoride"))
+       (atomic-symbol (F))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 9 NIL))))))
+       (has-ion ((a F-Minus)))
+       (chemical-period (2)))
+
+(every F has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("fluorine"))
+)

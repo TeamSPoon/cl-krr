@@ -1,0 +1,19 @@
+;;
+;;    $Id: DVDROM-Drive.km,v 1.6 2004/12/15 16:48:22 kbarker Exp $
+;;
+
+(DVDROM-Drive has 
+  (superclasses (DVD-Drive))
+  (feature-slot ((allof (the feature-slot of DVD-Drive)  
+                  where (It /= hasWriteSpeed))
+  ))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = DVDROM-Drive))
+  ))
+)
+
+
+(every DVDROM-Drive has
+  (hasWriteSpeed ((exactly 0 Number)))    ;; block write
+)
+

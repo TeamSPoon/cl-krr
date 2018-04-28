@@ -1,0 +1,28 @@
+<!--- $Id: ShippingAndReceivingArea.spec.kml,v 1.1 2005/08/24 22:01:57 billj Exp $ --->
+<kml>
+
+<concept name=ShippingAndReceivingArea>
+<system-documentation name=ShippingAndReceivingArea>
+<superconcept name=Room>
+
+<definition>
+	 A Room used for shipping and receiving.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the ShippingAndReceivingArea is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Room>
+     A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

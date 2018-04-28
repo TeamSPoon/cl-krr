@@ -1,0 +1,48 @@
+;; 
+;;    $Id: Histidine.km,v 1.14 2001/06/01 23:26:38 pnav Exp $ 
+;; 
+
+(Histidine has
+         (superclasses (Essential-Amino-Acid Basic-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A charged polar amino acid with an imidazole derived
+                        side chain.  Souther."))
+         (test-case ()))
+
+(every Histidine has
+       (has-part ((a Alpha-Carbon with
+		      (object-of
+		       ((a Be-Attached-To with
+			   (object ((the Amino-Acid-Side-Chain has-part of Self)))
+			   (instrument ((a Covalent-CC-Bond)))
+			   (site
+			    ((the Carbon-Atom has-part of
+				  (the Methyl-Group has-part of
+				       (the Amino-Acid-Side-Chain has-part of Self))))
+			    )))))
+		   (a Amino-Acid-Side-Chain with
+		      (has-part
+		       ((a Methyl-Group with
+			   (object-of
+			    ((a Be-Attached-To with
+				(object ((the Imidazole has-part of 
+					      (the Amino-Acid-Side-Chain has-part of Self))))
+				(instrument ((a Covalent-CC-Bond)))
+				(site
+				 (((the Carbon-Atom has-part of
+					 (the Imidazole has-part of
+					      (the Amino-Acid-Side-Chain has-part of Self)))
+				    called "Carbon-5")
+				  (the Carbon-Atom has-part of
+				       (the Methyl-Group has-part of
+					    (the Amino-Acid-Side-Chain has-part of Self)))
+				  )))
+			     )))
+			(a Imidazole)))
+		      ))))
+       
+       
+

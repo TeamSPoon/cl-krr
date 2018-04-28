@@ -1,0 +1,19 @@
+;; 
+;;    $Id: HBr.km,v 1.1 2003/04/02 23:11:31 tecuci Exp $
+;; 
+
+(HBr has (superclasses (Ionic-Compound)))
+
+(every HBr has
+#|       (nested-atomic-chemical-formula (
+					(a Chemical-Formula with
+					   (term ((:seq 
+						   (:pair 1 H)
+						   (:pair 1 Br)))))))
+|#
+       (has-chemical-formula (
+			      (a Chemical-Formula with
+				 (term ((:seq
+					 (:pair 1 H-Plus)
+					 (:pair 1 Br-Minus)))))))
+       )

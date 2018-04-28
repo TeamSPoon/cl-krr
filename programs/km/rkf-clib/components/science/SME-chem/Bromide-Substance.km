@@ -1,0 +1,46 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Bromide-Substance6297
+
+
+|#
+
+(disable-classification)
+
+(Bromide-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Bromide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Bromide-Substance476 has
+  (prototype-of (Bromide-Substance Ionic-Compound-Substance))
+  (prototype-scope (Bromide-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Br-Minus)))))))))
+  (prototype-participants (_Anion482 _Chemical-Entity478 _Bromide-Substance476)))
+
+(_Bromide-Substance476 has (instance-of (Bromide-Substance)) (has-basic-structural-unit (_Chemical-Entity478)))
+
+(_Chemical-Entity478 has (instance-of (Ionic-Compound)) (has-part (_Anion482)))
+
+(_Anion482 has (instance-of (Br-Minus)))
+
+(enable-classification)
+
+(explanation (:triple _Bromide-Substance476 has-basic-structural-unit _Chemical-Entity478) (((@ SME entered)) (every Bromide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Bromide-Substance476 instance-of Bromide-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity478 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion482 instance-of Br-Minus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Bromide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

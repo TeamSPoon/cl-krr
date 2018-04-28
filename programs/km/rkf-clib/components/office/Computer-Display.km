@@ -1,0 +1,41 @@
+;;
+;;    $Id: Computer-Display.km,v 1.16 2005/03/10 21:35:15 kbarker Exp $
+;;
+
+(Computer-Display has 
+  (superclasses (Output-Device))
+  (feature-slot ((the feature-slot of Output-Device)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Computer-Display))
+  ))
+)
+
+(every Computer-Display has
+	(hasHorizontalResolution ((the hasHorizontalResolution of ((the hasDisplayStandard of Self)))))
+	(hasVerticalResolution ((the hasVerticalResolution of ((the hasDisplayStandard of Self))))))
+
+(Computer-Display has (test-case 
+		       (
+			'( ;; infer hor/vert res based on display standard.
+			  (*Display042 has (instance-of (Computer-Display))(hasDisplayStandard (*VGA)))
+			  ((the value of (the hasHorizontalResolution of *Display042)) = ((:pair 640 nil)))
+			  ((the value of (the hasVerticalResolution of *Display042)) = (:pair 480 nil)))) 
+		       ))
+
+(hasDisplaySize has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Length-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isDisplaySizeOf)))
+(hasDisplayDotSize has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Length-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isDisplayDotSizeOf)))
+(hasDisplayStandard has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Graphics-Display-Standard)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)) (inverse (isDisplayStandardOf)))
+(hasDisplayWidth has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Pixel-Length-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isDisplayWidthOf)))
+(hasDisplayHeight has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Pixel-Length-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isDisplayHeightOf)))
+(hasHorizontalResolution has (instance-of (Interface-Slot)) (domain (Computer-Display Graphics-Display-Standard)) (range (Optical-Resolution-Value)) (cardinality (N-to-1))(inherit-with-overrides (t))(fluent-status (*Inertial-Fluent))(inverse (isHorizontalResolutionOf)))
+(hasVerticalResolution has (instance-of (Interface-Slot)) (domain (Computer-Display Graphics-Display-Standard)) (range (Optical-Resolution-Value)) (cardinality (N-to-1))(inherit-with-overrides (t))(fluent-status (*Inertial-Fluent))(inverse (isVerticalResolutionOf)))
+(hasResolution has (instance-of (Interface-Slot)) (domain (Computer-Display Graphics-Display-Standard)) (range (Optical-Resolution-Value)) (cardinality (N-to-1))(inherit-with-overrides (t))(fluent-status (*Inertial-Fluent))(inverse (isResolutionOf))(description ("Allows one to assert the overall resolution level of a Computer-Display with qualitiative levels such as *high, *medium, *low.  See also hasHorizontalResolution and hasVerticalResolution.")))
+(hasImageBrightness has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Luminous-Flux-Value Luminance-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isImageBrightnessOf))(inverse (isImageBrightnessOf)))
+(hasImageContrastRatio has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Contrast-Ratio-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasDisplayRegion has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Region)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isDisplayRegionOf)))
+(hasResponseTime has (instance-of (Interface-Slot)) (domain (Computer-Display)) (range (Duration-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isResponseTimeOf)))
+
+(Computer-Display has (wn20-synset ((:set (:triple "display" 3 "n")))))
+
+
+

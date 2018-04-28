@@ -1,0 +1,9 @@
+;; $Id: H3O-Plus.km,v 1.6 2003/02/22 16:24:42 jchaw Exp $ 
+(H3O-Plus has (superclasses (Cation)))
+(every H3O-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("hydronium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 3 H) (:pair 1 O)))))))
+)

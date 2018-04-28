@@ -1,0 +1,32 @@
+
+;;
+;; $Id: Brightness-Value.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(Brightness-Value has 
+       (superclasses (Property-Value)))
+
+(Brightness-Value has
+   (test-case ('(
+                 (Star has (superclasses (Tangible-Entity)))
+		 (Lightbulb has (superclasses (Tangible-Entity)))
+                 (*whitegiant has (instance-of (Drink))
+                                (brightness ((a Brightness-Value))))
+                 (*browndwarf has (instance-of (Drink))
+                              (brightness
+                                 ((a Brightness-Value with
+                                     (value ((:pair *bright Lightbulb)
+                                             (:pair *dim Star)
+                                     ))
+                                     (less-than
+                                        ((the brightness of *whitegiant)))
+                              ))))
+
+                 (the value of (the brightness of *browndwarf))
+
+                 ((the less-than of (the brightness of *browndwarf))
+                       includes (the brightness of *whitegiant))
+                 ((the greater-than of (the brightness of *whitegiant))
+                       includes (the brightness of *browndwarf))
+))))
+(Brightness-Value has (description ("the brightness of a Tangible-Entity")))

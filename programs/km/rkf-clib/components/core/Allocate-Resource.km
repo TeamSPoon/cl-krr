@@ -1,0 +1,97 @@
+;; 
+;;    $Id: Allocate-Resource.km,v 1.7 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(Allocate-Resource has
+  (superclasses 	(Action))
+  (required-slot 	(object))
+  (primary-slot 	(agent base))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "the resource made unavailable")
+			 (:seq agent "the entity that makes the resource unavailable")
+			 (:seq base "what the resource is made unavailable to")
+			 ))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Allocate-Resource has
+       (object 	    ((a Resource)))
+       (agent  	    ((must-be-a Entity)))
+       (base        ((must-be-a Thing)))
+       (soft-pcs-list ((forall (the object of Self)
+			       (:triple It object-of (a Be-Available)))))
+				
+       ;; a Allocate-Resource defeats all the Be-Available states 
+       ;; an object might be in
+
+       (defeats ((if (has-value (the base of Self))
+		     then
+		     (allof (the object-of of (the object of Self))
+			    where 
+			    (((the classes of It) = Be-Available) and
+			     ((the base of It) = (the base of Self))))
+		     else 
+		     (allof (the object-of of (the object of Self))
+			    where
+			    ((the classes of It) = Be-Available)))))
+	 
+       ;; The precondition is not needed since it is the same as the del-list.
+       ;; (pcs-list ())
+       (del-list ((forall (the defeats of Self)
+                          (:triple (It) object (the object of Self) [Allocate-Resource-del-1])))))
+
+(comment [Allocate-Resource-del-1] (:seq (the object of Self) " is now unavailable.")
+	 "A Allocate-Resource allocates a resource and makes it unavailable.")
+
+(every Allocate-Resource has
+  (text-active-verbseq-sg ("allocates"))
+  (text-active-verbseq-pl ("allocate"))
+  (text-passive-verbseq-sg ("gets allocated"))
+  (text-passive-verbseq-pl ("get allocated"))
+  (text-argslots ((:seq base instrument)))
+)
+
+(every Allocate-Resource has
+	(preparatory-event ((:default
+		(a Release-Resource with
+		   (object ((the object of Self)))
+		   (agent  ((the agent of Self)))
+		   (base   ((the base of Self)))
+)))))
+
+
+
+(Allocate-Resource has 
+		   (test-case 
+		    ('(
+		       (*Mojo has (instance-of (Physical-Object)))
+		       
+		       (a Release-Resource with 
+			  (object (*Mojo)))
+		       
+		       (try-do-and-next (thelast Release-Resource))	
+		       (the text-gen of (thelast Release-Resource))
+		       
+		       (has-value (the Be-Available object-of of *Mojo))
+		       
+		       (a Allocate-Resource with 
+			  (object (*Mojo)))
+		       
+		       (try-do-and-next (thelast Allocate-Resource))
+		       (the text-gen of (thelast Allocate-Resource))
+		       (not
+			(has-value (the Be-Available object-of of *Mojo)))
+		       ))))
+
+(Allocate-Resource has (wn20-synset ((:set
+				      (:triple "allocate" 1 "v")
+				      (:triple "apportion" 1 "v")
+))))
+
+
+
+
+
+
+(every Allocate-Resource has (text-nominalization ("allocation")))

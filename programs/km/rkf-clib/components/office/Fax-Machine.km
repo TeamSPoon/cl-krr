@@ -1,0 +1,14 @@
+;;
+;;    $Id: Fax-Machine.km,v 1.7 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(Fax-Machine has (superclasses (Office-Equipment)))
+
+(Fax-Machine has (wn20-synset ((:set (:triple "facsimile" 2 "n")
+				     (:triple "facsimile_machine" 1 "n")
+				     (:triple "fax" 1 "n")
+))))
+(Fax-Machine has
+  (feature-slot ((the feature-slot of Office-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Fax-Machine)))))
+

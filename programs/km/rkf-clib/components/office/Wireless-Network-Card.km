@@ -1,0 +1,12 @@
+;;
+;;    $Id: Wireless-Network-Card.km,v 1.2 2004/01/23 19:23:39 kbarker Exp $
+;;
+
+(Wireless-Network-Card has 
+  (superclasses (Network-Card))
+  (feature-slot ((the feature-slot of Network-Card)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Wireless-Network-Card))
+  ))
+)
+

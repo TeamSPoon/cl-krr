@@ -1,0 +1,26 @@
+;; 
+;;    $Id: age.km,v 1.15 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(age has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Entity))    
+   (range       (Duration-Value))
+   (scale-class (Age-Scale))    
+   (scalar-constant-class (Age-Constant))
+   (cardinal-unit-class (UoM-Duration))
+   (fluent-status (*Inertial-Fluent))
+   (inverse 	(age-of))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))
+   (cardinality (N-to-1))
+)
+
+(age has (wn20-synset ((:set
+                               (:triple "age" 1 "n")
+))))
+
+(age-of has
+	(instance-of (EntityProperty)))

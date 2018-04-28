@@ -1,0 +1,39 @@
+;; 
+;;    $Id: UoM-Volume.km,v 1.14 2010/01/29 18:17:33 kbarker Exp $ 
+;; 
+
+(UoM-Volume has
+ (superclasses (Unit-of-Measurement))
+ (base-unit (*cubic-meter))
+ (instances (*milliliter *liter *gallon *cubic-meter)))
+
+(*cubic-meter has
+	(instance-of (UoM-Volume))
+        (name ("cubic meter"))
+	(wn20-synset ((:set  (:triple "cubic_meter" 0 "n") 
+			     (:triple "cubic_meters" 0 "n") 	      
+			     (:triple "m^3" 0 "n")))))
+
+(*milliliter has
+	(instance-of (UoM-Volume))
+        (name ("ml"))
+	(wn20-synset ((:set  (:triple "milliliter" 0 "n") 
+			     (:triple "milliliters" 0 "n") 
+			     (:triple "ml" 0 "n")))))
+(*liter has
+	(instance-of (UoM-Volume))
+        (name ("l"))
+	(wn20-synset ((:set  (:triple "liter" 0 "n") 
+			     (:triple "liters" 0 "n") 
+			     (:triple "l" 0 "n")))))
+(*gallon has
+	(instance-of (UoM-Volume))
+        (name ("gal"))
+	(wn20-synset ((:set  (:triple "gallon" 0 "n") 
+			     (:triple "gallons" 0 "n")))))
+
+(*milliliter has (conversion-multiplier (1.0e-6)))
+(*liter has (conversion-multiplier (0.001)))
+(*gallon has (conversion-multiplier (0.00378541178)))
+(*cubic-meter has (conversion-multiplier (1.0)))
+

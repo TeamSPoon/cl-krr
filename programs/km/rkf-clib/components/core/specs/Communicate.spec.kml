@@ -1,0 +1,109 @@
+<!--- $Id: Communicate.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+<kml>
+
+<concept name=Communicate><system-documentation name=Communicate>
+<superconcept name=Action>
+<gpd-documentation name=Communication>
+<definition>
+
+  Communication of <conceptref name=Information> between two Entities.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     <conceptref name=Information> being communicated.
+  </slotdescription>
+
+</requiredslotlist>
+
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    The Entity that is the doing the communicating
+  </slotdescription>
+
+  <slotdescription name=recipient>
+    The Entity receiving the <conceptref name=Information> via the communicate
+  </slotdescription>
+
+  <slotdescription name=base>
+    The <conceptref name=Message> which encodes the Information being communicated
+  </slotdescription>
+
+</primaryslotlist>
+
+
+
+<subeventlist>
+
+  <subeventdescription name=Express>
+	the <slot>object</slot>, which is the Information,
+        is expressed by the <slot>agent</slot>
+  </subeventdescription>
+
+  <subeventdescription name=Convey>
+    	the <slot>object</slot>, which is the Information,
+        is conveyed to the <slot>recipient</slot>
+  </subeventdescription>
+
+  <subeventdescription name=Interpret>
+    	the <slot>object</slot>, which is the Information,
+        is interpreted by the <slot>recipient</slot>
+  </subeventdescription>
+
+</subeventlist>
+
+<subeventorder>
+  <conceptref name=Express> followed by <conceptref name=Convey>, followed by <conceptref name=Interpret>
+</subeventorder>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John told Harry that he won the competition.</text>
+    <slotdescription name=object>John won the competition.</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=recipient>Harry</slotdescription>
+  </examplesentence>
+  <comment>
+     Harry knows that John has won the competition after the communicate.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Transfer>
+    Transfer involves a change of physical possession, while Communicate
+    involves passing on <conceptref name=Information>
+  </neighbor>
+ 
+  <neighbor name=Convey>
+    Convey involves moving a <conceptref name=Message> 
+    from one entity to another, while Communicate 
+    also involves the expression of information as a message and the 
+    interpretation of the message back into information.
+    Convey is one step of Communicate.
+  </neighbor>  
+
+  <neighbor name=Transmit>
+    Transmit is the movement of a <conceptref name=Signal>.
+  </neighbor>
+
+  <neighbor name=Send>
+    Send involves <conceptref name=Transfer> of a physical object
+    (e.g. an envelope), while
+    Communicate involves passing on <conceptref name=Information>.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+
+
+

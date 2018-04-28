@@ -1,0 +1,59 @@
+<!--- $Id: Be-Stored.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Stored>
+<system-documentation name=Be-Stored>
+<superconcept name=State>
+
+<definition>
+
+  The state of an object in which it's stored in a base.  The 
+  <conceptref name=Store> action puts objects into this state, 
+  and the <conceptref name=Withdraw> action takes them out of the 
+  state.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the entity that's stored
+   </slotdescription>
+
+   <slotdescription name=base>
+      the <conceptref name=Tangible-Entity> in which the object is stored
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>The cookies were stored in the jar.</text>
+     <slotdescription name=object>the cookies</slotdescription>
+     <slotdescription name=base>the jar</slotdescription>
+   </examplesentence>
+   
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Be-Contained>
+    Be-Stored is a special case of Be-Contained in which the object is 
+    put away for a longer period of time, usually for safe keeping.
+  </neighbor>
+
+  <neighbor name=Store>
+    The Store action puts objects into the Be-Stored state
+  </neighbor>
+
+  <neighbor name=Withdraw>
+    The Withdraw action takes objects out of the Be-Stored state
+  </neighbor>
+
+</neighborlist>
+
+   
+</kml>
+
+

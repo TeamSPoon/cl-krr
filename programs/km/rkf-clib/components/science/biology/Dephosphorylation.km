@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Dephosphorylation.km,v 1.13 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Dephosphorylation has
+		   (superclasses  (Remove Enzyme-Catalysis))
+		   (required-slot (object base))
+		   (primary-slot  (agent instrument))   
+		   (secondary-slot (result))
+	(description	("The removal of a phosphoryl group from a molecule.
+                          The resulting molecule is less charged energetically
+                          and is said to be deactivated. Souther.")))
+
+(every Dephosphorylation has
+       (agent        ((a Living-Entity)))
+       (substrate ((the Molecule base of Self)))
+       (base       ((a Molecule)))
+       (object       ((a Phosphoryl-Group)))
+       (instrument   ((a Phosphatase)))   )
+
+;;a typically these reactions defuse the molecule which had the phosphate.
+;; the resulting phosphate bearing molecule is typically a monophosphate group
+;; or a diphosphate (pyrophosphate).
+
+
+
+(every Dephosphorylation has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

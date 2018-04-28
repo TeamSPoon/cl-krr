@@ -1,0 +1,31 @@
+<!--- $Id: Value.spec.kml,v 1.4 2001/05/28 16:09:33 kbarker Exp $ --->
+
+<kml>
+
+<concept name=Value>
+<superconcept name=Thing>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Value>
+  <definition>constants for properties of Entities and Events</definition>
+</component>
+
+<musing>
+This is the top level concept for constants that fill Property slots.
+A Value can be Scalar, Categorical or Cardinal.<p>
+
+A <conceptref name=Scalar-Value> is a non-numeric constant that lies on 
+one or more ordered Scales. For example, *Hot is a Scalar Value on both the 
+*Hot-to-Cold and *Boiling-to-Freezing Scales.<p>
+
+A <conceptref name=Categorical-Value> is a non-numeric constant that does 
+not appear in an ordered scale. For example, *Purple is a Categorical Value.<p>
+
+A <conceptref name=Cardinal-Value> is a numeric value and a unit of 
+measurement. For example, (98.6 *Degrees-Fahrenheit) is a Cardinal Value.
+</musing>
+
+</kml>
+
+

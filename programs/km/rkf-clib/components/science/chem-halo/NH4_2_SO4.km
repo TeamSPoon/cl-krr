@@ -1,0 +1,20 @@
+;;
+;; $Id: NH4_2_SO4.km,v 1.1 2008/10/21 20:57:35 tecuci Exp $
+;;
+
+(NH4_2_SO4 has (superclasses (Ionic-Compound)))
+
+(every NH4_2_SO4 has	
+       (has-chemical-name ("ammonium sulphate"))
+       (has-part 
+	((a NH4-Plus) (a SO4-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 2 NH4-Plus)
+			 (:pair 1 SO4-Minus-2)))))))
+       )
+
+(every NH4_2_SO4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a NH4-Plus) (a SO4-Minus-2))))
+

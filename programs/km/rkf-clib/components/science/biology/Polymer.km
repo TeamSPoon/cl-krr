@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Polymer.km,v 1.9 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Polymer has
+	       (superclasses (Organic-Molecule))
+	       (required-slot ())
+	       (primary-slot ())
+	       (secondary-slot ())
+	       (cmap-correspondence ())
+               (description ("Large and usually linear molecule made by linking
+                              together multiple identical or similar units
+                              (monomers) in a repetitive fashion.
+                              Alberts:ECB:G-14"))
+	       (test-case ()))
+
+(every Polymer has  
+
+           (element-type (Monomer)))   ;;; basic unit
+
+

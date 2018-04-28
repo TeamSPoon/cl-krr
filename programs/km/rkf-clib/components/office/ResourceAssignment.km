@@ -1,0 +1,17 @@
+;;
+;;    $Id: ResourceAssignment.km,v 1.1 2004/11/05 16:59:41 pzyeh Exp $
+;;
+
+(ResourceAssignment has
+  (superclasses        (Task))
+  (required-slot       ())
+  (primary-slot        ()))
+
+(assignedResource has 
+  (instance-of 	 (Interface-Slot)) 
+  (domain 	 (ResourceAssignment)) 
+  (range 	 (Resource)) 
+  (inverse	 (hasResourceAssignment))
+  (cardinality 	 (N-to-N))
+  (fluent-status (*Inertial-Fluent)))
+

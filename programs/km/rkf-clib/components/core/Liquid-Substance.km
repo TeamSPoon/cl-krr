@@ -1,0 +1,31 @@
+;; 
+;; $Id: Liquid-Substance.km,v 1.5 2006/11/03 19:17:37 kbarker Exp $
+;; 
+
+(Liquid-Substance has 
+       (superclasses (Fluid-Substance))
+       (required-slot ())
+       (primary-slot ())
+       (secondary-slot ())
+       (description ("A substance in the liquid state at room temperature"))
+       (cmap-correspondence ())
+)
+
+;; for now, assume the substance is liquid if its temp is unknown
+;; the else will have to come when we have melting-point, boiling-point
+
+(every Liquid-Substance has
+       (physical-state ((if (not (has-value (the temperature of Self)))
+                         then ((a State-Value with (value (*liquid))))
+       )))
+)
+
+(Liquid-Substance has (wn20-synset ((:set
+				     (:triple "liquid" 1 "n")
+				     (:triple "liquid" 3 "n")
+                                     (:triple "liquid body substance" 1 "n")
+                                     (:triple "bodily fluid" 1 "n")
+                                     (:triple "body fluid" 1 "n")
+                                     (:triple "humor" 6 "n")
+                                     (:triple "humour" 4 "n")
+))))

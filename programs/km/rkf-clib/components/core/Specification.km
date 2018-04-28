@@ -1,0 +1,37 @@
+;; 
+;; $Id: Specification.km,v 1.2 2004/09/08 01:22:58 gking Exp $
+;; 
+
+(Specification has
+  (superclasses (Message))
+  (description ("A description of something in terms of specific values of its features"))
+)
+
+(every Specification has
+  (result-of ((a Specify with
+                 (object ((a Entity)))   ;; what kind of thing is specified
+                 (result (Self))
+  )))
+
+  (information-content ((
+    (?object-instance == (the object of (the result-of of Self)))
+    and
+    (forall (the feature-slot of (the instance-of of ?object-instance))
+            where ((has-value (the range of It))
+                   or
+                   (has-value (the It of ?object-instance))
+                  )
+            (:triple ?object-instance 
+                     It 
+                     (if (has-value (the It of ?object-instance))
+                      then (the It of ?object-instance)
+                      else (an instance of (the range of It)))
+            )
+    )
+  )))
+)
+
+(Specification has (wn20-synset ((:set
+				  (:triple "specification" 1 "n")
+				  (:triple "spec" 1 "n")
+))))

@@ -1,0 +1,14 @@
+
+;;
+;; $Id: NaHCO3-Substance.km,v 1.5 2008/11/03 03:11:27 tecuci Exp $
+;;
+
+(NaHCO3-Substance has (superclasses (Strong-Electrolyte)))
+
+(every NaHCO3-Substance has 
+       (has-basic-structural-unit ((a NaHCO3))))
+
+
+(every NaHCO3-Substance has-definition
+  (instance-of (Strong-Electrolyte))
+  (has-basic-structural-unit ((a NaHCO3))))

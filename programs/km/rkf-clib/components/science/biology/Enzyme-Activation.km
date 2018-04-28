@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Enzyme-Activation.km,v 1.6 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Enzyme-Activation has
+	  (superclasses         (Activate))
+	  (required-slot        (object))
+	  (primary-slot         (agent instrument))
+	  (description ("To put an enzyme into a state where it a can 
+                         catalyze a reaction.  Souther.")))
+
+(every Enzyme-Activation has
+       (agent ((a Cell)))
+       (object ((a Enzyme)))
+       (instrument ((a Coenzyme with
+		       (object-of
+			((a Be-Attached-To with
+			   (base ((the Enzyme object of Self)))
+			   )))
+		    )))
+       )(every Enzyme-Activation has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

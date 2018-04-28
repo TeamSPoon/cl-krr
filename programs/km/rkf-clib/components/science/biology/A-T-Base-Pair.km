@@ -1,0 +1,58 @@
+;; 
+;;    $Id: A-T-Base-Pair.km,v 1.7 2001/06/01 23:26:10 pnav Exp $
+;; 
+
+(A-T-Base-Pair has
+         (superclasses (Base-Pair))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("The nucleotide base pair resulting from the hydrogen
+                        bonding of adenine and thymine in DNA molecules.  
+                        Souther."))
+         (description ("The Nucleotide Base-Pair resulting from Hydrogen-Bond 
+                        formation between Adenine and Thymine in the 
+                        DNA-Molecule. Souther.")) 
+         (test-case ()))
+
+(every A-T-Base-Pair has
+  (is-part-of ((must-be-a DNA-Molecule)))
+  (has-part   ((a D-TMP)
+	       (a D-AMP with
+		  (has-part (
+		    (a Adenine with
+		       (complement ((the Thymine has-part of 
+				         (the D-TMP has-part of Self))))
+		       (object-of 
+			 ((a Be-Attached-To with
+			    (object 	((the Thymine has-part of 
+					      (the D-TMP has-part of Self))))
+			    (instrument ((a Hydrogen-Bond)))
+			    (site	(((the Hydrogen-Atom has-part of
+				  	       (the Thymine has-part of 
+						    (the D-TMP has-part of Self)))
+					  called "N3-Hydrogen")
+			    		 ((the Nitrogen-Atom has-part of
+				  	       (the Adenine has-part of Self))
+					  called "Nitrogen-1"))))
+		         (a Be-Attached-To with
+			    (object 	((the Thymine has-part of 
+					      (the D-TMP has-part of Self))))
+			    (instrument ((a Hydrogen-Bond)))
+			    (site	(((the Hydrogen-Atom has-part of
+					       (the Amino-Group has-part of
+						    (the Adenine has-part of Self)))
+					  called "Hydrogen-1")
+					 ((the Oxygen-Atom has-part of
+					       (the Thymine has-part of 
+						    (the D-TMP has-part of Self)))
+					  called "C4-Oxygen"))
+					))
+			 )))
+		    )))
+	       ))
+  )
+
+
+

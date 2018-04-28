@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Mitochondrion.km,v 1.19 2002/06/21 19:17:00 tecuci Exp $ 
+;; 
+
+(Mitochondrion has
+         (superclasses (Organelle Subcellular-Compartment))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Membrane-bound organelle, about the size of a
+                        bacterium, that carries out oxidative phosphorylation
+                        and produces most of the ATP in eucaryotic cells.
+                        Alberts:ECB:G-11."))  
+         (test-case ()))
+
+(every Mitochondrion has
+       (purpose ((a Container with
+		    (in-event ((a Be-Contained with
+				  (content ((a Aggregate with
+
+					       (element-type (Oxido-Reductase)
+							     )))
+					   )))
+		    ))))
+       (length ((a Length-Value with (value ((:pair 1 *millimeter))))))
+       )
+
+
+

@@ -1,0 +1,24 @@
+;; 
+;; $Id: Piece-of-Rubber.km,v 1.3 2005/06/17 18:41:56 kbarker Exp $
+;; 
+
+(Piece-of-Rubber has
+  (superclasses (Piece-of-Substance))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (cmap-correspondence ())
+)
+
+(every Piece-of-Rubber has
+  (material ((a Rubber)))
+)
+
+#| give preference to wn links in the substance
+(Piece-of-Rubber has (wn20-synset ((:set
+				    (:triple "rubber" 1 "n")
+				    (:triple "india_rubber" 1 "n")
+				    (:triple "gum_elastic" 1 "n")
+				    (:triple "caoutchouc" 1 "n")
+))))
+|#

@@ -1,0 +1,16 @@
+;; 
+;;  $Id: capacitance.km,v 1.1 2003/12/01 22:36:06 jfan Exp $
+;; 
+
+(capacitance has
+  (instance-of (Property))
+  (domain      (Entity))
+  (range       (Charge-Value))
+  (scalar-constant-class (Charge-Constant))   
+  (cardinal-unit-class   (UoM-Charge))   
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     (capacitance-of))
+  (cardinality (N-to-1))
+)
+

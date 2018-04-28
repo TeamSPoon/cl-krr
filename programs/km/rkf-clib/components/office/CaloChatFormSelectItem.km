@@ -1,0 +1,16 @@
+;;
+;;    $Id: CaloChatFormSelectItem.km,v 1.2 2004/10/19 20:45:57 jfan Exp $
+;; 
+
+(CaloChatFormSelectItem has
+			(superclasses (ChatDataStructure))      
+			(required-slot          ()) 
+			(primary-slot     	    ())  
+			(secondary-slot         ())
+			)
+
+(every CaloChatFormSelectItem has
+       (hasFormSelectItemIndex ((a Integer)))
+       )
+
+(hasFormSelectItemIndex has (instance-of (Interface-Slot)) (domain (CaloChatFormSelectItem)) (range (Integer)) (cardinality (1-to-1)))

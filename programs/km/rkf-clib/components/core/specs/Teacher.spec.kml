@@ -1,0 +1,48 @@
+<!--- $Id: Teacher.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+<concept name=Teacher>
+<system-documentation name=Teacher>
+
+<superconcept name=Role>
+
+  <definition>
+    A teacher is the <conceptref name=Role> played by a
+    <conceptref name=Tangible-Entity> that is the 
+    <slot>agent</slot> of <conceptref name=Teach>ing
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the Tangible-Entity playing the role of Teacher
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Teach> event in which the teacher is the 
+     <slot>agent</slot>
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+
+     <text>Plato taught Aristotle.</text>
+     <comment>
+     In this example, the role of Teacher is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Teach> with
+         <slot>agent</slot>=Plato and <slot>recipient</slot>=Aristotle
+     </slotdescription>
+     <slotdescription name=played-by>Plato</slotdescription>
+     </comment>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+
+
+

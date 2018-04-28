@@ -1,0 +1,1094 @@
+
+*** DEPRECATED ***
+
+up to P 38 all --> true (after appl JP's Errata)
+
+
+kfp@helix:~/quicklisp/local-projects/fricas-snark/input$ rlwrap fricas -nox
+viewman not present, disabling graphics
+Checking for foreign routines
+AXIOM="/usr/local/lib/fricas/target/x86_64-unknown-linux"
+spad-lib="/usr/local/lib/fricas/target/x86_64-unknown-linux/lib/libspad.so"
+foreign routines found
+openServer result 0
+                       FriCAS Computer Algebra System
+                         Version: FriCAS 2016-01-24
+                   Timestamp: Sam Feb 20 18:53:34 CET 2016
+-----------------------------------------------------------------------------
+   Issue )copyright to view copyright notices.
+   Issue )summary for a summary of useful system commands.
+   Issue )quit to leave FriCAS and return to shell.
+-----------------------------------------------------------------------------
+
+Value = |QuickLisp|
+Value = |quickLoad|
+Value = |quickFind|
+                                                                   Type: Void
+                                                                   Type: Void
+
+(1) -> )read pelletier
+-- ========================================================================
+-- Seventy-Five Problems for Testing Automatic Theorem Provers
+-- FRANCIS JEFFRY PELLETIER
+-- Journal of Automated Reasoning 2 (1986) 191-216
+-- http://www.sfu.ca/~jeffpell/papers/75ATPproblems86.pdf
+-- ========================================================================
+
+)clear completely
+
+   All user variables and function definitions have been cleared.
+   All )browse facility databases have been cleared.
+   Internally cached functions and constructors have been cleared.
+   )clear completely is finished.
+)set message time on
+
+
+snark ==> quickLoad("fricas-snark")$Lisp
+
+                                                                   Type: Void
+                                                                  Time: 0 sec
+init  ==> snarkInit()$Lisp
+
+                                                                   Type: Void
+                                                                  Time: 0 sec
+
+snark;init
+
+To load "fricas-snark":
+  Load 1 ASDF system:
+    fricas-snark
+; Loading "fricas-snark"
+
+; Running SNARK from /home/kfp/quicklisp/local-projects/SNARK/ in SBCL 1.2.16 (64-bit) on helix at 2016-03-16T04:08:19
+   Proposition is now explicitly exposed in frame frame1
+   Proposition will be automatically loaded when needed from
+      /home/kfp/quicklisp/local-projects/fricas-snark/src/PROP.NRLIB/PROP
+
+)lisp (snark::default-run-time-limit 1)
+
+Value = 1
+
+
+X==>EXPR INT
+
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+P==>PROP INT
+
+                                                                   Type: Void
+                                                                  Time: 0 sec
+
+pcheck(problem,i) ==
+  formula:P:=problem(1)
+  premises:List P:=problem(2)
+  res:=prove(formula,premises)$P
+  if  (string symbol(res)="PROOF-FOUND") then
+    print (concat(string(i),":ok")::Symbol)
+    true
+  else
+    print (concat(string(i),":ERROR")::Symbol)
+    false
+
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+
+
+p:=pred('p,[])
+
+
+   (6)  (p)
+                                                   Type: Proposition(Integer)
+                                       Time: 0.07 (IN) + 0.12 (OT) = 0.20 sec
+q:=pred('q,[])
+
+
+   (7)  (q)
+                                                   Type: Proposition(Integer)
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+r:=pred('r,[])
+
+
+   (8)  (r)
+                                                   Type: Proposition(Integer)
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+s:=pred('s,[])
+
+
+   (9)  (s)
+                                                   Type: Proposition(Integer)
+                                                   Time: 0.00 (OT) = 0.00 sec
+
+f(x:X):P == pred('f,[x])
+
+   Function declaration f : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                                                  Time: 0 sec
+g(x:X):P == pred('g,[x])
+
+   Function declaration g : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+h(x:X):P == pred('h,[x])
+
+   Function declaration h : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                                                  Time: 0 sec
+i(x:X):P == pred('i,[x])
+
+   Function declaration i : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+j(x:X):P == pred('j,[x])
+
+   Function declaration j : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                                                  Time: 0 sec
+k(x:X):P == pred('k,[x])
+
+   Function declaration k : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                                                  Time: 0 sec
+l(x:X):P == pred('l,[x])
+
+   Function declaration l : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+m(x:X):P == pred('m,[x])
+
+   Function declaration m : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                                                  Time: 0 sec
+
+ff(x:X,y:X):P == pred('ff,[x,y])
+
+   Function declaration ff : (Expression(Integer),Expression(Integer))
+       -> Proposition(Integer) has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+gg(x:X,y:X):P == pred('gg,[x,y])
+
+   Function declaration gg : (Expression(Integer),Expression(Integer))
+       -> Proposition(Integer) has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+hh(x:X,y:X):P == pred('hh,[x,y])
+
+   Function declaration hh : (Expression(Integer),Expression(Integer))
+       -> Proposition(Integer) has been added to workspace.
+                                                                   Type: Void
+                                                                  Time: 0 sec
+jj(x:X,y:X):P == pred('jj,[x,y])
+
+   Function declaration jj : (Expression(Integer),Expression(Integer))
+       -> Proposition(Integer) has been added to workspace.
+                                                                   Type: Void
+                                                                  Time: 0 sec
+kk(x:X,y:X):P == pred('kk,[x,y])
+
+   Function declaration kk : (Expression(Integer),Expression(Integer))
+       -> Proposition(Integer) has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+pp(x:X,y:X):P == pred('pp,[x,y])
+
+   Function declaration pp : (Expression(Integer),Expression(Integer))
+       -> Proposition(Integer) has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+qq(x:X,y:X):P == pred('qq,[x,y])
+
+   Function declaration qq : (Expression(Integer),Expression(Integer))
+       -> Proposition(Integer) has been added to workspace.
+                                                                   Type: Void
+                                                                  Time: 0 sec
+rr(x:X,y:X):P == pred('rr,[x,y])
+
+   Function declaration rr : (Expression(Integer),Expression(Integer))
+       -> Proposition(Integer) has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+
+
+phi:BOP:=operator 'phi
+
+
+   (26)  phi
+                                                          Type: BasicOperator
+                                       Time: 0.00 (IN) + 0.01 (OT) = 0.01 sec
+op:BOP:=operator 'op
+
+
+   (27)  op
+                                                          Type: BasicOperator
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+f1:BOP:=operator 'f1
+
+
+   (28)  f1
+                                                          Type: BasicOperator
+                                                                  Time: 0 sec
+f2:BOP:=operator 'f2
+
+
+   (29)  f2
+                                                          Type: BasicOperator
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+g1:BOP:=operator 'g1
+
+
+   (30)  g1
+                                                          Type: BasicOperator
+                                                   Time: 0.00 (OT) = 0.00 sec
+g2:BOP:=operator 'g2
+
+
+   (31)  g2
+                                                          Type: BasicOperator
+                                                                  Time: 0 sec
+
+
+-- group th problems
+grp_a:=all([x,y,z],(op(op(x,y),z)=op(x,op(y,z)))$P)
+
+
+   (32)  (FORALL (x y z) (= (op (op x y) z) (op x (op y z))))
+                                                   Type: Proposition(Integer)
+                           Time: 0.34 (IN) + 0.00 (EV) + 0.16 (OT) = 0.51 sec
+grp_b:=all(x,(op(a,x)=x)$P)
+
+
+   (33)  (FORALL (x) (= (op a x) x))
+                                                   Type: Proposition(Integer)
+                                       Time: 0.01 (IN) + 0.01 (OT) = 0.02 sec
+grp_c:=all(x,ex(y,(op(y,x)=a)$P))
+
+
+   (34)  (FORALL (x) (EXISTS (y) (= (op y x) a)))
+                                                   Type: Proposition(Integer)
+                                       Time: 0.01 (IN) + 0.01 (OT) = 0.01 sec
+grp:=[grp_a,grp_b,grp_c]
+
+
+   (35)
+   [(FORALL (x y z) (= (op (op x y) z) (op x (op y z)))),
+    (FORALL (x) (= (op a x) x)), (FORALL (x) (EXISTS (y) (= (op y x) a)))]
+                                             Type: List(Proposition(Integer))
+                                                   Time: 0.00 (OT) = 0.00 sec
+
+-- Charles Morgan
+T(x:X):P == pred('T,[x])
+
+   Function declaration T : Expression(Integer) -> Proposition(Integer)
+      has been added to workspace.
+                                                                   Type: Void
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+ii:BOP:=operator 'ii
+
+
+   (37)  ii
+                                                          Type: BasicOperator
+                                       Time: 0.00 (IN) + 0.00 (OT) = 0.00 sec
+n:BOP:=operator 'n
+
+
+   (38)  n
+                                                          Type: BasicOperator
+                                                   Time: 0.00 (OT) = 0.00 sec
+
+cm_a:=all([x,y],T(ii(x,ii(y,x))))
+
+   Compiling function T with type Expression(Integer) -> Proposition(
+      Integer)
+
+   (39)  (FORALL (x y) (T (ii x (ii y x))))
+                                                   Type: Proposition(Integer)
+                                       Time: 0.07 (IN) + 0.04 (OT) = 0.11 sec
+cm_b:=all([x,y,z],T(ii(ii(x,ii(y,z)),ii(ii(x,y),ii(x,z)))))
+
+
+   (40)  (FORALL (x y z) (T (ii (ii x (ii y z)) (ii (ii x y) (ii x z)))))
+                                                   Type: Proposition(Integer)
+                           Time: 0.04 (IN) + 0.00 (EV) + 0.02 (OT) = 0.06 sec
+cm_c:=all([x,y],T(ii(ii(n(x),n(y)),ii(y,x))))
+
+
+   (41)  (FORALL (x y) (T (ii (ii (n x) (n y)) (ii y x))))
+                                                   Type: Proposition(Integer)
+                                       Time: 0.03 (IN) + 0.03 (OT) = 0.05 sec
+cm_d:=all([x,y],T(ii(x,y))/\(T(x)>>T(y)))
+
+
+   (42)  (FORALL (x y) (AND (T (ii x y)) (IMPLIES (T x) (T y))))
+                                                   Type: Proposition(Integer)
+                                       Time: 0.01 (IN) + 0.01 (OT) = 0.02 sec
+cm:=[cm_a,cm_b,cm_c,cm_d]
+
+
+   (43)
+   [(FORALL (x y) (T (ii x (ii y x)))),
+    (FORALL (x y z) (T (ii (ii x (ii y z)) (ii (ii x y) (ii x z))))),
+    (FORALL (x y) (T (ii (ii (n x) (n y)) (ii y x)))),
+    (FORALL (x y) (AND (T (ii x y)) (IMPLIES (T x) (T y))))]
+                                             Type: List(Proposition(Integer))
+                                                   Time: 0.00 (OT) = 0.00 sec
+
+
+pelletier:= [ _
+  [(p>>q)^(~q>>~p),[]], _
+  [~~p^p,[]], _
+  [~(p>>q)>>(q>>p),[]], _
+  [(~p>>q)^(~q>>p),[]], _
+  [((p\/q)>>(p\/r))>>(p\/(q>>r)),[]], _
+  [p\/~p,[]], _
+  [p\/~~~p,[]], _
+  [((p>>q)>>p)>>p,[]], _
+  [((p\/q)/\(~p\/q)/\(p\/~q))>>~(~p\/~q),[]], _
+  [p^q,[q>>r,r>>(p/\q),p>>(q\/r)]], _
+  [p^p,[]], _
+  [((p^q)^r)^(p^(q^r)),[]], _
+  [(p\/(q/\r))^((p\/q)/\(p\/r)),[]], _
+  [(p^q)^((q\/~p)/\(~q\/p)),[]], _
+  [(p>>q)^(~p\/q),[]], _
+  [(p>>q)\/(q>>p),[]], _
+  [((p/\(q>>r))>>s)^((~p\/q\/s)/\(~p\/~r\/s)),[]], _
+  [ex(y,all(x,f(y)>>f(x))),[]], _
+  [ex(x,all([y,z],((f(y)>>g(z))>>(f(x)>>g(x))))),[]], _
+  [all([x,y],ex(z,all(w,((f(x)/\g(y))>>(h(z)/\k(w))>>((ex([x,y],(f(x)/\g(y))>>ex(z,h(z))))))))),[]], _
+  [ex(x,p^f(x)),[ex(x,p>>f(x)),ex(x,f(x)>>p)]], _
+  [all(x,p^f(x))>>(p^all(x,f(x))),[]], _
+  [all(x,p\/f(x))>>(p\/all(x,f(x))),[]], _
+  [ex(x,f(x)/\h(x)),[~ex(x,k(x)/\g(x)),all(x,f(x)>>(g(x)\/h(x))),~ex(x,f(x)>>ex(x,g(x))),all(x,g(x)\/h(x)>>k(x))]], _
+  [ex(x,k(x)/\h(x)),[ex(x,h(x)),all(x,(f(x)>>(~g(x)/\l(x)))),all(x,(h(x)>>(g(x)/\f(x)))),all(x,(h(x)>>k(x))\/ex(x,(h(x)/\l(x))))]], _
+  [all(x,(f(x)>>l(x)))^all(x,(g(x)>>m(x))),[ex(x,f(x))^ex(x,g(x)),all([x,y],(f(x)/\g(y))>>(l(x)^m(y)))]], _
+  [all(x,j(x)>>~i(x)),[ex(x,f(x)/\~g(x)),all(x,f(x)>>h(x)),all(x,(j(x)/\i(x))>>f(x)),ex(x,(h(x)/\~g(x)))>>all(x,i(x)>>~h(x))]], _
+  [all(x,(h(x)/\f(x))>>g(x)),[all(x,h(x))>>all(x,i(x)),all(x,(i(x)\/j(x)))>>ex(x,i(x)/\k(x)),ex(x,k(x))>>all(x,f(x)>>g(x))]], _
+  [(all(x,(f(x)>>h(x)))/\all(x,(g(x)>>j(x))))^(all([x,y],(f(x)/\g(y))>>(h(x)/\j(y)))),[ex(x,f(x))/\ex(x,g(x))]], _
+  [all(x,i(x)),[all(x,(f(x)\/g(x))>>~h(x)),all(x,(g(x)>>~i(x))>>(f(x)/\h(x)))]], _
+  [ex(x,i(x)/\j(x)),[~(ex(x,f(x)/\(g(x)\/h(x)))),ex(x,i(x)/\f(x)),all(x,(~h(x)>>j(x)))]], _
+  [all(x,(f(x)/\k(x))>>j(x)),[all(x,(f(x)/\(g(x)\/h(x)))>>i(x)),all(x,(i(x)/\h(x))>>j(x)),all(x,k(x)>>h(x))]], _
+  [all(x,f(a)/\(f(x)>>f(b))>>f(c))^(all(x,(~f(a)\/(f(x)\/f(c))))/\(~f(a)\/(~f(b)\/f(c)))),[]], _
+  [(ex(x,all(y,(f(x)^f(y))))^(ex(x,g(x))^all(y,f(y))))^(ex(x,all(y,(g(x)^g(y))))^(ex(x,f(x))^all(y,f(y)))),[]], _
+  [ex([x,y] ,pp(x,y)>>all([x,y] ,pp(x,y))),[]], _
+  [all(x,ex(y,hh(x,y))),[all(x,ex(y,ff(x,y))),all(x,ex(y,gg(x,y))),all([x,y],(ff(x,y)\/gg(x,y))>>all(z,(ff(y,z)\/gg(y,z)>>hh(x,z))))]], _
+  [all(x,ex(y,rr(x,y))),[all(z,ex(w,all(x,ex(y,(pp(x,z)>>pp(y,w))/\pp(y,z)/\(pp(y,w)>>ex(u,qq(u,w))))))),all([x,z],(~pp(x,z)>>ex(y,qq(y,z)))),ex([x,y],qq(x,y))>>all(x,rr(x,x))]], _
+  [all(x,(f(a)/\(f(x)>>ex(y,f(y)/\rr(x,y))))>> ex([z,w],f(z)/\rr(x,w)/\rr(w,z)))^all(x,~f(a)\/f(x)\/ex([z,w],f(z)/\rr(x,w)/\rr(w,z))/\(~f(a)\/~ex(y,f(y)/\rr(x,y))\/ex([z,w],f(z)/\rr(x,w)/\rr(w,z)))),[]], _
+  [~ex(x,all(y,ff(y,x)^~ff(y,y))),[]], _
+  [ex(y,all(x,(ff(x,y)^ff(x,x))))>>~all(x,ex(y,all(z,ff(x,y)^~ff(z,x)))),[]], _
+  [~ex(z,all(x,ff(x,z))),[all(z,ex(y,all(x,ff(x,y)^(ff(x,z)/\~ff(x,x)))))]], _
+  [~ex(y,all(x,ff(x,y)^(~ex(z,ff(x,z)/\ff(z,x))))),[]], _
+  [all([x,y],qq(x,y)^qq(y,x)),[all([x,y],qq(x,y)^all(z,ff(z,x)^ff(z,y)))]], _
+  [ex(x,j(x)/\~f(x)),[all(x,f(x)>>ex(y,g(y)/\hh(x,y))/\ex(y,g(y)/\~hh(x,y))),ex(x,(j(x)/\all(y,g(y)>>hh(x,y))))]], _
+  [ex(x,f(x)/\~ex(y,g(y)/\hh(x,y))),[all(x,f(x)/\all(y,(g(y)/\hh(x,y))>>jj(x,y))>>all(y,g(y)/\hh(x,y)>>k(y))),~ex(y,l(y)/\k(y)),ex(x,f(x)/\all(y,(hh(x,y)>>l(y)))/\all(y,(g(y)/\hh(x,y)>>jj(x,y))))]], _
+  [all(x,f(x)>>g(x)),[all(x,(f(x)/\all(y,(f(y)/\hh(x,y))>>g(y))>>g(x))),ex(x,f(x)/\~g(x))>>ex(x,(f(x)/\~g(x)/\all(y,(f(y)/\~g(y))>>jj(x,y)))),all([x,y],f(x)/\f(y)/\hh(x,y)>>~jj(x,y))]], _
+  [true()$P,[]], _
+  [all([a,b,c,d],(a=d+b)$P/\(c=d+b)$P),[all([a,b,c,d],(a=b+c)$P/\(d=b+c)$P),all([a,b,c,d],(a=c+b)$P/\(d=c+b)$P)]], _
+  [all(x,f(x)),[ex([x,y],all(z,(z=x+z)$P/\(y=x+z)$P)),f(a)/\f(b),~((a::X=b)$P)]], _
+  [all(x,ff(a,x)\/all(y,ff(y,x)))>>ex(x,all(y,ff(x,y))),[]], _
+  [ex(z,all(x,(ex(w,all(y,(ff(x,y)^(y=w)$P))^(x=z)$P)))),[ex([z,w],all([x,y],ff(x,y)^((x=z)$P/\(y=w)$P)))]], _
+  [ex(w,all(y,(ex(z,all(x,(ff(x,y)^(x=z)$P)))^(y=w)$P))),[ex([z,w],all([x,y],ff(x,y)^((x=z)$P/\(y=w)$P)))]], _
+  [ex(z,all(x,(ex(w,all(y,ff(x,y)^(y=w)$P))^(x=z)$P)))^ex(w,all(y,(ex(z,all(x,(ff(x,y)^(x=z)$P)))^(y=w)$P))),[ex([x,y],~((x=y)$P)/\all(z,(z=x+z)$P/\(y=z)$P))]], _
+  [~ex(w,all(x,ff(x,w)^all(u,ff(x,u)>>ex(y,ff(y,u)/\~ex(z,ff(x,u)/\ff(z,y)))))),[all(y,ex(z,all(x,ff(x,z)^(x=y)$P)))]], _
+  [kk(a,a),[ex(x,l(x)/\kk(x,a)),l(a)/\l(b)/\l(c),all(x,l(x)>>((x=a+x)$P/\(x=b+x)$P/\(x=c)$P)),all([y,x],kk(x,y)>>hh(x,y)),all([x,y],kk(x,y)>>~rr(x,y)),all(x,hh(a,x)>>~hh(c,x)),all(x,~((x=b)$P)>>hh(a,x)),all(x,~rr(x,a)>>hh(b,x)),all(x,hh(a,x)>>hh(b,z)),all(x,ex(y,~hh(x,y))),~((a=b)$P)]], _
+  [all(x,ex(y,f(y)/\(x=phi(y))$P)>>f(x))^all(x,f(x)>>f(phi(x))),[]], _
+  [ff(f2(a,b),f2(a,c)),[ff(f2(a,b),f2(b,c)),ff(f2(b,c),f2(a,c)),all([x,y,z],(ff(x,y)/\ff(y,z))>>ff(x,z))]], _
+  [all([x,y],(f1(f1(x))=f1(g1(y)))$P),[all([x,y],(f1(x)=g1(y))$P)]], _
+  [ex(x,f(x)/\~f(f1(x))),[all(x,f(x)^~f(f1(x)))]], _
+  [all(x,ff(x,f1(x))^(ex(y,(all(z,ff(z,y)>>ff(z,f1(x)))/\ff(x,y))))),[]], _
+  [all([x,y,z,w],(f2(x,f2(y,f2(z,w)))=f2(f2(f2(x,y),z),w))$P),[all([x,y,z],(f2(x,f2(y,z))=f2(f2(x,y),z))$P)]], _
+  [(f(a)/\all(x,f(x)>>f(f1(x))))^all(x,(~f(a)\/f(x)\/f(f1(f1(x))))/\(~f(a)\/~f(f1(x))\/f(f1(f1(x))))),[]], _
+  [all([x,y,z],(op(x,y)=op(z,y))$P>>(x=z)$P),grp], _
+  [all([x,y],(op(y,x)=a)$P>>(op(x,y)=a)$P),grp], _
+  [all(x,(op(x,x)=a)$P)>>all([x,y],(op(x,y)=op(y,x))$P),[grp_a,grp_b]], _
+  [all(x,T(ii(x,n(n(x))))),cm], _
+  [all(x,T(ii(n(n(x)),x))),cm], _
+  [all(x,T(ii(x,n(n(x))))),[cm_a,cm_b,cm_d,all([x,y],T(ii(ii(y,x),ii(n(x),n(y)))))]]
+  ]
+
+   Compiling function f with type Expression(Integer) -> Proposition(
+      Integer)
+   Compiling function g with type Expression(Integer) -> Proposition(
+      Integer)
+   Compiling function h with type Expression(Integer) -> Proposition(
+      Integer)
+   Compiling function k with type Expression(Integer) -> Proposition(
+      Integer)
+   Compiling function l with type Expression(Integer) -> Proposition(
+      Integer)
+   Compiling function m with type Expression(Integer) -> Proposition(
+      Integer)
+   Compiling function j with type Expression(Integer) -> Proposition(
+      Integer)
+   Compiling function i with type Expression(Integer) -> Proposition(
+      Integer)
+   Compiling function pp with type (Expression(Integer),Expression(
+      Integer)) -> Proposition(Integer)
+   Compiling function hh with type (Expression(Integer),Expression(
+      Integer)) -> Proposition(Integer)
+   Compiling function ff with type (Expression(Integer),Expression(
+      Integer)) -> Proposition(Integer)
+   Compiling function gg with type (Expression(Integer),Expression(
+      Integer)) -> Proposition(Integer)
+   Compiling function rr with type (Expression(Integer),Expression(
+      Integer)) -> Proposition(Integer)
+   Compiling function qq with type (Expression(Integer),Expression(
+      Integer)) -> Proposition(Integer)
+   Compiling function jj with type (Expression(Integer),Expression(
+      Integer)) -> Proposition(Integer)
+   Compiling function kk with type (Expression(Integer),Expression(
+      Integer)) -> Proposition(Integer)
+
+   (44)
+   [[(IFF (IMPLIES (p) (q)) (IMPLIES (NOT (q)) (NOT (p)))),[]],
+    [(IFF (NOT (NOT (p))) (p)),[]],
+    [(IMPLIES (NOT (IMPLIES (p) (q))) (IMPLIES (q) (p))),[]],
+    [(IFF (IMPLIES (NOT (p)) (q)) (IMPLIES (NOT (q)) (p))),[]],
+
+     [(IMPLIES (IMPLIES (OR (p) (q)) (OR (p) (r))) (OR (p) (IMPLIES (q) (r)))),
+      []]
+     ,
+    [(OR (p) (NOT (p))),[]], [(OR (p) (NOT (NOT (NOT (p))))),[]],
+    [(IMPLIES (IMPLIES (IMPLIES (p) (q)) (p)) (p)),[]],
+
+     [
+       (IMPLIES
+        (AND (AND (OR (p) (q)) (OR (NOT (p)) (q))) (OR (p) (NOT (q))))
+        (NOT (OR (NOT (p)) (NOT (q)))))
+       ,
+      []]
+     ,
+
+     [(IFF (p) (q)),
+      [(IMPLIES (q) (r)),(IMPLIES (r) (AND (p) (q))),(IMPLIES (p) (OR (q) (r)))]
+       ]
+     ,
+    [(IFF (p) (p)),[]],
+    [(IFF (IFF (IFF (p) (q)) (r)) (IFF (p) (IFF (q) (r)))),[]],
+    [(IFF (OR (p) (AND (q) (r))) (AND (OR (p) (q)) (OR (p) (r)))),[]],
+    [(IFF (IFF (p) (q)) (AND (OR (q) (NOT (p))) (OR (NOT (q)) (p)))),[]],
+    [(IFF (IMPLIES (p) (q)) (OR (NOT (p)) (q))),[]],
+    [(OR (IMPLIES (p) (q)) (IMPLIES (q) (p))),[]],
+
+     [
+       (IFF  (IMPLIES (AND (p) (IMPLIES (q) (r))) (s))
+        (AND (OR (OR (NOT (p)) (q)) (s)) (OR (OR (NOT (p)) (NOT (r))) (s))))
+       ,
+      []]
+     ,
+    [(EXISTS (y) (FORALL (x) (IMPLIES (f y) (f x)))),[]],
+
+     [
+       (EXISTS  (x)
+        (FORALL (y z) (IMPLIES (IMPLIES (f y) (g z)) (IMPLIES (f x) (g x)))))
+       ,
+      []]
+     ,
+
+     [
+       (FORALL  (x y)
+
+         (EXISTS  (z)
+
+           (FORALL  (w)
+
+             (IMPLIES  (IMPLIES (AND (f x) (g y)) (AND (h z) (k w)))
+              (EXISTS (x y) (IMPLIES (AND (f x) (g y)) (EXISTS (z) (h z)))))
+             )
+           )
+         )
+       ,
+      []]
+     ,
+
+     [(EXISTS (x) (IFF (p) (f x))),
+      [(EXISTS (x) (IMPLIES (p) (f x))),(EXISTS (x) (IMPLIES (f x) (p)))]]
+     ,
+    [(IMPLIES (FORALL (x) (IFF (p) (f x))) (IFF (p) (FORALL (x) (f x)))),[]],
+    [(IMPLIES (FORALL (x) (OR (p) (f x))) (OR (p) (FORALL (x) (f x)))),[]],
+
+     [(EXISTS (x) (AND (f x) (h x))),
+
+       [(NOT (EXISTS (x) (AND (k x) (g x)))),
+        (FORALL (x) (IMPLIES (f x) (OR (g x) (h x)))),
+        (NOT (EXISTS (x) (IMPLIES (f x) (EXISTS (x) (g x))))),
+        (FORALL (x) (IMPLIES (OR (g x) (h x)) (k x)))]
+       ]
+     ,
+
+     [(EXISTS (x) (AND (k x) (h x))),
+
+       [(EXISTS (x) (h x)),
+        (FORALL (x) (IMPLIES (f x) (AND (NOT (g x)) (l x)))),
+        (FORALL (x) (IMPLIES (h x) (AND (g x) (f x)))),
+        (FORALL (x) (OR (IMPLIES (h x) (k x)) (EXISTS (x) (AND (h x) (l x)))))]
+       ]
+     ,
+
+     [
+       (IFF  (FORALL (x) (IMPLIES (f x) (l x)))
+        (FORALL (x) (IMPLIES (g x) (m x))))
+       ,
+
+       [(IFF (EXISTS (x) (f x)) (EXISTS (x) (g x))),
+        (FORALL (x y) (IMPLIES (AND (f x) (g y)) (IFF (l x) (m y))))]
+       ]
+     ,
+
+     [(FORALL (x) (IMPLIES (j x) (NOT (i x)))),
+
+       [(EXISTS (x) (AND (f x) (NOT (g x)))),
+        (FORALL (x) (IMPLIES (f x) (h x))),
+        (FORALL (x) (IMPLIES (AND (j x) (i x)) (f x))),
+
+         (IMPLIES  (EXISTS (x) (AND (h x) (NOT (g x))))
+          (FORALL (x) (IMPLIES (i x) (NOT (h x)))))
+         ]
+       ]
+     ,
+
+     [(FORALL (x) (IMPLIES (AND (h x) (f x)) (g x))),
+
+       [(IMPLIES (FORALL (x) (h x)) (FORALL (x) (i x))),
+        (IMPLIES (FORALL (x) (OR (i x) (j x))) (EXISTS (x) (AND (i x) (k x)))),
+        (IMPLIES (EXISTS (x) (k x)) (FORALL (x) (IMPLIES (f x) (g x))))]
+       ]
+     ,
+
+     [
+       (IFF
+
+         (AND  (FORALL (x) (IMPLIES (f x) (h x)))
+          (FORALL (x) (IMPLIES (g x) (j x))))
+
+        (FORALL (x y) (IMPLIES (AND (f x) (g y)) (AND (h x) (j y)))))
+       ,
+      [(AND (EXISTS (x) (f x)) (EXISTS (x) (g x)))]]
+     ,
+
+     [(FORALL (x) (i x)),
+
+       [(FORALL (x) (IMPLIES (OR (f x) (g x)) (NOT (h x)))),
+        (FORALL (x) (IMPLIES (IMPLIES (g x) (NOT (i x))) (AND (f x) (h x))))]
+       ]
+     ,
+
+     [(EXISTS (x) (AND (i x) (j x))),
+
+       [(NOT (EXISTS (x) (AND (f x) (OR (g x) (h x))))),
+        (EXISTS (x) (AND (i x) (f x))),
+        (FORALL (x) (IMPLIES (NOT (h x)) (j x)))]
+       ]
+     ,
+
+     [(FORALL (x) (IMPLIES (AND (f x) (k x)) (j x))),
+
+       [(FORALL (x) (IMPLIES (AND (f x) (OR (g x) (h x))) (i x))),
+        (FORALL (x) (IMPLIES (AND (i x) (h x)) (j x))),
+        (FORALL (x) (IMPLIES (k x) (h x)))]
+       ]
+     ,
+
+     [
+       (IFF  (FORALL (x) (IMPLIES (AND (f a) (IMPLIES (f x) (f b))) (f c)))
+
+         (AND  (FORALL (x) (OR (NOT (f a)) (OR (f x) (f c))))
+          (OR (NOT (f a)) (OR (NOT (f b)) (f c))))
+         )
+       ,
+      []]
+     ,
+
+     [
+       (IFF
+
+         (IFF  (EXISTS (x) (FORALL (y) (IFF (f x) (f y))))
+          (IFF (EXISTS (x) (g x)) (FORALL (y) (f y))))
+
+
+         (IFF  (EXISTS (x) (FORALL (y) (IFF (g x) (g y))))
+          (IFF (EXISTS (x) (f x)) (FORALL (y) (f y))))
+         )
+       ,
+      []]
+     ,
+    [(EXISTS (x y) (IMPLIES (pp x y) (FORALL (x y) (pp x y)))),[]],
+
+     [(FORALL (x) (EXISTS (y) (hh x y))),
+
+       [(FORALL (x) (EXISTS (y) (ff x y))), (FORALL (x) (EXISTS (y) (gg x y))),
+
+         (FORALL  (x y)
+
+           (IMPLIES  (OR (ff x y) (gg x y))
+            (FORALL (z) (IMPLIES (OR (ff y z) (gg y z)) (hh x z))))
+           )
+         ]
+       ]
+     ,
+
+     [(FORALL (x) (EXISTS (y) (rr x y))),
+
+       [
+         (FORALL  (z)
+
+           (EXISTS  (w)
+
+             (FORALL  (x)
+
+               (EXISTS  (y)
+
+                 (AND  (AND (IMPLIES (pp x z) (pp y w)) (pp y z))
+                  (IMPLIES (pp y w) (EXISTS (u) (qq u w))))
+                 )
+               )
+             )
+           )
+         ,
+        (FORALL (x z) (IMPLIES (NOT (pp x z)) (EXISTS (y) (qq y z)))),
+        (IMPLIES (EXISTS (x y) (qq x y)) (FORALL (x) (rr x x)))]
+       ]
+     ,
+
+     [
+       (IFF
+
+         (FORALL  (x)
+
+           (IMPLIES
+            (AND (f a) (IMPLIES (f x) (EXISTS (y) (AND (f y) (rr x y)))))
+            (EXISTS (z w) (AND (AND (f z) (rr x w)) (rr w z))))
+           )
+
+
+         (FORALL  (x)
+
+           (AND
+
+             (OR  (OR (NOT (f a)) (f x))
+              (EXISTS (z w) (AND (AND (f z) (rr x w)) (rr w z))))
+
+
+             (OR  (OR (NOT (f a)) (NOT (EXISTS (y) (AND (f y) (rr x y)))))
+              (EXISTS (z w) (AND (AND (f z) (rr x w)) (rr w z))))
+             )
+           )
+         )
+       ,
+      []]
+     ,
+    [(NOT (EXISTS (x) (FORALL (y) (IFF (ff y x) (NOT (ff y y)))))),[]],
+
+     [
+       (IMPLIES  (EXISTS (y) (FORALL (x) (IFF (ff x y) (ff x x))))
+
+         (NOT
+          (FORALL (x) (EXISTS (y) (FORALL (z) (IFF (ff x y) (NOT (ff z x)))))))
+         )
+       ,
+      []]
+     ,
+
+     [(NOT (EXISTS (z) (FORALL (x) (ff x z)))),
+
+       [
+         (FORALL  (z)
+          (EXISTS (y) (FORALL (x) (IFF (ff x y) (AND (ff x z) (NOT (ff x x))))))
+           )
+         ]
+       ]
+     ,
+
+     [
+       (NOT
+
+         (EXISTS  (y)
+          (FORALL (x) (IFF (ff x y) (NOT (EXISTS (z) (AND (ff x z) (ff z x))))))
+           )
+         )
+       ,
+      []]
+     ,
+
+     [(FORALL (x y) (IFF (qq x y) (qq y x))),
+      [(FORALL (x y) (IFF (qq x y) (FORALL (z) (IFF (ff z x) (ff z y)))))]]
+     ,
+
+     [(EXISTS (x) (AND (j x) (NOT (f x)))),
+
+       [
+         (FORALL  (x)
+
+           (IMPLIES  (f x)
+
+             (AND  (EXISTS (y) (AND (g y) (hh x y)))
+              (EXISTS (y) (AND (g y) (NOT (hh x y)))))
+             )
+           )
+         ,
+        (EXISTS (x) (AND (j x) (FORALL (y) (IMPLIES (g y) (hh x y)))))]
+       ]
+     ,
+
+     [(EXISTS (x) (AND (f x) (NOT (EXISTS (y) (AND (g y) (hh x y)))))),
+
+       [
+         (FORALL  (x)
+
+           (IMPLIES
+            (AND (f x) (FORALL (y) (IMPLIES (AND (g y) (hh x y)) (jj x y))))
+            (FORALL (y) (IMPLIES (AND (g y) (hh x y)) (k y))))
+           )
+         ,
+        (NOT (EXISTS (y) (AND (l y) (k y)))),
+
+         (EXISTS  (x)
+
+           (AND  (AND (f x) (FORALL (y) (IMPLIES (hh x y) (l y))))
+            (FORALL (y) (IMPLIES (AND (g y) (hh x y)) (jj x y))))
+           )
+         ]
+       ]
+     ,
+
+     [(FORALL (x) (IMPLIES (f x) (g x))),
+
+       [
+         (FORALL  (x)
+
+           (IMPLIES
+            (AND (f x) (FORALL (y) (IMPLIES (AND (f y) (hh x y)) (g y))))
+            (g x))
+           )
+         ,
+
+         (IMPLIES  (EXISTS (x) (AND (f x) (NOT (g x))))
+
+           (EXISTS  (x)
+
+             (AND  (AND (f x) (NOT (g x)))
+              (FORALL (y) (IMPLIES (AND (f y) (NOT (g y))) (jj x y))))
+             )
+           )
+         ,
+        (FORALL (x y) (IMPLIES (AND (AND (f x) (f y)) (hh x y)) (NOT (jj x y))))
+         ]
+       ]
+     ,
+    [TRUE,[]],
+
+     [(FORALL (a b c d) (AND (= a (+ d b)) (= c (+ d b)))),
+
+       [(FORALL (a b c d) (AND (= a (+ c b)) (= d (+ c b)))),
+        (FORALL (a b c d) (AND (= a (+ c b)) (= d (+ c b))))]
+       ]
+     ,
+
+     [(FORALL (x) (f x)),
+
+       [(EXISTS (x y) (FORALL (z) (AND (= z (+ z x)) (= y (+ z x))))),
+        (AND (f a) (f b)), (NOT (= a b))]
+       ]
+     ,
+
+     [
+       (IMPLIES  (FORALL (x) (OR (ff a x) (FORALL (y) (ff y x))))
+        (EXISTS (x) (FORALL (y) (ff x y))))
+       ,
+      []]
+     ,
+
+     [
+       (EXISTS  (z)
+
+         (FORALL  (x)
+          (EXISTS (w) (IFF (FORALL (y) (IFF (ff x y) (= y w))) (= x z))))
+         )
+       ,
+      [(EXISTS (z w) (FORALL (x y) (IFF (ff x y) (AND (= x z) (= y w)))))]]
+     ,
+
+     [
+       (EXISTS  (w)
+
+         (FORALL  (y)
+          (IFF (EXISTS (z) (FORALL (x) (IFF (ff x y) (= x z)))) (= y w)))
+         )
+       ,
+      [(EXISTS (z w) (FORALL (x y) (IFF (ff x y) (AND (= x z) (= y w)))))]]
+     ,
+
+     [
+       (IFF
+
+         (EXISTS  (z)
+
+           (FORALL  (x)
+            (IFF (EXISTS (w) (FORALL (y) (IFF (ff x y) (= y w)))) (= x z)))
+           )
+
+
+         (EXISTS  (w)
+
+           (FORALL  (y)
+            (IFF (EXISTS (z) (FORALL (x) (IFF (ff x y) (= x z)))) (= y w)))
+           )
+         )
+       ,
+
+       [
+         (EXISTS  (x y)
+          (AND (NOT (= x y)) (FORALL (z) (AND (= z (+ z x)) (= y z)))))
+         ]
+       ]
+     ,
+
+     [
+       (NOT
+
+         (EXISTS  (w)
+
+           (FORALL  (x)
+
+             (IFF  (ff x w)
+
+               (FORALL  (u)
+
+                 (IMPLIES  (ff x u)
+
+                   (EXISTS  (y)
+                    (AND (ff y u) (NOT (EXISTS (z) (AND (ff x u) (ff z y))))))
+                   )
+                 )
+               )
+             )
+           )
+         )
+       ,
+      [(FORALL (y) (EXISTS (z) (FORALL (x) (IFF (ff x z) (= x y)))))]]
+     ,
+
+     [(kk a a),
+
+       [(EXISTS (x) (AND (l x) (kk x a))), (AND (AND (l a) (l b)) (l c)),
+
+         (FORALL  (x)
+          (IMPLIES (l x) (AND (AND (= x (+ x a)) (= x (+ x b))) (= x c))))
+         ,
+        (FORALL (y x) (IMPLIES (kk x y) (hh x y))),
+        (FORALL (x y) (IMPLIES (kk x y) (NOT (rr x y)))),
+        (FORALL (x) (IMPLIES (hh a x) (NOT (hh c x)))),
+        (FORALL (x) (IMPLIES (NOT (= x b)) (hh a x))),
+        (FORALL (x) (IMPLIES (NOT (rr x a)) (hh b x))),
+        (FORALL (x) (IMPLIES (hh a x) (hh b z))),
+        (FORALL (x) (EXISTS (y) (NOT (hh x y)))), (NOT (= a b))]
+       ]
+     ,
+
+     [
+       (IFF
+        (FORALL (x) (IMPLIES (EXISTS (y) (AND (f y) (= x (phi y)))) (f x)))
+        (FORALL (x) (IMPLIES (f x) (f (phi x)))))
+       ,
+      []]
+     ,
+
+     [(ff (f2 a b) (f2 a c)),
+
+       [(ff (f2 a b) (f2 b c)), (ff (f2 b c) (f2 a c)),
+        (FORALL (x y z) (IMPLIES (AND (ff x y) (ff y z)) (ff x z)))]
+       ]
+     ,
+
+     [(FORALL (x y) (= (f1 (f1 x)) (f1 (g1 y)))),
+      [(FORALL (x y) (= (f1 x) (g1 y)))]]
+     ,
+
+     [(EXISTS (x) (AND (f x) (NOT (f (f1 x))))),
+      [(FORALL (x) (IFF (f x) (NOT (f (f1 x)))))]]
+     ,
+
+     [
+       (FORALL  (x)
+
+         (IFF  (ff x (f1 x))
+
+           (EXISTS  (y)
+            (AND (FORALL (z) (IMPLIES (ff z y) (ff z (f1 x)))) (ff x y)))
+           )
+         )
+       ,
+      []]
+     ,
+
+     [(FORALL (x y z w) (= (f2 x (f2 y (f2 z w))) (f2 (f2 (f2 x y) z) w))),
+      [(FORALL (x y z) (= (f2 x (f2 y z)) (f2 (f2 x y) z)))]]
+     ,
+
+     [
+       (IFF  (AND (f a) (FORALL (x) (IMPLIES (f x) (f (f1 x)))))
+
+         (FORALL  (x)
+
+           (AND  (OR (OR (NOT (f a)) (f x)) (f (f1 (f1 x))))
+            (OR (OR (NOT (f a)) (NOT (f (f1 x)))) (f (f1 (f1 x)))))
+           )
+         )
+       ,
+      []]
+     ,
+
+     [(FORALL (x y z) (IMPLIES (= (op x y) (op z y)) (= x z))),
+
+       [(FORALL (x y z) (= (op (op x y) z) (op x (op y z)))),
+        (FORALL (x) (= (op a x) x)), (FORALL (x) (EXISTS (y) (= (op y x) a)))]
+       ]
+     ,
+
+     [(FORALL (x y) (IMPLIES (= (op y x) a) (= (op x y) a))),
+
+       [(FORALL (x y z) (= (op (op x y) z) (op x (op y z)))),
+        (FORALL (x) (= (op a x) x)), (FORALL (x) (EXISTS (y) (= (op y x) a)))]
+       ]
+     ,
+
+     [(IMPLIES (FORALL (x) (= (op x x) a)) (FORALL (x y) (= (op x y) (op y x))))
+       ,
+
+       [(FORALL (x y z) (= (op (op x y) z) (op x (op y z)))),
+        (FORALL (x) (= (op a x) x))]
+       ]
+     ,
+
+     [(FORALL (x) (T (ii x (n (n x))))),
+
+       [(FORALL (x y) (T (ii x (ii y x)))),
+        (FORALL (x y z) (T (ii (ii x (ii y z)) (ii (ii x y) (ii x z))))),
+        (FORALL (x y) (T (ii (ii (n x) (n y)) (ii y x)))),
+        (FORALL (x y) (AND (T (ii x y)) (IMPLIES (T x) (T y))))]
+       ]
+     ,
+
+     [(FORALL (x) (T (ii (n (n x)) x))),
+
+       [(FORALL (x y) (T (ii x (ii y x)))),
+        (FORALL (x y z) (T (ii (ii x (ii y z)) (ii (ii x y) (ii x z))))),
+        (FORALL (x y) (T (ii (ii (n x) (n y)) (ii y x)))),
+        (FORALL (x y) (AND (T (ii x y)) (IMPLIES (T x) (T y))))]
+       ]
+     ,
+
+     [(FORALL (x) (T (ii x (n (n x))))),
+
+       [(FORALL (x y) (T (ii x (ii y x)))),
+        (FORALL (x y z) (T (ii (ii x (ii y z)) (ii (ii x y) (ii x z))))),
+        (FORALL (x y) (AND (T (ii x y)) (IMPLIES (T x) (T y)))),
+        (FORALL (x y) (T (ii (ii y x) (ii (n x) (n y)))))]
+       ]
+     ]
+                                                        Type: List(List(Any))
+                           Time: 3.32 (IN) + 0.03 (EV) + 1.05 (OT) = 4.40 sec
+
+
+)if any
+-- Omitting:  ["0+69",[]], _
+-- Omitting:  ["0+70",[]], _
+-- Omitting:  ["0+71",[]], _
+-- Omitting:  ["0+72",[]], _
+-- Omitting:  ["0+73",[]], _
+-- Omitting:  ["0+74",[]], _
+-- Omitting:  ["0+75",[]] _
+-- Omitting:]
+-- Omitting:
+)endif
+
+
+[pcheck(pelletier(i),i) for i in 1..#pelletier]
+
+   Compiling function pcheck with type (List(Any),PositiveInteger) ->
+      Boolean
+   1:ok
+   2:ok
+   3:ok
+   4:ok
+   5:ok
+   6:ok
+   7:ok
+   8:ok
+   9:ok
+   10:ok
+   11:ok
+   12:ok
+   13:ok
+   14:ok
+   15:ok
+   16:ok
+   17:ok
+   18:ok
+   19:ok
+   20:ok
+   21:ok
+   22:ok
+   23:ok
+   24:ok
+   25:ok
+   26:ok
+   27:ok
+   28:ERROR
+   29:ok
+   30:ok
+   31:ok
+   32:ok
+   33:ok
+   34:ERROR
+   35:ok
+   36:ok
+   37:ok
+   38:ERROR
+   39:ok
+   40:ok
+   41:ok
+   42:ok
+   43:ok
+   44:ok
+   45:ok
+   46:ok
+   47:ok
+   48:ok
+   49:ok
+   50:ok
+   51:ok
+   52:ok
+   53:ok
+   54:ERROR
+   55:ok
+   56:ok
+   57:ok
+   58:ok
+   59:ok
+   60:ok
+   61:ok
+   62:ERROR
+   63:ok
+   64:ok
+   65:ok
+   66:ok
+   67:ok
+   68:ok
+
+   (45)
+   [true, true, true, true, true, true, true, true, true, true, true, true,
+    true, true, true, true, true, true, true, true, true, true, true, true,
+    true, true, true, false, true, true, true, true, true, false, true, true,
+    true, false, true, true, true, true, true, true, true, true, true, true,
+    true, true, true, true, true, false, true, true, true, true, true, true,
+    true, false, true, true, true, true, true, true]
+                                                          Type: List(Boolean)
+                           Time: 0.03 (IN) + 5.76 (EV) + 0.08 (OT) = 5.87 sec
+(46) ->

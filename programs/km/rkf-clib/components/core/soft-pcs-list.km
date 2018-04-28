@@ -1,0 +1,35 @@
+;; 
+;;    $Id: soft-pcs-list.km,v 1.5 2007/04/11 21:42:43 jchaw Exp $
+;; 
+
+;; Failure to meet "soft preconditions" does not terminate simulation.
+;; "Client" apps (like KANAL) may issue warnings for failed soft-pcs.
+
+(soft-pcs-list has
+  (instance-of 	 (CLIB-Slot-Group))
+  (superslots 	 ())
+  (subslots 	 ())
+  (domain 	 (Event))
+  (range	 (Thing))	          ;; should be one or more :triples
+  (inverse 	 (soft-pcs-list-of))
+  (cardinality 	 (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Non-Fluent)))
+
+;; Here's an example of how soft-pcs-list might be used. An application
+;; making use of soft-pcs should only generate a warning if a triple 
+;; evaluates to NIL _and_ it would be inconsistent with the KB to 
+;; assert the triple (but the app should not assert the triple if it is
+;; consistent to do so).
+
+;;    (every Action has
+;;        (soft-pcs-list ((if ((has-value (the agent of Self)) and
+;;                             (has-value (the instrument of Self))) then
+;;                          (:triple (the agent of Self)
+;;                                   possesses
+;;                                   (the instrument of Self))
+;;        )))
+;;    )
+
+(soft-pcs-list-of has
+   (instance-of (CLIB-Slot-Group)))

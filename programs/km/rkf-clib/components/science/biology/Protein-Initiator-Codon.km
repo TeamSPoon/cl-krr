@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Protein-Initiator-Codon.km,v 1.17 2002/07/12 20:42:20 tecuci Exp $ 
+;; 
+
+(Protein-Initiator-Codon has
+         (superclasses (RNA-Codon RNA-Regulatory-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("The start codon for translation of mRNA into protein.
+                        Sequence is AUG. Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Protein-Initiator-Codon has
+       (element-type (Ribonucleotide))
+       (first-element (((the AMP element of Self) called "first")))
+       (element ((a AMP called "first" with
+		    (next-element (((the UMP element of Self) called "second"))))
+		 (a UMP called "second" with
+		    (next-element (((the GMP element of Self) called "third")))) 
+		 (a GMP called "third"))))
+
+
+
+

@@ -1,0 +1,54 @@
+
+;; 
+;;    $Id: DNA-Synthesis.km,v 1.36 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(DNA-Synthesis has
+	       (superclasses        (Copy Produce Enzyme-Catalysis))
+	       (required-slot       (object result))
+	       (primary-slot        (raw-material  instrument destination))
+	       (description ("A synthesis of a DNA chain during
+                              DNA-Replication or DNA-Repair. Souther."))
+	       (cmap-correspondence ()))
+
+(every DNA-Synthesis has
+       (agent 	     ((a Suborganismal-Entity)))
+       (object       ((a DNA-Sequence)))  ;; the template
+       (raw-material ((a Aggregate with      
+
+		     	 (element-type (Deoxyribonucleotide)))))
+       (instrument   ((a DNA-Polymerase)))
+       (result ((a DNA-Sequence called "newly synthesized sequence" with
+		   (complement ((the DNA-Sequence object of Self)) ))))
+       
+      
+       (first-subevent 
+	((the DNA-Chain-Elongation subevent of Self) ))
+       
+       (subevent
+	((a DNA-Chain-Elongation)))
+           
+;          (frequency  ;;this is a very suspicious usage of frequency and length
+			;; if this gets implemented make sure it matches properties specs
+;              ((constraint
+;                (TheValue = ( ((the length of
+;                                     (the Polydeoxyribucleotide object of
+;                                          Self))) -
+;                              ((the length of (the 3-Prime-End object of
+;                                                 (the DNA-Priming subevent of
+;                                                      Self))))
+;                             )) )) )   
+
+
+       )
+
+(every DNA-Synthesis has
+       (text-argslots ((:seq raw-material instrument result)))
+
+       (text-active-verbseq-sg ("synthesizes"))
+       (text-active-verbseq-pl ("synthesize"))
+       (text-passive-verbseq-sg ("gets synthesized"))
+       (text-passive-verbseq-pl ("get synthesized"))
+)
+
+(every DNA-Synthesis has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,59 @@
+<!--- $Id: Express.doc.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+<kml>
+
+<concept name=Express>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Express>
+  <definition>An object (an <conceptref name=Information>) is expressed, making it available for interpretation by another entity.</definition>
+  <requiredslot name=agent>
+    <restriction>expresses <slot>object</slot> </restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Information</restriction>
+    <restriction>expressed by <slot>agent</slot></restriction>
+  </requiredslot>
+  <primaryslot name=recipient>
+    <restriction>a Entity</restriction>
+    </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Action>
+    <restriction>a Tangible-Entity</restriction>
+  </primaryslot>
+  <primaryslot name=base>
+    <inheritedfrom name=Action>
+    <restriction>a Medium</restriction>
+  
+  <wnsynsets><verb>express#1, express#2, express#3, express#4
+  </verb></wnsynsets>
+  <wnsynsets><verb>show#7, evince#1, utter#1, give tongue to#1, carry#4, convey#2, state#3
+  </verb></wnsynsets>
+</component>
+
+<musing>
+
+</musing>
+
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=express5>
+  <sense-definition>to press out, to extract
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNexpress#1><equiv tag=express1></sense>
+<sense tag=WNexpress#2><equiv tag=express2></sense>
+<sense tag=WNexpress#3><equiv tag=express3></sense>
+<sense tag=WNexpress#4><equiv tag=express4></sense>
+</senselist>
+</reference>
+</kml>
+
+

@@ -1,0 +1,18 @@
+;;
+;; $Id: Ba_NO3_2.km,v 1.6 2006/03/06 21:20:05 jfan Exp $
+;;
+
+(Ba_NO3_2 has (superclasses (Ionic-Compound)))
+
+(every Ba_NO3_2 has	
+       (has-chemical-name ("barium nitrate"))
+       (has-part 
+	((a Ba-Plus-2) (a NO3-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Ba-Plus-2)
+			 (:pair 2 NO3-Minus)))))))
+)(every Ba_NO3_2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Ba-Plus-2) (a NO3-Minus))))
+

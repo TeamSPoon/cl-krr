@@ -1,0 +1,18 @@
+
+;; 
+;;  $Id: Aviation-Battalion.km,v 1.4 2002/08/30 19:02:13 kbarker Exp $
+;; 
+
+(Aviation-Battalion has
+   (superclasses (Aviation-Unit Battalion)))
+
+(every Aviation-Battalion has-definition
+   (instance-of (Aviation-Unit Battalion)))
+
+(every Aviation-Battalion has
+   (possesses ((if ((the value of (the allegiance of Self)) = *Blue)
+                then
+                   (a AH64)
+   )))
+)
+

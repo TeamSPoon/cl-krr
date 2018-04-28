@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Acetamino-Group.km,v 1.10 2001/05/31 22:47:02 pnav Exp $ 
+;; 
+
+(Acetamino-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("A chemical group derived from acetamine. 
+                             CH3-CONH2. Souther."))
+	      (cmap-correspondence ()))
+
+(every Acetamino-Group has
+       (has-part
+	((a Carbon-Atom with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object   	(((the has-part of Self) uniquely-called "Hydrogen-1")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Hydrogen-2")))
+                 (instrument 	((a Covalent-CH-Bond))))   
+              (a Be-Attached-To with
+                 (object 	((the Amido-Group has-part of Self)))
+                 (instrument 	((a Covalent-CC-Bond)))
+		 (site		((the Carbon-Atom has-part of
+				      (the Amido-Group has-part of Self)))))
+	     )))
+	 (a Hydrogen-Atom uniquely-called "Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "Hydrogen-2") 
+	 (a Amido-Group)
+	)))
+

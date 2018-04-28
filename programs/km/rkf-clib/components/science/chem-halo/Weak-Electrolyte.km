@@ -1,0 +1,19 @@
+;;
+;;    $Id: Weak-Electrolyte.km,v 1.6 2008/10/30 17:39:16 tecuci Exp $
+;;
+
+(Weak-Electrolyte has
+		  (superclasses (Electrolyte)))
+
+(Weak-Electrolyte has
+  (user-description ((the user-description of Weak-Electrolyte-Entity))))
+
+(every Weak-Electrolyte has-definition
+       (instance-of (Electrolyte))
+       (electrolyte-status ((a Electrolyte-Status-Value with (value
+							      ((:pair *weak Chemical)))))))
+(every Weak-Electrolyte has
+       (conductivity ((a Conductivity-Value with (value ((:pair *low-conductivity Chemical)))))))
+
+
+				     

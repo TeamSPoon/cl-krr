@@ -1,0 +1,28 @@
+;;
+;;   $Id: Record.km,v 1.5 2005/10/25 03:02:10 sdbaji Exp $
+;;
+
+(Record has
+	(description ("An action involving a Sensor such that a Recording is created as the result."))
+	(superclasses (Create))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Record has
+       (result ((a Recording)))
+       )
+
+
+(Record has (wn20-synset ((:set
+                           (:triple "record" 2 "v")
+                           (:triple "tape" 3 "v")
+                           (:triple "record" 2 "n")
+                           (:triple "recording" 2 "n")
+                           (:triple "transcription" 5 "n")
+))))
+
+
+
+
+
+(every Record has (text-nominalization ("recording")))

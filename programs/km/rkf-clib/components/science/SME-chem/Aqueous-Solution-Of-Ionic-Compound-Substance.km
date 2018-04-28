@@ -1,0 +1,79 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Aqueous-Solution-Of-Ionic-Compound-Substance1541
+
+
+|#
+
+(Aqueous-Solution-Of-Ionic-Compound-Substance has (superclasses (Aqueous-Solution)))
+
+(Aqueous-Solution-Of-Ionic-Compound-Substance now-has (user-description ("An ionic solid dissociates into its component ions as it dissolves, each ion separates from the solid structure and disperses throughout . The presence of ions causes aqueous solutions to become good conductors. ")))
+
+(_Aqueous-Solution-Of-Ionic-Compound-Substance1602 has
+  (prototype-of (Aqueous-Solution-Of-Ionic-Compound-Substance Aqueous-Solution))
+  (prototype-scope (Aqueous-Solution-Of-Ionic-Compound-Substance (the-class Aqueous-Solution with (has-solute ((a Ionic-Compound-Substance)))) (the-class Aqueous-Solution with (has-part ((a Cation-Substance) (a Anion-Substance))))))
+  (prototype-participants (_State-Value1613 _Cation-Substance1609 _Anion-Substance1608 _Chemical1606 _Conductivity-Value1603 _Aqueous-Solution-Of-Ionic-Compound-Substance1602)))
+
+(_Aqueous-Solution-Of-Ionic-Compound-Substance1602 has
+  (instance-of (Aqueous-Solution-Of-Ionic-Compound-Substance))
+  (has-part (_Anion-Substance1608 _Cation-Substance1609))
+  (has-solute (_Chemical1606))
+  (conductivity (_Conductivity-Value1603)))
+
+(_Conductivity-Value1603 has (instance-of (Conductivity-Value)) (value ((:pair *high-conductivity Aqueous-Solution))))
+
+(_Chemical1606 has
+  (instance-of (Ionic-Compound-Substance))
+  (has-part (_Cation-Substance1609 _Anion-Substance1608))
+  (physical-state (_State-Value1613)))
+
+(_Anion-Substance1608 has (instance-of (Anion-Substance)))
+
+(_Cation-Substance1609 has (instance-of (Cation-Substance)))
+
+(_State-Value1613 has (instance-of (State-Value)) (value (*solid)))
+
+(explanation (:triple _Aqueous-Solution-Of-Ionic-Compound-Substance1602 has-solute _Chemical1606) (((@ SME entered)) (every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-solute ((the second of (the is-part-of of (the first of (the has-part of Self)))))))))
+
+(explanation (:triple _Aqueous-Solution-Of-Ionic-Compound-Substance1602 has-part _Anion-Substance1608) (((@ SME entered)) (every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-part ((the second of (the has-part of (the first of (the has-solute of Self)))) (a Cation-Substance))))))
+
+(explanation (:triple _Conductivity-Value1603 value (:pair *high-conductivity Aqueous-Solution)) (((@ SME entered)) (every Aqueous-Solution-Of-Ionic-Compound-Substance has (conductivity ((a Conductivity-Value with (value ((:pair *high-conductivity Aqueous-Solution)))))))))
+
+(explanation (:triple _Aqueous-Solution-Of-Ionic-Compound-Substance1602 has-part _Cation-Substance1609) (((@ SME entered)) (every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-part ((a Anion-Substance) (the first of (the has-part of (the first of (the has-solute of Self)))))))))
+
+(explanation (:triple _Chemical1606 has-part _Cation-Substance1609) (((@ SME entered)) (every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-solute ((a Ionic-Compound-Substance with (has-part ((the second of (the has-part of Self)) (a Anion-Substance)))))))))
+
+(explanation (:triple _Chemical1606 has-part _Anion-Substance1608) (((@ SME entered)) (every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-solute ((a Ionic-Compound-Substance with (has-part ((a Cation-Substance) (the first of (the has-part of Self))))))))))
+
+(explanation (:triple _State-Value1613 value *solid) (((@ SME entered)) (every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-solute ((a Ionic-Compound-Substance with (physical-state ((a State-Value with (value (*solid)))))))))))
+
+(explanation (:triple _Aqueous-Solution-Of-Ionic-Compound-Substance1602 instance-of Aqueous-Solution-Of-Ionic-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Conductivity-Value1603 instance-of Conductivity-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical1606 instance-of Ionic-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance1608 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance1609 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value1613 instance-of State-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-solute ((the second of (the is-part-of of (the first of (the has-part of Self)))))))
+(every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-part ((the second of (the has-part of (the first of (the has-solute of Self)))) (a Cation-Substance))))
+(every Aqueous-Solution-Of-Ionic-Compound-Substance has (conductivity ((a Conductivity-Value with (value ((:pair *high-conductivity Aqueous-Solution)))))))
+(every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-part ((a Anion-Substance) (the first of (the has-part of (the first of (the has-solute of Self)))))))
+(every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-solute ((a Ionic-Compound-Substance with (has-part ((the second of (the has-part of Self)) (a Anion-Substance)))))))
+(every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-solute ((a Ionic-Compound-Substance with (has-part ((a Cation-Substance) (the first of (the has-part of Self))))))))
+(every Aqueous-Solution-Of-Ionic-Compound-Substance has (has-solute ((a Ionic-Compound-Substance with (physical-state ((a State-Value with (value (*solid)))))))))
+
+|#
+
+|#
+

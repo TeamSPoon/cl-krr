@@ -1,0 +1,14 @@
+;;
+;;    $Id: Ink-Jet-Printer.km,v 1.5 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(Ink-Jet-Printer has 
+  (superclasses (Printer))
+)
+
+(Ink-Jet-Printer has (wn20-synset ((:set
+				    (:triple "ink-jet_printer" 1 "n")
+))))(Ink-Jet-Printer has
+  (feature-slot ((the feature-slot of Printer)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Ink-Jet-Printer)))))
+

@@ -1,0 +1,24 @@
+
+;;
+;; $Id: Move-Military-Unit.km,v 1.4 2005/11/07 20:38:02 kbarker Exp $
+;;
+
+(Move-Military-Unit has 
+  (superclasses (Non-Engagement-Military-Task Locomotion))
+)
+
+(every Move-Military-Unit has
+  (object ((a Military-Unit)))
+
+  (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                            (value ((:pair 0.99 NIL)))
+  )))
+
+  (text-nominalization ("movement"))
+  (text-active-verbseq-sg ("moves"))
+  (text-active-verbseq-pl ("move"))
+
+  (text-argslots ((:seq origin path destination)))
+
+)
+

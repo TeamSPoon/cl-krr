@@ -1,0 +1,20 @@
+;;
+;; $Id: NaN3.km,v 1.1 2008/11/19 16:56:18 tecuci Exp $
+;;
+
+(NaN3 has (superclasses (Ionic-Compound)))
+
+(every NaN3 has	
+       (has-chemical-name ("sodium azide"))
+       (has-part 
+	((a Na-Plus) (a N3-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Na-Plus)
+			 (:pair 1 N3-Minus)))))))
+       )
+
+(every NaN3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a N3-Minus))))
+

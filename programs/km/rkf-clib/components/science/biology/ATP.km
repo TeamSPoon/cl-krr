@@ -1,0 +1,49 @@
+;; 
+;;    $Id: ATP.km,v 1.17 2002/01/28 17:41:58 jfan Exp $ 
+;; 
+
+(ATP has
+         (superclasses (Ribonucleoside-Triphosphate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Adenosine triphosphate.
+                        The principle carrier of Chemical-Energy in the Cell.
+                        The terminal Phosphate groups are highly reactive in
+                        the sense that their hydrolysis, or transfer to
+                        another molecule, takes place with release of a large
+                        amount of free energy. Alberts:ECB:G-2.")) 
+         (test-case ()))
+
+(every ATP has
+       (has-part 
+	((a Triphosphate with
+	    (object-of
+	     ((a Be-Attached-To with
+		 (object ((the Adenosine has-part of Self)))
+		 (site
+		  ( ((the Carbon-Atom has-part of
+			  (the Ribose has-part of
+			       (the Adenosine has-part of Self)))
+		     called "Carbon-5")
+		    ((the Oxygen-Atom has-part of
+			  ((the Monophosphate has-part of 
+				 (the Triphosphate has-part of Self))
+			   called "Phosphate-1"))
+		     called "Oxygen-1")))
+		 (instrument ((a Covalent-CO-Bond)))))))
+	 (a Adenosine)))
+       (purpose ((a Donor-Role with
+		    (in-event ((a Chemical-Bond-Energy-Transfer with
+				  (recipient ((a Molecule)))
+				  (instrument ((a Phosphoanhydride-Bond)))
+				  )))
+		    )))
+       )
+
+
+
+
+
+

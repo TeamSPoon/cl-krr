@@ -1,0 +1,601 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for My-Pulley-with-2-masses ----------
+
+(My-Pulley-with-2-masses has (superclasses (Event)))
+
+(_My-Pulley-with-2-masses412 has 
+  (instance-of (My-Pulley-with-2-masses))
+  (prototype-of (My-Pulley-with-2-masses))
+  (prototype-scope (My-Pulley-with-2-masses))
+  (prototype-participants (_System631
+                           _Equation-Set630
+                           _Equation-Set628
+                           _Mass-Value573
+                           _Exert-Force572
+                           _Spatial-Entity571
+                           _Spatial-Entity570
+                           _Spatial-Entity569
+                           _Spatial-Entity568
+                           _Spatial-Entity567
+                           _Tangible-Entity566
+                           _Move565
+                           _Acceleration-Vector-Value564
+                           _Acceleration-Magnitude-Value563
+                           _Equation-Set562
+                           _Spatial-Entity538
+                           _Spatial-Entity537
+                           _Spatial-Entity536
+                           _Spatial-Entity533
+                           _Spatial-Entity532
+                           _Acceleration-Magnitude-Value531
+                           _Acceleration-Vector-Value530
+                           _Move529
+                           _Exert-Force528
+                           _Mass-Value527
+                           _Entity525
+                           _Force-Magnitude-Value524
+                           _Force-Magnitude-Value520
+                           _Equation-Set517
+                           _My-Pulley-with-2-masses412))
+  (prototype-participant-of (_My-Pulley-with-2-masses412))
+  (has-clones (_Placeholder-Class411413))
+  (has-built-clones (_Placeholder-Class411413))
+  (component-of (_System631))
+  (subevent (_Move565
+             _Move529
+             _Exert-Force572
+             _Exert-Force528))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq subevent _Exert-Force528 264 606)
+                    (:seq subevent _Exert-Force572 264 606)
+                    (:seq subevent _Move529 264 606)
+                    (:seq subevent _Move565 264 606)))
+  (edge-visibility ((:seq subevent _Exert-Force528 t)
+                    (:seq subevent _Exert-Force572 t)
+                    (:seq subevent _Move529 t)
+                    (:seq subevent _Move565 t)))
+  (edge-never-visible ((:seq subevent _Exert-Force528 t)
+                       (:seq subevent _Exert-Force572 t)
+                       (:seq subevent _Move529 t)
+                       (:seq subevent _Move565 t)))
+  (node-coordinate ((:pair 50 600))))
+
+(_System631 has 
+  (instance-of (System))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (component (_My-Pulley-with-2-masses412))
+  (edge-visibility ((:seq equation _Equation-Set630 t)
+                    (:seq equation _Equation-Set628 t)
+                    (:seq equation _Equation-Set517 t)
+                    (:seq equation _Equation-Set562 t)
+                    (:seq component _My-Pulley-with-2-masses412 t)))
+  (equation (_Equation-Set562
+             _Equation-Set517
+             _Equation-Set628
+             _Equation-Set630))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Equation-Set630 has 
+  (equation-of (_System631))
+  (instance-of (Equation-Set))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (equation-uses (_Force-Magnitude-Value524
+                  _Mass-Value573
+                  _Mass-Value527))
+  (equation-expression ('(= T_1 (* (* (* 2 m_1) m_2) (/ 9.8 (+ m_1 m_2))))))
+  (equation-symbol ((:pair 'T_1 _Force-Magnitude-Value524)
+                    (:pair 'm_1 _Mass-Value573)
+                    (:pair 'm_2 _Mass-Value527)))
+  (user-equation-expression ('(= T_1 (* (* (* 2 m_1) m_2) (/ 9.8 (:op_paren (+ m_1 m_2)))))))
+  (node-coordinate ((:pair 24 321)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Equation-Set628 has 
+  (equation-of (_System631))
+  (instance-of (Equation-Set))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (equation-uses (_Acceleration-Magnitude-Value563
+                  _Mass-Value573
+                  _Mass-Value527))
+  (equation-symbol ((:pair 'a_1 _Acceleration-Magnitude-Value563)
+                    (:pair 'm_1 _Mass-Value573)
+                    (:pair 'm_2 _Mass-Value527)))
+  (user-equation-expression ('(= a_1 (* (:op_paren (- m_1 m_2)) (/ 9.8 (:op_paren (+ m_1 m_2)))))))
+  (equation-expression ('(= a_1 (* (- m_1 m_2) (/ 9.8 (+ m_1 m_2))))))
+  (node-coordinate ((:pair 20 178)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Mass-Value573 has 
+  (used-in-equation (_Equation-Set628
+                     _Equation-Set630))
+  (instance-of (Mass-Value))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (mass-of (_Tangible-Entity566))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 743 293)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Exert-Force572 has 
+  (instance-of (Exert-Force
+                Event))
+  (has-clones (_Exert-Force416))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (subevent-of (_My-Pulley-with-2-masses412))
+  (applied-y-force-magnitude (_Force-Magnitude-Value524))
+  (edge-coordinate ((:seq applied-y-force-magnitude _Force-Magnitude-Value524 388 202)
+                    (:seq causes _Move565 518 342)
+                    (:seq object _Tangible-Entity566 542 406)))
+  (edge-visibility ((:seq applied-y-force-magnitude _Force-Magnitude-Value524 t)
+                    (:seq causes _Move565 t)
+                    (:seq object _Tangible-Entity566 t)))
+  (edge-never-visible ((:seq applied-y-force-magnitude _Force-Magnitude-Value524 t)
+                       (:seq causes _Move565 t)
+                       (:seq object _Tangible-Entity566 f)))
+  (object (_Tangible-Entity566))
+  (causes (_Move565))
+  (node-coordinate ((:pair 372 368)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity571 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity421))
+  (origin-of (_Move565))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 574 523)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity570 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity422))
+  (destination-of (_Move565))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 574 503)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity569 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity423))
+  (away-from-of (_Move565))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 574 483)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity568 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity424))
+  (toward-of (_Move565))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 574 463)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity567 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity425))
+  (path-of (_Move565))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 574 443)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Tangible-Entity566 has 
+  (mass (_Mass-Value573))
+  (object-of (_Move565
+              _Exert-Force572))
+  (instance-of (Tangible-Entity
+                Entity
+                Thing))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 712 445)))
+  (edge-coordinate ((:seq mass _Mass-Value573 707 340)))
+  (edge-visibility ((:seq mass _Mass-Value573 t)))
+  (edge-never-visible ((:seq mass _Mass-Value573 t)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Move565 has 
+  (caused-by (_Exert-Force572))
+  (origin (_Spatial-Entity571))
+  (destination (_Spatial-Entity570))
+  (away-from (_Spatial-Entity569))
+  (toward (_Spatial-Entity568))
+  (path (_Spatial-Entity567))
+  (object (_Tangible-Entity566))
+  (instance-of (Move
+                Event))
+  (node-visibility (t))
+  (node-never-visible (t))
+  (subevent-of (_My-Pulley-with-2-masses412))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq acceleration _Acceleration-Vector-Value564 532 321)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value563 589 269)
+                    (:seq object _Tangible-Entity566 677 399)
+                    (:seq path _Spatial-Entity567 424 448)
+                    (:seq toward _Spatial-Entity568 424 468)
+                    (:seq away-from _Spatial-Entity569 424 488)
+                    (:seq destination _Spatial-Entity570 424 508)
+                    (:seq origin _Spatial-Entity571 424 528)))
+  (edge-visibility ((:seq acceleration _Acceleration-Vector-Value564 f)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value563 t)
+                    (:seq object _Tangible-Entity566 t)
+                    (:seq path _Spatial-Entity567 f)
+                    (:seq toward _Spatial-Entity568 f)
+                    (:seq away-from _Spatial-Entity569 f)
+                    (:seq destination _Spatial-Entity570 f)
+                    (:seq origin _Spatial-Entity571 f)))
+  (edge-never-visible ((:seq acceleration _Acceleration-Vector-Value564 t)
+                       (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value563 t)
+                       (:seq object _Tangible-Entity566 t)
+                       (:seq path _Spatial-Entity567 f)
+                       (:seq toward _Spatial-Entity568 f)
+                       (:seq away-from _Spatial-Entity569 f)
+                       (:seq destination _Spatial-Entity570 f)
+                       (:seq origin _Spatial-Entity571 f)))
+  (y-acceleration-magnitude (_Acceleration-Magnitude-Value563))
+  (acceleration (_Acceleration-Vector-Value564))
+  (node-coordinate ((:pair 565 358)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Acceleration-Vector-Value564 has 
+  (acceleration-of (_Move565))
+  (instance-of (Acceleration-Vector-Value))
+  (y-acceleration-magnitude (_Acceleration-Magnitude-Value563))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 836 7)))
+  (edge-coordinate ((:seq y-acceleration-magnitude _Acceleration-Magnitude-Value563 613 143)))
+  (edge-visibility ((:seq y-acceleration-magnitude _Acceleration-Magnitude-Value563 f)))
+  (edge-never-visible ((:seq y-acceleration-magnitude _Acceleration-Magnitude-Value563 t)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Acceleration-Magnitude-Value563 has 
+  (used-in-equation (_Equation-Set562
+                     _Equation-Set628))
+  (y-acceleration-magnitude-of (_Move565
+                                _Acceleration-Vector-Value564))
+  (instance-of (Acceleration-Magnitude-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 699 120)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Equation-Set562 has 
+  (equation-of (_System631))
+  (equation-uses (_Acceleration-Magnitude-Value563
+                  _Acceleration-Magnitude-Value531))
+  (instance-of (Equation-Set))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (user-equation-expression ('(= a_2 (- a_1))))
+  (equation-symbol ((:pair 'a_1 _Acceleration-Magnitude-Value563)
+                    (:pair 'a_2 _Acceleration-Magnitude-Value531)))
+  (equation-expression ('(= a_2 (- a_1))))
+  (node-coordinate ((:pair 110 493)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity538 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity430))
+  (origin-of (_Move529))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 585 738)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity537 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity431))
+  (destination-of (_Move529))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 585 718)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity536 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity432))
+  (away-from-of (_Move529))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 585 698)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity533 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity433))
+  (toward-of (_Move529))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 585 678)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Spatial-Entity532 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity434))
+  (path-of (_Move529))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 585 658)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Acceleration-Magnitude-Value531 has 
+  (used-in-equation (_Equation-Set562))
+  (instance-of (Acceleration-Magnitude-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (y-acceleration-magnitude-of (_Move529
+                                _Acceleration-Vector-Value530))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 734 779)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Acceleration-Vector-Value530 has 
+  (y-acceleration-magnitude (_Acceleration-Magnitude-Value531))
+  (instance-of (Acceleration-Vector-Value))
+  (acceleration-of (_Move529))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 906 637)))
+  (edge-coordinate ((:seq y-acceleration-magnitude _Acceleration-Magnitude-Value531 666 787)))
+  (edge-visibility ((:seq y-acceleration-magnitude _Acceleration-Magnitude-Value531 f)))
+  (edge-never-visible ((:seq y-acceleration-magnitude _Acceleration-Magnitude-Value531 t)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Move529 has 
+  (origin (_Spatial-Entity538))
+  (destination (_Spatial-Entity537))
+  (away-from (_Spatial-Entity536))
+  (toward (_Spatial-Entity533))
+  (path (_Spatial-Entity532))
+  (y-acceleration-magnitude (_Acceleration-Magnitude-Value531))
+  (acceleration (_Acceleration-Vector-Value530))
+  (instance-of (Move
+                Event))
+  (node-visibility (t))
+  (node-never-visible (t))
+  (subevent-of (_My-Pulley-with-2-masses412))
+  (object (_Entity525))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq acceleration _Acceleration-Vector-Value530 543 536)
+                    (:seq object _Entity525 604 707)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value531 781 885)
+                    (:seq path _Spatial-Entity532 435 663)
+                    (:seq toward _Spatial-Entity533 435 683)
+                    (:seq away-from _Spatial-Entity536 435 703)
+                    (:seq destination _Spatial-Entity537 435 723)
+                    (:seq origin _Spatial-Entity538 435 743)))
+  (edge-visibility ((:seq acceleration _Acceleration-Vector-Value530 f)
+                    (:seq object _Entity525 t)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value531 t)
+                    (:seq path _Spatial-Entity532 f)
+                    (:seq toward _Spatial-Entity533 f)
+                    (:seq away-from _Spatial-Entity536 f)
+                    (:seq destination _Spatial-Entity537 f)
+                    (:seq origin _Spatial-Entity538 f)))
+  (edge-never-visible ((:seq acceleration _Acceleration-Vector-Value530 t)
+                       (:seq object _Entity525 t)
+                       (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value531 t)
+                       (:seq path _Spatial-Entity532 f)
+                       (:seq toward _Spatial-Entity533 f)
+                       (:seq away-from _Spatial-Entity536 f)
+                       (:seq destination _Spatial-Entity537 f)
+                       (:seq origin _Spatial-Entity538 f)))
+  (caused-by (_Exert-Force528))
+  (node-coordinate ((:pair 598 795)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Exert-Force528 has 
+  (causes (_Move529))
+  (instance-of (Exert-Force
+                Event))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (subevent-of (_My-Pulley-with-2-masses412))
+  (applied-y-force-magnitude (_Force-Magnitude-Value520))
+  (edge-coordinate ((:seq causes _Move529 551 778)
+                    (:seq applied-y-force-magnitude _Force-Magnitude-Value520 400 583)
+                    (:seq object _Entity525 558 733)))
+  (edge-visibility ((:seq causes _Move529 t)
+                    (:seq applied-y-force-magnitude _Force-Magnitude-Value520 t)
+                    (:seq object _Entity525 t)))
+  (edge-never-visible ((:seq causes _Move529 t)
+                       (:seq applied-y-force-magnitude _Force-Magnitude-Value520 t)
+                       (:seq object _Entity525 f)))
+  (object (_Entity525))
+  (node-coordinate ((:pair 387 763)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Mass-Value527 has 
+  (used-in-equation (_Equation-Set628
+                     _Equation-Set630))
+  (instance-of (Mass-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (mass-of (_Entity525))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 710 597)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Entity525 has 
+  (object-of (_Move529
+              _Exert-Force528))
+  (mass (_Mass-Value527))
+  (instance-of (Entity
+                Thing
+                Tangible-Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (node-never-visible (t))
+  (edge-coordinate ((:seq mass _Mass-Value527 769 640)))
+  (edge-visibility ((:seq mass _Mass-Value527 t)))
+  (edge-never-visible ((:seq mass _Mass-Value527 t)))
+  (node-coordinate ((:pair 730 703)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Force-Magnitude-Value524 has 
+  (used-in-equation (_Equation-Set517
+                     _Equation-Set630))
+  (applied-y-force-magnitude-of (_Exert-Force572))
+  (instance-of (Force-Magnitude-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (node-coordinate ((:pair 462 119)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Force-Magnitude-Value520 has 
+  (applied-y-force-magnitude-of (_Exert-Force528))
+  (instance-of (Force-Magnitude-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (used-in-equation (_Equation-Set517))
+  (node-coordinate ((:pair 548 536)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(_Equation-Set517 has 
+  (equation-of (_System631))
+  (equation-uses (_Force-Magnitude-Value524
+                  _Force-Magnitude-Value520))
+  (instance-of (Equation-Set))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (user-equation-expression ('(= T_2 (- T_1))))
+  (equation-symbol ((:pair 'T_1 _Force-Magnitude-Value524)
+                    (:pair 'T_2 _Force-Magnitude-Value520)))
+  (equation-expression ('(= T_2 (- T_1))))
+  (node-coordinate ((:pair 108 698)))
+  (prototype-participant-of (_My-Pulley-with-2-masses412)))
+
+(explanation (:triple _My-Pulley-with-2-masses412 subevent _Exert-Force528) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _My-Pulley-with-2-masses412 subevent _Exert-Force572) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _My-Pulley-with-2-masses412 subevent _Move529) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _My-Pulley-with-2-masses412 subevent _Move565) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _My-Pulley-with-2-masses412 instance-of My-Pulley-with-2-masses) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _System631 equation _Equation-Set630) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _System631 equation _Equation-Set628) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _System631 equation _Equation-Set517) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _System631 equation _Equation-Set562) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _System631 component _My-Pulley-with-2-masses412) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _System631 instance-of System) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 user-equation-expression (QUOTE (= T_1 (* (* (* 2 m_1) m_2) (/ 9.8 (:op_paren (+ m_1 m_2))))))) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 equation-symbol (:pair (QUOTE m_2) _Mass-Value527)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 equation-symbol (:pair (QUOTE m_1) _Mass-Value573)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 equation-symbol (:pair (QUOTE T_1) _Force-Magnitude-Value524)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 equation-expression (QUOTE (= T_1 (* (* (* 2 m_1) m_2) (/ 9.8 (+ m_1 m_2)))))) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 equation-uses _Mass-Value527) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 equation-uses _Mass-Value573) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 equation-uses _Force-Magnitude-Value524) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set630 instance-of Equation-Set) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 equation-symbol (:pair (QUOTE m_2) _Mass-Value527)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 equation-expression (QUOTE (= a_1 (* (- m_1 m_2) (/ 9.8 (+ m_1 m_2)))))) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 equation-uses _Mass-Value527) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 equation-symbol (:pair (QUOTE m_1) _Mass-Value573)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 equation-uses _Mass-Value573) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 user-equation-expression (QUOTE (= a_1 (* (:op_paren (- m_1 m_2)) (/ 9.8 (:op_paren (+ m_1 m_2))))))) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 equation-symbol (:pair (QUOTE a_1) _Acceleration-Magnitude-Value563)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 equation-uses _Acceleration-Magnitude-Value563) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set628 instance-of Equation-Set) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Mass-Value573 instance-of Mass-Value) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Exert-Force572 causes _Move565) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Exert-Force572 object _Tangible-Entity566) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Exert-Force572 applied-y-force-magnitude _Force-Magnitude-Value524) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Exert-Force572 instance-of Event) ((a Event (@ _My-Pulley-with-2-masses412 Event (subevent must-be-a)))))
+(explanation (:triple _Exert-Force572 instance-of Exert-Force) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Spatial-Entity571 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move565 Move origin))))
+(explanation (:triple _Spatial-Entity570 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move565 Move destination))))
+(explanation (:triple _Spatial-Entity569 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move565 Move away-from))))
+(explanation (:triple _Spatial-Entity568 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move565 Move toward))))
+(explanation (:triple _Spatial-Entity567 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move565 Move path))))
+(explanation (:triple _Tangible-Entity566 mass _Mass-Value573) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Tangible-Entity566 instance-of Tangible-Entity) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Tangible-Entity566 instance-of Thing) ((a Thing (@ _Exert-Force572 Action (object must-be-a)))))
+(explanation (:triple _Tangible-Entity566 instance-of Entity) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Move565 y-acceleration-magnitude _Acceleration-Magnitude-Value563) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Move565 y-acceleration-magnitude _Acceleration-Magnitude-Value563) ((the y-acceleration-magnitude of (the acceleration of _Move565) (@ _Move565 Move y-acceleration-magnitude))))
+(explanation (:triple _Move565 acceleration _Acceleration-Vector-Value564) ((a Acceleration-Vector-Value (@ _Move565 Move acceleration))))
+(explanation (:triple _Move565 path _Spatial-Entity567) ((a Spatial-Entity (@ _Move565 Move path))))
+(explanation (:triple _Move565 toward _Spatial-Entity568) ((a Spatial-Entity (@ _Move565 Move toward))))
+(explanation (:triple _Move565 away-from _Spatial-Entity569) ((a Spatial-Entity (@ _Move565 Move away-from))))
+(explanation (:triple _Move565 destination _Spatial-Entity570) ((a Spatial-Entity (@ _Move565 Move destination))))
+(explanation (:triple _Move565 origin _Spatial-Entity571) ((a Spatial-Entity (@ _Move565 Move origin))))
+(explanation (:triple _Move565 instance-of Event) ((a Event (@ _My-Pulley-with-2-masses412 Event (subevent must-be-a)))))
+(explanation (:triple _Move565 instance-of Move) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Move565 object _Tangible-Entity566) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Move565 instance-of Event) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Acceleration-Vector-Value564 y-acceleration-magnitude _Acceleration-Magnitude-Value563) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value564 Acceleration-Vector-Value y-acceleration-magnitude))))
+(explanation (:triple _Acceleration-Vector-Value564 instance-of Acceleration-Vector-Value) ((a Acceleration-Vector-Value (@ _Move565 Move acceleration))))
+(explanation (:triple _Acceleration-Magnitude-Value563 instance-of Acceleration-Magnitude-Value) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value563 instance-of Acceleration-Magnitude-Value) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value564 Acceleration-Vector-Value y-acceleration-magnitude))))
+(explanation (:triple _Equation-Set562 equation-symbol (:pair (QUOTE a_2) _Acceleration-Magnitude-Value531)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set562 equation-expression (QUOTE (= a_2 (- a_1)))) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set562 equation-uses _Acceleration-Magnitude-Value531) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set562 equation-symbol (:pair (QUOTE a_1) _Acceleration-Magnitude-Value563)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set562 equation-uses _Acceleration-Magnitude-Value563) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set562 user-equation-expression (QUOTE (= a_2 (- a_1)))) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set562 instance-of Equation-Set) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Spatial-Entity538 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move529 Move origin))))
+(explanation (:triple _Spatial-Entity537 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move529 Move destination))))
+(explanation (:triple _Spatial-Entity536 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move529 Move away-from))))
+(explanation (:triple _Spatial-Entity533 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move529 Move toward))))
+(explanation (:triple _Spatial-Entity532 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move529 Move path))))
+(explanation (:triple _Acceleration-Magnitude-Value531 instance-of Acceleration-Magnitude-Value) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value531 instance-of Acceleration-Magnitude-Value) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value530 Acceleration-Vector-Value y-acceleration-magnitude))))
+(explanation (:triple _Acceleration-Vector-Value530 y-acceleration-magnitude _Acceleration-Magnitude-Value531) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value530 Acceleration-Vector-Value y-acceleration-magnitude))))
+(explanation (:triple _Acceleration-Vector-Value530 instance-of Acceleration-Vector-Value) ((a Acceleration-Vector-Value (@ _Move529 Move acceleration))))
+(explanation (:triple _Move529 y-acceleration-magnitude _Acceleration-Magnitude-Value531) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Move529 y-acceleration-magnitude _Acceleration-Magnitude-Value531) ((the y-acceleration-magnitude of (the acceleration of _Move529) (@ _Move529 Move y-acceleration-magnitude))))
+(explanation (:triple _Move529 acceleration _Acceleration-Vector-Value530) ((a Acceleration-Vector-Value (@ _Move529 Move acceleration))))
+(explanation (:triple _Move529 path _Spatial-Entity532) ((a Spatial-Entity (@ _Move529 Move path))))
+(explanation (:triple _Move529 toward _Spatial-Entity533) ((a Spatial-Entity (@ _Move529 Move toward))))
+(explanation (:triple _Move529 away-from _Spatial-Entity536) ((a Spatial-Entity (@ _Move529 Move away-from))))
+(explanation (:triple _Move529 destination _Spatial-Entity537) ((a Spatial-Entity (@ _Move529 Move destination))))
+(explanation (:triple _Move529 origin _Spatial-Entity538) ((a Spatial-Entity (@ _Move529 Move origin))))
+(explanation (:triple _Move529 instance-of Event) ((a Event (@ _My-Pulley-with-2-masses412 Event (subevent must-be-a)))))
+(explanation (:triple _Move529 instance-of Move) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Move529 object _Entity525) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Move529 instance-of Event) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Exert-Force528 causes _Move529) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Exert-Force528 object _Entity525) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Exert-Force528 applied-y-force-magnitude _Force-Magnitude-Value520) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Exert-Force528 instance-of Event) ((a Event (@ _My-Pulley-with-2-masses412 Event (subevent must-be-a)))))
+(explanation (:triple _Exert-Force528 instance-of Exert-Force) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Mass-Value527 instance-of Mass-Value) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Entity525 mass _Mass-Value527) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Entity525 instance-of Tangible-Entity) ((a Tangible-Entity)))
+(explanation (:triple _Entity525 instance-of Thing) ((a Thing (@ _Exert-Force528 Action (object must-be-a)))))
+(explanation (:triple _Entity525 instance-of Entity) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Force-Magnitude-Value524 instance-of Force-Magnitude-Value) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Force-Magnitude-Value520 instance-of Force-Magnitude-Value) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set517 equation-symbol (:pair (QUOTE T_2) _Force-Magnitude-Value520)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set517 equation-expression (QUOTE (= T_2 (- T_1)))) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set517 equation-uses _Force-Magnitude-Value520) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set517 equation-symbol (:pair (QUOTE T_1) _Force-Magnitude-Value524)) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set517 equation-uses _Force-Magnitude-Value524) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set517 user-equation-expression (QUOTE (= T_2 (- T_1)))) ((added-at My-Pulley-with-2-masses "User defined")))
+(explanation (:triple _Equation-Set517 instance-of Equation-Set) ((added-at My-Pulley-with-2-masses "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

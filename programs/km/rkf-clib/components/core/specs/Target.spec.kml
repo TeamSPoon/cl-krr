@@ -1,0 +1,52 @@
+<!--- $Id: Target.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+<concept name=Target>
+<system-documentation name=Target>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+   A Target is the Entity that is
+   the destination in a <conceptref name=Move>.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=played-by>
+      the <conceptref name=Entity> that plays the Target
+  </slotdescription>
+
+  <slotdescription name=in-event>
+      the <conceptref name=Move> that the Entity participates in
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The ball moved towards the sideline.</text>
+     <comment>
+          In this example, the Role is <conceptref name=Target>, with 
+          these properties:
+      </comment>
+     <slotdescription name=in-event>move</slotdescription>
+     <slotdescription name=played-by>the sideline</slotdescription>
+  </examplesentence>
+  <examplesentence>
+     <text>The car pulls into a gas station.</text>
+     <comment>
+          In this example, the Role is <conceptref name=Target>,
+          with these properties:
+     </comment>
+     <slotdescription name=in-event>pulls into</slotdescription>
+     <slotdescription name=played-by>gas station</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

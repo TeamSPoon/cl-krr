@@ -1,0 +1,68 @@
+; 
+;;    $Id: Metal-Carbonate-Decomposition-Reaction.km,v 1.5 2003/08/21 20:54:00 tecuci Exp $ 
+;; 
+
+(Metal-Carbonate-Decomposition-Reaction has
+					(superclasses (Reaction)))
+
+(every Metal-Carbonate-Decomposition-Reaction has-definition
+       (instance-of (Reaction 
+		     [Metal-Carbonate-Decomposition-Reaction-instance-of-1]))
+       (raw-material ((a Salt-Substance with
+			 (object-of ((a Heat))) ;; reaction only happen when heated
+			 (has-basic-structural-unit
+			  ((a Salt with
+			      (has-part ((a CO3-Minus-2))))))))))
+
+(every Metal-Carbonate-Decomposition-Reaction has
+       (result ((a CO2-Substance)
+		(a Ionic-Compound-Substance with
+		   (has-basic-structural-unit
+		    ((a Ionic-Compound with
+			(has-part
+			 ((the Cation has-part of 
+			       (the has-basic-structural-unit of
+				    (the Salt-Substance raw-material of Self)))
+			  (a O-Minus-2))))))
+		   [Metal-Carbonate-Decomposition-Reaction-result-1]
+		   ))))
+
+(comment [Metal-Carbonate-Decomposition-Reaction-instance-of-1]
+  "Therefore, this reaction is a Metal-Carbonate decomposition reaction"
+
+  "By definition, a Metal-Atom Carbonate Decomposition Reaction occurs when a metal carbonate is heated"
+)
+
+(comment [Metal-Carbonate-Decomposition-Reaction-result-1]
+  (:seq "In this reaction," (the text-gen of (the raw-material of Self)) 
+        "reacts to produce"
+        (the text-gen of (the Ionic-Compound-Substance result of Self)))
+
+  "In general, the reaction produces a metal oxide (an ionic compound) along with carbon dioxide"
+)
+
+
+(Metal-Carbonate-Decomposition-Reaction 
+ has
+ (test-case ( '(
+		((the number of
+		     (allof
+		      (the result of
+			   (a Reaction with
+			      (raw-material ((a CaCO3-Substance with
+						(object-of ((a Heat))))))))
+		      where
+		      ((It isa CO2-Substance)
+		       or
+		       ((the elements of
+			    (the term of
+				 (the has-chemical-formula of
+				      (the has-basic-structural-unit of
+					   It))))
+		       = (:set (:pair 1 Ca-Plus-2)
+			       (:pair 1 O-Minus-2))))))
+		 =
+		 2)
+))))
+
+					

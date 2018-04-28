@@ -1,0 +1,24 @@
+;;
+;; $Id: CH3OH.km,v 1.1 2003/04/21 18:36:42 jchaw Exp $
+;;
+
+(CH3OH has (superclasses (Molecular-Compound)))
+
+(every CH3OH has	
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+					   (term ((:seq (:pair 1 C)
+							(:pair 3 H)
+							(:pair 1 O)
+							(:pair 1 H)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with
+				    (term ((:seq (:pair 1 C)
+						 (:pair 1 O)
+						 (:pair 4 H)))))))
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 C)
+					      (:pair 1 O)
+					      (:pair 4 H))))))))
+
+
+
+

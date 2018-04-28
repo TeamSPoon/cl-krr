@@ -1,0 +1,47 @@
+;; 
+;;    $Id: Be-Stable.km,v 1.6 2004/07/20 22:28:55 gking Exp $
+;; 
+
+(Be-Stable has
+  (superclasses		(State))
+  (required-slot 	(object))
+  (primary-slot   	(base))
+;  (caused-by-class      (Stabilize))              ; not sure if we want these
+;  (defeated-by-class    (Destabilize))
+  (cmap-correspondence 	((:seq object "stable thing")
+			 (:seq base "the thing the object is stable with respect to")
+			)))
+
+(every Be-Stable has
+  (object ((a Entity)))
+  (base ((must-be-a Thing)))
+)
+
+(every Be-Stable has
+   (text-particle ("stable"))
+)
+
+
+
+
+
+;; automatically added WN synsets
+(Be-Stable has (wn16-synset ((:set  
+                                        (:triple "stable" 1 "a")
+                                        (:triple "stable" 2 "a")
+                                        (:triple "stable" 3 "a")
+                                        (:triple "stable" 4 "a")
+                                        (:triple "stable" 5 "a")
+                                        (:triple "static" 3 "a")
+                                        (:triple "unchanging" 3 "a")
+))))
+
+(Be-Stable has (wn20-synset ((:set
+                                        (:triple "stable" 1 "a")
+                                        (:triple "stable" 2 "a")
+                                        (:triple "stable" 3 "a")
+                                        (:triple "stable" 4 "a")
+                                        (:triple "stable" 5 "a")
+                                        (:triple "static" 4 "a")
+                                        (:triple "unchanging" 3 "a")
+))))

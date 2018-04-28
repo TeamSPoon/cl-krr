@@ -1,0 +1,13 @@
+
+;;
+;; $Id: Compute-Compound-from-Common-Name.km,v 1.2 2003/02/14 15:53:50 kbarker Exp $
+;;
+
+(Compute-Compound-from-Common-Name has
+				   (superclasses (Method)))
+
+(every Compute-Compound-from-Common-Name has
+       ;;(input ((a Thing)))
+       (output ((#'(LAMBDA ()
+		     (TRANSLATE-FROM-COMMON-COMPOUND-NAME
+		      (KM-UNIQUE0 '(the input of Self))))))))

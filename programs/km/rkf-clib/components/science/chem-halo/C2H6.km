@@ -1,0 +1,20 @@
+;;
+;; $Id: C2H6.km,v 1.2 2007/07/12 02:12:33 jchaw Exp $
+;;
+
+(C2H6 has (superclasses (Hydrocarbon-Molecule)))
+
+(every C2H6 has	
+       (has-chemical-name ("ethane"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 C)
+		    (:pair 6 H))))))))
+       
+
+
+(every C2H6 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("ethane"))
+)

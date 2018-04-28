@@ -1,0 +1,68 @@
+<!--- $Id: Repair.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Repair><system-documentation name=Repair>
+<superconcept name=Action>
+
+<definition>
+
+  Return a broken object to a condition such that it can serve
+  its function.  This action takes the object out of its
+  <conceptref name=Be-Broken> state.  (Note that an object in a
+  <conceptref name=Be-Ruined> state cannot be repaired.)
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing (a <conceptref name=Physical-Object>) that's repaired.
+     Before this action, the <slot>object</slot>
+     is assumed to be in a <conceptref name=Be-Broken> state.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the repair to occur
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) that is used to repair the <slot>object</slot>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Sara repaired the handlebars with a wrench.</text>
+    <slotdescription name=agent>Sara</slotdescription>
+    <slotdescription name=object>the handlebars</slotdescription>
+    <slotdescription name=instrument>a wrench</slotdescription>
+  </examplesentence>
+
+<neighborlist>
+
+  <neighbor name=Break>
+    The Break action causes an object to be in the Be-Broken state.    
+  </neighbor>
+
+  <neighbor name=Be-Broken>
+    An object in the Be-Broken state can not perform its function, 
+    as specified by its <slot>purpose</slot>.
+    The Repair action takes the object out of that state.
+  </neighbor>
+
+  <neighbor name=Ruin>
+    When an object is ruined, it can no longer perform its function and
+    it cannot be repaired, i.e. the Break is permanent.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

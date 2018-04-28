@@ -1,0 +1,10 @@
+;; $Id: HN3.km,v 1.2 2003/02/22 16:26:42 jchaw Exp $ 
+(HN3 has (superclasses (Ionic-Compound)))
+(every HN3 has
+	(has-chemical-name (""))
+	(has-part ((a H-Plus)(a N3-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 N3-Minus)))))))
+)

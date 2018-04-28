@@ -1,0 +1,75 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Osmosis ----------
+
+(Osmosis has (superclasses (Deliver)))
+
+(_Osmosis1767 has 
+  (instance-of (Osmosis))
+  (prototype-of (Osmosis))
+  (prototype-scope (Osmosis))
+  (prototype-participants (_Suborganismal-Entity1777
+                           _Water1776
+                           _Membrane1775
+                           _Osmosis1767))
+  (prototype-participant-of (_Osmosis1767))
+  (has-clones (_Placeholder-Class17661768))
+  (has-built-clones (_Placeholder-Class17661768))
+  (recipient (_Suborganismal-Entity1777))
+  (object (_Water1776))
+  (agent (_Membrane1775))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq agent _Membrane1775 t)
+                    (:seq object _Water1776 t)
+                    (:seq recipient _Suborganismal-Entity1777 t)))
+  (edge-coordinate ((:seq agent _Membrane1775 287 559)
+                    (:seq object _Water1776 172 493)
+                    (:seq recipient _Suborganismal-Entity1777 187 660)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Suborganismal-Entity1777 has 
+  (instance-of (Suborganismal-Entity))
+  (has-clones (_Suborganismal-Entity1771))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (recipient-of (_Osmosis1767))
+  (node-coordinate ((:pair 362 621)))
+  (prototype-participant-of (_Osmosis1767)))
+
+(_Water1776 has 
+  (instance-of (Water))
+  (has-clones (_Water1772))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (object-of (_Osmosis1767))
+  (node-coordinate ((:pair 387 482)))
+  (prototype-participant-of (_Osmosis1767)))
+
+(_Membrane1775 has 
+  (instance-of (Membrane))
+  (has-clones (_Membrane1774))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (agent-of (_Osmosis1767))
+  (node-coordinate ((:pair 404 546)))
+  (prototype-participant-of (_Osmosis1767)))
+
+(explanation (:triple _Osmosis1767 recipient _Suborganismal-Entity1777) ((a Tangible-Entity (@ _Osmosis1767 Deliver recipient))))
+(explanation (:triple _Osmosis1767 object _Water1776) ((a Entity (@ _Osmosis1767 Transfer object))))
+(explanation (:triple _Osmosis1767 agent _Membrane1775) ((added-at Osmosis "User defined")))
+(explanation (:triple _Suborganismal-Entity1777 instance-of Suborganismal-Entity) ((added-at Osmosis "User defined")))
+(explanation (:triple _Suborganismal-Entity1777 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Osmosis1767 Deliver recipient))))
+(explanation (:triple _Suborganismal-Entity1777 instance-of Entity) ((a Entity (@ _Osmosis1767 Transfer (recipient must-be-a)))))
+(explanation (:triple _Water1776 instance-of Water) ((added-at Osmosis "User defined")))
+(explanation (:triple _Water1776 instance-of Entity) ((a Entity (@ _Osmosis1767 Transfer object))))
+(explanation (:triple _Water1776 instance-of Thing) ((a Thing (@ _Osmosis1767 Action (object must-be-a)))))
+(explanation (:triple _Membrane1775 instance-of Membrane) ((added-at Osmosis "User defined")))
+(explanation (:triple _Membrane1775 instance-of Entity) ((added-at Osmosis "User defined")))
+(explanation (:triple _Membrane1775 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Osmosis1767) (@ _Osmosis1767 Event (agent must-be-a) Entity abuts)) then (the instrument of _Osmosis1767 (@ _Osmosis1767 Event (agent must-be-a) Entity abuts)) (@ _Osmosis1767 Event (agent must-be-a) Entity abuts)))) (@ _Osmosis1767 Event (agent must-be-a)))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,14 @@
+;; 
+;;  $Id: Conductivity-Value.km,v 1.2 2005/02/14 22:39:43 kbarker Exp $
+;; 
+
+(Conductivity-Value has 
+		(superclasses (Property-Value)))
+
+(every Conductivity-Value has
+  (property-slot (conductivity))
+       (conductivity-of ((must-be-a Chemical)))
+       (less-than ((must-be-a Conductivity-Value)))
+       (greater-than ((must-be-a Conductivity-Value)))
+       (same-as ((must-be-a Conductivity-Value)))
+)

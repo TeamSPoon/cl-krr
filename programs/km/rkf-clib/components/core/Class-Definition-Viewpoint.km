@@ -1,0 +1,646 @@
+
+;;
+;; $Id: Class-Definition-Viewpoint.km,v 1.37 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(Class-Definition-Viewpoint has (superclasses (Viewpoint)))
+
+(every Class-Definition-Viewpoint has
+  (viewpoint-question (
+    (if (has-value (the1 of (the viewpoint-target of Self)))
+     then (make-phrase (
+            (?target-prop == 
+              (if ((the1 of (the viewpoint-target of Self)) isa Property-Value)
+               then (oneof ?pr in (the all-instances of Property)
+                     where (oneof ?tr in (the viewpoint-scenario of Self)
+                            where (((the1 of ?tr) = (the1 of (the viewpoint-target of Self)))
+                                   and
+                                   ((the2 of ?tr) = input-word)
+                                   and
+                                   ((the name of ?pr) = (the1 of (the3 of ?tr)))
+                                  )
+                           )
+                    )
+            ))
+            and
+            (?p-slot == (?target-prop
+                         or
+                         (the first of
+                              (the primary-slot of (the1 of (the viewpoint-target of Self))))
+                         or
+                         (the first of 
+                              (the Property range-of of 
+                                   (the first of (the classes of (the1 of (the viewpoint-target of Self))))))
+                        )
+            )
+            and
+            (?scenario-class-trip == (oneof ?tr in (the viewpoint-scenario of (the viewpoint-parent of Self))
+                                      where (((the1 of ?tr) = (the1 of (the viewpoint-target of Self)))
+                                             and
+                                             ((the2 of ?tr) = instance-of)
+                                            )
+            ))
+            and
+            (?scenario-class == (if (has-value ?scenario-class-trip)
+                                 then (the3 of ?scenario-class-trip)
+            ))
+            and
+            (if (has-value ?p-slot)
+             then (:seq "What is" ?p-slot "nospace" "?")
+             else (if (has-value (the viewpoint-parent of Self))
+                   then (:seq "What is the" ?scenario-class "nospace" "?")
+                   else (:seq "What is"
+                              (if (((the1 of (the viewpoint-target of Self)) isa Property-Value)
+                                   and
+                                   (has-value ?p-slot)
+                                  )
+                                  then ?p-slot
+                                  else (:seq (if ((:set "A" "E" "I" "O" "U" "a" "e" "i" "o" "u")
+                                                  includes
+                                                  (#'(LAMBDA () 
+                                                       (STRING 
+                                                         (CHAR 
+                                                           (STRING 
+                                                             (KM-UNIQUE0 '(|the1| |of| (|the| |viewpoint-target| |of| |Self|)))) 
+                                                           1))))
+                                                 )
+                                              then (:seq "an")
+                                              else (:seq "a")
+                                             )
+                                             (the first of (the classes of (the1 of (the viewpoint-target of Self))))
+                                       )
+                              )
+                              "nospace" "?"
+                        )
+                  )
+          )))
+     else (make-sentence (:seq "unable to describe"
+                               (the first of (the classes of (the1 of (the viewpoint-target of Self))))))
+    )
+  ))
+
+  (viewpoint-detail-title ("Detail"))
+
+  (viewpoint-answer (
+    (make-phrase (
+      (?target-prop == 
+        (if ((the1 of (the viewpoint-target of Self)) isa Property-Value)
+         then (oneof ?pr in (the all-instances of Property)
+               where (oneof ?tr in (the viewpoint-scenario of Self)
+                      where (((the1 of ?tr) = (the1 of (the viewpoint-target of Self)))
+                             and
+                             ((the2 of ?tr) = input-word)
+                             and
+                             ((the name of ?pr) = (the1 of (the3 of ?tr)))
+                            )
+                     )
+              )
+      ))
+      and
+      (if (has-value (the1 of (the viewpoint-target of Self)))
+       then (if ((the1 of (the viewpoint-target of Self)) isa Property-Value)
+             then (make-phrase (
+                    (:seq "<b>"
+                          (?target-prop
+                           or
+                           (the first of (the primary-slot of (the1 of (the viewpoint-target of Self))))
+                           or
+                           (the first of 
+                                (the Property range-of of 
+                                     (the first of (the classes of (the1 of (the viewpoint-target of Self)))))
+                           )
+                          )
+                          "nospace" ":</b>"
+                          (make-sentence (
+                            (the description of ?target-prop)
+                            or
+                            (the user-description of
+                                 (the instance-of of (the1 of (the viewpoint-target of Self))))
+                            or
+                            (the description of
+                                 (the instance-of of (the1 of (the viewpoint-target of Self))))
+                          ))
+                    )
+                  ))
+             else (if (has-value (the viewpoint-parent of Self))
+                   then (make-phrase (
+                           (?scenario-class-trip == (oneof ?tr in (the viewpoint-scenario of (the viewpoint-parent of Self))
+                                                     where (((the1 of ?tr) = (the1 of (the viewpoint-target of Self)))
+                                                            and
+                                                            ((the2 of ?tr) = instance-of)
+                                                           )
+                           ))
+                           and
+                           (?scenario-class == (if (has-value ?scenario-class-trip)
+                                                then (the3 of ?scenario-class-trip)
+                           ))
+                           and
+                           (:seq "The"
+                                 ?scenario-class
+                                 "is"
+			         (if (has-value (the text-indef-phrase of (the1 of (the viewpoint-target of Self))))
+			         then (:seq (the text-indef-phrase of (the1 of (the viewpoint-target of Self))) "nospace" ".")
+			         )
+			         (if (has-value (the user-description of
+					             (the instance-of of (the1 of (the viewpoint-target of Self)))))
+			         then (:seq (the user-description of
+					             (the instance-of of (the1 of (the viewpoint-target of Self))))
+				            "nospace" ".")
+		                 )
+                           )
+                        ))
+                   else (make-phrase (
+                           (:seq "<b>"
+                                 (the instance-of of (the1 of (the viewpoint-target of Self)))
+                                 "nospace" ":</b>"
+                                 (make-sentence (
+                                   (the description of ?target-prop)
+                                   or
+                                   (the user-description of
+                                        (the instance-of of (the1 of (the viewpoint-target of Self))))
+                                   or
+                                   (the description of
+                                        (the instance-of of (the1 of (the viewpoint-target of Self))))
+                                   or
+                                   (the text-definition-sentence of (the1 of (the viewpoint-target of Self)))
+                                 ))
+                           )
+                        ))
+                  )
+            )
+      )
+  ))))
+
+  (viewpoint-detail (
+    (if (has-value (the1 of (the viewpoint-target of Self)))
+     then (if ((the1 of (the viewpoint-target of Self)) isa Property-Value)
+           then (make-phrase (
+                   (?p-slot == ((the first of
+                                     (the primary-slot of (the1 of (the viewpoint-target of Self))))
+                                or
+                                (the first of 
+                                     (the Property range-of of 
+                                          (the first of (the classes of (the1 of (the viewpoint-target of Self))))))
+                               )
+                   )
+                   and
+                   (?s-slot == ((the secondary-slot of (the1 of (the viewpoint-target of Self)))
+                                or
+                                ?p-slot
+                               )
+                   )
+                   and
+                   (:seq (if (has-value (the instances of (the cardinal-unit-class of ?s-slot)))
+                          then (:seq "<ul><li>The units for"
+                                     ?p-slot
+                                     "are:"
+                                     (andify (the instances of (the cardinal-unit-class of ?s-slot)))
+                                     "nospace" "."
+                                     "</li></ul>
+"
+                               )
+                         )
+                         (if (has-value (the instances of (the scalar-constant-class of ?s-slot)))
+                          then (:seq "<ul><li>Adjectives describing"
+                                     ?p-slot
+                                     "are:"
+                                     (andify (the instances of (the scalar-constant-class of ?s-slot)))
+                                     "nospace" "."
+                                     "</li></ul>
+"
+                               )
+                         )
+                         (if (has-value (the element of (the instances of (the scale-class of ?s-slot))))
+                          then (:seq "<ul><li>Adjectives appear in the following ordering(s):"
+                                     (forall ?sc in (the instances of (the scale-class of ?s-slot))
+                                      where (has-value (the element of ?sc))
+                                      (:seq "<ul><li>"
+                                            (the1 of (the element of ?sc))
+                                            (forall-seq ?sce in (the element of ?sc)
+                                             where (?sce /= (the1 of (the element of ?sc)))
+                                             (:seq "..." ?sce))
+                                            "</li></ul>
+"
+                                      )
+                                     )
+                                     "</li></ul>
+"
+                               )
+                         )
+                         (if (has-value (the instances of (the categorical-constant-class of ?s-slot)))
+                          then (:seq "<ul><li>Adjectives describing"
+                                     ?p-slot
+                                     "are:"
+                                     (andify (the instances of (the categorical-constant-class of ?s-slot)))
+                                     "nospace" "."
+                                     "</li></ul>
+"
+                               )
+                         )
+                   )
+                ))
+
+           else (make-phrase (
+                   (?targ == (the1 of (the viewpoint-target of Self)))
+                   and
+                   (?vmg-simple-triples ==
+                     (allof ?trip in (the viewpoint-scenario of Self)
+                      where (((the2 of ?trip) /= value)
+                             and
+                             ((the2 of ?trip) /= equation-expression)
+                             and
+                             ((the2 of ?trip) /= user-equation-expression)
+                             and
+                             ((the2 of ?trip) /= equation-symbol)
+                            )
+                     )
+                   )
+                   and
+                   (?vmg-trips-filtered == 
+                     (allof ?trip in ?vmg-simple-triples
+                      where ((((the2 of ?trip) isa Property)
+                              or
+                              (has-value (the text-gloss of (the2 of ?trip)))
+                              or
+                              (has-value (the text-slot of (the2 of ?trip)))
+                             )
+                             and
+                             ((#'(LAMBDA () (CONCEPT-IS-DOMSPEC (CAR (KM0 '(|the| |classes| |of| (|the1| |of| |?trip|)))))))
+                              or
+                              (#'(LAMBDA () (CONCEPT-IS-DOMSPEC (CAR (KM0 '(|the| |classes| |of| (|the3| |of| |?trip|)))))))
+                             )
+                            )
+                   ))
+                   and
+                   (?var-trips == (allof ?trip in (the viewpoint-scenario of Self)
+                                   where ((the2 of ?trip) = equation-symbol))
+                   )
+                   and
+                   (?eqn-trips == (allof ?trip in (the viewpoint-scenario of Self)
+                                   where ((the2 of ?trip) = equation-expression))
+                   )
+                   and
+                   (?functional-trips == (allof ?trip in ?vmg-trips-filtered
+                                          where (((the2 of ?trip) isa Participant-Relation)
+                                                 or
+                                                 ((the2 of ?trip) isa Causal-Relation)
+                                                )
+                                         )
+                   )
+                   and
+                   (?structural-trips == (allof ?trip in ?vmg-trips-filtered
+                                          where (((the2 of ?trip) isa Meronymic-Relation)
+                                                 and
+                                                 (not (?functional-trips includes ?trip))
+                                                )
+                                         )
+                   )
+                   and
+                   (?struct-trips-constraints == 
+                                         (forall ?trip in ?structural-trips
+                                          where (#'(LAMBDA () (GET-INSTANCE-CONSTRAINTS 
+                                                              (KM-UNIQUE0 '(|the1| |of| |?trip|))
+                                                              (KM-UNIQUE0 '(|the2| |of| |?trip|))))
+                                                )
+                                          (:triple (the1 of ?trip) 
+                                                   (the2 of ?trip)
+                                                   (#'(LAMBDA () (GET-INSTANCE-CONSTRAINTS 
+                                                                   (KM-UNIQUE0 '(|the1| |of| |?trip|))
+                                                                   (KM-UNIQUE0 '(|the2| |of| |?trip|)))))
+                                          )
+                                         )
+                   )
+                   and
+                   (?spatial-trips == (allof ?trip in ?vmg-trips-filtered
+                                       where (((the2 of ?trip) isa Spatial-Relation)
+                                              and
+                                              (not (?functional-trips includes ?trip))
+                                              and
+                                              (not (?structural-trips includes ?trip))
+                                              and
+                                              ((the text-indef-head of (the3 of ?trip)) 
+                                               /= (the text-indef-head of (an instance of (the first of (the range of (the2 of ?trip)))))
+                                              )
+                                             )
+                                      )
+                   )
+                   and
+                   (?property-trips == (allof ?trip in ?vmg-trips-filtered
+                                        where (
+                                               ((the2 of ?trip) isa Property)
+                                               and
+                                               (has-value (the value of (the3 of ?trip)))
+                                               and
+                                               ((the text-def-head of (the1 of ?trip)) 
+                                                /= (the text-def-head of (an instance of (the first of (the classes of (the1 of ?trip)))))
+                                               )
+                                              )
+                                       )
+                   )
+                   and
+                   (:seq
+                     (if (has-value ?eqn-trips) then
+                       (:seq 
+                         "<b><i>Equations defined by this concept</i></b><br />
+<ul>
+"
+                         (forall ?trip in ?eqn-trips
+                           (:seq "<li>"
+                                 (#'(LAMBDA () (INFIXSTR-HTMLIFY (UNQUOTE (CAR (KM0 '(|the3| |of| |?trip|)))) 'HTML)))
+                                 "</li>
+"
+                           )
+                         )
+                         "</ul>
+"
+                         "<br />
+where<br />
+<ul>
+"
+                         (forall ?trip in ?var-trips
+                           ((?var-sym-pair == (the3 of ?trip))
+                            and
+                            (?var-sym == (the1 of ?var-sym-pair))
+                            and
+                            (?var-val == (the2 of ?var-sym-pair))
+                            and
+                            (?var-target == (the first of (the (the property-of-slot of ?var-val) of ?var-val)))
+                            and
+                            (:seq "<li>"
+                                  (#'(LAMBDA () (STR-HTMLIFY-VAR-SUBSCRIPT (CADR (FIRST (KM0 '|?var-sym|))))))
+                                  "= the"
+                                  (if (?var-target isa Property-Value)
+                                   then (:seq (the name of ((the property-slot of ?var-target)
+                                                            or
+                                                            (the first of (the primary-slot of ?var-target))))
+                                              (if (has-value (the property-of-slot of ?var-target))
+                                               then (:seq
+                                                      (if (?var-val isa Angle-Value)
+                                                       then "direction of"
+                                                       else "magnitude of"
+                                                      )
+                                                      (the text-def-head of
+                                                           (the first of
+                                                                (the (the property-of-slot of ?var-target) of ?var-target))
+                                                      )
+                                                    )
+                                              )
+                                        )
+                                   else (:seq (the name of ((the property-slot of ?var-val)
+                                                            or
+                                                            (the first of (the primary-slot of ?var-val))))
+                                              "of"
+                                              (the text-def-head of ?var-target)
+                                        )
+                                  )
+                                  "nospace" "</li>"
+                            )
+                         ))
+
+                         "</ul>
+"
+                       )
+                     )
+
+                     (if (has-value ?structural-trips) then
+                       (:seq 
+                         "<b><i>What is the structure?</i></b>
+"
+                         "<ul>
+"
+                         (forall ?trip in (:set ?structural-trips ?struct-trips-constraints) 
+                          where ((the classes of (the1 of ?trip)) = (the classes of ?targ))
+                           (make-phrase      ;; make-phrase removes dupes
+                             (:seq "<li>"
+                                   (if (has-value (the text-def-head of (the1 of ?trip)))
+                                    then (the text-def-head of (the1 of ?trip))
+                                    else (the1 of ?trip)
+                                   )
+                                   (if (has-value (the text-gloss of (the2 of ?trip)))
+                                    then (the text-gloss of (the2 of ?trip))
+                                    else (if (has-value (the text-slot of (the2 of ?trip)))
+                                          then (:seq "is" (the (the text-slot of (the2 of ?trip)) of (the1 of ?trip)))
+                                         )
+                                   )
+
+                                   (if ((the3 of ?trip) isa String)
+                                    then (the3 of ?trip)
+                                    else (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                                     (CAR (KM0 '(|make-phrase| (|the| |text-indef-head| |of| (|the3| |of| |?trip|))))))))
+                                   )
+
+                                   (
+                                    (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                    and
+                                    (if ?trip-index
+                                     then (:seq "["
+                                                "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                                "nospace"
+                                                ?trip-index
+                                                "nospace"
+                                                "')\">why?</A> ]
+"
+                                          )
+                                    )
+                                   )
+                                   "</li>
+"
+                             )
+                         ))
+                         "</ul>
+"
+                       )
+                     )
+                     (if (has-value ?functional-trips) then
+                       (:seq 
+                         "<b><i>What is the purpose?</i></b>
+"
+                         "<ul>
+"
+                         (forall ?trip in ?functional-trips 
+                          where (((the classes of (the1 of ?trip)) = (the classes of ?targ))
+                                 and 
+                                 ((the2 of ?trip) /= in-event)) (make-phrase
+                          (:seq "<li>"
+                                (if (has-value (the text-def-head of (the1 of ?trip)))
+                                 then (the text-def-head of (the1 of ?trip))
+                                 else (the1 of ?trip)
+                                )
+                                (if (has-value (the text-gloss of (the2 of ?trip)))
+                                 then (the text-gloss of (the2 of ?trip))
+                                 else (if (has-value (the text-slot of (the2 of ?trip)))
+                                       then (:seq "is" (the (the text-slot of (the2 of ?trip)) of (the1 of ?trip)))
+                                      )
+                                )
+
+                                (if ((the3 of ?trip) isa String)
+                                 then (the3 of ?trip)
+                                 else (if (#'(LAMBDA () (CONCEPT-IS-DOMSPEC (CAR (KM0 '(|the| |classes| |of| (|the3| |of| |?trip|)))))))
+                                       then
+                                       (
+                                        (?inst-index == (#'(LAMBDA () (INDEX-KB-INSTANCE (CAR (KM0 '(|the3| |of| |?trip|)))))))
+                                        and
+                                        (:seq "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                              "nospace"
+                                              ?inst-index
+                                              "nospace"
+                                              "')\">"
+                                              (the text-indef-head of (the3 of ?trip))
+                                              "nospace" "</A>
+"
+                                        )
+                                       )
+                                       else (the text-indef-head of (the3 of ?trip))
+                                      )
+                                )
+
+                                (if (has-value (the in-event of (the3 of ?trip)))
+                                 then (:seq "in" (the text-indef-head of (the in-event of (the3 of ?trip)))))
+
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                 )
+                                )
+                                "</li>
+"
+
+                          )
+                         ))
+                         "</ul>
+"
+                       )
+                     )
+                     (if ((has-value ?property-trips) or (has-value ?spatial-trips)) then
+                       (:seq 
+
+                         "<b><i>Other detail</i></b>
+"
+                         "<ul>
+"
+                         (forall ?trip in ?property-trips 
+                          where (((the classes of (the1 of ?trip)) = (the classes of ?targ))
+                                 and 
+                                 ((the2 of ?trip) /= in-event)) (make-phrase
+                          (:seq "<li>"
+                                (if (has-value (the text-def-head of (the1 of ?trip)))
+                                 then (the text-def-head of (the1 of ?trip))
+                                 else (the1 of ?trip)
+                                )
+                                "has" 
+                                (if (has-value (the value of (the (the2 of ?trip) of (the1 of ?trip))))
+                                 then (:seq (the2 of ?trip)
+                                            "nospace" ":"
+                                            (if (has-value (the2 of (the value of (the (the2 of ?trip) of (the1 of ?trip)))))
+                                             then (:seq (the1 of (the value of (the (the2 of ?trip) of (the1 of ?trip))))
+                                                        "(" "nospace" "with respect to"
+                                                        (the2 of (the value of (the (the2 of ?trip) of (the1 of ?trip))))
+                                                        "nospace" ")"
+                                                  )
+                                             else (the1 of (the value of (the (the2 of ?trip) of (the1 of ?trip)))))
+                                      )
+                                 else (:seq "an unknown" (the2 of ?trip))
+                                )
+
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                 )
+                                )
+                                "</li>
+"
+
+                          )
+                         ))
+;                   "</ul>
+;"
+;
+;                   "<b><i>Spatial Information</i></b>
+;"
+;                   "<ul>
+;"
+                         (forall ?trip in ?spatial-trips 
+                          where ((the classes of (the1 of ?trip)) = (the classes of ?targ)) 
+                            (make-phrase
+                              (:seq 
+                                "<li>"
+                                (if (has-value (the text-def-head of (the1 of ?trip)))
+                                 then (the text-def-head of (the1 of ?trip))
+                                 else (the1 of ?trip)
+                                )
+                                (if (has-value (the text-gloss of (the2 of ?trip)))
+                                 then (the text-gloss of (the2 of ?trip))
+                                 else (if (has-value (the text-slot of (the2 of ?trip)))
+                                       then (:seq "is" (the (the text-slot of (the2 of ?trip)) of (the1 of ?trip)))
+                                      )
+                                )
+
+                                (if ((the3 of ?trip) isa String)
+                                 then (the3 of ?trip)
+                                 else (if (#'(LAMBDA () (CONCEPT-IS-DOMSPEC (CAR (KM0 '(|the| |classes| |of| (|the3| |of| |?trip|)))))))
+                                       then
+                                       (
+                                        (?inst-index == (#'(LAMBDA () (INDEX-KB-INSTANCE (CAR (KM0 '(|the3| |of| |?trip|)))))))
+                                        and
+                                        (:seq "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                              "nospace"
+                                              ?inst-index
+                                              "nospace"
+                                              "')\">"
+                                              (the text-indef-head of (the3 of ?trip))
+                                              "nospace" "</A>
+"
+                                        )
+                                       )
+                                       else (the text-indef-head of (the3 of ?trip))
+                                      )
+                                )
+
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                 )
+                                )
+                                "</li>
+"
+
+                              )
+                         ))
+                         "</ul>
+"
+                       )
+                     )
+                   )
+                ))
+          )
+  )))
+)
+
+

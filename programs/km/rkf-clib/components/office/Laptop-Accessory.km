@@ -1,0 +1,13 @@
+;;
+;;    $Id: Laptop-Accessory.km,v 1.2 2004/01/23 19:23:39 kbarker Exp $
+;;
+
+(Laptop-Accessory has 
+  (superclasses (Computer-Accessory))
+  (feature-slot ((the feature-slot of Computer-Accessory)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Laptop-Accessory))
+  ))
+)
+
+

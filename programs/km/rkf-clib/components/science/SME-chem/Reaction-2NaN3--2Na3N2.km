@@ -1,0 +1,221 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-2NaN3--2Na3N2 ----------
+
+(Reaction-2NaN3--2Na3N2 has (superclasses (Reaction)))
+
+(_Reaction-2NaN3--2Na3N22962 has 
+  (instance-of (Reaction-2NaN3--2Na3N2))
+  (prototype-of (Reaction-2NaN3--2Na3N2))
+  (prototype-scope (Reaction-2NaN3--2Na3N2))
+  (prototype-participants (_Property-Node3007
+                           _Property-Node3006
+                           _Property-Node3005
+                           _Chemical-Entity3003
+                           _Chemical3002
+                           _Coefficient-Value3001
+                           _Chemical-Entity3000
+                           _Chemical2998
+                           _Coefficient-Value2997
+                           _Chemical-Entity2995
+                           _Chemical2994
+                           _Coefficient-Value2993
+                           _Reaction-2NaN3--2Na3N22962))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962))
+  (big-nodes (_Property-Node3005
+              _Property-Node3006
+              _Property-Node3007))
+  (raw-material (_Chemical3002))
+  (result (_Chemical2994
+           _Chemical2998))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical2994 t)
+                    (:seq raw-material _Chemical3002 t)
+                    (:seq result _Chemical2998 t))))
+
+(_Property-Node3007 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2997))
+  (contains-edge ((:triple _Coefficient-Value2997 value (:pair 3 *unity))))
+  (big-node-of (_Reaction-2NaN3--2Na3N22962))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Property-Node3006 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2993))
+  (contains-edge ((:triple _Coefficient-Value2993 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2NaN3--2Na3N22962))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Property-Node3005 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3001))
+  (contains-edge ((:triple _Coefficient-Value3001 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2NaN3--2Na3N22962))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Chemical-Entity3003 has 
+  (instance-of (Chemical-Entity
+                NaN3))
+  (is-basic-structural-unit-of (_Chemical3002))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Chemical3002 has 
+  (has-basic-structural-unit (_Chemical-Entity3003))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-2NaN3--2Na3N22962))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3001))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3001 t)))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Coefficient-Value3001 has 
+  (contains-node-of (_Property-Node3005))
+  (coefficient-of (_Chemical3002))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Chemical-Entity3000 has 
+  (instance-of (Chemical-Entity
+                N2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical2998))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Chemical2998 has 
+  (has-basic-structural-unit (_Chemical-Entity3000))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value2997))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2997 t)))
+  (result-of (_Reaction-2NaN3--2Na3N22962))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Coefficient-Value2997 has 
+  (contains-node-of (_Property-Node3007))
+  (coefficient-of (_Chemical2998))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 3 *unity)))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Chemical-Entity2995 has 
+  (instance-of (Chemical-Entity
+                Na))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical2994))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Chemical2994 has 
+  (has-basic-structural-unit (_Chemical-Entity2995))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-2NaN3--2Na3N22962))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2993))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2993 t)))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(_Coefficient-Value2993 has 
+  (contains-node-of (_Property-Node3006))
+  (coefficient-of (_Chemical2994))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2NaN3--2Na3N22962)))
+
+(explanation (:triple _Reaction-2NaN3--2Na3N22962 result _Chemical2998)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Reaction-2NaN3--2Na3N22962 raw-material _Chemical3002)
+  ((a Chemical (@ _Reaction-2NaN3--2Na3N22962 Reaction raw-material))))
+(explanation (:triple _Reaction-2NaN3--2Na3N22962 result _Chemical2994)
+  ((a Chemical (@ _Reaction-2NaN3--2Na3N22962 Reaction result))))
+(explanation (:triple _Reaction-2NaN3--2Na3N22962 chemical-equation _Chemical-Equation-Expression2964)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-2NaN3--2Na3N22962) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-2NaN3--2Na3N22962) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-2NaN3--2Na3N22962) (@ _Reaction-2NaN3--2Na3N22962 Reaction chemical-equation))))
+(explanation (:triple _Reaction-2NaN3--2Na3N22962 instance-of Reaction-2NaN3--2Na3N2)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical-Entity3003 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3002 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3003 instance-of NaN3)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical3002 has-basic-structural-unit _Chemical-Entity3003)
+  ((a Chemical-Entity (@ _Chemical3002 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3002 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2NaN3--2Na3N22962 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2NaN3--2Na3N22962 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3002 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2NaN3--2Na3N22962 Reaction raw-material))))
+(explanation (:triple _Chemical3002 coefficient _Coefficient-Value3001)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical3002 instance-of Chemical)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Coefficient-Value3001 value (:pair 2 *unity))
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Coefficient-Value3001 instance-of Coefficient-Value)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical-Entity3000 atomic-chemical-formula _Chemical-Formula2991)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3000)) or (the term of (the has-chemical-formula of _Chemical-Entity3000)) (@ _Chemical-Entity3000 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3000)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3000))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3000)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3000)))))))))) (@ _Chemical-Entity3000 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3000 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3000 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3000 nested-atomic-chemical-formula _Chemical-Formula2989)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 N)))) (@ _Chemical-Entity3000 N2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3000 instance-of N2)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical-Entity3000 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2998 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2998 instance-of Entity)
+  ((a Entity (@ _Reaction-2NaN3--2Na3N22962 Event (result must-be-a)))))
+(explanation (:triple _Chemical2998 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2NaN3--2Na3N22962 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2NaN3--2Na3N22962 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2998 coefficient _Coefficient-Value2997)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical2998 has-basic-structural-unit _Chemical-Entity3000)
+  ((a Chemical-Entity (@ _Chemical2998 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2998 instance-of Chemical)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Coefficient-Value2997 value (:pair 3 *unity))
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Coefficient-Value2997 instance-of Coefficient-Value)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical-Entity2995 instance-of Na)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical-Entity2995 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2994 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2994 has-basic-structural-unit _Chemical-Entity2995)
+  ((a Chemical-Entity (@ _Chemical2994 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2994 instance-of Entity)
+  ((a Entity (@ _Reaction-2NaN3--2Na3N22962 Event (result must-be-a)))))
+(explanation (:triple _Chemical2994 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2NaN3--2Na3N22962 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2NaN3--2Na3N22962 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2994 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2NaN3--2Na3N22962 Reaction result))))
+(explanation (:triple _Chemical2994 coefficient _Coefficient-Value2993)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Chemical2994 instance-of Chemical)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Coefficient-Value2993 value (:pair 2 *unity))
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+(explanation (:triple _Coefficient-Value2993 instance-of Coefficient-Value)
+  ((added-at Reaction-2NaN3--2Na3N2 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

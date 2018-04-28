@@ -1,0 +1,41 @@
+;; 
+;;    $Id: Catabolize.km,v 1.16 2004/07/20 22:27:06 gking Exp $ 
+;; 
+
+(Catabolize has
+        (superclasses   (Break Enzyme-Catalysis))
+	(required-slot  (object))
+	(primary-slot   (agent result instrument)) 
+	(description	("Cellular process whereby complex molecules are
+                          degraded to simpler ones and energy is released.
+                          Lodish:MCB:G-2."))
+	)
+
+(every Catabolize has
+  (agent        ((a Suborganismal-Entity)))
+  (object       ((a Chemical-Entity)))
+  (substrate ((the Chemical-Entity object of Self)))
+  (result       ((a Chemical-Entity)
+		 (a Chemical-Entity)  
+                 (at-least 2 Chemical-Entity)))
+  (instrument   ((a Catabolic-Enzyme)))   
+
+;  (subevent
+;   ((a Energy-Release)))
+  )
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Catabolize has (wn16-synset ((:set  
+                                         (:triple "catabolize" 1 "v")
+))))(every Catabolize has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))
+
+
+(Catabolize has (wn20-synset ((:set
+                                         (:triple "catabolize" 1 "v")
+))))

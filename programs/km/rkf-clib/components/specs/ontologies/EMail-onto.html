@@ -1,0 +1,846 @@
+<html>
+<head>
+
+<title>The EMail Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">EMail</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">This is the ontology for EMail information. 
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>Radar Networks' <a href="https://calo.sri.com/cgi-bin/rep.cgi/apps/iris/data/">irisOntology (search for "EMail")</a> (.owl format)
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+<ul>
+<li>Thing
+    <ul>
+    <li>Entity
+        <ul>
+        <li>Intangible-Entity
+            <ul>
+            <li>Information
+                <ul>
+                <li>InformationObject
+                    <ul>
+                    <li>DataRecord
+                        <ul>
+                        <li>ContactDataStructure
+			    <ul>
+			    <li>ContactRecordSubAddressComponent
+			        <ul>
+			        <li>NetworkAddress
+			            <ul>
+				    <li><a href=#EMailAddress><b>EMailAddress</b></a>
+				    <li>WebAddress</a>
+				    <li>DirectoryServiceAddress</a>
+				    </ul>
+			        </ul>
+			    </ul>
+			<li><a href=#FileAttachmentRecord><b>FileAttachmentRecord</b></a>
+			<li><a href=#MessageBody><b>MessageBody</b></a>
+			<li><a href=#MessageHeader><b>MessageHeader</b></a>
+			    <ul>
+                            <li><a href=#EMailMessageHeader><b>EMailMessageHeader</b></a>
+                                <ul>
+                                <li><a href=#EMailMailingListMessageHeader><b>EMailMailingListMessageHeader</b></a>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            <li>Message
+                <ul>
+                <li>Document
+                    <ul>
+                    <li>Computer-File
+                        <ul>
+                        <li>Computer-Program
+                            <ul>
+                            <li>Software-Application
+                                <ul>
+                                <li><a href=#EMailApplication><b>EMailApplication</b></a>
+                                </ul>
+                            </ul>
+                        </ul> 
+                    <li>Form-Document
+                        <ul>
+                        <li><a href=#EMailForm><b>EMailForm</b></a>
+                        <li><a href=#Electronic-Message><b>Electronic-Message</b></a>
+			    <ul>
+			    <li><a href=#EMailMessage><b>EMailMessage</b></a>
+			    </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+	<li>Aggregate
+	    <ul>
+	    <li><a href=#Organization><b>Organization</b></a>
+	    </ul>
+	</ul>
+    </ul>
+</ul>
+</div>
+</td></tr></table>
+</p>
+
+<p>
+<a name=EMailApplication>
+<table>
+<tr><td>
+
+<div class="boxtop">EMailApplication</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Email application
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a EMailApplication with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;EMailApplication-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Software-Application</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=EMailForm>
+<table>
+<tr><td>
+
+<div class="boxtop">EMailForm</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Email form
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a EMailForm with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;EMailForm-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=Electronic-Message>
+<table>
+<tr><td>
+
+<div class="boxtop">Electronic-Message</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for storing an electronic message
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Electronic-Message with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Electronic-Message-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>hasMessageHeader</pre></td><td><pre>???</pre></td><td align=center><pre>N</pre></td><td><pre>(a MessageHeader)</pre></td></tr>
+    <tr><td><pre>hasMethodOfDelivery</pre></td><td><pre>???</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)[will be TypeOfDeliveryMethod when available]</pre></td></tr>
+    <tr><td><pre>isMessageOf</pre></td><td><pre>???</pre></td><td align=center><pre>N</pre></td><td><pre>(a Person) or (a Activity) or (a Action) or (a Organization) or (a Event) or (a Software-Application)</pre></td></tr>
+    <tr><td><pre>hasMessageType</pre></td><td><pre>???</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)[will be TypeOfMessage when available]</pre></td></tr>
+    <tr><td colspan=3><i>slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=EMailMessage>
+<table>
+<tr><td>
+
+<div class="boxtop">EMailMessage</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for storing an email message
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a EMailMessage with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;EMailMessage-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Electronic-Message</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=FileAttachmentRecord>
+<table>
+<tr><td>
+
+
+<div class="boxtop">FileAttachmentRecord</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+      <dd>A detailed record of an file attachment.
+      </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a FileAttachmentRecord with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;FileAttachmentRecord&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasEncoding</pre></td><td><pre>hasEncoding</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>isAttachmentOf</pre></td><td><pre>hisAttachmentOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a Annotation) or (a Event) or (a ContactRecord) or (a MessageHeader) or (a Alert)</pre></td></tr>
+    <tr><td><pre>hasSourceURI</pre></td><td><pre>hasSourceURI</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from DataRecord</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=EMailAddress>
+<table>
+<tr><td>
+
+<div class="boxtop">EMailAddress</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for storing email address.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a EMailAddress with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;EMailAddress-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>isListArchiveAddressOf</pre></td><td><pre>isListArchiveAddressOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a EMailMailingListMessageHeader)</pre></td></tr>
+    <tr><td><pre>isListHelpAddressOf</pre></td><td><pre>isListHelpAddressOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a EMailMailingListMessageHeader)</pre></td></tr>
+    <tr><td><pre>isListIDOf</pre></td><td><pre>isListIDOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a EMailMailingListMessageHeader)</pre></td></tr>
+    <tr><td><pre>isListPostAddressOf</pre></td><td><pre>isListPostAddressOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a EMailMailingListMessageHeader)</pre></td></tr>
+    <tr><td><pre>isListSubscribeAddressOf</pre></td><td><pre>isListSubscribeAddressOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a EMailMailingListMessageHeader)</pre></td></tr>
+    <tr><td><pre>isListUnsubscribeAddressOf</pre></td><td><pre>isListUnsubscribeAddressOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a EMailMailingListMessageHeader)</pre></td></tr>
+    <tr><td><pre>isOriginalRecipientOf</pre></td><td><pre>isOriginalRecipientOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a MessageHeader)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from NetworkAddress</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+
+<p>
+<a name=MessageHeader>
+<table>
+<tr><td>
+
+<div class="boxtop">MessageHeader</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Message header
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a MessageHeader with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;MessageHeader-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+       <tr><td><pre>hasAttachment </pre></td><td><pre>hasAttachment</pre></td><td align=center><pre>1</pre></td><td><pre>(a InformationObject)</pre></td></tr>
+       <tr><td><pre>hasBCCAddress </pre></td><td><pre>hasBCCAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddressComponent)</pre></td></tr>
+       <tr><td><pre>hasCCAddress </pre></td><td><pre>hasCCAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddressComponent)</pre></td></tr>
+       <tr><td><pre>hasCertificate </pre></td><td><pre>hasCertificate</pre></td><td align=center><pre>N</pre></td><td><pre>(a Certification)</pre></td></tr>
+       <tr><td><pre>hasContentTransferEncoding </pre></td><td><pre>hasContentTransferEncoding</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasDeliverAfterRestriction </pre></td><td><pre>hasDeliverAfterRestriction</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasDeliverBeforeRestriction </pre></td><td><pre>hasDeliverBeforeRestriction</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasDeliveryReceiptConfirmationData </pre></td><td><pre>hasDeliveryReceiptConfirmationData</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasDeliveryReceiptRequestedFlag </pre></td><td><pre>hasDeliveryReceiptRequestedFlag</pre></td><td align=center><pre>1</pre></td><td><pre>(a Boolean)</pre></td></tr>
+       <tr><td><pre>hasDeliverySignatureRequiredFlag </pre></td><td><pre>hasDeliverySignatureRequiredFlag</pre></td><td align=center><pre>1</pre></td><td><pre>(a Boolean)</pre></td></tr>
+       <tr><td><pre>hasExpirationDate </pre></td><td><pre>hasExpirationDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+       <tr><td><pre>hasFromAddress </pre></td><td><pre>hasFromAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddressComponent)</pre></td></tr>
+       <tr><td><pre>hasGuaranteedDeliveryRestriction </pre></td><td><pre>hasGuaranteedDeliveryRestriction</pre></td><td align=center><pre>1</pre></td><td><pre>(a Boolean)</pre></td></tr>
+       <tr><td><pre>hasMessageBody </pre></td><td><pre>hasMessageBody</pre></td><td align=center><pre>N</pre></td><td><pre>(a MessageBody)</pre></td></tr>
+       <tr><td><pre>hasMessageIsEncryptedFlag </pre></td><td><pre>hasMessageIsEncryptedFlag</pre></td><td align=center><pre>1</pre></td><td><pre>(a Boolean)</pre></td></tr>
+       <tr><td><pre>hasMessageTitle </pre></td><td><pre>hasMessageTitle</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasOriginalRecipient </pre></td><td><pre>hasOriginalRecipient</pre></td><td align=center><pre>N</pre></td><td><pre>(a EMailAddress)</pre></td></tr>
+       <tr><td><pre>hasOriginalRecipientMessagePath </pre></td><td><pre>hasOriginalRecipientMessagePath</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasOriginatingIPAddress </pre></td><td><pre>hasOriginatingIPAddress</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasOriginatingOrganization </pre></td><td><pre>hasOriginatingOrganization</pre></td><td align=center><pre>N</pre></td><td><pre>(a Organization)</pre></td></tr>
+       <tr><td><pre>hasReadDate </pre></td><td><pre>hasReadDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+       <tr><td><pre>hasReadReceiptConfirmationData </pre></td><td><pre>hasReadReceiptConfirmationData</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasReadReceiptRequestedFlag </pre></td><td><pre>hasReadReceiptRequestedFlag</pre></td><td align=center><pre>1</pre></td><td><pre>(a Boolean)</pre></td></tr>
+       <tr><td><pre>hasReceiptReplyToAddress </pre></td><td><pre>hasReceiptReplyToAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddressComponent)</pre></td></tr>
+       <tr><td><pre>hasReceivedDate </pre></td><td><pre>hasReceivedDate</pre></td><td align=center><pre>N</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+       <tr><td><pre>hasRepliedDate </pre></td><td><pre>hasRepliedDate</pre></td><td align=center><pre>N</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+       <tr><td><pre>hasReplyToAddress </pre></td><td><pre>hasReplyToAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddressComponent)</pre></td></tr>
+       <tr><td><pre>hasResentMessageHeaderID </pre></td><td><pre>hasResentMessageHeaderID</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasResponse </pre></td><td><pre>hasResponse</pre></td><td align=center><pre>N</pre></td><td><pre>(a Message) or (a WeblogPosting) or (a Annotation)</pre></td></tr>
+       <tr><td><pre>hasReturnPath </pre></td><td><pre>hasReturnPath</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasSecurityReceiptConfirmationData </pre></td><td><pre>hasSecurityReceiptConfirmationData</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasSecurityReceiptRequested </pre></td><td><pre>hasSecurityReceiptRequested</pre></td><td align=center><pre>N</pre></td><td><pre>(a Boolean)</pre></td></tr>
+       <tr><td><pre>hasSentDate </pre></td><td><pre>hasSentDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+       <tr><td><pre>hasToAddress </pre></td><td><pre>hasToAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a ContactRecordSubAddressComponent)</pre></td></tr>
+       <tr><td><pre>isMessageHeaderOf </pre></td><td><pre>isMessageHeaderOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a Message) or (a MessageBody)</pre></td></tr>
+       <tr><td><pre>isReplyToMessageHeaderID </pre></td><td><pre>isReplyToMessageHeaderID</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>isResponseTo </pre></td><td><pre>isResponseTo</pre></td><td align=center><pre>N</pre></td><td><pre>(a Message) or (a WeblogPosting) or (a Annotation)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+
+
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=MessageBody>
+<table>
+<tr><td>
+
+<div class="boxtop">MessageBody</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Message body
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a MessageBody with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;MessageBody-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+       <tr><td><pre>hasPlainTextContent</pre></td><td><pre>hasPlainTextContent</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+       <tr><td><pre>hasMarkedUpContent</pre></td><td><pre>hasMarkedUpContent</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from DataRecord</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+
+
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=EMailMessageHeader>
+<table>
+<tr><td>
+
+<div class="boxtop">EMailMessageHeader</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>An email message header
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a EMailMessageHeader with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;EMailMessageHeader-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasMailer</pre></td><td><pre>hasMailer</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasMIMEType</pre></td><td><pre>hasMIMEType</pre></td><td align=center><pre>1</pre></td><td><pre>(a Thing)</pre></td></tr>
+    <tr><td><pre>hasMIMEVersion</pre></td><td><pre>hasMIMEVersion</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasXSpamStatusBoolean</pre></td><td><pre>hasXSpamStatusBoolean</pre></td><td align=center><pre>1</pre></td><td><pre>(a Boolean)</pre></td></tr>
+    <tr><td><pre>hasXSpamStatusString</pre></td><td><pre>hasXSpamStatusString</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>    
+    <tr><td><pre>hasXCaloTestId</pre></td><td><pre>hasXCaloTestId</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>    
+    <tr><td colspan=3><i>+ slots inherited from MessageHeader</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=EMailMailingListMessageHeader>
+<table>
+<tr><td>
+
+<div class="boxtop">EMailMailingListMessageHeader</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>An email mailing list header
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a EMailMailingListMessageHeader with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;EMailMailingListMessageHeader-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasListArchiveAddress</pre></td><td><pre>hasListArchiveAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a EMailAddress)</pre></td></tr>
+    <tr><td><pre>hasListHelpAddress</pre></td><td><pre>hasListHelpAddress</pre></td><td align=center><pre>1</pre></td><td><pre>(a EMailAddress)</pre></td></tr>
+    <tr><td><pre>hasListID</pre></td><td><pre>hasListID</pre></td><td align=center><pre>1</pre></td><td><pre>(a EMailAddress)</pre></td></tr>
+    <tr><td><pre>hasListPostAddress</pre></td><td><pre>hasListPostAddress</pre></td><td align=center><pre>1</pre></td><td><pre>(a EMailAddress)</pre></td></tr>
+    <tr><td><pre>hasListSubscribeAddress</pre></td><td><pre>hasListSubscribeAddress</pre></td><td align=center><pre>1</pre></td><td><pre>(a EMailAddress)</pre></td></tr>
+    <tr><td><pre>hasListUnsubscribeAddress</pre></td><td><pre>hasListUnsubscribeAddress</pre></td><td align=center><pre>1</pre></td><td><pre>(a EMailAddress)</pre></td></tr>
+
+    <tr><td colspan=3><i>+ slots inherited from EMailMessageHeader</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=Organization>
+<table>
+<tr><td>
+
+<div class="boxtop">Organization</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>An organziation
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Organization with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Organization-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasContactInformation</pre></td><td><pre>hasContactInformation</pre</td><td align=center><pre>n</pre></td><td><pre>(a ContactDataStructure)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Aggregate</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

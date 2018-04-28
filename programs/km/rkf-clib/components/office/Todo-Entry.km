@@ -1,0 +1,12 @@
+
+;;
+;; $Id: Todo-Entry.km,v 1.1 2003/10/09 20:56:09 kbarker Exp $
+;;
+
+(Todo-Entry has (superclasses (Calendar-Entry)))
+
+(every Todo-Entry has
+  (information-content ((a Event)))
+  (information-content ((the calendar-referent of Self)))
+)
+

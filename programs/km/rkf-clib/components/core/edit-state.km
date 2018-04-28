@@ -1,0 +1,16 @@
+;; 
+;;    $Id: edit-state.km,v 1.6 2007/04/10 21:29:48 jchaw Exp $
+;; 
+
+(edit-state has
+            (instance-of (CLIB-Slot-Group))
+            (superslots ())
+            (subslots ())
+            (domain (Thing))
+            #|(range (Thing))|#                ; values: *draft, *final
+            (fluent-status (*Non-Fluent))
+            (original-slot      (t))	
+            (cardinality (N-to-1)))
+
+(edit-state-of has
+   (instance-of (CLIB-Slot-Group)))

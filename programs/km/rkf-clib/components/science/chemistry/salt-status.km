@@ -1,0 +1,17 @@
+;;
+;;  $Id: salt-status.km,v 1.1 2003/03/26 19:45:28 wilder Exp $
+;;
+
+(salt-status has
+	     (instance-of (Property))
+	     (superslots  ())
+	     (subslots    ())
+	     (domain      (Compound))
+	     (range       (Salt-Status-Value))
+	     (cardinal-unit-class (UoM-Unitless))
+	     (scalar-constant-class (Salt-Status-Constant))
+	     (fluent-status (*Inertial-Fluent))
+	     (inherit-with-overrides (t))
+	     (inverse     (salt-status-of))
+	     (cardinality (N-to-1))
+	     )

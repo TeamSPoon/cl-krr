@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Conjugated-Double-Bond.km,v 1.8 2001/05/11 19:49:13 souther Exp $ 
+;; 
+
+(Conjugated-Double-Bond has
+         (superclasses (Double-Covalent-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A double bond which exists in alteration with single
+                        bonds in a carbon skeleton.  WHS:PBC-5th:61."))
+         (test-case ()))
+
+(every Conjugated-Double-Bond has 
+       (purpose ((a Connector with
+                    (in-event ((a Be-Attached-To with
+                                  (object ((a Atom)  ;; always O or N?
+                                           (a Carbon-Atom)
+                                           (exactly 2 Atom)))
+				  )))
+		    )))
+       )
+
+

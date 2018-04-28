@@ -1,0 +1,72 @@
+;; 
+;;    $Id: Deceive.km,v 1.11 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(Deceive has
+	(superclasses (Lie))
+	(required-slot (agent object recipient))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Deceive has
+	(recipient ((a Tangible-Entity)))
+	(objective ((a Interpret with
+				(agent  ((the recipient of Self))) 
+				(object ((the result of Self))))))
+	(causes ((the objective of Self)))
+)
+
+(every Deceive has-definition
+	(instance-of (Lie))
+	(causes ((the objective of Self))))
+
+;; text-gen needs rules (recipient is dobj)
+
+(Deceive has
+	(test-case ('(
+		(*big-fat-lie has (instance-of (Information))
+				  (truth ((a Truth-Value with (value (*false))))))
+		(*Guy has (instance-of (Tangible-Entity)))
+		(*Girl has (instance-of (Tangible-Entity)))
+		(*deceives has
+			(instance-of (Deceive))
+			(agent (*Guy))
+			(recipient (*Girl))
+			(object (*big-fat-lie))
+		)
+		(do-and-next *deceives)
+                (the pcs-list of *deceives)
+                (the experiencer of (the Be-Known object-of of *big-fat-lie))
+                (oneof (the Be-Known experiencer-of of *Guy) where
+                       ((the object of It) = *big-fat-lie))
+                (do-and-next (the objective of *deceives))
+                (oneof (the Be-Known experiencer-of of *Girl) where
+                       ((the object of It) = *big-fat-lie))
+		((the value of (the truth of (the object of (thelast Be-Known)))) = *false)
+		
+		
+))))
+
+
+;; automatically added WN synsets
+(Deceive has (wn16-synset ((:set  
+                                      (:triple "deceive" 1 "v")
+                                      (:triple "deceive" 2 "v")
+                                      (:triple "lead_on" 2 "v")
+                                      (:triple "delude" 1 "v")
+                                      (:triple "cozen" 1 "v")
+                                      (:triple "betray" 6 "v")
+                                      (:triple "lead_astray" 3 "v")
+))))
+
+
+(Deceive has (wn20-synset ((:set
+                                      (:triple "deceive" 1 "v")
+                                      (:triple "deceive" 2 "v")
+                                      (:triple "lead_on" 2 "v")
+                                      (:triple "delude" 1 "v")
+                                      (:triple "cozen" 1 "v")
+                                      (:triple "betray" 6 "v")
+                                      (:triple "lead_astray" 3 "v")
+))))
+(every Deceive has (text-nominalization ("deception")))

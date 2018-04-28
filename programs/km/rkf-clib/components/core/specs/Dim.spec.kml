@@ -1,0 +1,44 @@
+<!--- $Id: Dim.spec.kml,v 1.2 2008/07/21 03:08:00 tecuci Exp $ --->
+<kml>
+
+<concept name=Dim><system-documentation name=Dim>
+<superconcept name=Decrease>
+
+<definition>
+
+  A <conceptref name=Decrease> in <slot>brightness</slot>
+
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=from-value>
+    the initial value of <slot>brightness</slot> before the event
+  </slotdescription>
+
+  <slotdescription name=to-value>
+    the final value of <slot>brightness</slot> after the event
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John dimmed the lights.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=base>the lights</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+<neighborlist>
+
+  <neighbor name=Brighten>
+     To opposite of <conceptref name=Dim>
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,26 @@
+
+;;
+;;  $Id: Block-Military.km,v 1.1 2002/09/17 16:27:27 kbarker Exp $
+;;
+
+(Block-Military has
+   (superclasses (Engagement-Military-Task))
+   (description  ("a tactical mission task that prevents an enemy's advance along an avenue of approach"))
+)
+
+(every Block-Military has
+   (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                             (value ((:pair 0.9 NIL))))))
+
+   (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                             (value ((:pair 0.9 NIL))))))
+
+   (required-force-ratio 
+      ((a Required-Force-Ratio-Value with
+          (value ((:pair 0.3 NIL))))))
+
+   (text-active-verbseq-sg ("blocks"))
+   (text-active-verbseq-pl ("block"))
+
+)
+

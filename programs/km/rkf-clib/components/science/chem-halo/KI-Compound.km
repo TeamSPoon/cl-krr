@@ -1,0 +1,17 @@
+;;
+;; $Id: KI-Compound.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+(KI-Compound has 
+  (superclasses (Ionic-Compound)))
+
+(every KI-Compound has
+       (has-chemical-name ("potassium iodide"))
+       (has-part ((a K-Plus) (a I-Minus)))
+       (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 K-Plus) (:pair 1 I-Minus)))))))
+)
+(every KI-Compound has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a K-Plus) (a I-Minus))))
+

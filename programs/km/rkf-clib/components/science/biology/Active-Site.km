@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Active-Site.km,v 1.6 2001/05/01 22:29:49 pnav Exp $ 
+;; 
+
+(Active-Site has
+         (superclasses (Binding-Site))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Region of an enzyme surface to which a substrate
+                        molecule binds before it undergoes a catalyzed
+                        reaction. Alberts:ECB:G-1."))
+         (test-case ()))
+
+(every Active-Site has
+       (location-of ((must-be-a Enzyme-Catalysis)))
+       )
+
+

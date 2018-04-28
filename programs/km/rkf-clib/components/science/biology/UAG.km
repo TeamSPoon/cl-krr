@@ -1,0 +1,24 @@
+;; 
+;;    $Id: UAG.km,v 1.16 2002/06/21 19:17:03 tecuci Exp $ 
+;; 
+
+(UAG has
+     (superclasses (Protein-Stop-Codon))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A codon in mRNA which signals the termination point for
+                        translation of a polypeptide.  Souther."))
+     (cmap-correspondence ())
+     (test-case ()))
+
+(every UAG has
+
+       (element-type (Ribonucleotide))
+       (first-element (((the UMP element of Self) called "first")))
+       (element ((a UMP called "first" with
+		    (next-element (((the AMP element of Self) called "second"))))
+		 (a AMP called "second" with
+		    (next-element (((the GMP element of Self) called "third"))))
+		 (a GMP called "third"))))
+

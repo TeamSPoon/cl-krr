@@ -1,0 +1,16 @@
+;; 
+;;    $Id: element.km,v 1.12 2008/01/07 23:40:26 jchaw Exp $
+;; 
+
+(element has
+	 (instance-of (Meronymic-Relation))
+	 (domain (Aggregate Sequence))
+	 (range (Thing))
+	 (cardinality (N-to-N))
+         (original-slot      (t))	
+	 (fluent-status (*Inertial-Fluent)))
+
+(element has (text-gloss ("has as element")))
+(element-of has 
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("is an element of")))

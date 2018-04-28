@@ -1,0 +1,20 @@
+;;
+;;  $Id: atomic-symbol.km,v 1.1 2008/10/17 20:50:57 jchaw Exp $
+;;
+
+(atomic-symbol has
+		    (instance-of (EntityProperty))
+		    (superslots  ())
+		    (subslots    ())
+		    (domain      (Atom))
+		    (range       (Class))
+		    (fluent-status (*Non-Fluent))
+		    ; (inherit-with-overrides (t))
+		    (inverse     (atomic-symbol-of))
+		    (cardinality (N-to-1))
+                    (original-slot      (t))	
+		    )
+
+(atomic-symbol has (user-description ("a standard chemical abbreviation used to indicate a specific element.")))
+
+(atomic-symbol-of has (instance-of (EntityProperty)))

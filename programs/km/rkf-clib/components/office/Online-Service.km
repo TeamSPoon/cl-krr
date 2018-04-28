@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Online-Service.km,v 1.1 2005/08/25 01:57:26 billj Exp $
+;;
+
+; IRIS_class: OnLineService
+
+;; iris lists Online-Service as a subclass of Virtual-Place, SoftwareProgram and InformationService
+;; - it is more natural to say Online-Service is hosted in some Virtual-Place
+;; - also, not all Online-Services are SoftwarePrograms, they might use them as instruments,
+;; but service might be provided by humans (Google answers) 
+(Online-Service has (superclasses (Information-Service)))
+
+;; Online-Services are services that have as location a Virtual-Place
+(every Online-Service has
+       ;; conflict: range of location is Place
+       (virtual-location ((a Virtual-Place))))
+
+;; iris also has a Communication-Service under Information-Service
+;; stubby

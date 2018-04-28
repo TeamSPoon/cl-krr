@@ -1,0 +1,20 @@
+;; 
+;;    $Id: mcs-list.km,v 1.6 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(mcs-list has
+  (instance-of 	 (CLIB-Slot-Group))
+  (superslots 	 ())
+  (subslots 	 ())
+  (domain 	 (Event))
+  (range	 ())
+  (inverse 	 (mcs-list-of))
+  (cardinality 	 (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Non-Fluent)))
+
+(mcs-list-of has
+   (instance-of (CLIB-Slot-Group)))
+
+
+

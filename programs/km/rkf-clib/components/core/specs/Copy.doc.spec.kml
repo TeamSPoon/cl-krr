@@ -1,0 +1,121 @@
+<!--- $Id: Copy.doc.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Copy::doc>
+<superconcept name=Create::doc>
+
+<sme-documentation name=Copy>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Copy>
+  <definition>re-create a Tangible-Entity from an original, but not necessarily duplicate all the properties of the original.</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>the original from which the <slot>result</slot> (copy) is made</restriction>
+  </requiredslot>
+  <requiredslot name=result>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>exists as a <slot>result</slot> of the Create</restriction>
+    <restriction>resembles the <slot>object</slot>
+      <comment>the resemblance to the <slot>object</slot> may be specified
+      in components using Copy (for example, <slot>shape</slot> of 
+      <slot>result</slot> = <slot>shape</slot> of <slot>object</slot></comment>
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Create::doc>
+    <restriction>causes <slot>result</slot> to exist</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Create::doc>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>used in the Creation of the <slot>result</slot></restriction>
+  </primaryslot>
+  <primaryslot name=by-means-of>
+    <inheritedfrom name=Create::doc>
+    <restriction>an Event necessary to the Creation of the <slot>result</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>copy#5
+  </verb></wnsynsets>
+  <wnsynsets><verb>re-create#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Copy is intended to be composed as needed with <conceptref name=Create::doc>
+concepts, supplying an <slot>object</slot> and restrictions on how the
+<slot>result</slot> resembles the <slot>object</slot>.
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=copy2>
+  <sense-definition>transcribe</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=copy3>
+  <sense-definition>imitate</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=copy4>
+  <sense-definition>equal</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=copy5>
+  <sense-definition>cheat/plagiarize</sense-definition>
+  <transitivity>intransitive/transitive</transitivity>
+</sense>
+<sense tag=copy6>
+  <sense-definition>copy data</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=copy7>
+  <sense-definition>send a copy to</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDcopy2><equiv tag=copy2></sense>
+<sense tag=COBUILDcopy3><equiv tag=copy5></sense>
+<sense tag=COBUILDcopy4><equiv tag=copy1></sense>
+<sense tag=COBUILDcopy5><equiv tag=copy3></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+<sense tag=LDOCEcopy1><equiv tag=copy1></sense>
+<sense tag=LDOCEcopy2><equiv tag=copy3></sense>
+<sense tag=LDOCEcopy3><equiv tag=copy5></sense>
+<sense tag=LDOCEcopy4><equiv tag=copy2><comment>phrasal verb "copy sthg out"</comment></sense>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+<sense tag=NODEcopy4><equiv tag=copy1></sense>
+<sense tag=NODEcopy4.1><equiv tag=copy2></sense>
+<sense tag=NODEcopy4.2><equiv tag=copy3></sense>
+<sense tag=NODEcopy4.3><equiv tag=copy3></sense>
+<sense tag=NODEcopy4.4><equiv tag=copy7></sense>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNcopy#1><equiv tag=copy2></sense>
+<sense tag=WNcopy#2><equiv tag=copy3></sense>
+<sense tag=WNcopy#3><equiv tag=copy4></sense>
+<sense tag=WNcopy#4><equiv tag=copy3></sense>
+<sense tag=WNcopy#5><equiv tag=copy1></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

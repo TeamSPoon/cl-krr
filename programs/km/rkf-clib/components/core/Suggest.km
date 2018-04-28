@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Suggest.km,v 1.3 2005/10/25 03:02:11 sdbaji Exp $
+;; 
+
+(Suggest has
+	 (superclasses  (Communicate))
+       #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Suggest has
+       (object ((a Suggestion))))
+
+(Suggest has (wn20-synset ((:set
+			    (:triple "propose" 1 "v")
+			    (:triple "suggest" 1 "v")
+			    (:triple "advise"  3 "v")))))
+
+(every Suggest has (text-nominalization ("suggestion")))

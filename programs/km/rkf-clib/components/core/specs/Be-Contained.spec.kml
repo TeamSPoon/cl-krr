@@ -1,0 +1,57 @@
+<!--- $Id: Be-Contained.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Contained><system-documentation name=Be-Contained>
+<superconcept name=State>
+
+<definition>
+
+  An <slot>object</slot> is contained in a container. 
+  An object is put in this state by <conceptref name=Move-Into>.
+  An object is taken out of this state by <conceptref name=Move-Out-Of>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the thing that is contained in a container
+   </slotdescription>
+
+   <slotdescription name=base>
+      the entity that contains the <slot>object</slot>.
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+</primaryslotlist>
+<examplesentencelist>
+
+   <examplesentence>
+     <text>The candy is in the jar.</text>
+     <slotdescription name=object>candy</slotdescription>
+     <slotdescription name=base>jar</slotdescription>
+   </examplesentence>
+   
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Blocked>
+      Be-Blocked applies to Places which are inaccessible.
+   </neighbor>
+
+   <neighbor name=Be-Closed>
+      Be-Closed applies to Portals which are blocked to objects moving through.
+   </neighbor>
+
+   <neighbor name=Be-Obstructed>
+      Be-Obstructed applies to objects that are restricted in movement.
+   </neighbor>
+</neighborlist>
+   
+</kml>
+
+

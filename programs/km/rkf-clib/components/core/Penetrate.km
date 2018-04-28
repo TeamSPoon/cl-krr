@@ -1,0 +1,89 @@
+;; 
+;;    $Id: Penetrate.km,v 1.34 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Penetrate has
+  (superclasses        (Action))
+  (required-slot       (agent object))
+  (primary-slot        ())
+  (secondary-slot      ())
+  (cmap-correspondence (
+		 	(:seq object "the barrier penetrated")
+		 	(:seq agent "the penetrator")
+		       ))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Penetrate has 
+       (agent 		((a Tangible-Entity)))
+       #| implementing partial roles|#
+       (object  ((a Tangible-Entity with
+		    (plays ((a Barrier))))))
+       #|(object (((a Barrier) &
+		 (a Tangible-Entity)
+		 )))|#
+
+       ;; SOFT PCS: The soft preconditions for this action should be
+       ;;	    capture by the its subevents.
+       ;; (soft-pcs-list ())
+
+       (path 		((the result of (the Breach subevent of Self))))
+       (first-subevent  ((the Breach subevent of Self)))
+       (subevent 	((a Breach with
+		     	    (agent  	((the agent of Self)))
+		     	    (object 	((the object of Self)))
+			    (next-event ((the Go-Through subevent of Self))))
+		  	 (a Go-Through with
+		     	    (agent ((the agent of Self)))
+			    (path  ((the result of 
+				         (the Breach subevent of Self))))))))
+
+(every Penetrate has
+  (text-active-verbseq-sg ("penetrates"))
+  (text-active-verbseq-pl ("penetrate"))
+  (text-passive-verbseq-sg ("gets penetrated"))
+  (text-passive-verbseq-pl ("get penetrated"))
+
+  (text-path ("through"))
+)
+
+
+(Penetrate has
+  (test-case  ( '(
+		  (*forces has (instance-of (Tangible-Entity))
+                               (is-outside (*castle)))
+		  (*castle has (instance-of (Physical-Object))
+                               (has-part (*castle-wall)))
+		  (*castle-wall has (instance-of (Physical-Object)))
+		  (a Penetrate with 
+		     (agent (*forces))
+		     (object (*castle-wall)))
+		  
+		  (do-script (thelast Penetrate))
+		 (the text-gen of (thelast Penetrate))
+		 (forall (the subevent of (thelast Penetrate)) (the text-gen of It))
+                  #| implementing partial role
+		  ((the Portal has-region of (the Barrier plays of *castle-wall))
+                    = (the path of (thelast Penetrate)))|#
+		  ((the has-region of *castle-wall) = (the path of (thelast Penetrate)))
+
+                  (not ((the is-outside of *forces) includes *castle))
+		
+		 ))))
+
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Penetrate has (wn16-synset ((:set  
+                                        (:triple "penetrate" 1 "v")
+))))
+
+(Penetrate has (wn20-synset ((:set
+                                        (:triple "penetrate" 1 "v")
+))))
+(every Penetrate has (text-nominalization ("penetration")))

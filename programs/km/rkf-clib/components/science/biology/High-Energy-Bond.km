@@ -1,0 +1,24 @@
+;; 
+;;    $Id: High-Energy-Bond.km,v 1.12 2001/11/23 19:07:55 jarred Exp $ 
+;; 
+
+(High-Energy-Bond has
+		  (superclasses (Chemical-Bond))
+		  (required-slot ())
+		  (primary-slot ())
+		  (secondary-slot ())
+		  (cmap-correspondence ())
+		  (description ("Covalent bond whose hydrolysis releases an unusually
+                        large amount of free energy under the conditions
+                        existing in a cell.  Examples include the 
+                        phosphodiester bonds in ATP and the thioester linkage
+                        in acetyl CoA. Alberts:ECB:G-9")) 
+		  (test-case ()))
+
+;(every High-Energy-Bond has
+;       (contents ((a Chemical-Energy with
+;		     (intensity (a Intensity-Value with (value (*high))))))))
+;;  this should probaby be *strong if it gets implemented
+       
+
+

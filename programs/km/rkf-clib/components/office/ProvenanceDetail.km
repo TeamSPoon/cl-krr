@@ -1,0 +1,15 @@
+
+;; $Id: ProvenanceDetail.km,v 1.2 2004/12/21 23:37:04 billj Exp $
+
+(ProvenanceDetail has (superclasses (DataRecord)))
+
+
+(hasUpdateDate has (instance-of (Interface-Slot)) (domain (ProvenanceDetail)) (range (Time-Instant)) (inverse (isUpdateDateOf)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasUpdateAgent has (instance-of (Interface-Slot)) (domain (ProvenanceDetail)) (range (Person SoftwareAgent)) (inverse (isUpdateAgentOf)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasDataValue has (instance-of (Interface-Slot)) (domain (ProvenanceDetail)) (inverse (isDataValueOf)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasDataValueViewerURI has (instance-of (Interface-Slot)) (domain (ProvenanceDetail)) (range (String)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasDataValueConversionURI has (instance-of (Interface-Slot)) (domain (ProvenanceDetail)) (range (String)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasAgentConfidenceRating has (instance-of (Interface-Slot)) (domain (ProvenanceDetail)) (range (Number)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasUserConfidenceRating has (instance-of (Interface-Slot)) (domain (ProvenanceDetail)) (range (Number)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasDataError has (instance-of (Interface-Slot)) (domain (ProvenanceDetail)) (range (String)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+

@@ -1,0 +1,12 @@
+;;
+;; $Id: Plasma-Display.km,v 1.1 2004/10/21 19:38:41 kbarker Exp $
+;;
+
+(Plasma-Display has 
+  (superclasses (Flat-Panel-Display))
+  (feature-slot ((the feature-slot of Flat-Panel-Display)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Plasma-Display))
+  ))
+)
+

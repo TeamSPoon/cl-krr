@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Alkali-Metal-Hydroxide-Substance11518
+
+
+|#
+
+(disable-classification)
+
+(Alkali-Metal-Hydroxide-Substance has (superclasses (Hydroxide-Substance Strong-Base)))
+
+(every Alkali-Metal-Hydroxide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Alkali-Metal-Hydroxide-Substance764 has
+  (prototype-of (Alkali-Metal-Hydroxide-Substance Hydroxide-Substance))
+  (prototype-scope (Alkali-Metal-Hydroxide-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Alkali-Metal-Cation) (a OH-Minus)))))))))
+  (prototype-participants (_OH-Minus12138 _Cation770 _Chemical-Entity766 _Alkali-Metal-Hydroxide-Substance764)))
+
+(_Chemical-Entity766 has (instance-of (Ionic-Compound)) (has-part (_OH-Minus12138 _Cation770)))
+
+(_OH-Minus12138 has (instance-of (OH-Minus)))
+
+(_Cation770 has (instance-of (Alkali-Metal-Cation)))
+
+(_Alkali-Metal-Hydroxide-Substance764 has (instance-of (Alkali-Metal-Hydroxide-Substance)) (has-basic-structural-unit (_Chemical-Entity766)))
+
+(enable-classification)
+
+(explanation (:triple _Alkali-Metal-Hydroxide-Substance764 has-basic-structural-unit _Chemical-Entity766) (((@ SME entered)) (every Alkali-Metal-Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity766 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _OH-Minus12138 instance-of OH-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation770 instance-of Alkali-Metal-Cation) (((@ SME entered)) NIL))
+
+(explanation (:triple _Alkali-Metal-Hydroxide-Substance764 instance-of Alkali-Metal-Hydroxide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Alkali-Metal-Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

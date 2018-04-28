@@ -1,0 +1,12 @@
+;; 
+;;    $Id: Compute-Element-from-Molecular-Name.km,v 1.2 2003/09/10 16:59:50 jchaw Exp $
+;; 
+
+(Compute-Element-from-Molecular-Name has
+				     (superclasses (Method)))
+
+(every Compute-Element-from-Molecular-Name has
+       ;;(input ((a Thing)))
+       (output
+	((oneof (the all-subclasses of Atom)
+		where ((the has-molecular-name of It) = (the input of Self))))))

@@ -1,0 +1,17 @@
+;;
+;; $Id: Cl.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Cl has (superclasses (Non-Metal-Atom VIIA-Halogen-Element)))
+(every Cl has
+       (has-molecular-name ("chloride"))
+       (atomic-symbol (Cl))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 17 NIL))))))
+       (has-ion ((a Cl-Minus)))
+       (chemical-period (3)))
+
+(every Cl has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("chlorine"))
+)

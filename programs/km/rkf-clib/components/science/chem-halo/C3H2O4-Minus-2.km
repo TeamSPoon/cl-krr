@@ -1,0 +1,19 @@
+;; $Id: C3H2O4-Minus-2.km,v 1.8 2008/05/15 17:19:10 kunal Exp $ 
+(C3H2O4-Minus-2 has (superclasses (Anion)))
+(every C3H2O4-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("malonate" "propanedioate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 3 C)(:pair 2 H)(:pair 4 O)))))))
+)
+
+
+(every C3H2O4-Minus-2 has-definition
+  (instance-of (Chemical-Entity))
+  (charge ((a Charge-Value with (value ((:pair -2 *unity))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 3 C) (:pair 2 H) (:pair 4 O)))))))
+)
+
+
+(C3H2O4-Minus-2 has (wn20-synset ((:triple "C3H2O4-2" 0 "n") (:triple "C_3H_2O_4-2" 0 "n"))))

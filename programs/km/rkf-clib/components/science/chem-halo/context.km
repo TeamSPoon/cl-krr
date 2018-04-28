@@ -1,0 +1,15 @@
+;; 
+;; $Id: context.km,v 1.4 2006/09/29 18:57:36 jchaw Exp $
+;; 
+
+(context has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Thing))
+   (shaken-ui-hidden-slot (t))
+   #|(range (Thing))|#
+   (inverse (context-of))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+)
+
+(context-of has (instance-of (CLIB-Slot-Group)))

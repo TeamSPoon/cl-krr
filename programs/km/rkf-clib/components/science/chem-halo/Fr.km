@@ -1,0 +1,15 @@
+;;
+;; $Id: Fr.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Fr has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+(every Fr has
+       (atomic-symbol (Fr))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 87 NIL))))))
+       (has-ion ((a Fr-Plus)))
+       (chemical-period (7)))
+(every Fr has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("francium"))
+)

@@ -1,0 +1,68 @@
+
+;;
+;; $Id: Ambush.km,v 1.10 2004/01/30 22:40:13 kbarker Exp $
+;;
+
+
+(Ambush has 
+  (superclasses (Attack))
+  (description ("an attack from concealed positions on an enemy"))
+)
+
+
+(every Ambush has
+  (agent ((a Military-Unit)))
+  (object ((a Military-Unit)))
+  (object ((set-constraint
+              (((the number of 
+                     (the value of (the allegiance of TheValues))) <= 1)
+               and
+               (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+  )))
+
+  (enemy ((the object of Self)))
+
+  (first-subevent ((if (has-value (the site of Self))
+              then
+                 (if (((the location of (the agent of Self))
+                       /= (the site of Self))
+                      and
+                      ((the location of (the agent of Self))
+                       /= (the location of (the site of Self)))
+                      and
+                      ((the is-at of (the location of (the agent of Self)))
+                        /= (the is-at of (the site of Self))))
+                  then
+                     (a Move-Military-Unit with
+                        (object ((the agent of Self)))
+                        (destination ((the site of Self)))))
+  )))
+
+  (required-force-ratio 
+     ((a Required-Force-Ratio-Value with
+         (value ((:pair 0.5 NIL))))))
+
+  (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                            (value ((:pair 0.9 NIL))))))
+  (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                            (value ((:pair 0.5 NIL))))))
+
+  (pcs-list ((forall (the agent of Self)
+                     (:triple It
+                              object-of
+                              (a Be-Concealed with 
+                                 (base ((the object of Self))))) [Ambush-pcs-1]
+  )))
+
+  (text-active-verbseq-sg ("ambushes"))
+  (text-active-verbseq-pl ("ambush"))
+)
+
+(comment [Ambush-pcs-1] (:seq (the agent of Self) " must be concealed") "Ambush cannot happen unless the agents are hidden")

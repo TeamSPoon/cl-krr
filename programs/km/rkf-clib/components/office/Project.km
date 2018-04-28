@@ -1,0 +1,168 @@
+
+;;
+;; $Id: Project.km,v 1.19 2005/07/05 18:47:30 billj Exp $
+;;
+
+(Project has
+  (superclasses (Task))
+  (description ("an activity with an objective and/or a result"))
+)
+
+(every Project has
+  ;; project-name interface
+  (identifier ((a Text-Field with
+                  (information-content ((the project-name of Self)))
+  )))
+
+  ;; project-objective interface
+  (objective ((the project-objective of Self)))
+
+  ;; project-product interface
+  (result ((the Entity project-product of Self)))
+
+  ;; project-leader interface
+  (in-event-of ((the Role project-leader of Self)))
+  (in-event-of ((forall (the Person project-leader of Self)
+                        ((oneof2 (the ProjectLeader plays of It) where ((the in-event of It2) = Self))
+                         &
+                         (a ProjectLeader with (played-by (It)) (in-event (Self)))
+                        )
+  )))
+  (agent ((the Person project-leader of Self)))
+  (agent ((forall (the Role project-leader of Self)
+                  (the played-by of It)
+  )))
+
+  ;; hasParticipant interface
+  (in-event-of ((the Role hasParticipant of Self)))
+  (in-event-of ((forall (the Person hasParticipant of Self)
+                        ((oneof2 (the plays of It) where ((the in-event of It2) = Self))
+                         &
+                         (a Role with (played-by (It)) (in-event (Self)))
+                        )
+  )))
+
+
+; hasStartDate / hasEndDate interface
+(time-during ((a Time-Interval with
+            (time-begins ((the hasStartDate of Self)))
+            (time-ends ((the hasEndDate of Self))))))
+
+  ;; hasProjectStatus interface
+  (status ((the hasProjectStatus of Self)))
+  (hasProjectStatus ((the status of Self)))
+)
+
+(hasFundingSupport has (instance-of (Interface-Slot)) (domain (Project)) (range (Financing)) (cardinality (N-to-N))(inverse (isFundingSupportOf)))
+(hasBudget has (instance-of (Interface-Slot)) (domain (Project)) (range (Budget)) (cardinality (N-to-N))(inverse (isBudgetOf)))
+(hasProjectObjective has (instance-of (Interface-Slot)) (domain (Project)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1))(inverse (isProjectObjectiveOf)))
+(hasProjectOrganization has (instance-of (Interface-Slot)) (domain (Project)) (range (String)) (cardinality (N-to-N)))
+(hasProjectPriority has (instance-of (Interface-Slot)) (domain (Project)) (range (Integer)) (cardinality (N-to-1)))
+(hasProjectProduct has (instance-of (Interface-Slot)) (domain (Project)) (range (Entity)) (cardinality (N-to-N))(inverse (isProjectProductOf)))
+(hasProjectStatus has (instance-of (Interface-Slot)) (domain (Project)) (range (Status-Value)) (cardinality (N-to-1))(inverse (isProjectStatusOf)))
+
+(project-objective      has (instance-of (Interface-Slot)) (domain (Project)) (fluent-status (*Inertial-Fluent)))
+(project-name           has (instance-of (Interface-Slot)) (domain (Project)) (fluent-status (*Inertial-Fluent)))
+(project-product        has (instance-of (Interface-Slot)) (domain (Project)) (fluent-status (*Inertial-Fluent)))
+;; dgt 11/04/04 - changed name to hasParticipant
+(hasParticipant    has (instance-of (Interface-Slot)) (domain (Event Event-Entry)) (range (Person Role)) (inverse (isParticipantOf)) (fluent-status (*Inertial-Fluent)))
+
+(project-leader         has (instance-of (Interface-Slot)) (domain (Project)) (fluent-status (*Inertial-Fluent)))
+(project-funds          has (instance-of (Interface-Slot)) (domain (Project)) (fluent-status (*Inertial-Fluent)))
+(project-funding-source has (instance-of (Interface-Slot)) (domain (Project)) (fluent-status (*Inertial-Fluent)))
+(project-organization   has (instance-of (Interface-Slot)) (domain (Project)) (fluent-status (*Inertial-Fluent)))
+
+;; project-objective:      (a Event)
+;; project-name:           (a String)
+;; project-end:            (:seq (a Day-Constant) (a Number) (a Number) (a Number)) ;; day m d y
+;; project-product:        (a Entity)
+;; hasParticipant:    (a Role) or (a Person)
+;; project-leader:         (a Role) or (a Person)
+;* project-funds:          (:pair (a Number) (a UoM-Worth))
+;* project-funding-source: (a Organization) or (a Person)
+;* project-organization:   (a Organization)
+
+(Project has
+  (test-case ('(
+                (*APRAD has (instance-of (Organization)))
+                (*SWIFT has (instance-of (Organization)))
+                (*TheTimeMachine has (instance-of (Device)))
+                (*TheTimeMachineManual has (instance-of (Document)))
+                (*Abby has (instance-of (Person))
+                           (plays ((a Programmer with
+                                      (in-event (*TheTMInitiative))))))
+                (*Bess has (instance-of (Person))
+                           (plays ((a Author with
+                                      (in-event (*TheTMInitiative))))))
+                (*Carl has (instance-of (Person))
+                           (plays ((a Consultant with
+                                      (in-event (*TheTMInitiative))))))
+                (*Drew has (instance-of (Person))
+                           (plays ((a Consultant with
+                                      (in-event (*TheTMInitiative))))))
+                (*Edna has (instance-of (Person)))
+
+                (*TheTMInitiative has 
+                  (instance-of (Project))
+                  (project-objective ((a Produce with (result (*TheTimeMachine)))
+                                      (a Write with (result (*TheTimeMachineManual)))
+                  ))
+                  (project-name ("The TM Initiative"))
+                  (hasStartDate ((a Time-Instant with
+				     (time-value
+				      ((:pair 2004 *year)
+				       (:pair 2 *month)
+				       (:pair 13 *day)
+				       *Friday)))))
+                  (hasEndDate ((a Time-Instant with
+				     (time-value
+				      ((:pair 1985 *year)
+				       (:pair 10 *month)
+				       (:pair 26 *day)
+				       *Saturday)))))
+                  (project-product (*TheTimeMachine *TheTimeMachineManual))
+                  (hasParticipant (*Abby                   ;; shows how you
+                                        (the plays of *Bess)    ;; can mix and
+                                        (the plays of *Carl)    ;; match Roles and
+                                        *Drew                   ;; Persons on the
+                                        *Edna))                 ;; hasParticipant
+                  (project-leader (*Edna))
+                  (priority ((:pair *urgent Project)))
+                  (project-funds ((:pair 1000000 *usdollar)))
+                  (project-funding-source (*APRAD))
+                  (project-organization (*SWIFT))
+                )
+
+                ((the text-gen of (the time-begins of (the time-during of *TheTMInitiative)))
+                 = "Friday, February 13, 2004")
+
+                (((the number of
+		       (allof (the in-event-of of *TheTMInitiative)
+			      where (It isa Author))) = 1)
+		 and 
+		 ((the number of
+		       (allof (the in-event-of of *TheTMInitiative)
+			      where (It isa Consultant)))
+		  = 2)
+		 and
+		 ((the number of
+		       (allof (the in-event-of of *TheTMInitiative)
+			      where (It isa Programmer))) 
+		  = 1)
+		 and
+		 ((the number of
+		       (allof (the in-event-of of *TheTMInitiative)
+			      where (It isa ProjectLeader)))
+		  = 1)
+                 )
+
+                ((the plays of *Edna) isa ProjectLeader)       ;; was inferred, not stated
+))))
+
+
+
+
+
+
+
+

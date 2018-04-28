@@ -1,0 +1,13 @@
+;;
+;; $Id: NaOH-Substance.km,v 1.5 2008/11/03 03:11:27 tecuci Exp $
+;;
+
+(NaOH-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every NaOH-Substance has
+   (has-basic-structural-unit ((a NaOH)))
+)
+
+(every NaOH-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a NaOH))))

@@ -1,0 +1,16 @@
+;;
+;;    $Id: Unit-Conversion.km,v 1.5 2005/08/19 20:22:28 porter Exp $
+;;
+(Unit-Conversion has 
+		 (superclasses (Method))
+		 (description ("converts one property value directed by a given unit of measurement")))
+
+(every Unit-Conversion has
+  (input  ((a Property-Value)))
+  (target-unit ((a Unit-of-Measurement)))
+  (output ((#'(LAMBDA () 
+		      (CONVERT-CARD-VALS (KM0 '(|the| |input|  |of| |Self|)) 
+					 (KM0 '(|the| |target-unit| |of| |Self|))))))))
+
+	   
+	   

@@ -1,0 +1,45 @@
+<!--- $Id: Office-Room.spec.kml,v 1.1 2005/08/01 21:00:55 jchaw Exp $ --->
+<kml>
+
+<concept name=Office-Room>
+<system-documentation name=Office-Room>
+<superconcept name=Room>
+
+<definition>
+   A room which has the purpose of being the <slot>site</slot> for 
+   <conceptref name=Office-Work>
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the <conceptref name=Building> that the room is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Tom's office is used for managerial duties</text>
+	<slotdescription name=purpose>managerial duties</slotdescription>
+  </examplesentence>
+  <comment>
+     Implicitly, the <slot>agent</slot> of the managerial duties is Tom.
+  </comment>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Role>
+        The purpose of an Office-Room is to play the role of being
+        the site for office work.
+  </neighbor>
+
+  <neighbor name=Building>
+	A Building is a Structure that contains Persons, Tangible-Entities, Walls, a Roof, Floors, Rooms, Portals, Hallways and plaus the Role of a Container. 
+  </neighbor>
+
+</neighborlist>
+
+</kml>

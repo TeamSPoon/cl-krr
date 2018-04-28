@@ -1,0 +1,297 @@
+<html>
+<head>
+
+<title>The Provenance Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Provenance</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">This is the ontology for representing information
+about the provenance of data. Provenance records are associated with
+instances of classes and store information about the source of the
+instance, confidence in it, update history, etc.
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+<ul>
+<li>Thing
+    <ul>
+    <li>Entity
+        <ul>
+        <li>Intangible-Entity
+            <ul>
+            <li>Information
+                <ul>
+                <li>InformationObject
+                    <ul>
+                    <li>DataRecord
+                        <ul>
+                        <li><a href=#ProvenanceDetail><b>ProvenanceDetail</b></a>
+                        <li><a href=#ProvenanceRecord><b>ProvenanceRecord</b></a>
+                        </ul>
+                    <li>Software-Application
+                        <ul>
+                        <li>SoftwareAgent
+                            <ul>
+                            <li>MiningAgent
+                            </ul>
+                        </ul>
+                    <li><a href=#UpdateSchedule><b>UpdateSchedule</b></a>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+</ul>
+</div>
+</td></tr></table>
+</p>
+
+<p>
+<a name=ProvenanceDetail>
+<table>
+<tr><td>
+
+<div class="boxtop">ProvenanceDetail</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Detailed record of the provenance of one of the updates of a slot filler.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ProvenanceDetail with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ProvenanceDetail-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasUpdateDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>hasUpdateAgent</pre></td><td align=center><pre>1</pre></td><td><pre>(a Person) or (a SoftwareAgent)</pre></td></tr>
+    <tr><td><pre>hasDataValue</pre></td><td align=center><pre>1</pre></td><td><pre>(a Thing)</pre></td></tr>
+    <tr><td><pre>hasDataValueViewerURI</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasDataValueConversionURI</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasAgentConfidenceRating</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td></tr>
+    <tr><td><pre>hasUserConfidenceRating</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td></tr>
+    <tr><td><pre>hasDataError</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+
+    <tr><td colspan=3><i>+ slots inherited from DataRecord</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>see <a href=#ProvenanceRecord>ProvenanceRecord</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=ProvenanceRecord>
+<table>
+<tr><td>
+
+<div class="boxtop">ProvenanceRecord</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Record of the provenance of a slot filler.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ProvenanceRecord with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ProvenanceRecord-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasUserInterestRating</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td></tr>
+    <tr><td><pre>hasAppliedDetailRecord</pre></td><td align=center><pre>1</pre></td><td><pre>(a ProvenanceDetail)</pre></td></tr>
+    <tr><td><pre>hasDetailRecord</pre></td><td align=center><pre>n</pre></td><td><pre>(a ProvenanceDetail)</pre></td></tr>
+    <tr><td><pre>hasUpdateSchedule</pre></td><td align=center><pre>1</pre></td><td><pre>(a UpdateSchedule)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from DataRecord</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Computer with
+   (weight ((a Weight-Value with
+               (value ((the value of 
+                            (the hasDataValue of 
+                                 (the hasAppliedDetailRecord of 
+                                      (the hasProvenanceRecord of
+                                           (the weight of Self)))))))
+               (hasProvenanceRecord ((a ProvenanceRecord with
+                                        (hasAppliedDetailRecord ((a ProvenanceDetail with
+                                                                    (hasDataValue ((a Weight-Value with
+                                                                                      (value ((:pair 8.2 *pound))))))
+                                                                    (hasUpdateAgent ((a MiningAgent with
+                                                                                        (hasSourceURI ("...")))))
+                                                                    (hasAgentConfidenceRating (0.95))
+                                        )))
+                                        (hasDetailRecord ((a ProvenanceDetail with
+                                                             (hasDataValue ((a Weight-Value with
+                                                                               (value ((:pair 10 *pound))))))
+                                                             (hasUpdateAgent ((a Person with
+                                                                                 (possesses (Self)))))
+                                                             (hasAgentConfidenceRating (0.5))
+                                                             (hasError ("just guessing"))
+                                        )))
+   ))))))
+)</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=UpdateSchedule>
+<table>
+<tr><td>
+
+<div class="boxtop">UpdateSchedule</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Record of the time and frequency of updates to data.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a UpdateSchedule with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;UpdateSchedule-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasNextUpdate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>hasUpdateFrequency</pre></td><td align=center><pre>1</pre></td><td><pre>(a Frequency-Value)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from InformationObject</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a ProvenanceRecord with
+   (hasUpdateSchedule ((a UpdateSchedule with
+                          (hasNextUpdate ((a Time-Instant with
+                                             (time-day-of-week (*Friday))
+                                             (time-hour (9))
+                          )))
+                          (hasUpdateFrequency ((a Frequency-Value with
+                                                  (value ((:pair 2 *per-week)))
+                          )))
+   )))
+)</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

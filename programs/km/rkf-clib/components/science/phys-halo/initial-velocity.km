@@ -1,0 +1,24 @@
+;;    $Id: initial-velocity.km,v 1.11 2008/06/03 21:54:20 jchaw Exp $
+
+(initial-velocity has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Move))
+  (range (Velocity-Vector-Value))
+  ;(scale-class (Velocity-Scale))
+  ;(scalar-constant-class (Velocity-Constant))
+  ;(cardinal-unit-class (UoM-Speed))
+  (inverse (initial-velocity-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(initial-velocity has (wn20-synset ((:set 
+				     (:triple "initial velocity" 0 "n")
+;				     (:triple "initial speed" 0 "n")
+))))
+
+(initial-velocity-of has (instance-of (EventProperty)))
+(initial-velocity has (name ("initial velocity")))

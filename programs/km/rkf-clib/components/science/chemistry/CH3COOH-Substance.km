@@ -1,0 +1,15 @@
+;;
+;; $Id: CH3COOH-Substance.km,v 1.5 2003/04/09 17:52:41 jchaw Exp $
+;;
+
+(CH3COOH-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every CH3COOH-Substance has
+       (plays ((a Acid-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Acid))))))
+		  (default-ka ((a Equilibrium-Constant-Value with
+				  (value ((:pair 1.0e-5 nil)))))))))
+       (has-basic-structural-unit 
+	((a CH3COOH))))
+

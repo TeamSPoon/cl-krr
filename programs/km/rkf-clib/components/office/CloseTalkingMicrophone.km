@@ -1,0 +1,9 @@
+;; $Id: CloseTalkingMicrophone.km,v 1.12 2005/05/23 18:52:00 kbarker Exp $
+(CloseTalkingMicrophone has
+	(description ("A type of Microphone which can be worn a Person and thus moves around with them."))
+	(superclasses (Microphone)))
+
+(CloseTalkingMicrophone has
+  (feature-slot ((the feature-slot of Microphone)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = CloseTalkingMicrophone)))))
+

@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Retain.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Retain 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor 
+  object: Terrain-Feature <----> Location 
+  base: Military-Unit <----> Acted on 
+  duration: (required) 
+ 
+   
+ 
+  resulting-state: Be-Controlled 
+                                agent: MU called "friendly forces" agent of Self 
+                                object: Terrain-Feature object of Self 
+                                 prevents: Occupy 
+                                                     agent: MU called "enemy forces" base of Self 
+                                                     destination: Terrain-Feature object of Self 
+  
+                          Be-Prepared 
+                                agent: MU called "friendly forces" agent of Self 
+                                object: Attack with 
+                                               agent: MU called "enemy forces" base of Self 
+                                 
+Note: How to encode enemy "use" in (1) below? 
+ 
+------------------- 
+ 
+Retain (A). 
+======. 
+1. Retain is a tactical mission task in which the commander ensures that a terrain feature controlled by a friendly force remains free of enemy occupation or use. 
+2. The commander assigning this task must specify the area to retain and the duration of the retention, which is time- or event-driven. 
+3. While a unit is conducting this task, it expects the enemy to attack and prepares to become decisively engaged. 
+4. A unit tasked to retain a specific piece of terrain does not necessary have to occupy it. 

@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Walk.km,v 1.6 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Walk has
+      (description ("A type of Locomotion in which an agent, typically an Animal, uses at least two legs to move."))  
+      (superclasses (Locomotion))
+    #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Walk has 
+  (agent      ((:default (a Animal)))) 	; Some robots can walk. 
+; (instrument ((a Leg)(a Leg)))   	; Leg has not be created as of 2005-03-14.
+)
+
+(every Walk has
+  (text-active-verbseq-sg ("walks"))
+  (text-active-verbseq-pl ("walk"))
+)
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(Walk has (wn20-synset ((:set
+	   		  (:triple "walk" 1 "v")
+			  (:triple "walk" 2 "v")
+))))
+
+
+
+
+(every Walk has (text-nominalization ("walk")))

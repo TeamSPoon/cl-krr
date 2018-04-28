@@ -1,0 +1,40 @@
+
+;; 
+;;    $Id: DNA-Transcription.km,v 1.20 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(DNA-Transcription has
+        (superclasses    (Copy Produce Enzyme-Catalysis))
+        (required-slot   (result))
+        (primary-slot    (raw-material agent instrument))
+	(description ("Copying of one strand of DNA into a complementary RNA
+                       sequence by the enzyme RNA Polymerase.
+                       Alberts:ECB:1998.")))
+
+(every DNA-Transcription has
+  (agent        ((a Cell)))
+  (object 	((a Transcription-Unit)))
+  (raw-material ((a Aggregate with
+
+                    (element-type (Ribonucleotide)))))
+  (result       ((a RNA-Transcript)))
+  (instrument   ((a RNA-Polymerase)))   )
+
+
+
+
+;; Can be considered a copy by means of synthesis.
+
+(every DNA-Transcription has
+       (text-argslots ((:seq raw-material instrument result)))
+
+       (text-active-verbseq-sg ("transcribes"))
+       (text-active-verbseq-pl ("transcribe"))
+       (text-passive-verbseq-sg ("gets transcribed"))
+       (text-passive-verbseq-pl ("get transcribed"))
+)
+
+
+
+
+(every DNA-Transcription has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

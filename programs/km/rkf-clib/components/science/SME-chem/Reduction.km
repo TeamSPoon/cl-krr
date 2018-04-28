@@ -1,0 +1,49 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Reduction14701
+
+
+|#
+
+(disable-classification)
+
+(Reduction has (superclasses (Receive)))
+
+(Reduction now-has (user-description ("Gain of electrons by a substance is called reduction.")))
+
+(_Reduction14742 has
+  (prototype-of (Reduction))
+  (prototype-scope (Reduction))
+  (prototype-participants (_Electron14744 _Entity14743 _Reduction14742)))
+
+(_Reduction14742 has
+  (instance-of (Reduction))
+  (object (_Electron14744 (at-least 1 Electron) (must-be-a Thing)))
+  (recipient (_Entity14743 (must-be-a Entity))))
+
+(_Entity14743 has (instance-of (Chemical)))
+
+(_Electron14744 has (instance-of (Electron)))
+
+(enable-classification)
+
+(explanation (:triple _Reduction14742 object _Electron14744) (((@ SME entered)) (every Reduction has (object ((a Electron))))))
+
+(explanation (:triple _Reduction14742 instance-of Reduction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Entity14743 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electron14744 instance-of Electron) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Reduction has (object ((a Electron))))
+
+|#
+
+|#
+

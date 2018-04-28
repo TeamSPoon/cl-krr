@@ -1,0 +1,23 @@
+;; 
+;;    $Id: DNA-Sequence.km,v 1.18 2002/06/21 19:16:59 tecuci Exp $ 
+;; 
+
+(DNA-Sequence has
+          (superclasses (Nucleotide-Sequence))
+          (required-slot ())
+          (primary-slot ())
+          (description ("A nucleotide sequence of deoxyribonucleotides.
+                         Souther. "))
+          (secondary-slot ()) )
+
+(every DNA-Sequence has
+
+       (element-type (Deoxyribonucleotide 
+		       (at-least 1 Deoxyribonucleotide)))
+       )
+
+;       (has-part ((a 5-Prime-Deoxyribonucleotide)
+;		  (a Internal-DNA-Sequence)
+;		  (a 3-Prime-Deoxyribonucleotide) )))
+
+

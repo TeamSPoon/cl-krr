@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Terminator-Region.km,v 1.9 2001/05/31 21:50:14 pnav Exp $ 
+;; 
+
+(Terminator-Region has
+		   (superclasses (DNA-Regulatory-Region))
+		   (required-slot ())
+		   (primary-slot ())
+		   (secondary-slot ())
+		   (description ("The has-region which contains the terminator
+                                  sequences."))
+		   (cmap-correspondence ()))
+
+(every Terminator-Region has
+  (location-of ((a Terminator))))
+
+
+

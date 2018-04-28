@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Arithmetic-Product.km,v 1.2 2008/08/26 15:03:54 kbarker Exp $ 
+;; 
+
+(Arithmetic-Product has (superclasses (Arithmetic-Method)))
+(every Arithmetic-Product has 
+       (output (((the property-mult of (the input
+					 of Self))))))
+
+(every Arithmetic-Product has
+  (text-premods  ((:seq "the product of"
+                        (andify (the text-phrase of (the input of Self)))
+  )))
+)
+
+(Arithmetic-Product has (wn20-synset ((:set
+				       (:triple "product" 5 "n")
+				       (:triple "mathematical product" 1 "n")
+				       ))))

@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Protein.km,v 1.17 2001/10/10 03:57:00 tecuci Exp $ 
+;; 
+
+(Protein has
+	 (superclasses (Polypeptide))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+         (description ("Linear polymer of amino acids linked together in a
+                      specific sequence by peptide bonds.  Alberts:ECB-G-15."))
+	 (cmap-correspondence ())
+	 (test-case ()))
+
+(every Protein has
+       (element-type
+	((at-least 50 Amino-Acid)   ; usually at least (exceptions?)
+	 (at-least 1 Protein-Domain))))
+
+
+
+

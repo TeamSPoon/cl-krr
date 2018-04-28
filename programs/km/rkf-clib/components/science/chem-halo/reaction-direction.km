@@ -1,0 +1,18 @@
+;; 
+;;    $Id: reaction-direction.km,v 1.5 2008/07/04 18:08:51 jchaw Exp $ 
+;; 
+
+(reaction-direction has
+   (instance-of (EventProperty))
+   (user-description ("the direction of an equilibrium reaction, i.e. left or right"))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Equilibrium-Reaction))    
+   (range       (Reaction-Direction-Value))
+   (categorical-constant-class (Reaction-Direction-Constant))
+   (inverse 	(reaction-direction-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(reaction-direction-of has (instance-of (EventProperty)))

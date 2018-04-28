@@ -1,0 +1,9 @@
+;; $Id: HCrO4-Minus.km,v 1.2 2003/02/22 16:24:53 jchaw Exp $ 
+(HCrO4-Minus has (superclasses (Anion)))
+(every HCrO4-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("hydrogen chromate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)(:pair 1 Cr)(:pair 4 O)))))))
+)

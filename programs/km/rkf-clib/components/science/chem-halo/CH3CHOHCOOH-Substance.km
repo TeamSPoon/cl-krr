@@ -1,0 +1,17 @@
+;;
+;; $Id: CH3CHOHCOOH-Substance.km,v 1.5 2008/11/03 03:11:26 tecuci Exp $ 
+;;
+
+(CH3CHOHCOOH-Substance has (superclasses (Bronsted-Lowry-Acid)))
+(every CH3CHOHCOOH-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 1.4e-4 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("lactic"))
+	(has-basic-structural-unit ((a CH3CHOHCOOH)))
+)
+(every CH3CHOHCOOH-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a CH3CHOHCOOH))))

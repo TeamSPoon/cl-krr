@@ -1,0 +1,24 @@
+<!--- $Id: Right-Triangle.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Right-Triangle>
+<superconcept name=Triangle>
+
+<definition>
+	A <conceptref name=Triangle> where one of its <conceptref name=Vertex>es has a 90 degree angle.
+</definition>
+
+<requiredslotlist>
+   <slotdescription name=has-part>
+        The 3 <conceptref name=Line-Segment>s and 3 <conceptref name=Vertex>es (one of which has a 90 
+	degree angle specified by an <conceptref name=Angle-Value>) that make up the Right-Triangle.
+   </slotdescription>
+</requiredslotlist>
+
+<neighborlist>
+  <neighbor name=Triangle>
+	A <conceptref name=Polygon> bounded by exactly 3 <conceptref name=Line-Segment>s.
+  </neighbor>
+</neighborlist>
+
+</kml>

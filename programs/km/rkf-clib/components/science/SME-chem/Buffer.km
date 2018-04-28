@@ -1,0 +1,13 @@
+;;
+;; $Id: Buffer.km,v 1.1 2007/11/28 23:43:16 tecuci Exp $
+;;
+
+(Buffer has 
+  (superclasses     (Solution))
+  (user-description ("A solution that undergoes a limited change in pH upon addition of a small amount of acid or base.")))
+
+(every Buffer has-definition
+       (instance-of (Solution))
+       (buffer-status ((a Buffer-Status-Value with
+			  (value ((:pair *buffer nil)))))))
+

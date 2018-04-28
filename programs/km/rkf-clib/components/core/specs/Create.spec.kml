@@ -1,0 +1,79 @@
+<!--- $Id: Create.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<kml>
+
+<concept name=Create><system-documentation name=Create>
+<superconcept name=Action>
+
+<definition>
+
+  Create something, i.e. cause it to come into existence.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=result>
+     The thing that's created.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the creation.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the tool or aid that was used to create the result.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the creation.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The little pig built a house of stone.</text>
+    <slotdescription name=result>a house of stone</slotdescription>
+    <slotdescription name=agent>the little pig</slotdescription>
+  </examplesentence>
+  <comment>
+    You can represent "a house of stone" using the
+    <slot>material</slot> slot.
+  </comment>
+
+  <examplesentence>
+    <text>John sculpted a vase using a hammer and chisel. </text>
+    <slotdescription name=result>a vase</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=instrument>hammer and chisel</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The reaction created hydrogen gas. </text>
+    <slotdescription name=result>hydrogen gas</slotdescription>
+    <slotdescription name=by-means-of>the reaction</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Produce>
+     Produce involves converting raw materials to order to 
+     create the result.
+  </neighbor>
+  
+  <neighbor name=Copy>
+     Copy creates a result that resembles some original object.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

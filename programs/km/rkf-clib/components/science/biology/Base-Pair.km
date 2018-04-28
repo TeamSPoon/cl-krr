@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Base-Pair.km,v 1.16 2001/06/01 23:26:13 pnav Exp $ 
+;; 
+
+(Base-Pair has
+         (superclasses (Molecular-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Two nucleotides in an RNA or a DNA molecule that are
+                        paired by hydrogen bonds - for example, G with C, and A
+                        with T or U. Alberts:ECB:G-3."))
+         (test-case ()))
+
+(every Base-Pair has
+       (is-part-of ((a DNA-Molecule)))
+       (has-part
+	((a Nucleotide called "nucleotide 1" with
+	    (has-part 
+	     ((a Purine with
+		 (object-of
+		  ((a Be-Attached-To with
+		      (object 
+		       ((the Pyrimidine has-part of 
+			    ((the Nucleotide has-part of Self)
+			     called "nucleotide 2"))))
+		      (instrument ((a Hydrogen-Bond)
+				   (at-least 2 Hydrogen-Bond)))
+		      )))
+		 ))))
+	 (a Nucleotide called "nucleotide 2" with
+	    (has-part ((a Pyrimidine))))
+	 (exactly 2 Nucleotide)))
+       )

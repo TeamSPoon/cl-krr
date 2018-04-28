@@ -1,0 +1,13 @@
+;;
+;;    $Id: Reaction-2HI1Pt--Pt-Plus-22I-Minus1H2.km,v 1.2 2007/12/02 05:38:51 vaibhav Exp $
+;;
+
+(Reaction-2HI1Pt--Pt-Plus-22I-Minus1H2 has (superclasses (Reaction)))
+
+(every Reaction-2HI1Pt--Pt-Plus-22I-Minus1H2 has-definition
+(instance-of (Reaction))
+(raw-material ((a HI-Substance) (a Pt-Substance))))
+
+(every Reaction-2HI1Pt--Pt-Plus-22I-Minus1H2 has
+(raw-material ((a HI-Substance) (a Pt-Substance)))
+(result ((a Chemical with (has-basic-structural-unit ((a Pt-Plus-2)))) (a Chemical with (has-basic-structural-unit ((a I-Minus))))(a H2-Substance))))

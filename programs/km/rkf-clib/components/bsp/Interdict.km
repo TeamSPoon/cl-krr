@@ -1,0 +1,53 @@
+;;
+;;  $Id: Interdict.km,v 1.12 2004/01/30 22:40:14 kbarker Exp $
+;;
+
+(Interdict has
+	   (superclasses (Engagement-Military-Task))
+	   (description ("a tactical mission task to prevent, disrupt, or delay the enemy's use of an area or route"))
+	   )
+
+(every Interdict has
+       (agent ((a Military-Unit)))
+  (object ((a Military-Unit)))
+       (object ((set-constraint
+                   (((the number of 
+                          (the value of (the allegiance of TheValues))) <= 1)
+                    and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+       (enemy ((the object of Self)))
+
+  (first-subevent ((if (((the location of (the agent of Self))
+                   /= (the object of Self))
+                  and
+                   ((the location of (the agent of Self))
+                    /= (the location of (the object of Self)))
+                  and
+                   ((the is-at of (the location of (the agent of Self)))
+                     /= (the is-at of (the object of Self))))
+              then
+                 (a Move-Military-Unit with
+                    (object ((the agent of Self)))
+                    (destination ((the object of Self))))
+   )))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.95 NIL))))))
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.7 NIL))))))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 1 NIL))))))
+
+       (text-active-verbseq-sg ("interdicts"))
+       (text-active-verbseq-pl ("interdict"))
+)

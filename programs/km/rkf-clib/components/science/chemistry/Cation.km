@@ -1,0 +1,8 @@
+;    $Id: Cation.km,v 1.5 2003/01/23 18:02:00 tecuci Exp $
+
+(Cation has (superclasses (Ion)))
+
+(every Cation has
+       (charge ((must-be-a Charge-Value)
+		(constraint ((the1 of (the value of TheValue)) > 0))))
+       (plays ((a Lewis-Acid-Role))))

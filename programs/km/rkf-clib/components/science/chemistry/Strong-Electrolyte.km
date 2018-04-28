@@ -1,0 +1,139 @@
+; 
+;;    $Id: Strong-Electrolyte.km,v 1.19 2005/07/06 20:38:42 pzyeh Exp $ 
+;; 
+
+(Strong-Electrolyte has
+  (superclasses (Electrolyte))
+  (test-case ())
+)
+
+(every Strong-Electrolyte has-definition
+       (instance-of (Ionic-Compound-Substance))
+       (electrolyte-status ((a Electrolyte-Status-Value with (value
+							      ((:pair *strong nil)))))))
+
+(every Strong-Electrolyte has
+  (has-basic-structural-unit ((a Ionic-Compound with
+                                 (has-part ((a Cation) (a Anion))))))
+  (has-part (
+    (a Cation-Substance with
+       (has-basic-structural-unit (
+          (the Cation has-part of (the has-basic-structural-unit of Self))))
+       (quantity (
+          (a Quantity-Value with
+             (value (
+                (:pair 
+		   ;; put the test outside the Quantity-Value
+                   (if (the elements of 
+                                       (the term of 
+                                            (the has-chemical-formula of 
+                                                 (the has-basic-structural-unit of Self))))
+                       
+                    then
+                       ((forall (the elements of 
+                                     (the term of 
+                                          (the has-chemical-formula of 
+                                               (the has-basic-structural-unit of Self))))
+                         where 
+                            ((the2 of It) 
+                             = 
+                             (the instance-of of 
+                                  (the Cation has-part of 
+                                       (the has-basic-structural-unit of Self)))
+                            )
+                         (the1 of It)
+                        )
+                        * 
+                        (the1 of (the value of (the quantity of Self)))
+                       )
+                   )
+                   (the2 of (the value of (the quantity of Self)))
+                 [Strong-Electrolyte-quantity-of-Cation-Substance-has-part-1]
+                )
+          )))
+       ))
+    )
+    (a Anion-Substance with
+       (has-basic-structural-unit (
+          (the Anion has-part of (the has-basic-structural-unit of Self))))
+       (quantity (
+          (a Quantity-Value with
+             (value (
+                (:pair
+                   (if (the elements of 
+                                       (the term of 
+                                            (the has-chemical-formula of 
+                                                 (the has-basic-structural-unit of Self))))
+                       
+                    then
+                       ((forall (the elements of 
+                                     (the term of 
+                                          (the has-chemical-formula of 
+                                               (the has-basic-structural-unit of Self))))
+                         where
+                            ((the2 of It) 
+                             = 
+                             (the instance-of of 
+                                  (the Anion has-part of 
+                                       (the has-basic-structural-unit of Self)))
+                            )
+                         (the1 of It)
+                        )
+                        * 
+                        (the1 of (the value of (the quantity of Self)))
+                       )
+                   )
+                   (the2 of (the value of (the quantity of Self)))
+                 [Strong-Electrolyte-quantity-of-Anion-Substance-has-part-1]
+                )
+          )))
+       ))
+    )
+)))
+
+
+(comment [Strong-Electrolyte-quantity-of-Cation-Substance-has-part-1]
+   (:seq "The quantity of" (the Cation has-part of Self) 
+         "in the strong electrolyte" Self "is"
+         (the subscript of (the Cation has-part of Self)) 
+         "*"
+	 (the1 of (the value of (the quantity of Self)))
+         (the2 of (the value of (the quantity of Self)))
+         "="
+         (the1 of 
+               (the value of (the quantity of (the Cation has-part of Self))))
+         (the2 of 
+               (the value of (the quantity of (the Cation has-part of Self))))
+   )
+   "To find the quantity of the Cation in a strong electrolyte, multiply the Cat
+ion subscript by the quantity of the electrolyte."
+   (:set (:triple (the Cation has-part of Self) subscript *)
+         (:triple (the quantity of Self) value *)
+   )
+)
+
+(comment [Strong-Electrolyte-quantity-of-Anion-Substance-has-part-1]
+   (:seq "The quantity of" (the Anion has-part of Self) 
+         "in the strong electrolyte" Self "is"
+         (the subscript of (the Anion has-part of Self)) 
+         "*"
+         (the1 of (the value of (the quantity of Self)))
+         (the2 of (the value of (the quantity of Self)))
+         "="
+         (the1 of 
+               (the value of (the quantity of (the Anion has-part of Self))))
+         (the2 of 
+               (the value of (the quantity of (the Anion has-part of Self))))
+   )
+   "To find the quantity of the Anion in a strong electrolyte, multiply the Anio
+n subscript by the quantity of the electrolyte."
+   (:set (:triple (the Anion has-part of Self) subscript *)
+         (:triple (the quantity of Self) value *)
+   )
+)
+
+
+
+(Strong-Electrolyte has 
+		    (test-case
+		     ('(((a NaCl-Substance) isa Strong-Electrolyte)))))

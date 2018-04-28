@@ -1,0 +1,54 @@
+;;
+;;    $Id: Reconstitute-Unit.km,v 1.6 2004/01/30 22:40:14 kbarker Exp $
+;; 
+
+(Reconstitute-Unit has (superclasses (Non-Engagement-Military-Task)))
+
+(every Reconstitute-Unit has
+       (agent ((a Military-Unit)))
+       (object ((a Military-Unit with
+                   (allegiance ((the allegiance of (the agent of Self)))))))
+
+  (first-subevent ((if (((the location of (the agent of Self))
+                   /= (the object of Self))
+                  and
+                   ((the location of (the agent of Self))
+                    /= (the location of (the object of Self)))
+                  and
+                   ((the is-at of (the location of (the agent of Self)))
+                     /= (the is-at of (the object of Self))))
+              then
+                 (a Move-Military-Unit with
+                    (object ((the agent of Self)))
+                    (destination ((the object of Self))))
+   )))
+
+       (del-list ((:triple (the object of Self)
+                           combat-strength
+                           (the combat-strength of (the object of Self)))
+                  (:triple (the object of Self)
+                           remaining-strength
+                           (the remaining-strength of (the object of Self)))))
+
+       (add-list ((:triple (the object of Self)
+                           combat-strength
+                           (a Combat-Strength-Value with
+                              (value ((:pair *full Military-Unit)))))
+                  (:triple (the object of Self)
+                           remaining-strength
+                           (a Remaining-Strength-Value with
+                              (value ((:pair 1 NIL)))))))
+
+
+       (text-active-verbseq-sg ("reconstitutes"))
+       (text-active-verbseq-pl ("reconstitute"))
+)
+
+;; See also Neutralize-Unit, Defeat-Unit, Destroy-Unit and Annihilate-Unit;
+;; these are all Actions that set the combat-strength property of a
+;; Military-Unit.
+
+;; Ideally, Actions that set scalar values would be arranged taxonomically
+;; to match the scale (Make-Very-Bad would be a subclass of Make-Bad, e.g.).
+;; That would require some kind of subsumption mechanism for scale values.
+

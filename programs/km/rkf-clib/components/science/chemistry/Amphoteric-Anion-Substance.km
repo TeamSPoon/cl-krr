@@ -1,0 +1,35 @@
+;;
+;;    $Id: Amphoteric-Anion-Substance.km,v 1.5 2003/02/12 22:27:59 jfan Exp $
+;;
+(Amphoteric-Anion-Substance has
+		      (superclasses (Amphoteric-Substance Anion-Substance)))
+
+(every Amphoteric-Anion-Substance has-definition
+       (instance-of (Anion-Substance [Amphoteric-Anion-Substance-instance-of-1]))
+       (has-basic-structural-unit
+	((a Anion with
+	    (atomic-chemical-formula 
+	     ((constraint
+	       ;; ASSUME: the atomic-chemical-formula is written in the right order
+	       ;; and the ionizable proton is always the first H in the formula
+	       (((the2 of (the1 of
+				(the term of TheValue)))
+		 = H)
+		and
+		((the number of 
+		      (the elements of
+			   (the term of TheValue)))
+		 > 1)))))))))
+
+(comment [Amphoteric-Anion-Substance-instance-of-1]
+  (:seq (the text-gen of Self)
+        "has ionizable protons and is therefore amphoteric"
+  )
+  "Any anion that has ionizable protons is amphoteric"
+)
+
+(Amphoteric-Anion-Substance has
+			    (test-case ('(
+					  ((a Anion-Substance with (has-basic-structural-unit ((a HCO3-Minus))))
+					   isa
+					   Amphoteric-Substance)))))

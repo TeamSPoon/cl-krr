@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Tap-Water.km,v 1.1 2007/11/29 00:06:48 tecuci Exp $
+;; 
+
+(Tap-Water has (superclasses (Aqueous-Solution)))
+
+(Tap-Water has (user-description ("water directly from the spigot. In most developed nations water is piped to homes, and is available on tap. Fluoride is a typically found in tap water.")))
+
+(every Tap-Water has
+       (has-solute 
+	((a H2SiF6-Substance with
+	    (scalar-concentration 
+	     ((a Scalar-Concentration-Value with
+		 (value ((:pair *dilute Chemical))))))
+	    [Tap-Water-base-1]
+	    )))
+)
+		 
+(comment [Tap-Water-base-1]
+  ""
+  "Tap water contains fluoride.  Fluoride is added to water by introducing hydrofluosilicic acid (H2SiF6) in very small parts, resulting in a very dilute
+acid with concentration 1.0e-13 molar. The source for this information is:
+   http://www.geocities.com/CapeCanaveral/3000/fluoride.htm
+   http://www.npwa.freeserve.co.uk/cooking_the_books.html"
+  ()
+)

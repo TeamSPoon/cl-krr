@@ -1,0 +1,12 @@
+;; $Id: AgCl.km,v 1.1 2007/12/13 18:07:33 mrglass Exp $ 
+(AgCl has (superclasses (Ionic-Compound)))
+(every AgCl has
+	(has-chemical-name ("silver chloride"))
+	(has-part ((a Ag-Plus)(a Cl-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 Ag-Plus)
+			(:pair 1 Cl-Minus)))))))
+)
+
+

@@ -1,0 +1,47 @@
+;; 
+;;    $Id: Oxidation-Reduction-Reaction.km,v 1.3 2003/02/21 22:06:22 porter Exp $
+;; 
+
+(Oxidation-Reduction-Reaction has
+			 (superclasses (Reaction)))
+
+(every Oxidation-Reduction-Reaction has-definition
+       (instance-of (Reaction [Oxidation-Reduction-Reaction-instance-of-1]))
+       (oxidation-state-changes ("yes"))
+       )
+						    
+(comment [Oxidation-Reduction-Reaction-instance-of-1]
+   "Therefore, this is an oxidation reduction reaction"
+   
+   "By definition, oxidation-reduction reactions occur when electrons are transferred from the atom that is oxidized to the atom that is reduced.  We
+need to look for changes in the oxidation states of the elements in the reaction."
+
+   (:triple Self oxidation-state-changes *)
+)
+
+(Oxidation-Reduction-Reaction has
+  (test-case ('(
+		((a Reaction with
+		  (raw-material
+		   ((a Chemical with
+		       (has-basic-structural-unit
+			((a Fe-Plus-3)))
+		       (coefficient ((a Coefficient-Value with
+					(value ((:pair 2 NIL)))))))
+		   (a Chemical with
+		      (has-basic-structural-unit
+		       ((a I-Minus)))
+		      (coefficient ((a Coefficient-Value with
+				       (value ((:pair 2 NIL)))))))))
+		 (result
+		  ((a Chemical with
+		      (has-basic-structural-unit
+		       ((a Fe-Plus-2)))
+		      (coefficient ((a Coefficient-Value with
+				       (value ((:pair 2 NIL)))))))
+		   (a Chemical with
+		      (has-basic-structural-unit
+		       ((a I)))))))
+		 isa
+		 Oxidation-Reduction-Reaction)
+		))))

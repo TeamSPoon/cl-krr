@@ -1,0 +1,38 @@
+<!--- $Id: Authorized.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+<kml>
+<concept name=Authorized>
+<superconcept name=Cliche>
+<component tag=Authorized>
+  <definition>with authorization</definition>
+
+<requiredslotlist>
+	<slotdescription name=agent>the one who is authorized</slotdescription>
+
+	
+</requiredslotlist>
+
+<primaryslotlist>
+	<slotdescription name=enabled-by>the Authorize event that enabled the current Authorized</slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>John authorized Jane to sell the car.</text>
+    <comment> This is described by an Authorized Cliche with the following properties:
+    <slotdescription name=agent>Jane</slotdescription>
+    <slotdescription name=enabled-by>jane to sell the car</slotdescription>
+    </comment>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Unauthorized>
+	without authorization
+  </neighbor>
+  <neighbor name=Authorize>
+ 	the Event of granting Authorization
+  </neighbor>
+</neighborlist>
+
+</kml>
+

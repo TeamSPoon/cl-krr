@@ -1,0 +1,13 @@
+;;
+;; $Id: DLP-Projector.km,v 1.1 2004/10/19 19:31:13 kbarker Exp $
+;;
+
+(DLP-Projector has 
+  (superclasses (Projector))
+  (feature-slot ((the feature-slot of Projector)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) 
+                  where ((the domain of It) = DLP-Projector))
+  ))
+)
+
+

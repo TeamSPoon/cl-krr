@@ -1,0 +1,11 @@
+;;
+;; $Id: Ca_OH_2-Substance.km,v 1.2 2003/04/22 05:11:30 jchaw Exp $
+;;
+
+(Ca_OH_2-Substance has (superclasses (Base)))
+
+(every Ca_OH_2-Substance has 
+       (plays ((a Base-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *strong Base)))))))))
+       (has-basic-structural-unit ((a Ca_OH_2))))

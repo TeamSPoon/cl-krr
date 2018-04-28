@@ -1,0 +1,16 @@
+;; 
+;;    $Id: Compute-Compound-Computing-Method-from-Name.km,v 1.2 2003/09/10 16:59:50 jchaw Exp $
+;; 
+
+(Compute-Compound-Computing-Method-from-Name has
+					     (superclasses (Method)))
+
+(every Compute-Compound-Computing-Method-from-Name has
+       ;;(input ((a Thing)))
+       (output ((if ((the2 of (the input of Self)) = "acid")
+		    then Compute-Acid-Compound-from-Chemical-Name
+		    else (if (oneof (the all-subclasses of Cation)
+				    where ((the has-chemical-name of (an instance of It))
+					   = (the1 of (the input of Self))))
+			     then Compute-Ionic-Compound-from-Chemical-Name
+			     else Compute-Molecular-Compound-from-Chemical-Name)))))

@@ -1,0 +1,25 @@
+;; 
+;;    $Id: O2.km,v 1.7 2006/03/07 21:52:19 jfan Exp $
+;; 
+
+(O2 has (superclasses (Non-Metal-Molecule)))
+	
+(every O2 has
+       (has-part ((a O)))
+       (has-chemical-name ("oxygen gas"))
+       (has-chemical-formula
+        ((a Chemical-Formula with
+            (term ((:seq
+                    (:pair 2 O)))))))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 O))))))))
+       
+
+
+(every O2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("oxygen gas"))
+)

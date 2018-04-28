@@ -1,0 +1,122 @@
+;; 
+;;    $Id: Ionic-Compound-Substance.km,v 1.21 2005/07/06 20:38:42 pzyeh Exp $ 
+;; 
+
+(Ionic-Compound-Substance has
+			  (superclasses (Chemical))
+			  (test-case ()))
+
+(every Ionic-Compound-Substance has-definition 
+       (instance-of (Chemical [Ionic-Compound-Substance-instance-of-1]))
+       (has-basic-structural-unit ((a Ionic-Compound)
+				   (exactly 1 Ionic-Compound))))
+
+(comment [Ionic-Compound-Substance-instance-of-1]
+  (:seq (the text-gen of Self)
+        "is made up of"
+        (the text-gen of 
+             (the Anion has-part of (the has-basic-structural-unit of Self)))
+        "and"
+        (the text-gen of 
+             (the Cation has-part of (the has-basic-structural-unit of Self)))
+  )
+  "A chemical is an ionic compound if it is made up of a cation and an anion" 
+)
+
+(every Ionic-Compound-Substance has
+       (electrolyte-status 
+	((the output of (a Compute-Electrolyte-Status with (input (Self)))
+          [Ionic-Compound-Substance-electrolyte-status-1]
+       )))
+       (conductivity ((the output of [Ionic-Compound-Substance-conductivity-1]
+			   (a Compute-Conductivity-of-Ionic-Compound-in-Water with
+			      (input (Self))))))
+       (solubility ((the output of [Ionic-Compound-Substance-solubility-1]
+			 (a Compute-Solubility-of-Ionic-Compound-in-Water with
+			    (input ((the Cation has-part of (the has-basic-structural-unit of Self))
+				    (the Anion has-part of (the has-basic-structural-unit of Self))))))))
+       
+;;       (has-basic-structural-unit ((a Ionic-Compound with
+;;				      (has-part ((a Cation) (a Anion)))))))
+)
+
+(comment [Ionic-Compound-Substance-electrolyte-status-1]
+  (:seq (the text-gen of Self)
+        "is thus a"
+        (the1 of (the value of (the electrolyte-status of Self)))
+        "electrolyte"
+  )
+  (:seq "Checking the electrolyte status of"
+        (the text-gen of Self)
+  )
+  (:triple (a Compute-Electrolyte-Status with (input (Self))) output *)
+)
+
+(comment [Ionic-Compound-Substance-conductivity-1]
+  (:seq "Therefore, an aqueous solution of"
+	(the text-gen of Self)
+	"has"
+        (if (has-value (oneof (the value of (the conductivity of Self))
+                              where (not (numberp (the1 of It)))))
+         then
+            (the1 of (oneof (the value of (the conductivity of Self))
+                            where (not (numberp (the1 of It)))))
+         else (if (has-value (oneof (the value of (the conductivity of Self))
+                                    where (numberp (the1 of It))))
+               then
+                  (:seq "conductivity proportional to"
+	                (the1 of (oneof (the value of (the conductivity of Self))
+                                        where (numberp (the1 of It))))
+                  )
+              )
+        )
+  )
+  "Conductivity depends on the electrolyte status of a chemical"
+  (:triple (a Compute-Conductivity-of-Ionic-Compound-in-Water with
+              (input (Self)))
+           output
+           *
+  )
+)
+
+(comment [Ionic-Compound-Substance-solubility-1]
+  (:seq "Therefore,"
+        (the text-gen of Self)
+        "is"
+        (the1 of (the value of (the solubility of Self)))
+        "in water"
+  )
+  (:seq (the text-gen of Self)
+        "contains"
+        (the text-gen of
+             (the Cation has-part of (the has-basic-structural-unit of Self)))
+        "and"
+        (the text-gen of
+             (the Anion has-part of (the has-basic-structural-unit of Self)))
+  )
+  (:triple (a Compute-Solubility-of-Ionic-Compound-in-Water with
+              (input ((the Cation has-part of 
+                           (the has-basic-structural-unit of Self))
+                      (the Anion has-part of 
+                           (the has-basic-structural-unit of Self)))))
+           output
+           *
+  )
+;  (:set (:triple (the solubility of Self) value *)
+;        (:triple (the has-basic-structural-unit of Self) has-part *)
+;  )
+)
+
+(Ionic-Compound-Substance has 
+		(test-case ( '((*Na2CO3 has
+					(instance-of (Ionic-Compound-Substance))
+					(has-basic-structural-unit 
+					((a Ionic-Compound with
+					    (has-part ((a Na-Plus)
+						       (a CO3-Minus-2)))))))
+			       
+			       ((the term of (the has-chemical-formula of (the has-basic-structural-unit of *Na2CO3))) 
+				= 
+				((:seq (:pair 2 Na-Plus) (:pair 1 CO3-Minus-2))))))))
+			       
+			       

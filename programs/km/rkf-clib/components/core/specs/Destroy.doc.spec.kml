@@ -1,0 +1,105 @@
+<!--- $Id: Destroy.doc.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Destroy::doc>
+<superconcept name=Break::doc>
+
+<sme-documentation name=Destroy>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Destroy>
+  <definition>cause an existing Tangible-Entity to cease to exist</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>must already exist</restriction>
+    <restriction>ceases to exist</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Break::doc>
+    <restriction>causes <slot>object</slot> to cease to exist</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Break::doc>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>used in the Destruction of the <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=by-means-of>
+    <inheritedfrom name=Break::doc>
+    <restriction>an Event necessary to the Destruction of the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>destroy#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+</component>
+
+<musing>
+This is the top level component for verbs that result in an existing
+Entity ceasing to exist. But it is not at the same level as 
+<conceptref name=Create::doc>. It is one of the unexpected asymmetries in 
+the hierarchy. Cyc makes the symmetric choice anyway, resulting in 
+such curiosities as Dying, HavingAMeal and Boiling all being specific
+kinds of cause-to-cease-to-exist.<p>
+
+Note that when an Entity ceases to exist, its <slot>part</slot>s, 
+<slot>content</slot>, <slot>material</slot>, etc. may continue to exist.
+This allows things like dead bodies and <conceptref name=Take-Apart::doc>.
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=destroy2>
+  <sense-definition>ruin/damage severely</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=destroy3>
+  <sense-definition>defeat</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=destroy4>
+  <sense-definition>put to sleep</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDdestroy1.1><equiv tag={destroy1, destroy2}></sense>
+<sense tag=COBUILDdestroy1.2><equiv tag=destroy1></sense>
+<sense tag=COBUILDdestroy2><equiv tag=destroy4></sense>
+<sense tag=COBUILDdestroy3><equiv tag=destroy2></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+<sense tag=LDOCEdestroy1><equiv tag={destroy1, destroy2}></sense>
+<sense tag=LDOCEdestroy2><equiv tag=destroy4></sense>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+<sense tag=NODEdestroy1><equiv tag=destroy1></sense>
+<sense tag=NODEdestroy1.1><equiv tag=destroy2></sense>
+<sense tag=NODEdestroy1.2><equiv tag=destroy2></sense>
+<sense tag=NODEdestroy1.3><equiv tag=destroy3></sense>
+<sense tag=NODEdestroy1.4><equiv tag=destroy4></sense>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNdestroy#1><equiv tag=destroy1></sense>
+<sense tag=WNdestroy#2><equiv tag=destroy2></sense>
+<sense tag=WNdestroy#3><equiv tag=destroy3></sense>
+<sense tag=WNdestroy#4><equiv tag=destroy4></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

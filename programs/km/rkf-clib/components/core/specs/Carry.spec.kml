@@ -1,0 +1,94 @@
+<!--- $Id: Carry.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Carry><system-documentation name=Carry>
+<superconcept name=Move>
+
+<definition>
+
+  An agent moves an object by holding it while going somewhere.
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the thing that carries the object
+  </slotdescription>
+
+  <slotdescription name=object>
+     the thing being carried by the agent
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>agent</slot> (and the
+    <slot>object</slot>) before the carry
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>agent</slot> (and the
+    <slot>object</slot>) after the carry
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>agent</slot> moves
+     along during the carry.  Typically, this is an object or surface
+     along which the <slot>agent</slot> is moving.
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the Place toward which the <slot>agent</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>agent</slot> need not reach this
+    Place, but it may.
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the Place that the <slot>agent</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>agent</slot> need not start at this
+    Place, but it may.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John carried the books from his house to the library.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the books</slotdescription>
+    <slotdescription name=origin>John's house</slotdescription>
+    <slotdescription name=destination>the library</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The horse carried the pack up the hill.</text>
+    <slotdescription name=agent>the horse</slotdescription>
+    <slotdescription name=object>the pack</slotdescription>
+    <slotdescription name=toward>the top of the hill</slotdescription>
+  </examplesentence>
+
+<neighborlist>
+
+  <neighbor name=Move>
+    Carry is a special type of Move in which an agent moves both
+    itself and the thing(s) that it's holding.  
+  </neighbor>
+
+  <neighbor name=Locomotion>
+    One aspect of Carry is Locomotion, i.e. the agent moves itself.
+  </neighbor>
+
+  <neighbor name=Hold>
+    Another aspect of Carry is Hold, i.e. the agent holds the object
+    while locomoting, thereby moving the object, too.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

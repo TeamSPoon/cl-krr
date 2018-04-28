@@ -1,0 +1,13 @@
+;; $Id: C2H5NH3-Plus.km,v 1.2 2003/02/23 20:08:58 jchaw Exp $ 
+(C2H5NH3-Plus has (superclasses (Cation)))
+(every C2H5NH3-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("Ethlyammonium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 C) 
+						       (:pair 5 H)
+						       (:pair 1 N)
+						       (:pair 3 H)
+						       ))))))
+)

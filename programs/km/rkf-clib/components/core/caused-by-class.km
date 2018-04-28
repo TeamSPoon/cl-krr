@@ -1,0 +1,16 @@
+;; 
+;;    $Id: caused-by-class.km,v 1.6 2007/04/10 21:29:48 jchaw Exp $
+;; 
+
+(caused-by-class has
+                 (instance-of (CLIB-Slot-Group))
+                 (superslots ())
+                 (subslots ())
+                 (domain (Thing))    ;; Class
+                 #|(range (Thing))|#     ;; Class
+                 (fluent-status (*Non-Fluent))
+                 (original-slot      (t))	
+                 (cardinality (N-to-N)))
+
+(caused-by-class-of has
+   (instance-of (CLIB-Slot-Group)))

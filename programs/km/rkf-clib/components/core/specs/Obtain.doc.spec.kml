@@ -1,0 +1,65 @@
+<!--- $Id: Obtain.doc.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Obtain>
+<superconcept name=Receive>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Obtain>
+  <definition>intentional change of possession of an object by the recipient</definition>
+  <requiredslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+    <restriction>= <slot>recipient</slot></restriction>
+  </requiredslot>
+  <requiredslot name=recipient>
+    <inheritedfrom name=Receive>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Obtain</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Receive>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=donor>
+    <inheritedfrom name=Receive>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Obtain</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Receive>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>obtain#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Obtain is a specialization of the <conceptref name=Receive> component
+with a required <slot>agent</slot> slot that is the <slot>recipient</slot>.
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=obtain2>
+  <sense-definition>To be established, accepted, or customary
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=obtain3>
+  <sense-definition>receive a specified treament</sense-definition>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNobtain#1><equiv tag=obtain1></sense>
+<sense tag=WNobtain#2><equiv tag=obtain3></sense>
+<sense tag=WNobtain#3><equiv tag=obtain2></sense>
+
+</senselist>
+</reference>
+</kml>
+
+

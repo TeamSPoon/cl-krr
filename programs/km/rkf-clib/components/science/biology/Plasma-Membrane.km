@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Plasma-Membrane.km,v 1.26 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Plasma-Membrane has
+	  (superclasses (Biological-Membrane))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+          (description ("Membrane that surrounds a living cell. 
+                         Alberts:ECB:G-14"))
+	  (cmap-correspondence ()))
+
+(every Plasma-Membrane has  
+  (is-part-of ((a Cell)))
+  (purpose    ((a Barrier with 
+		  (in-event ((a Be-Blocked with
+			 	(object ((a Tangible-Entity with
+					    (is-outside ((the Cell is-part-of of Self)))
+			 		 )))))))
+	       (a Instrument-Role with
+		  (in-event ((a Be-Confined with
+			  	(object ((the content of 
+					      (the Cell is-part-of of Self)))) )))
+		  (is-inside ((the Cell is-part-of of Self))) )))
+
+  (has-part   ((a Lipid-Bilayer)
+	       (a Aggregate called "plasma membrane proteins" with
+
+	    	  (element-type (Protein)) ))))
+	
+;;  the proteins are embedded in the lipid layer matrix.  encloses/is inside
+;;  of is a poor descriptor.
+

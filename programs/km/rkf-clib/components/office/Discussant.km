@@ -1,0 +1,14 @@
+;; $Id: Discussant.km,v 1.2 2005/04/14 17:34:36 jchaw Exp $
+
+(Discussant has 
+  (superclasses (Participant))
+  (description ("a role played by a Participant in a Discussion"))
+)
+
+(every Discussant has
+  (in-event ((a Discussion)))
+)
+
+(Discussant has (wn20-synset ((:set
+	 		     (:triple "discussant" 1 "n")
+))))

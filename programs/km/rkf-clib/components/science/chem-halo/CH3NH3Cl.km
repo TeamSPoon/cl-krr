@@ -1,0 +1,30 @@
+;;
+;; $Id: CH3NH3Cl.km,v 1.6 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(CH3NH3Cl has (superclasses (Salt)))
+
+(every CH3NH3Cl has
+       (has-chemical-name ("methylammonium chloride"))
+       (has-part ((a CH3NH3-Plus)
+		  (a Cl-Minus)))
+       
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 CH3NH3-Plus)
+					      (:pair 1 Cl-Minus))))))
+			     )
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 C)
+					      (:pair 3 H)
+					      (:pair 1 N)
+					      (:pair 3 H)
+					      (:pair 1 Cl))))))
+			     )
+       )
+
+
+(every CH3NH3Cl has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("methylammonium chloride"))
+)

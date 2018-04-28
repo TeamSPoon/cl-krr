@@ -1,0 +1,28 @@
+<!--- $Id: MeetingRoom.spec.kml,v 1.1 2005/08/24 21:39:04 billj Exp $ --->
+<kml>
+
+<concept name=MeetingRoom>
+<system-documentation name=MeetingRoom>
+<superconcept name=Room>
+
+<definition>
+	 A Room where meetings are to be held.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the MeetingRoom is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Room>
+     A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

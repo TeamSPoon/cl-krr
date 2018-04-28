@@ -1,0 +1,96 @@
+;; 
+;;    $Id: Compute-Quantity-from-Reaction.km,v 1.1 2005/09/01 15:53:23 jfan Exp $ 
+;; 
+
+(Compute-Quantity-from-Reaction has
+				(superclasses (Method)))
+
+(every Compute-Quantity-from-Reaction has
+       (input ((a Chemical)
+	       (a Coefficient-Value)))
+       (output ((a Quantity-Value with
+		   (value ((if (oneof (the Chemical input of Self)
+				      where
+				      ((the quantity of It)
+				       and
+				       (the1 of (the value of (the quantity of It)))))
+			       then
+			   (:pair 
+			    (
+			     (the min of
+				  (the bag of
+                                       (forall (the Chemical input of Self)
+					  where
+					  ((the quantity of It)
+					   and
+					   (the1 of (the value of (the quantity of It)))
+					   )
+					  ((the1 of (the value of (the quantity of It)))
+					   /
+					   (the1 of (the value of (the coefficient of It))))))
+                             )
+			     *
+			     (the1 of (the value of (the Coefficient-Value input of Self))))
+			    *mole))))
+                   [Compute-Quantity-from-Reaction-output-1]
+       )))
+)
+
+(comment [Compute-Quantity-from-Reaction-output-1]
+  (:seq "The quantity of"
+        (the text-gen of 
+             (the coefficient-of of (the Coefficient-Value input of Self)))
+        (forall (the Chemical input of Self)
+         where ((((the1 of (the value of (the quantity of It)))
+                  /
+                  (the1 of (the value of (the coefficient of It)))
+                 )
+                 * (the1 of 
+                         (the value of 
+                              (the Coefficient-Value input of Self)))
+                )
+                = (the1 of (the value of (the output of Self)))
+               )
+         (:seq "="
+               (the1 of 
+                     (the value of (the Coefficient-Value input of Self)))
+               "* ("
+               (the1 of (the value of (the quantity of It)))
+               (the2 of (the value of (the quantity of It)))
+               ") /"
+               (the1 of (the value of (the coefficient of It)))
+         )
+        )
+        "="
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  (:seq "Given that the coefficient of"
+        (the text-gen of 
+             (the coefficient-of of (the Coefficient-Value input of Self)))
+        "is"
+        (the1 of (the value of (the Coefficient-Value input of Self)))
+        (forall (the Chemical input of Self)
+         where ((((the1 of (the value of (the quantity of It)))
+                  /
+                  (the1 of (the value of (the coefficient of It)))
+                 )
+                 * (the1 of 
+                         (the value of 
+                              (the Coefficient-Value input of Self)))
+                )
+                = (the1 of (the value of (the output of Self)))
+               )
+         (:seq "and given that the quantity of"
+               (the text-gen of It)
+               "is"
+               (the1 of (the value of (the quantity of It)))
+               (the2 of (the value of (the quantity of It)))
+               "and its coefficient is"
+               (the1 of (the value of (the coefficient of It)))
+         )
+        )
+  )
+)
+
+

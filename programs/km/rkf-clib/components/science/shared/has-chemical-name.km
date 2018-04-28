@@ -1,0 +1,18 @@
+;;
+;; $Id: has-chemical-name.km,v 1.1 2008/10/17 20:50:57 jchaw Exp $
+;;
+
+(has-chemical-name has
+		   (instance-of (CLIB-Slot-Group))
+		   (domain      (Atom))
+		   (range       (String))
+		   ; (inherit-with-overrides (t))
+		   (inverse (has-chemical-name-of))
+		   (cardinality (1-to-N))
+		   (fluent-status (*Inertial-Fluent))
+		   )
+
+(has-chemical-name has (wn20-synset ((:set
+					 (:triple "chemical name" 0 "n")))))
+
+(has-chemical-name-of has (instance-of (CLIB-Slot-Group)))

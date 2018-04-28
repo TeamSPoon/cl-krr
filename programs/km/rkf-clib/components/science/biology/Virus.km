@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Virus.km,v 1.13 2004/01/30 22:02:43 kbarker Exp $ 
+;; 
+
+(a Partition with (members (Animal Virus)))
+
+(Virus has
+	  (superclasses (Living-Entity))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (cmap-correspondence ())
+          (description ("Infectious particle consisting of nucleic acid (RNA or
+                         DNA) enclosed in a protein coat; replicates by 
+                         parasitizing the reproductive machinery of a host
+                         cell, from which new virus particles ar released to 
+                         infect other cells.  Often the cause of disease.
+                         (Alberts:ECB:G-18.)"))
+	  (test-case ()))
+
+(every Virus has
+          (has-part ((a Protein-Coat) 
+		     (a Viral-Nucleic-Acid with 
+			(is-inside ((the Protein-Coat 
+					 has-part of Self)
+						      ))))))
+
+
+
+
+
+
+
+
+
+
+(every Virus has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

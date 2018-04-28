@@ -1,0 +1,90 @@
+;; 
+;; $Id: Transmit.km,v 1.10 2005/10/25 03:02:11 sdbaji Exp $
+;; 
+
+(Transmit has
+        (superclasses  (Move))
+        (required-slot (object))
+        (primary-slot  (agent recipient))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Transmit has
+        (object ((a Tangible-Entity with (plays ((a Signal))))))
+        (recipient ((must-be-a Tangible-Entity)))
+	(destination ((the location of (the recipient of Self))))
+        (agent ((must-be-a Tangible-Entity)))
+        (base ((must-be-a Tangible-Entity with (plays ((a Medium))))))
+        (instrument ((must-be-a Tangible-Entity with (plays ((a Carrier))))))
+)
+
+
+#|
+(every Transmit has
+  (text-active-verbseq-sg ("transmits"))
+  (text-active-verbseq-pl ("transmit"))
+  (text-recipient ((if (has-value (the recipient of Self))
+                    then ("to"))))
+
+  (text-argslots ((:seq agent recipient base instrument)))
+
+)
+|#
+
+(Transmit has                   
+  (test-case ('( 
+                 (*Beep has 
+			(instance-of (Entity)))
+                 (*Safety-Module has 
+			(instance-of (Tangible-Entity)))
+                 (*Gary has 
+			(instance-of (Tangible-Entity)))
+
+		 ;; The Safety-Module beeps at Gary
+                 (*Transmit has
+                        (instance-of (Transmit))
+                        (agent (*Safety-Module))
+                        (recipient (*Gary))
+                        (object (*Beep))
+		 )
+
+                 (do-and-next *Transmit)
+		 
+		 (the text-gen of (thelast Transmit))
+	)))
+)
+
+
+;; automatically added WN synsets
+(Transmit has (wn16-synset ((:set
+                                       (:triple "transmit" 1 "v")
+                                       (:triple "transmit" 2 "v")
+                                       (:triple "transmit" 4 "v")
+                                       (:triple "convey" 3 "v")
+                                       (:triple "convey" 4 "v")
+                                       (:triple "communicate" 3 "v")
+                                       (:triple "conduct" 5 "v")
+                                       (:triple "carry" 3 "v")
+                                       (:triple "channel" 1 "v")
+                                       (:triple "transfer" 7 "v")
+                                       (:triple "transport" 5 "v")
+                                       (:triple "channel" 3 "v")
+                                       (:triple "channelize" 1 "v")
+))))
+
+(Transmit has (wn20-synset ((:set
+                                       (:triple "transmit" 1 "v")
+                                       (:triple "transmit" 2 "v")
+                                       (:triple "transmit" 4 "v")
+                                       (:triple "convey" 5 "v")
+                                       (:triple "communicate" 1 "v")
+                                       (:triple "conduct" 4 "v")
+                                       (:triple "carry" 3 "v")
+                                       (:triple "channel" 1 "v")
+                                       (:triple "transfer" 7 "v")
+                                       (:triple "transport" 5 "v")
+                                       (:triple "channel" 3 "v")
+                                       (:triple "channelize" 3 "v")
+))))
+
+(every Transmit has (text-nominalization ("transmission")))

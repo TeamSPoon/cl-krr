@@ -1,0 +1,20 @@
+;; 
+;; $Id: Piece-of-Stone.km,v 1.2 2004/09/09 23:45:31 gking Exp $
+;; 
+
+(Piece-of-Stone has
+  (superclasses (Piece-of-Substance))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (cmap-correspondence ())
+)
+
+(every Piece-of-Stone has
+  (material ((a Stone)))
+)
+
+(Piece-of-Stone has (wn20-synset ((:set
+				   (:triple "stone" 1 "n")
+				   (:triple "rock" 1 "n")
+))))

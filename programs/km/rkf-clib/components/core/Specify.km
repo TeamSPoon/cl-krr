@@ -1,0 +1,43 @@
+;; 
+;; $Id: Specify.km,v 1.4 2005/10/25 03:02:11 sdbaji Exp $
+;; 
+
+(Specify has
+  (superclasses (Action))
+  (description ("create a specification (a feature-value description of) some object"))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Specify has
+  (object ((a Entity)))
+  (result ((a Specification)))     ;; see Specification.km for axioms
+)
+
+(Specify has (wn20-synset ((:set
+	   		  (:triple "stipulate" 1 "v")
+	   		  (:triple "qualify" 5 "v")
+	   		  (:triple "condition" 3 "v")
+	   		  (:triple "specify" 1 "v")
+	   		  (:triple "specify" 2 "v")
+	   		  (:triple "define" 2 "v")
+	   		  (:triple "delineate" 2 "v")
+	   		  (:triple "delimit" 1 "v")
+			  (:triple "delimitate" 1 "v")
+			  (:triple "specify" 3 "v")
+	   		  (:triple "set" 3 "v")
+	   		  (:triple "determine" 4 "v")
+	   		  (:triple "fix" 3 "v")
+	   		  (:triple "limit" 3 "v")
+	   		  (:triple "specify" 4 "v")
+	   		  (:triple "particularize" 1 "v")
+	   		  (:triple "particularise" 1 "v")
+	   		  (:triple "specialize" 2 "v")
+	   		  (:triple "specialise" 2 "v")
+	   		  (:triple "pin_down" 1 "v")
+	   		  (:triple "peg_down" 2 "v")
+	   		  (:triple "nail_down" 2 "v")
+	   		  (:triple "narrow_down" 1 "v")
+	   		  (:triple "narrow" 2 "v")
+	   		  (:triple "specify" 5 "v")
+))))
+(every Specify has (text-nominalization ("specification")))

@@ -1,0 +1,21 @@
+;; 
+;;    $Id: ATPase.km,v 1.2 2001/06/12 20:16:30 pzyeh Exp $
+;; 
+
+(ATPase has
+        (superclasses (Phosphatase))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (cmap-correspondence ())
+        (description ("Enzyme that removes a phosphate group from ATP.
+                       molecule. see Alberts:ECB:168."))
+        (test-case ()))
+
+(every ATPase has       
+       (purpose ((a Catalyst with
+                    (in-event ((a ATP-Hydrolysis)))
+		    ))))
+
+
+

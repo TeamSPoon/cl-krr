@@ -1,0 +1,293 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1C3H85O2--3CO24H2O ----------
+
+(Reaction-1C3H85O2--3CO24H2O has (superclasses (Reaction)))
+
+(_Reaction-1C3H85O2--3CO24H2O4954 has 
+  (instance-of (Reaction-1C3H85O2--3CO24H2O))
+  (prototype-of (Reaction-1C3H85O2--3CO24H2O))
+  (prototype-scope (Reaction-1C3H85O2--3CO24H2O))
+  (prototype-participants (_Property-Node5020
+                           _Property-Node5019
+                           _Property-Node5018
+                           _Property-Node5017
+                           _Chemical-Entity5016
+                           _Chemical5014
+                           _Coefficient-Value5013
+                           _Chemical-Entity5011
+                           _Chemical5010
+                           _Coefficient-Value5009
+                           _Chemical-Entity5008
+                           _Chemical5006
+                           _Coefficient-Value5005
+                           _Chemical-Entity5003
+                           _Chemical5002
+                           _Coefficient-Value5001
+                           _Reaction-1C3H85O2--3CO24H2O4954))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (big-nodes (_Property-Node5017
+              _Property-Node5018
+              _Property-Node5019
+              _Property-Node5020))
+  (raw-material (_Chemical5010
+                 _Chemical5014))
+  (result (_Chemical5002
+           _Chemical5006))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical5002 t)
+                    (:seq raw-material _Chemical5010 t)
+                    (:seq raw-material _Chemical5014 t)
+                    (:seq result _Chemical5006 t))))
+
+(_Property-Node5020 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5005))
+  (contains-edge ((:triple _Coefficient-Value5005 value (:pair 4 *unity))))
+  (big-node-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Property-Node5019 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5001))
+  (contains-edge ((:triple _Coefficient-Value5001 value (:pair 3 *unity))))
+  (big-node-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Property-Node5018 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5013))
+  (contains-edge ((:triple _Coefficient-Value5013 value (:pair 5 *unity))))
+  (big-node-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Property-Node5017 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5009))
+  (contains-edge ((:triple _Coefficient-Value5009 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Chemical-Entity5016 has 
+  (instance-of (Chemical-Entity
+                O2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5014))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Chemical5014 has 
+  (has-basic-structural-unit (_Chemical-Entity5016))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value5013))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5013 t)))
+  (raw-material-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Coefficient-Value5013 has 
+  (contains-node-of (_Property-Node5018))
+  (coefficient-of (_Chemical5014))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 5 *unity)))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Chemical-Entity5011 has 
+  (instance-of (Chemical-Entity
+                C3H8))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5010))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Chemical5010 has 
+  (has-basic-structural-unit (_Chemical-Entity5011))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value5009))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5009 t)))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Coefficient-Value5009 has 
+  (contains-node-of (_Property-Node5017))
+  (coefficient-of (_Chemical5010))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Chemical-Entity5008 has 
+  (instance-of (Chemical-Entity
+                H2O))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5006))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Chemical5006 has 
+  (has-basic-structural-unit (_Chemical-Entity5008))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value5005))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5005 t)))
+  (result-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Coefficient-Value5005 has 
+  (contains-node-of (_Property-Node5020))
+  (coefficient-of (_Chemical5006))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 4 *unity)))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Chemical-Entity5003 has 
+  (instance-of (Chemical-Entity
+                CO2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5002))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Chemical5002 has 
+  (has-basic-structural-unit (_Chemical-Entity5003))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1C3H85O2--3CO24H2O4954))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value5001))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5001 t)))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(_Coefficient-Value5001 has 
+  (contains-node-of (_Property-Node5019))
+  (coefficient-of (_Chemical5002))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 3 *unity)))
+  (prototype-participant-of (_Reaction-1C3H85O2--3CO24H2O4954)))
+
+(explanation (:triple _Reaction-1C3H85O2--3CO24H2O4954 result _Chemical5006)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Reaction-1C3H85O2--3CO24H2O4954 raw-material _Chemical5014)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Reaction-1C3H85O2--3CO24H2O4954 raw-material _Chemical5010)
+  ((a Chemical (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction raw-material))))
+(explanation (:triple _Reaction-1C3H85O2--3CO24H2O4954 result _Chemical5002)
+  ((a Chemical (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction result))))
+(explanation (:triple _Reaction-1C3H85O2--3CO24H2O4954 chemical-equation _Chemical-Equation-Expression4956)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1C3H85O2--3CO24H2O4954) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1C3H85O2--3CO24H2O4954) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1C3H85O2--3CO24H2O4954) (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1C3H85O2--3CO24H2O4954 instance-of Reaction-1C3H85O2--3CO24H2O)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical-Entity5016 atomic-chemical-formula _Chemical-Formula4976)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity5016)) or (the term of (the has-chemical-formula of _Chemical-Entity5016)) (@ _Chemical-Entity5016 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5016)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5016))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity5016)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity5016)))))))))) (@ _Chemical-Entity5016 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity5016 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity5016 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5016 nested-atomic-chemical-formula _Chemical-Formula4974)
+  ((_Chemical-Formula4974)))
+(explanation (:triple _Chemical-Entity5016 nested-atomic-chemical-formula _Chemical-Formula4974)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 O)))) (@ _Chemical-Entity5016 O2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5016 instance-of O2)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical-Entity5016 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5014 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5014 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical5014 coefficient _Coefficient-Value5013)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical5014 has-basic-structural-unit _Chemical-Entity5016)
+  ((a Chemical-Entity (@ _Chemical5014 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5014 instance-of Chemical)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Coefficient-Value5013 value (:pair 5 *unity))
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Coefficient-Value5013 instance-of Coefficient-Value)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical-Entity5011 atomic-chemical-formula _Chemical-Formula4993)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity5011)) or (the term of (the has-chemical-formula of _Chemical-Entity5011)) (@ _Chemical-Entity5011 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5011)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5011))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity5011)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity5011)))))))))) (@ _Chemical-Entity5011 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity5011 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity5011 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5011 nested-atomic-chemical-formula _Chemical-Formula4994)
+  ((a Chemical-Formula with (term ((:seq (:pair 3 C) (:pair 8 H)))) (@ _Chemical-Entity5011 C3H8 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5011 atomic-chemical-formula _Chemical-Formula4993)
+  ((a Chemical-Formula (@ _Chemical-Entity5011 Hydrocarbon-Molecule atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5011 instance-of C3H8)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical-Entity5011 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5010 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5010 has-basic-structural-unit _Chemical-Entity5011)
+  ((a Chemical-Entity (@ _Chemical5010 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5010 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical5010 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction raw-material))))
+(explanation (:triple _Chemical5010 coefficient _Coefficient-Value5009)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical5010 instance-of Chemical)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Coefficient-Value5009 value (:pair 1 *unity))
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Coefficient-Value5009 instance-of Coefficient-Value)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical-Entity5008 atomic-chemical-formula _Chemical-Formula4991)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity5008)) or (the term of (the has-chemical-formula of _Chemical-Entity5008)) (@ _Chemical-Entity5008 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5008)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5008))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity5008)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity5008)))))))))) (@ _Chemical-Entity5008 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity5008 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity5008 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5008 nested-atomic-chemical-formula _Chemical-Formula4989)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 O)))) (@ _Chemical-Entity5008 H2O nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5008 instance-of H2O)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical-Entity5008 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5006 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5006 instance-of Entity)
+  ((a Entity (@ _Reaction-1C3H85O2--3CO24H2O4954 Event (result must-be-a)))))
+(explanation (:triple _Chemical5006 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical5006 coefficient _Coefficient-Value5005)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical5006 has-basic-structural-unit _Chemical-Entity5008)
+  ((a Chemical-Entity (@ _Chemical5006 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5006 instance-of Chemical)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Coefficient-Value5005 value (:pair 4 *unity))
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Coefficient-Value5005 instance-of Coefficient-Value)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical-Entity5003 instance-of CO2)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical-Entity5003 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5002 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5002 has-basic-structural-unit _Chemical-Entity5003)
+  ((a Chemical-Entity (@ _Chemical5002 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5002 instance-of Entity)
+  ((a Entity (@ _Reaction-1C3H85O2--3CO24H2O4954 Event (result must-be-a)))))
+(explanation (:triple _Chemical5002 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical5002 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1C3H85O2--3CO24H2O4954 Reaction result))))
+(explanation (:triple _Chemical5002 coefficient _Coefficient-Value5001)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Chemical5002 instance-of Chemical)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Coefficient-Value5001 value (:pair 3 *unity))
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+(explanation (:triple _Coefficient-Value5001 instance-of Coefficient-Value)
+  ((added-at Reaction-1C3H85O2--3CO24H2O "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

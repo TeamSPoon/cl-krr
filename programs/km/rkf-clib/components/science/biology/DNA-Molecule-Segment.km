@@ -1,0 +1,41 @@
+;; 
+;;    $Id: DNA-Molecule-Segment.km,v 1.12 2002/06/21 19:16:59 tecuci Exp $
+;; 
+
+(DNA-Molecule-Segment has
+     (superclasses (DNA-Double-Strand)) 
+     (required-slot  ())
+     (primary-slot   ())
+     (secondary-slot ())
+     (description    ("A segment of a DNA molecule.  Souther."))
+     (cmap-correspondence ()))
+
+(every DNA-Molecule-Segment has
+       (material ((a DNA-Substance)))
+
+       (element-type (Base-Pair))
+       (has-structural-part 
+	 ((a DNA-Sequence called "DNA-Strand-1-segment" with
+	     (complement (((the DNA-Sequence has-part of Self)
+			   called "DNA-Strand-2-segment")))
+	     (object-of  ((a Be-Attached-To with
+			     (object 	 (((the has-part of Self) 
+				       	   called "DNA-Strand-2-segment")))
+			     (instrument ((a Chemical-Sequence with
+
+					     (element-type (Hydrogen-Bond))))
+				         )))))
+	  (a DNA-Sequence called "DNA-Strand-2-segment")))
+       )
+
+
+
+
+
+
+
+
+
+
+
+

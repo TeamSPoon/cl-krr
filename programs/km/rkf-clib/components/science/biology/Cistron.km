@@ -1,0 +1,22 @@
+;;
+;;    $Id: Cistron.km,v 1.7 2001/06/19 23:15:46 souther Exp $
+;; 
+
+(Cistron has
+         (superclasses (Genetic-Information))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("The smallest unit of DNA that must be intact to code 
+                        for the amino acid sequence of a polypeptide; thus,
+                        the coding part of a gene, minus 5' and 3' untranslated
+                        sequences and regulatory elements. Matthews:BC:1150."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Cistron has
+       (has-basic-functional-unit ((a DNA-Codon)))
+)
+
+
+              

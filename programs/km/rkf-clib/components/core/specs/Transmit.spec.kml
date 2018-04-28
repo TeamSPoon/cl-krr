@@ -1,0 +1,63 @@
+<!--- $Id: Transmit.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+<kml>
+
+<concept name=Transmit><system-documentation name=Transmit>
+<superconcept name=Move>
+
+<definition>
+
+  A <conceptref name=Signal> moves to one or more <slot>recipient</slot>s. 
+
+</definition>
+
+<comment>
+   Transmit is the second step of <conceptref name=Convey> (which itself 
+   is a step of <conceptref name=Communicate>). For perspective, 
+   here's the overall model of convey.  First, a <conceptref name=Message>
+   is <conceptref name=Embody>'ed as a Tangible-Entity. 
+   Second, that entity, playing the role
+   of a <conceptref name=Signal>, is <conceptref name=Transmit>ed to
+   the <slot>recipient</slot>s. Finally, the signal is <conceptref name=Sense>d
+   by the recipient and converted back into a message.
+</comment>
+
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the <conceptref name=Tangible-Entity>, playing the role of a
+     <conceptref name=Signal>, that is transmitted
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the <conceptref name=Tangible-Entity> doing the transmitting
+  </slotdescription>
+
+  <slotdescription name=recipient>
+    the <conceptref name=Tangible-Entity> receiving the signal. The 
+    location of the recipient is assumed to be the <slot>destination</slot>
+    of the transmission.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the <conceptref name=Tangible-Entity>, playing the role of
+    <conceptref name=Carrier> for the signal
+  </slotdescription>
+
+  <slotdescription name=base>
+   the <conceptref name=Tangible-Entity>, playing the role of
+   <conceptref name=Medium> through which the signal moves
+  </slotdescription>
+
+</primaryslotlist>
+
+<comment>
+   See also the "Common Relationships" used to describe any 
+   <conceptref name=Move>
+</comment>
+
+</kml>

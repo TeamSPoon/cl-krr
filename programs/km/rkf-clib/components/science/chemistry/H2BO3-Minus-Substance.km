@@ -1,0 +1,15 @@
+;; 
+;;    $Id: H2BO3-Minus-Substance.km,v 1.2 2003/09/10 16:59:50 jchaw Exp $
+;; 
+
+(H2BO3-Minus-Substance has (superclasses (Anion-Substance)))
+(every H2BO3-Minus-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 1.72e-5 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a H2BO3-Minus)))
+)

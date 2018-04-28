@@ -1,0 +1,16 @@
+;;
+;;    $Id: CD-Drive.km,v 1.3 2005/04/15 06:16:41 gking Exp $
+;;
+
+(CD-Drive has 
+  (superclasses (Optical-Drive))
+  (feature-slot ((the feature-slot of Optical-Drive)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = CD-Drive))
+  ))
+)
+
+(CD-Drive has (wn20-synset ((:set
+			     (:triple "CD_drive" 1 "n")
+))))
+

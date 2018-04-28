@@ -1,0 +1,103 @@
+; 
+;;    $Id: Metal-Hydride-Water-Reaction.km,v 1.7 2005/09/02 18:14:32 jfan Exp $ 
+;; 
+
+(Metal-Hydride-Water-Reaction has (superclasses (Reaction)))
+
+(every Metal-Hydride-Water-Reaction has-definition
+       (instance-of (Reaction [Metal-Hydride-Water-Reaction-instance-of-1]))
+       (raw-material ((a H2O-Substance)
+                      (a Salt-Substance with
+                         (has-basic-structural-unit
+                          ((a Salt with
+                              (has-part ((a H-Minus)
+                                         (a Cation)
+                                         ))))))
+       ))
+)
+
+(comment [Metal-Hydride-Water-Reaction-instance-of-1]
+  (:seq "This reaction involves"
+        "water and"
+        (the text-gen of (the Salt-Substance raw-material of Self))
+        "(an ionic hydride) and is therefore a metal hydride-water reaction"
+  )
+  "A reaction involving water and an ionic hydride is a metal hydride-water reaction"
+)
+
+
+(every Metal-Hydride-Water-Reaction has
+       (result (
+                (if ((the output of
+			  ;; see if the metal is more active than H
+			  (a Compute-Activity-Series with
+			     (input ((the Cation has-part of
+					  (the has-basic-structural-unit
+					       of 
+					       (the Salt-Substance raw-material of Self)))
+				     (the Anion has-part of
+					  (the has-basic-structural-unit
+					       of 
+					       (the Salt-Substance raw-material of Self)))
+				     ))))
+		     = "yes"
+		     )
+		    then (:set
+			  (a H2-Substance with
+			     (physical-state ((a State-Value with
+					(value (*gas))))))
+			  (a Ionic-Compound-Substance with
+			     (has-basic-structural-unit (
+							 (a Ionic-Compound with
+							    (has-part (
+								       (the Cation has-part of
+									    (the has-basic-structural-unit of
+										 (the Salt-Substance raw-material of Self)))
+								       (a OH-Minus))))))
+			     )
+			  )
+		    [Metal-Hydride-Water-Reaction-result-1]
+		    )))
+       )
+
+(Metal-Hydride-Water-Reaction 
+ has
+ (test-case ('(
+	       ((the number of
+		    (allof
+		     (the result of
+			  (a Reaction with
+			     (raw-material
+			      ((a Ionic-Compound-Substance with
+				  (has-basic-structural-unit 
+			      ((a Ionic-Compound with
+				  (has-chemical-formula ((a Chemical-Formula with
+							    (term ((:seq (:pair 1 Ca-Plus-2)
+									 (:pair 1 H-Minus)))))))))))
+			       (a H2O-Substance)))))
+		     where 
+		     ((It isa H2-Substance)
+		      or
+		      ((the elements of
+			    (the term of 
+				 (the has-chemical-formula of 
+				      (the has-basic-structural-unit of It))))
+		       = (:set (:pair 1 Ca-Plus-2) (:pair 2 OH-Minus))))))
+	       =
+	       2)
+	       ))))
+
+(comment [Metal-Hydride-Water-Reaction-result-1]
+  (:seq "In this reaction water and"
+        (the text-gen of (the Salt-Substance raw-material of Self))
+        "react to give"
+        (andify (the text-gen of (the result of Self)))
+  )
+  "Ionic hydrides react with water to give H2(g) and a hydroxide species"
+)
+
+
+
+
+
+

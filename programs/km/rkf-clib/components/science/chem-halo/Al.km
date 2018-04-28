@@ -1,0 +1,16 @@
+;;
+;; $Id: Al.km,v 1.6 2008/10/14 19:16:12 tecuci Exp $
+;;
+
+(Al has (superclasses (Metal-Atom IIIA-Element)))
+(every Al has
+       (atomic-symbol (Al))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 13 NIL))))))
+       (has-ion ((a Al-Plus-3)))
+       (chemical-period (3)))
+
+(every Al has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("aluminum"))
+)

@@ -1,0 +1,82 @@
+;; 
+;;    $Id: Compute-Concentration-of-Ions.km,v 1.4 2005/09/02 18:25:47 jfan Exp $ 
+;; 
+
+(Compute-Concentration-of-Ions has (superclasses (Method)))
+
+(every Compute-Concentration-of-Ions has
+       (input ((a Chemical))) ;; assumed to be in a solution
+
+       (output ((if ((the input of Self) isa Strong-Electrolyte) 
+		    then
+		  (a Concentration-Value with
+		     (value (
+			     ;; compute the concentration based on Strong-Electrolyte-Solution
+			     ;; it's the total concentration of all the ions
+			     (:pair
+			      (the sum of
+				   (forall-bag
+				    (the bag of (the has-part of (the base-of of (the input of Self))))
+				    (the1 of 
+					  (the value of
+					       (the output of 
+						    (a Unit-Conversion with
+						       (input ((the concentration of It)))
+						       (target-unit (*molar))))))))
+			      *molar))))
+                 [Compute-Concentration-of-Ions-output-1]
+       )))
+
+       (output ((if ((the input of Self) isa Weak-Electrolyte) 
+		    then
+		  ;; weak electrolyte
+		  (a Concentration-Value with
+		     (value ((:pair *dilute Chemical)
+			     )))
+                 [Compute-Concentration-of-Ions-output-2]
+       )))
+       
+       ;; no electrolyte has no concentration
+       (output ((if ((not ((the input of Self) isa Strong-Electrolyte))
+		     and
+		     (not ((the input of Self) isa Weak-Electrolyte)))
+		    then
+		  (a Concentration-Value with
+		     (value ((:pair 0 *molar))))
+                 [Compute-Concentration-of-Ions-output-3]
+       )))
+)
+
+(comment [Compute-Concentration-of-Ions-output-1]
+  (:seq "The concentration of ions in"
+        (the text-gen of (the input of Self))
+        "is"
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  "If a solute is a strong electrolyte, the concentration of ions is maximal"
+  (:set (:triple (the input of Self) electrolyte-status *)
+;        (forall (the has-part of (the base-of of (the input of Self)))
+;                (:triple It concentration *)
+;        )
+  )
+)
+
+(comment [Compute-Concentration-of-Ions-output-2]
+  (:seq "The concentration of ions in"
+        (the text-gen of (the input of Self))
+        "is dilute"
+  )
+  "If a solute is a weak electrolyte, the concentration of ions is less than maximal"
+  (:triple (the input of Self) electrolyte-status *)
+)
+
+(comment [Compute-Concentration-of-Ions-output-3]
+  (:seq "The concentration of ions in"
+        (the text-gen of (the input of Self))
+        "is 0"
+  )
+  "If a solute is a non electrolyte, the concentration of ions is less than maximal"
+  (:triple (the input of Self) electrolyte-status *)
+)
+

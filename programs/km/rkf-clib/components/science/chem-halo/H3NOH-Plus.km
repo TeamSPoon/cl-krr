@@ -1,0 +1,31 @@
+;;
+;; $Id: H3NOH-Plus.km,v 1.9 2008/11/29 01:35:24 tecuci Exp $
+;;
+
+(H3NOH-Plus has (superclasses (Cation)))
+
+(every H3NOH-Plus has
+       (has-chemical-name ("hydroxylammonium"))
+       (atomic-chemical-formula ((a Chemical-Formula with
+				    (term (
+					   (:seq (:pair 1 N)
+						 (:pair 4 H)
+						 (:pair 1 O)))))))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+					   (term (
+						  (:seq (:pair 3 H)
+							(:pair 1 N)
+							(:pair 1 O)
+							(:pair 1 H)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair 1 *unity)))))))
+
+
+(every H3NOH-Plus has-definition
+  (instance-of (Chemical-Entity))
+  (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 4 H) (:pair 1 O)))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 3 H) (:pair 1 N) (:pair 1 O) (:pair 1 H)))))))
+  (charge ((a Charge-Value with (value ((:pair 1 *unity))))))
+)
+
+(H3NOH-Plus has (wn20-synset ((:triple "H3NOH+" 0 "n") (:triple "H_3NOH+" 0 "n"))))

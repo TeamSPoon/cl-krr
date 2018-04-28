@@ -1,0 +1,18 @@
+;; 
+;; $Id: in-organization.km,v 1.5 2007/04/11 21:23:39 jchaw Exp $
+;; 
+
+(in-organization has
+  (instance-of (Meronymic-Relation))
+  (superslots ())
+  (subslots ())
+  (domain (Role))
+  (range (Organization))
+  (inverse (in-organization-of))
+  (cardinality (N-to-1))
+  (original-slot      (t))	
+  (fluent-status (*Non-Fluent))
+)
+
+(in-organization-of has
+        (instance-of (Meronymic-Relation)))

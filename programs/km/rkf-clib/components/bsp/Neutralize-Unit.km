@@ -1,0 +1,59 @@
+;;
+;;    $Id: Neutralize-Unit.km,v 1.10 2002/09/19 21:18:40 kbarker Exp $
+;; 
+
+(Neutralize-Unit has (superclasses (Engagement-Military-Task)))
+
+(every Neutralize-Unit has
+       (agent ((a Military-Unit)))
+  (object ((a Military-Unit)))
+       (object ((set-constraint
+                   (((the number of 
+                          (the value of (the allegiance of TheValues))) <= 1)
+                    and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+       (enemy ((the object of Self)))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.95 NIL))))))
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.7 NIL))))))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 1 NIL))))))
+
+       (del-list ((forall (the object of Self)
+                          (:triple It
+                                   combat-strength
+                                   (the combat-strength of It))
+       )))
+
+       (add-list ((forall (the object of Self)
+                          (:triple It
+                                   combat-strength
+                                   (a Combat-Strength-Value with
+                                      (value
+                                         ((:pair *neutralized Military-Unit)))))
+       )))
+
+       (text-active-verbseq-sg ("neutralizes"))
+       (text-active-verbseq-pl ("neutralize"))
+)
+
+;; See also Defeat-Unit, Destroy-Unit, Annihilate-Unit and Reconstitute-Unit;
+;; these are all Actions that set the combat-strength property of a
+;; Military-Unit.
+
+;; Ideally, Actions that set scalar values would be arranged taxonomically
+;; to match the scale (Make-Very-Bad would be a subclass of Make-Bad, e.g.).
+;; That would require some kind of subsumption mechanism for scale values.
+

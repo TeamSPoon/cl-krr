@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Dioxygen.km,v 1.11 2001/06/01 23:26:30 pnav Exp $ 
+;; 
+
+(Dioxygen has
+	  (superclasses (Oxygen-Molecule))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("Molecule made up of two covalently bonded oxygen atoms.
+                        Souther."))
+	  (cmap-correspondence ())
+	  (test-case ()))
+
+(every Dioxygen has
+         (has-part ((a Oxygen-Atom called "Oxygen 1")
+                    (a Oxygen-Atom called "Oxygen 2" with
+                       (object-of
+                        ((a Be-Attached-To with
+                            (object (((the Oxygen-Atom has-part of Self)
+                                     called "Oxygen 1")))
+;                           (instrument ((a Double-Covalent-OO-Bond)))
+                            )))))))
+

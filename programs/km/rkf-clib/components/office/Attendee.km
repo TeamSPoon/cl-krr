@@ -1,0 +1,48 @@
+;; 
+;; $Id: Attendee.km,v 1.5 2005/05/05 21:48:57 billj Exp $
+;; 
+
+;; Note that as of 2005-05-05 there are the following role classes
+;; that are in some sense related to Attendee yet on not closely
+;; connected via axioms, subclasses assertions etc: Presenter,
+;; Discussant, EventPresenterOrSpeaker.
+
+(Attendee has
+  (superclasses (Role))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (test-case ())
+)
+
+(every Attendee has
+  (in-event ((a Meeting)))
+
+  (played-by ((must-be-a Person)))
+
+;; revisit this once time-eq is implemented
+#|
+  ;; check all the Attendee roles of the person to make sure
+  ;; that none of the Meetings start at the same time as this one
+  (played-by ((constraint (if ((the number of (the Attendee plays of TheValue)) = 1)
+                           then t
+                           else (forall (the Attendee plays of TheValue)
+                                 where (It /= Self)
+                                 (not ((the time-begins of (the time-during of (the Meeting in-event of Self)))
+                                       time-eq
+                                       (the time-begins of (the time-during of (the Meeting in-event of It)))
+                                      )
+                                 )
+                                )
+                          )
+  )))
+|#
+
+)
+
+(Attendee has (wn20-synset ((:set
+	 		     (:triple "attendant" 2 "n")
+	 		     (:triple "attender" 3 "n")
+	 		     (:triple "attendee" 1 "n")
+	 		     (:triple "meeter" 1 "n")
+))))

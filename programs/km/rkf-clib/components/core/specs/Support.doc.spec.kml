@@ -1,0 +1,131 @@
+<!--- $Id: Support.doc.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Support>
+<superconcept name=Obstruct>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Support>
+  <definition>prevent from falling</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Supported></restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Obstruct>
+    <restriction>causes <slot>object</slot> to be supported</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Obstruct>
+    <restriction>used to support <slot>object</slot></restriction>
+    <restriction>the "support"</restriction>
+  </primaryslot>
+  <wnsynsets><verb>support#4
+  </verb></wnsynsets>
+  <wnsynsets><verb>hold#16, hold_up#1, sustain#5
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Support puts an <slot>object</slot> into a 
+<conceptref name=Be-Supported> state, which prevents the <slot>object</slot>
+from being the <slot>object</slot> of a <conceptref name=Fall> action.
+<conceptref name=Let-Fall> takes the <slot>object</slot> out of the
+<conceptref name=Be-Supported> state.
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=support2>
+  <sense-definition>agree with/endorse</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=support3>
+  <sense-definition>back financially/patronize</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=support4>
+  <sense-definition>corroborate/prove</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=support5>
+  <sense-definition>help/reinforce</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=support6>
+  <sense-definition>provide for</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=Levin>
+Levin has much to say about <langelement>Support</langelement>, the
+<term>positive admire-type psych verb</term> but not much about 
+physical support. The one mention of physical support is in Part Two
+where it appears among <term>verbs of contiguous location</term>.
+The requirement that <slot>agent</slot> and <slot>object</slot> be
+contiguous is true of all <conceptref name=Obstruct> Actions.
+</reference>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDsupport1><equiv tag=support2></sense>
+<sense tag=COBUILDsupport3><equiv tag=support5></sense>
+<sense tag=COBUILDsupport5><equiv tag=support3></sense>
+<sense tag=COBUILDsupport6><equiv tag=support1></sense>
+<sense tag=COBUILDsupport7><equiv tag=support1></sense>
+<sense tag=COBUILDsupport9><equiv tag=support6></sense>
+<sense tag=COBUILDsupport10><equiv tag=support6></sense>
+<sense tag=COBUILDsupport11><equiv tag=support4></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<sense tag=LDOCEsupport1><equiv tag=support1></sense>
+<sense tag=LDOCEsupport2><equiv tag=support6></sense>
+<sense tag=LDOCEsupport3><equiv tag=support6></sense>
+<sense tag=LDOCEsupport4><equiv tag=support2></sense>
+<sense tag=LDOCEsupport5><equiv tag=support3></sense>
+<sense tag=LDOCEsupport6><equiv tag=support4></sense>
+<sense tag=LDOCEsupport7><equiv tag=none><comment>???</comment></sense>
+</reference>
+
+<reference source=NODE>
+<sense tag=NODEsupport1><equiv tag={support1, support5, support6}></sense>
+<sense tag=NODEsupport2><equiv tag={support3, support5}></sense>
+<sense tag=NODEsupport2.1><equiv tag=support6></sense>
+<sense tag=NODEsupport2.2><equiv tag=support5></sense>
+<sense tag=NODEsupport2.3><equiv tag=support2></sense>
+<sense tag=NODEsupport2.4><equiv tag=support4></sense>
+<sense tag=NODEsupport2.5><equiv tag=support3></sense>
+<sense tag=NODEsupport2.6><equiv tag=support5></sense>
+<sense tag=NODEsupport2.7><equiv tag=support5></sense>
+<sense tag=NODEsupport3><equiv tag=support5></sense>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNsupport#1><equiv tag=support2></sense>
+<sense tag=WNsupport#2><equiv tag=support3></sense>
+<sense tag=WNsupport#3><equiv tag=support2></sense>
+<sense tag=WNsupport#4><equiv tag=support1></sense>
+<sense tag=WNsupport#5><equiv tag=support4></sense>
+<sense tag=WNsupport#6><equiv tag=support2></sense>
+<sense tag=WNsupport#7><equiv tag=support4></sense>
+<sense tag=WNsupport#8><equiv tag=support2></sense>
+<sense tag=WNsupport#9><equiv tag=support5></sense>
+<sense tag=WNsupport#10><equiv tag=support5></sense>
+<sense tag=WNsupport#11><equiv tag=support3></sense>
+</senselist>
+</reference>
+
+</kml>
+
+
+

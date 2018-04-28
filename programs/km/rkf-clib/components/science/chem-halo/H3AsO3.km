@@ -1,0 +1,14 @@
+;; $Id: H3AsO3.km,v 1.7 2008/10/14 19:16:13 tecuci Exp $ 
+(H3AsO3 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H3AsO3 has
+	(has-chemical-name ("arsenous acid"))
+	(has-part ((a H-Plus)(a AsO3-Minus-3)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 3 H-Plus)
+			(:pair 1 AsO3-Minus-3)))))))
+)
+(every H3AsO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a AsO3-Minus-3))))
+

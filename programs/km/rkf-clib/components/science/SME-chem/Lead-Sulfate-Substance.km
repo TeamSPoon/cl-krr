@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Lead-Sulfate-Substance546
+
+
+|#
+
+(disable-classification)
+
+(Lead-Sulfate-Substance has (superclasses (Sulfate-Substance)))
+
+(every Lead-Sulfate-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Lead-Sulfate-Substance363 has
+  (prototype-of (Lead-Sulfate-Substance Sulfate-Substance))
+  (prototype-scope (Lead-Sulfate-Substance (the-class Sulfate-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Pb-Plus-2) (a SO3-Minus-2)))))))))
+  (prototype-participants (_Pb-Plus-370 _SO3-Minus-371 _Chemical-Entity366 _Lead-Sulfate-Substance363)))
+
+(_Lead-Sulfate-Substance363 has (instance-of (Lead-Sulfate-Substance)) (has-basic-structural-unit (_Chemical-Entity366)))
+
+(_Chemical-Entity366 has (instance-of (Ionic-Compound)) (has-part (_SO3-Minus-371 _Pb-Plus-370)))
+
+(_SO3-Minus-371 has (instance-of (SO3-Minus-2)))
+
+(_Pb-Plus-370 has (instance-of (Pb-Plus-2)))
+
+(enable-classification)
+
+(explanation (:triple _Lead-Sulfate-Substance363 has-basic-structural-unit _Chemical-Entity366) (((@ SME entered)) (every Lead-Sulfate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Lead-Sulfate-Substance363 instance-of Lead-Sulfate-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity366 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _SO3-Minus-371 instance-of SO3-Minus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Pb-Plus-370 instance-of Pb-Plus-2) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Lead-Sulfate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

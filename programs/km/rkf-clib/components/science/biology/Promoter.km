@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Promoter.km,v 1.21 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Promoter has
+	  (superclasses (DNA-Regulatory-Sequence))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("Nucleotide sequence in DNA to which RNA polymerase 
+                         binds to begin transcription. Alberts:ECB:G-15."))
+	  (cmap-correspondence ()))
+
+(every Promoter has
+
+       (element-type (Sequence))
+       (element (
+	  (a TTGACA-Like-Sequence 
+	;;	with         ;;; begins at position ~-35
+	;;length is not appropriate     (length ((:pair 6 Deoxyribonucleotide)))
+	  )
+	  (a Sequence 
+	;;	with
+	;;     (length ((:pair 17 Deoxyribonucleotide)))
+	  )
+	  (a TATA-Box 
+	;;	with                     ;;; begins at position ~-12
+	;;     (length ((:pair 6 Deoxyribonucleotide)))
+	  )
+	  (a Sequence 
+	;;	with
+	;;     (length ((:pair 6 Deoxyribonucleotide)))
+	)
+	  )))
+
+
+
+

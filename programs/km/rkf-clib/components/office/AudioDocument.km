@@ -1,0 +1,14 @@
+;;    $Id: AudioDocument.km,v 1.7 2005/02/22 20:44:51 jchaw Exp $
+(AudioDocument has
+	       (superclasses (Form-Document InformationObject))
+	       (required-slot ())
+	       (primary-slot ())
+	       (secondary-slot ())
+	       (cmap-correspondence ())
+	       (test-case ()))
+
+(every AudioDocument has
+       (isDepictionOf ((a Thing)))
+)
+
+(isDepictionOf has (instance-of (Interface-Slot)) (domain (AudioDocument)) #|(range (Thing))|# (inverse (hasDepiction))	(cardinality (N-to-N)))

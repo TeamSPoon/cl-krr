@@ -1,0 +1,29 @@
+<!--- $Id: is-at.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=is-at>
+
+
+<from name=Spatial-Entity>
+<to name=Spatial-Entity>
+
+<description>
+	an object or place is at another place or object.
+</description>
+
+<examplesentencelist>
+   <examplesentence>
+	<text><ex-from>We</ex-from> were at <ex-to>the museum</ex-to>.</text>
+   </examplesentence>
+
+   <examplesentence>
+	<text><ex-from>The ice machine</ex-from> was at <ex-to>the motel</ex-to>.</text>
+   </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+   <neighbor name=is-near>
+	is-at is more precise than is-near
+   </neighbor>
+</neighborlist>
+
+</kml>

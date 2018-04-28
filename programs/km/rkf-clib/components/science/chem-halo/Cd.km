@@ -1,0 +1,16 @@
+;;
+;; $Id: Cd.km,v 1.4 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Cd has (superclasses (Metal-Atom IIB-Element)))
+(every Cd has
+       (atomic-symbol (Cd))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 48 NIL))))))
+       (has-ion ((a Cd-Plus-2)))
+       (chemical-period (5)))
+
+(every Cd has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("cadmium"))
+)

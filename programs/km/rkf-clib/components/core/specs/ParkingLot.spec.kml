@@ -1,0 +1,24 @@
+<!--- $Id: ParkingLot.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+<kml>
+
+<concept name=ParkingLot>
+<system-documentation name=ParkingLot>
+<superconcept name=Structure>
+
+<definition>
+  A Structure where cars are parked.
+</definition>
+
+<neighborlist>
+
+  <neighbor name=Building>
+     A Structure that contains Persons, Tangible-Entities, Walls, a Roof, Floors, Rooms, Portals, Hallways and plays the Role of a Container. 
+  </neighbor>
+
+  <neighbor name=Room>
+    A Structure within a Building; has Walls, Floor, Ceiling, Portal(s) and plays the Role of a Container
+  </neighbor>
+
+</neighborlist>
+
+</kml>

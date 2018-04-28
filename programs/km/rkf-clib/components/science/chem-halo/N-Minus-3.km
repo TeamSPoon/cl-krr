@@ -1,0 +1,20 @@
+;; $Id: N-Minus-3.km,v 1.5 2008/05/15 17:19:10 kunal Exp $ 
+(N-Minus-3 has (superclasses (Anion)))
+(every N-Minus-3 has
+	(charge ((a Charge-Value with
+		(value ((:pair -3 *unity))))))
+	(has-chemical-name ("nitride"))
+	(has-acid-name ("hydronitric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 N)))))))
+        (is-ion-of ((a N)))
+)
+
+(every N-Minus-3 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("nitride"))
+)
+
+
+(N-Minus-3 has (wn20-synset ((:triple "N-3" 0 "n"))))

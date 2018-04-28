@@ -1,0 +1,100 @@
+
+;;
+;; $Id: obo-relations.km,v 1.1 2009/10/02 19:30:41 kbarker Exp $
+;;
+
+(results_in_transportation_of has
+   (instance-of (Participant-Relation))
+   (domain (Move))
+   (range (Entity))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot (t))
+   (cardinality (N-to-N))
+)
+
+(results_in_formation_of has
+   (instance-of (Participant-Relation))
+   (domain (Create))
+   (range (Entity))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot (t))
+   (cardinality (N-to-N))
+)
+
+(occurs_in has
+   (instance-of (Spatial-Relation))
+   (domain (Event))
+   (range (Spatial-Entity))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot (t))
+   (cardinality (N-to-N))
+)
+
+(precedes has
+   (instance-of (Meronymic-Relation))
+   (domain (Event))
+   (range (Event))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot (t))
+   (cardinality (N-to-N))
+)
+
+(part_of has
+   (instance-of (Meronymic-Relation))
+   (domain (Entity))
+   (range (Entity))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot (t))
+   (cardinality (N-to-N))
+)
+
+(positively_regulates has
+   (instance-of (Causal-Relation))
+   (domain (Event))
+   (range (Event))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot (t))
+   (cardinality (N-to-N))
+)
+
+(derives_from has
+   (instance-of (Meronymic-Relation))
+   (domain (Entity))
+   (range (Entity))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot (t))
+   (cardinality (N-to-N))
+)
+
+(has_function has
+   (instance-of (Participant-Relation))
+   (domain (Entity))
+   (range (Event))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot (t))
+   (cardinality (N-to-N))
+)
+
+(*OBO-Rel-Mapping-Theory has (instance-of (Theory)))
+
+(in-theory *OBO-Rel-Mapping-Theory)
+
+(every Move has
+   (object ((the results_in_transportation_of of Self)))
+)
+
+(every Create has
+   (result ((the results_in_formation_of of Self)))
+)
+
+(every Event has
+   (site ((the occurs_in of Self)))
+   (next-event ((the precedes of Self)))
+)
+
+(every Entity has
+   (is-part-of ((the part_of of Self)))
+)
+
+(end-theory)
+

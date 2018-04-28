@@ -1,0 +1,92 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Vacuole-Osmosis ----------
+
+(Vacuole-Osmosis has (superclasses (Osmosis)))
+
+(_Vacuole-Osmosis520 has 
+  (instance-of (Vacuole-Osmosis))
+  (prototype-of (Vacuole-Osmosis))
+  (prototype-scope (Vacuole-Osmosis))
+  (prototype-participants (_Suborganismal-Entity530
+                           _Water529
+                           _Membrane528
+                           _Vacuole-Osmosis520))
+  (prototype-participant-of (_Vacuole-Osmosis520))
+  (has-clones (_Placeholder-Class519521))
+  (has-built-clones (_Placeholder-Class519521))
+  (recipient (_Suborganismal-Entity530))
+  (object (_Water529))
+  (agent (_Membrane528))
+  (cloned-from (_Osmosis1767))
+  (clone-built-from (_Osmosis1767))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq agent _Membrane528 t)
+                    (:seq object _Water529 t)
+                    (:seq recipient _Suborganismal-Entity530 t)))
+  (edge-coordinate ((:seq agent _Membrane528 261 561)
+                    (:seq object _Water529 261 605)
+                    (:seq recipient _Suborganismal-Entity530 261 649)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Suborganismal-Entity530 has 
+  (instance-of (Suborganismal-Entity))
+  (has-clones (_Suborganismal-Entity522))
+  (cloned-from (_Suborganismal-Entity1777))
+  (recipient-of (_Vacuole-Osmosis520))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 411 643)))
+  (prototype-participant-of (_Vacuole-Osmosis520)))
+
+(_Water529 has 
+  (instance-of (Water))
+  (has-clones (_Water523))
+  (cloned-from (_Water1776))
+  (object-of (_Vacuole-Osmosis520))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 411 599)))
+  (prototype-participant-of (_Vacuole-Osmosis520)))
+
+(_Membrane528 has 
+  (instance-of (Vacuole-Membrane))
+  (has-clones (_Membrane524))
+  (cloned-from (_Membrane1775))
+  (agent-of (_Vacuole-Osmosis520))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 411 555)))
+  (prototype-participant-of (_Vacuole-Osmosis520)))
+
+(explanation (:triple _Vacuole-Osmosis520 recipient _Suborganismal-Entity530) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Vacuole-Osmosis520 object _Water529) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Vacuole-Osmosis520 agent _Membrane528) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Vacuole-Osmosis520 recipient _Suborganismal-Entity530) ((a Tangible-Entity (@ _Vacuole-Osmosis520 Deliver recipient))))
+(explanation (:triple _Vacuole-Osmosis520 object _Water529) ((a Entity (@ _Vacuole-Osmosis520 Transfer object))))
+(explanation (:triple _Vacuole-Osmosis520 agent _Membrane528) ((added-at Osmosis "User defined")))
+(explanation (:triple _Suborganismal-Entity530 recipient-of _Vacuole-Osmosis520) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Suborganismal-Entity530 instance-of Suborganismal-Entity) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Suborganismal-Entity530 instance-of Suborganismal-Entity) ((added-at Osmosis "User defined")))
+(explanation (:triple _Suborganismal-Entity530 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Vacuole-Osmosis520 Deliver recipient))))
+(explanation (:triple _Suborganismal-Entity530 instance-of Entity) ((a Entity (@ _Vacuole-Osmosis520 Transfer (recipient must-be-a)))))
+(explanation (:triple _Suborganismal-Entity530 instance-of Tangible-Entity) ((a Tangible-Entity)))
+(explanation (:triple _Water529 object-of _Vacuole-Osmosis520) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Water529 instance-of Water) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Water529 instance-of Water) ((added-at Osmosis "User defined")))
+(explanation (:triple _Water529 instance-of Entity) ((a Entity (@ _Vacuole-Osmosis520 Transfer object))))
+(explanation (:triple _Water529 instance-of Thing) ((a Thing (@ _Vacuole-Osmosis520 Action (object must-be-a)))))
+(explanation (:triple _Water529 instance-of Entity) ((a Entity)))
+(explanation (:triple _Membrane528 agent-of _Vacuole-Osmosis520) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Membrane528 instance-of Membrane) ((cloned-from _Osmosis1767 _Vacuole-Osmosis520)))
+(explanation (:triple _Membrane528 instance-of Membrane) ((added-at Osmosis "User defined")))
+(explanation (:triple _Membrane528 instance-of Entity) ((added-at Osmosis "User defined")))
+(explanation (:triple _Membrane528 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Vacuole-Osmosis520) (@ _Vacuole-Osmosis520 Event (agent must-be-a) Entity abuts)) then (the instrument of _Vacuole-Osmosis520 (@ _Vacuole-Osmosis520 Event (agent must-be-a) Entity abuts)) (@ _Vacuole-Osmosis520 Event (agent must-be-a) Entity abuts)))) (@ _Vacuole-Osmosis520 Event (agent must-be-a)))))
+(explanation (:triple _Membrane528 instance-of Vacuole-Membrane) ((added-at Vacuole-Osmosis "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,27 @@
+;;
+;;    $Id: Entrance.km,v 1.7 2006/02/16 16:40:30 jfan Exp $
+;;
+
+(Entrance has
+        (superclasses (Portal))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (description ())
+        (cmap-correspondence ()))  
+
+(every Entrance has
+       	(in-event ((must-be-a Move-Into)))
+       	(played-by ((a Spatial-Entity with
+                      (path-of ((the in-event of Self))))))
+	(is-between ((the is-inside of Self)
+		      (the is-outside of Self))))
+
+
+(Entrance has 
+       (wn20-synset 
+	((:set (:triple "entrance" 1 "n"))
+	 (:set (:triple "entranceway" 1 "n"))
+	 (:set (:triple "entryway" 1 "n"))
+	 (:set (:triple "entry" 5 "n"))
+	 (:set (:triple "entree" 3 "n")))))

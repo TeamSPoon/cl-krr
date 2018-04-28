@@ -1,0 +1,17 @@
+
+;; 
+;;  $Id: Rolling-Hills.km,v 1.3 2002/07/12 16:28:17 porter Exp $
+;; 
+
+(Rolling-Hills has
+   (superclasses (Terrain))
+   (description ("A feature of the terrain")))
+
+(every Rolling-Hills has
+   (trafficability ((a Trafficability-Value with
+                       (value ((:pair *UR Armor-Unit)
+                               (:pair *UR Infantry-Unit)))
+   )))
+)
+
+

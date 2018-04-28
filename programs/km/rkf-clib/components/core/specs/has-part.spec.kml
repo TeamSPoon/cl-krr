@@ -1,0 +1,75 @@
+<!--- $Id: has-part.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+
+<kml>
+<relation-doc name=has-part>
+
+
+<from name=Entity>
+<to name=Entity>
+
+<description> 
+  the parts that comprise a whole.
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-from>My car</ex-from> has <ex-to>a chassis, 4 wheels, and an engine</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-from>A water molecule</ex-from> consists of <ex-to>two hydrogen atoms and one
+    oxygen atom</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-to>The wings</ex-to> are important parts of <ex-from>an airplane</ex-from>.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=material>
+   The parts of an object are themselves objects, whereas the 
+   <slot>material</slot> of an object is the substance it's made of.
+   For example, the parts of a chair include its seat and armrests, 
+   whereas the <slot>material</slot> of a chair might be wood or
+   metal.
+ </neighbor>
+
+ <neighbor name=has-region>
+   A <slot>has-region</slot> references a place, whereas <slot>has-part</slot> 
+   references an object.  For example, the tip of my umbrella is 
+   a region; however, if the tip was a discrete object that was
+   attached to my umbrella, then it would be a part.   
+ </neighbor>
+
+ <neighbor name=has-functional-part>
+   A <slot>has-functional-part</slot> is more specific than 
+   <slot>has-part</slot>. It refers to parts that play some role in the
+   functioning of the whole.
+ </neighbor>
+
+ <neighbor name=has-structural-part>
+   A <slot>has-structural-part</slot> is more specific than 
+   <slot>has-part</slot>. It refers to physical parts that make up the
+   structure of the whole, but don't necessarily serve a particular
+   function in the whole.
+ </neighbor>
+
+ <neighbor name=has-basic-structural-unit>
+   A <slot>has-basic-structural-unit</slot> is more specific than 
+   <slot>has-part</slot>. It refers to the many identical physical
+   things that make up a whole.
+ </neighbor>
+
+ <neighbor name=has-basic-functional-unit>
+   A <slot>has-basic-functional-unit</slot> is more specific than 
+   <slot>has-part</slot>. It refers to the many identical things that 
+   combine functionally to make up a whole.
+ </neighbor>
+
+</neighborlist>
+
+
+</kml>

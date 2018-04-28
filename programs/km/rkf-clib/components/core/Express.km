@@ -1,0 +1,101 @@
+;; 
+;;    $Id: Express.km,v 1.15 2006/02/07 20:43:20 kbarker Exp $ 
+;; 
+
+(Express has
+        (superclasses (Action))
+        (required-slot (agent object))
+        (primary-slot ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Express has
+        (recipient ((must-be-a Tangible-Entity)))
+        (agent ((a Tangible-Entity)))
+        (object ((a Information)))
+        (result ((a Message with (result-of (Self)))))
+
+	;;Preconditions:  The agent must know the object
+	;;the agent must be experiencer of a Be-Knows with object the information
+        (pcs-list ((:triple (the object of Self)
+                            object-of
+                            (a Be-Known with 
+                               (experiencer ((the agent of Self)))
+                            )
+                    [Express-pcs-1])
+                   (:triple (the agent of Self)
+                            experiencer-of
+                            (a Be-Known with 
+                               (object ((the Language information-language of
+                                             (the result of Self))))
+                               (experiencer ((the agent of Self)))
+                            )
+                   )
+        ))
+)
+	
+(comment [Express-pcs-1] (:seq (the object of Self) " must be known by " (the agent of Self))
+	 "Something that is not known cannot be expressed.")
+
+
+#|
+(every Express has
+  (text-active-verbseq-sg ("expresses"))
+  (text-active-verbseq-pl ("express"))
+  (text-recipient ((if (has-value (the recipient of Self))
+                    then ("to"))))
+
+  (text-argslots ((:seq recipient base instrument)))
+
+)
+|#
+(Express has                   
+  (test-case ('( 
+                 (*Fact has 
+			(instance-of (Information)))
+                 (*Bob has 
+			(instance-of (Tangible-Entity)))
+                 (*Alice has 
+			(instance-of (Tangible-Entity)))
+
+		 ;; Bob expressed to Alice the Fact
+                 (*AnExpress has
+                        (instance-of (Express))
+                        (agent (*Bob))
+                        (recipient (*Alice))
+                        (object (*Fact))
+		 )
+
+                 (do-and-next *AnExpress)
+
+))))
+
+
+;; automatically added WN synsets
+(Express has (wn16-synset ((:set  
+                                      (:triple "express" 1 "v")
+                                      (:triple "express" 2 "v")
+                                      (:triple "express" 3 "v")
+                                      (:triple "express" 4 "v")
+                                      (:triple "show" 7 "v")
+                                      (:triple "evince" 1 "v")
+                                      (:triple "utter" 1 "v")
+                                      (:triple "carry" 4 "v")
+                                      (:triple "convey" 2 "v")
+                                      (:triple "state" 3 "v")
+))))
+
+(Express has (wn20-synset ((:set
+                                      (:triple "express" 1 "v")
+                                      (:triple "express" 2 "v")
+                                      (:triple "express" 3 "v")
+                                      (:triple "express" 4 "v")
+                                      (:triple "show" 6 "v")
+                                      (:triple "evince" 1 "v")
+                                      (:triple "utter" 1 "v")
+                                      (:triple "carry" 4 "v")
+                                      (:triple "convey" 2 "v")
+                                      (:triple "state" 3 "v")
+))))
+
+(every Express has (text-nominalization ("expression")))

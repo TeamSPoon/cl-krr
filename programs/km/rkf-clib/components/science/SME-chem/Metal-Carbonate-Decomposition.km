@@ -1,0 +1,105 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Metal-Carbonate-Decomposition299
+
+
+|#
+
+(Metal-Carbonate-Decomposition has (superclasses (Decomposition-Reaction)))
+
+(Metal-Carbonate-Decomposition now-has (user-description ("Metal carbonates decompose to form metal oxides and carbon dioxide when heated.")))
+
+(_Metal-Carbonate-Decomposition525 has
+  (prototype-of (Metal-Carbonate-Decomposition))
+  (prototype-scope (Metal-Carbonate-Decomposition))
+  (prototype-participants (_Anion542 _Reaction-Result541 _State-Value540 _Chemical-Entity539 _Solubility-Value538 _Cation535 _Reaction-Material534 _Anion-Substance533 _Cation-Substance532 _State-Value531 _Ionic-Compound530 _Solubility-Value529 _Chemical528 _Chemical527 _Chemical526 _Metal-Carbonate-Decomposition525)))
+
+(_Metal-Carbonate-Decomposition525 has
+  (instance-of (Metal-Carbonate-Decomposition))
+  (result (_Chemical527 _Chemical528 (must-be-a Chemical) (must-be-a Chemical) (must-be-a Entity)))
+  (raw-material (_Chemical526 (must-be-a Chemical))))
+
+(_Chemical526 has
+  (instance-of (Carbonate-Substance))
+  (plays (_Reaction-Material534))
+  (has-part (_Cation-Substance532 _Anion-Substance533))
+  (physical-state (_State-Value531))
+  (has-basic-structural-unit (_Ionic-Compound530 (exactly 1 Ionic-Compound)))
+  (solubility (_Solubility-Value529)))
+
+(_Chemical527 has (instance-of (CO2-Substance)))
+
+(_Chemical528 has
+  (instance-of (Ionic-Compound-Substance))
+  (plays (_Reaction-Result541))
+  (physical-state (_State-Value540))
+  (has-basic-structural-unit (_Chemical-Entity539 (exactly 1 Ionic-Compound)))
+  (solubility (_Solubility-Value538)))
+
+(_Cation535 has (instance-of (Metal-Cation)))
+
+(_Solubility-Value529 has (instance-of (Solubility-Value)))
+
+(_Ionic-Compound530 has (instance-of (Ionic-Compound)) (has-part (_Cation535)))
+
+(_State-Value531 has (instance-of (State-Value)))
+
+(_Cation-Substance532 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance533 has (instance-of (Anion-Substance)))
+
+(_Reaction-Material534 has (instance-of (Reaction-Material)))
+
+(_Solubility-Value538 has (instance-of (Solubility-Value)))
+
+(_Chemical-Entity539 has (instance-of (Ionic-Compound)) (has-part (_Anion542 _Cation535)))
+
+(_State-Value540 has (instance-of (State-Value)))
+
+(_Reaction-Result541 has (instance-of (Reaction-Result)))
+
+(_Anion542 has (instance-of (O-Minus-2)))
+
+(explanation (:triple _Metal-Carbonate-Decomposition525 instance-of Metal-Carbonate-Decomposition) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical526 instance-of Carbonate-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical527 instance-of CO2-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical528 instance-of Ionic-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value529 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound530 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value531 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance532 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance533 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Material534 instance-of Reaction-Material) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation535 instance-of Metal-Cation) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value538 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity539 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value540 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Result541 instance-of Reaction-Result) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion542 instance-of O-Minus-2) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+
+|#
+
+|#
+

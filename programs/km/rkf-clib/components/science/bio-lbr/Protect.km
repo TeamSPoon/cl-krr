@@ -1,0 +1,17 @@
+
+;;
+;; $Id: Protect.km,v 1.1 2006/06/27 20:44:03 kbarker Exp $
+;;
+
+(Protect has (superclasses (Action)))
+
+(every Protect has
+  (inhibits ((a Impair with
+                (object ((the object of Self)))
+  )))
+)
+
+(Protect has (wn20-synset ((:set
+                                  (:triple "protect" 1 "v")
+))))
+

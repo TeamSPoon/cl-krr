@@ -1,0 +1,15 @@
+;;
+;; $Id: SO3-Minus-2-Substance.km,v 1.2 2003/09/10 16:59:50 jchaw Exp $ 
+;;
+
+(SO3-Minus-2-Substance has (superclasses (Anion-Substance)))
+(every SO3-Minus-3-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 1.56e-7 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a SO3-Minus-2)))
+)

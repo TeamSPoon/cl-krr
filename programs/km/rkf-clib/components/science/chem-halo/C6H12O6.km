@@ -1,0 +1,21 @@
+;;
+;; $Id: C6H12O6.km,v 1.1 2007/12/21 16:35:12 tecuci Exp $
+;;
+
+(C6H12O6 has (superclasses (Organic-Molecule)))
+
+(every C6H12O6 has	
+       (has-chemical-name ("glucose"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 6 C)
+		    (:pair 12 H)
+		    (:pair 6 O))))))))
+       
+
+
+(every C6H12O6 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("glucose"))
+)

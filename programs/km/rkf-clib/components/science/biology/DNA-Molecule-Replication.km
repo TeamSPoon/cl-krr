@@ -1,0 +1,57 @@
+;; 
+;;    $Id: DNA-Molecule-Replication.km,v 1.5 2001/06/06 20:52:01 pzyeh Exp $
+;; 
+
+(DNA-Molecule-Replication has
+  (superclasses  	(DNA-Double-Strand-Replication))
+  (required-slot 	(object result))
+  (primary-slot        	(instrument))
+  (description 		("A process by which a copy of a DNA molecule is made.
+                 	  Alberts:ECB:G-6."))
+  (cmap-correspondence 	()))
+
+(every DNA-Molecule-Replication has
+       (object   ((a DNA-Molecule)))   ;; the template
+       (result   ((a DNA-Molecule called "DNA-Molecule-1" with
+	    	     (has-part 
+	    	       (((the DNA-Strand has-part of 
+		    	      (the DNA-Molecule object of Self))
+	       		 called "DNA-Strand-1")
+	      		(a DNA-Strand 
+		  	   called "Daughter-Strand-Complementary-To-Strand-1" 
+			   with
+		  	   (complement 
+		   	     (((the DNA-Strand has-part of
+			  	    (the DNA-Molecule object of Self))
+		     	       called "DNA-Strand-1")
+		    	     )))
+	      	       )))
+	 	  (a DNA-Molecule called "DNA-Molecule-2" with
+            	     (has-part
+		       (((the DNA-Strand has-part of
+                    	      (the DNA-Molecule object of Self))
+			 called "DNA-Strand-2")
+              		(a DNA-Strand
+                  	   called "Daughter-Strand-Complementary-To-Strand-2" 
+			   with
+                  	   (complement
+                   	     (((the DNA-Strand has-part of
+                          	    (the DNA-Molecule object of Self))
+                     	       called "DNA-Strand-2")
+                    ))))))
+	 	  (exactly 2 DNA-Molecule)))
+
+       (first-subevent ((the Replicon-Replication subevent of Self)))
+
+       (subevent
+        ((a Replicon-Replication)
+         (at-least 1 Replicon-Replication)))    
+
+       )
+
+
+
+
+
+
+

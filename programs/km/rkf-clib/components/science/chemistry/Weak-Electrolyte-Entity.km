@@ -1,0 +1,12 @@
+;;
+;; $Id: Weak-Electrolyte-Entity.km,v 1.1 2003/04/16 21:06:52 wilder Exp $
+;;
+
+(Weak-Electrolyte-Entity has
+  (superclasses (Electrolyte-Entity)))
+
+(every Weak-Electrolyte-Entity has-definition
+  (instance-of (Ionic-Compound))
+  (is-basic-structural-unit-of ((a Weak-Electrolyte))))
+
+

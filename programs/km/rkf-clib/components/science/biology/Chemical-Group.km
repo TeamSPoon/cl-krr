@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Chemical-Group.km,v 1.9 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Chemical-Group has
+	      (superclasses (Chemical-Entity))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Set of covalently linked atoms, such as a hydroxyl
+                             group or an amino group, that occurs in many
+                             different molecules and has a distinctive chemical
+                             character. Alberts:ECB:G-4."))
+	      (cmap-correspondence ()))
+
+
+
+(every Chemical-Group has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

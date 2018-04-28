@@ -1,0 +1,78 @@
+;;
+;; $Id: Compute-Maximum.km,v 1.3 2005/09/20 04:42:46 jfan Exp $
+;;
+
+(Compute-Maximum has 
+		 (superclasses (Method))
+		 (description ("given a list of values, return the maximum")))
+
+(every Compute-Maximum has
+       ;; input is a list of Values
+       ;; either all of these values have a cardinal value, 
+       ;; and they are assumed to be of the same units
+       ;; or all of them have scalar values that are on the same scale
+       ;; and there should be exactly 1 common scale
+       (output
+	((#'(LAMBDA()
+		   (FIND-MAX-VALUE (KM0 '(the input of Self)))))
+	 ))
+       )
+
+#|
+(Compute-Maximum 
+ has
+ (test-case ('(
+	       ((the1 of 
+		      (the value of
+			   (the output of
+				(a Compute-Maximum with
+				   (input ((a Temperature-Value with
+					      (value ((:pair 75 *Fahrenheit)
+						      (:pair *warm Thing))))
+					   (a Temperature-Value with
+					      (value ((:pair 50 *Fahrenheit))))
+					   (a Temperature-Value with
+					      (value ((:pair 99 *Fahrenheit)
+						      (:pair *hot Thing))))
+					   (a Temperature-Value with
+					      (value ((:pair 32 *Fahrenheit)
+						      (:pair *freezing Thing))))))))))
+		includes 99)
+	       
+	       (
+		(the value of
+		     (the output of
+			  (a Compute-Maximum with
+			     (input ((a Temperature-Value with
+					(value ((:pair 75 *Fahrenheit)
+						(:pair *warm Weather)
+						(:pair *hot Drink))))
+				     (a Temperature-Value with
+					(value ((:pair 50 *Fahrenheit)
+						(:pair *warm Drink))))
+				     (a Temperature-Value with
+					(value ((:pair *boiling Drink)
+						(:pair *hot Thing))))
+				     (a Temperature-Value with
+					(value ((:pair 32 *Fahrenheit)
+						(:pair *cold Drink)
+						(:pair *freezing Thing)))))))))
+		includes (:pair *boiling Drink))
+	       (
+		(the value of 
+		     (the output of 
+			  (a Compute-Maximum with 
+			     (input 
+			      ((a Temperature-Value with
+				  (value ((:pair *warm Thing))))
+			       (a Temperature-Value with
+				  (value ((:pair 100 *Fahrenheit)
+					  (:pair *boiling Thing))))
+			       (a Temperature-Value with
+				  (value ((:pair 101 *Fahrenheit)
+					  (:pair *boiling Thing))))
+			       (a Temperature-Value with
+				  (value ((:pair *freezing Thing)))))))))
+		includes (:pair 101 *Fahrenheit))
+	       ))))
+|#

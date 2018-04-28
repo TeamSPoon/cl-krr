@@ -1,0 +1,13 @@
+;;
+;;    $Id: Nonelectrolyte.km,v 1.5 2003/02/12 22:05:29 wilder Exp $
+;;
+
+(Nonelectrolyte has
+		(superclasses (Chemical)))
+
+
+(every Nonelectrolyte has-definition
+       (instance-of (Chemical))
+       (electrolyte-status ((a Electrolyte-Status-Value with
+			       (value ((:pair *non nil)))))))
+

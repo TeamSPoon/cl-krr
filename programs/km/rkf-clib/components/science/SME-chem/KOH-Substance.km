@@ -1,0 +1,45 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _KOH-Substance62683
+
+
+|#
+
+(disable-classification)
+
+(KOH-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every KOH-Substance has (has-basic-structural-unit ((a KOH))))
+
+(_KOH-Substance62776 has
+  (prototype-of (KOH-Substance))
+  (prototype-scope (KOH-Substance))
+  (prototype-participants (_Electrolyte-Status-Value62782 _KOH-Substance62776)))
+
+(_KOH-Substance62776 has (instance-of (KOH-Substance)) (electrolyte-status (_Electrolyte-Status-Value62782)))
+
+(_Electrolyte-Status-Value62782 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *strong Electrolyte))))
+
+(enable-classification)
+
+(explanation (:triple _KOH-Substance62776 electrolyte-status _Electrolyte-Status-Value62782) (((@ SME entered)) (every KOH-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value62782 value (:pair *strong Electrolyte)) (((@ SME entered)) (every KOH-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Electrolyte)))))))))
+
+(explanation (:triple _KOH-Substance62776 instance-of KOH-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value62782 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every KOH-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+(every KOH-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Electrolyte)))))))
+
+|#
+
+|#
+

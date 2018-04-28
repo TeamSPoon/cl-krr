@@ -1,0 +1,40 @@
+;; 
+;;    $Id: Be-Shut-Out.km,v 1.14 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Shut-Out has
+	     (superclasses   (Be-Obstructed))
+	     (required-slot  (object base))
+	     (primary-slot   ())
+             (caused-by-class      (Shut-Out))
+             (defeated-by-class    (Admit))
+	     (cmap-correspondence (
+				   (:seq object "the object shut-out")
+				   (:seq base "the enclosure")
+				  )))
+
+(every Be-Shut-Out has
+       (base ((a Tangible-Entity
+                 with
+                    (plays ((a Container)))
+                    (in-event (Self))
+       )))
+
+       (object   ((a Tangible-Entity with
+                     (is-outside ((the base of Self))))))
+
+)
+
+(every Be-Shut-Out has
+  (text-particle ("shut out"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("of"))))
+
+)
+
+;; this synset is really bad, but there is _nothing_ else in wn2
+(Be-Shut-Out has (wn20-synset ((:set (:triple "external" 1 "a")
+))))
+
+

@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Donor-Role.km,v 1.4 2004/07/20 22:28:56 gking Exp $
+;; 
+
+(Donor-Role has
+       (superclasses (Role))
+       (required-slot ())
+       (primary-slot ())
+       (secondary-slot ())
+       (cmap-correspondence ())
+       (test-case ()))
+
+(every Donor-Role has
+       (in-event ((must-be-a Transfer)))
+       (played-by ((a Entity with
+		      (donor-of ((the in-event of Self)))))))
+
+
+;; automatically added WN synsets
+(Donor-Role has (wn16-synset ((:set  
+                                         (:triple "donor" 1 "n")
+                                         (:triple "donor" 2 "n")
+                                         (:triple "giver" 2 "n")
+                                         (:triple "presenter" 1 "n")
+))))
+
+(Donor-Role has (wn20-synset ((:set
+                                         (:triple "donor" 1 "n")
+                                         (:triple "donor" 2 "n")
+                                         (:triple "giver" 2 "n")
+                                         (:triple "presenter" 3 "n")
+))))

@@ -1,0 +1,22 @@
+;; 
+;;  $Id: chemical-equation.km,v 1.7 2007/04/11 22:12:41 jchaw Exp $
+;; 
+
+(chemical-equation has
+	  (instance-of (CLIB-Slot-Group))
+	  (domain      (Reaction))
+	  (range       (Chemical-Equation-Expression))
+	  (fluent-status (*Inertial-Fluent))
+          (inherit-with-overrides ())
+          ;(inherit-with-overrides (t))
+	  (inverse     (chemical-equation-of))
+	  (cardinality (N-to-1))
+	  (dont-cache-values (t))
+          (original-slot      (t))	
+	  )
+
+(chemical-equation has (wn20-synset ((:set 
+					 (:triple "chemical equation" 0 "n")
+					 (:triple "balanced equation" 0 "n")))))
+
+(chemical-equation-of has (instance-of (CLIB-Slot-Group)))

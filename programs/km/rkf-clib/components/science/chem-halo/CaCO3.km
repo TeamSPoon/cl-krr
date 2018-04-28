@@ -1,0 +1,14 @@
+;; $Id: CaCO3.km,v 1.5 2006/01/24 20:27:29 jfan Exp $ 
+(CaCO3 has (superclasses (Ionic-Compound)))
+(every CaCO3 has
+	(has-chemical-name ("calcium carbonate"))
+	(has-part ((a Ca-Plus-2)(a CO3-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 Ca-Plus-2)
+			(:pair 1 CO3-Minus-2)))))))
+)
+(every CaCO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Ca-Plus-2) (a CO3-Minus-2))))
+

@@ -1,0 +1,38 @@
+<!--- $Id: Take-Apart.doc.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Take-Apart::doc>
+<superconcept name=Destroy::doc>
+
+<sme-documentation name=Take-Apart>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Take-Apart>
+  <definition>Remove all parts of an object</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>ceases to exist as a result of the Take-Apart</restriction>
+    <requiredslot name=has-part>
+      <restriction>the parts removed from the <slot>object</slot></restriction>
+    </requiredslot>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>removes the <slot>object</slot>'s parts</restriction>
+  </primaryslot>
+  <wnsynsets><verb>take-apart#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>break-apart#1, break-up#8, disassemble#1, dismantle#2,
+  </verb></wnsynsets>
+</component>
+
+<musing>
+<conceptref name=Take-Apart::doc> is a specialization of <conceptref name=Destroy::doc> 
+where all of the <slot>object</slot>'s parts are removed, and the
+<slot>object</slot> ceases to exist as a result.
+</musing>
+
+</kml>
+
+

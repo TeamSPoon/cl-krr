@@ -1,0 +1,36 @@
+<!--- $Id: Add.doc.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Add>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Add>
+  <definition>add a part to something</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>the part added</restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <restriction>a Tangible-Entity</restriction>
+    <requiredslot name=has-part>
+      <restriction>the <slot>object</slot> of the Add</restriction>
+    </requiredslot>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>adds the <slot>object</slot> part to the <slot>base</slot></restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>the thing used to add the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>add#1, add#6
+  </verb></wnsynsets>
+  <wnsynsets><verb>include#1, include#3
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

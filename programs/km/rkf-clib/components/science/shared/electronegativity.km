@@ -1,0 +1,22 @@
+;;
+;;  $Id: electronegativity.km,v 1.1 2008/10/17 20:50:57 jchaw Exp $
+;;
+
+(electronegativity has
+		   (instance-of (Property))
+		   (superslots  ())
+		   (subslots    ())
+		   (domain      (Atom))
+		   (range       (Electronegativity-Value))
+		   (cardinal-unit-class (UoM-Unitless))
+		   (scalar-constant-class (Electronegativity-Constant))
+		   (fluent-status (*Inertial-Fluent))
+		   (inherit-with-overrides (t))
+		   (inverse     (electronegativity-of))
+		   (inherit-with-overrides (t))
+		   (cardinality (N-to-1))
+)
+
+(electronegativity has (user-description ("A measurement of how much an atom tends to steal electrons from atoms that it's bonded to. Elements at the top right of the periodic table (excluding the noble gases) are very electronegative while atoms in the bottom left are not very electronegative.")))
+
+(electronegativity-of has (instance-of (Property)))

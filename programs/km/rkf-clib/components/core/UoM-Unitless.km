@@ -1,0 +1,18 @@
+;; 
+;;    $Id: UoM-Unitless.km,v 1.8 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Unitless has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*unity))
+ (instances (*unity))   ;; unitless values can have either NIL or *no-unit
+)
+
+(*unity has (instance-of (UoM-Unitless))
+        (name (""))
+	(wn20-synset ((:set
+		       (:triple "no unit" 0 "n")
+		       (:triple "unity"   0 "n")
+		       ))))
+
+(*unity has (conversion-multiplier (1.0)))

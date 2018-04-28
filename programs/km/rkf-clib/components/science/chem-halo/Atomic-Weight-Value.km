@@ -1,0 +1,12 @@
+;;
+;; $Id: Atomic-Weight-Value.km,v 1.2 2007/05/21 04:43:14 mrglass Exp $
+;;
+
+(Atomic-Weight-Value has
+		     (superclasses (Property-Value)))
+
+(every Atomic-Weight-Value has
+  (property-slot (atomic-weight))
+)
+
+(Atomic-Weight-Value has (description ("The mass of a neutral atom of a nuclide. The atomic weight of an atom is the weight of the atom based on a scale where 12C = 12. The atomic weight of an element is the weighted average of each isotope.")))

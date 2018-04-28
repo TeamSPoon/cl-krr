@@ -1,0 +1,43 @@
+;;
+;; $Id: Basic-Buffer.km,v 1.5 2003/04/30 19:58:23 wilder Exp $
+;;
+
+(Basic-Buffer has (superclasses (Buffer)))
+
+(every Basic-Buffer has
+       (buffer-capacity 
+	((a Buffer-Capacity-Value with (value
+	 ((:pair (
+	  (the1 of (the value of (the concentration of
+	   (oneof
+	    (the base of Self)
+	    where
+	    ((the1 of (the value of (the intensity of (the Base-Role plays of It))))
+	     =
+	     *weak)))))
+	  /
+	  (the1 of (the value of (the concentration of
+	   (oneof (the base of Self)
+		  where
+		  (It isa Salt-Substance)))))) nil))))))
+       (pH ((the output of (a Compute-pH-for-Basic-Buffer with (input (Self)))))))
+
+(every Basic-Buffer has-definition
+       (instance-of (Solution))
+       (buffer-status ((a Buffer-Status-Value with
+			  (value ((:pair *basic-buffer nil)))))))
+
+(Basic-Buffer has
+	       (test-case
+		('(
+		   ((a Solution with 
+		       (base 
+			((a CH3NH2-Substance) 
+			 (a CH3NH3Cl-Substance))))
+		    isa
+		    Basic-Buffer)
+		   (a Solution with
+		    (base
+		     ((a NH3-Substance)
+		      (a NH4Cl-Substance))))
+		      isa Basic-Buffer))))

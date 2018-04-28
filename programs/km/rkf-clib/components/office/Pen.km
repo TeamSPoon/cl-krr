@@ -1,0 +1,16 @@
+;;
+;;    $Id: Pen.km,v 1.2 2005/04/10 21:05:22 jchaw Exp $
+;;
+
+(Pen has (superclasses (Artifact)))
+
+(every Pen has 
+       (purpose ((a Instrument-Role with
+       		    (in-event  ((must-be-a Write)))
+       		    (played-by (Self))
+       )))
+)
+
+(Pen has (wn20-synset ((:set
+			     (:triple "pen" 1 "n")
+))))

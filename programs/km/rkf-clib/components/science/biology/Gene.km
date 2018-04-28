@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Gene.km,v 1.21 2001/06/12 21:39:30 pzyeh Exp $ 
+;; 
+
+(Gene has
+      (superclasses (DNA-Coding-Sequence)) 
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (cmap-correspondence ())
+      (description ("Region of DNA that controls a discrete hereditary
+                     characteristic of an organism, usually corresponding
+                     to a single protein or RNA. Alberts:ECB:G8.
+                     Genes generally include both transcription units and
+                     flanking regulatory regions, but in operons they lack 
+                     flanking regions, ie, procaryotic genes include flanking
+                     regulatory regions when alone, but not when part of an 
+                     operon. Souther."))
+      (test-case ()))
+
+(every Gene has
+       (purpose ((a Container with
+		    (in-event ((a Genetic-Information-Storage with
+				  (object ((a Cistron))) ))))))
+       (has-basic-functional-unit ((a DNA-Codon)))
+       (is-part-of ((a DNA-Strand)))
+       )
+

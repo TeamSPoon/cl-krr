@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Tubulin-Molecule.km,v 1.6 2001/05/19 02:50:41 souther Exp $ 
+;; 
+
+(Tubulin-Molecule has
+         (superclasses (Structural-Protein))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A globular protein that polymerizes into microtubules.
+                        Alberts:ECB:G-18."))
+         (test-case ()))
+
+(every Tubulin-Molecule has 
+       (is-basic-structural-unit-of ((a Microtubule)))
+       )
+			 

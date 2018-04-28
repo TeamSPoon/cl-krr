@@ -1,0 +1,49 @@
+<!--- $Id: Compute-Chemical-Formula-of-Ionic-Compound.spec.kml,v 1.1 2005/09/09 14:08:30 jfan Exp $ --->
+
+<kml>
+<concept name=Compute-Chemical-Formula-of-Ionic-Compound>
+
+
+<superconcept name=Method>
+
+  <definition>
+    A Compute-Chemical-Formula-of-Ionic-Compound is the <conceptref name=Method> to compute the chemical formula of an <conceptref name=Ionic-Compound>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=input>
+     1. A cation denoting the cation part of the Ionic-Compound in question.
+     2. An anion denoting the anion part of the Ionic-Compound in question.
+   </slotdescription>
+   <slotdescription name=output>
+     A Chemical-Formula denoting the formula of the Ionic-Compound in question.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The chemical formula of baking soda is NaHCO3.</text>
+     <slotdescription name=input> Baking soda.</slotdescription>
+     <slotdescription name=output> NaHCO3.</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Compute-Quantity-of-Chemical>
+  Compute-Quantity-of-Chemical computes the quantity of a type of Chemical
+  in a compound.
+  </neighbor>
+
+  <neighbor name=Compute-Quantity-from-Concentration-and-Volume>
+  Compute-Quantity-from-Concentration-and-Volume computes the quantity of 
+  the solute, given the concentration and the volume of a solution.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

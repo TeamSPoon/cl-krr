@@ -1,0 +1,12 @@
+;;
+;; $Id: V-Plus.km,v 1.1 2003/03/31 18:02:11 wilder Exp $
+;;
+
+(V-Plus has (superclasses (Metal-Cation)))
+(every V-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("vanadium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 V)))))))
+)

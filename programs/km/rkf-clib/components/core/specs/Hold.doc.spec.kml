@@ -1,0 +1,196 @@
+<!--- $Id: Hold.doc.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Hold>
+<superconcept name=Obstruct>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Hold>
+  <definition>control movement of</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+    <restriction>holds <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Held> state whose <slot>agent</slot> is the
+      <slot>agent</slot> of the Hold</restriction>
+  </requiredslot> 
+  <wnsynsets><verb>hold#3, hold#16
+  </verb></wnsynsets>
+  <wnsynsets><verb>hold_up#1, support#4, sustain#5, take_hold#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Hold puts an <slot>object</slot> into a <conceptref name=Be-Held> state.
+<conceptref name=Let-Go-Of> takes the <slot>object</slot> out of the
+<conceptref name=Be-Held> state. Unlike the other 
+<conceptref name=Be-Obstructed> states, <conceptref name=Be-Held> has
+an <slot>agent</slot>, the <slot>agent</slot> of Hold. Any
+<conceptref name=Move> of an <slot>object</slot> in a
+<conceptref name=Be-Held> state must be by the <slot>agent</slot> of the
+<conceptref name=Be-Held> and only this <slot>agent</slot> can
+<conceptref name=Let-Go-Of> the <slot>object</slot>.
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=hold2>
+  <sense-definition>host/perform an event</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=hold3>
+  <sense-definition>maintain</sense-definition>
+  <transitivity>transitive or intransitive</transitivity>
+</sense>
+<sense tag=hold4>
+  <sense-definition>behave or bear a demeanor</sense-definition>
+  <transitivity>reflexive</transitivity>
+</sense>
+<sense tag=hold5>
+  <sense-definition>restrain/block</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=hold6>
+  <sense-definition>possess</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=hold7>
+  <sense-definition>consider/believe/assert</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=hold8>
+  <sense-definition>contain/be capable of containing</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=hold9>
+  <sense-definition>retain</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=hold10>
+  <sense-definition>defend/resist</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=hold11>
+  <sense-definition>have as a feature</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=hold12>
+  <sense-definition>position</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=Levin>
+</reference>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDhold1><equiv tag=hold1></sense>
+<sense tag=COBUILDhold2><equiv tag=hold5></sense>
+<sense tag=COBUILDhold3><equiv tag=hold1></sense>
+<sense tag=COBUILDhold4><equiv tag=hold4></sense>
+<sense tag=COBUILDhold5><equiv tag={hold7, hold6, hold2, hold11></sense>
+<sense tag=COBUILDhold6><equiv tag=hold7></sense>
+<sense tag=COBUILDhold7><equiv tag=hold7></sense>
+<sense tag=COBUILDhold8><equiv tag=hold3></sense>
+<sense tag=COBUILDhold9><equiv tag=hold3></sense>
+<sense tag=COBUILDhold10><equiv tag=hold5></sense>
+<sense tag=COBUILDhold11><equiv tag=hold3></sense>
+<sense tag=COBUILDhold12><equiv tag=hold3></sense>
+<sense tag=COBUILDhold13><equiv tag=hold5></sense>
+<sense tag=COBUILDhold14><equiv tag=hold5></sense>
+<sense tag=COBUILDhold15><equiv tag=hold8></sense>
+<sense tag=COBUILDhold16><equiv tag=hold10></sense>
+<sense tag=COBUILDhold17><equiv tag=hold10></sense>
+<sense tag=COBUILDhold18><equiv tag=hold3></sense>
+<sense tag=COBUILDhold19><equiv tag=hold8></sense>
+<sense tag=COBUILDhold20><equiv tag=hold8></sense>
+<sense tag=COBUILDhold21><equiv tag=hold9></sense>
+<sense tag=COBUILDhold22><equiv tag=hold3></sense>
+<sense tag=COBUILDhold23><equiv tag=hold9></sense>
+<sense tag=COBUILDhold24><equiv tag=hold3></sense>
+<sense tag=COBUILDhold25><equiv tag=hold3></sense>
+<sense tag=COBUILDhold26><equiv tag=hold3></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<sense tag=LDOCEhold1><equiv tag=hold1></sense>
+<sense tag=LDOCEhold2><equiv tag=hold2></sense>
+<sense tag=LDOCEhold3><equiv tag=hold3></sense>
+<sense tag=LDOCEhold4><equiv tag=hold8></sense>
+<sense tag=LDOCEhold5><equiv tag=hold12></sense>
+<sense tag=LDOCEhold6><equiv tag=hold11></sense>
+<sense tag=LDOCEhold7><equiv tag=hold8></sense>
+<sense tag=LDOCEhold8><equiv tag=hold6></sense>
+<sense tag=LDOCEhold9><equiv tag=hold12></sense>
+<sense tag=LDOCEhold10><equiv tag={hold9, hold13}></sense>
+<sense tag=LDOCEhold11><equiv tag=hold10></sense>
+<sense tag=LDOCEhold12><equiv tag=hold7></sense>
+<sense tag=LDOCEhold13><equiv tag=hold7></sense>
+<sense tag=LDOCEhold14><equiv tag=hold10></sense>
+<sense tag=LDOCEhold15><equiv tag=hold8></sense>
+</reference>
+
+<reference source=NODE>
+<sense tag=NODEhold1><equiv tag={hold1, hold3, hold5, hold8}></sense>
+<sense tag=NODEhold2><equiv tag={hold3, hold5, hold10}></sense>
+<sense tag=NODEhold3><equiv tag=hold3></sense>
+<sense tag=NODEhold4><equiv tag=hold8></sense>
+<sense tag=NODEhold5><equiv tag={hold6, hold7}></sense>
+<sense tag=NODEhold6><equiv tag={hold3, hold5, hold9, hold10}></sense>
+<sense tag=NODEhold7><equiv tag=hold2></sense>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNhold#1><equiv tag=hold2></sense>
+<sense tag=WNhold#2><equiv tag={hold3, hold4}></sense>
+<sense tag=WNhold#3><equiv tag=hold1></sense>
+<sense tag=WNhold#4><equiv tag=hold5></sense>
+<sense tag=WNhold#5><equiv tag=hold6></sense>
+<sense tag=WNhold#6><equiv tag=hold6></sense>
+<sense tag=WNhold#7><equiv tag=hold5></sense>
+<sense tag=WNhold#8><equiv tag=hold7></sense>
+<sense tag=WNhold#9><equiv tag=hold8></sense>
+<sense tag=WNhold#10><equiv tag=hold3></sense>
+<sense tag=WNhold#11><equiv tag=hold3></sense>
+<sense tag=WNhold#12><equiv tag=hold9></sense>
+<sense tag=WNhold#13><equiv tag=hold7></sense>
+<sense tag=WNhold#14><equiv tag=hold9></sense>
+<sense tag=WNhold#15><equiv tag=hold7></sense>
+<sense tag=WNhold#16><equiv tag=hold1></sense>
+<sense tag=WNhold#17><equiv tag=hold5></sense>
+<sense tag=WNhold#18><equiv tag=hold4></sense>
+<sense tag=WNhold#19><equiv tag=hold9></sense>
+<sense tag=WNhold#20><equiv tag=hold8></sense>
+<sense tag=WNhold#21><equiv tag=hold8></sense>
+<sense tag=WNhold#22><equiv tag=hold3></sense>
+<sense tag=WNhold#23><equiv tag=hold6></sense>
+<sense tag=WNhold#24><equiv tag=hold10></sense>
+<sense tag=WNhold#25><equiv tag=hold7></sense>
+<sense tag=WNhold#26><equiv tag=hold5></sense>
+<sense tag=WNhold#27><equiv tag=hold11></sense>
+<sense tag=WNhold#28><equiv tag=hold5></sense>
+<sense tag=WNhold#29><equiv tag=hold10></sense>
+<sense tag=WNhold#30><equiv tag=hold8></sense>
+<sense tag=WNhold#31><equiv tag=hold3></sense>
+<sense tag=WNhold#32><equiv tag=hold9></sense>
+<sense tag=WNhold#33><equiv tag=hold10></sense>
+<sense tag=WNhold#34><equiv tag=hold5></sense>
+<sense tag=WNhold#35><equiv tag=hold5></sense>
+<sense tag=WNhold#36><equiv tag=hold12></sense>
+</senselist>
+</reference>
+
+</kml>
+
+
+

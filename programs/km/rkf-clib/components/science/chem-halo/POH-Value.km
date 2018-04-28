@@ -1,0 +1,13 @@
+;;
+;; $Id: POH-Value.km,v 1.2 2008/07/08 21:43:43 tecuci Exp $
+;;
+
+(POH-Value has (superclasses (Property-Value)))
+
+(every POH-Value has
+  (property-slot (pOH))
+       (pOH-of 	     ((must-be-a Substance)))
+       (less-than    ((must-be-a POH-Value)))
+       (greater-than ((must-be-a POH-Value)))
+       (same-as      ((must-be-a POH-Value)))
+)

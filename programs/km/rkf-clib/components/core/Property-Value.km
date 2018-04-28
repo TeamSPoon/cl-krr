@@ -1,0 +1,622 @@
+;;
+;; $Id: Property-Value.km,v 1.77 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+
+(Property-Value has
+  (superclasses (Property-Group)))
+
+(every Property-Value has
+  (slots-to-opportunistically-evaluate (value))
+)
+
+(every Property-Value has
+  (property-slot ((if ((the instance-of of Self) /= Property-Value)
+                   then 
+		   (oneof ?ps in (the Property range-of of (the instance-of of Self))
+                      where ((?ps /= from-value)
+                             and
+                             (?ps /= to-value)
+                             and
+                             ((the ?ps of (the (the inverse of ?ps) of Self)) = Self)
+                            )
+                   )
+  )))
+
+  (property-of-slot ((the inverse of (the property-slot of Self))))
+; we might have an alignment problem here
+
+  ;; a bit of an abuse of text-slot, which usually goes on slots
+  ;; but it's a great place to put the property that should be 
+  ;; used in all the other text gen constructions
+  ;; 1st pref: actual instantiated property-of-slots
+  ;; 2nd pref: primary-slot
+  ;; 3rd pref: one of the property-slots
+  ;; 4th pref: one of the properties whose range is this P-Val
+  (text-slot (((oneof ?p in (the property-slot of Self)
+                where (has-value (the (the inverse of ?p) of Self))
+               )
+               or
+               (the primary-slot of Self)
+               or
+               (the first of (the property-slot of Self))
+               or
+               (the first of (the Property range-of of (the classes of Self)))
+             ))
+  )
+
+  ;; text-premods go before (but not including) the '=' in "the distance of the move = ___"
+  (text-premods ((:seq
+    (if (has-value (the used-in-equation of Self))
+     then ((?vsympair == (oneof (the equation-symbol of (the used-in-equation of Self))
+                          where ((the2 of It) = Self)
+                         )
+           )
+           and
+           (make-phrase (:seq (if (#'(LAMBDA () (LISTP (CADR (KM-UNIQUE0 '|?vsympair|)))))
+                               then (if ((#'(LAMBDA () (CAADR (KM-UNIQUE0 '|?vsympair|)))) = QUOTE)
+                                     then (#'(LAMBDA () (STRING (CADADR (KM-UNIQUE0 '|?vsympair|)))))
+                                     else "?")
+                               else #'(LAMBDA () (STRING (CADR (KM-UNIQUE0 '|?vsympair|))))    ;; unquoted
+                              )
+                        )
+           )
+          )
+     else (if (has-value (the called of Self))
+           then (make-phrase (:seq (oneof (the called of Self) where t)))
+           else (if (has-value (the output-of of Self))
+                 then (make-phrase ((the text-premods of (the output-of of Self))))
+                 else (make-phrase (:seq (forall ?i in (forall ?ip in (the property-of-slot of Self)
+                                                               (the ?ip of Self)
+                                                       )
+                                                 (:seq "the"
+                                                       (oneof ?p in (the property-slot of Self) 
+                                                        where ((the ?p of ?i) = Self))
+                                                       "of"
+                                                       (the text-def-head of ?i)
+                                                       (if (has-value (the is-part-of of ?i))
+                                                        then (:seq (the text-is-part-of of ?i)
+                                                                   (the text-def-head of (the is-part-of of ?i))
+                                                             )
+                                                       )
+                                                 )
+                                         )
+                                   )
+                      )
+                )
+          )
+    )
+  )))
+
+  (text-sentence ((if (not ((make-phrase (the text-head of Self)) = ""))
+                   then (make-phrase (:seq (the text-premods of Self)
+                                           (if (oneof ?lv-pair in (the value of Self)
+                                                where ((the1 of ?lv-pair) isa Number))
+                                            then "="
+                                            else "is"
+                                           )
+                                           (the text-head of Self)))
+                   else             ;; no text-phrase (which means no little-v value)
+                        (the text-existential-there of Self)
+  )))
+
+  (text-existential-there ((make-sentence 
+                              (:seq "there is"
+                                    (the text-indef-head of Self)
+                                    (if (has-value (the called of Self))
+                                     then (:seq "(called" (the called of Self) "nospace" ")")
+                                    )
+                              )
+  )))
+
+  (text-def-determiner ((:seq "the")))
+  (text-indef-determiner ((if ((:set "A" "E" "I" "O" "U" "a" "e" "i" "o" "u")
+                               includes
+                               (#'(LAMBDA () (STRING (CHAR (KM-UNIQUE0 '(|make-phrase| (|the| |first| |of| (|the| |text-slot| |of| |Self|)))) 0))))
+                              )
+                           then (:seq "an")
+                           else (:seq "a")
+  )))
+
+  (text-description ((the text-sentence of Self)))
+  (text-gen ((make-phrase (the text-phrase of Self))))
+
+  ;; the text-phrase does not include determiners, that's
+  ;; up to the generator for the NP that this phrase premodifies
+  (text-phrase ((:seq (the text-head of Self)
+                      (the text-postmods of Self)
+  )))
+
+  ;; but we can define text-def-head and text-indef-head for when
+  ;; we want to generate an NP of just this Property-Value
+  ;; (e.g. "a length of 1 inch"; "a color of blue")
+  (text-def-head ((if (has-value (the text-head of Self))
+                   then (:seq (the text-def-determiner of Self)
+                              (the text-slot of Self)
+                              "of"
+                              (the text-head of Self)
+                        )
+                   else (:seq "the unknown" (the text-slot of Self))
+  )))
+  (text-indef-head ((if (not ((make-phrase (the text-head of Self)) = ""))
+                     then (:seq (the text-indef-determiner of Self)
+                                (the text-slot of Self)
+                                "of"
+                                (the text-head of Self)
+                          )
+                     else (:seq "an unknown" (the text-slot of Self))
+  )))
+
+  (text-head ((if (the categorical-constant-class of (the property-slot of Self))
+               then (oneof ?val in (the value of Self)
+                     where (oneof ?valclass in (the classes of ?val)
+                            where ((has-value ?valclass)
+                                   and
+                                   ((the categorical-constant-class of (the property-slot of Self))
+                                    includes ?valclass))
+                           )
+                    )
+               else (
+                 (?scalar-val == ((oneof ?val in (the value of Self)
+                                   where (((the1 of ?val) and (the2 of ?val)
+                                           and
+                                           (forall ?ip in (the property-of-slot of Self)     ;; at least one must be true
+                                            ((the instance-of of (the ?ip of Self)) includes
+                                             (the2 of ?val)))))
+                                  )
+                                  or
+                                  (oneof ?val in (the value of Self)
+                                   where t)                          ;; temp kludge to let Aura solubility vals through
+;                                   where (((the1 of ?val)
+;                                           and
+;                                           (forall ?ip in (the property-of-slot of Self)
+;                                            (oneof ?supc in (the all-superclasses of (the instance-of of (the ?ip of Self)))
+;                                             where (?supc = (the2 of ?val))
+;                                            )
+;                                           )
+;                                  )))
+                                 )
+                 )
+                 and
+                 (?card-val == (oneof ?val in (the value of Self)
+                                where (((the1 of ?val) and (the2 of ?val)
+                                        and
+                                        ((the1 of ?val) isa Number)
+                                        and
+                                        ((oneof ?prop in (the range-of of (the instance-of of Self))
+                                          where ((the cardinal-unit-class of ?prop)
+                                                 and
+                                                 ((the2 of ?val) isa (the cardinal-unit-class of ?prop))
+                                       ))))
+                 )))
+                 and
+                 (?conv-card-val == (if ((has-value ?card-val) and (has-value (the preferred-unit of Self)))
+                                     then (the value of
+                                               (the output of
+                                                    (a Unit-Conversion with
+                                                       (input (Self))
+                                                       (target-unit ((the preferred-unit of Self))))
+                                          ))
+                                     else ?card-val
+                                    )
+                 )
+                 and
+                 (?gt-val == (the greater-than of Self))
+                 and
+                 (?gt-head-txt == (if (has-value (the value of ?gt-val))
+                                   then (make-phrase (the text-head of ?gt-val))
+                                   else (make-phrase (the text-premods of ?gt-val))
+                                  )
+                 )
+                 and
+                 (?gt-pm-txt == (make-phrase (the text-premods of ?gt-val)))
+                 and
+                 (?gte-val == (the greater-than-or-equal-to of Self))
+                 and
+                 (?gte-head-txt == (if (has-value (the value of ?gte-val))
+                                   then (make-phrase (the text-head of ?gte-val))
+                                   else (make-phrase (the text-premods of ?gte-val))
+                                  )
+                 )
+                 and
+                 (?gte-pm-txt == (make-phrase (the text-premods of ?gte-val)))
+                 and
+                 (?lt-val == (the less-than of Self))
+                 and
+                 (?lt-head-txt == (if (has-value (the value of ?lt-val))
+                                   then (make-phrase (the text-head of ?lt-val))
+                                   else (make-phrase (the text-premods of ?lt-val))
+                                  )
+                 )
+                 and
+                 (?lt-pm-txt == (make-phrase (the text-premods of ?lt-val)))
+                 and
+                 (?lte-val == (the less-than-or-equal-to of Self))
+                 and
+                 (?lte-head-txt == (if (has-value (the value of ?lte-val))
+                                   then (make-phrase (the text-head of ?lte-val))
+                                   else (make-phrase (the text-premods of ?lte-val))
+                                  )
+                 )
+                 and
+                 (?lte-pm-txt == (make-phrase (the text-premods of ?lte-val)))
+                 and
+                 (?sa-val == (the same-as of Self))
+                 and
+                 (?sa-head-txt == (if (has-value (the value of ?sa-val))
+                                   then (make-phrase (the text-head of ?sa-val))
+                                   else (make-phrase (the text-premods of ?sa-val))
+                                  )
+                 )
+                 and
+                 (?sa-pm-txt == (make-phrase (the text-premods of ?sa-val)))
+                 and
+                 (if ?conv-card-val                                     ;; preference for cardinals
+                  then (:seq (#'(LAMBDA () (MASSAGE-NUMBER (CAR (KM0 '|?conv-card-val|))))))
+                  else (if ?scalar-val then 
+                         (if (oneof ?ip in (the property-of-slot of Self)
+                              where ((the2 of ?scalar-val) = (the instance-of of (the ?ip of Self)))
+                             )
+                          then (the1 of ?scalar-val)
+                          else (:seq (the1 of ?scalar-val)
+;; show '(relative to ...)' only if ref class is more specific than domain
+                                     (if ((not ((the2 of ?scalar-val) = 
+                                                (the domain of (the first of (the text-slot of Self)))
+                                               )
+                                          )
+                                          and
+                                          ((the domain of (the first of (the text-slot of Self)))
+                                           subsumes (the2 of ?scalar-val)
+                                          )
+                                         )
+                                      then (:seq "(relative to"
+                                                 (the2 of ?scalar-val)
+                                                 "nospace" ")"
+                                           )
+                                     )
+                               )
+                         )
+                        else       ;; no card-val or scalar-val (no little-v)
+                         (if ((not (?gt-head-txt = ""))
+                              or
+                              (not (?gte-head-txt = ""))
+                              or
+                              (not (?lt-head-txt = ""))
+                              or
+                              (not (?lte-head-txt = ""))
+                              or
+                              (not (?sa-head-txt = ""))
+                             )
+                          then
+                             (andify (:set (if (not (?gt-head-txt = "")) 
+                                            then
+                                               (:seq "greater than" 
+                                                     ?gt-head-txt
+                                               )
+                                           )
+                                           (if (not (?gte-head-txt = "")) 
+                                            then
+                                               (:seq "greater than or equal to" 
+                                                     ?gte-head-txt
+                                               )
+                                           )
+                                           (if (not (?lt-head-txt = "")) 
+                                            then
+                                               (:seq "less than" 
+                                                     ?lt-head-txt
+                                               )
+                                           )
+                                           (if (not (?lte-head-txt = "")) 
+                                            then
+                                               (:seq "less than or equal to" 
+                                                     ?lte-head-txt
+                                               )
+                                           )
+                                           (if (not (?sa-head-txt = "")) 
+                                            then
+                                               (:seq 
+                                                     ?sa-head-txt
+                                               )
+                                           )
+                                     )
+                             )
+                         )
+                       )
+                 )
+               )
+  )))
+
+  ;; postmods for cardinals only and only for those properties
+  ;; that have a primary constant (e.g., "old" in "5 year old")
+;  (text-postmods ((if (has-value (oneof ?val in (the value of Self)
+;                                  where ((the1 of ?val) isa Number))
+;                      )
+;                   then (oneof (the all-instances of (the scalar-constant-class of (the text-slot of Self)))
+;                         where (It isa Primary-Constant)
+;                        )
+;  )))
+
+  (greater-than (
+    (constraint (if ((has-value (the value of Self))
+                     and
+                     (has-value (the value of TheValue))
+		     and
+		     (#'(LAMBDA () (VALUE-PAIR-SAME-TYPE-P '|Self| '|TheValue|))))
+		    then (Self property-gt TheValue)
+		    else t
+		    ))
+    ))
+  (greater-than-or-equal-to (
+    (constraint (if ((has-value (the value of Self))
+                     and
+                     (has-value (the value of TheValue))
+		     and
+		     (#'(LAMBDA () (VALUE-PAIR-SAME-TYPE-P '|Self| '|TheValue|))))
+		    then (Self property-gte TheValue)
+		    else t
+		    ))
+    ))
+  (less-than (
+    (constraint (if ((has-value (the value of Self))
+                     and
+                     (has-value (the value of TheValue))
+		     and
+		     (#'(LAMBDA () (VALUE-PAIR-SAME-TYPE-P '|Self| '|TheValue|))))
+		    then (Self property-lt TheValue)
+		    else t
+		    ))
+    ))
+  (same-as (
+    (constraint (if ((has-value (the value of Self))
+                     and
+                     (has-value (the value of TheValue))
+		     and
+		     (#'(LAMBDA () (VALUE-PAIR-SAME-TYPE-P '|Self| '|TheValue|))))
+		    then (Self property-eq TheValue)
+		    else t
+		    ))
+    ))
+
+  (value (
+    (constraint (sanity-check (
+      (?allpslots == (the range-of of 
+                          (oneof ?c in (the classes of Self) where (Property-Value subsumes ?c)))
+      )
+      and
+      (?pslot == (the first of ?allpslots))
+      and
+      (if (has-value (the scalar-constant-class of ?pslot))                         ;; if this is a P-V for scalar/cardinal
+       then (                                                                       ;; then
+       (                                                                            ;;  |EITHER
+         (((the1 of TheValue) isa Number)                                           ;;  | the first of the :pair is a Number
+          and                                                                       ;;  |  AND
+            (                                                                       ;;  |
+             (if (has-value (the2 of TheValue))                                     ;;  | if the second of the :pair is not NIL
+                 then                                                               ;;  | then
+                   (if ((the2 of TheValue) isa Unit-of-Measurement)                 ;;  |    if the second is a UoM instance
+                       then                                                         ;;  |    then     (:pair 10 *inch)
+                         (oneof (the cardinal-unit-class of  ;; in terms of a UoM   ;;  |       some instance of a UoM for the prop
+                                     ?pslot)                                        ;;  |       must cover the second of the :pair
+                          where ((the2 of TheValue) isa It))                        ;;  |
+                       else                                                         ;;  |    else     (:pair 10 Football-Field)
+                         (oneof (the domain of ?pslot)                              ;;  |       the second of the :pair is a class
+                          where (It subsumes (the2 of TheValue)))                   ;;  |       subsumed by the domain of the prop
+                   )                                                                ;;  |
+                 else                                                               ;;  | else
+                   ((the cardinal-unit-class of                                     ;;  |    cardinal value, NIL second of :pair
+                         ?pslot) = UoM-Unitless)                                    ;;  |    so must be UoM-Unitless
+             )                                                                      ;;  |
+            )                                                                       ;;  |
+         )                                                                          ;;  |
+         or                                                                         ;;  |OR
+          ((oneof (the scalar-constant-class of (the property-slot of Self))        ;;  | some scalar constant class for the prop
+            where ((the1 of TheValue) isa It))                                      ;;  | must cover the first of the :pair
+           and                                                                      ;;  |  AND
+           (oneof (the domain of (the property-slot of Self))                       ;;  | the second of the :pair must be a class
+            where (It subsumes (the2 of TheValue)))                                 ;;  | subsumed by the domain of the property
+          )                                                                         ;;  |
+         or                                                                         ;;  |OR
+          ((oneof (the scalar-constant-class of ?allpslots)                         ;;  | some scalar constant class for any legal prop
+            where ((the1 of TheValue) isa It))                                      ;;  | must cover the first of the :pair
+           and                                                                      ;;  |  AND
+           (oneof (the domain of ?allpslots)                                        ;;  | the second of the :pair must be a class
+            where (It subsumes (the2 of TheValue)))                                 ;;  | subsumed by the domain of the property
+          )                                                                         ;;  |
+        )                                                                           ;;  |
+        and                                                                         ;;  AND
+             (#'(LAMBDA () (VALUECHECK (KM0 '|Self|) (KM0 '|TheValue|))))           ;;    do a value check on the scalars/cards
+       )                                                                            ;;
+       else (                                                                       ;; else
+         (oneof (the categorical-constant-class of ?allpslots)                      ;;    the single value is an instance of the
+          where (TheValue isa It)))                                                 ;;    appropriate categorical-constant-class
+      )
+     ))
+  )))
+
+  ;; We need this set constraint to check whether all values are consistent.
+  (value (
+    (set-constraint (#'(LAMBDA () (VALUES-CONSISTENT (KM0 '|TheValues|)))))
+  ))
+
+;; constraints for max-value and min-value identical to value
+  (max-value (
+    (constraint (sanity-check (
+      (?allpslots == (the range-of of 
+                          (oneof ?c in (the classes of Self) where (Property-Value subsumes ?c)))
+      )
+      and
+      (?pslot == (the first of ?allpslots))
+      and
+      (if (has-value (the scalar-constant-class of ?pslot))                         ;; if this is a P-V for scalar/cardinal
+       then (                                                                       ;; then
+       (                                                                            ;;  |EITHER
+         (((the1 of TheValue) isa Number)                                           ;;  | the first of the :pair is a Number
+          and                                                                       ;;  |  AND
+            (                                                                       ;;  |
+             (if (has-value (the2 of TheValue))                                     ;;  | if the second of the :pair is not NIL
+                 then                                                               ;;  | then
+                   (if ((the2 of TheValue) isa Unit-of-Measurement)                 ;;  |    if the second is a UoM instance
+                       then                                                         ;;  |    then     (:pair 10 *inch)
+                         (oneof (the cardinal-unit-class of  ;; in terms of a UoM   ;;  |       some instance of a UoM for the prop
+                                     ?pslot)                                        ;;  |       must cover the second of the :pair
+                          where ((the2 of TheValue) isa It))                        ;;  |
+                       else                                                         ;;  |    else     (:pair 10 Football-Field)
+                         (oneof (the domain of ?pslot)                              ;;  |       the second of the :pair is a class
+                          where (It subsumes (the2 of TheValue)))                   ;;  |       subsumed by the domain of the prop
+                   )                                                                ;;  |
+                 else                                                               ;;  | else
+                   ((the cardinal-unit-class of                                     ;;  |    cardinal value, NIL second of :pair
+                         ?pslot) = UoM-Unitless)                                    ;;  |    so must be UoM-Unitless
+             )                                                                      ;;  |
+            )                                                                       ;;  |
+         )                                                                          ;;  |
+         or                                                                         ;;  |OR
+          ((oneof (the scalar-constant-class of (the property-slot of Self))        ;;  | some scalar constant class for the prop
+            where ((the1 of TheValue) isa It))                                      ;;  | must cover the first of the :pair
+           and                                                                      ;;  |  AND
+           (oneof (the domain of (the property-slot of Self))                       ;;  | the second of the :pair must be a class
+            where (It subsumes (the2 of TheValue)))                                 ;;  | subsumed by the domain of the property
+          )                                                                         ;;  |
+         or                                                                         ;;  |OR
+          ((oneof (the scalar-constant-class of ?allpslots)                         ;;  | some scalar constant class for any legal prop
+            where ((the1 of TheValue) isa It))                                      ;;  | must cover the first of the :pair
+           and                                                                      ;;  |  AND
+           (oneof (the domain of ?allpslots)                                        ;;  | the second of the :pair must be a class
+            where (It subsumes (the2 of TheValue)))                                 ;;  | subsumed by the domain of the property
+          )                                                                         ;;  |
+        )                                                                           ;;  |
+        and                                                                         ;;  AND
+             (#'(LAMBDA () (VALUECHECK (KM0 '|Self|) (KM0 '|TheValue|))))           ;;    do a value check on the scalars/cards
+       )                                                                            ;;
+       else (                                                                       ;; else
+         (oneof (the categorical-constant-class of ?allpslots)                      ;;    the single value is an instance of the
+          where (TheValue isa It)))                                                 ;;    appropriate categorical-constant-class
+      )
+     ))
+  )))
+
+  ;; We need this set constraint to check whether all values are consistent.
+  (max-value (
+    (set-constraint (#'(LAMBDA () (VALUES-CONSISTENT (KM0 '|TheValues|)))))
+  ))
+
+  (min-value (
+    (constraint (sanity-check (
+      (?allpslots == (the range-of of 
+                          (oneof ?c in (the classes of Self) where (Property-Value subsumes ?c)))
+      )
+      and
+      (?pslot == (the first of ?allpslots))
+      and
+      (if (has-value (the scalar-constant-class of ?pslot))                         ;; if this is a P-V for scalar/cardinal
+       then (                                                                       ;; then
+       (                                                                            ;;  |EITHER
+         (((the1 of TheValue) isa Number)                                           ;;  | the first of the :pair is a Number
+          and                                                                       ;;  |  AND
+            (                                                                       ;;  |
+             (if (has-value (the2 of TheValue))                                     ;;  | if the second of the :pair is not NIL
+                 then                                                               ;;  | then
+                   (if ((the2 of TheValue) isa Unit-of-Measurement)                 ;;  |    if the second is a UoM instance
+                       then                                                         ;;  |    then     (:pair 10 *inch)
+                         (oneof (the cardinal-unit-class of  ;; in terms of a UoM   ;;  |       some instance of a UoM for the prop
+                                     ?pslot)                                        ;;  |       must cover the second of the :pair
+                          where ((the2 of TheValue) isa It))                        ;;  |
+                       else                                                         ;;  |    else     (:pair 10 Football-Field)
+                         (oneof (the domain of ?pslot)                              ;;  |       the second of the :pair is a class
+                          where (It subsumes (the2 of TheValue)))                   ;;  |       subsumed by the domain of the prop
+                   )                                                                ;;  |
+                 else                                                               ;;  | else
+                   ((the cardinal-unit-class of                                     ;;  |    cardinal value, NIL second of :pair
+                         ?pslot) = UoM-Unitless)                                    ;;  |    so must be UoM-Unitless
+             )                                                                      ;;  |
+            )                                                                       ;;  |
+         )                                                                          ;;  |
+         or                                                                         ;;  |OR
+          ((oneof (the scalar-constant-class of (the property-slot of Self))        ;;  | some scalar constant class for the prop
+            where ((the1 of TheValue) isa It))                                      ;;  | must cover the first of the :pair
+           and                                                                      ;;  |  AND
+           (oneof (the domain of (the property-slot of Self))                       ;;  | the second of the :pair must be a class
+            where (It subsumes (the2 of TheValue)))                                 ;;  | subsumed by the domain of the property
+          )                                                                         ;;  |
+         or                                                                         ;;  |OR
+          ((oneof (the scalar-constant-class of ?allpslots)                         ;;  | some scalar constant class for any legal prop
+            where ((the1 of TheValue) isa It))                                      ;;  | must cover the first of the :pair
+           and                                                                      ;;  |  AND
+           (oneof (the domain of ?allpslots)                                        ;;  | the second of the :pair must be a class
+            where (It subsumes (the2 of TheValue)))                                 ;;  | subsumed by the domain of the property
+          )                                                                         ;;  |
+        )                                                                           ;;  |
+        and                                                                         ;;  AND
+             (#'(LAMBDA () (VALUECHECK (KM0 '|Self|) (KM0 '|TheValue|))))           ;;    do a value check on the scalars/cards
+       )                                                                            ;;
+       else (                                                                       ;; else
+         (oneof (the categorical-constant-class of ?allpslots)                      ;;    the single value is an instance of the
+          where (TheValue isa It)))                                                 ;;    appropriate categorical-constant-class
+      )
+     ))
+  )))
+
+  ;; We need this set constraint to check whether all values are consistent.
+  (min-value (
+    (set-constraint (#'(LAMBDA () (VALUES-CONSISTENT (KM0 '|TheValues|)))))
+  ))
+
+
+;; Here is the parallel representation that doesn't make use of the :pair
+  (cardinal-value ((must-be-a Cardinal with                                         ;; same as the constraints on value for cards
+                            (numeric-value ((must-be-a Number)))
+                            (unit ((constraint ((oneof (the cardinal-unit-class of (the range-of of (the classes of Self)))
+                                                 where (It covers TheValue))
+                                                or
+                                                (oneof (the domain of (the range-of of (the classes of Self)))
+                                                 where (It subsumes TheValue)
+                                                )))))
+  )))
+  (cardinal-value ((forall TheValue where ((the1 of It) isa Number)      ;; copies cards off the value slot
+                    (a Cardinal with (numeric-value ((the1 of It)))
+                                     (unit ((the2 of It))))
+  )))
+  (value ((forall (the cardinal-value of Self)                                      ;; copies cardinal-values onto the value slot
+           (:pair (the numeric-value of It) (the unit of It))
+  )))
+
+  (scalar-value ((must-be-a Scalar with                                             ;; same as the constraints on value for scalars
+                              (scalar-constant ((constraint (oneof (the scalar-constant-class of (the range-of of (the classes of Self)))
+                                                             where (It covers TheValue)))))
+  )))
+  (scalar-value ((forall (the value of Self) where ((has-value (the1 of It))
+						    and ((the1 of It) isa Constant)     ;; copies scalars off the value slot
+                                                    and (has-value (the2 of It)))
+                  (a Scalar with (scalar-constant ((the1 of It)))
+                                 (reference-class ((the2 of It))))
+  )))
+  (value ((forall (the scalar-value of Self)                                        ;; copies scalar-values onto the value slot
+           (:pair (the scalar-constant of It) (the reference-class of It))
+  )))
+
+  (categorical-value ((must-be-a Categorical with                                   ;; same as the constraints on value for categs
+                              (categorical-constant ((constraint (oneof (the categorical-constant-class of 
+                                                                             (the range-of of (the classes of Self)))
+                                                             where (It covers TheValue)))))
+  )))
+  (categorical-value ((if (has-value
+                            (the categorical-constant-class of (the range-of of (the classes of Self))))
+                       then
+                        (forall (the value of Self)                                   ;; copies categs off the value slot
+                         where (It isa (the categorical-constant-class of (the range-of of (the classes of Self))))
+                         (a Categorical with (categorical-constant (It))))
+  )))
+  (value ((forall (the categorical-value of Self)                                   ;; copies categorical-values onto the value slot
+           (the categorical-constant of It)
+  )))
+)
+
+#|
+;;Bad interactions! Not useful. Fix is for BPS to explicitly calls eq-solver if needed.
+(every Property-Value has
+       (value ((#'(LAMBDA () (COND ((FBOUNDP 'EQUATION-SOLVE) (EQUATION-SOLVE '|Self|))))))))
+|#
+
+
+
+

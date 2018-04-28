@@ -1,0 +1,42 @@
+;; 
+;;    $Id: Hydrocarbon.km,v 1.7 2005/07/07 18:27:53 pzyeh Exp $
+;; 
+
+(Hydrocarbon has
+         (superclasses (Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A molecule or group containing at least one carbon with
+                        at least one attached hydrogen. Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+; (every Hydrocarbon has
+;        (has-part
+; 	((a Carbon-Atom with
+; 	    (object-of
+; 	     ((a Be-Attached-To with
+; 		 (object ((a Hydrogen-Atom)))
+; 		 (instrument ((a Covalent-CH-Bond)))))))
+; 	 (at-least 1 Carbon-Atom)
+; 	 (a Hydrogen-Atom)
+; 	 (at-least 1 Hydrogen-Atom) 
+; 	 ))
+;        )
+
+
+(every Hydrocarbon has 
+  (text-postmodslots    ((:seq is-part-of material content
+                               is-above is-along is-between is-behind is-opposite
+                               is-outside is-over is-beside
+                                  #|is-near|# is-at is-on abuts is-inside
+                                  is-north-of is-northeast-of is-east-of
+                                  is-southeast-of is-south-of is-southwest-of
+                                  is-west-of is-northwest-of
+  )))
+)
+
+#| <-- Trimming for demo.
+(every Hydrocarbon has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))
+|#

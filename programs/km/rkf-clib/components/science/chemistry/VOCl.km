@@ -1,0 +1,13 @@
+;;
+;; $Id: VOCl.km,v 1.3 2003/04/22 18:55:16 jchaw Exp $
+;;
+
+(VOCl has (superclasses (Molecular-Compound)))
+
+(every VOCl has
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 V)
+			 (:pair 1 O)
+			 (:pair 1 Cl)))))))
+)

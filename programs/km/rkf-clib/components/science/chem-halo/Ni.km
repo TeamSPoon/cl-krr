@@ -1,0 +1,16 @@
+;;
+;; $Id: Ni.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Ni has (superclasses (Metal-Atom VIIIB-Element)))
+(every Ni has
+       (atomic-symbol (Ni))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 28 NIL))))))
+       (has-ion ((a Ni-Plus-2)))
+       (chemical-period (4)))
+
+(every Ni has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("nickel"))
+)

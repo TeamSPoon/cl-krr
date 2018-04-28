@@ -1,0 +1,28 @@
+<!--- $Id: Geometric-Object.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Geometric-Object>
+<superconcept name=Spatial-Entity>
+
+<definition>
+	A <conceptref name=Spatial-Entity> describing objects in 2D geometry.
+</definition>
+
+<neighborlist>
+  <neighbor name=Line>
+	A Geometric-Object with no geometric properties (i.e. area, volume, etc.) except for length.  
+  </neighbor>
+  <neighbor name=Point>
+  	A Geometric-Object with no geometric properties such as area, volume, height, etc. It is 
+	simply an indefinitely small space.
+  </neighbor>
+  <neighbor name=Circle>
+	A Geometric-Object bounded by a single curve line called its circumference, every part of 
+	which is equally distant from its center.
+  </neighbor>
+  <neighbor name=Polygon>
+  	A Geometric-Object bounded by <conceptref name=Line-Segment>s.
+  </neighbor>
+</neighborlist>
+
+</kml>

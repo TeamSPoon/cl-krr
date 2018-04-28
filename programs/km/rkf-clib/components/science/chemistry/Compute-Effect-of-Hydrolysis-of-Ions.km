@@ -1,0 +1,198 @@
+;; 
+;;  $Id: Compute-Effect-of-Hydrolysis-of-Ions.km,v 1.14 2003/08/21 20:53:57 tecuci Exp $
+;; 
+
+(Compute-Effect-of-Hydrolysis-of-Ions has
+				      (superclasses (Method)))
+
+(every Compute-Effect-of-Hydrolysis-of-Ions has
+       (input ((a Salt-Solution) 
+	       (a Ionic-Substance)))
+       
+       (output (;; 1.For any ion that can hydrolyze according to the following rules, 
+		;; if we have its dissociation constant (Ka or Kb) and its concentration, 
+		;; we can use law L.42 to exactly calculate the pH.
+		((?ion == (the Ionic-Substance input of Self)) and
+		 (?salt == (the Salt-Solution input of Self)) and
+		 (if ((has-value (the1 of (the value of (the concentration of ?ion)))) and
+		      (has-value (the plays of ?ion)) and
+		      (((?ion isa Cation-Substance)
+			and
+			(numberp 
+			 (the1 of (the value of
+				       ((the ka of 
+					     (the+ Acid-Role plays of ?ion))
+					or
+					(the default-ka of 
+					     (the+ Acid-Role plays of ?ion)))))))
+		       or
+		       ((?ion isa Anion-Substance)
+			and
+			(numberp 
+			 (the1 of (the value of
+				       ((the kb of (the+ Base-Role plays of ?ion))
+					or
+					(the default-kb of (the+ Base-Role plays of ?ion)))))))))
+		     then
+		   (the pH of
+			(a Solution with
+			   (base (((a Chemical called "Reactant" with
+				      (raw-material-of ((a Hydrolysis)))) & ?ion)))))))))
+       ;; 2.Cations
+       (output (
+	  ;;   2.1.With the exception of ions of Group 1A and Ca2+, Sr2+, and Ba2+, 
+	  ;;   metal ions will cause a decrease in pH, with a strength proportional 
+	  ;;   to their charge (cannot calculate exactly unless the Ka is given).
+	  ((?ion == (the Ionic-Substance input of Self)) and
+	   (?ion-hbsu == (the has-basic-structural-unit of ?ion)) and
+	   (?ion-hbsu-class == (the instance-of of ?ion-hbsu)) and
+	   (?ion-hbsu-chf ==  (the has-chemical-formula of ?ion-hbsu)) and
+	   (?ion-elem == (if (has-value ?ion-hbsu-chf)
+			     then (an instance of 
+				      (the2 of (the1 of (the term of ?ion-hbsu-chf)))))) and 
+	   (if ((?ion isa Cation-Substance) and
+		;; metal cation
+		(has-value ?ion-hbsu-chf) and
+		((the number of (the elements of (the term of ?ion-hbsu-chf))) = 1) and 
+		(?ion-elem isa Metal-Atom) and
+		(not (?ion-elem isa Alkali-Metal-Element)) and ;; group 1a
+		(not (?ion-hbsu-class includes Ca-Plus-2)) and ;; 3 exceptions
+		(not (?ion-hbsu-class includes Sr-Plus-2)) and
+		(not (?ion-hbsu-class includes Ba-Plus-2)))
+	       then
+	     (a PH-Value with
+		(to-value-of ((a Decrease with
+				 (property-slot (pH))))))))))
+	       
+       (output (
+	   ;;   2.2.Polyatomic cations that include one or more protons, like NH4+, 
+	   ;;   are the conjugate acids of weak bases, and can donate a proton, 
+	   ;;   decreasing pH. Their Ka's can be calculated: 
+	   ((?ion == (the Ionic-Substance input of Self)) and
+	    (?ion-hbsu == (the has-basic-structural-unit of ?ion)) and
+	    (?ion-hbsu-chf ==  (the has-chemical-formula of ?ion-hbsu)) and
+	    (if ((?ion isa Cation-Substance) and
+		 ;; TODO - delcare Polyatomic-Cation - inlined for now
+		 (has-value ?ion-hbsu-chf) and
+		 ((the number of (the elements of (the term of ?ion-hbsu-chf))) > 1) and
+		 ;; contains protons 
+		 (oneof (the elements of (the term of ?ion-hbsu-chf))
+			where
+			(((the2 of It) = H) and (the1 of It) >= 1)))
+		then
+	      (a PH-Value with
+		    (to-value-of ((a Decrease with
+				     (property-slot (pH))))))))))
+
+       ;; 3.Anions
+       (output (
+	   ;; 3.1.If an anion is the conjugate base of a weak acid, it tends to 
+	   ;; increase the pH by taking a proton from water.
+	  ((?ion == (the Ionic-Substance input of Self)) and
+	   (?ion-conj-acid == (the complement of 
+				   (a Conjugate-Acid-Base-Pair with
+				      (element (?ion))))) and
+	   (if ((?ion isa Anion-Substance) and
+		(has-value ?ion-conj-acid) and
+		(?ion-conj-acid /= "none"))
+	       then
+		(if ((the1 of 
+			   (the value of (the intensity of 
+					      (the+ Acid-Role plays of ?ion-conj-acid))))
+		     = *weak)
+		    then
+		  ;; conj bases of weak acids increase pH
+		  (a PH-Value with
+		     (to-value-of ((a Increase with
+				      (property-slot (pH))))))
+		  ;; conj bases of strong acids do not affect pH
+		  else nil)))))
+       
+     (output (
+	   ;; 3.2.If an is the product of an intermediate dissociation of a polyprotic acid
+	   ;; it may be able to act as both an acid and a base. The greater k (ka,kb) will
+           ;; determine if the solution is acidic or basic.
+	  ((?ion == (the Ionic-Substance input of Self)) and
+	   (?ion-hbsu == (the has-basic-structural-unit of ?ion)) and
+	   (?ion-hbsu-chf ==  (the has-chemical-formula of ?ion-hbsu)) and
+	   ;;(?ion-plays-acid == (the+ Acid-Role plays of ?ion)) and
+	   ;;(?ion-plays-base == (the+ Base-Role plays of ?ion)) and
+	   (?acid == (a Acid with
+			     (has-basic-structural-unit 
+			      ((a Chemical-Entity with
+				  (has-part (
+				     (a H-Plus)
+				     (the output of 
+				       (a Identify-Chemical-Entity with
+					  (nested-atomic-chemical-formula 
+					   ((a Chemical-Formula with
+					       (term (forall-seq 
+						      (the term of ?ion-hbsu-chf)
+						      where ((the2 of It) /= H)
+						      It)))))))))))))) and
+           (?is-int-prod == (forall-seq 
+			  (the term of ?ion-hbsu-chf)
+			  where ((the2 of It) = H)
+			  It)) and
+	   (if ((?ion isa Anion-Substance) and
+		;; isa polyprotic acid dissoc intermediate result 
+		(?acid isa Polyprotic-Acid) and
+		(has-value ?is-int-prod))
+	       then       
+	     (if ((has-value (the plays of ?ion))
+		  then
+		  (if ((the1 of (the value of ((the ka of (the+ Acid-Role plays of ?ion))
+					       or
+					       (the default-ka of (the+ Acid-Role plays of ?ion)))))
+		       >
+		       (the1 of (the value of ((the kb of (the+ Base-Role plays of ?ion))
+					       or
+					       (the default-kb of (the+ Base-Role plays of ?ion))))))
+		      then
+		    (a PH-Value with
+		       (to-value-of ((a Decrease with
+					(property-slot (pH))))))
+		    else
+		    (a PH-Value with
+		       (to-value-of ((a Increase with
+					(property-slot (pH))))))))))))))
+
+(Compute-Effect-of-Hydrolysis-of-Ions has
+    (test-case ( '((*Cation-Subst has
+				  (instance-of (Cation-Substance))
+				  (has-basic-structural-unit ((a Na-Plus))))
+
+		   (*Anion-Subst has
+				 (instance-of (Anion-Substance))
+				 (has-basic-structural-unit ((a CO3-Minus-2))))
+
+		   (*Salt-Sol has
+			      (instance-of (Salt-Solution))
+			      (base ((a Salt-Substance with
+					(has-basic-structural-unit ((a Na2CO3)))
+					;; this should be computed somehow
+					(has-part (*Cation-Subst *Anion-Subst))
+					(concentration ((a Concentration-Value with
+							   (value ((:pair 1 *molar))))))))))
+		   
+		   (*C1 has
+		       (instance-of (Compute-Effect-of-Hydrolysis-of-Ions))
+		       (input (*Salt-Sol *Cation-Subst)))
+
+		   (*C2 has
+		       (instance-of (Compute-Effect-of-Hydrolysis-of-Ions))
+		       (input (*Salt-Sol *Anion-Subst)))
+
+		   ((the to-value-of of (the output of *C2)) isa Increase)
+		   
+		   (*C3 has 
+			(instance-of (Compute-Effect-of-Hydrolysis-of-Ions))
+			(input ((a Aqueous-Solution)
+				(a CH3COO-Minus-Substance))))
+		   ((the to-value-of of (the output of *C3)) isa Increase)
+		   
+
+))))
+
+
+		   

@@ -1,0 +1,46 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Phosphate-Substance7778
+
+
+|#
+
+(disable-classification)
+
+(Phosphate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Phosphate-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Phosphate-Substance1261 has
+  (prototype-of (Phosphate-Substance Ionic-Compound-Substance))
+  (prototype-scope (Phosphate-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a PO4-Minus-3)))))))))
+  (prototype-participants (_PO4-Minus-1267 _Chemical-Entity1263 _Phosphate-Substance1261)))
+
+(_Phosphate-Substance1261 has (instance-of (Phosphate-Substance)) (has-basic-structural-unit (_Chemical-Entity1263)))
+
+(_Chemical-Entity1263 has (instance-of (Ionic-Compound)) (has-part (_PO4-Minus-1267)))
+
+(_PO4-Minus-1267 has (instance-of (PO4-Minus-3)))
+
+(enable-classification)
+
+(explanation (:triple _Phosphate-Substance1261 has-basic-structural-unit _Chemical-Entity1263) (((@ SME entered)) (every Phosphate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Phosphate-Substance1261 instance-of Phosphate-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity1263 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _PO4-Minus-1267 instance-of PO4-Minus-3) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Phosphate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

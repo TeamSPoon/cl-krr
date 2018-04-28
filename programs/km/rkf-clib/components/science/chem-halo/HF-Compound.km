@@ -1,0 +1,15 @@
+;; $Id: HF-Compound.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+
+(HF-Compound has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HF-Compound has
+	(has-chemical-name ("hydrogen fluoride" "hydrofluoric acid"))
+	(has-part ((a H-Plus)(a F-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 F-Minus)))))))
+)
+(every HF-Compound has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a F-Minus))))
+

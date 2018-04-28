@@ -1,0 +1,46 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Cytoplasm ----------
+
+(Cytoplasm has (superclasses (Subcellular-Entity)))
+
+(_Cytoplasm214 has 
+  (instance-of (Cytoplasm))
+  (has-clones (_Cytoplasm213
+               _Cytoplasm304
+               _Cytoplasm400
+               _Cytoplasm406))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (prototype-participants (_Cytosol408
+                           _Cytoplasm214))
+  (prototype-participant-of (_Cytoplasm214))
+  (prototype-of (Cytoplasm))
+  (prototype-scope (Cytoplasm))
+  (has-built-clones (_Cytoplasm304
+                     _Cytoplasm400
+                     _Cytoplasm406))
+  (has-basic-structural-unit (_Cytosol408))
+  (edge-coordinate ((:seq has-basic-structural-unit _Cytosol408 167 568)))
+  (edge-visibility ((:seq has-basic-structural-unit _Cytosol408 t))))
+
+(_Cytosol408 has 
+  (instance-of (Cytosol))
+  (has-clones (_Cytosol407))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Cytoplasm214))
+  (node-coordinate ((:pair 284 535)))
+  (prototype-participant-of (_Cytoplasm214)))
+
+(explanation (:triple _Cytoplasm214 has-basic-structural-unit _Cytosol408) ((added-at Cytoplasm "User defined")))
+(explanation (:triple _Cytoplasm214 instance-of Cytoplasm) ((a Cytoplasm)))
+(explanation (:triple _Cytosol408 instance-of Cytosol) ((added-at Cytoplasm "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(Cytoplasm now-has (user-description ("The space between the plasma membrane and the nucleus in a eukaryotic cell, or all the internal space in a prokaryotic cell. ")))
+(enable-classification)
+

@@ -1,0 +1,14 @@
+;;
+;; $Id: Ta.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Ta has (superclasses (Metal-Atom VB-Element)))
+(every Ta has
+       (atomic-symbol (Ta))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 73 NIL))))))
+       (chemical-period (6)))
+(every Ta has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("tantalum"))
+)

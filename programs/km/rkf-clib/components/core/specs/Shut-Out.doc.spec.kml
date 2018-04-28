@@ -1,0 +1,48 @@
+<!--- $Id: Shut-Out.doc.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Shut-Out>
+<superconcept name=Obstruct>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Shut-Out>
+  <definition>prevent an object from being moved into an enclosure</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <requiredslot name=location>
+      <restriction>is not inside the <slot>location</slot> enclosure</restriction>
+    </requiredslot>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Shut-Out> whose <slot>location</slot> is the Place
+      outside the enclosure
+    </restriction>
+  </requiredslot>
+  <requiredslot name=location>
+    <restriction>the Place outside the enclosure</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Obstruct>
+    <restriction>causes <slot>object</slot> to be Shut-Out</restriction>
+  </primaryslot>
+  <wnsynsets><verb>shut_out#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>exclude#2, keep_out#1, shut#3
+  </verb></wnsynsets>
+</component>
+
+<musing>
+In order to Shut-Out an <slot>object</slot> from an enclosure, it must 
+not already be inside the enclosure (it doesn't necessarily have to be
+defined as already outside the enclosure, as long as it's not inside). 
+The resulting state <conceptref name=Be-Shut-Out> can be "undone" by 
+<conceptref name=Admit>ting the <slot>object</slot>
+</musing>
+
+
+</kml>
+
+

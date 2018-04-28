@@ -1,0 +1,20 @@
+;;
+;; $Id: Book-Shelf.km,v 1.3 2005/04/10 21:56:45 gking Exp $
+;;
+
+(Book-Shelf has
+  (superclasses (Shelf))
+  (description ("a shelf on which to keep books"))
+)
+
+(every Book-Shelf has
+       (purpose ((a Container with
+                    (in-event  ((must-be-a Be-Contained)))
+		    (content   ((a Book)))
+                    (played-by (Self))
+		    )))
+       )
+
+(Book-Shelf has (wn20-synset ((:set
+			       (:triple "bookshelf" 1 "n")
+))))

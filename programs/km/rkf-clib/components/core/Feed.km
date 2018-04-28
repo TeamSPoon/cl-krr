@@ -1,0 +1,88 @@
+;; 
+;;    $Id: Feed.km,v 1.18 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Feed has
+	(superclasses 	(Supply))
+	(required-slot  (recipient agent donor object))
+	(primary-slot 	(instrument))
+	(secondary-slot ())
+	(cmap-correspondence (
+			      (:seq object "food")
+			      (:seq agent "feeder")
+                              (:seq donor "donor")
+                              (:seq recipient "recipient")
+                              (:seq instrument "instrument")
+			     ))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Feed has
+       (donor     ((a Living-Entity)))
+       (recipient ((a Living-Entity))) 
+       (object ((a Tangible-Entity with
+		   (plays ((a Food))))))
+       )
+
+(every Feed has
+  (text-active-verbseq-sg ("feeds"))
+  (text-active-verbseq-pl ("feed"))
+  (text-passive-verbseq-sg ("is fed"))
+  (text-passive-verbseq-pl ("are fed"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Feed has
+  (test-case ('(
+		(*Food has (instance-of (Food)))
+		
+		(*cookies has 
+			  (instance-of (Tangible-Entity))
+			  (plays ((*Food))))
+		#|		 (*cookies has
+			   (instance-of (Tangible-Entity)))|#
+		(*Mother-Teresa has
+				(instance-of (Living-Entity))
+				(possesses   (*cookies)))
+		(*Children has (instance-of (Tangible-Entity)))
+
+		;; *Mother-Teresa Feeds the *Children *Food
+		(*Feed has
+		       (instance-of (Feed))
+		       (donor       (*Mother-Teresa))
+		       (recipient   (*Children))
+		       (object      (*cookies)))
+		(do-and-next *Feed)
+		
+		;; Test 1: *Mother-Teresa does not have the *Food
+		((the possesses of *Mother-Teresa) /= *cookies)
+		
+		;; Test 2: *Children have *Food
+		((the possesses of *Children) = *cookies)
+		
+		;; Test 3: The implicit action enabled by Feed is Obtain
+		((the enables of *Feed) isa Replenish)
+	       )))
+)
+
+
+
+
+
+
+;; automatically added WN synsets
+(Feed has (wn16-synset ((:set  
+                                   (:triple "feed" 1 "v")
+                                   (:triple "feed" 2 "v")
+                                   (:triple "grub" 3 "v")
+                                   (:triple "give" 24 "v")
+))))
+
+(Feed has (wn20-synset ((:set
+                                   (:triple "feed" 1 "v")
+                                   (:triple "feed" 2 "v")
+                                   (:triple "give" 24 "v")
+))))
+(every Feed has (text-nominalization ("feeding")))

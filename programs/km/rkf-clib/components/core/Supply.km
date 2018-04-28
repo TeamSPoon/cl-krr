@@ -1,0 +1,89 @@
+;; 
+;;    $Id: Supply.km,v 1.18 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Supply has
+	(superclasses 	(Relinquish))
+	(required-slot  (agent donor object enables))
+	(primary-slot 	(recipient instrument))
+	(secondary-slot ())
+	(cmap-correspondence (
+			      (:seq object "the thing Supplied")
+			      (:seq agent "the Supplier")
+                              (:seq donor "the original possessor")
+                              (:seq recipient "the final possessor")
+                              (:seq instrument "the thing used to Supply")
+			      (:seq enables "enable")	
+			     ))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Supply has
+  (agent     ((a Tangible-Entity)))   
+  (object    ((a Tangible-Entity)))
+  (recipient ((must-be-a Tangible-Entity)))
+  (enables   ((a Replenish with 
+		 (object    ((the object of Self))))))
+)
+
+(every Supply has
+  (text-active-verbseq-sg ("supplies"))
+  (text-active-verbseq-pl ("supply"))
+  (text-passive-verbseq-sg ("is supplied"))
+  (text-passive-verbseq-pl ("are supplied"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Supply has
+  (test-case ('(
+                 (*Money has (instance-of (Physical-Object)))
+                 (*Fred has
+                        (instance-of (Living-Entity)) 
+                        (possesses   (*Money)))
+                 (*Steven has (instance-of (Tangible-Entity)))
+
+		 ;; *Fred Supplied *Money to *Steven
+                 (*Supply has
+                        (instance-of (Supply))
+                        (agent       (*Fred))
+                        (recipient   (*Steven))
+                        (object      (*Money)))
+                 (do-and-next *Supply)
+		 (the text-gen of (thelast Supply))
+		
+
+		 ;; Test 1: Supply enables a Replenish
+		 ((the enables of *Supply) isa Replenish)
+
+		 ;; Test 2: The object intentionally obtained should be *Money
+		 ((the object of (the enables of *Supply)) = *Money)
+		  
+		 ;; Test 3: *Fred no longer has the *Money
+                 ((the possesses of *Fred) /= *Money)
+
+	       )))
+)
+
+
+;; automatically added WN synsets
+(Supply has (wn16-synset ((:set  
+                                     (:triple "supply" 1 "v")
+                                     (:triple "supply" 2 "v")
+                                     (:triple "furnish" 1 "v")
+                                     (:triple "issue" 2 "v")
+                                     (:triple "provide" 1 "v")
+                                     (:triple "render" 2 "v")
+))))
+
+(Supply has (wn20-synset ((:set
+                                     (:triple "supply" 1 "v")
+                                     (:triple "supply" 2 "v")
+                                     (:triple "furnish" 1 "v")
+                                     (:triple "issue" 2 "v")
+                                     (:triple "provide" 1 "v")
+                                     (:triple "render" 2 "v")
+))))
+
+(every Supply has (text-nominalization ("supplying")))

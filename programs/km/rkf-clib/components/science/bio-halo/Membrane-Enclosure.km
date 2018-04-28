@@ -1,0 +1,16 @@
+;; 
+;;    $Id: Membrane-Enclosure.km,v 1.3 2006/02/10 20:41:47 porter Exp $ 
+;; 
+
+(Membrane-Enclosure has
+	  (superclasses (Membrane))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("A membrane that serves as an enclosure or container"))
+	  (cmap-correspondence ()))
+
+(every Membrane-Enclosure has
+          (is-part-of ((a Living-Entity)))
+          (encloses ((a Physical-Object))))
+

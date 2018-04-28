@@ -1,0 +1,39 @@
+
+;;
+;; $Id: Compute-Compound-Computing-Method-from-Formula.km,v 1.8 2010/05/18 15:05:12 kbarker Exp $
+;;
+
+(Compute-Compound-Computing-Method-from-Formula has
+						(superclasses (Method)))
+
+(every Compute-Compound-Computing-Method-from-Formula has
+       ;;(input ((a Thing)))		; A nested formula
+       (output ((if (the input of Self) then
+		  (if ((the2 of (the1 of (the input of Self))) = H) ; An acid
+		      then Compute-Acid-Compound-from-Formula
+		      else (if (
+				(((the seq-length of (the input of Self)) = 2)
+				 and
+				 ((the all-superclasses of (the2 of (the1 of (the input of Self)))) includes (Cation))
+				 and
+				 ((the all-superclasses of (the2 of (the2 of (the input of Self)))) includes (Anion)))
+				or
+				(oneof 
+				 (the elements of
+				      (forall-seq2 (the input of Self) ;;e.g. (:seq (:pair 1 Pb) (:pair 1 C) (:pair 3 O))
+						   where t
+						   (the2 of It2)))
+				 where
+				 (#'(LAMBDA () 
+					    (REMAINING-FORMULA-IS-ANION-P
+					     (KM-UNIQUE0 '(|the| |input| |of| |Self|))
+					     (FIRST
+					      (COMPUTE-CATION-FROM-DEFS
+					       NIL
+					       (KM-UNIQUE0 '(:|seq| (:|pair| 1 |It|)))
+					       (KM-UNIQUE0 '(:|seq| (:|pair| 1 |It|)))
+					       (KM-UNIQUE0 '(:|seq| (:|pair| 1 |It|)))
+					       NIL))
+					     )))))
+			       then Compute-Ionic-Compound-from-Formula
+			       else Compute-Molecule-from-Formula))))))

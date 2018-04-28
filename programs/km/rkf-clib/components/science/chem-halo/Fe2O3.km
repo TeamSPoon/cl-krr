@@ -1,0 +1,19 @@
+;;
+;; $Id: Fe2O3.km,v 1.2 2007/11/20 17:32:13 tecuci Exp $
+;;
+
+(Fe2O3 has (superclasses (Ionic-Compound)))
+
+(every Fe2O3 has	
+       (has-chemical-name ("iron(III) oxide"))
+       (has-part 
+	((a Fe-Plus-3) (a O-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 2 Fe-Plus-3)
+			 (:pair 3 O-Minus-2)))))))
+)
+(every Fe2O3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Fe-Plus-3) (a O-Minus-2) (exactly 2 Chemical-Entity))))
+

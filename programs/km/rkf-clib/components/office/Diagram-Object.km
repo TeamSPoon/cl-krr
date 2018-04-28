@@ -1,0 +1,25 @@
+;; $Id: Diagram-Object.km,v 1.3 2005/02/25 19:25:35 billj Exp $
+
+(Diagram-Object has 
+	(superclasses (Spatial-Entity LinguisticUnit)) ; a subclass of Physical-Mark instead of LinguisticUnit?
+
+;	(description ("Diagram-Object, a sublcass of Spatial-Entity, is the class of objects found on diagrams of all sorts (such as Gannt Charts, Flowcharts, Component Diagrams etc).  By default, instances of Diagram-Object are visible to humans under typical conditions (e.g. reasonable distance from diagram, typical lighting.)  The embedding space of any Diagram-Object is a two-dimensional plane."))
+;
+; The above description was written under the view that Diagram-Object
+; is a Physical-Mark and not a LinguisticUnit.  It needs to be
+; reconceptualized and re-written if Diagram-Object really is to be a
+; subclass of LinguisticUnit (which, as of 2005-02-21, it is).
+
+; This test case was added to ensure that Diagram-Objects are allowed to have
+; 0 or more labels.
+	(test-case ('(
+			(*Test-Diagram-Object01 has (instance-of (Diagram-Object)))
+			((the diagram-object-label of *Test-Diagram-Object01) = nil)
+			(*Test-Diagram-Object02 has 
+				(instance-of (Diagram-Object))
+				(diagram-object-label ("the first label" "the second label")))
+			((the number of (the diagram-object-label of *Test-Diagram-Object02)) = 2))))
+
+)
+
+

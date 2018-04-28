@@ -1,0 +1,48 @@
+;; 
+;; $Id: Floor.km,v 1.4 2006/04/12 19:33:24 jchaw Exp $
+;; 
+
+(Floor has
+  (superclasses (Platform))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("a platform supporting the contents of a container"))
+  (cmap-correspondence ())
+)
+
+(every Floor has
+  (is-part-of ((a Tangible-Entity with
+                  (plays ((a Container)))
+  )))
+
+;; anything on the floor must be content of the container
+  (has-on-it ((must-be-a Tangible-Entity with
+                  (content-of ((the Container plays of 
+                                    (the is-part-of of Self))))
+  )))
+)
+
+(Floor has
+  (test-case ('(
+                (*TheGymFloor has (instance-of (Floor)))
+                (*TheGym has (instance-of (Architectural-Structure))
+                             (has-part (*TheGymFloor))
+                             (plays ((a Container)))
+                )
+                (*TheUtilityBall has (instance-of (Artifact))
+                                     (is-on (*TheGymFloor))
+                )
+                (*TheBalanceBeam has (instance-of (Artifact))
+                                     (is-on (*TheGymFloor))
+                )
+
+                (the content-of of (the has-on-it of *TheGymFloor))
+                ((the content of (the Container plays of *TheGym))
+                 is-superset-of (:set *TheUtilityBall *TheBalanceBeam)
+                )
+))))
+
+(Floor has
+       (wn20-synset ((:set 
+		      (:triple "floor" 1 "n")))))

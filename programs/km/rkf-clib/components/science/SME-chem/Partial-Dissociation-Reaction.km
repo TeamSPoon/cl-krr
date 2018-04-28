@@ -1,0 +1,9 @@
+;;    $Id: Partial-Dissociation-Reaction.km,v 1.1 2007/11/30 21:06:51 mrglass Exp $
+(Partial-Dissociation-Reaction has (superclasses (Dissociation-Reaction Equilibrium-Reaction)))
+
+(Partial-Dissociation-Reaction has (user-description ("Weak electrolytes, when placed in water, partially dissociate into their component ions.")))
+
+(every Partial-Dissociation-Reaction has-definition
+   (instance-of (Dissociation-Reaction))
+   (raw-material ((a Ionic-Compound-Substance with 
+            (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak nil))))))))))

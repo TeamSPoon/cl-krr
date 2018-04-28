@@ -1,0 +1,26 @@
+ 
+;;
+;;  $Id: polarity.km,v 1.11 2007/04/11 21:31:10 jchaw Exp $
+;;
+
+(polarity has
+   (instance-of (EntityProperty))
+   (superslots  ())
+   (subslots    ())
+   (domain      (Tangible-Entity))    
+   (range       (Polarity-Value))
+   (categorical-constant-class   (Polarity-Constant))    
+   (fluent-status (*Inertial-Fluent))
+   (inverse     (polarity-of))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1))
+)
+
+(polarity has (wn20-synset ((:set
+                               (:triple "polarity" 2 "n")
+                               (:triple "sign" 7 "n")
+))))
+
+(polarity-of has
+	(instance-of (EntityProperty)))

@@ -1,0 +1,2253 @@
+<!-- $Id: Calendar-onto.html,v 1.17 2005/03/15 20:44:40 billj Exp $ -->
+
+<html>
+<head>
+
+<title>The Calendar Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Calendars</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">A Calendar is a collection of information about
+the scheduling of events relevant to a particular calendar user (a
+Person, Organization, Room, Device, etc.). The representation for
+calendars and calendar entries is modeled after the 
+<a href="http://www.ietf.org/rfc/rfc2445.txt"><i>iCalendar</i></a> standard.
+We do not implement a reasoner over Calendar objects.</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>the <a href="http://www.ietf.org/rfc/rfc2445.txt"><i>iCalendar</i></a> 
+standard from <a href="http://www.ietf.org/">the IETF</a>
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+<ul>
+<li>Entity 
+    <ul>
+    <li>Intangible-Entity 
+        <ul>
+        <li>Message 
+            <ul>
+            <li>Document 
+                <ul>
+                <li><a href=#Calendar><b>Calendar</b></a>
+                <li>Form-Document 
+                    <ul>
+                    <li><a href=#Calendar-Entry><b>Calendar-Entry</b></a>
+                        <ul>
+                        <li><a href=#Event-Entry><b>Event-Entry</b></a>
+                        <li><a href=#Free-Busy-Entry><b>Free-Busy-Entry</b></a>
+                        <li><a href=#Journal-Entry><b>Journal-Entry</b></a>
+                        <li><a href=#Todo-Entry><b>Todo-Entry</b></a>
+                        </ul>
+                    </ul>
+                </ul>
+            <li>Message-Field 
+                <ul>
+                <li>Number-Field 
+                <li>Text-Field 
+                    <ul>
+                    <li>CalendarXProp
+                    </ul>
+                </ul>
+            <li><a href=#Recurrence-Rule><b>Recurrence-Rule</b></a>
+            <li><a href=#WeekdayNum><b>WeekdayNum</b></a>
+            </ul>
+        </ul>
+    </ul>
+<li>Role
+    <ul>
+    <li>CalendarParticipant
+        <ul>
+        <li>CalendarAttendee
+        <li>CalendarOrganizer
+        </ul>
+    </ul>
+</ul>
+</div>
+</td></tr></table>
+</p>
+
+<p>
+<a name=Calendar>
+<table>
+<tr><td>
+
+<div class="boxtop">Calendar</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of document consisting of many Calendar-Entry objects
+        (similar to an <i>iCalendar</i> <tt>VCALENDAR</tt> object).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Calendar with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Calendar-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>has-part</pre></td><td align=center><pre>n</pre></td><td><pre>(a Calendar-Entry)</pre></td></tr>
+    <tr><td><pre>calendar-user</pre></td><td align=center><pre>1</pre></td><td><pre>(a Entity)</pre></td></tr>
+    <tr><td><pre>hasStartDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>hasEndDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Calendar with
+   (has-part ((a Todo-Entry) (a Event-Entry)))
+   (calendar-user (*Franklin))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Calendar-Entry>
+<table>
+<tr><td>
+
+<div class="boxtop">Calendar-Entry</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of document consisting of message fields representing the 
+        properties of Calendar objects. This class is usually avoided in favor 
+        of its more specific subclasses (which correspond to the 
+        <i>iCalendar</i> "components").
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Calendar-Entry with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Calendar-Entry-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>calendar-attendee</pre></td><td align=center><pre>n</pre></td><td><pre>(a CalendarAttendee)</pre></td></tr>
+    <tr><td><pre>calendar-comment</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>calendar-contact</pre></td><td align=center><pre>1</pre></td><td><pre>(a ContactDataStructure)</pre></td></tr>
+    <tr><td><pre>calendar-organizer</pre></td><td align=center><pre>1</pre></td><td><pre>(a CalendarOrganizer)</pre></td></tr>
+    <tr><td><pre>calendar-url</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)               <i>;; uri</i></pre></td></tr>
+    <tr><td><pre>calendar-uid</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)               <i>;; UID (an RFC822 address spec)</i></pre></td></tr>
+    <tr><td><pre>calendar-dtstamp</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)         <i>;; calendar entry creation</i></pre></td></tr>
+    <tr><td><pre>calendar-x-prop</pre></td><td align=center><pre>n</pre></td><td><pre>(a CalendarXProp)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    See the Calendar-Entry subclasses: 
+    <a href=#Event-Entry><b>Event-Entry</b></a>,
+    <a href=#Free-Busy-Entry><b>Free-Busy-Entry</b></a>,
+    <a href=#Journal-Entry><b>Journal-Entry</b></a>,
+    <a href=#Todo-Entry><b>Todo-Entry</b></a>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Event-Entry>
+<table>
+<tr><td>
+
+<div class="boxtop">Event-Entry</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of Calendar-Entry describing the properties of an Event recorded
+        in a Calendar (similar to an <i>iCalendar</i> <tt>VEVENT</tt>
+        object).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Event-Entry with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Event-Entry-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>calendar-referent</pre></td><td align=center><pre>1</pre></td><td><pre>(a Event)</pre></td></tr>
+    <tr><td><pre>calendar-attach</pre></td><td align=center><pre>n</pre></td><td><pre>(a Information)</pre></td></tr>
+    <tr><td><pre>calendar-categories</pre></td><td align=center><pre>n</pre></td><td><pre>(a Thing)</pre></td></tr>
+    <tr><td><pre>calendar-class</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)          <i>;; {"PUBLIC" | "PRIVATE" | "CONFIDENTIAL"}</i></pre></td></tr>
+    <tr><td><pre>calendar-description</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>calendar-status</pre></td><td align=center><pre>1</pre></td><td><pre>(a Status-Value)</pre></td></tr>
+    <tr><td><pre>calendar-summary</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>calendar-recurrence-id</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; the time of this particular event instance within a sequence of recurring events</i></pre></td></tr>
+    <tr><td><pre>calendar-related-to</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)          <i>;; RELATED-TO</i></pre></td></tr>
+    <tr><td><pre>calendar-exdate</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)    <i>;; EXDATE</i></pre></td></tr>
+    <tr><td><pre>calendar-exrule</pre></td><td align=center><pre>n</pre></td><td><pre>(a Recurrence-Rule) <i>;; EXRULE</i></pre></td></tr>
+    <tr><td><pre>calendar-rdate</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)    <i>;; RDATE</i></pre></td></tr>
+    <tr><td><pre>calendar-rrule</pre></td><td align=center><pre>n</pre></td><td><pre>(a Recurrence-Rule) <i>;; RRULE</i></pre></td></tr>
+    <tr><td><pre>calendar-created</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; calendar information creation</i></pre></td></tr>
+    <tr><td><pre>calendar-last-modified</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>calendar-sequence</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)          <i>;; revision number</i></pre></td></tr>
+    <tr><td><pre>calendar-dtstart</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; event start</i></pre></td></tr>
+    <tr><td><pre>calendar-earliest-start</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; earliest event start</i></pre></td></tr>
+    <tr><td><pre>calendar-latest-start</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; latest event start</i></pre></td></tr>
+    <tr><td><pre>calendar-earliest-finish</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; earliest event finish</i></pre></td></tr>
+    <tr><td><pre>calendar-latest-finish</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; latest event finish</i></pre></td></tr>
+    <tr><td><pre>calendar-duration</pre></td><td align=center><pre>1</pre></td><td><pre>(a Duration-Value)  <i>;; event duration</i></pre></td></tr>
+    <tr><td><pre>calendar-location</pre></td><td align=center><pre>1</pre></td><td><pre>(a Spatial-Entity)  <i>;; any Tangible-Entity or Place</i></pre></td></tr>
+    <tr><td><pre>calendar-priority</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)          <i>;; 1 = highest, 9 = lowest, 0 = undefined</i></pre></td></tr>
+    <tr><td><pre>calendar-resources</pre></td><td align=center><pre>n</pre></td><td><pre>(a Entity)          <i>;; any entities needed for use in the event</i></pre></td></tr>
+    <tr><td><pre>calendar-dtend</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; event end</i></pre></td></tr>
+    <tr><td><pre>calendar-transp</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)          <i>;; {"OPAQUE" | "TRANSPARENT"}</i></pre></td></tr>
+    <tr><td><pre>hasStartDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>hasEndDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Calendar-Entry</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>For the <i>iCalendar</i> <tt>VEVENT</tt> object:
+<pre>BEGIN:VEVENT DTSTAMP:19960704T120000Z
+UID:uid1@host.com ORGANIZER:MAILTO:jsmith@host.com
+DTSTART:19960918T143000Z DTEND:19960920T220000Z STATUS:CONFIRMED
+CATEGORIES:CONFERENCE SUMMARY:Networld+Interop Conference
+DESCRIPTION:Networld+Interop Conference
+  and Exhibit\nAtlanta World Congress Center\n
+ Atlanta, Georgia END:VEVENT</pre><br>
+
+here is the equivalent KM/CLib representation:
+
+<pre>(*JSmith has (instance-of (Person)))
+(a Event-Entry with
+   (calendar-dtstamp ((a Time-Instant with
+                         (time-value ((:pair 1996 *year)
+                                      (:pair 7 *month)
+                                      (:pair 4 *day)
+                                      (:pair 12 *hour)
+                                      *UTC
+                         ))
+   )))
+   (calendar-uid ("uid1@host.com"))
+   (calendar-organizer ((a CalendarOrganizer with
+                           (played-by (*JSmith))
+                           (hasContactInformation (
+                              (a EMailAddress with
+                                 (hasAddressString ("MAILTO:jsmith@host.com")))))
+   )))
+   (calendar-dtstart ((a Time-Instant with
+                         (time-value ((:pair 1996 *year)
+                                      (:pair 9 *month)
+                                      (:pair 18 *day)
+                                      (:pair 14 *hour)
+                                      (:pair 30 *minute)
+                                      *UTC
+                         ))
+   )))
+   (calendar-dtend   ((a Time-Instant with
+                         (time-value ((:pair 1996 *year)
+                                      (:pair 9 *month)
+                                      (:pair 20 *day)
+                                      (:pair 22 *hour)
+                                      (:pair 0 *minute)
+                                      *UTC
+                         ))
+   )))
+   (calendar-status ((a Status-Value with
+                        (value (*CalendarStatus_confirmed))
+   )))
+   (calendar-categories ((a Conference)))
+   (calendar-summary ("Networld+Interop Conference"))
+   (calendar-description ("Networld+Interop Conference and Exhibit
+Atlanta World Congress Center
+Atlanta, Georgia"))
+)</pre></td></tr>
+
+   <tr><td>&nbsp;</td></tr>
+
+   <tr><td>Here is the <i>iCalendar</i> object for a meeting event. The example
+includes a <tt>VTIMEZONE</tt> object to define Eastern Standard and Daylight
+timezones. The CLib assumes temporal reasoners are familiar with the
+various timezones and therefore stores only a timezone ID.
+<pre>BEGIN:VTIMEZONE
+TZID:US-Eastern
+BEGIN:STANDARD
+DTSTART:19981025T020000
+RDATE:19981025T020000
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19990404T020000
+RDATE:19990404T020000
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:19980309T231000Z
+UID:guid-1.host1.com
+ORGANIZER;ROLE=CHAIR:MAILTO:mrbig@host.com
+ATTENDEE;RSVP=TRUE;ROLE=REQ-PARTICIPANT;CUTYPE=GROUP:
+ MAILTO:employee-A@host.com
+DESCRIPTION:Project XYZ Review Meeting
+CATEGORIES:MEETING
+CLASS:PUBLIC
+CREATED:19980309T130000Z
+SUMMARY:XYZ Project Review
+DTSTART;TZID=US-Eastern:19980312T083000
+DTEND;TZID=US-Eastern:19980312T093000
+LOCATION:1CP Conference Room 4350
+END:VEVENT</pre><br>
+
+And the KM/CLib equivalent:
+<pre>
+(*CR4350 has (instance-of (Room))
+             (called ("1CP Conference Room 4350"))
+)
+(a Event-Entry with
+   (calendar-dtstamp ((a Time-Instant with
+                         (time-value ((:pair 1998 *year)
+                                      (:pair 3 *month)
+                                      (:pair 9 *day)
+                                      (:pair 23 *hour)
+                                      (:pair 10 *minute)
+                                      *UTC
+                         ))
+   )))
+   (calendar-uid ("guid-1.host1.com"))
+   (calendar-organizer ((a CalendarOrganizer with
+                           (played-by ((a Person with
+                                          (hasNickname ("MrBig"))
+                                          (hasContactInformation (
+                                             (a EMailAddress with
+                                                (hasAddressString ("MAILTO:mrbig@host.com")))))
+                                          (plays ((a Event-Chair)))
+                           )))
+   )))
+   (calendar-attendee ((a CalendarAttendee with
+                          (played-by ((a Group called "Employee-A" with
+                                         (hasContactInformation (
+                                            (a EMailAddress with
+                                               (hasAddressString ("MAILTO:employee-A@host.com")))))
+                                         (plays ((a Required-Participant)))
+                                         (hasRSVP (t))
+                          )))
+   )))
+   (calendar-description ("Project XYZ Review Meeting"))
+
+   (calendar-categories ((a Meeting)))
+   (calendar-class ("PUBLIC"))
+   (calendar-created ((a Time-Instant with
+                         (time-value ((:pair 1998 *year)
+                                      (:pair 3 *month)
+                                      (:pair 9 *day)
+                                      (:pair 13 *hour)
+                                      *UTC
+                         ))
+   )))
+   (calendar-summary ("XYZ Project Review"))
+
+   (calendar-dtstart ((a Time-Instant with
+                         (time-value ((:pair 1998 *year)
+                                      (:pair 3 *month)
+                                      (:pair 12 *day)
+                                      (:pair 8 *hour)
+                                      (:pair 30 *minute)
+                                      *EST
+                         ))
+   )))
+   (calendar-dtend   ((a Time-Instant with
+                         (time-value ((:pair 1998 *year)
+                                      (:pair 3 *month)
+                                      (:pair 12 *day)
+                                      (:pair 9 *hour)
+                                      (:pair 30 *minute)
+                                      *EST
+                         ))
+   )))
+   (calendar-location (*CR4350))
+)</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Free-Busy-Entry>
+<table>
+<tr><td>
+
+<div class="boxtop">Free-Busy-Entry</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of Calendar-Entry describing the properties of a Free-Busy slot
+        recorded in a Calendar (similar to an <i>iCalendar</i> 
+        <tt>VFREEBUSY</tt>
+        object).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Free-Busy-Entry with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Free-Busy-Entry-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>calendar-referent</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Interval)</pre></td></tr>
+    <tr><td><pre>calendar-dtstart</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)         <i>;; free/busy start</i></pre></td></tr>
+    <tr><td><pre>calendar-earliest-start</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)         <i>;; earliest free/busy start</i></pre></td></tr>
+    <tr><td><pre>calendar-latest-start</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)         <i>;; latest free/busy start</i></pre></td></tr>
+    <tr><td><pre>calendar-earliest-finish</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)         <i>;; earliest free/busy finish</i></pre></td></tr>
+    <tr><td><pre>calendar-latest-finish</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)         <i>;; latest free/busy finish</i></pre></td></tr>
+    <tr><td><pre>calendar-duration</pre></td><td align=center><pre>1</pre></td><td><pre>(a Duration-Value)       <i>;; free/busy duration</i></pre></td></tr>
+    <tr><td><pre>calendar-dtend</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)         <i>;; free/busy end</i></pre></td></tr>
+    <tr><td><pre>calendar-freebusy</pre></td><td align=center><pre>n</pre></td><td><pre>(a Free-Busy-Period)     <i>;; free/busy periods (can specify time-begins, time-ends and status</i></pre></td></tr>
+    <tr><td><pre>hasStartDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>hasEndDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Calendar-Entry</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>For the <i>iCalendar</i> <tt>VFREEBUSY</tt> object:
+    <pre>BEGIN:VFREEBUSY
+ORGANIZER:MAILTO:jsmith@host.com
+DTSTART:19980313T141711Z
+DTEND:19980410T141711Z
+FREEBUSY:19980314T233000Z/19980315T003000Z
+FREEBUSY:19980316T153000Z/19980316T163000Z
+FREEBUSY:19980318T030000Z/19980318T040000Z
+URL:http://www.host.com/calendar/busytime/jsmith.ifb
+END:VFREEBUSY</pre><br>
+
+here is the KM/CLib version:
+<pre>(a Free-Busy-Entry with
+   (calendar-organizer ((a CalendarOrganizer with
+                           (played-by (*JSmith))
+                           (hasContactInformation (
+                              (a EMailAddress with
+                                 (hasAddressString ("MAILTO:jsmith@host.com")))))
+   )))
+   (calendar-dtstart ((a Time-Instant with
+                         (time-value ((:pair 1998 *year)
+                                      (:pair 3 *month)
+                                      (:pair 13 *day)
+                                      (:pair 14 *hour)
+                                      (:pair 17 *minute)
+                                      (:pair 11 *second)
+                                      *UTC
+                         ))
+   )))
+   (calendar-dtend   ((a Time-Instant with
+                         (time-value ((:pair 1998 *year)
+                                      (:pair 4 *month)
+                                      (:pair 10 *day)
+                                      (:pair 14 *hour)
+                                      (:pair 17 *minute)
+                                      (:pair 11 *second)
+                                      *UTC
+                         ))
+   )))
+   (calendar-freebusy ((a Free-Busy-Period with
+                          (time-begins ((a Time-Instant with  
+                                           (time-value ((:pair 1998 *year)
+                                                        (:pair 3 *month)
+                                                        (:pair 14 *day)
+                                                        (:pair 23 *hour)
+                                                        (:pair 30 *minute)
+                                                        *UTC
+                                          ))
+                          )))
+                          (time-ends   ((a Time-Instant with
+                                           (time-value ((:pair 1998 *year)
+                                                        (:pair 3 *month)
+                                                        (:pair 15 *day)
+                                                        (:pair 0 *hour)
+                                                        (:pair 30 *minute)
+                                                        *UTC
+                                          ))
+                          )))
+                          (status ((a Status-Value with
+                                      (value (*CalendarStatus_fb_busy))
+                          )))
+   )))
+   (calendar-freebusy ((a Free-Busy-Period with
+                          (time-begins ((a Time-Instant with
+                                           (time-value ((:pair 1998 *year)
+                                                        (:pair 3 *month)
+                                                        (:pair 16 *day)
+                                                        (:pair 15 *hour)
+                                                        (:pair 30 *minute)
+                                                        *UTC
+                                           ))
+                          )))
+                          (time-ends   ((a Time-Instant with
+                                           (time-value ((:pair 1998 *year)
+                                                        (:pair 3 *month)
+                                                        (:pair 16 *day)
+                                                        (:pair 16 *hour)
+                                                        (:pair 30 *minute)
+                                                        *UTC
+                                           ))
+                          )))
+                          (status ((a Status-Value with
+                                      (value (*CalendarStatus_fb_busy))
+                          )))
+   )))
+   (calendar-freebusy ((a Free-Busy-Period with
+                          (time-begins ((a Time-Instant with
+                                           (time-value ((:pair 1998 *year)
+                                                        (:pair 3 *month)
+                                                        (:pair 18 *day)
+                                                        (:pair 3 *hour)
+                                                        *UTC
+                                           ))
+                          )))
+                          (time-ends   ((a Time-Instant with
+                                           (time-value ((:pair 1998 *year)
+                                                        (:pair 3 *month)
+                                                        (:pair 18 *day)
+                                                        (:pair 4 *hour)
+                                                         *UTC
+                                           ))
+                          )))
+                          (status ((a Status-Value with
+                                      (value (*CalendarStatus_fb_busy))
+                          )))
+   )))
+)</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+<p>
+<a name=Journal-Entry>
+<table>
+<tr><td>
+
+<div class="boxtop">Journal-Entry</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of Calendar-Entry describing the properties of a Journal Entry 
+        recorded in a Calendar (similar to an <i>iCalendar</i> 
+        <tt>VJOURNAL</tt> object).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Journal-Entry with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Journal-Entry-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>calendar-referent</pre></td><td align=center><pre>1</pre></td><td><pre>(a Document)</pre></td></tr>
+    <tr><td><pre>calendar-attach</pre></td><td align=center><pre>n</pre></td><td><pre>(a Information)</pre></td></tr>
+    <tr><td><pre>calendar-categories</pre></td><td align=center><pre>n</pre></td><td><pre>(a Thing)</pre></td></tr>
+    <tr><td><pre>calendar-class</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)          <i>;; {"PUBLIC" | "PRIVATE" | "CONFIDENTIAL"}</i></pre></td></tr>
+    <tr><td><pre>calendar-description</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>calendar-status</pre></td><td align=center><pre>1</pre></td><td><pre>(a Status-Value)</pre></td></tr>
+    <tr><td><pre>calendar-summary</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>calendar-recurrence-id</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; the time of this particular journal instance within a sequence of recurring journal events</i></pre></td></tr>
+    <tr><td><pre>calendar-related-to</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)          <i>;; RELATED-TO</i></pre></td></tr>
+    <tr><td><pre>calendar-exdate</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)    <i>;; EXDATE</i></pre></td></tr>
+    <tr><td><pre>calendar-exrule</pre></td><td align=center><pre>n</pre></td><td><pre>(a Recurrence-Rule) <i>;; EXRULE</i></pre></td></tr>
+    <tr><td><pre>calendar-rdate</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)    <i>;; RDATE</i></pre></td></tr>
+    <tr><td><pre>calendar-rrule</pre></td><td align=center><pre>n</pre></td><td><pre>(a Recurrence-Rule) <i>;; RRULE</i></pre></td></tr>
+    <tr><td><pre>calendar-created</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; calendar information creation</i></pre></td></tr>
+    <tr><td><pre>calendar-last-modified</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>calendar-sequence</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)          <i>;; revision number</i></pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Calendar-Entry</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>For the <i>iCalendar</i> <tt>VJOURNAL</tt> object:
+    <pre>BEGIN:VJOURNAL
+DTSTAMP:19970324T120000Z
+UID:uid5@host1.com
+ORGANIZER:MAILTO:jsmith@host.com
+STATUS:DRAFT
+CLASS:PUBLIC
+CATEGORY:Project Report, XYZ, Weekly Meeting
+DESCRIPTION:Project xyz Review Meeting Minutes\n
+ Agenda\n1. Review of project version 1.0 requirements.\n2.
+Definition
+ of project processes.\n3. Review of project schedule.\n
+ Participants: John Smith, Jane Doe, Jim Dandy\n-It was
+  decided that the requirements need to be signed off by
+  product marketing.\n-Project processes were accepted.\n
+ -Project schedule needs to account for scheduled holidays
+  and employee vacation time. Check with HR for specific
+  dates.\n-New schedule will be distributed by Friday.\n-
+ Next weeks meeting is cancelled. No meeting until 3/23.
+END:VJOURNAL</pre><br>
+
+here is the KM/CLib version:
+
+<pre>(a Journal-Entry with
+   (calendar-dtstamp ((a Time-Instant with
+                         (time-value ((:pair 1997 *year)
+                                      (:pair 3 *month)
+                                      (:pair 24 *day)
+                                      (:pair 12 *hour)
+                                      *UTC
+                         ))
+   )))
+   (calendar-uid ("udi5@host1.com"))
+   (calendar-organizer ((a CalendarOrganizer with
+                           (played-by (*JSmith))
+                           (hasContactInformation (
+                              (a EMailAddress with
+                                 (hasAddressString ("MAILTO:jsmith@host.com")))))
+   )))
+   (calendar-status ((a Status-Value with
+                        (value (*CalendarStatus_draft))
+   )))
+   (calendar-class ("PUBLIC"))
+   (calendar-category ((a Document called "Project Report")
+                       (a Thing called "XYZ")
+                       (a Meeting called "Weekly Meeting")
+   ))
+   (calendar-description ("Project xyz Review Meeting Minutes
+Agenda
+1. Review of project version 1.0 requirements.
+2. Definition of project processes.
+3. Review of project schedule.
+Participants: John Smith, Jane Doe, Jim Dandy
+-It was decided that the requirements need to be signed off by product marketing.
+-Project processes were accepted.
+-Project schedule needs to account for scheduled holidays and employee vacation time. Check with HR for specific dates.
+-New schedule will be distributed by Friday.
+Next weeks meeting is cancelled. No meeting until 3/23."))
+)</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Todo-Entry>
+<table>
+<tr><td>
+
+<div class="boxtop">Todo-Entry</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of Calendar-Entry describing the properties of a Todo recorded
+        in a Calendar (similar to an <i>iCalendar</i> <tt>VTODO</tt>
+        object).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Todo-Entry with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Todo-Entry-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>calendar-referent</pre></td><td align=center><pre>1</pre></td><td><pre>(a Event)</pre></td></tr>
+    <tr><td><pre>calendar-attach</pre></td><td align=center><pre>n</pre></td><td><pre>(a Information)</pre></td></tr>
+    <tr><td><pre>calendar-categories</pre></td><td align=center><pre>n</pre></td><td><pre>(a Thing)</pre></td></tr>
+    <tr><td><pre>calendar-class</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)          <i>;; {"PUBLIC" | "PRIVATE" | "CONFIDENTIAL"}</i></pre></td></tr>
+    <tr><td><pre>calendar-description</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>calendar-status</pre></td><td align=center><pre>1</pre></td><td><pre>(a Status-Value)</pre></td></tr>
+    <tr><td><pre>calendar-summary</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>calendar-recurrence-id</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; the time of this particular event instance within a sequence of recurring events</i></pre></td></tr>
+    <tr><td><pre>calendar-related-to</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)          <i>;; RELATED-TO</i></pre></td></tr>
+    <tr><td><pre>calendar-exdate</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)    <i>;; EXDATE</i></pre></td></tr>
+    <tr><td><pre>calendar-exrule</pre></td><td align=center><pre>n</pre></td><td><pre>(a Recurrence-Rule) <i>;; EXRULE</i></pre></td></tr>
+    <tr><td><pre>calendar-rdate</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)    <i>;; RDATE</i></pre></td></tr>
+    <tr><td><pre>calendar-rrule</pre></td><td align=center><pre>n</pre></td><td><pre>(a Recurrence-Rule) <i>;; RRULE</i></pre></td></tr>
+    <tr><td><pre>calendar-created</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; calendar information creation</i></pre></td></tr>
+    <tr><td><pre>calendar-last-modified</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>calendar-sequence</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)          <i>;; revision number</i></pre></td></tr>
+    <tr><td><pre>calendar-dtstart</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; event start</i></pre></td></tr>
+    <tr><td><pre>calendar-earliest-start</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; earliest event start</i></pre></td></tr>
+    <tr><td><pre>calendar-latest-start</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; latest event start</i></pre></td></tr>
+    <tr><td><pre>calendar-earliest-finish</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; earliest event finish</i></pre></td></tr>
+    <tr><td><pre>calendar-latest-finish</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)    <i>;; latest event finish</i></pre></td></tr>
+    <tr><td><pre>calendar-duration</pre></td><td align=center><pre>1</pre></td><td><pre>(a Duration-Value)  <i>;; event duration</i></pre></td></tr>
+    <tr><td><pre>calendar-location</pre></td><td align=center><pre>1</pre></td><td><pre>(a Spatial-Entity)  <i>;; any Tangible-Entity or Place</i></pre></td></tr>
+    <tr><td><pre>calendar-priority</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)          <i>;; 1 = highest, 9 = lowest, 0 = undefined</i></pre></td></tr>
+    <tr><td><pre>calendar-resources</pre></td><td align=center><pre>n</pre></td><td><pre>(a Entity)          <i>;; any entities needed for use in the event</i></pre></td></tr>
+    <tr><td><pre>calendar-percent-complete</pre></td><td align=center><pre>n</pre></td><td><pre>(a Number)</pre></td></tr>
+    <tr><td><pre>calendar-completed</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>calendar-due</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>hasStartDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>hasEndDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Calendar-Entry</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>Here is the <i>iCalendar</i> object for a Todo item. Note that 
+    embedded in the object there is a VALARM object. The CLib representation 
+    for calendars does not support VALARM objects.
+    <pre>BEGIN:VTODO
+DTSTAMP:19980130T134500Z
+SEQUENCE:2
+UID:uid4@host1.com
+ORGANIZER:MAILTO:unclesam@us.gov
+ATTENDEE;PARTSTAT=ACCEPTED:MAILTO:jqpublic@host.com
+DUE:19980415T235959
+STATUS:NEEDS-ACTION
+SUMMARY:Submit Income Taxes
+BEGIN:VALARM
+ACTION:AUDIO
+TRIGGER:19980403T120000
+ATTACH;FMTTYPE=audio/basic:http://host.com/pub/audio-
+ files/ssbanner.aud
+REPEAT:4
+DURATION:PT1H   
+END:VALARM
+END:VTODO</pre><br>
+
+here is the KM/CLib representation:
+<pre>
+(a Todo-Entry with
+   (calendar-dtstamp ((a Time-Instant with
+                         (time-value ((:pair 1998 *year)
+                                      (:pair 1 *month)
+                                      (:pair 30 *day)
+                                      (:pair 13 *hour)
+                                      (:pair 45 *minute)
+                                      *UTC
+                         ))
+   )))
+   (calendar-sequence (2))
+   (calendar-uid ("uid4@host1.com"))
+   (calendar-organizer ((a CalendarOrganizer with
+                           (played-by ((a Person called "UncleSam" with
+                                          (hasContactInformation (
+                                             (a EMailAddress with
+                                                (hasAddressString ("MAILTO:unclesam@us.gov")))))
+                           )))
+   )))
+   (calendar-attendee ((a CalendarAttendee with
+                          (played-by ((a Person called "JohnQPublic" with
+                                         (hasContactInformation (
+                                            (a EMailAddress with
+                                               (hasAddressString ("MAILTO:jqpublic@host.com")))))
+                          )))
+                          (status ((a Status-Value with
+                                      (value (*CalendarStatus_accepted))
+                          )))
+   )))
+   (calendar-due ((a Time-Instant with
+                     (time-value ((:pair 1998 *year)
+                                  (:pair 4 *month)
+                                  (:pair 3 *day)
+                                  (:pair 12 *hour)
+                     ))
+   )))
+   (calendar-status ((a Status-Value with
+                        (value (*CalendarStatus_needs_action))
+   )))
+   (calendar-summary ("Submit Income Taxes"))
+)</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Recurrence-Rule>
+<table>
+<tr><td>
+
+<div class="boxtop">Recurrence-Rule</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A rule for describing the recurrence pattern of certain Calendar entries
+        (similar to an <i>iCalendar</i> <tt>RECUR</tt> value).
+        object).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Recurrence-Rule with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Recurrence-Rule-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+
+    <tr><td><pre>calendar-freq</pre></td><td align=center><pre>1</pre></td><td><pre>(a UoM-Frequency) <i>;; FREQ</i></pre></td></tr>
+    <tr><td><pre>calendar-until</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)  <i>;; UNTIL</i></pre></td></tr>
+    <tr><td><pre>calendar-count</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)       <i>;; COUNT</i></pre></td></tr>
+    <tr><td><pre>calendar-interval</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)       <i>;; INTERVAL</i></pre></td></tr>
+    <tr><td><pre>calendar-bysecond</pre></td><td align=center><pre>n</pre></td><td><pre>(a Integer)       <i>;; BYSECOND</i></pre></td></tr>
+    <tr><td><pre>calendar-byminute</pre></td><td align=center><pre>n</pre></td><td><pre>(a Integer)       <i>;; BYMINUTE</i></pre></td></tr>
+    <tr><td><pre>calendar-byhour</pre></td><td align=center><pre>n</pre></td><td><pre>(a Integer)       <i>;; BYHOUR</i></pre></td></tr>
+    <tr><td><pre>calendar-byday</pre></td><td align=center><pre>n</pre></td><td><pre>(a WeekdayNum)    <i>;; BYDAY</i></pre></td></tr>
+    <tr><td><pre>calendar-bymonthday</pre></td><td align=center><pre>n</pre></td><td><pre>(a Integer)       <i>;; BYMONTHDAY</i></pre></td></tr>
+    <tr><td><pre>calendar-byyearday</pre></td><td align=center><pre>n</pre></td><td><pre>(a Integer)       <i>;; BYYEARDAY</i></pre></td></tr>
+    <tr><td><pre>calendar-byweekno</pre></td><td align=center><pre>n</pre></td><td><pre>(a Integer)       <i>;; BYWEEKNO</i></pre></td></tr>
+    <tr><td><pre>calendar-bymonth</pre></td><td align=center><pre>n</pre></td><td><pre>(a Integer)       <i>;; BYMONTH</i></pre></td></tr>
+    <tr><td><pre>calendar-bysetpos</pre></td><td align=center><pre>n</pre></td><td><pre>(a Integer)       <i>;; BYSETPOS</i></pre></td></tr>
+    <tr><td><pre>calendar-wkst</pre></td><td align=center><pre>1</pre></td><td><pre>(a Day-Constant)  <i>;; WKST</i></pre></td></tr>
+    <tr><td><pre>calendar-x-prop</pre></td><td align=center><pre>n</pre></td><td><pre>(a CalendarXProp)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Message</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>Here are the <i>iCalendar</i> objects and KM/CLib representations for
+    various recurrence rules.
+    <pre>   Daily for 10 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=DAILY;COUNT=10
+
+     ==> (1997 9:00 AM EDT)September 2-11
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*daily))
+                                (calendar-count (10))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Daily until December 24, 1997:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=DAILY;UNTIL=19971224T000000Z
+
+     ==> (1997 9:00 AM EDT)September 2-30;October 1-25
+         (1997 9:00 AM EST)October 26-31;November 1-30;December 1-23
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*daily))
+                                (calendar-until ((a Time-Instant with
+                                                    (time-year  (1997))
+                                                    (time-month (12))
+                                                    (time-day   (24))
+                                                 )
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every other day - forever:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=DAILY;INTERVAL=2
+     ==> (1997 9:00 AM EDT)September2,4,6,8...24,26,28,30;
+          October 2,4,6...20,22,24
+         (1997 9:00 AM EST)October 26,28,30;November 1,3,5,7...25,27,29;
+          Dec 1,3,...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*daily))
+                                (calendar-interval (2))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every 10 days, 5 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5
+
+     ==> (1997 9:00 AM EDT)September 2,12,22;October 2,12
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*daily))
+                                (calendar-interval (10))
+                                (calendar-count (5))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Everyday in January, for 3 years:
+
+     DTSTART;TZID=US-Eastern:19980101T090000
+     RRULE:FREQ=YEARLY;UNTIL=20000131T090000Z;
+      BYMONTH=1;BYDAY=SU,MO,TU,WE,TH,FR,SA
+     or
+     RRULE:FREQ=DAILY;UNTIL=20000131T090000Z;BYMONTH=1
+
+     ==> (1998 9:00 AM EDT)January 1-31
+         (1999 9:00 AM EDT)January 1-31
+         (2000 9:00 AM EDT)January 1-31
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1998))
+                                  (time-month (1))
+                                  (time-day   (1))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-until ((a Time-Instant with
+                                                    (time-year  (2000))
+                                                    (time-month (1))
+                                                    (time-day   (31))
+                                                    (time-hour  (9))
+                                                 )
+                                ))
+                                (calendar-bymonth (1))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Sunday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Monday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Tuesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Wednesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Thursday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Friday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Saturday)))
+                                ))
+                             )
+            ))
+         )
+
+     or
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1998))
+                                  (time-month (1))
+                                  (time-day   (1))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*daily))
+                                (calendar-until ((a Time-Instant with
+                                                    (time-year  (2000))
+                                                    (time-month (1))
+                                                    (time-day   (31))
+                                                    (time-hour  (9))
+                                                 )
+                                ))
+                                (calendar-bymonth (1))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Weekly for 10 occurrences
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=WEEKLY;COUNT=10
+
+     ==> (1997 9:00 AM EDT)September 2,9,16,23,30;October 7,14,21
+         (1997 9:00 AM EST)October 28;November 4
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*weekly))
+                                (calendar-count (10))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Weekly until December 24, 1997
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=WEEKLY;UNTIL=19971224T000000Z
+
+     ==> (1997 9:00 AM EDT)September 2,9,16,23,30;October 7,14,21
+         (1997 9:00 AM EST)October 28;November 4,11,18,25;
+                           December 2,9,16,23
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*weekly))
+                                (calendar-until ((a Time-Instant with
+                                                    (time-year (1997))
+                                                    (time-month (12))
+                                                    (time-day   (24))
+                                                 )
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every other week - forever:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=WEEKLY;INTERVAL=2;WKST=SU
+
+     ==> (1997 9:00 AM EDT)September 2,16,30;October 14
+         (1997 9:00 AM EST)October 28;November 11,25;December 9,23
+         (1998 9:00 AM EST)January 6,20;February
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*weekly))
+                                (calendar-interval (2))
+                                (calendar-wkst (*Sunday))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Weekly on Tuesday and Thursday for 5 weeks:
+
+    DTSTART;TZID=US-Eastern:19970902T090000
+    RRULE:FREQ=WEEKLY;UNTIL=19971007T000000Z;WKST=SU;BYDAY=TU,TH
+    or
+    RRULE:FREQ=WEEKLY;COUNT=10;WKST=SU;BYDAY=TU,TH
+
+    ==> (1997 9:00 AM EDT)September 2,4,9,11,16,18,23,25,30;October 2
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*weekly))
+                                (calendar-until ((a Time-Instant with
+                                                    (time-year (1997))
+                                                    (time-month (10))
+                                                    (time-day   (7))
+                                                 )
+                                ))
+                                (calendar-wkst (*Sunday))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Tuesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Thursday)))
+                                ))
+                             )
+            ))
+         )
+
+     or
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*weekly))
+                                (calendar-count (10))
+                                (calendar-wkst (*Sunday))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Tuesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Thursday)))
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every other week on Monday, Wednesday and Friday until December 24,
+   1997, but starting on Tuesday, September 2, 1997:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=WEEKLY;INTERVAL=2;UNTIL=19971224T000000Z;WKST=SU;
+      BYDAY=MO,WE,FR
+     ==> (1997 9:00 AM EDT)September 2,3,5,15,17,19,29;October
+     1,3,13,15,17
+         (1997 9:00 AM EST)October 27,29,31;November 10,12,14,24,26,28;
+                           December 8,10,12,22
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*weekly))
+                                (calendar-interval (2))
+                                (calendar-until ((a Time-Instant with
+                                                    (time-year (1997))
+                                                    (time-month (12))
+                                                    (time-day   (24))
+                                                 )
+                                ))
+                                (calendar-wkst (*Sunday))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Monday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Wednesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Friday)))
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every other week on Tuesday and Thursday, for 8 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=8;WKST=SU;BYDAY=TU,TH
+
+     ==> (1997 9:00 AM EDT)September 2,4,16,18,30;October 2,14,16
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*weekly))
+                                (calendar-interval (2))
+                                (calendar-count (8))
+                                (calendar-wkst (*Sunday))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Tuesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Thursday)))
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Monthly on the 1st Friday for ten occurrences:
+
+     DTSTART;TZID=US-Eastern:19970905T090000
+     RRULE:FREQ=MONTHLY;COUNT=10;BYDAY=1FR
+
+     ==> (1997 9:00 AM EDT)September 5;October 3
+         (1997 9:00 AM EST)November 7;Dec 5
+         (1998 9:00 AM EST)January 2;February 6;March 6;April 3
+         (1998 9:00 AM EDT)May 1;June 5
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (5))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-count (10))
+                                (calendar-byday ((a WeekdayNum with (calendar-ordwk (1))
+                                                                    (calendar-weekday (*Friday))
+                                                 )
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Monthly on the 1st Friday until December 24, 1997:
+
+     DTSTART;TZID=US-Eastern:19970905T090000
+     RRULE:FREQ=MONTHLY;UNTIL=19971224T000000Z;BYDAY=1FR
+
+     ==> (1997 9:00 AM EDT)September 5;October 3
+         (1997 9:00 AM EST)November 7;December 5
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (5))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-until ((a Time-Instant with
+                                                    (time-year (1997))
+                                                    (time-month (12))
+                                                    (time-day   (24))
+                                                 )
+                                ))
+                                (calendar-byday ((a WeekdayNum with (calendar-ordwk (1))
+                                                                    (calendar-weekday (*Friday))
+                                                 )
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every other month on the 1st and last Sunday of the month for 10
+   occurrences:
+
+     DTSTART;TZID=US-Eastern:19970907T090000
+     RRULE:FREQ=MONTHLY;INTERVAL=2;COUNT=10;BYDAY=1SU,-1SU
+
+     ==> (1997 9:00 AM EDT)September 7,28
+         (1997 9:00 AM EST)November 2,30
+         (1998 9:00 AM EST)January 4,25;March 1,29
+         (1998 9:00 AM EDT)May 3,31
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (7))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-interval (2))
+                                (calendar-count (10))
+                                (calendar-byday ((a WeekdayNum with (calendar-ordwk (1))
+                                                                    (calendar-weekday (*Sunday))
+                                                 )
+                                                 (a WeekdayNum with (calendar-ordwk (-1))
+                                                                    (calendar-weekday (*Sunday))
+                                                 )
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Monthly on the second to last Monday of the month for 6 months:
+
+     DTSTART;TZID=US-Eastern:19970922T090000
+     RRULE:FREQ=MONTHLY;COUNT=6;BYDAY=-2MO
+
+     ==> (1997 9:00 AM EDT)September 22;October 20
+         (1997 9:00 AM EST)November 17;December 22
+         (1998 9:00 AM EST)January 19;February 16
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (22))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-count (6))
+                                (calendar-byday ((a WeekdayNum with (calendar-ordwk (-2))
+                                                                    (calendar-weekday (*Monday))
+                                                 )
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Monthly on the third to the last day of the month, forever:
+
+     DTSTART;TZID=US-Eastern:19970928T090000
+     RRULE:FREQ=MONTHLY;BYMONTHDAY=-3
+
+     ==> (1997 9:00 AM EDT)September 28
+         (1997 9:00 AM EST)October 29;November 28;December 29
+         (1998 9:00 AM EST)January 29;February 26
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (28))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-bymonthday (-3))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Monthly on the 2nd and 15th of the month for 10 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=MONTHLY;COUNT=10;BYMONTHDAY=2,15
+
+     ==> (1997 9:00 AM EDT)September 2,15;October 2,15
+         (1997 9:00 AM EST)November 2,15;December 2,15
+         (1998 9:00 AM EST)January 2,15
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-count (10))
+                                (calendar-bymonthday (2 15))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Monthly on the first and last day of the month for 10 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970930T090000
+     RRULE:FREQ=MONTHLY;COUNT=10;BYMONTHDAY=1,-1
+
+     ==> (1997 9:00 AM EDT)September 30;October 1
+         (1997 9:00 AM EST)October 31;November 1,30;December 1,31
+         (1998 9:00 AM EST)January 1,31;February 1
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (30))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-count (10))
+                                (calendar-bymonthday (1 -1))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every 18 months on the 10th thru 15th of the month for 10
+   occurrences:
+
+     DTSTART;TZID=US-Eastern:19970910T090000
+     RRULE:FREQ=MONTHLY;INTERVAL=18;COUNT=10;BYMONTHDAY=10,11,12,13,14,
+      15
+
+     ==> (1997 9:00 AM EDT)September 10,11,12,13,14,15
+         (1999 9:00 AM EST)March 10,11,12,13
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (10))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-interval (18))
+                                (calendar-count (10))
+                                (calendar-bymonthday (10 11 12 13 14 15))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every Tuesday, every other month:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=MONTHLY;INTERVAL=2;BYDAY=TU
+
+     ==> (1997 9:00 AM EDT)September 2,9,16,23,30
+         (1997 9:00 AM EST)November 4,11,18,25
+         (1998 9:00 AM EST)January 6,13,20,27;March 3,10,17,24,31
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-interval (2))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Tuesday)))))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Yearly in June and July for 10 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970610T090000
+     RRULE:FREQ=YEARLY;COUNT=10;BYMONTH=6,7
+     ==> (1997 9:00 AM EDT)June 10;July 10
+         (1998 9:00 AM EDT)June 10;July 10
+         (1999 9:00 AM EDT)June 10;July 10
+         (2000 9:00 AM EDT)June 10;July 10
+         (2001 9:00 AM EDT)June 10;July 10
+     Note: Since none of the BYDAY, BYMONTHDAY or BYYEARDAY components
+     are specified, the day is gotten from DTSTART
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (6))
+                                  (time-day   (10))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-count (10))
+                                (calendar-bymonth (6 7))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every other year on January, February, and March for 10 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970310T090000
+     RRULE:FREQ=YEARLY;INTERVAL=2;COUNT=10;BYMONTH=1,2,3
+
+     ==> (1997 9:00 AM EST)March 10
+         (1999 9:00 AM EST)January 10;February 10;March 10
+         (2001 9:00 AM EST)January 10;February 10;March 10
+         (2003 9:00 AM EST)January 10;February 10;March 10
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (3))
+                                  (time-day   (10))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-interval (2))
+                                (calendar-count (10))
+                                (calendar-bymonth (1 2 3))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every 3rd year on the 1st, 100th and 200th day for 10 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970101T090000
+     RRULE:FREQ=YEARLY;INTERVAL=3;COUNT=10;BYYEARDAY=1,100,200
+
+     ==> (1997 9:00 AM EST)January 1
+         (1997 9:00 AM EDT)April 10;July 19
+         (2000 9:00 AM EST)January 1
+         (2000 9:00 AM EDT)April 9;July 18
+         (2003 9:00 AM EST)January 1
+         (2003 9:00 AM EDT)April 10;July 19
+         (2006 9:00 AM EST)January 1
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (1))
+                                  (time-day   (1))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-interval (3))
+                                (calendar-count (10))
+                                (calendar-byyearday (1 100 200))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every 20th Monday of the year, forever:
+
+     DTSTART;TZID=US-Eastern:19970519T090000
+     RRULE:FREQ=YEARLY;BYDAY=20MO
+
+     ==> (1997 9:00 AM EDT)May 19
+         (1998 9:00 AM EDT)May 18
+         (1999 9:00 AM EDT)May 17
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (5))
+                                  (time-day   (19))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-byday ((a WeekdayNum with (calendar-ordwk (20))
+                                                                    (calendar-weekday (*Monday))
+                                                 )
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Monday of week number 20 (where the default start of the week is
+   Monday), forever:
+
+     DTSTART;TZID=US-Eastern:19970512T090000
+     RRULE:FREQ=YEARLY;BYWEEKNO=20;BYDAY=MO
+
+     ==> (1997 9:00 AM EDT)May 12
+         (1998 9:00 AM EDT)May 11
+         (1999 9:00 AM EDT)May 17
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (5))
+                                  (time-day   (12))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-byweekno (20))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Monday)))))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every Thursday in March, forever:
+
+     DTSTART;TZID=US-Eastern:19970313T090000
+     RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=TH
+
+     ==> (1997 9:00 AM EST)March 13,20,27
+         (1998 9:00 AM EST)March 5,12,19,26
+         (1999 9:00 AM EST)March 4,11,18,25
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (3))
+                                  (time-day   (13))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-bymonth (3))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Thursday)))))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every Thursday, but only during June, July, and August, forever:
+
+     DTSTART;TZID=US-Eastern:19970605T090000
+     RRULE:FREQ=YEARLY;BYDAY=TH;BYMONTH=6,7,8
+
+     ==> (1997 9:00 AM EDT)June 5,12,19,26;July 3,10,17,24,31;
+                       August 7,14,21,28
+         (1998 9:00 AM EDT)June 4,11,18,25;July 2,9,16,23,30;
+                       August 6,13,20,27
+         (1999 9:00 AM EDT)June 3,10,17,24;July 1,8,15,22,29;
+                       August 5,12,19,26
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (6))
+                                  (time-day   (5))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Thursday)))))
+                                (calendar-bymonth (6 7 8))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every Friday the 13th, forever:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     EXDATE;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=MONTHLY;BYDAY=FR;BYMONTHDAY=13
+
+     ==> (1998 9:00 AM EST)February 13;March 13;November 13
+         (1999 9:00 AM EDT)August 13
+         (2000 9:00 AM EDT)October 13
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-exdate  ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Friday)))))
+                                (calendar-bymonthday (13))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   The first Saturday that follows the first Sunday of the month,
+    forever:
+
+     DTSTART;TZID=US-Eastern:19970913T090000
+     RRULE:FREQ=MONTHLY;BYDAY=SA;BYMONTHDAY=7,8,9,10,11,12,13
+
+     ==> (1997 9:00 AM EDT)September 13;October 11
+         (1997 9:00 AM EST)November 8;December 13
+         (1998 9:00 AM EST)January 10;February 7;March 7
+         (1998 9:00 AM EDT)April 11;May 9;June 13...
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (13))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Saturday)))))
+                                (calendar-bymonthday (7 8 9 10 11 12 13))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every four years, the first Tuesday after a Monday in November,
+   forever (U.S. Presidential Election day):
+
+     DTSTART;TZID=US-Eastern:19961105T090000
+     RRULE:FREQ=YEARLY;INTERVAL=4;BYMONTH=11;BYDAY=TU;BYMONTHDAY=2,3,4,
+      5,6,7,8
+
+     ==> (1996 9:00 AM EST)November 5
+         (2000 9:00 AM EST)November 7
+         (2004 9:00 AM EST)November 2
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1996))
+                                  (time-month (11))
+                                  (time-day   (5))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*yearly))
+                                (calendar-interval (4))
+                                (calendar-bymonth (11))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Tuesday)))))
+                                (calendar-bymonthday (2 3 4 5 6 7 8))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   The 3rd instance into the month of one of Tuesday, Wednesday or
+   Thursday, for the next 3 months:
+
+     DTSTART;TZID=US-Eastern:19970904T090000
+     RRULE:FREQ=MONTHLY;COUNT=3;BYDAY=TU,WE,TH;BYSETPOS=3
+
+     ==> (1997 9:00 AM EDT)September 4;October 7
+         (1997 9:00 AM EST)November 6
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (4))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-count (3))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Tuesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Wednesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Thursday)))
+                                ))
+                                (calendar-bysetpos (3))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   The 2nd to last weekday of the month:
+
+     DTSTART;TZID=US-Eastern:19970929T090000
+     RRULE:FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-2
+
+     ==> (1997 9:00 AM EDT)September 29
+         (1997 9:00 AM EST)October 30;November 27;December 30
+         (1998 9:00 AM EST)January 29;February 26;March 30
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (29))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*monthly))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Monday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Tuesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Wednesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Thursday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Friday)))
+                                ))
+                                (calendar-bysetpos (-2))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every 3 hours from 9:00 AM to 5:00 PM on a specific day:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=HOURLY;INTERVAL=3;UNTIL=19970902T170000Z
+
+     ==> (September 2, 1997 EDT)09:00,12:00,15:00
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*hourly))
+                                (calendar-interval (3))
+                                (calendar-until ((a Time-Instant with
+                                                    (time-year  (1997))
+                                                    (time-month (9))
+                                                    (time-day   (2))
+                                                    (time-hour  (17))
+                                                 )
+                                ))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every 15 minutes for 6 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=MINUTELY;INTERVAL=15;COUNT=6
+
+     ==> (September 2, 1997 EDT)09:00,09:15,09:30,09:45,10:00,10:15
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*minutely))
+                                (calendar-interval (15))
+                                (calendar-count (6))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every hour and a half for 4 occurrences:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=MINUTELY;INTERVAL=90;COUNT=4
+
+     ==> (September 2, 1997 EDT)09:00,10:30;12:00;13:30
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*minutely))
+                                (calendar-interval (90))
+                                (calendar-count (4))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   Every 20 minutes from 9:00 AM to 4:40 PM every day:
+
+     DTSTART;TZID=US-Eastern:19970902T090000
+     RRULE:FREQ=DAILY;BYHOUR=9,10,11,12,13,14,15,16;BYMINUTE=0,20,40
+     or
+     RRULE:FREQ=MINUTELY;INTERVAL=20;BYHOUR=9,10,11,12,13,14,15,16
+
+     ==> (September 2, 1997 EDT)9:00,9:20,9:40,10:00,10:20,
+                                ... 16:00,16:20,16:40
+         (September 3, 1997 EDT)9:00,9:20,9:40,10:00,10:20,
+                               ...16:00,16:20,16:40
+     ...
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*daily))
+                                (calendar-byhour (9 10 11 12 13 14 15 16))
+                                (calendar-byminute (0 20 40))
+                             )
+            ))
+         )
+
+     or
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (9))
+                                  (time-day   (2))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*minutely))
+                                (calendar-interval (20))
+                                (calendar-byhour (9 10 11 12 13 14 15 16))
+                             )
+            ))
+         )
+</pre></td></tr>
+<tr><td><pre>   An example where the days generated makes a difference because of
+   WKST:
+
+     DTSTART;TZID=US-Eastern:19970805T090000
+     RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=4;BYDAY=TU,SU;WKST=MO
+
+     ==> (1997 EDT)Aug 5,10,19,24
+
+     changing only WKST from MO to SU, yields different results...
+
+     DTSTART;TZID=US-Eastern:19970805T090000
+     RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=4;BYDAY=TU,SU;WKST=SU
+     ==> (1997 EDT)August 5,17,19,31
+
+     KM> (a Event-Entry with
+            (calendar-dtstart ((a Time-Instant with
+                                  (time-year  (1997))
+                                  (time-month (8))
+                                  (time-day   (5))
+                                  (time-hour  (9))
+                                  (time-zone  (*EST))
+                               )
+            ))
+            (calendar-rrule ((a Recurrence-Rule with
+                                (calendar-freq (*weekly))
+                                (calendar-interval (2))
+                                (calendar-count (4))
+                                (calendar-byday ((a WeekdayNum with (calendar-weekday (*Tuesday)))
+                                                 (a WeekdayNum with (calendar-weekday (*Sunday)))
+                                ))
+                                (calendar-wkst (*Monday))          ;; or (*Sunday) in the variant
+                             )
+            ))
+         )
+</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=WeekdayNum>
+<table>
+<tr><td>
+
+<div class="boxtop">WeekdayNum</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Within a Recurrence-Rule, a structure consisting of an integer and a 
+        weekday identifier. An integer <i>n</i> indicates the <i>n<sup>th</sup></i> 
+        occurrence of the specific day within the month or year (depending on the
+        calendar-freq slot).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a WeekdayNum with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;WeekdayNum-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>calendar-ordwk</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td><pre>calendar-weekday</pre></td><td align=center><pre>1</pre></td><td><pre>(a Day-Constant)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Message</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+      <tr><td><pre>The second Thursday of the month:
+
+  KM> (a Recurrence-Rule with
+         (calendar-freq (*monthly))
+         (calendar-byday ((a WeekdayNum with (calendar-ordwk (2))
+                                             (calendar-weekday (*Thursday))
+                          )
+         ))
+      )
+</pre></td></tr>
+      <tr><td><pre>The last Monday of the year:
+
+  KM> (a Recurrence-Rule with
+         (calendar-freq (*yearly))
+         (calendar-byday ((a WeekdayNum with (calendar-ordwk (-1))
+                                             (calendar-weekday (*Monday))
+                          )
+         ))
+      )
+</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

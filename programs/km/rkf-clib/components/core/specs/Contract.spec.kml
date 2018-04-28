@@ -1,0 +1,45 @@
+<!--- $Id: Contract.spec.kml,v 1.2 2008/07/21 03:08:00 tecuci Exp $ --->
+<kml>
+
+<concept name=Contract><system-documentation name=Contract>
+<superconcept name=Decrease>
+
+<definition>
+
+  A <conceptref name=Decrease> in <slot>volume</slot>
+
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=from-value>
+    the initial value of the <slot>area</slot> before the contraction
+  </slotdescription>
+
+  <slotdescription name=to-value>
+    the final value of the <slot>area</slot> after the contraction
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The shirt shrunk when it was washed.</text>
+    <slotdescription name=base>the shirt</slotdescription>
+    <slotdescription name=caused-by>washing</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+<neighborlist>
+
+  <neighbor name=Expand>
+     To opposite of <conceptref name=Contract>
+  </neighbor>
+
+</neighborlist>
+
+
+</kml>
+
+

@@ -1,0 +1,14 @@
+;;
+;; $Id: Na2S.km,v 1.1 2003/04/04 21:01:33 jchaw Exp $
+;;
+
+(Na2S has (superclasses (Ionic-Compound)))
+
+(every Na2S has	
+       (has-part 
+	((a Na-Plus) (a S-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 2 Na-Plus)
+			 (:pair 1 S-Minus-2)))))))
+       )

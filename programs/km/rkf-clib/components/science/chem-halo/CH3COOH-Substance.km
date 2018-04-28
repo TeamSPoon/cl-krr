@@ -1,0 +1,20 @@
+;;
+;; $Id: CH3COOH-Substance.km,v 1.10 2008/11/03 03:11:26 tecuci Exp $
+;;
+
+(CH3COOH-Substance has (superclasses (Bronsted-Lowry-Acid)))
+
+(every CH3COOH-Substance has
+       (plays ((a Acid-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Acid))))))
+		  (default-ka ((a Equilibrium-Constant-Value with
+				  (value ((:pair 1.8e-5 nil)))))))))
+       (electrolyte-status ((a Electrolyte-Status-Value with (value
+                                                              ((:pair *weak Chemical))))))
+       (has-basic-structural-unit 
+	((a CH3COOH))))
+
+(every CH3COOH-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a CH3COOH))))

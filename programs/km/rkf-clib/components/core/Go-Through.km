@@ -1,0 +1,49 @@
+;; 
+;;    $Id: Go-Through.km,v 1.6 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(Go-Through has
+	  (superclasses (Move-Through Reflexive-Cliche))
+	  (required-slot (agent object path))
+	  (primary-slot (origin destination))
+	  (secondary-slot ())
+	  (cmap-correspondence (
+				(:seq object "the thing going through")
+				(:seq agent "the thing going through")
+				(:seq path "the barrier gone through")
+				(:seq origin "the place left")
+				(:seq destination "the place gone to")
+				 ))
+        #|(sentence-type (*punctual *conclusive))|#
+)
+
+; Go-Through is a specialization of Move-Through with the Reflexive cliche
+
+(every Go-Through has
+  (text-active-verbseq-sg
+     ("goes"))
+  (text-active-verbseq-pl
+     ("go"))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(Go-Through has
+	  (test-case ()))
+
+
+
+
+
+
+;; automatically added WN synsets
+(Go-Through has (wn16-synset ((:set  
+                                         (:triple "go_through" 4 "v")
+))))
+
+(Go-Through has (wn20-synset ((:set
+                                         (:triple "go_through" 3 "v")
+))))
+(every Go-Through has (text-nominalization ("going")))

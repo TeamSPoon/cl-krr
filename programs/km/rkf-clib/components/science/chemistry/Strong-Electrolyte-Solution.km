@@ -1,0 +1,95 @@
+;    $Id: Strong-Electrolyte-Solution.km,v 1.14 2003/02/14 00:05:55 jfan Exp $
+
+(Strong-Electrolyte-Solution has
+  (superclasses (Aqueous-Solution)))
+
+
+(every Strong-Electrolyte-Solution has-definition
+  (instance-of (Aqueous-Solution))
+  (base ((a Strong-Electrolyte))))
+
+(every Strong-Electrolyte-Solution has
+       (has-part 
+	((the has-part of (the Strong-Electrolyte base of Self))))
+       (base 
+	( 
+	 (forall 
+	  (the base of Self)
+	  (It &
+	      (a Strong-Electrolyte with
+		 (has-part ((a Cation-Substance with
+			       (has-basic-structural-unit
+				((the Cation has-part of 
+				      (the has-basic-structural-unit of
+					   It))))
+			       (concentration 
+				(
+				 (if (the value of (the concentration of It))
+				     then
+				   ((a Concentration-Value with
+				       (value ((:pair
+						((the1 of
+						       (the value of 
+							    (the concentration of 
+								 It)))
+						 *
+						 (forall2 
+						  (the elements of
+						       (the term of 
+							    (the has-chemical-formula of
+								 (the has-basic-structural-unit of
+								      It))))
+						  where
+						  ((an instance of (the2 of It2)) isa Cation)
+						  (the1 of It2)))
+						 
+						(the2 of
+						      (the value of 
+							   (the concentration of 
+								It))))))))
+				   else
+				   (if 
+				       (has-value 
+					(the quantity of 
+					     (the Cation-Substance has-part of 
+						  It)))
+				       then
+				     (the output of
+					  (a Compute-Concentration-from-Quantity-and-Volume with
+					     (input ((the quantity of (the Cation-Substance has-part of It))
+					     (the volume of Self))))))))))
+			    (a Anion-Substance with
+			       (concentration (
+					       (if (the value of (the concentration of It))
+						   then
+						 ((a Concentration-Value with
+						     (value ((:pair
+							      ((the1 of
+								     (the value of 
+									  (the concentration of 
+									       It)))
+							       *
+							       (forall2 
+								(the elements of
+								     (the term of 
+									  (the has-chemical-formula of
+									       (the has-basic-structural-unit of
+										    It))))
+								where
+								((an instance of (the2 of It2)) isa Anion)
+								(the1 of It2)))
+							      
+							      (the2 of
+								    (the value of 
+									 (the concentration of 
+									      It))))))))
+						 else
+						 (if 
+						     (has-value 
+						      (the quantity of (the Anion-Substance has-part of It)))
+						     then
+						   (the output of
+							(a Compute-Concentration-from-Quantity-and-Volume with
+							   (input ((the quantity of (the Anion-Substance has-part of It))
+								   (the volume of Self))))))))))))))))))
+

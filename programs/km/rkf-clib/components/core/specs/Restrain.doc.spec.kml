@@ -1,0 +1,65 @@
+<!--- $Id: Restrain.doc.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Restrain>
+<superconcept name=Obstruct>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Restrain>
+  <definition>prevent an object from moving</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Restrained></restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Obstruct>
+    <restriction>causes <slot>object</slot> to be Restrained</restriction>
+  </primaryslot>
+  <wnsynsets><verb>restrain#1, restrain#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>confine#6, hold#4, hold_back#2, keep#14, keep_back#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Restraining an <slot>object</slot> prevents all movement of the 
+<slot>object</slot>. In order to <conceptref name=Move> a Restrained
+<slot>object</slot> it must be taken out of the <conceptref name=Be-Restrained>
+state with a <conceptref name=Unrestrain> action.
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=restrain2>
+  <sense-definition>to moderate or limit the force, effect, development, or full exercise of
+</sense-definition>
+</sense>
+<sense tag=restrain3>
+  <sense-definition>to deprive of liberty</sense-definition>
+</sense>
+<sense tag=restrain4>
+  <sense-definition>to compel or deter by or as if by threats
+</sense-definition>
+</sense>
+
+
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNrestrain#1><equiv tag=restrain2></sense>
+<sense tag=WNrestrain#2><equiv tag=restrain2></sense>
+<sense tag=WNrestrain#3><equiv tag=restrain2></sense>
+<sense tag=WNrestrain#4><equiv tag=restrain2></sense>
+<sense tag=WNrestrain#5><equiv tag=restrain4></sense>
+
+</senselist>
+</reference>
+</kml>
+
+

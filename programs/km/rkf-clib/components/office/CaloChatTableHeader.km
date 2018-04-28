@@ -1,0 +1,15 @@
+;;
+;;    $Id: CaloChatTableHeader.km,v 1.6 2005/02/26 03:43:02 jfan Exp $
+;; 
+
+(CaloChatTableHeader has
+		     (superclasses (CaloChatFieldDefinition))      
+		     (required-slot          ()) 
+		     (primary-slot     	    ())  
+		     (secondary-slot         ())
+		     )
+
+(every CaloChatTableHeader has
+       (isColumnHidden ((a Boolean))))
+
+(isColumnHidden has (instance-of (Interface-Slot)) (domain (CaloChatFieldDefinition)) (range (Boolean)) (cardinality (1-to-1)))

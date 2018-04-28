@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Intron-Branch-Sequence.km,v 1.8 2001/05/23 21:10:07 jfan Exp $ 
+;; 
+
+(Intron-Branch-Sequence has
+			(superclasses (RNA-Regulatory-Sequence))
+			(required-slot ())
+			(primary-slot ())
+			(secondary-slot ())
+			(description ("The conserved sequence within an intron
+                                       containing an adenine which attacks and
+                                       breaks the bond between the last exon 
+                                       nucleotide and the first (5') intron 
+                                       nucleotide.  Souther. "))
+			(cmap-correspondence ()))
+
+(every Intron-Branch-Sequence has 
+       (is-part-of ((a Intron)))
+       (is-between 
+	((the Intron-Beginning-Sequence has-part of
+	      (the Intron is-part-of of Self))
+	 (the Intron-End-Sequence has-part of
+	      (the Intron is-part-of of Self))))
+       )

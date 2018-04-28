@@ -1,0 +1,19 @@
+;; 
+;; $Id: target-unit.km,v 1.3 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(target-unit has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Unit-Conversion))
+   (range (Unit-of-Measurement))
+   (inverse (target-unit-of))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (original-slot      (t))	
+)
+
+(target-unit-of has
+   (instance-of (CLIB-Slot-Group))
+   (combine-values-by-appending (t))
+)
+

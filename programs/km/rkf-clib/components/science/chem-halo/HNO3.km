@@ -1,0 +1,20 @@
+;;
+;; $Id: HNO3.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+(HNO3 has 
+  (superclasses (Ionic-Compound)))
+
+(every HNO3 has
+       (has-chemical-name ("nitric acid"))
+       (has-part ((a H-Plus) (a NO3-Minus)))
+       (has-chemical-formula (
+	 (a Chemical-Formula with
+	    (term ((:seq
+		     (:pair 1 H-Plus)
+		     (:pair 1 NO3-Minus)))))))
+       )
+
+(every HNO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a NO3-Minus))))
+

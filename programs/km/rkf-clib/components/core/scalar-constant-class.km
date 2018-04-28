@@ -1,0 +1,14 @@
+;;
+;; $Id: scalar-constant-class.km,v 1.9 2007/04/11 21:42:43 jchaw Exp $
+;;
+
+(scalar-constant-class has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Property))
+   (range  (Constant))
+   (cardinality (N-to-N))
+   (fluent-status (*Non-Fluent))
+   (original-slot      (t))	
+) 
+
+(scalar-constant-class-of has (instance-of (CLIB-Slot-Group)))

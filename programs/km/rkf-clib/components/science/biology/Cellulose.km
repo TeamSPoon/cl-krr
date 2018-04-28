@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Cellulose.km,v 1.7 2001/09/25 19:32:29 kbarker Exp $ 
+;; 
+
+(Cellulose has
+         (superclasses (Polysaccharide))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Structural polysaccharide consisting of long chains of
+                        covalently linked glucose units.  It provides tensile
+                        strength in plant cells. Alberts:ECB:G-4."))
+         (test-case ()))
+
+(every Cellulose has
+       (purpose
+	((a Instrument-Role with
+	    (in-event
+	     ((a Be-Supported with
+		 (object ((a Plant-Cell)))
+		 )))
+	    )))
+       )

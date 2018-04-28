@@ -1,0 +1,19 @@
+;; $Id: NH2-Minus.km,v 1.2 2003/02/20 22:00:12 wilder Exp $
+
+(NH2-Minus has (superclasses (Anion)))
+
+(every NH2-Minus has
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 N)
+					  (:pair 2 H)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 N)
+					  (:pair 2 H)))))))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 N)
+					  (:pair 2 H)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair -1 *electronic-charge)))))))

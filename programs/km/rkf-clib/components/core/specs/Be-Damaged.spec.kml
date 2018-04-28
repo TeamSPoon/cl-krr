@@ -1,0 +1,51 @@
+<!--- $Id: Be-Damaged.spec.kml,v 1.2 2005/08/11 21:03:03 pzyeh Exp $ --->
+
+<kml>
+
+<concept name=Be-Damaged><system-documentation name=Be-Damaged>
+<superconcept name=State>
+
+<definition>
+
+  An <slot>object</slot> becomes weakened or less effective in some way. The
+  object can still perform its function.
+ 
+  An object is put in this state by <conceptref name=Damage>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the thing that becomes damaged
+      <restriction> this must be a <conceptref name=Tangible-Entity> </restriction>
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>The TV was damaged.</text>
+     <slotdescription name=object>the TV</slotdescription>
+   </examplesentence>
+   
+   <examplesentence>
+     <text>The man scratched his watch.</text>
+     <slotdescription name=object>his watch</slotdescription>
+   </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Broken>
+      Be-Broken is for things that are damaged to the point where they are no 
+      longer able to perform their intended functions. 
+   </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

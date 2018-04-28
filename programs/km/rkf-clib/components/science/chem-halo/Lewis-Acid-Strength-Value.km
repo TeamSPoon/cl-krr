@@ -1,0 +1,12 @@
+;; 
+;;  $Id: Lewis-Acid-Strength-Value.km,v 1.2 2007/05/21 04:43:14 mrglass Exp $
+;; 
+
+(Lewis-Acid-Strength-Value has
+			   (superclasses (Property-Value)))
+
+(every Lewis-Acid-Strength-Value has
+  (property-slot (lewis-acid-strength))
+)
+
+(Lewis-Acid-Strength-Value has (description ("the strength of a Lewis acid.")))

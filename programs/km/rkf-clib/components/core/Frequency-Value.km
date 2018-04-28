@@ -1,0 +1,32 @@
+
+;;
+;; $Id: Frequency-Value.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(Frequency-Value has 
+       (superclasses (Property-Value)))
+
+(Frequency-Value has
+   (test-case ('(
+                 (BasketballGame has (superclasses (Event)))
+                 (CakeBake has (superclasses (Event)))
+                 (*baking-my-cake has (instance-of (CakeBake))
+                                (frequency ((a Frequency-Value))))
+                 (*lakers-vs-6ers has (instance-of (BasketballGame))
+                              (frequency
+                                 ((a Frequency-Value with
+                                     (value ((:pair *rarely BasketballGame)
+                                     ))
+                                     (same-as
+                                        ((the frequency of *baking-my-cake)))
+                              ))))
+
+                 (the value of (the frequency of *lakers-vs-6ers))
+
+             ;;    ((the same-as of (the frequency of *baking-my-cake))
+             ;;          includes (the frequency of *lakers-vs-6ers))
+                 ((the same-as of (the frequency of *lakers-vs-6ers))
+                       includes (the frequency of *baking-my-cake))
+))))
+(Frequency-Value has (description ("the rate of repetition of an Event")))

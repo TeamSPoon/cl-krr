@@ -1,0 +1,31 @@
+;;
+;;   $Id: Speak.km,v 1.4 2005/10/25 03:02:11 sdbaji Exp $
+;;
+
+(Speak has
+  (superclasses (Embody))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Speak has 
+	(description ("The physical act of a producing speech sounds."))
+	(result ((a Sound)))
+	(agent ((must-be-a Tangible-Entity)(a Tangible-Entity))))
+
+;; Some non Humans (e.g. Parrots, Robots) can play the role of agent in Speak events.
+
+(Speak has (wn20-synset ((:set
+			   (:triple "talk" 2 "v")
+			   (:triple "speak" 1 "v")
+			   (:triple "utter" 3 "v")
+			   (:triple "mouth" 1 "v")
+			   (:triple "verbalize" 2 "v")
+			   (:triple "verbalise" 2 "v")
+))))
+
+
+		
+
+
+
+(every Speak has (text-nominalization ("speech")))

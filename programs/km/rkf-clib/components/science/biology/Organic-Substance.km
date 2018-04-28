@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Organic-Substance.km,v 1.8 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Organic-Substance has
+	   (superclasses (Chemical))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (description ("Any substance containing hydrocarbons.  Souther."))
+	   (cmap-correspondence ())
+	   (test-case ()))
+
+
+
+
+
+
+(every Organic-Substance has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

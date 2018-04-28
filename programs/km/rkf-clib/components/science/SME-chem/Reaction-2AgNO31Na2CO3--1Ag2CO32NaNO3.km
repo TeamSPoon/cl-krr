@@ -1,0 +1,303 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 ----------
+
+(Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 has (superclasses (Reaction)))
+
+(_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 has 
+  (instance-of (Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3))
+  (prototype-of (Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3))
+  (prototype-scope (Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3))
+  (prototype-participants (_Property-Node4770
+                           _Property-Node4769
+                           _Property-Node4768
+                           _Property-Node4767
+                           _Chemical4765
+                           _Coefficient-Value4764
+                           _Chemical-Entity4763
+                           _Chemical4757
+                           _Coefficient-Value4756
+                           _Chemical-Entity4755
+                           _Chemical4749
+                           _Coefficient-Value4748
+                           _Chemical-Entity4747
+                           _Chemical-Entity4741
+                           _Chemical4740
+                           _Coefficient-Value4739
+                           _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (big-nodes (_Property-Node4767
+              _Property-Node4768
+              _Property-Node4769
+              _Property-Node4770))
+  (raw-material (_Chemical4757
+                 _Chemical4765))
+  (result (_Chemical4740
+           _Chemical4749))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical4740 t)
+                    (:seq raw-material _Chemical4757 t)
+                    (:seq raw-material _Chemical4765 t)
+                    (:seq result _Chemical4749 t))))
+
+(_Property-Node4770 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4748))
+  (contains-edge ((:triple _Coefficient-Value4748 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Property-Node4769 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4739))
+  (contains-edge ((:triple _Coefficient-Value4739 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Property-Node4768 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4764))
+  (contains-edge ((:triple _Coefficient-Value4764 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Property-Node4767 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value4756))
+  (contains-edge ((:triple _Coefficient-Value4756 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Chemical4765 has 
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity4763))
+  (coefficient (_Coefficient-Value4764))
+  (edge-visibility ((:seq coefficient _Coefficient-Value4764 t)))
+  (raw-material-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Coefficient-Value4764 has 
+  (contains-node-of (_Property-Node4768))
+  (coefficient-of (_Chemical4765))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Chemical-Entity4763 has 
+  (is-basic-structural-unit-of (_Chemical4765))
+  (instance-of (Chemical-Entity
+                Na2CO3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Chemical4757 has 
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (has-basic-structural-unit (_Chemical-Entity4755))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value4756))
+  (edge-visibility ((:seq coefficient _Coefficient-Value4756 t)))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Coefficient-Value4756 has 
+  (contains-node-of (_Property-Node4767))
+  (coefficient-of (_Chemical4757))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Chemical-Entity4755 has 
+  (is-basic-structural-unit-of (_Chemical4757))
+  (instance-of (Chemical-Entity
+                AgNO3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Chemical4749 has 
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity4747))
+  (coefficient (_Coefficient-Value4748))
+  (edge-visibility ((:seq coefficient _Coefficient-Value4748 t)))
+  (result-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Coefficient-Value4748 has 
+  (contains-node-of (_Property-Node4770))
+  (coefficient-of (_Chemical4749))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Chemical-Entity4747 has 
+  (is-basic-structural-unit-of (_Chemical4749))
+  (instance-of (Chemical-Entity
+                NaNO3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Chemical-Entity4741 has 
+  (instance-of (Chemical-Entity
+                Ag2CO3))
+  (is-basic-structural-unit-of (_Chemical4740))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Chemical4740 has 
+  (has-basic-structural-unit (_Chemical-Entity4741))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value4739))
+  (edge-visibility ((:seq coefficient _Coefficient-Value4739 t)))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(_Coefficient-Value4739 has 
+  (contains-node-of (_Property-Node4769))
+  (coefficient-of (_Chemical4740))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633)))
+
+(explanation (:triple _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 result _Chemical4749)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 raw-material _Chemical4765)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 raw-material _Chemical4757)
+  ((a Chemical (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction raw-material))))
+(explanation (:triple _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 result _Chemical4740)
+  ((a Chemical (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction result))))
+(explanation (:triple _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 chemical-equation _Chemical-Equation-Expression4635)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633) (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction chemical-equation))))
+(explanation (:triple _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 instance-of Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical4765 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical4765 coefficient _Coefficient-Value4764)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical4765 has-basic-structural-unit _Chemical-Entity4763)
+  ((a Chemical-Entity (@ _Chemical4765 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4765 instance-of Chemical)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value4764 value (:pair 1 *unity))
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value4764 instance-of Coefficient-Value)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity4763 atomic-chemical-formula _Chemical-Formula4675)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity4763)) or (the term of (the has-chemical-formula of _Chemical-Entity4763)) (@ _Chemical-Entity4763 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4763)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4763))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity4763)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity4763)))))))))) (@ _Chemical-Entity4763 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity4763 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity4763 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4763 nested-atomic-chemical-formula _Chemical-Formula4666)
+  ((_Chemical-Formula4666)))
+(explanation (:triple _Chemical-Entity4763 nested-atomic-chemical-formula _Chemical-Formula4666)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity4763)) and (the has-chemical-formula of _Chemical-Entity4763) (@ _Chemical-Entity4763 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity4763)))) (@ _Chemical-Entity4763 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity4763 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4763 has-chemical-formula _Chemical-Formula4664)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 Na-Plus) (:pair 1 CO3-Minus-2)))) (@ _Chemical-Entity4763 Na2CO3 has-chemical-formula))))
+(explanation (:triple _Chemical-Entity4763 has-chemical-formula _Chemical-Formula4664)
+  ((if ((the has-part of _Chemical-Entity4763) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity4763)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity4763)))) (@ _Chemical-Entity4763 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity4763) (the Anion has-part of _Chemical-Entity4763)))) (@ _Chemical-Entity4763 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity4763) (@ _Chemical-Entity4763 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity4763 instance-of Na2CO3)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity4763 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4765 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4757 has-basic-structural-unit _Chemical-Entity4755)
+  ((a Chemical-Entity (@ _Chemical4757 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4757 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical4757 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction raw-material))))
+(explanation (:triple _Chemical4757 coefficient _Coefficient-Value4756)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical4757 instance-of Chemical)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value4756 value (:pair 2 *unity))
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value4756 instance-of Coefficient-Value)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity4755 atomic-chemical-formula _Chemical-Formula4734)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity4755)) or (the term of (the has-chemical-formula of _Chemical-Entity4755)) (@ _Chemical-Entity4755 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4755)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4755))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity4755)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity4755)))))))))) (@ _Chemical-Entity4755 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity4755 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity4755 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4755 nested-atomic-chemical-formula _Chemical-Formula4725)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity4755)) and (the has-chemical-formula of _Chemical-Entity4755) (@ _Chemical-Entity4755 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity4755)))) (@ _Chemical-Entity4755 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity4755 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4755 has-chemical-formula _Chemical-Formula4723)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Ag-Plus) (:pair 1 NO3-Minus)))) (@ _Chemical-Entity4755 AgNO3 has-chemical-formula))))
+(explanation (:triple _Chemical-Entity4755 has-chemical-formula _Chemical-Formula4723)
+  ((if ((the has-part of _Chemical-Entity4755) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity4755)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity4755)))) (@ _Chemical-Entity4755 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity4755) (the Anion has-part of _Chemical-Entity4755)))) (@ _Chemical-Entity4755 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity4755) (@ _Chemical-Entity4755 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity4755 instance-of AgNO3)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity4755 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4757 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4749 instance-of Entity)
+  ((a Entity (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Event (result must-be-a)))))
+(explanation (:triple _Chemical4749 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical4749 coefficient _Coefficient-Value4748)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical4749 has-basic-structural-unit _Chemical-Entity4747)
+  ((a Chemical-Entity (@ _Chemical4749 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4749 instance-of Chemical)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value4748 value (:pair 2 *unity))
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value4748 instance-of Coefficient-Value)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity4747 atomic-chemical-formula _Chemical-Formula4710)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity4747)) or (the term of (the has-chemical-formula of _Chemical-Entity4747)) (@ _Chemical-Entity4747 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4747)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity4747))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity4747)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity4747)))))))))) (@ _Chemical-Entity4747 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity4747 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity4747 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4747 nested-atomic-chemical-formula _Chemical-Formula4701)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity4747)) and (the has-chemical-formula of _Chemical-Entity4747) (@ _Chemical-Entity4747 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity4747)))) (@ _Chemical-Entity4747 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity4747 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity4747 has-chemical-formula _Chemical-Formula4699)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Na-Plus) (:pair 1 NO3-Minus)))) (@ _Chemical-Entity4747 NaNO3 has-chemical-formula))))
+(explanation (:triple _Chemical-Entity4747 has-chemical-formula _Chemical-Formula4699)
+  ((if ((the has-part of _Chemical-Entity4747) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity4747)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity4747)))) (@ _Chemical-Entity4747 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity4747) (the Anion has-part of _Chemical-Entity4747)))) (@ _Chemical-Entity4747 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity4747) (@ _Chemical-Entity4747 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity4747 instance-of NaNO3)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical-Entity4747 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4749 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity4741 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical4740 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity4741 instance-of Ag2CO3)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical4740 has-basic-structural-unit _Chemical-Entity4741)
+  ((a Chemical-Entity (@ _Chemical4740 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical4740 instance-of Entity)
+  ((a Entity (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Event (result must-be-a)))))
+(explanation (:triple _Chemical4740 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical4740 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO34633 Reaction result))))
+(explanation (:triple _Chemical4740 coefficient _Coefficient-Value4739)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Chemical4740 instance-of Chemical)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value4739 value (:pair 1 *unity))
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+(explanation (:triple _Coefficient-Value4739 instance-of Coefficient-Value)
+  ((added-at Reaction-2AgNO31Na2CO3--1Ag2CO32NaNO3 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

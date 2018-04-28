@@ -1,0 +1,45 @@
+;; 
+;;    $Id: beneficiary.km,v 1.18 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(beneficiary has
+  (instance-of 		(Participant-Relation))
+  (superslots 		())
+  (subslots 		())
+  (domain      		(Event))
+  (range       		(Entity))
+  (fluent-status        (*Inertial-Fluent))
+  (inverse 		(beneficiary-of))
+  (text-slot 		(text-beneficiary))
+  (original-slot      (t))	
+  (cardinality 	 	(N-to-N)))
+
+(beneficiary has (text-gloss ("benefits")))
+
+(text-beneficiary has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-beneficiary-of has (instance-of (NL-Slot-Group)))
+
+(beneficiary has (wn20-synset ((:set
+                                     (:triple "benefactive_role" 1 "n")
+                                     (:triple "beneficiary" 2 "n")
+                                     (:triple "profit" 1 "v")
+                                     (:triple "gain" 3 "v")
+                                     (:triple "benefit" 1 "v")
+                                     (:triple "benefit" 2 "v")
+                                     (:triple "do_good" 1 "v")
+))))
+
+
+(beneficiary-of has 
+	(instance-of (Participant-Relation))
+	(text-gloss ("is beneficiary of")))

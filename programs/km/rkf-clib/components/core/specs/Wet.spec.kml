@@ -1,0 +1,44 @@
+<!--- $Id: Wet.spec.kml,v 1.2 2008/07/21 03:08:01 tecuci Exp $ --->
+<kml>
+
+<concept name=Wet><system-documentation name=Wet>
+<superconcept name=Increase>
+
+<definition>
+
+  An <conceptref name=Increase> in <slot>wetness</slot>
+
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=from-value>
+    the initial value of <slot>wetness</slot> before the event
+  </slotdescription>
+
+  <slotdescription name=to-value>
+    the final value of <slot>wetness</slot> after the event
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John's clothes became wet from the rain.</text>
+    <slotdescription name=base>John's clothes</slotdescription>
+    <slotdescription name=caused-by>the rain</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+<neighborlist>
+
+  <neighbor name=Dry>
+     To opposite of <conceptref name=Wet>
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

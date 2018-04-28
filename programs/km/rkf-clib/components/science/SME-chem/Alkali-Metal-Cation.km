@@ -1,0 +1,44 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Alkali-Metal-Cation11498
+
+
+|#
+
+(disable-classification)
+
+(Alkali-Metal-Cation has (superclasses (Metal-Cation)))
+
+(_Alkali-Metal-Cation11507 has
+  (prototype-of (Alkali-Metal-Cation Metal-Cation))
+  (prototype-scope (Alkali-Metal-Cation (the-class Metal-Cation with (is-ion-of ((a IA-Alkali-Metal-Element))))))
+  (prototype-participants (_IA-Alkali-Metal-Element11509 _Charge-Value11508 _Alkali-Metal-Cation11507)))
+
+(_Alkali-Metal-Cation11507 has (instance-of (Alkali-Metal-Cation)) (charge (_Charge-Value11508 (must-be-a Charge-Value))))
+
+(_Charge-Value11508 has (instance-of (Charge-Value)))
+
+(_IA-Alkali-Metal-Element11509 has (instance-of (IA-Alkali-Metal-Element)) (has-ion (_Alkali-Metal-Cation11507)))
+
+(enable-classification)
+
+(explanation (:triple _IA-Alkali-Metal-Element11509 has-ion _Alkali-Metal-Cation11507) (((@ SME entered)) (every Alkali-Metal-Cation has (is-ion-of ((a IA-Alkali-Metal-Element))))))
+
+(explanation (:triple _Alkali-Metal-Cation11507 instance-of Alkali-Metal-Cation) (((@ SME entered)) NIL))
+
+(explanation (:triple _Charge-Value11508 instance-of Charge-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _IA-Alkali-Metal-Element11509 instance-of IA-Alkali-Metal-Element) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Alkali-Metal-Cation has (is-ion-of ((a IA-Alkali-Metal-Element))))
+
+|#
+
+|#
+

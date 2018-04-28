@@ -1,0 +1,19 @@
+;; $Id: K-Plus.km,v 1.5 2008/05/14 20:16:55 kunal Exp $ 
+(K-Plus has (superclasses (Metal-Cation)))
+(every K-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("potassium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 K)))))))
+        (is-ion-of ((a K)))
+)
+
+(every K-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("potassium"))
+  (charge ((a Charge-Value with
+	      (value ((:pair +1 *unity)))))))
+
+(K-Plus has (wn20-synset ((:triple "K+" 0 "n"))))

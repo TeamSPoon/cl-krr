@@ -1,0 +1,16 @@
+;;    $Id: TM-Minimum-Cost.km,v 1.3 2004/09/10 22:57:32 pzyeh Exp $ 
+(TM-Minimum-Cost has (superclasses (Method)))
+
+(every TM-Minimum-Cost has 
+
+  ;;----------------------------------------------------------------
+  ;; SPARK parameters.
+  ;;----------------------------------------------------------------
+  (input    ((a Laptop-Computer)))                 ;; the input of this method corresponds to $quotes
+  (output   ((oneof (the input of Self) where t))) ;; the output of this method corresponds to $selection
+
+  ;;----------------------------------------------------------------
+  ;; Additional axioms
+  ;;----------------------------------------------------------------
+  (duration ((a Duration-Value)))
+)

@@ -1,0 +1,68 @@
+<!--- $Id: Agent-Role.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+<concept name=Agent-Role>
+<system-documentation name=Agent-Role>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+     The <conceptref name=Role> played by the entity that
+     initiates, performs, or causes an event
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the <conceptref name=Entity> playing the role of agent 
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Event> in which the entity is playing that role
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>A passenger had to be the pilot after the pilot died during the flight</text>
+     <slotdescription name=in-event>fly</slotdescription>
+     <slotdescription name=played-by>passenger</slotdescription>
+  </examplesentence>
+  <comment>
+     The Agent-Role might be called "pilot"
+  </comment>
+  <examplesentence>
+     <text>John hammered the nail. </text>
+     <slotdescription name=in-event>hammer the nail</slotdescription>
+     <slotdescription name=played-by>John</slotdescription>
+  <comment>
+     The Agent-Role might be called "hammerer"
+  </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Donor-Role>
+     The Role played by the entity that relinquishes 
+     possession of an object during a <conceptref name=Transfer>
+  </neighbor>
+
+  <neighbor name=Recipient-Role>
+     The Role played by the entity that gains possession of an object
+     during a <conceptref name=Transfer> 
+  </neighbor>
+
+  <neighbor name=Instrument-Role>
+     The role played by things, such as tools, used by 
+     an <slot>agent</slot> in an <conceptref name=Event>
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

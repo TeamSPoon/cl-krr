@@ -1,0 +1,29 @@
+;;    $Id: EMailMailingListMessageHeader.km,v 1.5 2005/02/22 21:18:23 jchaw Exp $
+
+(EMailMailingListMessageHeader has
+	       (superclasses (EMailMessageHeader))
+	       (required-slot ())
+	       (primary-slot ())
+	       (secondary-slot ())
+	       (cmap-correspondence ())
+	       (test-case ()))
+
+(every EMailMailingListMessageHeader has
+       (hasListArchiveAddress ((a EMailAddress)))
+       (hasListHelpAddress ((a EMailAddress)))
+       (hasListID ((a EMailAddress)))
+       (hasListPostAddress ((a EMailAddress)))
+       (hasListSubscribeAddress ((a EMailAddress)))
+       (hasListUnsubscribeAddress ((a EMailAddress))))
+
+(hasListArchiveAddress has  (instance-of (Interface-Slot)) (domain (EMailMailingListMessageHeader)) (range (EMailAddress)) (inverse (isListArchiveAddressOf)) (cardinality (N-to-N)))
+
+(hasListHelpAddress has  (instance-of (Interface-Slot)) (domain (EMailMailingListMessageHeader)) (range (EMailAddress)) (inverse (isListHelpAddressOf)) (cardinality (N-to-1)))
+
+(hasListID has  (instance-of (Interface-Slot)) (domain (EMailMailingListMessageHeader)) (range (EMailAddress)) (inverse (isListIDOf)) (cardinality (N-to-1)))
+
+(hasListPostAddress has  (instance-of (Interface-Slot)) (domain (EMailMailingListMessageHeader)) (range (EMailAddress)) (inverse (isListPostAddressOf)) (cardinality (N-to-1)))
+
+(hasListSubscribeAddress has  (instance-of (Interface-Slot)) (domain (EMailMailingListMessageHeader)) (range (EMailAddress)) (inverse (isListSubscribeAddressOf)) (cardinality (N-to-1)))
+
+(hasListUnsubscribeAddress has  (instance-of (Interface-Slot)) (domain (EMailMailingListMessageHeader)) (range (EMailAddress)) (inverse (isListUnsubscribeAddressOf)) (cardinality (N-to-1)))

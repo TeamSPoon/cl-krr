@@ -1,0 +1,14 @@
+;; 
+;;    $Id: C5H5N-Substance.km,v 1.2 2003/09/10 16:59:49 jchaw Exp $
+;; 
+
+(C5H5N-Substance has (superclasses (Base)))
+(every C5H5N-Substance has
+       (plays ((a Base-Role with
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 1.7e-9 nil))))))
+		  (intensity ((a Intensity-Value with
+			(value ((:pair *weak Base)))))))))
+	(has-chemical-name ("Pyridine"))
+	(has-basic-structural-unit ((a C5H5N)))
+)

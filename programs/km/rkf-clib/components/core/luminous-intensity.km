@@ -1,0 +1,26 @@
+;; 
+;; $Id: luminous-intensity.km,v 1.7 2007/04/11 21:23:40 jchaw Exp $
+;; 
+
+(luminous-intensity has
+  (instance-of            (EntityProperty))
+  (domain                 (Spatial-Entity))    
+  (range                  (Luminous-Intensity-Value))
+  (scalar-constant-class  (Luminous-Intensity-Constant))
+  (cardinal-unit-class    (UoM-Luminous-Intensity))
+  (inverse                (luminous-intensity-of))
+  (fluent-status          (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (cardinality            (N-to-1))
+  (original-slot      (t))	
+)
+
+(luminous-intensity has (wn20-synset ((:set
+                               (:triple "luminous intensity unit" 1 "n")
+                               (:triple "candlepower unit" 1 "n")
+			       (:triple "luminous intensity" 0 "n")
+			       ))))
+
+(luminous-intensity-of has
+	(instance-of (EntityProperty)))
+

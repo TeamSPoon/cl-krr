@@ -1,0 +1,16 @@
+;;
+;;    $Id: Blackboard.km,v 1.2 2005/04/10 20:57:05 jchaw Exp $
+;;
+(Blackboard has (superclasses (Artifact)))
+
+(every Blackboard has 
+       (purpose ((a Medium with
+       		    (in-event  ((must-be-a Express)))
+       		    (played-by (Self))
+       )))
+)
+
+(Blackboard has (wn20-synset ((:set
+			     (:triple "blackboard" 1 "n")
+			     (:triple "chalkboard" 1 "n")
+))))

@@ -1,0 +1,73 @@
+;; 
+;;    $Id: Collide.km,v 1.26 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Collide has
+  (superclasses   	(Make-Contact))
+  (required-slot  	(object))
+  (primary-slot   	(agent base location))
+  (cmap-correspondence 	(
+			 (:seq object "the thing(s) Collided")
+			 (:seq agent  "the Collider")
+			 (:seq base "the thing Collided with")
+			 (:seq location "the place of the collision")
+			 (:seq intensity "the intensity of the collison")
+			))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+;; Collide is a Make-Contact where the intensity is *strong. This
+;; is the only additional axiom we need to specify.
+
+(every Collide has (intensity (*strong)))
+
+(every Collide has
+  (text-active-verbseq-sg ("causes to collide"))
+  (text-active-verbseq-pl ("cause to collide"))
+  (text-passive-verbseq-sg ("collides"))
+  (text-passive-verbseq-pl ("collide"))
+)
+
+
+(Collide has
+  (test-case ('(
+		 (*side-walk  has (instance-of (Place)))
+		 (*Semi-Truck has (instance-of (Tangible-Entity)))
+		 (*Mini-Van has 
+		    (instance-of (Tangible-Entity))
+		    (location    (*side-walk)))
+
+		 (a Collide with
+		    (object 	 (*Mini-Van))
+		    (base	 (*Semi-Truck))
+		    (location 	 (*side-walk)))
+		 (do-and-next (thelast Collide))
+		(the text-gen of (thelast Collide))
+		
+		 (allof (the Be-Touching object-of of *Mini-Van)
+		 	where
+			((the object of It) includes *Semi-Truck))
+                 ((the abuts of *Mini-Van) includes *Semi-Truck)
+	       )))
+)
+
+
+;; automatically added WN synsets
+(Collide has (wn16-synset ((:set  
+                                      (:triple "collide" 2 "v")
+                                      (:triple "collide" 3 "v")
+                                      (:triple "clash" 1 "v")
+))))
+
+(Collide has (wn20-synset ((:set
+                                      (:triple "collide" 1 "v")
+                                      (:triple "collide" 3 "v")
+                                      (:triple "clash" 1 "v")
+				      (:triple "collide_with" 1 "v")
+				      (:triple "hit" 2 "v")
+				      (:triple "strike" 1 "v")
+				      (:triple "impinge_on" 1 "v")
+				      (:triple "run_into" 3 "v")
+))))
+
+(every Collide has (text-nominalization ("collision")))

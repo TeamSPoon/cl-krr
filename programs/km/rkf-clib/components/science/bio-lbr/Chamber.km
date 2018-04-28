@@ -1,0 +1,17 @@
+;; 
+;; $Id: Chamber.km,v 1.1 2006/06/07 20:26:52 kbarker Exp $
+;; 
+
+(Chamber has
+  (superclasses (Physical-Object))
+  (description ("an enclosed space playing the role of container"))
+)
+
+(every Chamber has
+  (plays ((a Container)))
+)
+
+(Chamber has (wn20-synset ((:set 
+                              (:triple "chamber" 1 "n")
+                              (:triple "chamber" 2 "n")
+))))

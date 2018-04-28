@@ -1,0 +1,18 @@
+;;
+;;    $Id: StillImage.km,v 1.6 2005/02/22 21:18:23 jchaw Exp $
+;;
+
+(StillImage has
+	    (superclasses (VisualDocument))
+	    (required-slot ())
+	    (primary-slot ())
+	    (secondary-slot ())
+	    (cmap-correspondence ())
+	    (test-case ()))
+
+#|
+(every StillImage has
+       (isLogoOf ((a Thing))))
+
+(isLogoOf has 	(instance-of (Interface-Slot))	(domain (StillImage)) 	(range 	 (ContactRecord ContactRecordSubAddress Organization Software-Application Person Folder Event Annotation)) (cardinality (N-to-N)))
+|#

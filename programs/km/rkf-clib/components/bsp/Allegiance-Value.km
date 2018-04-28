@@ -1,0 +1,16 @@
+
+;;
+;; $Id: Allegiance-Value.km,v 1.5 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+(Allegiance-Value has 
+       (superclasses (Property-Value)))
+
+(every Allegiance-Value has
+   (property-slot (allegiance))
+   (value ((exactly 1 Allegiance-Constant)))
+
+   (allegiance-of ((must-be-a Entity)))
+   (same-as ((must-be-a Allegiance-Value)))
+   (text-phrase ((the value of Self)))
+)

@@ -1,0 +1,89 @@
+<!--- $Id: Reconstitute-Unit.spec.kml,v 1.1 2005/08/01 20:56:42 jchaw Exp $ --->
+<kml>
+
+<concept name=Reconstitute-Unit>
+<superconcept name=Military-Task>
+
+<definition>
+
+   A tactical mission task in which one military unit reconstitutes
+   another military unit (i.e. restores its
+   <slot>combat-strength</slot> to full strength)
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that reconstitutes the
+     <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=object>
+     the <conceptref name=Military-Unit> which becomes reconstituted
+  </slotdescription>
+  
+</requiredslotlist>
+
+<comment>
+   It's assumed that the <slot>agent</slot> and the
+   <slot>object</slot> have the same <slot>allegiance</slot>
+</comment>
+
+<neighborlist>
+
+  <neighbor name=Attack-by-Fire>
+     Attack-by-Fire uses direct fires, supported by indirect fires,
+     to engage an enemy without closing with him to destroy, suppress,
+     fix, or deceive him
+  </neighbor>
+
+  <neighbor name=Bypass>
+     Bypass is a military action by friendly forces in which a unit
+     maneuvers around an obstacle
+  </neighbor>
+
+  <neighbor name=Clear>
+    Clear is a tactical mission task to remove enemy forces within an
+    assigned area
+  </neighbor>
+
+  <neighbor name=Follow-and-Assume>
+     Follow-and-Assume is a tactical mission task to follow a force
+     conducting an offensive operation and to continue the mission if the
+     lead force is disabled
+  </neighbor>
+
+  <neighbor name=Follow-and-Support>
+     Follow-and-Support is a tactical mission task to follow and
+     support a lead force conducting an offensive operation
+  </neighbor>
+
+  <neighbor name=Occupy>
+     Occupy is a tactical mission task to move a friendly force into
+     an area and to control it
+  </neighbor>
+
+  <neighbor name=Retain>
+     Retain is a tactical mission task to ensure a terrain remains
+     free of enemy occupation or use
+  </neighbor>
+
+  <neighbor name=Seize>
+     Seize is a tactical mission task to take possession of a designated
+     area
+  </neighbor>
+
+  <neighbor name=Support-by-Fire>
+     Support-by-Fire is a tactical mission task in which a maneuver
+     force moves to a position where it can engage the enemy by direct
+     fire in support of another maneuvering force
+  </neighbor>
+
+</neighborlist>
+
+
+
+</kml>
+
+

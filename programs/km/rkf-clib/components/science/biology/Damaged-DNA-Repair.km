@@ -1,0 +1,86 @@
+
+;;
+;;    $Id: Damaged-DNA-Repair.km,v 1.33 2002/06/21 19:16:59 tecuci Exp $ 
+;; 
+
+(Damaged-DNA-Repair has
+		    (superclasses  (DNA-Repair))
+		    (required-slot (object base))
+		    (primary-slot (instrument agent))
+		    (description ("A DNA repair system that identifies DNA 
+                                   damaged by environmental stimuli, such as 
+                                   UV radiation and repairs it.  Souther, 
+                                   see Alberts:ECB:204.")))
+
+(every Damaged-DNA-Repair has
+       (agent ((a Living-Entity)))
+       (object ((a DNA-Sequence called "damaged DNA" with
+                   (object-of
+                    ((a Be-Attached-To with
+                        (object
+                         ((a DNA-Sequence called "template" with
+                             (is-part-of
+                              ((a DNA-Strand called "normal strand" with
+                                  (complement ((the DNA-Strand base of Self)))
+                                  )))
+                             )))
+                        (instrument ((a Hydrogen-Bond)
+                                     (at-least 2 Hydrogen-Bond)))
+                        ))))
+                (a DNA-Sequence called "the new complementary sequence" with
+                   (complement (((the DNA-Sequence object of
+                                      ((the Be-Attached-To object-of of
+                                            (((the DNA-Sequence object of Self)
+                                              called
+                                              "damaged DNA"))
+                                            )))
+                                 called "template")))
+                   ))) 
+       (instrument ((a Aggregate called "repair enzymes" with
+		       (instance-of (Enzyme))
+
+                       (element-type (Enzyme)))))
+       (base ((a DNA-Strand called "repaired strand")))
+
+       (first-subevent ((the Detach subevent of Self)))
+
+       (subevent
+	(
+;	 (a Recognize with
+;	    (object (((the DNA-Sequence object of Self)
+;		      called "damaged DNA")) )
+;	    (agent ((a Deoxyribonuclease)))
+;	    )
+	 (a Detach with
+	    (object (((the DNA-Sequence object of Self)
+                      called "damaged DNA")) )
+	    (base ((the DNA-Sequence base of Self)))
+	    (instrument ((a Deoxyribonuclease)))
+	    (next-event (((the DNA-Synthesis subevent of Self) 
+			  called "DNA resynthesis")))
+	    )
+	 (a DNA-Synthesis called "DNA resynthesis" with
+            (object (((the DNA-Sequence object of
+                          ((the Be-Attached-To object-of of
+                                (((the DNA-Sequence object of Self)
+                                  called "damaged DNA"))
+                                )))
+                      called "template")))
+            (result (((the DNA-Sequence object of Self) 
+		      called "the new complementary sequence")) )
+	    (instrument ((a DNA-Polymerase-Repair-Enzyme)))
+	    (next-event ((the DNA-Ligation subevent of Self)))
+	    )
+         (a DNA-Ligation with
+            (object (((the DNA-Sequence object of Self)
+                      called "the new complementary sequence")) )
+            (base ((the DNA-Sequence base of Self)))
+            (instrument ((a DNA-Ligase)))
+	    )
+	 ))
+       )
+
+
+;; how to indicate that the sequence repaired contains mismatched Base-Pair
+
+

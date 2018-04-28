@@ -1,0 +1,43 @@
+;; 
+;;    $Id: object.km,v 1.19 2008/08/15 20:54:16 jchaw Exp $ 
+;; 
+
+(object has
+   (instance-of (Participant-Relation))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   (range (Entity))
+   (inverse (object-of))
+   (fluent-status (*Inertial-Fluent))
+   (text-slot (text-object))
+   (original-slot      (t))	
+   (cardinality (N-to-N)))
+
+(object has (text-gloss ("is done to")))
+
+(object-of has
+   (instance-of (Participant-Relation))
+   (combine-values-by-appending (t))
+)
+
+(text-object has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-object-of has (instance-of (NL-Slot-Group)))
+
+(object has (wn20-synset ((:set
+                                (:triple "affected_role" 1 "n")
+                                (:triple "patient_role" 1 "n")
+                                (:triple "patient" 2 "n")
+))))
+
+(object-of has (text-gloss ("is the object of")))

@@ -1,0 +1,6 @@
+  original(X) :- p(X) & q(X) & r(X)
+  original(X) :- p(X) & q(X) & s(X)
+
+  reformed(X) :- p(X) & q(X) & t(X)
+  t(X) :- r(X)
+  t(X) :- s(X)

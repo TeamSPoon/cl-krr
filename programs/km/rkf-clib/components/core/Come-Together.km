@@ -1,0 +1,127 @@
+;; 
+;;    $Id: Come-Together.km,v 1.24 2006/05/18 20:10:42 kbarker Exp $ 
+;; 
+
+(Come-Together has
+  (superclasses 	(Action))
+  (required-slot    	(object destination))
+  (primary-slot  	(subevent))
+  (cmap-correspondence  (
+			 (:seq object "the things moved")
+			 (:seq destination "moved to")
+			 (:seq subevent "the Move of each object")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Come-Together has
+  (object         ((at-least 2 Tangible-Entity)
+		   (a Tangible-Entity)
+                   (a Tangible-Entity)))
+  (destination    ((exactly 1 Spatial-Entity)
+                   (a Spatial-Entity)))	
+  
+  ;; The subevents of this scenario
+  (first-subevent ((the subevent of Self)))
+  (subevent       ((forall (the object of Self)
+		     (a Go-To with
+			(object      (It))
+			(agent 	     (It))
+			(destination ((the destination of Self)))
+			(path ((if (has-value (the path of Self)) 
+				   then
+				   (the path of Self))))
+			(away-from ((if (has-value (the away-from of Self)) 
+					then
+					(the away-from of Self))))
+			(toward ((if (has-value (the toward of Self)) 
+				     then
+				     (the toward of Self))))
+			(origin ((if (has-value (the origin of Self)) 
+				     then
+				     (the origin of Self))))
+			)))))
+
+(every Come-Together has
+  (text-active-verbseq-sg ("causes to come together"))
+  (text-active-verbseq-pl ("cause to come together"))
+  (text-passive-verbseq-sg ("comes together"))
+  (text-passive-verbseq-pl ("come together"))
+)
+
+
+(Come-Together has 
+  (test-case ( '(
+		 (*safety has (instance-of (Physical-Object))
+                   (location ((a Place))))  
+                 (*running-back has (instance-of (Physical-Object))
+                   (location ((a Place))))
+                 (*goal-line has (instance-of (Place)))
+
+                 ; the two players converge at goal line
+                 (a Come-Together with
+                        (object (*running-back *safety))
+                        (destination (*goal-line)))   
+                 (do-script (thelast Come-Together))
+		 (the text-gen of (thelast Come-Together))
+		 ; Test1: afterwards, that's where they're located
+		 ((the location of *safety) = *goal-line)
+		 ((the location of *running-back) = *goal-line)
+
+		 ; Test2: Each subevent was a move to
+                 ;        involing the object.
+                 (forall (the subevent of (thelast Come-Together))
+                    ((It isa Go-To) and
+                     ((:set *running-back *safety) includes 
+		      (the object of It))))
+
+                 (new-situation)
+
+                 (*dog has (instance-of (Physical-Object))
+                   (location ((a Place))))
+                 (*cat has (instance-of (Physical-Object))
+                   (location ((a Place))))
+                 (*rat has (instance-of (Physical-Object))
+                   (location ((a Place))))
+
+                 (*trap has (instance-of (Physical-Object))
+                   (location ((a Place))))
+
+                 (a Come-Together with
+                    (object (*dog *cat *rat))
+                    (destination (*trap)))
+                 (do-script (thelast Come-Together))
+		 (the text-gen of (thelast Come-Together))
+
+		 ((the location of *dog) = (the location of *trap))
+		 ((the location of *cat) = (the location of *trap))
+		 ((the location of *rat) = (the location of *trap))
+
+                 ((the location-of of 
+                       (the location of 
+                            (the destination of (thelast Come-Together))))
+                  is-superset-of (:set *dog *cat *rat *trap))
+
+))))
+
+
+
+
+
+;; automatically added WN synsets
+(Come-Together has (wn16-synset ((:set  
+                                            (:triple "meet" 7 "v")
+                                            (:triple "gather" 2 "v")
+                                            (:triple "assemble" 2 "v")
+                                            (:triple "forgather" 1 "v")
+                                            (:triple "foregather" 1 "v")
+))))
+
+(Come-Together has (wn20-synset ((:set
+                                            (:triple "meet" 8 "v")
+                                            (:triple "gather" 2 "v")
+                                            (:triple "assemble" 2 "v")
+                                            (:triple "forgather" 1 "v")
+                                            (:triple "foregather" 1 "v")
+))))
+(every Come-Together has (text-nominalization ("coming together")))

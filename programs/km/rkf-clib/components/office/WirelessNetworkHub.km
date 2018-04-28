@@ -1,0 +1,11 @@
+;;
+;; $Id: WirelessNetworkHub.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(WirelessNetworkHub has 
+  (superclasses (ComputerNetworkPeripheral)))
+
+(WirelessNetworkHub has
+  (feature-slot ((the feature-slot of ComputerNetworkPeripheral)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = WirelessNetworkHub)))))
+

@@ -1,0 +1,41 @@
+;; 
+;;    $Id: Methanol-Group.km,v 1.17 2001/06/04 20:58:20 pnav Exp $ 
+;; 
+
+(Methanol-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Alcohol derived from methane. Souther."))
+	      (cmap-correspondence ()))
+
+(every Methanol-Group has
+       (has-part
+	((a Carbon-Atom uniquely-called "Carbon-1" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C1-H1" with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen-1")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To uniquely-called "C1-H2" with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen-2")))
+                 (instrument 	((a Covalent-CH-Bond))))   
+              (a Be-Attached-To uniquely-called "C1-H3" with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen-3")))
+                 (instrument 	((a Covalent-CH-Bond))))   
+              (a Be-Attached-To uniquely-called "C1-OH1" with
+                 (object 	((the Hydroxyl-Group has-part of Self)))
+                 (instrument 	((a Covalent-CO-Bond)))
+		 (site
+		  ((the Oxygen-Atom has-part of
+			(the Hydroxyl-Group has-part of
+			     (the Amino-Acid-Side-Chain has-part of Self)))))
+	     ))))
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen-2") 
+	 (a Hydrogen-Atom uniquely-called "C3-Hydrogen-3") 
+	 (a Hydroxyl-Group)
+	 (exactly 3 Hydrogen-Atom))))
+
+

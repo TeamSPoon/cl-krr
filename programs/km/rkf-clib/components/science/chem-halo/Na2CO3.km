@@ -1,0 +1,14 @@
+;; $Id: Na2CO3.km,v 1.5 2006/01/24 20:27:30 jfan Exp $ 
+(Na2CO3 has (superclasses (Ionic-Compound)))
+(every Na2CO3 has
+	(has-chemical-name ("sodium carbonate"))
+	(has-part ((a Na-Plus)(a CO3-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 2 Na-Plus)
+			(:pair 1 CO3-Minus-2)))))))
+)
+(every Na2CO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a CO3-Minus-2))))
+

@@ -1,0 +1,86 @@
+;; 
+;;    $Id: Gas-Solution-Reaction-a.km,v 1.4 2006/04/05 19:54:16 tecuci Exp $ 
+;; 
+
+(Gas-Solution-Reaction-a has (superclasses (Reaction)))
+
+(Gas-Solution-Reaction-a has 
+			 (user-description ("A Reaction in which CO2(g) (which in water produces H2CO3(aq)) reacts with a metal compound, producing an insoluble metal carbonate and a compound consisting of H and the anion from the metal compound")))
+
+(every Gas-Solution-Reaction-a has-definition
+       (instance-of (Reaction [Gas-Solution-Reaction-a-instance-of-1]))
+       (raw-material (
+		      (a Ionic-Compound-Substance with
+			 (is-solute-of ((a Aqueous-Solution))))
+		      (a CO2-Substance))))
+
+(every Gas-Solution-Reaction-a has
+       (result (
+		(a Ionic-Compound-Substance with
+		   (is-solute-of ((a Aqueous-Solution)))
+		   (has-basic-structural-unit 
+		    ((a Ionic-Compound 
+			with
+			(has-part ((the Cation has-part of 
+					(the has-basic-structural-unit of
+				      (the Ionic-Compound-Substance raw-material of Self)))
+				   (a CO3-Minus-2))))))
+                )
+		(a Ionic-Compound-Substance with
+		   (is-solute-of ((a Aqueous-Solution)))
+		   (has-basic-structural-unit 
+		    ((a Ionic-Compound 
+			with
+			(has-part ((the Anion has-part of 
+					(the has-basic-structural-unit of
+					     (the Ionic-Compound-Substance raw-material of Self)))
+				   (a H-Plus))))))
+                 [Gas-Solution-Reaction-a-result-1]
+                )
+       ))
+)
+		
+(comment [Gas-Solution-Reaction-a-instance-of-1]
+  "Therefore, ions exchange between the metal compound and carbonic acid produced by CO2 in the water"
+
+  "This is a reaction between CO2(g) and a metal compound solution"
+)
+
+(comment [Gas-Solution-Reaction-a-result-1]
+  (:seq "The products of the reaction of"
+        (andify (the text-gen of (the raw-material of Self)))
+        "are thus"
+        (andify (the text-gen of (the result of Self)))
+  )
+  "When CO2(g) (which in water produces H2CO3(aq)) reacts with a metal compound, the products are an insoluble metal carbonate and a compound consisting of H and the anion from the metal compound"
+)
+
+
+(Gas-Solution-Reaction-a 
+ has
+ (test-case ( '(
+		((the number of
+		     (allof
+		      (the result of
+			   (a Reaction with
+			      (raw-material ((a CO2-Substance)
+					     (a Ca_OH_2-Substance with
+						(is-solute-of ((a Aqueous-Solution))))))))
+		      where
+		      (((the elements of
+			    (the term of
+				 (the has-chemical-formula of
+				      (the has-basic-structural-unit of
+					   It))))
+		       = (:set (:pair 1 Ca-Plus-2)
+			       (:pair 1 CO3-Minus-2)))
+		       or
+		       ((the elements of
+			    (the term of
+				 (the has-chemical-formula of
+				      (the has-basic-structural-unit of
+					   It))))
+		       = (:set (:pair 1 H-Plus)
+			       (:pair 1 OH-Minus))))))
+		= 2)
+))))

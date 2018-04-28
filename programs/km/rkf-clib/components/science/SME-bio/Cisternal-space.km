@@ -1,0 +1,49 @@
+
+;;; ---------- Definition of prototype for Cisternal-space ----------
+
+(Cisternal-space has (superclasses (Cellular-Region)))
+
+(_Cisternal-space593 has 
+  (instance-of (Cisternal-space))
+  (prototype-of (Cisternal-space))
+  (prototype-scope (Cisternal-space))
+  (prototype-participants (_Tangible-Entity598
+                           _Spatial-Entity597
+                           _Cisternal-space593))
+  (prototype-participant-of (_Cisternal-space593))
+  (has-clones (_Placeholder-Class592594))
+  (has-built-clones (_Placeholder-Class592594))
+  (is-region-of (_Tangible-Entity598))
+  (location-of (_Spatial-Entity597))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Tangible-Entity598 has 
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity596))
+  (has-region (_Cisternal-space593))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-region _Cisternal-space593 -100 617)))
+  (edge-visibility ((:seq has-region _Cisternal-space593 f)))
+  (node-coordinate ((:pair -250 617)))
+  (prototype-participant-of (_Cisternal-space593)))
+
+(_Spatial-Entity597 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity595))
+  (location (_Cisternal-space593))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq location _Cisternal-space593 -100 582)))
+  (edge-visibility ((:seq location _Cisternal-space593 f)))
+  (node-coordinate ((:pair -250 582)))
+  (prototype-participant-of (_Cisternal-space593)))
+
+(explanation (:triple _Cisternal-space593 location-of _Spatial-Entity597) ((a Spatial-Entity (@ _Cisternal-space593 Place location-of))))
+(explanation (:triple _Cisternal-space593 is-region-of _Tangible-Entity598) ((a Tangible-Entity (@ _Cisternal-space593 Region is-region-of))))
+(explanation (:triple _Tangible-Entity598 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Cisternal-space593 Region is-region-of))))
+(explanation (:triple _Spatial-Entity597 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cisternal-space593 Place location-of))))
+
+;;; ---------- end of prototype definition ----------
+
+(Cisternal-space now-has (user-description ("The area inside the cisternae of the endoplasmic reticulum.")))

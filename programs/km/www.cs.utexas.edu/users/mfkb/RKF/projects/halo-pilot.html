@@ -1,0 +1,261 @@
+<title>Intelligent, Knowledgeable Systems - Results of the Halo Pilot</title>
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<body bgcolor=white lang=EN-US link="#0000ee" vlink="#551a8b" alink="#FE0000">
+
+<center>
+	<img height=3 width="100%" src=http://www.cs.utexas.edu/users/mfkb/images/rainbow.gif>
+
+	<h1>Intelligent, Knowledgeable Systems - Results of the Halo Pilot</h1>
+<p>
+A project of the <a href=http://www.cs.utexas.edu/users/mfkb/>
+Knowledge Systems Group, UT-Austin</a>,
+as part of 
+<a href=http://www.cs.utexas.edu/users/mfkb/RKF/projects/halo.html>Project Halo</a>
+
+
+	<img height=3 width="100%" src=http://www.cs.utexas.edu/users/mfkb/images/rainbow.gif>
+</center>
+
+
+<h2>Introduction</h2>
+
+<p>
+Every research field should periodically take a test - to measure its
+progress and to set course. Our field, knowledge representation and
+automated reasoning, was recently put to a significant challenge: in 4
+months build a knowledge base capable of doing well on an AP (Advanced
+Placement) Chemistry exam.
+
+<p>
+The challenge problem was posed, funded and administered by Vulcan,
+Inc, a Paul Allen company. 
+(See Vulcan's <a href=http://www.projecthalo.com>website</a> for a complete report on Project Halo.)
+Three research teams participated:
+<ul> 
+<li> <a href=http://www.ai.sri.com/project/HaloPilot>SRI</a>, 
+<a href=http://www.cs.utexas.edu/users/mfkb/>UT-Austin</a> and 
+<a href=http://www.cs.utexas.edu/users/pclark/>Boeing</a>: <b>Our Team!</b>
+<li> <a href=http://www.cyc.com/>Cycorp</a>, Austin
+<li> <a href=http://www.ontoprise.com/>Ontoprise</a>, Germany
+</ul>
+
+<p>
+The goal of the challenge problem was to assess the current
+capabilities of knowledge systems - without further R&D, and with very
+little time to adjust to the rigors of a new application domain, how
+well could the teams do with existing technology?
+
+<p>
+<br><center>
+<img src =
+http://www.cs.utexas.edu/users/mfkb/RKF/projects/HaloGroup-bright-small.jpg>
+<p>
+Fig. 1. The UT-Austin team in the first of several celebrations, this
+one at Ski Shores. Clockwise from top left: Peter Yeh, Jason Chaw,
+Steve Wilder, Ken Barker, Dan Tecuci, Bruce Porter, and James Fan.
+</center>
+<br>
+
+
+<p><h2>The Challenge</h2>
+ 
+<p>Vulcan selected three broad topics in Inorganic Chemistry -
+stoichiometry, acid-base reactions, and chemical equilibrium -
+covering about 70 pages in a college level textbook. Vulcan gave each
+team about the same level of funding and the same ambitious timeline:
+In four months, each team had to analyze the domain and build a
+knowledge system encompassing all its terms and laws.
+
+<p>
+Then came the exam.  It was written by a Chemistry professor with
+considerable experience with AP tests - both designing questions and
+setting the grading policy.  The exam had 169 questions. The first 50
+were multiple choice and the rest were open ended.  Importantly, all
+of the questions were novel - the teams were not privy to the exam
+when building their knowledge systems.
+
+<p>
+As part of the Challenge, Vulcan set the ground rule that getting the
+right answer was not enough - the systems had to explain their answers
+in detail, and in English!  Explanations had to be correct, coherent,
+logical, and succinct to earn full points.
+
+<p>
+<h2>Wait! I Thought Expert Systems Could Already Do This! </h2>
+
+<p>
+Expert systems of the 1970's and 80's were the first knowledge
+systems. Thousands were built, and some performed remarkably
+well. Nevertheless, modern knowledge systems are significantly more
+advanced in four ways.
+
+<ul>
+<li>
+<b>Coverage</b>: Expert systems covered a mere pinpoint of knowledge - just
+that knowledge of a domain required to do a single task in that
+domain. The Mycin expert system, for example, worked in the domain of
+infectious blood diseases to perform the task of recommending a drug
+treatment.  Said another way, Mycin answered just one type of
+question: "what medicine should be prescribed for a patient with these
+symptoms and test results?"
+<br>
+In contrast, modern knowledge systems are built to cover a domain and
+to answer a wide range of questions about it.  If Mycin were re-built
+today, it would probably cover the breadth of knowledge in medical
+textbooks about infectious blood diseases and be capable of answering
+questions about bacterial mutation, disease pathways, bacteria-cell
+interactions, defense mechanisms, drug interventions, and so on.
+
+<li>
+<b>Reasoning</b>: Expert systems used a single type of reasoning, such as
+forward or backward chaining through rules, or pattern matching with
+prototypes or cases. Mycin, for example, predominantly used backward
+chaining to relate patient data to drug treatments.  In contrast,
+modern knowledge systems typically integrate a variety of reasoning
+methods, including rather new and complex ones, such as automatic
+classification, model-based reasoning, and analogical reasoning.
+
+<li>
+<b>Explanation</b>: Expert systems had very limited ability to explain their
+answers - typically they just dumped a trace of the inference steps
+used in the solution. In contrast, knowledge systems typically
+generate explanations, in clear English, that are structured to enable
+the user to drill-down for more detail.  Some knowledge systems use
+pedagogical principles to tune explanations to individual users, or to
+adjust to the history and context of the ongoing dialogue.
+
+<li>
+<b>Rapid Construction</b>: Knowledge systems today are much more
+sophisticated than their predecessors, but are not necessarily harder
+to build.  When you implement an algorithm on a computer, the job is
+much easier when your programming language provides the right
+abstractions - and knowledge representation languages are no
+exception.  Modern languages provide support for classes, instances,
+prototypes, sets, metric spaces, hypothetical situations, and a
+variety of reasoning methods.  Consequently, building knowledge
+systems is much easier than it used to be.
+</ul>
+
+<p>
+<h2>Results</h2>
+
+<p>
+The exams were graded by three chemists, each working independently of
+the others (there was no attempt to coordinate grading standards).
+All three concluded that our system performed the best.
+
+<p>
+<br><center>
+<img src =
+http://www.cs.utexas.edu/users/mfkb/RKF/projects/HaloChallengeAnswerScores.gif>
+<br>
+<img src =
+http://www.cs.utexas.edu/users/mfkb/RKF/projects/HaloChallengeJustificationScores.gif>
+<p>
+Fig. 2. The results of the evaluation in terms of the correctness of
+answers (top graph) and quality of explanations (bottom
+graph). Results are statistically significant to at least 95%
+confidence.
+</center>
+<br>
+
+
+<p>
+The chemists used different grading criteria (e.g. "easy grading" vs
+"hard grading"), but their overall rankings were the same.
+
+<p>
+To put these results in perspective, the our system
+performed well enough (in terms of correctness) to earn an AP score of
+3, high enough for college credit at top universities, such as UIUC
+and UCSD.
+
+<p>
+Nevertheless, the systems would need to be improved substantially to
+achieve expert-level performance (which is not surprising given only
+four months of development!) One of the most intriguing shortcomings
+of the systems was their inability to reason at a meta level. This was
+revealed by several of the questions on the exam - ones that required
+the system to solve the problem and then to reflect on its reasoning.
+
+<p>
+The systems also require more sophisticated methods of explanation
+generation.  In many cases, the chemists deducted points on
+explanations that were verbose or redundant.  Partly this is because
+the experiment did not allow for interactive, drill-down explanation
+generation. More importantly, basic research is required on many
+fronts, such as explanation and dialogue planning.
+
+<p>
+<h2>Ongoing Research</h2>
+
+<p>
+Our long-term vision is that domain experts (e.g. chemists!) will
+build knowledge systems - with little or no help from knowledge
+engineers - as a way of amassing their field's knowledge.  Knowledge
+systems would replace traditional libraries of inaccessible text, and
+offer extraordinary question answering ability.  The main challenge is
+acquiring representations of knowledge that are computationally
+useful. Currently, most human knowledge is "locked up" in inaccessible
+representations - such as text and diagrams - that are largely useless
+for automated reasoning. (Try asking 
+<a href=http://www.ask.com>Jeeves</a> a few simple
+questions, and you'll quickly see the limitations of computer
+processing of textual information.) So, one challenge is to develop
+ways to codify knowledge, and another is to recruit people to do the
+work!
+
+<p>
+It's encouraging to consider the parallels between progress in
+knowledge systems and the early successes in computer
+programming. During computing's early days, very few people were able
+to write programs because it required intricate knowledge of computer
+internals.  With the advent of high-level languages (such as Fortran),
+scientists and engineers with virtually no training in computer
+science were writing complex programs. Once empowered, the domain
+experts were eager volunteers, building software infrastructure to
+meet the needs of their own disciplines.
+
+<p>
+We believe domain experts will be similarly motivated to codify their
+knowledge in computational forms (rather than inaccessible
+representations) if they can write in a high-level language which is
+then automatically compiled into axioms. The high-level language must
+include abstractions familiar to the domain experts, as is common in
+Domain Specific Languages (DSLs) for conventional programming.
+
+<p>
+Toward that end, we're building a 
+<a href=http://www.cs.utexas.edu/users/mfkb/RKF/clib.html>
+Component Library</a>
+of common
+abstractions. It contains representations of basic concepts - actions,
+entities, roles, and relationships - each richly axiomatized.  We have
+found that domain-specific concepts can be built up by instantiating
+and assembling these basic building blocks, as Clark and Porter
+described in 
+<i>Building Concept Representations from Reusable
+Components</i>
+<a href=http://www.cs.utexas.edu/users/pclark/papers/aaai97.abs.html>
+Abstract</a>
+and 
+<a href=http://www.cs.utexas.edu/users/mfkb/papers/aaai97.pdf>pdf</a>), 
+which earned a Best Paper award at the National AI
+Conference in 1997 and has served as blueprint for our long term
+research.
+
+
+<img height=3 width="100%" src=http://www.cs.utexas.edu/users/mfkb/images/rainbow.gif>
+
+Created by <a href="mailto:porter@cs.utexas.edu">Bruce Porter</a>
+<br>
+Maintained by <a href="mailto:tecuci@cs.utexas.edu">Dan Tecuci</a>
+<br>
+Last modified September 2004
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+;;
+;; $Id: CH3COONa-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $
+;;
+
+(CH3COONa-Substance has (superclasses (Salt-Substance)))
+
+(every CH3COONa-Substance has
+       (has-basic-structural-unit ((a CH3COONa))))
+(every CH3COONa-Substance has-definition
+  (instance-of (Salt-Substance))
+  (has-basic-structural-unit ((a CH3COONa))))

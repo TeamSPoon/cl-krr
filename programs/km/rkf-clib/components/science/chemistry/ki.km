@@ -1,0 +1,15 @@
+;; 
+;;  $Id: ki.km,v 1.1 2003/01/24 20:25:26 pzyeh Exp $
+;; 
+
+(ki has
+  (instance-of 		  (Property))
+  (domain      		  (Equilibrium-Reaction))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     		  (ki-of))
+  (cardinality 		  (N-to-N))
+)
+

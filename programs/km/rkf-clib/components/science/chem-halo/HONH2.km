@@ -1,0 +1,22 @@
+;; 
+;;    $Id: HONH2.km,v 1.5 2006/01/23 23:33:41 jfan Exp $
+;; 
+
+(HONH2 has (superclasses (Ionic-Compound)))
+
+(every HONH2 has
+       (has-chemical-name ("hydroxylamine"))
+       (nested-atomic-chemical-formula (
+				 (a Chemical-Formula with
+				    (term ((:seq 
+					    (:pair 1 H)
+					    (:pair 1 O)
+					    (:pair 1 N)
+					    (:pair 2 H)
+					    ))))))
+       )
+#|(every HONH2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Anion) (a Cation))))
+
+|#

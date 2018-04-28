@@ -1,0 +1,128 @@
+;; 
+;;    $Id: Duplicate.km,v 1.16 2008/07/15 16:08:59 kbarker Exp $ 
+;; 
+
+;; This Duplicate notion is the same as Copy revision 1.1
+
+(Duplicate has
+	(superclasses 	 (Copy))
+	(required-slot   (object))
+	(primary-slot 	 (agent instrument by-means-of result))
+	(cmap-correspondence (
+			      (:seq result "the Duplicate")
+			      (:seq object "the original")	
+			      (:seq agent "copier")
+			      (:seq instrument "the instrument")
+			      (:seq by-means-of "the event needed for the Duplicate")	
+			     ))
+      #|(sentence-type   (*punctual *conclusive))|#
+)
+
+(every Duplicate has
+  (object	((a Tangible-Entity)))
+
+  ; An exact Duplicate of all the features of the object!
+  (add-list	((:triple 
+		  Self
+		  result
+		  (a Tangible-Entity with
+		     
+		     (instance-of ((the instance-of of (the object of Self))))
+		     
+					; Duplicate certain relevant properties of the original
+		     (content	((forall (the content of (the object of Self))
+					 ((an instance of (the instance-of of It))))))
+		     (has-part	((forall (the has-part of (the object of Self))
+					 ((an instance of (the instance-of of It))))))
+		     (material	((forall (the material of (the object of Self))
+					 ((an instance of (the instance-of of It))))))
+		     
+					; Duplicate all the values of the original
+		     (age 	((the age of (the object of Self))))
+		     (animacy 	((the animacy of (the object of Self))))
+		     (area 	((the area of (the object of Self))))
+		     (breakability ((the breakability of (the object of Self))))
+		     (capacity 	((the capacity of (the object of Self))))
+		     (color 	((the color of (the object of Self))))
+		     (consistency ((the consistency of (the object of Self))))
+		     (density 	((the density of (the object of Self))))
+		     (depth 	((the depth of (the object of Self))))
+		     (height 	((the height of (the object of Self))))
+		     (length  	((the length of (the object of Self))))
+		     (mass  	((the mass of (the object of Self))))
+		     (sentience 	((the sentience of (the object of Self))))
+		     (sex 	((the sex of (the object of Self))))
+		     (shape 	((the shape of (the object of Self))))
+		     (size 	((the size of (the object of Self))))
+		     (smell  	((the smell of (the object of Self))))	
+		     (taste 	((the taste of (the object of Self))))
+		     (temperature ((the temperature of (the object of Self))))
+		     (texture 	((the texture of (the object of Self))))
+		     (thickness 	((the thickness of (the object of Self))))
+		     (trait 	((the trait of (the object of Self))))
+		     (wetness 	((the wetness of (the object of Self))))
+		     (width 	((the width of (the object of Self))))
+		     (volume 	((the volume of (the object of Self)))))
+		  [Duplicate-add-1])))
+  (instrument	((must-be-a Tangible-Entity))) 
+  (by-means-of  ((must-be-a Event))))
+
+(comment [Duplicate-add-1] (:seq (the object of Self) " has been duplicated.")
+	 "A duplicate creates a new, identical instance of something.")
+
+(every Duplicate has
+  (text-active-verbseq
+     ("duplicates"))
+  (text-passive-verbseq
+     ((if ((the number of (the object of Self)) > 1)
+       then ("get duplicated")
+       else ("gets duplicated"))))
+)
+
+
+;; nothing extra to say about contextual info
+;; test cases commented out for the time being until the multiple results from superclasses problem has ben solved
+
+(Duplicate has (test-case ('(
+			     (new-situation)
+			     (Sheep has (superclasses (Tangible-Entity)))
+			     (*Dolly has
+				     (instance-of (Sheep))
+				     (color (*white))
+				     (sex (*female))
+				     (height (*4))
+				     (length (*5))
+				     (mass (*200))
+				     (age (*5)))
+			     (a Duplicate with
+				(object (*Dolly)))
+			     (do-and-next (thelast Duplicate))
+				(the text-gen of (thelast Duplicate))
+			     ((the classes of 
+			       (the result of (thelast Duplicate))) = Sheep)
+			     ((the color of 
+			       (the result of (thelast Duplicate))) = *white)
+			     ((the sex of 
+			       (the result of (thelast Duplicate))) = *female)
+			     ((the height of 
+			       (the result of (thelast Duplicate))) = *4)
+			     ((the length of 
+			       (the result of (thelast Duplicate))) = *5)
+			     ((the mass of 
+			       (the result of (thelast Duplicate))) = *200)
+			     ((the age of 
+			       (the result of (thelast Duplicate))) = *5)
+			     ))))
+
+
+
+
+;; automatically added WN synsets
+(Duplicate has (wn16-synset ((:set  
+                                        (:triple "duplicate" 3 "v")
+))))
+
+(Duplicate has (wn20-synset ((:set
+                                        (:triple "duplicate" 3 "v")
+))))
+(every Duplicate has (text-nominalization ("duplication")))

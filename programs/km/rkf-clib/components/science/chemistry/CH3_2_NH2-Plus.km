@@ -1,0 +1,16 @@
+;; $Id: CH3_2_NH2-Plus.km,v 1.2 2003/02/23 20:08:58 jchaw Exp $ 
+(CH3_2_NH2-Plus has (superclasses (Cation)))
+(every CH3_2_NH2-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("Dimethlyammonium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq 
+						  (:pair 2 
+							 (:seq
+							  (:pair 1 C)
+							  (:pair 3 H)))
+						  (:pair 1 N)
+						  (:pair 2 H)
+						       ))))))
+)

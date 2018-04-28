@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Decomposition-Reaction.km,v 1.4 2005/09/02 18:14:31 jfan Exp $
+;; 
+
+(Decomposition-Reaction has
+			 (superclasses (Reaction)))
+#|
+(every Decomposition-Reaction has-definition
+       (instance-of (Reaction [Decomposition-Reaction-instance-of-1]))
+       (raw-material ((exactly 1 Chemical)))
+       (result ((at-least 2 Chemical)))
+)
+
+(comment [Decomposition-Reaction-instance-of-1]
+  "Therefore, this is a decomposition reaction"
+
+  "By definition, a reaction with exactly one input and multiple products is a decomposition reaction"
+)
+|#
+
+(Decomposition-Reaction has
+   (test-case ('(
+		 ((a Reaction with
+                    (result
+                     ((a CO2-Substance)
+                      (a CaO-Substance with
+                         (physical-state ((a State-Value with
+                                    (value (*solid))))))))
+                    (raw-material
+                     ((a CaCO3-Substance with
+                         (physical-state ((a State-Value with
+                                    (value (*solid)))))))))
+		  isa
+		  Decomposition-Reaction)
+		 ))))
+
+

@@ -1,0 +1,14 @@
+
+;;
+;;  $Id: Property-Group.km,v 1.7 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(Property-Group has
+   (superclasses (Thing)))
+
+;;same-as constraint does a LISP string-compare when Self and TheValue have valid CLib text-description strings.
+;;returns null otherwise, i.e., they are not "same-as".
+;; (every Property-Group has
+;;        (same-as (
+;; 		 (constraint 
+;; 		  (#'(LAMBDA () (PROPERTY-GROUP-TEXT-DESCRIPTION-SAME-AS '|Self| '|TheValue|)))))))

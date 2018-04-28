@@ -1,0 +1,14 @@
+;;
+;;  $Id: oxidation-state-changes.km,v 1.2 2005/07/05 21:27:34 pzyeh Exp $
+;;
+
+(oxidation-state-changes has
+    (instance-of (Property))
+    (domain      (Reaction))
+    (range       (String))
+    (fluent-status (*Inertial-Fluent))
+    (inherit-with-overrides (t))
+    ;; (inverse     (oxidation-state-changes-of))
+    (cardinality (N-to-1))
+    (ignore-inverses (t))
+)

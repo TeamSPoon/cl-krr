@@ -1,0 +1,12 @@
+;; $Id: PO4-Minus-3-Substance.km,v 1.1 2003/02/23 05:58:08 tecuci Exp $ 
+(PO4-Minus-3-Substance has (superclasses (Anion-Substance)))
+(every PO4-Minus-3-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 0.024 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a PO4-Minus-3)))
+)

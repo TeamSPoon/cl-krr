@@ -1,0 +1,14 @@
+;; 
+;;    $Id: Runner.km,v 1.3 2005/10/26 20:30:15 jfan Exp $ 
+;; 
+
+(Runner has (superclasses (Role)))
+
+(every Runner has
+       (played-by ((a Person)))
+       (in-event ((a Locomotion with
+		     (agent ((the played-by of Self)))))))
+
+(Runner has (wn20-synset ((:set 
+			   (:triple "runner" 2 "n")
+			   ))))

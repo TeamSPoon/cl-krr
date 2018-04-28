@@ -1,0 +1,7 @@
+;; $Id: Si-Substance.km,v 1.4 2008/11/03 03:11:27 tecuci Exp $
+(Si-Substance has (superclasses (Metalloid)))
+(every Si-Substance has
+  (has-basic-structural-unit ((a Si))))
+(every Si-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Si))))

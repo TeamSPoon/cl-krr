@@ -1,0 +1,71 @@
+<!--- $Id: Decrease.spec.kml,v 1.2 2008/07/21 03:08:00 tecuci Exp $ --->
+<kml>
+
+<concept name=Decrease><system-documentation name=Decrease>
+<superconcept name=Action>
+
+<definition>
+
+  A <slot>property</slot> of an <conceptref name=Entity> or <conceptref name=Event> decreases
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=from-value>
+    the initial value of the <slot>property-slot</slot> before the decrease
+  </slotdescription>
+
+  <slotdescription name=to-value>
+    the final value of the <slot>property-slot</slot> after the decrease
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The water in the tank dropped from 20 to 10 gallons.</text>
+    <slotdescription name=base>The water in the tank</slotdescription>
+    <slotdescription name=from-value>20 gallons</slotdescription>
+    <slotdescription name=to-value>10 gallons</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>John cooled the broth from boiling to 55F.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=base>the broth</slotdescription>
+    <slotdescription name=from-value>boiling</slotdescription>
+    <slotdescription name=to-value>55F</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Increase>
+     The opposite of decrease
+  </neighbor>
+
+  <neighbor name=Contract>
+     To decrease the property <slot>area</slot>
+  </neighbor>
+
+  <neighbor name=Cool>
+     To decrease the property <slot>temperature</slot>	
+  </neighbor>
+
+  <neighbor name=Dim>
+     To decrease the property <slot>brightness</slot>
+  </neighbor>
+
+  <neighbor name=Dry>
+     To decrease the property <slot>wetness</slot>	
+  </neighbor>
+
+
+</neighborlist>
+
+</kml>
+
+

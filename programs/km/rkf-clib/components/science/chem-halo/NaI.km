@@ -1,0 +1,18 @@
+;;
+;; $Id: NaI.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(NaI has (superclasses (Ionic-Compound)))
+
+(every NaI has	
+       (has-chemical-name ("sodium iodide"))
+       (has-part 
+	((a Na-Plus) (a I-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Na-Plus) (:pair 1 I-Minus))))))))
+
+(every NaI has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a I-Minus))))
+

@@ -1,0 +1,70 @@
+<!--- $Id: Increase.spec.kml,v 1.3 2008/07/21 03:08:01 tecuci Exp $ --->
+<kml>
+
+<concept name=Increase><system-documentation name=Increase>
+<superconcept name=Action>
+
+<definition>
+
+  A <slot>property</slot> of an <conceptref name=Entity>  or <conceptref name=Event> increases
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=from-value>
+     the initial value of the Property that increases
+  </slotdescription>
+  <slotdescription name=to-value>
+     the final value of the Property that increases
+  </slotdescription>
+
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The water level rose from 10 to 20 inches.</text>
+    <slotdescription name=base>waterr level</slotdescription>
+    <slotdescription name=from-value>10 inches</slotdescription>
+    <slotdescription name=to-value>20 inches</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>John heated the broth from freezing to 110F.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=base>the broth</slotdescription>
+    <slotdescription name=from-value>freezing</slotdescription>
+    <slotdescription name=to-value>110F</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Decrease>
+     The opposite of Increase
+  </neighbor>
+
+  <neighbor name=Brighten>
+     To increase the property <slot>brightness</slot>
+  </neighbor>
+
+  <neighbor name=Expand>
+     To increase the property <slot>area</slot>
+  </neighbor>
+
+  <neighbor name=Heat>
+     To increase the property <slot>temperature</slot>	
+  </neighbor>
+
+  <neighbor name=Wet>
+     To increase the property <slot>wetness</slot>	
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

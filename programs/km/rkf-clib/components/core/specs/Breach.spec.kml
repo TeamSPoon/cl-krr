@@ -1,0 +1,81 @@
+<!--- $Id: Breach.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+<kml>
+
+<concept name=Breach><system-documentation name=Breach>
+<superconcept name=Break>
+
+<definition>
+
+  Break a <conceptref name=barrier> creating a portal through it.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The barrier that's breached.
+  </slotdescription>
+
+  <slotdescription name=result>
+     The portal that's created by the breach.  Typically, the portal
+     is not mentioned (i.e. it's left implicit).
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the breach to occur.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing that was used to breach the barrier.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the breach to occur.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The fireman broke through the wall with an axe.</text>
+    <slotdescription name=object>the wall</slotdescription>
+    <slotdescription name=agent>the fireman</slotdescription>
+    <slotdescription name=instrument>an axe</slotdescription>
+  </examplesentence>
+  <comment>
+     This says that the fireman created a hole in the wall.  If,
+     in addition, the fireman went through the hole, use
+     <conceptref name=Penetrate> instead.
+  </comment>
+
+  <examplesentence>
+    <text>The explosion blew open the container.</text>
+    <slotdescription name=object>the container</slotdescription>
+    <slotdescription name=by-means-of>the explosion</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Break>
+     Any type of object can break (thereby losing its functionality),
+     but only a barrier can be breached.
+  </neighbor>
+  
+  <neighbor name=Penetrate>
+     A penetrate involves two steps.  First a barrier is breached,
+     then some object passes through the portal created by the breach.
+     Frequently, this is more useful than Breach alone.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

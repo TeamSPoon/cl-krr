@@ -1,0 +1,16 @@
+;; 
+;;    $Id: FeCl3.km,v 1.2 2007/11/13 18:19:51 tecuci Exp $
+;; 
+
+
+(FeCl3 has (superclasses (Ionic-Compound)))
+
+(every FeCl3 has	
+       (has-chemical-name ("iron(III) chloride" "ferrous chloride"))
+       (has-part  ((a Fe-Plus-3) (a Cl-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+            (term ((:seq
+		    (:pair 1 Fe-Plus-3)
+		    (:pair 3 Cl-Minus))))))))
+

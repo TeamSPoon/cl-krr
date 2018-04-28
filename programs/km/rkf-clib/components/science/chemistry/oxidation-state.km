@@ -1,0 +1,13 @@
+;;
+;;  $Id: oxidation-state.km,v 1.4 2005/08/25 16:22:58 jfan Exp $
+;;
+
+(oxidation-state has
+    (instance-of (Property))
+    (domain      (Chemical-Entity))
+    (range       (Oxidation-State-Value))
+    (fluent-status (*Inertial-Fluent))
+    (inherit-with-overrides (t))
+    (inverse     (oxidation-state-of))
+    (cardinality (N-to-1))
+)

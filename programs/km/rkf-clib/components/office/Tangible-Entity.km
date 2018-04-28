@@ -1,0 +1,14 @@
+;; 
+;; $Id: Tangible-Entity.km,v 1.2 2005/01/28 22:34:17 billj Exp $
+;; 
+
+;; NB: Basic information about the Tangible-Entity class is defined 
+;; NB: in the core directory. This file contains only office-specific
+;; NB: "interface" info
+
+(every Tangible-Entity has
+  (weight ((the hasWeight of Self)))
+)
+
+(hasWeight has (instance-of (Interface-Slot)) (domain (Tangible-Entity)) (range (Weight-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isWeightOf)))
+

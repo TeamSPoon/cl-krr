@@ -1,0 +1,18 @@
+;;
+;;    $Id: Modem.km,v 1.6 2005/04/10 21:19:07 jchaw Exp $
+;;
+
+(Modem has 
+  (superclasses (Computer-Component))
+  (feature-slot ((the feature-slot of Computer-Component)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Modem))
+  ))
+)
+
+
+(hasModemSpeed has (instance-of (Interface-Slot)) (domain (Modem)) (range (Data-Transfer-Rate-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isModemSpeedOf)))
+
+(Modem has (wn20-synset ((:set
+			     (:triple "modem" 1 "n")
+))))

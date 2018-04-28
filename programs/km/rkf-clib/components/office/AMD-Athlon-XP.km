@@ -1,0 +1,13 @@
+;;
+;; $Id: AMD-Athlon-XP.km,v 1.2 2004/01/23 19:23:39 kbarker Exp $
+;;
+
+(AMD-Athlon-XP has 
+  (superclasses (AMD-Athlon-Processor))
+  (feature-slot ((the feature-slot of AMD-Athlon-Processor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = AMD-Athlon-XP))
+  ))
+)
+
+

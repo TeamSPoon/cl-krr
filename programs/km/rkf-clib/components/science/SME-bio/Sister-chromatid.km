@@ -1,0 +1,76 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Sister-chromatid ----------
+
+(Sister-chromatid has (superclasses (Chromatid)))
+
+(_Sister-chromatid715 has 
+  (instance-of (Sister-chromatid))
+  (prototype-of (Sister-chromatid))
+  (prototype-scope (Sister-chromatid))
+  (prototype-participants (_Centrosome723
+                           _Tangible-Entity722
+                           _Attach721
+                           _Sister-chromatid715))
+  (prototype-participant-of (_Sister-chromatid715))
+  (has-clones (_Placeholder-Class714716))
+  (has-built-clones (_Placeholder-Class714716))
+  (object-of (_Attach721))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 64 456))))
+
+(_Centrosome723 has 
+  (instance-of (Centrosome))
+  (has-clones (_Centrosome717))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (site-of (_Attach721))
+  (node-coordinate ((:pair 336 329)))
+  (prototype-participant-of (_Sister-chromatid715)))
+
+(_Tangible-Entity722 has 
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity720))
+  (base-of (_Attach721))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 551 390)))
+  (prototype-participant-of (_Sister-chromatid715)))
+
+(_Attach721 has 
+  (site (_Centrosome723))
+  (base (_Tangible-Entity722))
+  (instance-of (Attach))
+  (node-visibility (t))
+  (object (_Sister-chromatid715))
+  (edge-coordinate ((:seq object _Sister-chromatid715 340 364)
+                    (:seq base _Tangible-Entity722 401 396)
+                    (:seq site _Centrosome723 264 355)))
+  (edge-visibility ((:seq constraint-node base-exactly ())
+                    (:seq base (exactly 1 Tangible-Entity) ())
+                    (:seq constraint-node object-exactly ())
+                    (:seq object (exactly 1 Tangible-Entity) ())
+                    (:seq object _Sister-chromatid715 t)
+                    (:seq base _Tangible-Entity722 t)
+                    (:seq site _Centrosome723 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 254 435)))
+  (prototype-participant-of (_Sister-chromatid715)))
+
+(explanation (:triple _Sister-chromatid715 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Attach721 Attach object))))
+(explanation (:triple _Sister-chromatid715 instance-of Thing) ((a Thing (@ _Attach721 Action (object must-be-a)))))
+(explanation (:triple _Centrosome723 instance-of Centrosome) ((added-at Sister-chromatid "User defined")))
+(explanation (:triple _Centrosome723 instance-of Spatial-Entity) ((a Spatial-Entity with (is-near ((if (has-value (the object of _Attach721) (@ _Attach721 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Attach721) (@ _Attach721 Event (site must-be-a) Spatial-Entity is-near)) (@ _Attach721 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Attach721 Event (site must-be-a)))))
+(explanation (:triple _Tangible-Entity722 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Attach721 Attach base))))
+(explanation (:triple _Attach721 instance-of Attach) ((added-at Sister-chromatid "User defined")))
+(explanation (:triple _Attach721 object _Sister-chromatid715) ((a Tangible-Entity (@ _Attach721 Attach object))))
+(explanation (:triple _Attach721 site _Centrosome723) ((added-at Sister-chromatid "User defined")))
+(explanation (:triple _Attach721 base _Tangible-Entity722) ((a Tangible-Entity (@ _Attach721 Attach base))))
+
+;;; ---------- end of prototype definition ----------
+
+(Sister-chromatid now-has (user-description ("Identical copies of chromosomes which are attached  at the centrosome.")))
+(enable-classification)
+

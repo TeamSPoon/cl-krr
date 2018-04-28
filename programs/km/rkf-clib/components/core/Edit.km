@@ -1,0 +1,35 @@
+;; 
+;; $Id: Edit.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(Edit has
+  (superclasses (Action))
+  (required-slot (object))
+  (description ("To change the content of a document"))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+;; Edit takes a Document (a Message) and modifies the value on the
+;; information-content slot (the "text" of the Message/Document)
+;; It does not create a new Document.
+
+;; This should probably be implemented by putting the new 
+;; information-content on the base slot and then using add-list and
+;; del-list to replace the old information-content with the new one.
+;; We'll hold off on doing this until we see how users of this
+;; component specify the filler of the information-content slot.
+
+(every Edit has
+  (object ((a Document)))
+)
+
+
+(Edit has (wn20-synset ((:set
+			 (:triple "edit" 1 "v")
+			 (:triple "redact" 2 "v")
+			 (:triple "revise" 1 "v")
+			 (:triple "rewrite" 1 "v")
+))))
+
+
+(every Edit has (text-nominalization ("editing")))

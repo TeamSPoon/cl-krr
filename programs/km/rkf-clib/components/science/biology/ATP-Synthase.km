@@ -1,0 +1,23 @@
+;; 
+;;    $Id: ATP-Synthase.km,v 1.10 2001/05/21 04:36:45 souther Exp $ 
+;; 
+
+(ATP-Synthase has
+         (superclasses (Enzyme-Complex Synthase Kinase))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Membrane associated Enzyme-Complex, the Catalyst in
+                        formation of ATP during Oxidative-Phosphorylation and
+                        photosynthesis. Found in Mitochondria, Chloroplast,
+                        and Bacteria. Alberts:ECB:G-2."))   
+         (test-case ()))
+
+(every ATP-Synthase has  
+       (purpose ((a Catalyst with
+		    (in-event ((a ATP-Synthesis))))
+		 ))
+       )
+
+

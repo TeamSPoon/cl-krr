@@ -1,0 +1,52 @@
+;; 
+;;    $Id: has-part.km,v 1.30 2008/09/05 16:19:59 kbarker Exp $ 
+;; 
+
+(has-part has
+  (instance-of 	      (Meronymic-Relation Spatial-Relation))
+  (superslots  	      ())
+  (subslots 	      (has-structural-part has-functional-part))
+  (domain 	      (Entity))
+  (range 	      (Entity))
+  (inverse 	      (is-part-of))
+  (text-slot          (text-has-part))
+  (fluent-status      (*Inertial-Fluent))
+  (original-slot      (t))	
+  (cardinality 	      (N-to-N)))
+
+(has-part has (text-gloss ("has")))
+(is-part-of has (text-gloss ("is part of")))
+
+(is-part-of has
+  (instance-of (Meronymic-Relation Spatial-Relation))
+  (subslots 	      (is-structural-part-of is-functional-part-of))
+  (text-slot          (text-is-part-of))
+  (combine-values-by-appending (t))) 
+
+(text-has-part has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t)) 
+   (inverse (text-is-part-of))
+)
+
+(text-is-part-of has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(has-part has (wn20-synset ((:set
+			     (:triple "part" 0 "n")))))
+
+

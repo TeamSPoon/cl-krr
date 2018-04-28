@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Carboxylic-Acid.km,v 1.6 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Carboxylic-Acid has
+	   (superclasses (Organic-Molecule Acid))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (description ("Organic compounds containing the carboxy group
+                          (-COOH). This group of compounds includes amino acids
+                          and fatty acids. Carboxylic acids can be saturated,
+                          unsaturated, or aromatic. PubMed:MeSH."))
+	   (cmap-correspondence ())
+	   (test-case ()))
+
+(every Carboxylic-Acid has
+       (has-part ((a Carboxyl-Group)))
+       )
+
+
+
+
+
+
+(every Carboxylic-Acid has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

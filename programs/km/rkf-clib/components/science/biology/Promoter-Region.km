@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Promoter-Region.km,v 1.11 2001/05/31 21:50:09 pnav Exp $ 
+;; 
+
+(Promoter-Region has
+         (superclasses (DNA-Regulatory-Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("The has-region that encompasses the promoter, which is 
+                        usually in two separate sequences. Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Promoter-Region has
+       (encloses ((a Promoter))))
+
+
+
+

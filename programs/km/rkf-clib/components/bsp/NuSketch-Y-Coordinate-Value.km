@@ -1,0 +1,14 @@
+;;
+;; $Id: NuSketch-Y-Coordinate-Value.km,v 1.2 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+(NuSketch-Y-Coordinate-Value has
+  (superclasses (Property-Value))
+)
+
+(every NuSketch-Y-Coordinate-Value has
+  (property-slot (nuSketch-Y-coordinate))
+  (less-than ((must-be-a NuSketch-Y-Coordinate-Value)))
+  (greater-than ((must-be-a NuSketch-Y-Coordinate-Value)))
+  (same-as ((must-be-a NuSketch-Y-Coordinate-Value)))
+)

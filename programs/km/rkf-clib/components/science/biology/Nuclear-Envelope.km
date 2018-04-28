@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Nuclear-Envelope.km,v 1.22 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Nuclear-Envelope has
+	  (superclasses (Internal-Membrane))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+          (description ("Envelope surrounding the nucleus in a eucaryotic cell.
+                         It consists of two lipid bilayer membranes - an outer
+                         and an inner - and is perforated by nuclear pores.
+                         Alberts:ECB:G-13."))
+	  (cmap-correspondence ()))
+
+(every Nuclear-Envelope has
+       (has-part ((a Aggregate with
+
+		     (element-type (Nuclear-Pore)))
+		  (a Lipid-Bilayer called "the outer lipid bilayer" with
+		     (encloses (((the has-part of Self)
+				called "the inner lipid bilayer")))
+		     )
+		  (a Lipid-Bilayer called "the inner lipid bilayer")
+		  ))
+        (has-region ((a Nuclear-Pore)))
+       )
+
+
+

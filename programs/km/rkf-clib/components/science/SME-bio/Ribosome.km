@@ -1,0 +1,162 @@
+
+;;; ---------- Definition of prototype for Ribosome ----------
+
+(Ribosome has (superclasses (Organelle Entity)))
+
+(_Ribosome567 has 
+  (has-clones (_Ribosome195
+               *Typical-Instance-of-Ribosome
+               _Ribosome175
+               _Entity197))
+  (has-built-clones (_Ribosome195
+                     *Typical-Instance-of-Ribosome
+                     _Ribosome175
+                     _Entity197))
+  (instance-of (Ribosome))
+  (agent-of (_Synthesis575))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (prototype-participants (_Atom183
+                           _Protein182
+                           _Atom181
+                           _RRNA180
+                           _Ribosome567
+                           _Amino-Acid573
+                           _Atom574
+                           _Synthesis575
+                           _Protein576))
+  (prototype-participant-of (_Ribosome567))
+  (prototype-of (Ribosome))
+  (prototype-scope (Ribosome))
+  (has-basic-structural-unit (_RRNA180
+                              _Protein182))
+  (edge-coordinate ((:seq has-basic-structural-unit _Protein182 69 645)
+                    (:seq has-basic-structural-unit _RRNA180 69 645)))
+  (edge-visibility ((:seq has-basic-structural-unit _Protein182 t)
+                    (:seq has-basic-structural-unit _RRNA180 t))))
+
+(_Atom183 has 
+  (instance-of (Atom))
+  (has-clones (_Atom179))
+  (is-basic-structural-unit-of (_Protein182))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 537 687)))
+  (prototype-participant-of (_Ribosome567)))
+
+(_Protein182 has 
+  (has-clones (_Thing206
+               _Protein208))
+  (has-basic-structural-unit (_Atom183))
+  (instance-of (Protein))
+  (internally-expanded (t))
+  (is-basic-structural-unit-of (_Ribosome567))
+  (node-coordinate ((:pair 234 687)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom183 387 693)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom183 f)))
+  (prototype-participant-of (_Ribosome567)))
+
+(_Atom181 has 
+  (instance-of (Atom))
+  (has-clones (_Atom178))
+  (is-basic-structural-unit-of (_RRNA180))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 528 648)))
+  (prototype-participant-of (_Ribosome567)))
+
+(_RRNA180 has 
+  (has-clones (_Thing207
+               _RRNA209))
+  (has-basic-structural-unit (_Atom181))
+  (instance-of (RRNA))
+  (internally-expanded (t))
+  (is-basic-structural-unit-of (_Ribosome567))
+  (node-coordinate ((:pair 231 648)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom181 378 654)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom181 f)))
+  (prototype-participant-of (_Ribosome567)))
+
+(_Amino-Acid573 has 
+  (has-clones (_Amino-Acid650
+               _Amino-Acid167
+               _Amino-Acid174
+               _Amino-Acid190))
+  (prototype-participant-of (_Ribosome567))
+  (raw-material-of (_Synthesis575))
+  (has-basic-structural-unit (_Atom574))
+  (instance-of (Amino-Acid))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 275 475)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom574 447 481)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom574 f))))
+
+(_Atom574 has 
+  (has-clones (_Atom651
+               _Atom572
+               _Atom166
+               _Atom173
+               _Atom189))
+  (prototype-participant-of (_Ribosome567))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Amino-Acid573))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 597 475))))
+
+(_Synthesis575 has 
+  (has-clones (_Synthesis652
+               _Synthesis165
+               _Synthesis171
+               _Synthesis188))
+  (agent (_Ribosome567))
+  (prototype-participant-of (_Ribosome567))
+  (result (_Protein576))
+  (instance-of (Synthesis))
+  (edge-coordinate ((:seq agent _Ribosome567 196 571)
+                    (:seq raw-material _Amino-Acid573 261 516)
+                    (:seq result _Protein576 426 566)))
+  (edge-visibility ((:seq agent _Ribosome567 t)
+                    (:seq raw-material _Amino-Acid573 t)
+                    (:seq result _Protein576 t)))
+  (raw-material (_Amino-Acid573))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 265 560)))
+  (node-visibility (t)))
+
+(_Protein576 has 
+  (has-clones (_Protein653
+               _Protein570
+               _Protein164
+               _Protein170
+               _Protein187))
+  (prototype-participant-of (_Ribosome567))
+  (instance-of (Protein
+                Entity))
+  (internally-expanded (f))
+  (result-of (_Synthesis575))
+  (node-coordinate ((:pair 576 560)))
+  (node-visibility (t)))
+
+(explanation (:triple _Ribosome567 instance-of Ribosome) ((a Ribosome)))
+(explanation (:triple _Ribosome567 has-basic-structural-unit _RRNA180) ((added-at Ribosome "User defined")))
+(explanation (:triple _Ribosome567 has-basic-structural-unit _Protein182) ((added-at Ribosome "User defined")))
+(explanation (:triple _Atom183 instance-of Atom) ((a Atom (@ _Protein182 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein182 instance-of Protein) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein182 has-basic-structural-unit _Atom183) ((a Atom (@ _Protein182 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom181 instance-of Atom) ((a Atom (@ _RRNA180 Molecule has-basic-structural-unit))))
+(explanation (:triple _RRNA180 instance-of RRNA) ((added-at Ribosome "User defined")))
+(explanation (:triple _RRNA180 has-basic-structural-unit _Atom181) ((a Atom (@ _RRNA180 Molecule has-basic-structural-unit))))
+(explanation (:triple _Amino-Acid573 instance-of Amino-Acid) ((added-at Ribosome "User defined")))
+(explanation (:triple _Amino-Acid573 has-basic-structural-unit _Atom574) ((a Atom (@ _Amino-Acid573 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom574 instance-of Atom) ((a Atom (@ _Amino-Acid573 Molecule has-basic-structural-unit))))
+(explanation (:triple _Synthesis575 instance-of Synthesis) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis575 result _Protein576) ((a Entity (@ _Synthesis575 Create result))))
+(explanation (:triple _Synthesis575 raw-material _Amino-Acid573) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis575 agent _Ribosome567) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein576 instance-of Protein) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein576 instance-of Entity) ((a Entity (@ _Synthesis575 Create result))))
+
+;;; ---------- end of prototype definition ----------
+

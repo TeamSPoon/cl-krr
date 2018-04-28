@@ -1,0 +1,22 @@
+;;
+;; $Id: Required-Force-Ratio-Value.km,v 1.4 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+(Required-Force-Ratio-Value has
+  (superclasses (Property-Value))
+)
+
+(every Required-Force-Ratio-Value has
+  (value ((set-filter PAIR-FILTER)))
+)
+
+(every Required-Force-Ratio-Value has
+  (property-slot (required-force-ratio))
+  (less-than 	((constraint ((TheValue isa Required-Force-Ratio-Value) or
+			      (TheValue isa Available-Force-Ratio-Value)))))
+  (greater-than ((constraint ((TheValue isa Required-Force-Ratio-Value) or
+			      (TheValue isa Available-Force-Ratio-Value)))))
+  (same-as 	((constraint ((TheValue isa Required-Force-Ratio-Value) or
+                              (TheValue isa Available-Force-Ratio-Value)))))
+)
+

@@ -1,0 +1,53 @@
+<!--- $Id: Conduit.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+
+<kml>
+<concept name=Conduit>
+<system-documentation name=Conduit>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+<subconcept name=Portal>
+
+  <definition>
+    Conduit is the <conceptref name=Role> played by an Entity which is 
+    the <slot>path</slot> of a <conceptref name=Move>.  
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the entity that's playing the role of conduit
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Move> event that the Entity is participating in
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+  <examplesentence>
+     <text>The aqueduct was the conduit for moving drinking water.</text>
+     <comment>
+     In this example, the Conduit role is described with these properties:
+     </comment>
+     <slotdescription name=in-event>Move with object=drinking water</slotdescription>
+     <slotdescription name=played-by>aqueduct</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Portal>
+     One type of Conduit is a Portal, which is the path into and out
+     of a <conceptref name=Container>.
+  </neighbor>
+
+  <neighbor name=Vehicle>
+     Vehicle is the role played by an entity that moves through a Conduit or 
+     along a path.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

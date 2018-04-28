@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Electron-Pair-Acceptor.km,v 1.1 2008/05/08 16:51:36 mrglass Exp $ 
+;; 
+
+(Electron-Pair-Acceptor has
+			(superclasses (Chemical-Entity)))
+(Electron-Pair-Acceptor has
+			(user-description ("A Chemical that accepts an unshared pair of electrons for binding the proton. A Lewis Acid.")))
+
+(every Electron-Pair-Acceptor has-definition
+       (instance-of (Chemical-Entity [Electron-Pair-Acceptor-instance-of-1]))
+       (recipient-of ((a Transfer with
+			 (object ((a Electron) (a Electron)))))))
+
+(every Electron-Pair-Acceptor has
+       (plays ((a Lewis-Acid-Role))))
+
+(comment [Electron-Pair-Acceptor-instance-of-1]
+   (:seq "Therefore," (the text-gen of Self) "is a Lewis Acid")
+  "By definition, a chemical entity that accepts a pair of electrons is a Lewis
+Acid"
+)

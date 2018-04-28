@@ -1,0 +1,12 @@
+;; $Id: AgNO3.km,v 1.1 2007/12/13 18:00:43 mrglass Exp $ 
+(AgNO3 has (superclasses (Ionic-Compound)))
+(every AgNO3 has
+	(has-chemical-name ("silver nitrate"))
+	(has-part ((a Ag-Plus)(a NO3-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 Ag-Plus)
+			(:pair 1 NO3-Minus)))))))
+)
+
+

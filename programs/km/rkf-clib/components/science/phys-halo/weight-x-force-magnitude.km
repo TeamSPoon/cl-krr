@@ -1,0 +1,30 @@
+;;
+;; $Id: weight-x-force-magnitude.km,v 1.1 2007/11/07 22:19:32 bsagashe Exp $
+;;
+
+(weight-x-force-magnitude has
+	(instance-of (EventProperty))
+	(superslots ())
+	(subslots ())
+	(domain (Exert-Force))
+	(range (Force-Magnitude-Value))
+	(scale-class (Force-Scale))
+  (scalar-constant-class (Force-Constant))
+	(cardinal-unit-class (UoM-Force))
+	(inverse (weight-x-force-magnitude-of))
+	(cardinality (N-to-1))
+	; (inherit-with-overrides (t))
+	(fluent-status (*Inertial-Fluent))
+)
+
+(weight-x-force-magnitude has (wn20-synset ((:set
+		(:triple "horizontal weight force" 0 "n")
+		(:triple "x weight force" 0 "n")
+		(:triple "horizontal weight force magnitude" 0 "n")
+		(:triple "x weight force magnitude" 0 "n")
+))))
+
+(weight-x-force-magnitude-of has (instance-of (EventProperty)))
+
+(weight-x-force-magnitude has (name ("magnitude of the horizontal weight force")))
+

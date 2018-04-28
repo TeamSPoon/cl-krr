@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Electron-Transfer.km,v 1.4 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Electron-Transfer has
+        (superclasses   (Transfer))
+        (required-slot  (object donor recipient))
+        (primary-slot   (agent instrument))
+        (secondary-slot ())
+	(description	("The transfer of electrons from one molecule to 
+                          another.  Souther.")))
+
+(every Electron-Transfer has
+  (agent        ((a Cell)))
+  (donor        ((a Molecule)))
+  (recipient    ((a Molecule)))
+  (object       ((a Electron)))
+  (instrument   ((a Electron-Carrier)))   )
+
+
+
+
+
+(every Electron-Transfer has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

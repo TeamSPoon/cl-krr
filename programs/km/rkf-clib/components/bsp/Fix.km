@@ -1,0 +1,54 @@
+;; 
+;;  $Id: Fix.km,v 1.13 2002/09/19 21:18:40 kbarker Exp $
+;;
+
+(Fix has 
+     (superclasses (Engagement-Military-Task))
+     (description ("a tactical mission task to prevent the enemy from moving")))
+
+(every Fix has
+       (agent ((a Military-Unit)))
+  (object ((a Military-Unit)))
+       (object ((set-constraint
+                   (((the number of 
+                          (the value of (the allegiance of TheValues))) <= 1)
+                    and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+       (enemy ((the object of Self)))
+
+       (base ((must-be-a Spatial-Entity)))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 1 NIL))))))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.9 NIL))))))
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.7 NIL))))))
+
+
+       (resulting-state ((a Be-Restrained)))
+
+       (add-list ((:triple
+                      (the object of Self)
+                      object-of
+                      (the resulting-state of Self)
+       )))
+
+       (text-active-verbseq-sg ("fixes"))
+       (text-active-verbseq-pl ("fix"))
+
+       (text-base ("at"))
+       (text-argslots ((:seq base)))
+)
+
+

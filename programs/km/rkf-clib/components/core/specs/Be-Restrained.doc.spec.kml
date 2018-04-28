@@ -1,0 +1,33 @@
+<!--- $Id: Be-Restrained.doc.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Restrained>
+<superconcept name=Be-Obstructed>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Restrained>
+  <definition>object unable to Move</definition>
+  <requiredslot name=object>
+    <restriction>may not be the <slot>object</slot> of any
+      <conceptref name=Move> Event
+    </restriction>
+  </requiredslot>
+  <wnsynsets><adj>restrained#2
+  </adj></wnsynsets>
+  <wnsynsets>--
+  </wnsynsets>
+</component>
+
+<musing>
+The semantics of Be-Restrained are captured as conditions of the Actions
+that put an <slot>object</slot> into this state (<conceptref name=Restrain>),
+that take an <slot>object</slot> out of this state 
+(<conceptref name=Unrestrain>) and that are prevented by this state 
+(<conceptref name=Move>).
+</musing>
+
+</kml>
+
+

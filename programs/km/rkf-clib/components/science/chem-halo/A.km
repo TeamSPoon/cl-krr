@@ -1,0 +1,16 @@
+
+;;
+;; $Id: A.km,v 1.2 2005/11/01 22:13:10 jfan Exp $
+;;
+
+;; The "any" Atom (use with care)
+
+(A has (superclasses (Atom))
+   (description ("generic symbol for atoms")))
+(every A has
+       (atomic-symbol (A))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 0 NIL))))))
+       (atomic-weight ((a Atomic-Weight-Value with (value ((:pair 0 *dalton))))))
+       (chemical-period (0))
+       (symbol ("A"))
+)

@@ -1,0 +1,29 @@
+<!--- $Id: Be-Accessible.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Accessible>
+<superconcept name=State>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Accessible>
+  <definition>an object is accessible</definition>
+  <requiredslot name=object>
+    <restriction>an Entity</restriction>
+  </requiredslot>
+  <wnsynsets>accessible#1
+  </wnsynsets>
+  <wnsynsets>exposed#2, uncovered#2
+  </wnsynsets>
+</component>
+
+<musing>
+<conceptref name=Make-Accessible> puts an <slot>object</slot> into 
+the Be-Accessible state, which in turn negates the effects of the
+<conceptref name=Make-Inaccessible> action.
+</musing>
+
+</kml>
+
+

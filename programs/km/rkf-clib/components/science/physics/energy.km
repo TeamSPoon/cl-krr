@@ -1,0 +1,15 @@
+;; 
+;;  $Id: energy.km,v 1.1 2003/12/01 22:36:06 jfan Exp $
+;; 
+
+(energy has
+  (instance-of (Property))
+  (domain      (Entity))
+  (range       (Energy-Value))
+  (scalar-constant-class (Energy-Constant))   
+  (cardinal-unit-class   (UoM-Energy))   
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     (energy-of))
+  (cardinality (N-to-1))
+)

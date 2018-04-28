@@ -1,0 +1,39 @@
+<!--- $Id: Be-Ruined.doc.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Ruined>
+<superconcept name=Be-Broken>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Ruined>
+  <definition>object permanently unable to serve its function</definition>
+  <requiredslot name=object>
+    <restriction>has a function slot: <slot>object</slot> plays some
+      role in some Event</requirement>
+    <restriction><slot>object</slot> must not play that role in any such Event
+    </restriction>
+  </requiredslot>
+  <wnsynsets><adj>broken#11
+  </adj></wnsynsets>
+  <wnsynsets><adj>busted#3
+  </adj></wnsynsets>
+</component>
+
+<musing>
+The restriction that an <slot>object</slot> of Be-Ruined not serve its
+function could be handled in slot semantics. For example, an 
+<slot>instrument</slot> of an Event must not be filled by an Entity
+whose function it is to fill that slot in such an Event.<p>
+
+The distinction between Be-Ruined and <conceptref name=Be-Broken> is
+that a Broken <slot>object</slot> can be restored to serve its function 
+whereas a Ruined <slot>object</slot> is permanently Ruined. That is, an 
+<slot>object</slot> can be brought out of a <conceptref name=Be-Broken>
+state (by a <conceptref name=Repair> action).
+</musing>
+
+</kml>
+
+

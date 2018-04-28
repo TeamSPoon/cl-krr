@@ -1,0 +1,75 @@
+<!--- $Id: Instrument-Role.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<kml>
+<concept name=Instrument-Role>
+<system-documentation name=Instrument-Role>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    Instrument-Role is the role played by things, such as tools, used by
+    an <conceptref name=Agent-Role> in some <conceptref name=Event>. For
+    example, if a person travels by bike, then the bike is an
+    Instrument-Role. 
+    More precisely, the person who participates in the Move 
+    is an <slot>agent</slot>, the bike is an
+    <slot>instrument</slot>, and the bike is playing the role of Instrument-Role.
+  </definition>
+
+<requiredslotlist>
+   <slot>played-by</slot> and <slot>in-event</slot> are required for 
+   any object filling a Role, such as Agent. 
+   Except for those 2 slots, there are no other slots required for an Agent.
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The murder weapon is a kitchen knife.</text>
+     <slotdescription name=in-event>murder</slotdescription>
+     <slotdescription name=played-by>kitchen knife</slotdescription>
+  </examplesentence>
+  <comment>
+     The Instrument-Role in this example is Weapon, and it is played by the kitchen
+     knife.
+  </comment>
+
+  <examplesentence>
+     <text>He used a rock to hit the nail. </text>
+     <slotdescription name=in-event>hit the nail</slotdescription>
+     <slotdescription name=played-by>rock</slotdescription>
+  <comment>
+     The Instrument-Role in this example is implicit. Because the rock is used as an
+     instrument in the hitting event, the role is Instrument-Role.
+  </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Agent>
+     An Agent is the role that is played by the entity that initiates, 
+     performs, or causes an Event.
+  </neighbor>
+
+  <neighbor name=Donor>
+     A Donor is the role that is played by the entity that is the original 
+     possessor of an object in a <conceptref name=Transfer> event.
+  </neighbor>
+
+  <neighbor name=Food>
+     Food is the role played by substance which provides nourishment to 
+     an organism.
+  </neighbor>
+
+  <neighbor name=Recipient>
+     Recipient is the Role played by Things which receive objects 
+     in a <conceptref name=Transfer> event.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

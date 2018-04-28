@@ -1,0 +1,44 @@
+<!--- $Id: Waste.spec.kml,v 1.1 2007/06/05 20:28:19 porter Exp $ --->
+
+<kml>
+<concept name=Waste>
+<system-documentation name=Waste>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    Waste is the <conceptref name=Role> played by a 
+    <conceptref name=Tangible-Entity> which is the 
+    waste product of a <conceptref name=Consume> event.
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the entity that's playing the role of Waste
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Consume> event that produces the waste product
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>Black soot was produced by the burning (consuming) of coal.</text>
+     <comment>
+     In this example, the waste product is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Burn> with
+         <slot>object</slot>=Coal</slotdescription>
+     <slotdescription name=played-by>the black soot</slotdescription>
+     </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

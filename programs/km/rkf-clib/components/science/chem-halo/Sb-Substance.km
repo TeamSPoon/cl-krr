@@ -1,0 +1,7 @@
+;; $Id: Sb-Substance.km,v 1.4 2008/11/03 03:11:27 tecuci Exp $
+(Sb-Substance has (superclasses (Metalloid)))
+(every Sb-Substance has
+  (has-basic-structural-unit ((a Sb))))
+(every Sb-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Sb))))

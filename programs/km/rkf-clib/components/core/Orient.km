@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Orient.km,v 1.4 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Orient has
+  (superclasses (Action))
+  (description  ("to change the position or orientation of an object or part of an object"))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Orient has
+  (object ((must-be-a Tangible-Entity)))
+)
+
+(every Orient has
+       (text-active-verbseq-sg ("orients"))
+       (text-active-verbseq-pl ("orient"))
+       (text-passive-verbseq-sg ("gets oriented"))
+       (text-passive-verbseq-pl ("get oriented"))
+)
+      
+(Orient has (wn20-synset ((:set
+                            (:triple "move" 3 "v")
+))))
+
+(every Orient has (text-nominalization ("orienting")))

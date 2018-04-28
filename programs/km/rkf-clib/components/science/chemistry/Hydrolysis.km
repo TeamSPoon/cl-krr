@@ -1,0 +1,611 @@
+; 
+;;    $Id: Hydrolysis.km,v 1.20 2005/09/02 21:17:07 jfan Exp $ 
+;; 
+(Hydrolysis has
+            (superclasses (Equilibrium-Reaction)))
+#|
+(every Hydrolysis has-definition 
+  (instance-of (Reaction))
+  (raw-material ((a H2O-Substance))))
+|#
+
+(every Hydrolysis has
+  ;; 
+  ;; Cross references with Ka and Kb.
+  ;;
+  (keq ((if ((not (the keq of Self))
+             and
+             (the value of (the ka of Self)))
+         then (the ka of Self)
+         [Hydrolysis-keq-1]
+  )))
+
+  (keq ((if ((not (the keq of Self))
+             and
+             (not (the value of (the ka of Self)))
+             and
+             (the value of (the kb of Self)))
+         then (the kb of Self)
+         [Hydrolysis-keq-2]
+  )))
+
+  (keq ((if ((not (the keq of Self))
+             and
+             (not (the value of (the ka of Self)))
+             and
+             (not (the value of (the kb of Self)))
+             and
+             (the value of (the ka of (the Acid-Role plays of ((the raw-material of Self) called "Reactant")))))
+         then (the ka of (the Acid-Role plays of ((the raw-material of Self) called "Reactant")))
+         [Hydrolysis-keq-3]
+  )))
+
+  (keq ((if ((not (the keq of Self))
+             and
+             (not (the value of (the ka of Self)))
+             and
+             (not (the value of (the kb of Self)))
+             and
+             (not (the value of (the ka of (the Acid-Role plays of ((the raw-material of Self) called "Reactant")))))
+             and
+             (the value of (the kb of (the Base-Role plays of ((the raw-material of Self) called "Reactant")))))
+         then (the kb of (the Base-Role plays of ((the raw-material of Self) called "Reactant")))
+         [Hydrolysis-keq-4]
+  )))
+
+  ;; ka and kb unknown, no ki
+  (keq ((if ((not (the keq of Self))
+             and
+             (not (the value of (the ka of Self)))
+             and
+             (not (the value of (the kb of Self)))
+             and
+             (not (the value of (the ka of (the Acid-Role plays of ((the raw-material of Self) called "Reactant")))))
+             and
+             (not (the value of (the kb of (the Base-Role plays of ((the raw-material of Self) called "Reactant")))))
+             and
+             (oneof (the ki of Self) where ((the value of It) = nil)))
+         then 
+	 ((?keq == (the output of (a Compute-Equilibrium-Constant with (input (Self)))))
+	  and
+	  (if (has-value ?keq)
+	      then	
+	      ?keq	[Hydrolysis-keq-5]
+	      else
+	      ;; As a last resort check if there is a "default" ka or kb.
+	      ((the default-ka of (the Acid-Role plays of ((the raw-material of Self) called "Reactant")))
+	       or
+	       (the default-kb of (the Base-Role plays of ((the raw-material of Self) called "Reactant")))
+	      )))
+  )))
+
+  ;; ka and kb unknown, have ki
+  (keq ((if ((not (the keq of Self))
+             and
+             (not (the value of (the ka of Self)))
+             and
+             (not (the value of (the kb of Self)))
+             and
+             (not (the value of (the ka of (the Acid-Role plays of ((the raw-material of Self) called "Reactant")))))
+             and
+             (not (the value of (the kb of (the Base-Role plays of ((the raw-material of Self) called "Reactant")))))
+             and
+             (not (oneof (the ki of Self) where ((the value of It) = nil))))
+         then (a Equilibrium-Constant-Value with
+                 (value (
+                     (:pair 
+                        (the product of
+                             (forall-bag (the bag of (the ki of Self))  
+                                         (the1 of (the value of It)))
+                        )
+                        nil)))
+              )
+         [Hydrolysis-keq-6]
+  )))
+
+  ;; 
+  ;; Ka and Ka expression is equal to the Keq and Keq expression,
+  ;; respectively, if the raw-material is a Acid.
+  ;;
+  (ka ((if ((not (the ka of Self))
+            and
+            (the Acid-Role plays of 
+                 ((the raw-material of Self) called "Reactant")))
+           then
+           (the keq of Self)
+     [Hydrolysis-ka-1]
+  )))
+  
+  (pka ((if ((not (the pka of Self))
+             and
+	     (not (the1 of 
+		   (the value of
+		    (the pka of 
+		     (the Acid-Role plays of 
+		      ((the raw-material of Self) called "Reactant"))))))
+	     and
+             (the1 of (the value of (the ka of Self))))
+            then
+            (a PKa-Value with
+               (value (
+                 (:pair
+                   (0
+                    -
+                    ((the log of (the1 of (the value of (the ka of Self)))) /
+                     (the log of 10)))
+                   nil))))
+          [Hydrolysis-pka-1]
+  )))
+
+  (pka ((if ((not (the pka of Self))
+             and
+	     (the1 of 
+	       (the value of
+		 (the pka of 
+		   (the Acid-Role plays of 
+		     ((the raw-material of Self) called "Reactant")))))
+	     and
+             (not (the1 of (the value of (the ka of Self)))))
+            then
+            (a PKa-Value with
+               (value (
+                 (:pair
+		   (the1 of 
+		    (the value of
+		     (the pka of 
+		      (the Acid-Role plays of 
+		       ((the raw-material of Self) called "Reactant")))))
+                   nil))))
+          [Hydrolysis-pka-2]
+  )))
+
+(pka ((if ((not (the pka of Self))
+	     and
+	     (not (the1 of 
+		   (the value of 
+		    (the pka of
+		     (the Acid-Role plays of
+		      ((the raw-material of Self) called "Reactant"))))))
+	     and
+	     (not (the1 of (the value of (the ka of Self)))))
+	    then
+	  (a PKa-Value with 
+	     (value ((:pair (the1 of (the value of (the pH of Self)))
+			    nil))))
+	  [Hydrolysis-pka-3]
+	  )))
+
+(ka-expression (
+    (if ((not (the ka-expression of Self))
+         and
+         (the Acid-Role plays of ((the raw-material of Self) called "Reactant")))
+        then
+        (the keq-expression of Self)
+     [Hydrolysis-ka-expression-1]
+  )))
+
+  ;; 
+  ;; Kb and Kb expression is equal to the Keq and Keq expression,
+  ;; respectively, if the raw-material is a Base.
+  ;;
+  (kb ((if ((not (the kb of Self))
+            and
+            (the Base-Role plays of 
+                 ((the raw-material of Self) called "Reactant")))
+           then
+           (the keq of Self)
+     [Hydrolysis-kb-1]
+  )))
+
+  (pkb ((if ((not (the pkb of Self))
+	     and
+	     (not (the1 of 
+		   (the value of
+		    (the pkb of 
+		     (the Base-Role plays of 
+		       ((the raw-material of Self) called "Reactant"))))))
+             and
+             (the1 of (the value of (the kb of Self))))
+            then
+            (a PKb-Value with
+               (value (
+                 (:pair
+                   (0
+                    -
+                    ((the log of (the1 of (the value of (the kb of Self)))) /
+                     (the log of 10)))
+                   nil))))
+          [Hydrolysis-pkb-1]
+  )))
+
+  (pkb ((if ((not (the pkb of Self))
+	     and
+	     (the1 of 
+	       (the value of
+		 (the pkb of 
+		   (the Base-Role plays of 
+		     ((the raw-material of Self) called "Reactant")))))
+             and
+             (the1 of (the value of (the kb of Self))))
+            then
+            (a PKb-Value with
+               (value (
+                 (:pair
+	     	   (the1 of 
+	       	    (the value of
+		     (the pkb of 
+		      (the Base-Role plays of 
+		       ((the raw-material of Self) called "Reactant")))))
+                   nil))))
+          [Hydrolysis-pkb-2]
+  )))
+
+(pkb ((if ((not (the pkb of Self))
+	     and
+	     (not (the1 of 
+		   (the value of 
+		    (the pkb of
+		     (the Base-Role plays of
+		      ((the raw-material of Self) called "Reactant"))))))
+	     and
+	     (not (the1 of (the value of (the kb of Self)))))
+	    then
+	  (a PKb-Value with 
+	     (value ((:pair (the1 of (the value of (the pOH of Self)))
+			    nil))))
+	  [Hydrolysis-pkb-3]
+	  )))
+
+(acid-dissociation-ratio
+ ((if 
+      (the Acid-Role plays of 
+	     ((the raw-material of Self) called "Reactant"))
+       then
+       ((the exp of
+	     ((the log of 10) *
+	      ((the1 of (the value of (the pH of Self))) - 
+	       (the1 of (the value of (the pka of Self)))))))
+      [Hydrolysis-acid-dissociation-ratio-1]
+      )))
+
+(base-dissociation-ratio
+ ((if 
+      (the Base-Role plays of 
+	    ((the raw-material of Self) called "Reactant"))
+       then
+       ((the exp of
+	     ((the log of 10) *
+	      ((the1 of (the value of (the pOH of Self))) - 
+	       (the1 of (the value of (the pkb of Self)))))))
+      [Hydrolysis-base-dissociation-ratio-1]	      
+      )))
+
+(pH 
+ ((if (not (the pH of Self))
+      then
+      ((the output of
+	    (a Compute-pH-for-Solution with 
+	       (input ((a Aqueous-Solution with 
+			  (base (((the raw-material of Self) called 
+				  "Reactant")))))))))
+      [Hydrolysis-pH-1]	      
+      )))
+
+(pOH 
+ ((if (not (the pOH of Self))
+      then
+    ((a POH-Value with
+	(value ((:pair 
+		 (14 - (the1 of (the value of (the pH of Self))))
+		 NIL)))))
+      [Hydrolysis-pOH-1]	      
+      )))
+   
+
+  (kb-expression (
+    (if ((not (the kb-expression of Self))
+         and
+         (the Base-Role plays of ((the raw-material of Self) called "Reactant")))
+         then
+         (the keq-expression of Self)
+     [Hydrolysis-kb-expression-1]
+  )))
+
+  (raw-material ((a Chemical called "Reactant")
+                 (a H2O-Substance)))
+
+  (result       ((if (((the raw-material of Self) called "Reactant")
+			 isa
+		       Nonelectrolyte)
+		     then
+		   (the raw-material of Self))))
+
+  ;; NEW: hydro of salts
+  (result       ((if ((not (the result of Self)) and
+		      (((the raw-material of Self) called "Reactant") isa Salt-Substance))
+		     then
+		   (the output of 
+			(a Compute-Hydrolysis-of-Salt-Result with
+			   (input (((the raw-material of Self) called "Reactant")))))
+		   )))
+
+  (result       ((if (not ((the result of Self)
+			 or
+			   (((the raw-material of Self) called "Reactant")
+			    isa Salt-Substance)))
+		     then
+		   (the output of 
+			(a Compute-Hydrolysis-Result with
+			   (input (((the raw-material of Self) called "Reactant")))))
+		   [Hydrolysis-result-1]
+		   )))
+)
+
+(comment [Hydrolysis-keq-1]
+  (:seq "Ka is known, therefore, Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "In a hydrolysis reaction the equilibrium constant Keq is equal to the acid dissociation constant Ka"
+)
+
+(comment [Hydrolysis-keq-2]
+  (:seq "Kb is known, therefore, Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "In a hydrolysis reaction the equilibrium constant Keq is equal to the base ionization constant Kb"
+)
+
+(comment [Hydrolysis-keq-3]
+  (:seq "Ka is known, therefore, Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "In a hydrolysis reaction the equilibrium constant Keq is equal to the acid dissociation constant Ka"
+)
+
+(comment [Hydrolysis-keq-4]
+  (:seq "Kb is known, therefore, Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "In a hydrolysis reaction the equilibrium constant Keq is equal to the base ionization constant Kb"
+)
+
+(comment [Hydrolysis-keq-5]
+  (:seq "Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "The equilibrium constant Keq of a reaction must be computed from the Keq expression"
+  (:set (:triple Self keq-expression *)
+        (:triple (a Compute-Equilibrium-Constant with (input (Self))) output *)
+  )
+)
+
+(comment [Hydrolysis-keq-6]
+  (:seq "Keq ="
+        (the1 of (the value of (the first of (the ki of Self))))
+        (forall (the ki of Self)
+                where (It /= (the first of (the ki of Self)))
+                (:seq "*" (the1 of (the value of It)))
+        )
+        "="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "The overall equilibrium constant Keq of a combined reaction is equal to the product of the equilibrium constants for each individual reaction"   
+)
+
+(comment [Hydrolysis-ka-1]
+  (:seq "Therefore, Ka ="
+        (the1 of (the value of (the ka of Self)))
+  )
+  "In a hydrolysis reaction the acid dissociation constant Ka is equal to the equilibrium constant Keq"
+  (:triple Self keq *)
+)
+
+(comment [Hydrolysis-ka-expression-1]
+  (:seq "Therefore, the Ka expression is"
+        (:seq "{"
+              (forall (the1 of             ;; numerator
+                            (the term of
+                                 (the ka-expression of Self)))
+                      (:seq "nospace" "[" "nospace" 
+                            (the text-gen of (the2 of It))
+                            "nospace" "]"
+                            (if ((the1 of It) > 1)
+                             then (:seq "nospace" "^" "nospace"
+                                        (the1 of It))
+                            )
+                      )
+              )
+              "nospace" "}/{"
+              (forall (the2 of             ;; denominator
+                            (the term of
+                                 (the ka-expression of Self)))
+                      (:seq "nospace" "[" "nospace" 
+                            (the text-gen of (the2 of It))
+                            "nospace" "]"
+                            (if ((the1 of It) > 1)
+                             then (:seq "nospace" "^" "nospace"
+                                        (the1 of It))
+                            )
+                      )
+              )
+              "nospace" "}"
+        )
+  )
+  "In a hydrolysis reaction the acid dissociation constant expression Ka is equal to the equilibrium constant expression Keq"
+  (:triple Self keq-expression *)
+)
+
+(comment [Hydrolysis-kb-1]
+  (:seq "Therefore, Kb ="
+        (the1 of (the value of (the kb of Self)))
+  )
+  "In a hydrolysis reaction the base ionization constant Kb is equal to the equilibrium constant Keq"
+  (:triple Self keq *)
+)
+
+(comment [Hydrolysis-kb-expression-1]
+  (:seq "Therefore, the Kb expression is"
+        (:seq "{"
+              (forall (the1 of             ;; numerator
+                            (the term of
+                                 (the kb-expression of Self)))
+                      (:seq "nospace" "[" "nospace" 
+                            (the text-gen of (the2 of It))
+                            "nospace" "]"
+                            (if ((the1 of It) > 1)
+                             then (:seq "nospace" "^" "nospace"
+                                        (the1 of It))
+                            )
+                      )
+              )
+              "nospace" "}/{"
+              (forall (the2 of             ;; denominator
+                            (the term of
+                                 (the kb-expression of Self)))
+                      (:seq "nospace" "[" "nospace" 
+                            (the text-gen of (the2 of It))
+                            "nospace" "]"
+                            (if ((the1 of It) > 1)
+                             then (:seq "nospace" "^" "nospace"
+                                        (the1 of It))
+                            )
+                      )
+              )
+              "nospace" "}"
+        )
+  )
+  "In a hydrolysis reaction the base ionization constant expression Kb is equal to the equilibrium constant expression Keq"
+  (:triple Self keq-expression *)
+)
+
+(comment [Hydrolysis-result-1]
+  (:seq "The result of this hydrolysis is therefore"
+        (andify (the text-gen of (the result of Self)))
+  )
+  "In the hydrolysis of a substance the substance either gains a proton from water or loses one to water"
+  (:triple (a Compute-Hydrolysis-Result with
+              (input (((the raw-material of Self) called "Reactant"))))
+           output
+           *
+  )
+)
+
+(comment [Hydrolysis-pka-1]
+  (:seq "The pKa of this reaction is thus = -log("
+        "nospace" (the1 of (the value of (the ka of Self)))
+        "nospace" ") ="
+        (the1 of (the value of (the pka of Self)))
+  )
+  "The pKa of a reaction = -log(Ka)"
+)
+
+(comment [Hydrolysis-pka-2]
+  (:seq "The pKa of this reaction is thus = -log("
+        "nospace" (the1 of (the value of (the ka of Self)))
+        "nospace" ") ="
+        (the1 of (the value of (the pka of Self)))
+  )
+  "The pKa of a reaction = -log(Ka)"
+)
+
+(comment [Hydrolysis-pka-3]
+  (:seq 
+   "The pKa of this reaction is thus = "
+   (the1 of (the value of (the pH of Self)))
+  )
+  "For strong acids which dissociate completely, where [conjugate base] = [acid], pKa = pH."
+)
+
+(comment [Hydrolysis-pkb-1]
+  (:seq "The pKb of this reaction is thus = -log("
+        "nospace" (the1 of (the value of (the kb of Self)))
+        "nospace" ") ="
+        (the1 of (the value of (the pkb of Self)))
+  )
+  "The pKb of a reaction = -log(Kb)"
+)
+
+(comment [Hydrolysis-pkb-2]
+  (:seq "The pKb of this reaction is thus = -log("
+        "nospace" (the1 of (the value of (the kb of Self)))
+        "nospace" ") ="
+        (the1 of (the value of (the pkb of Self)))
+  )
+  "The pKb of a reaction = -log(Kb)"
+)
+
+(comment [Hydrolysis-pkb-3]
+  (:seq 
+   "The pKb of this reaction is thus = "
+   (the1 of (the value of (the pH of Self)))
+  )
+  "For strong bases which dissociate completely, [conjugate acid] = [base], pKb = pOH."
+)
+
+(comment [Hydrolysis-acid-dissociation-ratio-1]
+  (:seq 
+   "The pH for this hydrolysis is"
+   (the1 of (the value of (the pH of Self)))
+   "and the pKa for this hydrolysis is"
+   (the1 of (the value of (the pka of Self)))
+   "."
+   "Hence the dissociation ratio, [conjugate base]/[acid], is thus = 10^(pH -pKa) = 10^("
+   ((the1 of (the value of (the pH of Self))) -
+    (the1 of (the value of (the pka of Self))))
+   ") = "
+   (the acid-dissociation-ratio of Self)
+  )
+  "The Henderson-Hasselbalch equation is as follows, pH = pKa + log[conjugate base]/log[acid]."
+)
+
+(comment [Hydrolysis-base-dissociation-ratio-1]
+  (:seq 
+   "The pOH for this hydrolysis is"
+   (the1 of (the value of (the pOH of Self)))
+   "and the pKb for this hydrolysis is"
+   (the1 of (the value of (the pkb of Self)))
+   "."
+   "Hence the dissociation ratio, [conjugate acid]/[base], is thus = 10^(pOH - pKb) = 10^("
+   ((the1 of (the value of (the pOH of Self))) -
+    (the1 of (the value of (the pkb of Self))))
+   ") = "
+   (the acid-dissociation-ratio of Self)
+  )
+  "The Henderson-Hasselbalch equation is as follows, pOH = pKb + log[conjugate acid]/log[base]."
+)
+
+(comment [Hydrolysis-pH-1]
+  (:seq 
+   "Thus pH = "
+   (the1 of (the value of (the pH of Self)))
+   (the2 of (the value of (the pH of Self)))
+  )
+  
+  ""
+  
+  (:triple (a Compute-pH-for-Solution with
+	       (input ((a Aqueous-Solution with 
+			  (base (((the raw-material of Self) called 
+				  "Reactant")))))))
+           output
+           *)
+)
+
+(comment [Hydrolysis-pOH-1]
+  (:seq 
+   "Thus pOH = 14 - "
+	(the1 of (the value of (the pH of Self)))
+	" = "
+	(the1 of (the value of (the pOH of Self)))
+	(the2 of (the value of (the pOH of Self)))
+  )
+  
+  "pOH = 14 - pH."
+  
+  (:triple (a Compute-pH-for-Solution with
+	       (input ((a Aqueous-Solution with 
+			  (base (((the raw-material of Self) called 
+				  "Reactant")))))))
+           output
+           *)
+)

@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Carbonate-Substance6714
+
+
+|#
+
+(disable-classification)
+
+(Carbonate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Carbonate-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Carbonate-Substance1245 has
+  (prototype-of (Carbonate-Substance Ionic-Compound-Substance))
+  (prototype-scope (Carbonate-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a CO3-Minus-2) (a Cation)))))))))
+  (prototype-participants (_CO3-Minus-1251 _Cation1252 _Chemical-Entity1247 _Carbonate-Substance1245)))
+
+(_Carbonate-Substance1245 has (instance-of (Carbonate-Substance)) (has-basic-structural-unit (_Chemical-Entity1247)))
+
+(_Chemical-Entity1247 has (instance-of (Ionic-Compound)) (has-part (_Cation1252 _CO3-Minus-1251)))
+
+(_Cation1252 has (instance-of (Cation)))
+
+(_CO3-Minus-1251 has (instance-of (CO3-Minus-2)))
+
+(enable-classification)
+
+(explanation (:triple _Carbonate-Substance1245 has-basic-structural-unit _Chemical-Entity1247) (((@ SME entered)) (every Carbonate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Carbonate-Substance1245 instance-of Carbonate-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity1247 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation1252 instance-of Cation) (((@ SME entered)) NIL))
+
+(explanation (:triple _CO3-Minus-1251 instance-of CO3-Minus-2) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Carbonate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

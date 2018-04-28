@@ -1,0 +1,80 @@
+<!--- $Id: Hold.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Hold>
+<system-documentation name=Hold>
+<superconcept name=Obstruct>
+
+<definition>
+  The object of a Hold can only be moved by the agent of the Hold.
+  All other movements of the object are prevented.
+  This action results in the <slot>object</slot> being in a
+  <conceptref name=Be-Held> state, which can be undone by the 
+  <conceptref name=Let-Go-Of> action.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's held.  The object is put in a
+     <conceptref name=Be-Held> state by this action. 
+  </slotdescription>
+
+  <slotdescription name=agent>
+     The Tangible-Entity that's holding the object.  Only this agent
+     can move the object.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+  <slotdescription name=site>
+    the place where the object is held.
+  </slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The bird held the worm in his beak.</text>
+    <slotdescription name=object>the worm</slotdescription>
+    <slotdescription name=agent>the bird</slotdescription>
+    <slotdescription name=site>beak</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Block>
+     Prevent things from moving through some place, or along some
+     object, by blocking such movements.
+  </neighbor>
+  
+  <neighbor name=Confine>
+     Confine is more specific than Obstruct.  It prevents the object
+     from moving out of its enclosure.
+  </neighbor>
+
+  <neighbor name=Restrain>
+     Restrain is more specific than Obstruct.  It prevents the 
+     object from moving at all.
+  </neighbor>
+
+  <neighbor name=Shut-Out>
+     Shut-Out is more specific than Obstruct.  It prevents
+     the object from moving into an enclosure.
+  </neighbor>
+
+  <neighbor name=Support>
+     Support is more specific than Obstruct.  It prevents
+     the object from falling.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

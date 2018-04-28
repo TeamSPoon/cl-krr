@@ -1,0 +1,13 @@
+;;
+;; $Id: CDRW.km,v 1.2 2004/01/23 19:23:39 kbarker Exp $
+;;
+
+(CDRW has 
+  (superclasses (Compact-Disc))
+  (feature-slot ((the feature-slot of Compact-Disc)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = CDRW))
+  ))
+)
+
+

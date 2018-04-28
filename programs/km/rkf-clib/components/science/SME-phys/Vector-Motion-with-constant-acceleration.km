@@ -1,0 +1,75 @@
+(Vector-Motion-with-constant-acceleration has
+	(superclasses (Move)))
+
+(every Vector-Motion-with-constant-acceleration has
+       (initial-velocity (( a Velocity-Vector-Value )))
+       (final-velocity (( a Velocity-Vector-Value )))
+       (acceleration (( a Acceleration-Vector-Value )))
+       (duration (( a Duration-Value )))
+       (displacement (( a Displacement-Vector-Value )))
+       (component-of (( a System with
+                          ( equation (( a Equation-Set with
+                                          ( equation-uses (( the x-speed of ( the initial-velocity of Self ))
+                                                           ( the x-speed of ( the final-velocity of Self ))
+                                                           ( the x-acceleration-magnitude of ( the acceleration of Self ))
+                                                           ( the duration of Self )))
+                                          ( equation-symbol (( :pair (QUOTE u_x) ( the x-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE v_x) ( the x-speed of ( the final-velocity of Self )))
+                                                             ( :pair (QUOTE a_x) ( the x-acceleration-magnitude of ( the acceleration of Self )))
+                                                             ( :pair (QUOTE t) ( the duration of Self ))))
+                                          ( equation-expression (( QUOTE ( = v_x ( + u_x ( * a_x t )))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the y-speed of ( the initial-velocity of Self ))
+                                                           ( the y-speed of ( the final-velocity of Self ))
+                                                           ( the y-acceleration-magnitude of ( the acceleration of Self ))
+                                                           ( the duration of Self )))
+                                          ( equation-symbol (( :pair (QUOTE u_y) ( the y-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE v_y) ( the y-speed of ( the final-velocity of Self )))
+                                                             ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of ( the acceleration of Self )))
+                                                             ( :pair (QUOTE t) ( the duration of Self ))))
+                                          ( equation-expression (( QUOTE ( = v_y ( + u_y ( * a_y t )))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the x-distance of ( the displacement of Self ))
+                                                           ( the x-speed of ( the initial-velocity of Self ))
+                                                           ( the duration of Self )
+                                                           ( the x-acceleration-magnitude of ( the acceleration of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE s_x) ( the x-distance of ( the displacement of Self )))
+                                                             ( :pair (QUOTE u_x) ( the x-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE t ) ( the duration of Self ))
+                                                             ( :pair (QUOTE a_x) ( the x-acceleration-magnitude of ( the acceleration of Self )))))
+                                          ( equation-expression (( QUOTE ( = s_x ( + ( * u_x t ) ( / ( * a_x ( * t t )) 2 )))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the y-distance of ( the displacement of Self ))
+                                                           ( the y-speed of ( the initial-velocity of Self ))
+                                                           ( the duration of Self )
+                                                           ( the y-acceleration-magnitude of ( the acceleration of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE s_y) ( the y-distance of ( the displacement of Self )))
+                                                             ( :pair (QUOTE u_y) ( the y-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE t ) ( the duration of Self ))
+                                                             ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of ( the acceleration of Self )))))
+                                          ( equation-expression (( QUOTE ( = s_y ( + ( * u_y t ) ( / ( * a_y ( * t t )) 2 )))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the x-speed of ( the final-velocity of Self ))
+                                                           ( the x-speed of ( the initial-velocity of Self ))
+                                                           ( the x-acceleration-magnitude of ( the acceleration of Self ))
+                                                           ( the x-distance of ( the displacement of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE v_x) ( the x-speed of ( the final-velocity of Self )))
+                                                             ( :pair (QUOTE u_x) ( the x-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE a_x) ( the x-acceleration-magnitude of ( the acceleration of Self )))
+                                                             ( :pair (QUOTE s_x) ( the x-distance of ( the displacement of Self )))))
+                                          ( equation-expression (( QUOTE ( = ( expt v_x 2 ) ( + ( expt u_x 2 ) ( * 2 ( * a_x s_x ))))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the y-speed of ( the final-velocity of Self ))
+                                                           ( the y-speed of ( the initial-velocity of Self ))
+                                                           ( the y-acceleration-magnitude of ( the acceleration of Self ))
+                                                           ( the y-distance of ( the displacement of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE v_y) ( the y-speed of ( the final-velocity of Self )))
+                                                             ( :pair (QUOTE u_y) ( the y-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of ( the acceleration of Self )))
+                                                             ( :pair (QUOTE s_y) ( the y-distance of ( the displacement of Self )))))
+                                          ( equation-expression (( QUOTE ( = ( expt v_y 2 ) ( + ( expt u_y 2 ) ( * 2 ( * a_y s_y ))))))))))))))

@@ -1,0 +1,48 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Aqueous-Solution-Of-Molecular-Compound-Substance1101
+
+
+|#
+
+(Aqueous-Solution-Of-Molecular-Compound-Substance has (superclasses (Aqueous-Solution)))
+
+(Aqueous-Solution-Of-Molecular-Compound-Substance now-has (user-description ("When a molecular compound dissolves in water, the solution usually consists of intact molecules dispersed throughout the solution. The absence of ions in an aqueous-solution makes the solution unable to conduct electricity. ")))
+
+(_Aqueous-Solution-Of-Molecular-Compound-Substance1306 has
+  (prototype-of (Aqueous-Solution-Of-Molecular-Compound-Substance Aqueous-Solution))
+  (prototype-scope (Aqueous-Solution-Of-Molecular-Compound-Substance (the-class Aqueous-Solution with (has-solute ((a Molecule-Substance))))))
+  (prototype-participants (_Chemical1310 _Conductivity-Value1307 _Aqueous-Solution-Of-Molecular-Compound-Substance1306)))
+
+(_Aqueous-Solution-Of-Molecular-Compound-Substance1306 has
+  (instance-of (Aqueous-Solution-Of-Molecular-Compound-Substance))
+  (has-solute (_Chemical1310))
+  (conductivity (_Conductivity-Value1307)))
+
+(_Conductivity-Value1307 has (instance-of (Conductivity-Value)) (value ((:pair *no-conductivity Aqueous-Solution))))
+
+(_Chemical1310 has (instance-of (Molecule-Substance)))
+
+(explanation (:triple _Aqueous-Solution-Of-Molecular-Compound-Substance1306 has-solute _Chemical1310) (((@ SME entered)) (every Aqueous-Solution-Of-Molecular-Compound-Substance has (has-solute ((a Molecule-Substance))))))
+
+(explanation (:triple _Conductivity-Value1307 value (:pair *no-conductivity Aqueous-Solution)) (((@ SME entered)) (every Aqueous-Solution-Of-Molecular-Compound-Substance has (conductivity ((a Conductivity-Value with (value ((:pair *no-conductivity Aqueous-Solution)))))))))
+
+(explanation (:triple _Aqueous-Solution-Of-Molecular-Compound-Substance1306 instance-of Aqueous-Solution-Of-Molecular-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Conductivity-Value1307 instance-of Conductivity-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical1310 instance-of Molecule-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Aqueous-Solution-Of-Molecular-Compound-Substance has (has-solute ((a Molecule-Substance))))
+(every Aqueous-Solution-Of-Molecular-Compound-Substance has (conductivity ((a Conductivity-Value with (value ((:pair *no-conductivity Aqueous-Solution)))))))
+
+|#
+
+|#
+

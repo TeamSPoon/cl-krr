@@ -1,0 +1,13 @@
+;; 
+;;    $Id: Compute-Element-from-Molecular-Name.km,v 1.3 2006/04/10 18:06:14 jfan Exp $
+;; 
+
+(Compute-Element-from-Molecular-Name has
+				     (superclasses (Method)))
+
+(every Compute-Element-from-Molecular-Name has
+       ;;(input ((a Thing)))
+       (output
+	((oneof (#'(LAMBDA ()
+			   (COMPUTE-NON-ION-FROM-DEFS (KM0 '(the input of Self)) NIL NIL NIL NIL)))
+		where (It isa Atom)))))

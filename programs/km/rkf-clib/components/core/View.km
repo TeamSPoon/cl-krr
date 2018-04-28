@@ -1,0 +1,47 @@
+;; 
+;;    $Id: View.km,v 1.6 2005/08/19 20:29:08 porter Exp $
+;; 
+
+(View has
+  (superclasses (Aggregate))
+)
+
+;; A View is a way to collect elements of some concept together
+;; so you can consider them as a unified way of looking at the 
+;; concept. For example, you could define a spatial View of an 
+;; Entity by making its parts, contents, and spatial slots all
+;; elements of a View called "Spatial View"
+
+(View has (test-case      
+   ('(
+      (*myWallet has (instance-of (Physical-Object))
+                     (is-possessed-by (*myWife))
+                     (content (*myDough))
+                     (material (*fakeLeather))
+                     (color ((a Color-Value with (value (*red)))))
+                     (is-inside (*myPants)))
+      (*myWife has (instance-of (Physical-Object)))
+      (*myDough has (instance-of (Physical-Object)))
+      (*fakeLeather has (instance-of (Substance)))
+      (*myPants has (instance-of (Physical-Object)))
+
+      (*myWallet has
+          (viewed-as ((a View called "Spatial View" with
+                         (element ((the content of Self)
+                                   (the material of Self)
+                                   (the is-inside of Self)))))))
+
+      #|((the element of ((the viewed-as of *myWallet) called "Spatial View"))
+       is-superset-of
+       (:set *myDough *fakeLeather *myPants))|# ;; don't know why this fails in cron job, but not when tested manually
+
+      (not
+         ((the element of ((the viewed-as of *myWallet) called "Spatial View"))
+          includes
+          *myWife))
+       
+))))
+
+(View has (wn20-synset ((:set (:triple "position" 3 "n")
+			      (:triple "view" 1 "n")
+			      (:triple "perspective" 1 "n")))))

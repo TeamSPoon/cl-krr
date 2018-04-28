@@ -1,0 +1,19 @@
+;; 
+;;    $Id: experiencer.km,v 1.13 2007/04/10 21:29:48 jchaw Exp $ 
+;; 
+
+(experiencer has
+       (instance-of (Participant-Relation))
+       (superslots ())
+       (subslots ())
+       (domain      (Event))
+       (range       (Entity))
+       (fluent-status (*Inertial-Fluent))
+       (inverse (experiencer-of))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+(experiencer has (text-gloss ("is experienced by")))
+(experiencer-of has 
+	(instance-of (Participant-Relation))
+	(text-gloss ("experiences")))

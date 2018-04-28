@@ -1,0 +1,23 @@
+
+;;
+;;  $Id: Advance.km,v 1.6 2005/11/07 20:38:02 kbarker Exp $
+;;
+
+(Advance has
+  (superclasses (Non-Engagement-Military-Task Locomotion))
+)
+
+
+(every Advance has
+  (agent ((a Military-Unit)))
+
+  (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                            (value ((:pair 0.99 NIL))))))
+
+  (text-nominalization ("advance"))
+  (text-toward ("toward"))
+  (text-argslots ((:seq toward path)))
+  (text-active-verbseq-sg ("advances"))
+  (text-active-verbseq-pl ("advance"))
+)
+

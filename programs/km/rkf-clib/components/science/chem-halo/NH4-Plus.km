@@ -1,0 +1,20 @@
+;; $Id: NH4-Plus.km,v 1.6 2008/05/14 20:16:56 kunal Exp $ 
+(NH4-Plus has (superclasses (Metal-Cation)))
+(every NH4-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("ammonium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 N) 
+						       (:pair 4 H)
+						       ))))))
+)
+
+
+(every NH4-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("ammonium"))
+)
+
+(NH4-Plus has (wn20-synset ((:triple "NH4+" 0 "n") (:triple "NH_4+" 0 "n"))))

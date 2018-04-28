@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Ribonucleoprotein.km,v 1.7 2001/05/19 02:50:33 souther Exp $ 
+;; 
+
+(Ribonucleoprotein has
+		   (superclasses (Nucleoprotein))
+		   (required-slot ())
+		   (primary-slot ())
+		   (secondary-slot ())
+		   (description ("A nucleoprotein that makes up part of a 
+                                  ribosome. Souther. "))
+		   (cmap-correspondence ()))
+
+(every Ribonucleoprotein has
+        (has-part ((a Protein)
+                   (a Polyribonucleotide))))
+
+

@@ -1,0 +1,14 @@
+;;
+;; $Id: NH4_3_PO4.km,v 1.1 2003/03/30 23:36:01 jchaw Exp $
+;;
+
+(NH4_3_PO4 has (superclasses (Ionic-Compound)))
+
+(every NH4_3_PO4 has	
+       (has-part 
+	((a NH4-Plus) (a PO4-Minus-3)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 3 NH4-Plus)
+			 (:pair 1 PO4-Minus-3)))))))
+       )	

@@ -1,0 +1,21 @@
+;;
+;; $Id: C3H8.km,v 1.3 2007/05/18 02:40:03 tecuci Exp $
+;;
+
+(C3H8 has (superclasses (Hydrocarbon-Molecule)))
+
+(every C3H8 has	
+       (has-chemical-name ("propane"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 3 C)
+		    (:pair 8 H))))))))
+       
+
+
+(every C3H8 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("propane"))
+)

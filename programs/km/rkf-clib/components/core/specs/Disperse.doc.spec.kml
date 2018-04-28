@@ -1,0 +1,91 @@
+<!--- $Id: Disperse.doc.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Disperse>
+<superconcept name=Action>
+<subevent name=Leave>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Disperse>
+  <definition>change location of several objects from the same Place</definition>
+  <requiredslot name=object>
+    <restriction>at least 2 Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=subevent>
+    <restriction>forall <slot>object</slot>s <i>o</i> there is a 
+      <conceptref name=Leave> whose <slot>object</slot> is <i>o</i>,
+      whose <slot>agent</slot> is also the <slot>object</slot>
+      and whose <slot>origin</slot> is the <slot>origin</slot> of
+      Disperse
+  </requiredslot>
+  <requiredslot name=origin>
+    <restriction>(exactly one) Place</restriction>
+    <restriction><slot>is-at-of</slot> original <slot>location</slot> of all <slot>object</slot>s</restriction>
+  </requiredslot>
+  <blockedslot name=destination>
+    <comment>there is no single <slot>destination</slot></comment>
+  </blockedslot>
+  <blockedslot name=path>
+    <comment>there is no single <slot>path</slot></comment>
+  </blockedslot>
+  <primaryslot name=agent>
+    <restriction>each <slot>object</slot> is its own agent which causes its own
+		<slot>location</slot> to change.
+    </restriction>
+  </primaryslot>
+  <wnsynsets><verb>disperse#2, disperse#4
+  </verb></wnsynsets>
+  <wnsynsets><verb>break_up#1, dispel#2, dissipate#1, dissipate#2, scatter#1, scatter#2, spread_out#6
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Disperse is a type of <conceptref name=Action>
+in with multiple <slot>object</slot>s moving from a (single) 
+<slot>origin</slot>:Place slot. The <slot>origin</slot> slot
+is required but need not be specified, in which case there should be
+a new Place created that represents the <slot>origin</slot> of the
+<slot>object</slot>s.<p>
+
+Furthermore, there is no single Place where the movement terminates
+or passes through.
+</musing>
+
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=disperse2>
+  <sense-definition>to cause to break up, make division
+
+
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=disperse3>
+  <sense-definition>to spread or distribute from a fixed or constant source, move in different directions
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=disperse4>
+  <sense-definition>to make public
+
+</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNdisperse#1><equiv tag=disperse3></sense>
+<sense tag=WNdisperse#2><equiv tag=disperse2></sense>
+<sense tag=WNdisperse#3><equiv tag=disperse2></sense>
+<sense tag=WNdisperse#4><equiv tag=disperse3></sense>
+<sense tag=WNdisperse#5><equiv tag=disperse4></sense>
+
+</senselist>
+</reference>
+</kml>
+
+

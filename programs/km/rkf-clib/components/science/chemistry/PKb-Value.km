@@ -1,0 +1,12 @@
+;; 
+;;  $Id: PKb-Value.km,v 1.2 2005/02/14 22:39:43 kbarker Exp $
+;; 
+
+(PKb-Value has (superclasses (Property-Value)))
+
+(every PKb-Value has
+  (property-slot (pkb))
+       (less-than    ((must-be-a PKb-Value)))
+       (greater-than ((must-be-a PKb-Value)))
+       (same-as      ((must-be-a PKb-Value)))
+)

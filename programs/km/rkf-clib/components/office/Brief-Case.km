@@ -1,0 +1,19 @@
+;;
+;;    $Id: Brief-Case.km,v 1.3 2005/04/14 17:50:15 jchaw Exp $
+;;
+(Brief-Case has (superclasses (Artifact)))
+
+;;
+;; NOTE: For know the in-event is a Carry, but it seems that
+;;	 Store also applies here.
+;;
+(every Brief-Case has 
+       (purpose ((a Instrument-Role with
+       		    (in-event  ((must-be-a Carry)))
+       		    (played-by (Self))
+       )))
+)
+
+(Brief-Case has (wn20-synset ((:set
+		       (:triple "briefcase" 1 "n")
+))))

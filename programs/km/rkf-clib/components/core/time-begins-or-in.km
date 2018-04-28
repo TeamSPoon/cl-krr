@@ -1,0 +1,20 @@
+;; 
+;;    $Id: time-begins-or-in.km,v 1.7 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(time-begins-or-in has
+       (instance-of (Temporal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Time-Interval))
+       (range (Time-Instant))
+       (inverse (time-is-beginning-or-inside))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+
+(time-begins-or-in has (text-gloss ("begins at")))
+
+(time-is-beginning-or-inside has
+	(instance-of (Temporal-Relation)))

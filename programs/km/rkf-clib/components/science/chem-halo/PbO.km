@@ -1,0 +1,19 @@
+;;
+;; $Id: PbO.km,v 1.1 2006/01/30 23:02:25 jfan Exp $
+;;
+
+(PbO has (superclasses (Ionic-Compound)))
+
+(every PbO has	
+       (has-chemical-name ("lead oxide"))
+       (has-part 
+	((a Pb-Plus-2) (a O-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Pb-Plus-2)
+			 (:pair 1 O-Minus-2)))))))
+)
+(every PbO has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Pb-Plus-2) (a O-Minus-2))))
+

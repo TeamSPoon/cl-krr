@@ -1,0 +1,1684 @@
+<html>
+<head>
+
+<title>The Chat Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Chat</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">This is the ontology for Chat information. 
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>Radar Networks' <a href="https://calo.sri.com/cgi-bin/rep.cgi/apps/iris/data/">irisOntology (search for "Chat")</a> (.owl format)
+</div>
+</td></tr></table>
+</p>
+
+
+    <p>
+      <table><tr><td>
+	    <div class="boxtop">Classes</div>
+	    <div class="boxbody">
+	      <ul>
+		<li>Thing
+		  <ul>
+		    <li>Entity
+		      <ul>
+			<li>Intangible-Entity
+                            <ul>
+                            <li>Information
+                                <ul>
+                                <li>InformationObject
+				    <ul>
+					<li><a href=#ChatDataStructure><b>ChatDataStructure</b></a>
+					  <ul>
+					    <li><a href=#CaloChatFieldDefinition><b>CaloChatFieldDefinition</b></a>
+					      <ul>
+					        <li><a href=#CaloChatFormField><b>CaloChatFormField</b></a>
+						  <ul>
+						    <li><a href=#CaloChatFormSelect><b>CaloChatFormSelect</b></a>
+						    <li><a href=#CaloChatFormInput><b>CaloChatFormInput</b></a>
+						    <li><a href=#CaloChatFormDate><b>CaloChatFormDate</b></a>
+						  </ul>
+					        <li><a href=#CaloChatTableElement><b>CaloChatTableElement</b></a>
+						<li><a href=#CaloChatTableHeader><b>CaloChatTableHeader</b></a>
+					      </ul>
+					    <li><a href=#CaloChatTableRow><b>CaloChatTableRow</b></a>
+                                            <li><a href=#ChatElement><b>ChatElement</b></a>
+					      <ul>
+						<li><a href=#ChatMessageDivider><b>ChatMessageDivider</b></a>
+						<li><a href=#CaloChatCommand><b>CaloChatCommand</b></a>
+						<li><a href=#CaloChatForm><b>CaloChatForm</b></a>
+						<li><a href=#CaloChatTable><b>CaloChatTable</b></a>
+					      </ul>
+					    <li><a href=#CaloChatFormSelectItem><b>CaloChatFormSelectItem</b></a>
+					  </ul>
+					<li>ContactDataStructure
+                                          <ul>
+					    <li>ContactRecordSubAddressComponent
+					      <ul>
+				                <li><a href=#NetworkAddress><b>NetworkAddress</b></a>
+                                                  <ul>
+				                    <li><a href=#ChatAddress><b>ChatAddress</b></a>
+                                                  </ul>
+                                              </ul>
+                                          </ul>
+				    </ul>
+                                </ul>
+			    <li>Message
+			      <ul>
+				  <li><a href=#ChatMessage><b>ChatMessage</b></a>
+			      </ul>
+			    <li>Computer-File
+			      <ul>
+				<li>Computer-Program
+				  <ul>
+				    <li>Software-Application
+				      <ul>
+					<li><a href=#ChatApplication><b>ChatApplication</b></a>
+				      </ul>
+				    </li>
+				  </ul>
+			      </ul>
+			  </ul>
+		      </ul>
+		    <li>Event
+		      <ul>
+			<li>Activity
+			  <ul>
+			    <li>Interaction
+			      <ul>
+				<li>Discussion
+				  <ul>
+				    <li><a href=#ChatSession><b>ChatSession</b></a>
+				  </ul>
+				<li>Session
+				  <ul>
+				    <li><a href=#ChatSession><b>ChatSession</b></a>
+				  </ul>
+			      </ul>
+			    <li>Service
+			      <ul>
+				<li>Information-Service
+				  <ul>
+				    <li>Online-Service
+				      <ul>
+					<li><a href=#ChatBoard><b>ChatBoard</b></a>
+				      </ul>
+				  </ul>
+			      </ul>
+			      
+			  </ul>
+		      </ul>
+		    <li>Role
+		      <ul>
+			<li>Agent-Role
+			  <ul>	
+			    <li>Participant
+			      <ul>
+				<li><a href=#ChatEntity><b>ChatEntity</b></a>
+				  <ul>
+				    <li><a href=#ChatGroupEntity><b>ChatGroupEntity</b></a>
+				    <li><a href=#ChatJournalEntity><b>ChatJournalEntity</b></a>
+				    <li><a href=#ChatPersonEntity><b>ChatPersonEntity</b></a>
+				  </ul>
+			      </ul>
+			  </ul>
+		      </ul>
+		  </ul>
+	    </div>
+	  </td></tr></table>
+    </p>
+
+<p>
+<a name=ChatBoard>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatBoard</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>An Online-Service where a number of users can communicate in real time
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatBoard with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatBoard-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Online-Service</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ChatElement>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatElement</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for storing an element of a ChatDataStructure.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatElement with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatElement-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasChatPath</pre></td><td><pre>hasChatPath</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatEntity)</pre></td></tr>
+    <tr><td><pre>hasFromChatEntity</pre></td><td><pre>hasFromChatEntity</pre></td><td align=center><pre>1</pre></td><td><pre>(a ChatEntity)</pre></td></tr>
+    <tr><td><pre>hasOnBehalfOf</pre></td><td><pre>hasOnBehalfOf</pre></td><td align=center><pre>1</pre></td><td><pre>(a ChatEntity)</pre></td></tr>
+    <tr><td><pre>hasToChatEntity</pre></td><td><pre>hasToChatEntity</pre></td><td align=center><pre>1</pre></td><td><pre>(a ChatEntity)</pre></td></tr>
+    <tr><td><pre>isChatElementOf</pre></td><td><pre>isChatElementOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatSession)</pre></td></tr>
+
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatForm>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatForm</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A special type of ChatElement.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatForm with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatForm-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasFormField</pre></td><td><pre>hasFormField</pre></td><td align=center><pre>N</pre></td><td><pre>(a CaloChatFormField)</pre></td></tr>
+    <tr><td><pre>hasFormParam</pre></td><td><pre>hasFormParam</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from ChatElement</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatTable>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatTable</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A special type of ChatElement.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatTable with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatTable-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasTableHeader</pre></td><td><pre>hasTableHeader</pre></td><td align=center><pre>N</pre></td><td><pre>(a CaloChatTableHeader)</pre></td></tr>
+    <tr><td><pre>hasTableParam</pre></td><td><pre>hasTableParam</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasTableRow</pre></td><td><pre>hasTableRow</pre></td><td align=center><pre>N</pre></td><td><pre>(a CaloChatTableRow)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from ChatElement</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ChatMessageDivider>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatMessageDivider</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Chat Message Divider
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatMessageDivider with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatMessageDivider-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from ChatElement</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatCommand>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatCommand</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Calo Chat Command
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatCommand with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatCommand-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from ChatElement</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatTableElement>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatTableElement</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Calo Chat Table Element.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatTableElement with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatTableElement-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasTableColumnIndex</pre></td><td><pre>hasTableColumnIndex</pre></td><td align=center><pre>N</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from CaloChatFieldDefinition</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatTableHeader>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatTableHeader</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A definition of a chat table header.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatTableHeader with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatTableHeader-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>isTableHidden</pre></td><td><pre>isTableHidden</pre></td><td align=center><pre>1</pre></td><td><pre>(a Boolean)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from CaloChatFieldDefinition</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatFormSelectItem>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatFormSelectItem</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A special type of ChatDataStructure.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatFormSelectItem with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatFormSelectItem-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasFormSelctItemIndex</pre></td><td><pre>hasFormSelectItemIndex</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from ChatDataStructure</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+
+<p>
+<a name=ChatEntity>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatEntity</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Participant in a ChatSession.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatEntity with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatEntity-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasNickname</pre></td><td><pre>hasNickname</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>		  
+    <tr><td><pre>hasRealName</pre></td><td><pre>hasRealName</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>isChatEntityOf</pre></td><td><pre>isChatEntityOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>		  
+    <tr><td><pre>isChatPathOf</pre></td><td><pre>isChatPathOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatElement)</pre></td></tr>
+    <tr><td><pre>isFromChatEntityOf</pre></td><td><pre>isFromChatEntityOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatElement)</pre></td></tr>
+    <tr><td><pre>isOnBehalfOf</pre></td><td><pre>isOnBehalfOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatElement)</pre></td></tr>
+    <tr><td><pre>isThemOf</pre></td><td><pre>isThemOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatSession)</pre></td></tr>
+    <tr><td><pre>isUsOf</pre></td><td><pre>isUsOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatSession)</pre></td></tr>
+    <tr><td><pre>isToChatEntityOf</pre></td><td><pre>isToChatEntityOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatElement)</pre></td></tr>		  
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+</table>
+</p>
+
+<p>
+<a name=ChatGroupEntity>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatGroupEntity</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A group entity for chat.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatGroupEntity with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatGroupEntity-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from ChatEntity</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ChatJournalEntity>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatJournalEntity</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A journal entity for chat.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatJournalEntity with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatJournalEntity-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from ChatEntity</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+</table>
+</p>
+
+
+<p>
+<a name=ChatPersonEntity>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatPersonEntity</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A person entity for chat.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatPersonEntity with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatPersonEntity-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from ChatEntity</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ChatMessage>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatMessage</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Message exchanged in a ChatSession.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatMessage with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatMessage-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Message</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ChatSession>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatSession</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A meeting devoted to talking socially without exchanging too much information.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatSession with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatSession-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasChatElement</pre></td><td><pre>hasChatElement</pre></td><td align=center><pre>1</pre></td><td><pre>(a ChatEntity)</pre></td></tr>
+    <tr><td><pre>hasUs</pre></td><td><pre>hasUs</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatEntity)</pre></td></tr>
+    <tr><td><pre>hasThem</pre></td><td><pre>hasThem</pre></td><td align=center><pre>N</pre></td><td><pre>(a ChatEntity)</pre></td></tr>
+    <tr><td><pre>hasTopic</pre></td><td><pre>hasTopic</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Session and Discussion</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ChatApplication>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatApplication</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A person entity for chat.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatApplication with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatApplication-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Support-Role</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ChatDataStructure>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatDataStructure</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Chat Data Structure.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatDataStructure with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatDataStructure-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatFieldDefinition>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatFieldDefinition</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for storing the definition of chat field.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatFieldDefinition with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatFieldDefinition-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasFieldId</pre></td><td><pre>hasFieldId</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasFieldLabel</pre></td><td><pre>hasFieldLabel</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasFieldWidth</pre></td><td><pre>hasFieldWidth</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatFormField>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatFormField</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>CALO Chat Form Field
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatFormField with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatFormField-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasFieldInitialValue</pre></td><td><pre>hasFieldInitialValue</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasFieldIndex</pre></td><td><pre>hasFieldIndex</pre></td><td align=center><pre>N</pre></td><td><pre>Integer</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from CaloChatFieldDefinition</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatFormSelect>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatFormSelect</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A field in a chat form.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatFormSelect with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatFormSelect-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasFieldHeight</pre></td><td><pre>hasFieldHeight</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td><pre>hasFormSelectItem</pre></td><td><pre>hasFormSelectItem</pre></td><td align=center><pre>N</pre></td><td><pre>(a CaloChatFormSelectItem)</pre></td></tr>
+    <tr><td><pre>isFormSelectOne</pre></td><td><pre>isFormSelectOne</pre></td><td align=center><pre>1</pre></td><td><pre>(a Boolean)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+
+<p>
+<a name=CaloChatTableRow>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatTableRow</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for a row in a chat table.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatTableRow with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatTableRow-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasTableElement</pre></td><td><pre>hasTableElement</pre></td><td align=center><pre>N</pre></td><td><pre>(a CaloChatTableElement)</pre></td></tr>
+    <tr><td><pre>hasTableRowIndex</pre></td><td><pre>hasTableRowIndex</pre></td><td align=center><pre>N</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=CaloChatFormInput>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatFormInput</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A chat form field.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatFormInput with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatFormInput-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasFormType</pre></td><td><pre>hasFormType</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+
+<p>
+<a name=CaloChatFormDate>
+<table>
+<tr><td>
+
+<div class="boxtop">CaloChatFormDate</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A CALO chat form date
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a CaloChatFormDate with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;CaloChatFormDate-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasFieldDate</pre></td><td><pre>hasFieldDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from CaloChatFormField</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+
+
+<p>
+<a name=NetworkAddress>
+<table>
+<tr><td>
+
+<div class="boxtop">NetworkAddress</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>?????
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a NetworkAddress with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;NetworkAddress-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from ContactRecordSubAddressComponent</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=ChatAddress>
+<table>
+<tr><td>
+
+<div class="boxtop">ChatAddress</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>?????
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ChatAddress with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ChatAddress-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasCompatibleChatNetwork</pre></td><td><pre>hasCompatibleChatNetwork</pre></td><td align=center><pre>N</pre></td><td><pre>(a Instant-Messaging-Service)</pre></td></tr>
+    <tr><td><pre>hasAddressOrganizationName</pre></td><td><pre>hasOrganizationName</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasAddressOwnerName</pre></td><td><pre>hasAddressOwnerName</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasAddressString</pre></td><td><pre>hasAddressString</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasNickname</pre></td><td><pre>hasNickname</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasRealName</pre></td><td><pre>hasRealName</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>isTypeOfNetworkAddress</pre></td><td><pre>isTypeOfNetworkAddress</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from NetworkAddress</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+
+
+
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+;; 
+;;  $Id: kb.km,v 1.5 2006/09/29 18:57:37 jchaw Exp $
+;; 
+
+(kb has
+  (instance-of 		  (Property))
+  (domain      		  (Hydrolysis Base-Role Chemical))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (inverse     		  (kb-of))
+  (cardinality 		  (N-to-1))
+  (scale-class         (KI-Scale))
+  (scalar-constant-class (KI-Constant))
+)
+
+(kb has (user-description ("Kb is a quantitative descriptor for describing the strength of bases.")))
+
+(kb-of has (instance-of (Property)))

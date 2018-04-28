@@ -1,0 +1,33 @@
+
+;;
+;; $Id: Size-Value.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(Size-Value has 
+       (superclasses (Property-Value)))
+
+(Size-Value has
+   (test-case ('(
+                 (Drink has (superclasses (Substance)))
+                 (Ocean has (superclasses (Substance)))
+                 (*mycoffee has (instance-of (Drink))
+                                (size ((a Size-Value))))
+                 (*mybeer has (instance-of (Drink))
+                              (size
+                                 ((a Size-Value with
+                                     (value ((:pair *big Drink)
+                                             (:pair *tiny Ocean)
+                                     ))
+                                     (less-than
+                                        ((the size of *mycoffee)))
+                              ))))
+
+                 (the value of (the size of *mybeer))
+
+                 ((the less-than of (the size of *mybeer))
+                       includes (the size of *mycoffee))
+                 ((the greater-than of (the size of *mycoffee))
+                       includes (the size of *mybeer))
+))))
+(Size-Value has (description ("the size of the Tangible-Entity")))

@@ -1,0 +1,23 @@
+;; 
+;;    $Id: has-solvent.km,v 1.8 2007/05/04 19:11:48 tecuci Exp $
+;; 
+
+(has-solvent has
+   (instance-of   	(Meronymic-Relation Spatial-Relation))
+   (superslots    	())
+   (subslots 	  	())
+   (range         	(Chemical))
+   (inverse 		(is-solvent-of))
+   (fluent-status 	(*Inertial-Fluent))
+   (cardinality 	(N-to-N)))
+
+(has-solvent has (domain (Solution)))
+
+(has-solvent has (text-gloss ("has as solvent")))
+
+(is-solvent-of has
+   (instance-of (Participant-Relation))
+   (combine-values-by-appending (t)))
+
+(has-solvent has (wn20-synset ((:set
+				(:triple "solvent" 0 "n")))))

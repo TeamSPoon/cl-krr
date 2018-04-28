@@ -1,0 +1,142 @@
+;
+;; $Id: Oxidize-an-Acid.km,v 1.5 2003/09/23 15:39:11 jfan Exp $
+;;
+
+(Oxidize-an-Acid has
+		    (superclasses (Method))
+		    (description ("given an acid of the form HaYOb, returns a new acid oxidized from the input")))
+
+(every Oxidize-an-Acid has
+      (input ((a Acid))) ;; of the form HaYOb
+
+      (context (
+		( 
+		 (the output of
+		      (a Identify-Chemical-Entity with
+			 (input (
+				 (a Anion with
+				    (nested-atomic-chemical-formula
+				     ((a Chemical-Formula with
+					 (term (
+						;; get the new nested formula
+						(forall-seq
+						 (the term of
+						      (the atomic-chemical-formula of
+							   (the Anion has-part of
+								(the has-basic-structural-unit of
+								     (the input of Self)))))
+						 (if ((the2 of It)
+						      = O)
+						     then
+						   (:pair
+						    ((the1 of It) + 1)
+						    O)
+						   else
+						   It))))))))))))
+		 or
+		 (the output of
+		      (a Identify-Chemical-Entity with
+			 (input (
+				 (a Anion with
+				    (nested-atomic-chemical-formula
+				     ((a Chemical-Formula with
+					 (term (
+						;; get the new nested formula
+						(forall-seq
+						 (the term of
+						      (the atomic-chemical-formula of
+							   (the Anion has-part of
+								(the has-basic-structural-unit of
+								     (the input of Self)))))
+						 (if ((the2 of It)
+						      = O)
+						     then
+						   (:pair
+						    ((the1 of It) + 2)
+						    O)
+						   else
+						   It))))))))))))
+		 or
+		 (the output of
+		      (a Identify-Chemical-Entity with
+			 (input (
+				 (a Anion with
+				    (nested-atomic-chemical-formula
+				     ((a Chemical-Formula with
+					 (term (
+						;; get the new nested formula
+						(forall-seq
+						 (the term of
+						      (the atomic-chemical-formula of
+							   (the Anion has-part of
+								(the has-basic-structural-unit of
+								     (the input of Self)))))
+						 (if ((the2 of It)
+						      = O)
+						     then
+						   (:pair
+						    ((the1 of It) + 3)
+						    O)
+						   else
+						   It))))))))))))
+		 or
+		 (the output of
+		      (a Identify-Chemical-Entity with
+			 (input (
+				 (a Anion with
+				    (nested-atomic-chemical-formula
+				     ((a Chemical-Formula with
+					 (term (
+						;; get the new nested formula
+						(forall-seq
+						 (the term of
+						      (the atomic-chemical-formula of
+							   (the Anion has-part of
+								(the has-basic-structural-unit of
+								     (the input of Self)))))
+						 (if ((the2 of It)
+						      = O)
+						     then
+						   (:pair
+						    ((the1 of It) + 4)
+						    O)
+						   else
+						   It))))))))))))
+		 
+				    
+      )))
+      
+      (output (;; check to see if there is an oxidized anion 
+	       ;; ie. an anion w/ the same number of Y
+	       ;; but more O
+		(if (((the number of (the input of Self)) = 1)     ;; input is an Acid
+                     and
+                     (has-value (the context of Self)))
+		    then
+		  (a Acid with
+		     (has-basic-structural-unit
+		      ((a Ionic-Compound with
+			  (has-part ((a H-Plus)
+				     (the context of Self)))
+                       )))
+                  )
+		  )
+		)
+	      )
+      )
+
+
+
+(Oxidize-an-Acid 
+ has
+ (test-case (' (
+		((the elements of
+		      (the term of 
+			   (the has-chemical-formula of 
+				(the has-basic-structural-unit of
+				     (the output of 
+					  (a Oxidize-an-Acid with (input ((a HClO3-Substance)))))))))
+		 =
+		 (:set (:pair 1 H-Plus)
+		       (:pair 1 ClO4-Minus)))
+))))

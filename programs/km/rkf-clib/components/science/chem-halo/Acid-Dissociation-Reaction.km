@@ -1,0 +1,346 @@
+; 
+;;    $Id: Acid-Dissociation-Reaction.km,v 1.4 2008/10/15 22:36:16 tecuci Exp $ 
+;; 
+(Acid-Dissociation-Reaction has
+  (superclasses     (Dissociation-Reaction))
+  ;;s(user-description ("An equilibrium reaction where the equilibrium constant Keq is equal to the acid dissociation constant Ka."))
+)
+
+#|(every Acid-Dissociation-Reaction has-definition
+  (instance-of  (Dissociation-Reaction))
+  (raw-material (
+    (a Polyprotic-Acid with
+       ;; Make sure that a Hydrolysis is not classified as 
+       ;; a complete dissociation.
+       (raw-material-of (
+         (constraint ((not (oneof TheValue where (It isa Hydrolysis)))))
+       ))       
+    )))
+)|#
+
+;; 
+;; Encodes aspects of L.46 and L.51.
+;;
+;; NOTE: Need to associate the individual dissociations in 
+;;       subevent with the individual dissociation constants
+;;       in Ki.
+;;
+(every Acid-Dissociation-Reaction has
+
+  (keq ((if ((not (the keq of Self))
+             and 
+             #|(not (the value of (the ka of Self)))
+             and
+             (not (the value of 
+                       (the ka of
+                            (the Acid-Role plays of
+                                 ((the raw-material of Self) called "Reactant")))))
+             and|#
+             (not (oneof (the ki of Self) where ((the value of It) = nil)))
+            )
+         then
+         (a Equilibrium-Constant-Value with
+            (value (
+              (:pair (the product of
+                          (forall-bag (the bag of (the ki of Self))
+                            (the1 of (the value of It))))
+                     nil))))
+         [Acid-Dissociation-Reaction-keq-4]
+  )))
+
+  ;;
+  ;; Ka and Ka expression is equal to the Keq and Keq expression,
+  ;; respectively, since the raw-material is a Acid.
+  ;; 
+  (ka ((if (not (the ka of Self))
+        then (the keq of Self)
+        [Acid-Dissociation-Reaction-ka-1]
+  )))
+
+  ;; 
+  ;; The Kis of each individual equilibrium reaction that is
+  ;; combined to form an overall equilibrium reaction. Each
+  ;; Equilibrium-Constant-Value will possess a subscript slot 
+  ;; to encode this information. This is a Variant of L.51.
+  ;;
+  ;; [dgt] copied from Equilibrium-Reaction
+  (ki ((if ((the ki of Self)
+	    and
+	    (not (oneof (the ki of Self) where ((the value of It) = nil)))
+            and
+            (the1 of (the value of (the keq of Self)))
+            and
+            ((the product of
+                  (forall-bag (the bag of (the ki of Self))
+                    (the1 of (the value of It))))
+             /= 
+             (the1 of (the value of (the keq of Self)))))
+            then
+	    (a Equilibrium-Constant-Value with
+	       (subscript ((a Subscript-Value)))
+	       (value ((:pair
+			 ((the1 of (the value of (the keq of Self)))
+                          /
+                          (the product of
+                            (forall-bag (the bag of (the ki of Self))
+                              (the1 of (the value of It)))))
+                         nil))))
+            else
+	    (a Equilibrium-Constant-Value with
+	       (subscript ((a Subscript-Value)))
+	    )
+	    ;; [Equilibrium-Reaction-ki-1]   ;; Don't justify this vacuous calc
+  )))
+
+  (ka-expression (  
+    (if (not (the ka-expression of Self))
+     then (the keq-expression of Self)
+     [Acid-Dissociation-Reaction-ka-expression-1]
+  )))
+
+  (pka ((if ((not (the pka of Self))
+             and
+             (not (the1 of
+                   (the value of
+                    (the pka of
+                     (the Acid-Role plays of
+                       ((the raw-material of Self) called "Reactant"))))))
+             and
+             (the1 of (the value of (the ka of Self))))
+            then
+            (a PKa-Value with
+               (value (
+                 (:pair
+                   (0
+                    -
+                    ((the log of (the1 of (the value of (the ka of Self)))) /
+                     (the log of 10)))
+                   nil))))
+         [Acid-Dissociation-Reaction-pka-1]
+  )))
+
+  (pka ((if ((not (the pka of Self))
+             and
+             (the1 of
+               (the value of
+                 (the pka of
+                   (the Acid-Role plays of
+                     ((the raw-material of Self) called "Reactant")))))
+             and
+             (not (the1 of (the value of (the ka of Self)))))
+            then
+            (a PKa-Value with
+               (value (
+                 (:pair
+                   (the1 of
+                    (the value of
+                     (the pka of
+                      (the Acid-Role plays of
+                       ((the raw-material of Self) called "Reactant")))))
+                   nil))))
+         [Acid-Dissociation-Reaction-pka-2]
+  )))
+
+  ;; 
+  ;; The individual dissociations can be viewed as the subevents of
+  ;; the complete dissocation reaction. Each individual dissociation
+  ;; is a hydrolysis.
+  ;;
+  (subevent (
+    (if (not (the subevent of Self))
+        then
+        #'(LAMBDA ()
+            (COMPUTE-DISSOCIATIONS 
+              (KM0 '((|the| |raw-material| |of| |Self|) |called| "Reactant")))))))
+
+  ;; 
+  ;; The raw material of the reaction is a polyprotic acid.
+  ;;
+  (raw-material ((a Polyprotic-Acid called "Reactant")
+                 (a H2O-Substance)
+                ))
+
+  (result (
+    (if (not (the result of Self))
+        then
+        (:set
+          (a Chemical with
+             ;;
+             ;; The coefficient of H3O+ is the number of protons 
+             ;; lost by the polyprotic acid.
+             ;; 
+             ;; NOTE: We do not need to explicitly encode this fact b/c the
+             ;;       balance equation module will take care of this.
+             ;;
+             ;; (coefficient ((a Coefficient-Value))) 
+             ;;
+             (has-basic-structural-unit ((a H3O-Plus))))             
+          (a Chemical with
+             (has-basic-structural-unit (
+               (a Chemical-Entity with
+                  ;;
+                  ;; Compute the charge of this result. 
+                  ;;
+                  (charge (
+                    (if (oneof (the elements of
+                                 (the term of (the has-chemical-formula of
+                                   (the has-basic-structural-unit of
+                                     ((the raw-material of Self) called "Reactant")))))  
+                          where
+                          ((the2 of It) = H-Plus))
+                        then
+                        (a Charge-Value with
+                           (value (
+                             (:pair
+                               (((the1 of (the value of (the charge of 
+                                   (the has-basic-structural-unit of
+                                     ((the raw-material of Self) called "Reactant")))))
+                                 or
+                                 0)
+                                -
+                                (the1 of (oneof (the elements of
+                                                  (the term of (the has-chemical-formula of
+                                                    (the has-basic-structural-unit of
+                                                      ((the raw-material of Self) called "Reactant")))))
+                                           where
+                                           ((the2 of It) = H-Plus))))
+                               *unity)))))))
+                  (has-chemical-formula (
+                    (a Chemical-Formula with
+                       (term (
+			      (if (the term of (the has-chemical-formula of
+                                          (the has-basic-structural-unit of 
+                                               ((the raw-material of Self) called "Reactant"))))
+				  then
+				;; the raw-material losses all H+, so simply remove
+				;; the H+ if there is only 1 H+
+				(forall-seq (the term of (the has-chemical-formula of
+							      (the has-basic-structural-unit of 
+								   ((the raw-material of Self) called "Reactant"))))
+					    where
+					    ((the2 of It) /= H-Plus)
+					    It))))))))))))
+  )))
+)
+
+(comment [Acid-Dissociation-Reaction-keq-1]
+  (:seq "Ka is known, therefore, Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "In a complete dissociation reaction the equilibrium constant Keq is equal to the acid dissociation constant Ka"
+)
+
+(comment [Acid-Dissociation-Reaction-keq-2]
+  (:seq "Ka is known, therefore, Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "In a complete dissociation reaction the equilibrium constant Keq is equal to the acid dissociation constant Ka"
+)
+
+(comment [Acid-Dissociation-Reaction-keq-3]
+  (:seq "Keq ="
+        (the1 of (the value of (the keq of Self)))
+  ) 
+  "The equilibrium constant Keq must be computed from the Keq expression"
+  (:set (:triple Self keq-expression *)
+        (:triple (a Compute-Equilibrium-Constant with (input (Self))) output *)
+  )
+)
+
+(comment [Acid-Dissociation-Reaction-keq-4]
+  (:seq "Keq ="
+        (the1 of (the value of (the first of (the ki of Self))))
+        (forall (the ki of Self)
+                where (It /= (the first of (the ki of Self)))
+                (:seq "*" (the1 of (the value of It)))
+        )
+        "="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "The overall equilibrium constant Keq of a combined reaction is equal to the product of the equilibrium constants for each individual reaction"
+)
+
+(comment [Acid-Dissociation-Reaction-ka-1]
+  (:seq "Therefore, Ka ="
+        (the1 of (the value of (the ka of Self)))
+  )
+  "In a complete dissociation reaction the acid dissociation constant Ka is equal to the equilibrium constant Keq"
+  (:triple Self keq *)
+)
+
+(comment [Acid-Dissociation-Reaction-ka-expression-1]
+  (:seq "Therefore, the Ka expression is"
+        (:seq "{"
+              (forall (the1 of             ;; numerator
+                            (the term of
+                                 (the ka-expression of Self)))
+                      (:seq "nospace" "[" "nospace"
+                            (the text-gen of (the2 of It))
+                            "nospace" "]"
+                            (if ((the1 of It) > 1)
+                             then (:seq "nospace" "^" "nospace"
+                                        (the1 of It))
+                            )
+                      )
+              )
+              "nospace" "}/{"
+              (forall (the2 of             ;; denominator
+                            (the term of
+                                 (the ka-expression of Self)))
+                      (:seq "nospace" "[" "nospace"
+                            (the text-gen of (the2 of It))
+                            "nospace" "]"
+                            (if ((the1 of It) > 1)
+                             then (:seq "nospace" "^" "nospace"
+                                        (the1 of It))
+                            )
+                      )
+              )
+              "nospace" "}"
+        )
+  )
+  "In a complete dissociation reaction the acid dissociation constant expression Ka is equal to the equilibrium constant expression Keq"
+  (:triple Self keq-expression *)
+)
+
+
+(comment [Acid-Dissociation-Reaction-pka-1]
+  (:seq "The pKa of this reaction is thus = -log("
+        "nospace" (the1 of (the value of (the ka of Self)))
+        "nospace" ") ="
+        (the1 of (the value of (the pka of Self)))
+  )
+  "The pKa of a reaction = -log(Ka)"
+)
+
+(comment [Acid-Dissociation-Reaction-pka-2]
+  (:seq "The pKa of this reaction is thus = -log("
+        "nospace" (the1 of (the value of (the ka of Self)))
+        "nospace" ") ="
+        (the1 of (the value of (the pka of Self)))
+  )
+  "The pKa of a reaction = -log(Ka)"
+)
+
+
+;; [dgt] copied from Equilibrium-Reaction
+(comment [Equilibrium-Reaction-keq-1]
+  (:seq "Keq ="
+        (the1 of (the value of (the keq of Self)))
+  )
+  "The equilibrium constant Keq of a reaction must be computed from the Keq expression"
+  (:triple (a Compute-Equilibrium-Constant with (input (Self))) output *)
+)
+
+
+;; [dgt] copied from Equilibrium-Reaction
+(comment [Equilibrium-Reaction-keq-expression-1]
+  ""
+  "The equilibrium constant expression for an equilibrium reaction is a ratio of product concentrations and reactant concentrations"
+  (:triple (a Compute-Equilibrium-Expression with
+              (input (Self)))
+           output
+           *
+  )
+)
+

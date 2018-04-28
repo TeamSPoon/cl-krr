@@ -1,0 +1,14 @@
+;;
+;; $Id: Contestant.km,v 1.1 2009/10/15 15:08:10 kbarker Exp $
+;;
+
+(Contestant has (superclasses (Role)))
+
+(every Contestant has
+  (in-event ((must-be-a Contest)))
+)
+
+(Contestant has (wn20-synset ((:set 
+  (:triple "contestant" 1 "n")
+))))
+

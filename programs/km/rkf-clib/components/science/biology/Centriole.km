@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Centriole.km,v 1.20 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Centriole has
+	   ;; TODO given the description "array of microtubulues...",
+	   ;; shouldn't it be Sequence ?
+	   (superclasses (Protein-Complex Aggregate))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (cmap-correspondence ())
+	   (description ("Short cylindrical array of microtubules, usually found
+                       in animal cells in a paired arrangement at the center 
+                       of a centrosome.  Similar structures are found at the
+                       base of cilia and flagella, where they are called basal
+                       bodies. Alberts:ECB:G-4"))
+	   (test-case ()))
+
+(every Centriole has
+
+       (element-type (Microtubule))
+       (purpose ((a Instrument-Role with
+                    (in-event ((a Mitosis))))
+		 ))
+       )
+
+
+
+(every Centriole has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

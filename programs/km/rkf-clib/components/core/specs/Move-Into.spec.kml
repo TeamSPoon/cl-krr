@@ -1,0 +1,112 @@
+<!--- $Id: Move-Into.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Move-Into><system-documentation name=Move-Into>
+<superconcept name=Move-Through>
+
+<definition>
+
+  An <slot>object</slot> changes location by moving into a container,
+  putting the <slot>object</slot> into a 
+  <conceptref name=Be-Contained> state.    
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that moves
+  </slotdescription>
+
+  <slotdescription name=base>
+     the Tangible-Entity, playing the role of <conceptref name=Container>,
+     which the <slot>object</slot> moves into
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the move to occur
+  </slotdescription>
+
+  <slotdescription name=path>
+    the <conceptref name=Portal> through which the 
+    <slot>object</slot> enters the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the move.  
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-outside</slot> the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the move.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-inside</slot> the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The protein moved into the cell nucleus through a pore.</text>
+    <slotdescription name=object>the protein</slotdescription>
+    <slotdescription name=base>cell nucleus</slotdescription>
+    <slotdescription name=path>pore</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Be-Contained>
+    Move-Into puts an object into a Be-Contained state
+  </neighbor>
+
+  <neighbor name=Move-Out-Of>
+    Move-Out-Of takes an object out of a Be-Contained state
+  </neighbor>
+
+  <neighbor name=Move-Through>
+     Move-Into is a special type of Move-Through in which the 
+     the <slot>object</slot> moves through a portal and into 
+     a container
+  </neighbor>
+
+  <neighbor name=Enter>
+     Enter is a special type of Move-Into in which the
+     <slot>object</slot> moves of its own volition, i.e. 
+     it locomotes
+  </neighbor>
+
+  <neighbor name=Load>
+     Load is a special type of Move-Into in which an object is inserted
+     into a device, thereby activating it 
+  </neighbor>
+
+  <neighbor name=Take-In>
+     Take-In is a special type of Move-Into in which a Tangible-Entity,
+     playing the role of a <conceptref name=Container>, takes something
+     from the outside into itself
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

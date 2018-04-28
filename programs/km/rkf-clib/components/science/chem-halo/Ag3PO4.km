@@ -1,0 +1,14 @@
+;; $Id: Ag3PO4.km,v 1.5 2006/01/24 20:27:28 jfan Exp $ 
+(Ag3PO4 has (superclasses (Ionic-Compound)))
+(every Ag3PO4 has
+	(has-chemical-name ("silver phosphate"))
+	(has-part ((a Ag-Plus)(a PO4-Minus-3)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 3 Ag-Plus)
+			(:pair 1 PO4-Minus-3)))))))
+)
+(every Ag3PO4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Ag-Plus) (a PO4-Minus-3))))
+

@@ -1,0 +1,37 @@
+;;
+;;  $Id: Instruction.km,v 1.6 2004/07/20 22:29:23 gking Exp $
+;;
+
+
+(Instruction has
+        (superclasses (Role))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (description ())
+        (cmap-correspondence ())) 
+
+(every Instruction has
+       	(in-event ((a Action)))  ;; should be in an information transfer
+	(played-by ((a Information with
+		      (information-content ((must-be-a Action)))
+                      (object-of ((the in-event of Self))))))
+)
+
+
+
+
+;; automatically added WN synsets
+(Instruction has (wn16-synset ((:set  
+                                          (:triple "direction" 6 "n")
+                                          (:triple "command" 7 "n")
+                                          (:triple "statement" 6 "n")
+                                          (:triple "program_line" 1 "n")
+))))
+
+(Instruction has (wn20-synset ((:set
+                                          (:triple "direction" 6 "n")
+                                          (:triple "command" 7 "n")
+                                          (:triple "statement" 6 "n")
+                                          (:triple "program_line" 1 "n")
+))))

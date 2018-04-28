@@ -1,0 +1,16 @@
+;;    $Id: Molecule.km,v 1.1 2006/04/14 21:59:47 jfan Exp $
+
+;; TODO: remove an replace with Molecular-Compound
+;; right now assume is similar to Molecular-Compound
+;; molecule exists in biology dir too.
+(Molecule has
+	  (superclasses (Chemical-Entity))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (cmap-correspondence ())
+)
+
+(every Molecule has
+       (has-basic-structural-unit ((a Atom))))
+

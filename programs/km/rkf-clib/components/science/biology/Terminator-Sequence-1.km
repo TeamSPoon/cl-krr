@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Terminator-Sequence-1.km,v 1.6 2002/06/21 19:17:02 tecuci Exp $
+;; 
+
+(Terminator-Sequence-1 has
+     (superclasses (DNA-Regulatory-Sequence))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A DNA consensus sequence that forms part of the terminator
+                    for DNA transcription. Alberts:ECB:217"))
+     (cmap-correspondence ()))
+
+(every Terminator-Sequence-1 has
+
+     (element-type (Deoxyribonucleotide))
+     (first-element (((the D-GMP element of Self) called "first")))
+     (element ((a D-GMP called "first" with
+		  (next-element (((the D-CMP element of Self) called "second"))))
+	       (a D-CMP called "second" with
+		  (next-element (((the D-CMP element of Self) called "third"))))
+	       (a D-CMP called "third" with
+		  (next-element (((the D-GMP element of Self) called "fourth"))))
+	       (a D-GMP called "fourth" with
+		  (next-element (((the D-CMP element of Self) called "fifth"))))
+	       (a D-CMP called "fifth" with
+		  (next-element (((the D-CMP element of Self) called "sixth"))))
+	       (a D-CMP called "sixth" with
+		  (next-element (((the D-AMP element of Self) called "seventh"))))
+	       (a D-AMP called "seventh" with
+		  (next-element (((the D-GMP element of Self) called "eigth"))))
+	       (a D-GMP called "eight"))))
+
+
+

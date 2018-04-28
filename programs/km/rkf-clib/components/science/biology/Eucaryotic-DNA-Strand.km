@@ -1,0 +1,41 @@
+;; 
+;;    $Id: Eucaryotic-DNA-Strand.km,v 1.12 2001/05/31 21:50:01 pnav Exp $ 
+;; 
+
+(Eucaryotic-DNA-Strand has
+         (superclasses (DNA-Strand))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("One of two strands that make up the DNA double helix.
+                        The two strands run antiparallel and are held 
+                        together by Hydrogen-Bond between the bases.
+                        Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Eucaryotic-DNA-Strand has
+;       (purpose ((a Template with 
+;                    (in-event ((Eucaryotic-DNA-Replication))))
+;                 ))         
+       (has-part 
+           ((a DNA-Gene-Coding-Sequence with
+                (has-part
+		 (
+		  (a DNA-Noncoding-Sequence)
+		  (at-least 1 DNA-Noncoding-Sequence)
+		  (a Eucaryotic-Gene)
+		  (at-least 1 Eucaryotic-Gene)
+		  )
+		 ))
+	    
+	    )))
+
+;; needs sequence alternation of exons and introns
+
+; different cross-cuts of DNA-Region need to be noted and differentiated.
+; notion that genes are also a functional unit (now coded as a has-region of a
+; DNA coding region
+
+
+

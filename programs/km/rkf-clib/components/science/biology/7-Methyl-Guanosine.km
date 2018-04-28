@@ -1,0 +1,41 @@
+;; 
+;;    $Id: 7-Methyl-Guanosine.km,v 1.12 2002/02/08 18:51:39 kbarker Exp $ 
+;; 
+
+(7-Methyl-Guanosine has
+		    (superclasses (Guanosine))
+		    (required-slot ())
+		    (primary-slot ())
+		    (secondary-slot ())
+		    (description ("A modified guanosine which is attached to 
+                                   the 5' end of newly made mRNA during RNA 
+                                   capping.  Alberts:ECB:218."))
+                    (description ("A modified Guanosine which is attached to
+                                   the 5' end of newly made MRNA during 
+                                   RNA-Caapping.  Alberts:ECB:218."))  
+		    (cmap-correspondence ()))
+
+; This concept should have been off-limits to the SMEs for the
+; Jan-Feb 2002 retest but leaked through. To prevent it from
+; helping our scores in question answering we are gutting it.
+; 
+; (every 7-Methyl-Guanosine has
+;        (has-part ((a Methyl-Group)
+; 		  (a Guanosine with
+; 		     (object-of
+; 		      ((a Be-Attached-To with
+; 			  (object
+; 			   ((the Methyl-Group has-part of Self)))
+; 			  (site
+; 			   (((the Nitrogen-Atom has-part of
+; 				  (the Guanine has-part of
+; 				       (the Guanosine has-part of Self)))
+; 			     called "Nitrogen-7")
+; 			    ((the Carbon-Atom has-part of
+; 				  (the Methyl-Group has-part of Self)))))
+; 			  (instrument ((a Covalent-CO-Bond)))
+; 			  ))))
+; 		     ))
+;       )
+
+

@@ -1,0 +1,80 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Cytosine ----------
+
+(Cytosine has (superclasses (Nucleotide)))
+
+(_Cytosine402 has 
+  (instance-of (Cytosine))
+  (prototype-of (Cytosine))
+  (prototype-scope (Cytosine))
+  (prototype-participants (_Guanine423
+                           _Atom421
+                           _Phosphate420
+                           _Cytosine402))
+  (prototype-participant-of (_Cytosine402))
+  (has-clones (_Placeholder-Class401403))
+  (has-built-clones (_Placeholder-Class401403))
+  (has-basic-structural-unit (_Atom421))
+  (has-part (_Phosphate420))
+  (cloned-from (_Nucleotide337))
+  (clone-built-from (_Nucleotide337))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq complement _Guanine423 t)
+                    (:seq has-part _Phosphate420 t)
+                    (:seq has-basic-structural-unit _Atom421 f)))
+  (edge-coordinate ((:seq complement _Guanine423 170 512)
+                    (:seq has-part _Phosphate420 201 583)
+                    (:seq has-basic-structural-unit _Atom421 201 627)))
+  (node-coordinate ((:pair 50 600)))
+  (complement (_Guanine423)))
+
+(_Guanine423 has 
+  (instance-of (Guanine))
+  (has-clones (_Guanine422))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (complement-of (_Cytosine402))
+  (node-coordinate ((:pair 290 423)))
+  (prototype-participant-of (_Cytosine402)))
+
+(_Atom421 has 
+  (instance-of (Atom))
+  (has-clones (_Atom404))
+  (cloned-from (_Atom347))
+  (is-basic-structural-unit-of (_Cytosine402))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 351 621)))
+  (prototype-participant-of (_Cytosine402)))
+
+(_Phosphate420 has 
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate405))
+  (cloned-from (_Phosphate346))
+  (is-part-of (_Cytosine402))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 351 577)))
+  (prototype-participant-of (_Cytosine402)))
+
+(explanation (:triple _Cytosine402 has-basic-structural-unit _Atom421) ((cloned-from _Nucleotide337 _Cytosine402)))
+(explanation (:triple _Cytosine402 has-part _Phosphate420) ((cloned-from _Nucleotide337 _Cytosine402)))
+(explanation (:triple _Cytosine402 has-basic-structural-unit _Atom421) ((a Atom (@ _Cytosine402 Molecule has-basic-structural-unit))))
+(explanation (:triple _Cytosine402 has-part _Phosphate420) ((added-at Nucleotide "User defined")))
+(explanation (:triple _Cytosine402 complement _Guanine423) ((added-at Cytosine "User defined")))
+(explanation (:triple _Guanine423 instance-of Guanine) ((added-at Cytosine "User defined")))
+(explanation (:triple _Atom421 instance-of Atom) ((cloned-from _Nucleotide337 _Cytosine402)))
+(explanation (:triple _Atom421 is-basic-structural-unit-of _Cytosine402) ((cloned-from _Nucleotide337 _Cytosine402)))
+(explanation (:triple _Atom421 instance-of Atom) ((a Atom (@ _Cytosine402 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom421 instance-of Atom) ((a Atom)))
+(explanation (:triple _Phosphate420 instance-of Phosphate) ((cloned-from _Nucleotide337 _Cytosine402)))
+(explanation (:triple _Phosphate420 is-part-of _Cytosine402) ((cloned-from _Nucleotide337 _Cytosine402)))
+(explanation (:triple _Phosphate420 instance-of Phosphate) ((added-at Nucleotide "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

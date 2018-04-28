@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Sigma-Factor.km,v 1.8 2001/05/19 02:50:33 souther Exp $ 
+;; 
+
+(Sigma-Factor has
+         (superclasses (Nucleoprotein))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A subunit of procaryotic RNA polymerase which interacts
+                        with the promoter to signal the polymerase to initiate
+                        transcription at a specific sequence in template DNA.
+                        Lodish:MCB:347. ")) 
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Sigma-Factor has
+       (purpose ((a Connector with
+		    (in-event ((a Attach with
+				  (object ((a RNA-Polymerase)))
+				  (base ((a Promoter)))))))))
+         (is-part-of ((a RNA-Polymerase))))
+
+
+
+

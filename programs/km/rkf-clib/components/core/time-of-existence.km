@@ -1,0 +1,21 @@
+;; 
+;;    $Id: time-of-existence.km,v 1.11 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(time-of-existence has
+       (instance-of (Temporal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Entity Role))
+       (range (Time-Interval))
+       (inverse (time-of-existence-of))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (cardinality (N-to-1)))
+
+(time-of-existence has
+	(text-gloss ("exists during")))
+
+(time-of-existence-of has
+	(instance-of (Temporal-Relation)))
+

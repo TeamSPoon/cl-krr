@@ -1,0 +1,86 @@
+<!--- $Id: Destroy.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<kml>
+
+<concept name=Destroy><system-documentation name=Destroy>
+<superconcept name=Break>
+
+<definition>
+
+  Destroy something, i.e. cause it to cease to exist.  
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing destroyed.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the destruction.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing that was used to destroy the object.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the destruction.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The house was destroyed by fire.</text>
+    <slotdescription name=object>the house</slotdescription>
+    <slotdescription name=by-means-of>a fire</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>John destroyed the vase with his bat. </text>
+    <slotdescription name=object>the vase</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=instrument>John's bat</slotdescription>
+  </examplesentence>
+  <comment>
+     You would no longer call the object a vase after John 
+     destroyed it.  It ceases to exist, even though pieces of 
+     the vase continue to exist.
+  </comment>
+
+  <examplesentence>
+    <text>The collision destroyed the car. </text>
+    <slotdescription name=object>the car</slotdescription>
+    <slotdescription name=by-means-of>the collision</slotdescription>
+  </examplesentence>
+  <comment>
+     This might be a bit exaggerated.  Use <conceptref name=Break> 
+     to say that the car ceases to perform its function, or use
+     <conceptref name=Ruin> to say that the car cannot be repaired.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Break>
+     A destroyed object ceases to exist, whereas a broken object
+     continues to exist but loses its functionality.
+  </neighbor>
+  
+  <neighbor name=Ruin>
+     A destroyed object ceases to exist, whereas a ruined object
+     continues to exist but permanently loses its functionality.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

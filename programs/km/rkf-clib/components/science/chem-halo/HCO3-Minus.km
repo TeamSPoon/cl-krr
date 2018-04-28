@@ -1,0 +1,19 @@
+;; $Id: HCO3-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $ 
+(HCO3-Minus has (superclasses (Anion)))
+(every HCO3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("hydrogen carbonate" "bicarbonate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 C) (:pair 3 O)))))))
+)
+
+
+(every HCO3-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen carbonate"
+                      "bicarbonate"))
+)
+
+(HCO3-Minus has (wn20-synset ((:triple "HCO3-" 0 "n") (:triple "HCO_3-" 0 "n"))))

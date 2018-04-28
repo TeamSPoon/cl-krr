@@ -1,0 +1,74 @@
+<!--- $Id: Be-Accessible.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Accessible><system-documentation name=Be-Accessible>
+
+<superconcept name=State>
+
+<definition>
+
+  The state of an object in which it's accessible to other things.
+  For example, an object in this state can be affected by events and 
+  con make contact with other objects.  Objects are assumed to be in 
+  this state, by default. 
+
+  An object is put in this state by <conceptref name=Make-Accessible>.
+
+  An object is taken out of this state by <conceptref name=Make-Inaccessible>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the thing that becomes accessible
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+   <slotdescription name=base>
+      the thing to which the <slot>object</slot> is accessible
+   </slotdescription>
+
+   <slotdescription name=resulting-from>
+      the <conceptref name=Make-Accessible> action that creates this state
+   </slotdescription>
+
+</primaryslotlist>
+
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>The peanut butter became accessible when the jar was opened.</text>
+     <slotdescription name=object>peanut butter</slotdescription>
+     <slotdescription name=resulting-from>open the jar</slotdescription>
+   </examplesentence>
+   
+   <examplesentence>
+     <text>The database was open for use by the managers.</text>
+     <slotdescription name=object>the database</slotdescription>
+     <slotdescription name=base>the managers</slotdescription>
+   </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Activated>
+      Be-Activated is special kind of Be-Accessible in which an object 
+      is ready to participate in some action.
+   </neighbor>
+
+   <neighbor name=Be-Open>
+      Be-Open is a special kind of Be-Accessible in which a 
+     <conceptref name=Portal-Cover> is removed from a 
+     <conceptref name=Portal>, enabling free movement through the Portal.
+   </neighbor>
+
+</neighborlist>
+   
+</kml>
+
+

@@ -1,0 +1,20 @@
+;; $Id: MnO4-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(MnO4-Minus has (superclasses (Anion)))
+(every MnO4-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("permanganate"))
+	(has-acid-name ("permanganic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Mn) (:pair 4 O)))))))
+)
+
+
+(every MnO4-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("permanganate"))
+)
+
+
+(MnO4-Minus has (wn20-synset ((:triple "MnO4-" 0 "n") (:triple "MnO_4-" 0 "n"))))

@@ -1,0 +1,37 @@
+<!--- $Id: duration.spec.kml,v 1.5 2008/02/06 02:47:44 hari5851 Exp $ --->
+<kml>
+<property-doc name=duration>
+<gpd-documentation name=Property>
+
+<from name=Event>
+<to name=Duration-Value>
+
+<description> 
+  duration of an Event of Time-Interval
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Duration>
+<p>
+    <examplesentence>
+      <text>12 year old war</text>
+      <slotdescription name=number>12</slotdescription>
+      <slotdescription name=unit of measure>year</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>forever, brief</scalars>
+<scale name=forever-brief-scale>forever..brief</scale>
+    <p>
+    <examplesentence>
+      <text>brief moment</text>
+      <slotdescription name=value>brief</slotdescription>
+      <slotdescription name=relative to>Moment</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>

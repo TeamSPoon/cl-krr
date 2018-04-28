@@ -1,0 +1,91 @@
+<!--- $Id: Block-Avenue-of-Approach.spec.kml,v 1.1 2005/08/01 20:56:40 jchaw Exp $ --->
+<kml>
+
+<concept name=Block-Avenue-of-Approach>
+<superconcept name=Military-Task>
+
+<definition>
+
+   a tactical mission task that prevents an enemy's advance along an
+   avenue of approach
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that blocks the enemy's advance
+  </slotdescription>
+
+  <slotdescription name=object>
+     the <conceptref name=Spatial-Entity>, such as a road, that is blocked
+     by the <slot>agent</slot>
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=base>
+     the <conceptref name=Military-Unit> that becomes blocked
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Annihilate-Unit>
+     Annihilate-Unit is a tactical mission task in which one military unit
+     annihilates another     
+  </neighbor>
+
+  <neighbor name=Canalize>
+     Canalize is a tactical mission task in which a military unit
+     restricts enemy movement to a narrow zone
+  </neighbor>
+
+  <neighbor name=Contain>
+     Contain is a tactical mission task in which a military unit
+     stops, holds, or surrounds enemy forces
+  </neighbor>
+
+  <neighbor name=Defeat-Unit>
+     Defeat-Unit is a tactical mission task in which one military unit
+     defeats another (i.e. reduces its <slot>combat-strength</slot>
+     to defeated)
+  </neighbor>
+
+  <neighbor name=Destroy-Unit>
+     Destroy-Unit is a tactical mission task in which one military unit
+     destroys the <slot>combat-strength</slot> of another military
+     unit
+  </neighbor>
+
+  <neighbor name=Disrupt>
+     Disrupt is a tactical mission task to upset an enemy action
+  </neighbor>
+
+  <neighbor name=Fix>
+     Fix is a tactical mission task to prevent the enemy from moving
+  </neighbor>
+
+  <neighbor name=Interdict>
+     Interdict is a tactical mission task to prevent, disrupt, or
+     delay the enemy's use of an area or route
+  </neighbor>
+
+  <neighbor name=Neutralize-Unit>
+     Neutralize-Unit is a tactical mission task in which one military unit
+     neutralizes the <slot>combat-strength</slot> of another military
+     unit
+  </neighbor>
+
+  <neighbor name=Suppress>
+     Suppress is a tactical mission task to degrade the performance of
+     a force or weapon system temporarily
+  </neighbor>
+
+
+</neighborlist>
+
+</kml>

@@ -1,0 +1,21 @@
+;;
+;; $Id: VOCl.km,v 1.7 2006/03/16 23:08:29 jfan Exp $
+;;
+
+(VOCl has (superclasses (Inorganic-Molecule)))
+
+(every VOCl has
+       (has-chemical-name ("vanadium hypochlorite"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 V)
+			 (:pair 1 O)
+			 (:pair 1 Cl)))))))
+)
+
+
+(every VOCl has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("vanadium hypochlorite"))
+)

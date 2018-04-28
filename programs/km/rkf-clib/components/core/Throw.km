@@ -1,0 +1,44 @@
+;; 
+;;    $Id: Throw.km,v 1.5 2008/06/09 19:44:27 kbarker Exp $ 
+;; 
+
+(Throw has 
+  (superclasses       	(Move))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Throw has
+  (first-subevent ((the Propel subevent of Self)))
+  (subevent ((a Propel with
+                (agent ((the agent of Self)))
+                (object ((the object of Self)))
+                (destination ((the destination of Self)))
+                (toward ((the toward of Self)))
+                (next-event ((the Let-Go-Of subevent of Self)))
+             )
+             (a Let-Go-Of with
+                (agent ((the agent of Self)))
+                (object ((the object of Self)))
+                (causes ((a Fall with
+                            (object ((the object of Self))))))
+             )
+  ))
+)
+
+
+(every Throw has
+  (text-active-verbseq-sg ("throws"))
+  (text-active-verbseq-pl ("throw"))
+  (text-passive-verbseq-sg ("is thrown"))
+  (text-passive-verbseq-pl ("are thrown"))
+
+  (text-argslots ((:seq destination)))
+)
+
+
+(Throw has (wn20-synset ((:set
+                               (:triple "throw" 1 "v")
+))))
+
+
+(every Throw has (text-nominalization ("throwing")))

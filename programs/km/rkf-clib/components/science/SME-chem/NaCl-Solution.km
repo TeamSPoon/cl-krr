@@ -1,0 +1,108 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _NaCl-Solution349
+
+
+|#
+
+(NaCl-Solution has (superclasses (Aqueous-Solution)))
+
+(NaCl-Solution now-has (user-description ("When a small amount of sodium chloride (NaCl) is dissolved in a large quantity of water,  the water is the solvent and the sodium chloride is the solute.")))
+
+(_NaCl-Solution366 has
+  (prototype-of (NaCl-Solution))
+  (prototype-scope (NaCl-Solution))
+  (prototype-participants (_Anion-Substance967 _Conductivity-Value962 _Color-Value961 _Cation-Substance960 _State-Value370 _Chemical369 _Chemical368 _Chemical-Entity959 _NaCl-Solution366)))
+
+(_NaCl-Solution366 has
+  (instance-of (NaCl-Solution))
+  (has-part (_Cation-Substance960 _Anion-Substance967))
+  (conductivity (_Conductivity-Value962))
+  (color (_Color-Value961))
+  (physical-state (_State-Value370))
+  (has-solute (_Chemical369))
+  (has-solvent (_Chemical368))
+  (has-basic-structural-unit (_Chemical-Entity959)))
+
+(_Chemical-Entity959 has (instance-of (Chemical-Entity)))
+
+(_Chemical368 has (instance-of (H2O-Substance)))
+
+(_Chemical369 has (instance-of (NaCl-Substance)) (has-part (_Cation-Substance960 _Anion-Substance967)))
+
+(_State-Value370 has (instance-of (State-Value)) (value (*liquid)))
+
+(_Cation-Substance960 has (instance-of (Cation-Substance)))
+
+(_Color-Value961 has (instance-of (Color-Value)) (value (*colorless)))
+
+(_Conductivity-Value962 has (instance-of (Conductivity-Value)) (value ((:pair *high-conductivity Tap-Water))))
+
+(_Anion-Substance967 has (instance-of (Anion-Substance)))
+
+(explanation (:triple _NaCl-Solution366 has-basic-structural-unit _Chemical-Entity959) (((@ SME entered)) (every NaCl-Solution has (has-basic-structural-unit ((a Chemical-Entity))))))
+
+(explanation (:triple _NaCl-Solution366 has-solvent _Chemical368) (((@ SME entered)) (every NaCl-Solution has (has-solvent ((a H2O-Substance))))))
+
+(explanation (:triple _NaCl-Solution366 has-solute _Chemical369) (((@ SME entered)) (every NaCl-Solution has (has-solute ((the second of (the is-part-of of (the first of (the has-part of Self)))))))))
+
+(explanation (:triple _NaCl-Solution366 physical-state _State-Value370) (((@ SME entered)) (every NaCl-Solution has (physical-state ((a State-Value))))))
+
+(explanation (:triple _NaCl-Solution366 has-part _Cation-Substance960) (((@ SME entered)) (every NaCl-Solution has (has-part ((the first of (the has-part of (the first of (the has-solute of Self)))) (a Anion-Substance))))))
+
+(explanation (:triple _State-Value370 value *liquid) (((@ SME entered)) (every NaCl-Solution has (physical-state ((a State-Value with (value (*liquid))))))))
+
+(explanation (:triple _NaCl-Solution366 color _Color-Value961) (((@ SME entered)) (every NaCl-Solution has (color ((a Color-Value))))))
+
+(explanation (:triple _Color-Value961 value *colorless) (((@ SME entered)) (every NaCl-Solution has (color ((a Color-Value with (value (*colorless))))))))
+
+(explanation (:triple _NaCl-Solution366 conductivity _Conductivity-Value962) (((@ SME entered)) (every NaCl-Solution has (conductivity ((a Conductivity-Value))))))
+
+(explanation (:triple _Conductivity-Value962 value (:pair *high-conductivity Tap-Water)) (((@ SME entered)) (every NaCl-Solution has (conductivity ((a Conductivity-Value with (value ((:pair *high-conductivity Tap-Water)))))))))
+
+(explanation (:triple _Chemical369 has-part _Cation-Substance960) (((@ SME entered)) (every NaCl-Solution has (has-solute ((a NaCl-Substance with (has-part ((the first of (the has-part of Self)) (a Anion-Substance)))))))))
+
+(explanation (:triple _NaCl-Solution366 has-part _Anion-Substance967) (((@ SME entered)) (every NaCl-Solution has (has-part ((a Cation-Substance) (the second of (the has-part of (the first of (the has-solute of Self)))))))))
+
+(explanation (:triple _NaCl-Solution366 instance-of NaCl-Solution) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity959 instance-of Chemical-Entity) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical368 instance-of H2O-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical369 instance-of NaCl-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value370 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance960 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Color-Value961 instance-of Color-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Conductivity-Value962 instance-of Conductivity-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance967 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every NaCl-Solution has (has-basic-structural-unit ((a Chemical-Entity))))
+(every NaCl-Solution has (has-solvent ((a H2O-Substance))))
+(every NaCl-Solution has (has-solute ((the second of (the is-part-of of (the first of (the has-part of Self)))))))
+(every NaCl-Solution has (physical-state ((a State-Value))))
+(every NaCl-Solution has (has-part ((the first of (the has-part of (the first of (the has-solute of Self)))) (a Anion-Substance))))
+(every NaCl-Solution has (physical-state ((a State-Value with (value (*liquid))))))
+(every NaCl-Solution has (color ((a Color-Value))))
+(every NaCl-Solution has (color ((a Color-Value with (value (*colorless))))))
+(every NaCl-Solution has (conductivity ((a Conductivity-Value))))
+(every NaCl-Solution has (conductivity ((a Conductivity-Value with (value ((:pair *high-conductivity Tap-Water)))))))
+(every NaCl-Solution has (has-solute ((a NaCl-Substance with (has-part ((the first of (the has-part of Self)) (a Anion-Substance)))))))
+(every NaCl-Solution has (has-solute ((a NaCl-Substance with (has-part ((a Cation-Substance) (the second of (the has-part of Self))))))))
+(every NaCl-Solution has (has-part ((a Cation-Substance) (the second of (the has-part of (the first of (the has-solute of Self)))))))
+
+|#
+
+|#
+

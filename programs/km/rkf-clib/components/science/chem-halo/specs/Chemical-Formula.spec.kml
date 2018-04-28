@@ -1,0 +1,47 @@
+<!--- $Id: Chemical-Formula.spec.kml,v 1.1 2005/09/09 14:08:30 jfan Exp $ --->
+
+<kml>
+<concept name=Chemical-Formula>
+<system-documentation=Chemical-Formula>
+
+<superconcept name=Thing>
+  <definition>
+  A Chemical-Formula is a linearly ordered collection of pairs of subscript and Chemical-Entity.
+  </definition>
+
+<recquireslotlist>
+  <slotdescription name=term>
+     The sequence of terms in the chemical formula.
+  </slotdescription>
+
+</recquiredslotlist>
+
+<musing>
+Chemical-Formula is used to represent both molecular-formulae and empirical-formulae, since there is no sctutural difference between them. Note that a molecular formula is the filler of the <slot>moelcular-formula</slot> slot; similar for empirical-formula.
+</musing>
+
+</kml>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>Water, H<sub>2</sub>O, contains twice more atoms of hydrogen than of oxygen</text>
+     <slotdescription name=term>(2 H), (1 O)</slotdesctiption>
+  </examplesentence>
+
+  <examplesentence>
+     <text>he played the trumps in sequence</text>
+  <comment>
+     Chemical-Formula is used to represent both molecular-formulae and empirical-formulae, 
+     since there is no sctutural difference between them. Note that a molecular formula 
+     is the filler of the <slot>moelcular-formula</slot> slot; similar for empirical formula.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+</neighborlist>
+
+</kml>
+

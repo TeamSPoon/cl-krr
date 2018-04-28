@@ -1,0 +1,82 @@
+<!--- $Id: Leave.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<kml>
+
+<concept name=Leave><system-documentation name=Leave>
+<superconcept name=Locomotion>
+
+<definition>
+
+  An <slot>agent</slot> moves itself away from some place. 
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the entity that moves
+  </slotdescription>
+  <comment>
+     Leave is a type of <conceptref name=Locomotion>.  Therefore, the
+     <slot>agent</slot> (the entity that causes the move) is the same
+     as the <slot>object</slot> (the thing being moved).
+  </comment>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>agent</slot> before it leaves
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the move.
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot> moves
+     along.  Typically, this is an object or surface along which the
+     <slot>object</slot> is moving.
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may.
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John left the parking lot to go to the restaurant.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=origin>the parking lot</slotdescription>
+    <slotdescription name=destination>the restaurant</slotdescription>
+  </examplesentence>
+  <comment>
+    This could also be coded with <conceptref name=Locomotion>.  
+    See the example sentence coded there.
+  </comment>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+     Leave is a special type of Move in which the <slot>agent</slot>
+     and the <slot>origin</slot> are required information; the agent 
+     moves away from the origin.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

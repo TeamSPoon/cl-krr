@@ -1,0 +1,24 @@
+;; $Id: ChatPresentationElement.km,v 1.6 2005/05/20 17:55:53 billj Exp $
+
+
+(ChatPresentationElement has
+
+	(description ("Instances allow CaloChat to persistently store
+arbitrary UI/presentation info.  Instances are opaque elements, only
+really used for persistence - i.e. re-creating the same look and feel
+across multiple sessions.  They are not intended to be used for
+reasoning or for sharing between CALO applications.  To the extent
+that such reasoning or sharing is needed, new vocabulary can be added
+to the ontology that affords greater transparency about
+UI/presentation information.  The slot hasOpaqueData contains the UI/
+presentation information.  hasEncoding is used to specify in what form
+the data is encoded on hasOpaqueData."))
+	(superclasses (ChatElement)))
+
+(hasOpaqueData has (description ("Fillers on this slot contain information encoded in some format specified by hasEncoding that allows CaloChat to create a persistant look and feel across sessions.")) (instance-of ((Interface-Slot)))(domain (ChatPresentationElement))(range (String))(fluent-status (*Inertial-Fluent))(cardinality (N-to-1)))
+
+(hasEncoding has (domain (ChatElement)))
+;; NOTE: the slot hasEncoding has been defined in
+;; FileAttachmentRecord.km and in ContactRecord.km.
+
+

@@ -1,0 +1,16 @@
+;; $Id: Teacher.km,v 1.2 2004/09/08 06:19:56 jchaw Exp $
+
+
+
+(Teacher has
+	(superclasses (Role)))
+
+(every Teacher has
+	(in-event ((must-be-a Teach)))
+	(played-by ((a Tangible-Entity with (agent-of ((the in-event of Self))))))
+)
+
+(Teacher has 
+       (wn20-synset 
+	((:set (:triple "teacher" 1 "n"))
+	 (:set (:triple "instructor" 1 "n")))))

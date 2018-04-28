@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Cellular-Respiration.km,v 1.6 2001/05/21 14:33:26 porter Exp $ 
+;; 
+
+(Cellular-Respiration has
+        (superclasses   (Oxidation))
+        (required-slot  (result))
+        (primary-slot   (raw-material agent instrument))
+	(description	("The process by which glucose is broken down to
+                          CO2 and water.  Normally, ATP is generated in the
+                          process.  Substages include glycolysis, citric acid
+                          cycle, and oxidative phosphorylation.  Souther.")))
+(every Cellular-Respiration has
+       (raw-material ((a Glucose)
+		(a Oxygen-Atom)
+		(exactly 6 Oxygen-Atom)
+		))
+       (result ((a Carbon-Dioxide)
+		(exactly 6 Carbon-Dioxide)
+		(a Water)
+		(exactly 6 Water)
+		(a ATP)
+		(exactly 36 ATP)
+		))
+       (first-subevent ((the Glycolysis subevent of Self)))
+       (subevent (
+		  (a Glycolysis with 
+		     (next-event ((the Citric-Acid-Cycle subevent of Self))))
+		  (a Citric-Acid-Cycle with 
+		     (next-event ((the Oxidative-Phosphorylation
+				       subevent of Self))))
+		  (a Oxidative-Phosphorylation)
+		  )))
+                         
+
+
+

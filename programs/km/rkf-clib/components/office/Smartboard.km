@@ -1,0 +1,15 @@
+;; $Id: Smartboard.km,v 1.14 2005/05/23 18:52:00 kbarker Exp $
+
+(Smartboard has
+	(description ("An enhanced whiteboard that is able to electronically sense what is being written on it."))
+	(superclasses (Sensor)))
+
+(every 
+ Smartboard has 
+ (purpose 
+  ((a Instrument-Role with 
+      (in-event-of ((a Physical-MarkRecording with (object ((a Physical-Mark))))))))))
+(Smartboard has
+  (feature-slot ((the feature-slot of Sensor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Smartboard)))))
+

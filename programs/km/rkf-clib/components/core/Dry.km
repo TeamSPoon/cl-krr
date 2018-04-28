@@ -1,0 +1,26 @@
+;;
+;;   $Id: Dry.km,v 1.13 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Dry has 
+  (superclasses  (Decrease))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Dry has-definition
+  (instance-of (Decrease))
+  (from-value ((a Wetness-Value)))
+)
+
+(every Dry has
+  (from-value ((a Wetness-Value with (wetness-of ((the base of Self))))))
+  (base ((a Tangible-Entity with (wetness ((the from-value of Self))))))
+)
+
+(Dry has (wn20-synset ((:set
+			(:triple "dry" 1 "v")
+			(:triple "dry_out" 3 "v")
+			(:triple "dry" 2 "v")
+			(:triple "dry_out" 1 "v")
+))))
+(every Dry has (text-nominalization ("drying")))

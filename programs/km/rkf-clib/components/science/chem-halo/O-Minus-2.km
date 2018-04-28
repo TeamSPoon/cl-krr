@@ -1,0 +1,19 @@
+;; $Id: O-Minus-2.km,v 1.5 2008/05/15 17:19:10 kunal Exp $ 
+(O-Minus-2 has (superclasses (Anion)))
+(every O-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("oxide"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 O)))))))
+        (is-ion-of ((a O)))
+)
+
+(every O-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("oxide"))
+)
+
+
+(O-Minus-2 has (wn20-synset ((:triple "O-2" 0 "n"))))

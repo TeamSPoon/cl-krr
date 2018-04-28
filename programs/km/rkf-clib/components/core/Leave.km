@@ -1,0 +1,87 @@
+;; 
+;;    $Id: Leave.km,v 1.25 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Leave has
+       (superclasses   (Locomotion))
+       (required-slot  (agent object origin))
+       (primary-slot   (destination path))
+       (cmap-correspondence (
+			       (:seq object "the thing Left")
+			       (:seq agent "the Leaver")
+			       (:seq origin "the place Left from")
+			       (:seq destination "the place Left to")
+			       (:seq path "the place Left along or through")
+			       (:seq toward "the place Left toward")
+			       (:seq away-from "the place Left away from")
+			       ))
+     #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Leave has 
+  (origin ((a Spatial-Entity))))
+
+
+(every Leave has
+  (text-active-verbseq-sg ("leaves"))
+  (text-active-verbseq-pl ("leave"))
+
+  (text-argslots ((:seq origin)))
+  (text-origin (NIL))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(every Leave has
+   (preparatory-event ((:default
+	(a Go-To with
+	   (destination ((the origin of Self)))
+	   (object      ((the object of Self))))
+))))
+
+
+(Leave has 
+	 (test-case 	 ('(
+			    (new-situation)
+			    (*Boston has
+			     (instance-of (Place)))
+			    (*Austin has
+			     (instance-of (Place)))
+			    (*John has
+			     (instance-of (Living-Entity)))
+			    (*John has
+			     (location (*Boston)))
+			    ((the location of *John) = *Boston)
+
+			    ; *John moves from where he used to be to *Austin
+			    (a Leave with
+			       (agent 	    (*John))
+			       (origin 	    ((the location of *John)))
+			       (destination (*Austin)))
+			    (do-and-next (thelast Leave))
+			    (the text-gen of (thelast Leave))
+			    
+			    ; Test1: *John is in *Austin
+			    ((the location of *John) = *Austin)
+			    
+			    ; Test2: *John is not in *Boston anymore
+			    ((the location of *John) /= *Boston)
+))))
+
+
+;; automatically added WN synsets
+(Leave has (wn16-synset ((:set  
+                                    (:triple "leave" 1 "v")
+                                    (:triple "go_away" 2 "v")
+                                    (:triple "go_forth" 1 "v")
+))))
+
+(Leave has (wn20-synset ((:set
+                                    (:triple "leave" 1 "v")
+                                    (:triple "go_away" 2 "v")
+                                    (:triple "go_forth" 1 "v")
+))))
+
+(every Leave has (text-nominalization ("leaving")))

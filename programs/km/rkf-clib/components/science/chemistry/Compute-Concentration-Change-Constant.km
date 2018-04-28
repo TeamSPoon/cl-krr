@@ -1,0 +1,310 @@
+;;
+;;    $Id: Compute-Concentration-Change-Constant.km,v 1.16 2003/09/23 15:39:10 jfan Exp $
+;;
+(Compute-Concentration-Change-Constant has
+  (superclasses (Method))
+  (description ("compute the change in concentration constant x")))
+
+;;
+;; This method does not encode any explicit law, but it is closely related 
+;; to L.26 and L.56. Its main purpose is compute the change in concentration 
+;; constant x. 
+;;
+;; TO DO: This method is not complete. It still needs the laws for calculating 
+;;        x for equilibrium reactions.    
+;;
+(every Compute-Concentration-Change-Constant has
+  (input  ((a Equilibrium-Reaction)))
+
+  ;;
+  ;; Given [H+] or [OH-], we know that [H+] = x or [OH-] = x. 
+  ;;
+  (output ((if ((((the input of Self) isa Hydrolysis)
+		 or
+		 ((the input of Self) isa Complete-Dissociation-Reaction))
+		and
+		(oneof (the result of (the input of Self))
+		  where
+		  ((((the has-basic-structural-unit of It) isa H-Plus)
+		    or
+		    ((the has-basic-structural-unit of It) isa H3O-Plus)
+		    or
+		    ((the has-basic-structural-unit of It) isa OH-Minus))
+		   and
+		   (the1 of (the value of (the equilibrium-concentration of It))))))
+	       then
+	       (the1 of (the value of 
+		 (the equilibrium-concentration of  
+		   (oneof (the result of (the input of Self))
+			  where
+		      	  (((the has-basic-structural-unit of It) isa H-Plus)
+		    	   or
+		    	   ((the has-basic-structural-unit of It) isa H3O-Plus)
+		    	   or
+		    	   ((the has-basic-structural-unit of It) isa OH-Minus))))))
+               [Compute-Concentration-Change-Constant-output-4]
+	)))
+  ;;
+  ;; Similar to L.56(1.1). Captures the fact that [H+]eq = x.
+  ;; 
+  (output ((if ((the Acid-Role plays of ((the raw-material of (the input of Self)) called "Reactant")) 
+		and
+		(not (oneof (the result of (the input of Self))
+		  	where
+		  	((((the has-basic-structural-unit of It) isa H-Plus)
+		    	  or
+		    	  ((the has-basic-structural-unit of It) isa H3O-Plus)
+		    	  or
+		    	  ((the has-basic-structural-unit of It) isa OH-Minus))
+		   	 and
+		   	 (the1 of (the value of (the equilibrium-concentration of It))))))
+                and
+                ;; To break any circular dependencies.
+                (not (oneof (the input-of of 
+				 (the Solution base-of of
+				      ((the raw-material of
+					    (the input of Self))
+				       called "Reactant")))
+                        where
+                        (It isa Compute-pH-for-Solution)))
+                and
+		(oneof (the value of
+			 (the pH of  
+			   (the Solution base-of of
+			     ((the raw-material of
+				(the input of Self))
+			      called "Reactant"))))
+		  where
+		  (numberp (the1 of It))))
+               then
+               (the1 of (the value of 
+                 (the output of (a Compute-Concentration-H-Plus with
+                                   (input ((the input of Self)))))))
+            [Compute-Concentration-Change-Constant-output-1]
+  )))
+
+  ;;
+  ;; Similar to L.56(1.2). Captures the fact that [OH-]eq = x.
+  ;; 
+  (output ((if ((the Base-Role plays of ((the raw-material of (the input of Self)) called "Reactant")) 
+		and
+		(not (oneof (the result of (the input of Self))
+		  	where
+		  	((((the has-basic-structural-unit of It) isa H-Plus)
+		    	  or
+		    	  ((the has-basic-structural-unit of It) isa H3O-Plus)
+		    	  or
+		    	  ((the has-basic-structural-unit of It) isa OH-Minus))
+		   	 and
+		   	 (the1 of (the value of (the equilibrium-concentration of It))))))
+                and
+                ;; To break any circular dependencies.
+                (not (oneof (the input-of of 
+				 (the Solution base-of of
+				      ((the raw-material of
+					    (the input of Self))
+				       called "Reactant")))
+                        where
+                        (It isa Compute-pH-for-Solution)))
+                and
+		(oneof (the value of
+			 (the pH of  
+			   (the Solution base-of of
+			     ((the raw-material of
+				(the input of Self))
+			      called "Reactant"))))
+		  where
+		  (numberp (the1 of It))))
+               then
+               (the1 of (the value of 
+                 (the output of (a Compute-Concentration-OH-Minus with
+                                   (input ((the input of Self)))))))
+            [Compute-Concentration-Change-Constant-output-2]
+  )))
+
+  ;; 
+  ;; Computes x if Keq and [Y]init is known and the reaction is a Hydrolysis 
+  ;; or Complete dissociation. This is also an alternative way of saying 
+  ;; [H+]eq = x.
+  ;; 
+  (output ((if ((((the input of Self) isa Hydrolysis)
+		 or
+		 ((the input of Self) isa Complete-Dissociation-Reaction))
+		and
+		(not (oneof (the result of (the input of Self))
+		  	where
+		  	((((the has-basic-structural-unit of It) isa H-Plus)
+		    	  or
+		    	  ((the has-basic-structural-unit of It) isa H3O-Plus)
+		    	  or
+		    	  ((the has-basic-structural-unit of It) isa OH-Minus))
+		   	 and
+		   	 (the1 of (the value of (the equilibrium-concentration of It))))))
+                and
+		((oneof (the input-of of
+			     (the Solution base-of of
+				  ((the raw-material of (the input of Self))
+				   called "Reactant")))
+                        where
+                        (It isa Compute-pH-for-Solution))
+		 or
+		 (not (oneof (the value of
+			       (the pH of  
+			   	 (the Solution base-of of
+			     	   ((the raw-material of
+				      (the input of Self))
+				    called "Reactant"))))
+		  	where
+		  	(numberp (the1 of It)))))
+		and
+                (the1 of (the value of (the concentration of 
+                      ((the raw-material of (the input of Self)) called "Reactant"))))
+                and
+                (the value of (the keq of (the input of Self)))
+		and
+		;;
+		;; The Keq is calculated from the Ki. So we want to ensure
+		;; that if there is a Ki, then K1 is present, since this has
+		;; the most effect in calculating things such as the pH.
+		;;
+		((((the number of (the ki of (the input of Self))) = 1)
+		  and
+		  (not (the value of (the ki of (the input of Self)))))
+		 or
+		 (oneof (the ki of (the input of Self))
+		   where
+		   ((the1 of (the value of It))
+		    and
+		    ((the1 of (the value of (the subscript of It))) = 1)
+		   )))
+	       )
+               then
+               #'(LAMBDA ()
+		   (ESTIMATE-X 
+		     (FIRST (KM0 
+                             `(|the1| |of| (|the| |value| |of| (|the| |concentration| |of|
+                               ((|the| |raw-material| |of| (|the| |input| |of| |Self|)) 
+                                |called| "Reactant"))))))
+                     (FIRST (KM0 `(|the1| |of| (|the| |value| |of| (|the| |keq| |of| 
+                                    (|the| |input| |of| |Self|))))))
+		     (KM0 '((|the| |raw-material| |of| 
+			     (|the| |input| |of| |Self|)) 
+			    |called| "Reactant"))))
+            [Compute-Concentration-Change-Constant-output-3]
+  )))	
+
+)
+
+(comment [Compute-Concentration-Change-Constant-output-1]
+  (:seq "In the hydrolysis of"
+        (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+        "nospace" ", [H+] = "
+        (the output of Self)
+        "molar"
+  )
+  (:seq "In the hydrolysis of"
+        (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+        "nospace" ", [H+] can be computed from pH"
+  )
+  (:triple (a Compute-Concentration-H-Plus with
+              (input ((the input of Self)))
+           )
+           output
+           *
+  )
+)
+
+(comment [Compute-Concentration-Change-Constant-output-2]
+  (:seq "In the hydrolysis of"
+        (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+        "nospace" ", [OH-] = "
+        (the output of Self)
+        "molar"
+  )
+  (:seq "In the hydrolysis of"
+        (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+        "nospace" ", [OH-] can be computed from pH and [H+]"
+  )
+  (:triple (a Compute-Concentration-OH-Minus with
+              (input ((the input of Self)))
+           )
+           output
+           *
+  )
+)
+
+(comment [Compute-Concentration-Change-Constant-output-3]
+  (if (the Acid-Role plays of ((the raw-material of (the input of Self)) called "Reactant"))
+   then (:seq "Given that Ka ="
+              (the1 of (the value of (the keq of (the input of Self))))
+              "and [" "nospace"
+              (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+              "nospace" "] ="
+              (the1 of (the value of (the concentration of ((the raw-material of (the input of Self)) called "Reactant"))))
+              "nospace" ", solving for [H+] gives"
+              (the output of Self)
+        )
+   else (if (the Base-Role plays of ((the raw-material of (the input of Self)) called "Reactant"))
+         then (:seq "Given that Kb ="
+                    (the1 of (the value of (the keq of (the input of Self))))
+                    "and [" "nospace"
+                    (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+                    "nospace" "] ="
+                    (the1 of (the value of (the concentration of ((the raw-material of (the input of Self)) called "Reactant"))))
+                    "nospace" ", solving for [OH-] gives"
+                    (the output of Self)
+              )
+        )
+  )
+  (:seq "In the hydrolysis of"
+        (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+        "nospace" 
+        (if (the Acid-Role plays of ((the raw-material of (the input of Self)) called "Reactant"))
+         then (:seq ", [H+] can be computed from the formula: Ka = [H+]^2 / ([" "nospace"
+                    (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+                    "nospace" "]initial - [H+])"
+              )
+         else (if (the Base-Role plays of ((the raw-material of (the input of Self)) called "Reactant"))
+               then (:seq ", [OH-] can be computed from the formula: Kb = [OH-]^2 / ([" "nospace"
+                          (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+                          "nospace" "]initial - [OH-])"
+                    )
+              )
+        )
+  )
+)
+
+(comment [Compute-Concentration-Change-Constant-output-4]
+  (:seq "In the hydrolysis of"
+        (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+        "nospace" ", the concentration change constant is"
+        (the output of Self)
+  )
+  (:seq "In hydrolysis and complete dissociation reactions, the concentration of"
+        (the text-gen of
+             (oneof (the result of (the input of Self))
+                    where
+                       (((the has-basic-structural-unit of It) isa H-Plus)
+                        or
+                        ((the has-basic-structural-unit of It) isa H3O-Plus)
+                        or
+                        ((the has-basic-structural-unit of It) isa OH-Minus)
+                       )
+             )
+        )
+        "is equal to the concentration change constant of the reaction"
+  )
+  (:triple (oneof (the result of (the input of Self))
+                  where
+                     (((the has-basic-structural-unit of It) isa H-Plus)
+                      or
+                      ((the has-basic-structural-unit of It) isa H3O-Plus)
+                      or
+                      ((the has-basic-structural-unit of It) isa OH-Minus)
+                     )
+           )
+           equilibrium-concentration
+           *
+  )
+)  
+

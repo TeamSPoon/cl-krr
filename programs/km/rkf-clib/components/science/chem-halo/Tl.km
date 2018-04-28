@@ -1,0 +1,14 @@
+;;
+;; $Id: Tl.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Tl has (superclasses (Metal-Atom IIIA-Element)))
+(every Tl has
+       (atomic-symbol (Tl))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 81 NIL))))))
+       (chemical-period (6)))
+(every Tl has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("thallium"))
+)

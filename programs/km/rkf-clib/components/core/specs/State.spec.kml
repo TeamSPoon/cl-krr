@@ -1,0 +1,47 @@
+<!--- $Id: State.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+
+<kml>
+
+<concept name=State>
+<superconcept name=Event>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=State>
+  <definition>being, having temporally unstable properties, being in
+  temporally unstable relation with something, etc.</definition>
+  <primaryslot name=object>
+    <restriction>the Entity or Entites being in the State or being the 
+    <slot>object</slot> of the <slot>experiencer</slot>'s 
+    experience</restriction>
+  </primaryslot>
+  <primaryslot name=experiencer>
+    <restriction>the Living-Entity experiencing the State</restriction>
+  </primaryslot>
+  <wnsynsets><verb>be#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+</component>
+
+<musing>
+This is the top level concept for Events that have to do with being,
+not changing. States represent relatively temporally unstable properties
+and relations of an Entity. There are often <conceptref name=Action>s
+that cause Entities to be in States or change from one State to another.<p>
+
+Since States can be thought of as snapshots of slot values associated with
+Entities, it can be confusing whether an Entity having a slot indicates
+a State or merely an intrinsic property of the Entity. Rather than join
+the argument on properties vs. states (or even that of entities vs. sets of
+properties), we include a State Event, which can be used to package 
+property values of Entities and relations between Entities that:<ol>
+<li>may be changed by <conceptref name=Action>s
+<li>are not usually thought of as properties of an Entity independent of context
+<li>are grouped commonly enough to be lexicalized (to some degree)
+</ol>
+</musing>
+
+</kml>
+
+

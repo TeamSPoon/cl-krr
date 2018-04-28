@@ -1,0 +1,47 @@
+<!--- $Id: Dissolve.spec.kml,v 1.1 2005/11/11 21:26:08 jfan Exp $ --->
+
+<kml>
+<concept name=Dissolve>
+
+
+<superconcept name=Create>
+
+  <definition>
+    To Dissolve is to <conceptref name=Create> a <conceptref name=Solution>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=object>
+     The chemicals that are being dissolved.
+   </slotdescription>
+   <slotdescription name=base>
+     The solvent, such as <conceptref name=H2O-Substance>.
+   </slotdescription>
+   <slotdescription name=result>
+     The resulting solution.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>They dissolve some NaCl in water.</text>
+     <slotdescription name=object> NaCl</slotdescription>
+     <slotdescription name=base> water</slotdescription>
+     <slotdescription name=result> a Solution consists of NaCl.</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Solution>
+     A Solution is the result of a dissolve action.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

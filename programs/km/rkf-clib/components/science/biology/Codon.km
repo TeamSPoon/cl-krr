@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Codon.km,v 1.21 2002/06/21 19:16:58 tecuci Exp $ 
+;; 
+
+(Codon has
+	   (superclasses (Coding-Sequence-Type))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (cmap-correspondence ())
+           (description ("Sequence of three nucleotides in DNA or mRNA that
+                          represents the instruction for incorporation of a
+                          specific amino acid into a polypeptide chain.
+                          Alberts:ECB:G-5."))
+	   (test-case ()))
+
+(every Codon has
+
+       (element-type (Nucleotide))
+       (number-of-elements (3)))
+
+
+
+
+

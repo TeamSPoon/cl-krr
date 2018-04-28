@@ -1,0 +1,16 @@
+;;
+;; $Id: Sn.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Sn has (superclasses (Metal-Atom IVA-Element)))
+(every Sn has
+       (atomic-symbol (Sn))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 50 NIL))))))
+       (has-ion ((a Sn-Plus-2)))
+       (chemical-period (5)))
+
+(every Sn has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("tin"))
+)

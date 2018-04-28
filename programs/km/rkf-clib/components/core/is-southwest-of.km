@@ -1,0 +1,50 @@
+;; 
+;;    $Id: is-southwest-of.km,v 1.12 2007/04/11 21:23:40 jchaw Exp $
+;; 
+
+(is-southwest-of has
+       (instance-of (Spatial-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Spatial-Entity))
+       (range (Spatial-Entity))
+       (fluent-status (*Inertial-Fluent))
+       (inverse (is-northeast-of))
+       (text-slot (text-is-southwest-of))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+(is-northeast-of has
+	(instance-of (Spatial-Relation))
+       (text-slot (text-is-northeast-of)))
+
+(text-is-southwest-of has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-is-northeast-of))
+)
+
+(text-is-northeast-of has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-is-southwest-of))
+)
+
+(text-is-southwest-of has (instance-of (NL-Slot-Group)))
+
+
+
+
+

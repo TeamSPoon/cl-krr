@@ -1,0 +1,54 @@
+<!--- $Id: Recipient-Role.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+<concept name=Recipient-Role>
+<system-documentation name=Recipient-Role>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    A Recipient (here called a "Recipient-Role") is the <conceptref name=Role> 
+    played by the <slot>recipient</slot> of a <conceptref name=Transfer>.
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the entity that's playing the role of Recipient
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Transfer> event that the entity is engaged in
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>PBS receives contributions from the Carnegie Foundation. </text>
+     <comment>
+     In this example, the Recipient-Role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Transfer> with
+         <slot>object</slot>=contributions and 
+         <slot>donor</slot>=Carnegie Foundation</slotdescription>
+     <slotdescription name=played-by>PBS</slotdescription>
+     </comment>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Donor-Role>
+     A Donor-Role is played by an Entity that donates something in a
+     Transfer event.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

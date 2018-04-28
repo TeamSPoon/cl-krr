@@ -1,0 +1,44 @@
+<!--- $Id: Give-Early-Warning.spec.kml,v 1.1 2005/08/01 20:56:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Give-Early-Warning>
+<superconcept name=Military-Task>
+
+<definition>
+
+  A security action to give an early warning to a friendly unit
+  concerning any threats to it
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that gives an early warning to the
+     <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=object>
+     the <conceptref name=Military-Unit> that receives a warning from the 
+     <slot>agent</slot>
+  </slotdescription>
+  
+</requiredslotlist>
+
+  <comment>
+  The <slot>agent</slot> and the <slot>object</slot> have the same 
+  <slot>allegiance</slot>
+  </comment>
+
+<neighborlist>
+
+  <neighbor name=Screen>
+    Screen is also a security action.  Screen primarily provides early
+    warning to a protected force.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

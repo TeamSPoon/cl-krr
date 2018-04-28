@@ -1,0 +1,46 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Nitrate-Substance546
+
+
+|#
+
+(disable-classification)
+
+(Nitrate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Nitrate-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Nitrate-Substance316 has
+  (prototype-of (Nitrate-Substance Ionic-Compound-Substance))
+  (prototype-scope (Nitrate-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a NO3-Minus)))))))))
+  (prototype-participants (_Anion322 _Chemical-Entity318 _Nitrate-Substance316)))
+
+(_Nitrate-Substance316 has (instance-of (Nitrate-Substance)) (has-basic-structural-unit (_Chemical-Entity318)))
+
+(_Chemical-Entity318 has (instance-of (Ionic-Compound)) (has-part (_Anion322)))
+
+(_Anion322 has (instance-of (NO3-Minus)))
+
+(enable-classification)
+
+(explanation (:triple _Nitrate-Substance316 has-basic-structural-unit _Chemical-Entity318) (((@ SME entered)) (every Nitrate-Substance has (has-basic-structural-unit ((the first of (the is-part-of of (the first of (the has-basic-structural-unit of (the first of (the has-part of Self)))))))))))
+
+(explanation (:triple _Nitrate-Substance316 instance-of Nitrate-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity318 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion322 instance-of NO3-Minus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Nitrate-Substance has (has-basic-structural-unit ((the first of (the is-part-of of (the first of (the has-basic-structural-unit of (the first of (the has-part of Self)))))))))
+
+|#
+
+|#
+

@@ -1,0 +1,20 @@
+;;
+;; $Id: C5H12.km,v 1.1 2007/05/18 02:29:41 tecuci Exp $
+;;
+
+(C5H12 has (superclasses (Hydrocarbon-Molecule)))
+
+(every C5H12 has	
+       (has-chemical-name ("pentane"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 5 C)
+		    (:pair 12 H))))))))
+       
+
+
+(every C5H12 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("pentane"))
+)

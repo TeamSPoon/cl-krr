@@ -1,0 +1,12 @@
+;; 
+;;    $Id: HClO3-Substance.km,v 1.1 2007/11/15 22:26:02 mrglass Exp $
+;; 
+
+(HClO3-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every HClO3-Substance has
+   (plays ((a Acid-Role with (intensity ((a Intensity-Value with (value ((:pair *strong Acid)))))))))
+       (has-basic-structural-unit ((a HClO3))))
+(every HClO3-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a HClO3))))

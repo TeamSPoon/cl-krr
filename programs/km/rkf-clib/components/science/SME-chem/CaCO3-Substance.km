@@ -1,0 +1,69 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _CaCO3-Substance7970
+
+
+|#
+
+(disable-classification)
+
+(CaCO3-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every CaCO3-Substance has (has-basic-structural-unit ((a CaCO3))))
+(every CaCO3-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_CaCO3-Substance12080 has
+  (prototype-of (CaCO3-Substance))
+  (prototype-scope (CaCO3-Substance))
+  (prototype-participants (_Electrolyte-Status-Value12086 _Chemical-Entity12085 _Anion-Substance12084 _Cation-Substance12083 _State-Value12082 _Solubility-Value12081 _CaCO3-Substance12080)))
+
+(_CaCO3-Substance12080 has
+  (instance-of (CaCO3-Substance))
+  (electrolyte-status (_Electrolyte-Status-Value12086))
+  (has-basic-structural-unit (_Chemical-Entity12085))
+  (has-part (_Cation-Substance12083 _Anion-Substance12084))
+  (physical-state (_State-Value12082))
+  (solubility (_Solubility-Value12081)))
+
+(_Solubility-Value12081 has (instance-of (Solubility-Value)))
+
+(_State-Value12082 has (instance-of (State-Value)))
+
+(_Cation-Substance12083 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance12084 has (instance-of (Anion-Substance)))
+
+(_Chemical-Entity12085 has (instance-of (CaCO3)))
+
+(_Electrolyte-Status-Value12086 has (instance-of (Electrolyte-Status-Value)))
+
+(enable-classification)
+
+(explanation (:triple _CaCO3-Substance12080 electrolyte-status _Electrolyte-Status-Value12086) (((@ SME entered)) (every CaCO3-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _CaCO3-Substance12080 instance-of CaCO3-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value12081 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value12082 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance12083 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance12084 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity12085 instance-of CaCO3) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value12086 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every CaCO3-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+
+|#
+
+|#
+

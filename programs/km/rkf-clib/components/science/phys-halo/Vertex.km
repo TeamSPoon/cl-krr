@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Vertex.km,v 1.2 2005/10/21 19:23:30 pzyeh Exp $ 
+;; 
+
+(Vertex has (superclasses (Point)))
+
+;; Ok, so this might be a little controversial: we're defining Vertex 
+;; as a common point of two Lines, and attaching an Angle-Value to the 
+;; Vertex. So to speak of an angle in isolation of other geometric
+;; objects (like Triangles), you can instantiate a Vertex.
+;;
+;; Note that the domain of angle allows any Spatial-Entity, so you could
+;; put angles on Triangles, too. But since you get them for free on the
+;; Triangle's vertices, hanging them off the Triangle itself is probably
+;; redundant.
+;;
+;; Also, we're defining a Vertex as a shared point of Lines to allow
+;; both Line-Segments (such as sides of Polygons) and Rays.
+
+(every Vertex has
+  (is-part-of ((a Line) (a Line)))
+  (angle ((a Angle-Value)))
+)
+
+(Vertex has
+  (wn20-synset ((:set (:triple "vertex" 1 "n")
+                      (:triple "intersection" 1 "n")
+))))
+

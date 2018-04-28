@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Chemical-Solution.km,v 1.9 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Chemical-Solution has
+	 (superclasses (Chemical))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+         (description ("The homogeneous mixture of a solid, liquid, or gas
+                        within a liquid or sometimes a solid or gas.
+                        WNCD:1123."))
+	 (cmap-correspondence ()))
+
+
+
+(every Chemical-Solution has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

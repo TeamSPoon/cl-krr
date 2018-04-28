@@ -1,0 +1,20 @@
+;;
+;;    $Id: Representative.km,v 1.5 2005/02/22 21:18:23 jchaw Exp $
+;;
+
+;; IRIS_class: Representative
+
+(Representative has
+		(superclasses (Provider))
+		(required-slot ())
+		(primary-slot ())
+		(secondary-slot ())
+		(cmap-correspondence ())
+		(test-case ()))
+
+#|
+(every Representative has 
+   (isRepresentativeFor ((a Thing))))
+
+(isRepresentativeFor has (instance-of (Interface-Slot))(domain (Representative)) (range (Software-Application ContactRecord Person Organization))  (cardinality (N-to-N)))
+|#

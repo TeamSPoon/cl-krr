@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Organic-Structure.km,v 1.16 2005/07/07 19:06:42 pzyeh Exp $ 
+;; 
+
+(Organic-Structure has
+         (superclasses (Physical-Object))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A structure made up of organic molecules, such as 
+                        the plasma membrane, organelles, etc. Souther."))
+         (test-case ()))  
+
+(every Organic-Structure has 
+       (has-part ((at-least 2 Organic-Molecule)))
+       )
+
+
+
+
+;; <-- Trimming for demo.
+;; (every Organic-Structure has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

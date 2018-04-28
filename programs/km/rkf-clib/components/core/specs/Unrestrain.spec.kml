@@ -1,0 +1,72 @@
+<!--- $Id: Unrestrain.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Unrestrain><system-documentation name=Unrestrain>
+<superconcept name=Unobstruct>
+
+<definition>
+
+  Allow some thing, which was previously restrained, to move freely
+
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     Some tangible entity.
+     Before this action, the object is
+     assumed to be completely restrained from moving, i.e. it's in a state of
+     <conceptref name=Be-Restrained>.
+     Afterwards it's no longer in that state.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the restraints to be removed
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) used to unrestrain the object
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that facilitates removing the restraints from the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>By breaking his chain, Fido was free to run away.</text>
+    <slotdescription name=object>Fido</slotdescription>
+    <slotdescription name=agent>Fido</slotdescription>
+    <slotdescription name=by-means-of>breaking his chain</slotdescription>
+  </examplesentence>
+
+  <comment>
+    It's assumed that Fido was restrained by the chain beforehand.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Unobstruct> 
+     Unobstruct is more general than Unrestrain.
+     Unobstruct removes some obstacle, thereby allowing some object to
+     move more freely.  In contrast, Unrestrain (more specifically)
+     removes all the restraints from an object, thereby allowing it 
+     complete freedom of movement.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

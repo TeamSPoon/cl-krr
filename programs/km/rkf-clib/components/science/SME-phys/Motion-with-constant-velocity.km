@@ -1,0 +1,496 @@
+(disable-classification)
+;;; ---------- Definition of prototype for Motion-with-constant-velocity ----------
+
+(Motion-with-constant-velocity has (superclasses (Linear-Move Event)))
+
+(_Motion-with-constant-velocity590 has 
+  (instance-of (Motion-with-constant-velocity))
+  (prototype-of (Motion-with-constant-velocity))
+  (prototype-scope (Motion-with-constant-velocity))
+  (prototype-participants (_Property-Node350
+                           _Property-Node349
+                           _Property-Node348
+                           _Property-Node347
+                           _Property-Node346
+                           _Property-Node345
+                           _Property-Node344
+                           _Property-Node343
+                           _Equation-Big-Node342
+                           _Equation-Big-Node341
+                           _Equation-Big-Node340
+                           _Equation-Big-Node338
+                           _Duration-Value337
+                           _Duration-Value336
+                           _Duration-Value335
+                           _Equation-Set334
+                           _Equation-Set333
+                           _System332
+                           _Speed-Value331
+                           _Speed-Value330
+                           _Equation-Set329
+                           _Length-Value328
+                           _Length-Value327
+                           _Length-Value326
+                           _Equation-Set325
+                           _Motion-with-constant-velocity590
+                           _Tangible-Entity606))
+  (prototype-participant-of (_Motion-with-constant-velocity590))
+  (has-clones (_Placeholder-Class589591
+               _Motion-with-constant-velocity287))
+  (has-built-clones (_Placeholder-Class589591
+                     _Motion-with-constant-velocity287))
+  (object (_Tangible-Entity606))
+  (cloned-from (_Linear-Move542))
+  (clone-built-from (_Linear-Move542))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq distance _Length-Value326 534 913)
+                    (:seq final-time _Duration-Value336 448 468)
+                    (:seq initial-time _Duration-Value337 322 332)
+                    (:seq duration _Duration-Value335 542 823)
+                    (:seq average-speed _Speed-Value330 572 747)
+                    (:seq speed _Speed-Value331 562 686)
+                    (:seq final-position _Length-Value327 480 528)
+                    (:seq initial-position _Length-Value328 403 394)
+                    (:seq object _Tangible-Entity606 310 613)))
+  (edge-visibility ((:seq distance _Length-Value326 t)
+                    (:seq final-time _Duration-Value336 t)
+                    (:seq initial-time _Duration-Value337 t)
+                    (:seq duration _Duration-Value335 t)
+                    (:seq average-speed _Speed-Value330 t)
+                    (:seq speed _Speed-Value331 t)
+                    (:seq final-position _Length-Value327 t)
+                    (:seq initial-position _Length-Value328 t)
+                    (:seq object _Tangible-Entity606 t)))
+  (big-nodes (_Equation-Big-Node338
+              _Equation-Big-Node340
+              _Equation-Big-Node341
+              _Equation-Big-Node342
+              _Property-Node343
+              _Property-Node344
+              _Property-Node345
+              _Property-Node346
+              _Property-Node347
+              _Property-Node348
+              _Property-Node349
+              _Property-Node350))
+  (initial-time (_Duration-Value337))
+  (final-time (_Duration-Value336))
+  (duration (_Duration-Value335))
+  (component-of (_System332))
+  (speed (_Speed-Value331))
+  (average-speed (_Speed-Value330))
+  (initial-position (_Length-Value328))
+  (final-position (_Length-Value327))
+  (distance (_Length-Value326)))
+
+(_Property-Node350 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node324))
+  (node-visibility (t))
+  (contains-node (_Length-Value326))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Property-Node349 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node318))
+  (node-visibility (t))
+  (contains-node (_Duration-Value335))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Property-Node348 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node315))
+  (node-visibility (t))
+  (contains-node (_Speed-Value330))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Property-Node347 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node312))
+  (node-visibility (t))
+  (contains-node (_Speed-Value331))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Property-Node346 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node309))
+  (node-visibility (t))
+  (contains-node (_Length-Value327))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Property-Node345 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node305))
+  (node-visibility (t))
+  (contains-node (_Duration-Value336))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Property-Node344 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node302))
+  (node-visibility (t))
+  (contains-node (_Length-Value328))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Property-Node343 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node299))
+  (node-visibility (t))
+  (contains-node (_Duration-Value337))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Equation-Big-Node342 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node296))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (node-visibility (t))
+  (contains-node (_System332
+                  _Equation-Set333))
+  (contains-edge ((:triple _System332 component _Motion-with-constant-velocity590)
+                  (:triple _System332 equation _Equation-Set333)
+                  (:triple _Equation-Set333 user-equation-expression '(= v (/ x t)))
+                  (:triple _Equation-Set333 equation-uses _Speed-Value331)
+                  (:triple _Equation-Set333 equation-symbol (:pair 'v _Speed-Value331))
+                  (:triple _Equation-Set333 equation-uses _Duration-Value335)
+                  (:triple _Equation-Set333 equation-symbol (:pair 't _Duration-Value335))
+                  (:triple _Equation-Set333 equation-uses _Length-Value326)
+                  (:triple _Equation-Set333 equation-expression '(= v (/ x t)))
+                  (:triple _Equation-Set333 equation-symbol (:pair 'x _Length-Value326))))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Equation-Big-Node341 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node294))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (node-visibility (t))
+  (contains-node (_System332
+                  _Equation-Set329))
+  (contains-edge ((:triple _System332 component _Motion-with-constant-velocity590)
+                  (:triple _System332 equation _Equation-Set329)
+                  (:triple _Equation-Set329 user-equation-expression '(= v_avg v))
+                  (:triple _Equation-Set329 equation-uses _Speed-Value331)
+                  (:triple _Equation-Set329 equation-symbol (:pair 'v _Speed-Value331))
+                  (:triple _Equation-Set329 equation-uses _Speed-Value330)
+                  (:triple _Equation-Set329 equation-expression '(= v_avg v))
+                  (:triple _Equation-Set329 equation-symbol (:pair 'v_avg _Speed-Value330))))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Equation-Big-Node340 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node292))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (node-visibility (t))
+  (contains-node (_System332
+                  _Equation-Set325))
+  (contains-edge ((:triple _System332 component _Motion-with-constant-velocity590)
+                  (:triple _System332 equation _Equation-Set325)
+                  (:triple _Equation-Set325 user-equation-expression '(= x (- p_f p_i)))
+                  (:triple _Equation-Set325 equation-uses _Length-Value328)
+                  (:triple _Equation-Set325 equation-symbol (:pair 'p_i _Length-Value328))
+                  (:triple _Equation-Set325 equation-uses _Length-Value327)
+                  (:triple _Equation-Set325 equation-symbol (:pair 'p_f _Length-Value327))
+                  (:triple _Equation-Set325 equation-uses _Length-Value326)
+                  (:triple _Equation-Set325 equation-expression '(= x (- p_f p_i)))
+                  (:triple _Equation-Set325 equation-symbol (:pair 'x _Length-Value326))))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Equation-Big-Node338 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node290))
+  (big-node-of (_Motion-with-constant-velocity590))
+  (node-visibility (t))
+  (contains-node (_System332
+                  _Equation-Set334))
+  (contains-edge ((:triple _System332 component _Motion-with-constant-velocity590)
+                  (:triple _System332 equation _Equation-Set334)
+                  (:triple _Equation-Set334 user-equation-expression '(= t (- t_f t_i)))
+                  (:triple _Equation-Set334 equation-uses _Duration-Value337)
+                  (:triple _Equation-Set334 equation-symbol (:pair 't_i _Duration-Value337))
+                  (:triple _Equation-Set334 equation-uses _Duration-Value336)
+                  (:triple _Equation-Set334 equation-symbol (:pair 't_f _Duration-Value336))
+                  (:triple _Equation-Set334 equation-uses _Duration-Value335)
+                  (:triple _Equation-Set334 equation-expression '(= t (- t_f t_i)))
+                  (:triple _Equation-Set334 equation-symbol (:pair 't _Duration-Value335))))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Duration-Value337 has 
+  (contains-node-of (_Property-Node343))
+  (instance-of (Duration-Value))
+  (initial-time-of (_Motion-with-constant-velocity590))
+  (used-in-equation (_Equation-Set334))
+  (uniquely-called ("NIL"))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 429 326)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Duration-Value336 has 
+  (contains-node-of (_Property-Node345))
+  (instance-of (Duration-Value))
+  (final-time-of (_Motion-with-constant-velocity590))
+  (used-in-equation (_Equation-Set334))
+  (uniquely-called ("NIL"))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 555 462)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Duration-Value335 has 
+  (contains-node-of (_Property-Node349))
+  (instance-of (Duration-Value))
+  (duration-of (_Motion-with-constant-velocity590))
+  (used-in-equation (_Equation-Set334
+                     _Equation-Set333))
+  (uniquely-called ("NIL"))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 649 817)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Equation-Set334 has 
+  (contains-node-of (_Equation-Big-Node338))
+  (equation-uses (_Duration-Value337
+                  _Duration-Value336
+                  _Duration-Value335))
+  (instance-of (Equation-Set))
+  (equation-of (_System332))
+  (user-equation-expression ('(= t (- t_f t_i))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 't_i _Duration-Value337)
+                    (:pair 't_f _Duration-Value336)
+                    (:pair 't _Duration-Value335)))
+  (equation-expression ('(= t (- t_f t_i))))
+  (node-coordinate ((:pair 983 231)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Equation-Set333 has 
+  (contains-node-of (_Equation-Big-Node342))
+  (equation-uses (_Speed-Value331
+                  _Duration-Value335
+                  _Length-Value326))
+  (instance-of (Equation-Set))
+  (equation-of (_System332))
+  (user-equation-expression ('(= v (/ x t))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'v _Speed-Value331)
+                    (:pair 't _Duration-Value335)
+                    (:pair 'x _Length-Value326)))
+  (equation-expression ('(= v (/ x t))))
+  (node-coordinate ((:pair 984 574)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_System332 has 
+  (contains-node-of (_Equation-Big-Node338
+                     _Equation-Big-Node340
+                     _Equation-Big-Node341
+                     _Equation-Big-Node342))
+  (equation (_Equation-Set334
+             _Equation-Set325
+             _Equation-Set329
+             _Equation-Set333))
+  (instance-of (System))
+  (component (_Motion-with-constant-velocity590))
+  (edge-visibility ((:seq equation _Equation-Set333 t)
+                    (:seq equation _Equation-Set329 t)
+                    (:seq equation _Equation-Set325 t)
+                    (:seq equation _Equation-Set334 t)
+                    (:seq component _Motion-with-constant-velocity590 t)))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Speed-Value331 has 
+  (contains-node-of (_Property-Node347))
+  (used-in-equation (_Equation-Set329
+                     _Equation-Set333))
+  (instance-of (Speed-Value))
+  (speed-of (_Motion-with-constant-velocity590))
+  (uniquely-called ("NIL"))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 669 680)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Speed-Value330 has 
+  (contains-node-of (_Property-Node348))
+  (instance-of (Speed-Value))
+  (average-speed-of (_Motion-with-constant-velocity590))
+  (used-in-equation (_Equation-Set329))
+  (uniquely-called ("NIL"))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 679 741)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Equation-Set329 has 
+  (contains-node-of (_Equation-Big-Node341))
+  (equation-of (_System332))
+  (equation-uses (_Speed-Value331
+                  _Speed-Value330))
+  (instance-of (Equation-Set))
+  (user-equation-expression ('(= v_avg v)))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'v _Speed-Value331)
+                    (:pair 'v_avg _Speed-Value330)))
+  (equation-expression ('(= v_avg v)))
+  (node-coordinate ((:pair 985 459)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Length-Value328 has 
+  (contains-node-of (_Property-Node344))
+  (instance-of (Length-Value))
+  (initial-position-of (_Motion-with-constant-velocity590))
+  (used-in-equation (_Equation-Set325))
+  (uniquely-called ("NIL"))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 510 388)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Length-Value327 has 
+  (contains-node-of (_Property-Node346))
+  (instance-of (Length-Value))
+  (final-position-of (_Motion-with-constant-velocity590))
+  (used-in-equation (_Equation-Set325))
+  (uniquely-called ("NIL"))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 587 522)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Length-Value326 has 
+  (contains-node-of (_Property-Node350))
+  (used-in-equation (_Equation-Set325
+                     _Equation-Set333))
+  (instance-of (Length-Value))
+  (distance-of (_Motion-with-constant-velocity590))
+  (uniquely-called ("NIL"))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 641 907)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Equation-Set325 has 
+  (contains-node-of (_Equation-Big-Node340))
+  (equation-of (_System332))
+  (equation-uses (_Length-Value328
+                  _Length-Value327
+                  _Length-Value326))
+  (instance-of (Equation-Set))
+  (user-equation-expression ('(= x (- p_f p_i))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'p_i _Length-Value328)
+                    (:pair 'p_f _Length-Value327)
+                    (:pair 'x _Length-Value326)))
+  (equation-expression ('(= x (- p_f p_i))))
+  (node-coordinate ((:pair 987 344)))
+  (node-visibility (t))
+  (prototype-participant-of (_Motion-with-constant-velocity590)))
+
+(_Tangible-Entity606 has 
+  (prototype-participant-of (_Motion-with-constant-velocity590))
+  (object-of (_Motion-with-constant-velocity590))
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity597
+               _Tangible-Entity286))
+  (cloned-from (_Tangible-Entity570))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 460 607)))
+  (node-visibility (t)))
+
+(explanation (:triple _Motion-with-constant-velocity590 object _Tangible-Entity606) ((cloned-from _Linear-Move542 _Motion-with-constant-velocity590)))
+(explanation (:triple _Motion-with-constant-velocity590 instance-of Linear-Move) ((a Linear-Move)))
+(explanation (:triple _Motion-with-constant-velocity590 object _Tangible-Entity606) ((a Tangible-Entity (@ _Motion-with-constant-velocity590 Move object))))
+(explanation (:triple _Motion-with-constant-velocity590 instance-of Event) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 initial-time _Thing598) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 initial-position _Thing599) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 final-time _Thing600) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 final-position _Thing601) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 duration _Thing602) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 velocity _Thing603) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 object _Tangible-Entity606) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+(explanation (:triple _Motion-with-constant-velocity590 initial-time _Thing598) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+(explanation (:triple _Motion-with-constant-velocity590 initial-position _Thing599) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+(explanation (:triple _Motion-with-constant-velocity590 final-time _Thing600) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+(explanation (:triple _Motion-with-constant-velocity590 final-position _Thing601) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+(explanation (:triple _Motion-with-constant-velocity590 duration _Thing602) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+(explanation (:triple _Motion-with-constant-velocity590 velocity _Thing603) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+(explanation (:triple _Motion-with-constant-velocity590 instance-of Event) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 initial-time _Duration-Value337) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 initial-position _Length-Value328) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 final-time _Duration-Value336) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 final-position _Length-Value327) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 speed _Speed-Value331) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 average-speed _Speed-Value330) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 duration _Duration-Value335) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Motion-with-constant-velocity590 distance _Length-Value326) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Duration-Value337 instance-of Duration-Value) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Duration-Value336 instance-of Duration-Value) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Duration-Value335 instance-of Duration-Value) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 instance-of Equation-Set) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 user-equation-expression (QUOTE (= t (- t_f t_i)))) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 equation-uses _Duration-Value337) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 equation-symbol (:pair (QUOTE t_i) _Duration-Value337)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 equation-uses _Duration-Value336) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 equation-symbol (:pair (QUOTE t_f) _Duration-Value336)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 equation-uses _Duration-Value335) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 equation-expression (QUOTE (= t (- t_f t_i)))) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set334 equation-symbol (:pair (QUOTE t) _Duration-Value335)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 instance-of Equation-Set) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 user-equation-expression (QUOTE (= v (/ x t)))) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 equation-uses _Speed-Value331) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 equation-symbol (:pair (QUOTE v) _Speed-Value331)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 equation-uses _Duration-Value335) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 equation-symbol (:pair (QUOTE t) _Duration-Value335)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 equation-uses _Length-Value326) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 equation-expression (QUOTE (= v (/ x t)))) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set333 equation-symbol (:pair (QUOTE x) _Length-Value326)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _System332 instance-of System) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _System332 component _Motion-with-constant-velocity590) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _System332 equation _Equation-Set334) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _System332 equation _Equation-Set325) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _System332 equation _Equation-Set329) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _System332 equation _Equation-Set333) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Speed-Value331 instance-of Speed-Value) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Speed-Value330 instance-of Speed-Value) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set329 instance-of Equation-Set) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set329 user-equation-expression (QUOTE (= v_avg v))) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set329 equation-uses _Speed-Value331) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set329 equation-symbol (:pair (QUOTE v) _Speed-Value331)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set329 equation-uses _Speed-Value330) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set329 equation-expression (QUOTE (= v_avg v))) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set329 equation-symbol (:pair (QUOTE v_avg) _Speed-Value330)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Length-Value328 instance-of Length-Value) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Length-Value327 instance-of Length-Value) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Length-Value326 instance-of Length-Value) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 instance-of Equation-Set) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 user-equation-expression (QUOTE (= x (- p_f p_i)))) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 equation-uses _Length-Value328) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 equation-symbol (:pair (QUOTE p_i) _Length-Value328)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 equation-uses _Length-Value327) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 equation-symbol (:pair (QUOTE p_f) _Length-Value327)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 equation-uses _Length-Value326) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 equation-expression (QUOTE (= x (- p_f p_i)))) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Equation-Set325 equation-symbol (:pair (QUOTE x) _Length-Value326)) ((added-at Motion-with-constant-velocity "User defined")))
+(explanation (:triple _Tangible-Entity606 instance-of Tangible-Entity) ((cloned-from _Linear-Move542 _Motion-with-constant-velocity590)))
+(explanation (:triple _Tangible-Entity606 object-of _Motion-with-constant-velocity590) ((cloned-from _Linear-Move542 _Motion-with-constant-velocity590)))
+(explanation (:triple _Tangible-Entity606 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Motion-with-constant-velocity590 Move object))))
+(explanation (:triple _Tangible-Entity606 instance-of Tangible-Entity) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+(explanation (:triple _Tangible-Entity606 object-of _Motion-with-constant-velocity590) ((cloned-from _Motion-with-constant-velocity590 _Motion-with-constant-velocity590)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)

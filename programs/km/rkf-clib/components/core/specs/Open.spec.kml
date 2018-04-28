@@ -1,0 +1,91 @@
+<!--- $Id: Open.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Open><system-documentation name=Open>
+<superconcept name=Unblock>
+
+<definition>
+
+  Open a <conceptref name=Portal> in a <conceptref name=Barrier> so
+  that things can <conceptref name=Move-Through> it.  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The <conceptref name=Spatial-Entity> that is Open'ed and takes on
+     the role of a Portal.  This action changes the state of the object,
+     from <conceptref name=Be-Closed> to <conceptref name=Be-Open>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes this action
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the entity that played the role of <conceptref name=Portal-Covering> 
+    before the Portal was Opened.  This action
+    causes the entity to no longer play that role.
+  </slotdescription>
+
+</primaryslotlist>
+
+<comment>
+  The slots used to describe <conceptref name=Make-Accessible> actions
+  in general can be used here, too.  For example, 
+  <slot>destination</slot> and <slot>by-means-of</slot>.
+</comment>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John opened the door.</text>
+    <slotdescription name=object>the doorway</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=instrument>the door</slotdescription>
+  </examplesentence>
+  <comment>
+    The doorway becomes a Portal, and the door ceases to be a
+    Portal-Covering.
+  </comment>
+
+  <examplesentence>
+    <text>John opened the window with a screwdriver.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the space inside the window
+                                 frame</slotdescription>
+    <slotdescription name=instrument>a screwdriver</slotdescription>
+  </examplesentence>
+  <comment>
+    The space inside the window frame becomes a Portal, and the window
+    (the glass itself) ceases to be a Portal-Covering.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Accessible> 
+     Make-Accessible is more general than Open, in that Open applies
+     only to portals.
+  </neighbor>
+
+  <neighbor name=Unblock>
+     Unblock takes a blocked path and makes it accessible to 
+     things moving through it or along it.
+  </neighbor>
+
+  <neighbor name=Unobstruct>
+     Unobstruct takes an obstructed object and allows it to move.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

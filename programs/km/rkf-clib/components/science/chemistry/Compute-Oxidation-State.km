@@ -1,0 +1,680 @@
+;
+;; $Id: Compute-Oxidation-State.km,v 1.12 2005/09/19 21:54:32 jfan Exp $
+;;
+
+(Compute-Oxidation-State has
+                         (superclasses (Method)))
+
+
+(every Compute-Oxidation-State has
+       ;; input can be any kind of Chemical-Entity
+       (input ((a Chemical-Entity)(exactly 1 Chemical-Entity)))
+
+;; here's something we don't want to do: I'm using the context slot
+;; to cache the output of Compute-Oxidation-State-a because it's
+;; being recomputed too many times and the efficiency hit is making
+;; debugging really hard.
+
+       (context ((the output of (a Compute-Oxidation-State-a with
+                                   (input ((the input of Self))))
+       )))
+
+       ;; outputs a list of elements in the chemical-entity
+       ;; and their corresponding oxidation states
+       ;; output should be of the form: 
+       ;;  (a Oxidation-State-Value with (value ((:pair 1 H) (:pair 4 C) (:pair -2 O))))
+       ;; VOCl is a special case for oxidation states
+       (output 
+	((if ((the input of Self) isa VOCl)
+	    then
+	  (a Oxidation-State-Value with
+	     (value
+	      ((:set (:pair +3 V) (:pair -2 O) (:pair -1 Cl)))))
+	  [Compute-Oxidation-State-output-0]
+	  )))
+       ;; 1 kind of element: O-S = charge
+       (output ((if ((the number of 
+                          (the elements of 
+                               (the term of
+                                    (the atomic-chemical-formula of 
+                                         (the input of Self))))
+                     )
+                     = 1
+                    )
+                 then
+                    ((a Oxidation-State-Value with
+                        (value (
+                          (:set 
+                            (:pair
+                               (the1 of 
+                                     (the value of 
+                                          (the charge of (the input of Self))))
+                               (the2 of 
+                                     (the1 of
+                                           (the term of 
+                                                (the atomic-chemical-formula of 
+                                                     (the input of Self)))))
+                     ))))))
+                 [Compute-Oxidation-State-output-1]
+       )))
+
+       ;; polyatomic ion or molecular
+       (output ((if (((the number of 
+                           (the elements of 
+                                (the term of
+                                     (the atomic-chemical-formula of 
+                                          (the input of Self))))
+                      ) > 1)
+                     and
+                     ((the number of
+                           (the elements of 
+                                (the term of
+                                     (the atomic-chemical-formula of 
+                                          (the input of Self))))
+                      )
+                      = (the number of (the context of Self)))
+                    )
+                 then (a Oxidation-State-Value with
+                         (value ((the context of Self))))
+                 [Compute-Oxidation-State-output-2]
+       )))
+
+       ;; the input is polyatomic and there were two elements
+       ;; unaccounted for by C-O-S-a, one of which is Oxygen
+       (output ((if (((the number of 
+                           (the elements of 
+                                (the term of
+                                     (the atomic-chemical-formula of 
+                                          (the input of Self))))
+                      )
+                      > 1
+                     )
+                     and
+                     ((the number of (the context of Self))
+                      =
+                      ((the number of 
+                            (the elements of 
+                                 (the term of
+                                      (the atomic-chemical-formula of 
+                                           (the input of Self))))
+                       )
+                       - 2
+                      )
+                     )
+                     and
+                     (oneof (the elements of 
+                                 (the term of
+                                      (the atomic-chemical-formula of
+                                           (the input of Self))))
+                            where
+                            ((the2 of It) = O)
+                     )
+                    )
+                 then
+                    (a Oxidation-State-Value with
+                       (value (
+                        (:set 
+                          (the context of Self)
+                          (:pair -2 O)
+                          (:pair
+                           (
+                            ((the1 of (the value of (the charge of (the input of Self))))
+                             -
+                             (the sum of 
+                                  (forall-bag
+                                   (the bag of (the context of Self))
+                                   ((the1 of It)
+                                    *
+                                    (forall2 
+                                     (the elements of
+                                          (the term of 
+                                               (the atomic-chemical-formula of
+                                                    (the input of Self))))
+                                     where
+                                     ((the2 of It2) = (the2 of It))
+                                     (the1 of It2)))))
+                             -
+                             ;; oxygen is treated separately
+                             (-2 
+                              *
+                              (the1 of 
+                                    (oneof 
+                                     (the elements of
+                                          (the term of
+                                               (the atomic-chemical-formula of
+                                                    (the input of Self))))
+                                     where ((the2 of It) = O))))
+                             )
+                            /
+                            ;; divided by the subscript of the missing element
+                            (forall (the elements of 
+                                         (the term of 
+                                              (the atomic-chemical-formula of
+                                                   (the input of Self))))
+                                    where
+                                    ((not 
+                                      (oneof2 (the context of Self)
+                                              where
+                                              ((the2 of It) = (the2 of It2))))
+                                     and
+                                     ((the2 of It) /= O))
+                                    (the1 of It)))
+                           (forall (the elements of 
+                                        (the term of 
+                                             (the atomic-chemical-formula of
+                                                  (the input of Self))))
+                                   where
+                                   ((not 
+                                     (oneof2 (the context of Self)
+                                             where
+                                             ((the2 of It) = (the2 of It2))))
+                                    and
+                                    ((the2 of It) /= O))
+                                   (the2 of It)))
+                        )
+                    )))
+                 [Compute-Oxidation-State-output-3]
+       )))
+
+       ;; the input is polyatomic and there was one element
+       ;; unaccounted for by C-O-S-a
+       (output ((if (((the number of 
+                           (the elements of 
+                                (the term of
+                                     (the atomic-chemical-formula of 
+                                          (the input of Self))))
+                      )
+                      > 1
+                     )
+                     and
+                     ((the number of (the context of Self))
+                      =
+                      ((the number of 
+                            (the elements of 
+                                 (the term of
+                                      (the atomic-chemical-formula of 
+                                           (the input of Self))))
+                       )
+                       - 1
+                      )
+                     )
+                    )
+                 then
+                    (a Oxidation-State-Value with
+                       (value (
+                        (:set
+                           (the context of Self)
+                           (:pair
+                            (
+                             ((the1 of (the value of (the charge of (the input of Self))))
+                              -
+                              (the sum of 
+                                   (forall-bag
+                                    (the bag of (the context of Self))
+                                    ((the1 of It)
+                                     *
+                                     (forall2 
+                                      (the elements of
+                                           (the term of 
+                                                (the atomic-chemical-formula of
+                                                     (the input of Self))))
+                                      where
+                                      ((the2 of It2) = (the2 of It))
+                                      (the1 of It2))))))
+                             /
+                             ;; divided by the subscript of the missing element
+                             (forall (the elements of 
+                                          (the term of 
+                                               (the atomic-chemical-formula of
+                                                    (the input of Self))))
+                                     where
+                                     (not 
+                                      (oneof2 (the context of Self)
+                                              where
+                                              ((the2 of It) = (the2 of It2))))
+                                     (the1 of It)))
+                            (forall (the elements of 
+                                         (the term of 
+                                              (the atomic-chemical-formula of
+                                                   (the input of Self))))
+                                    where
+                                    (not 
+                                     (oneof2 (the context of Self)
+                                             where
+                                             ((the2 of It) = (the2 of It2))))
+                                    (the2 of It)))
+                        )
+                    )))
+                 [Compute-Oxidation-State-output-4]
+       )))
+)
+
+(comment [Compute-Oxidation-State-output-0]
+	 (:seq "Bruce or Ken needs to explain the special case of VOCl's oxidation numbers"))
+
+(comment [Compute-Oxidation-State-output-1]
+  (:seq "Therefore, the oxidation number of"
+        (the text-gen of (the input of Self))
+        "is"
+        (the1 of (the value of (the charge of (the input of Self))))
+  )
+  (if ((the1 of (the value of (the charge of (the input of Self)))) = 0)
+   then "The oxidation number of an element is 0"
+   else "For monatomic ions the oxidation number is the charge on the ion"
+  )
+)
+
+(comment [Compute-Oxidation-State-output-2]
+  (if ((the number of (the context of Self)) > 0)
+      then
+      (:seq "Found rules to determine that:"
+            (andify (forall (the context of Self)
+                            (:seq "the oxidation number of"
+                                  (the text-gen of (an instance of (the2 of It)))
+                                  "is"
+                                  (the1 of It)
+                            )
+                    )
+            )
+      )
+      else "No rules found"
+  )
+  (:seq "Finding rules for computing the oxidation numbers for the atoms in"
+        (the text-gen of (the input of Self))
+  )
+  (:triple (a Compute-Oxidation-State-a with (input ((the input of Self))))
+           output
+           *
+  )
+)
+
+(comment [Compute-Oxidation-State-output-3]
+  (:seq (if ((the number of (the context of Self)) > 0)
+         then
+         (:seq "Found rules to determine that:"
+               (andify (forall (the context of Self)
+                               (:seq "the oxidation number of"
+                                     (the text-gen of (an instance of (the2 of It)))
+                                     "is"
+                                     (the1 of It)
+                               )
+                       )
+               )
+               "nospace" "."
+         )
+         else "No rules found."
+        )
+        "Since no rules were found for O and one other atom, the oxidation state of O is -2."
+        "The oxidation state O(x) of"                ;; the other leftover
+        (forall (the elements of
+                     (the term of
+                          (the atomic-chemical-formula of
+                               (the input of Self))))
+                where ((not (oneof2 (the context of Self)
+                                    where
+                                    ((the2 of It) = (the2 of It2)))
+                       )
+                       and
+                       ((the2 of It) /= O)
+                      )
+                (the text-gen of (an instance of (the2 of It)))
+        ) 
+        "in" (the text-gen of (the input of Self))
+        "can be computed from the formula O(x) = C - (Z(x) / S(x)), where C is the compound charge, S(x) is the subscript of atom x and Z(x) is the sum of the products of the other atoms in the compound and their subscripts;"
+        "the oxidation state of"                     ;; the non-O leftover
+        (forall (the value of (the output of Self))
+                where ((not (oneof2 (the context of Self)
+                                    where
+                                    ((the2 of It) = (the2 of It2)))
+                       )
+                       and
+                       ((the2 of It) /= O)
+                      )
+                (:seq (the text-gen of (an instance of (the2 of It)))
+                      "in" 
+                      (the text-gen of (the input of Self))
+                      "is thus"
+                      (the1 of (the value of (the charge of (the input of Self))))
+                      "- ("
+                      "nospace"
+                      ((forall2 (the elements of
+                                     (the term of
+                                          (the atomic-chemical-formula of
+                                               (the input of Self))))
+                                where ((the2 of It2) = (the2 of It))
+                                (the1 of It2)        ;; the subscript
+                       )
+                       *
+                       ((the1 of (the value of (the charge of (the input of Self))))
+                        -
+                        (the1 of It)
+                       )
+                      )
+                      "/"
+                      (forall2 (the elements of
+                                    (the term of
+                                         (the atomic-chemical-formula of
+                                              (the input of Self))))
+                               where ((the2 of It2) = (the2 of It))
+                               (the1 of It2)        ;; the subscript
+                      )
+                      "nospace"
+                      ") ="
+                      (the1 of It)
+                )
+        )
+  )
+  (:seq "Finding rules for computing the oxidation numbers for the atoms in"
+        (the text-gen of (the input of Self))
+  )
+  (:triple (a Compute-Oxidation-State-a with (input ((the input of Self))))
+           output
+           *
+  )
+)
+
+(comment [Compute-Oxidation-State-output-4]
+  (:seq (if ((the number of (the context of Self)) > 0)
+         then
+         (:seq "Found rules to determine that:"
+               (andify (forall (the context of Self)
+                               (:seq "the oxidation number of"
+                                     (the text-gen of (an instance of (the2 of It)))
+                                     "is"
+                                     (the1 of It)
+                               )
+                       )
+               )
+               "nospace" "."
+         )
+         else "No rules found."
+        )
+        "The oxidation state O(x) of"
+        (forall (the elements of
+                     (the term of
+                          (the atomic-chemical-formula of
+                               (the input of Self))))
+                where (not (oneof2 (the context of Self)
+                                   where
+                                   ((the2 of It) = (the2 of It2))))
+                (the text-gen of (an instance of (the2 of It)))
+        )
+        "in"
+        (the text-gen of (the input of Self))
+        "can be computed from the formula O(x) = C - (Z(x) / S(x)), where C is the compound charge, S(x) is the subscript of atom x and Z(x) is the sum of the products of the other atoms in the compound and their subscripts;"
+        "the oxidation state of"                   ;; only one leftover
+        (forall (the value of (the output of Self))
+                where (not (oneof2 (the context of Self)
+                                   where
+                                   ((the2 of It) = (the2 of It2)))
+                      )
+                (:seq (the text-gen of (an instance of (the2 of It)))
+                      "in" 
+                      (the text-gen of (the input of Self))
+                      "is thus"
+                      (the1 of (the value of (the charge of (the input of Self))))
+                      "- ("
+                      "nospace"
+                      ((forall2 (the elements of
+                                     (the term of
+                                          (the atomic-chemical-formula of
+                                               (the input of Self))))
+                                where ((the2 of It2) = (the2 of It))
+                                (the1 of It2)        ;; the subscript
+                       )
+                       *
+                       ((the1 of (the value of (the charge of (the input of Self))))
+                        -
+                        (the1 of It)
+                       )
+                      )
+                      "/"
+                      (forall2 (the elements of
+                                    (the term of
+                                         (the atomic-chemical-formula of
+                                              (the input of Self))))
+                               where ((the2 of It2) = (the2 of It))
+                               (the1 of It2)        ;; the subscript
+                      )
+                      "nospace"
+                      ") ="
+                      (the1 of It)
+                )
+        )
+  )
+  (:seq "Finding rules for computing the oxidation numbers for the atoms in"
+        (the text-gen of (the input of Self))
+  )
+  (:triple (a Compute-Oxidation-State-a with (input ((the input of Self))))
+           output
+           *
+  )
+)
+
+
+(Compute-Oxidation-State 
+ has
+ (test-case ('(
+               ((the value of
+                     (the output of 
+                          (a Compute-Oxidation-State
+                             with 
+                             (input ((a Ionic-Compound 
+                                        with
+                                        (atomic-chemical-formula (
+                                                                  (a Chemical-Formula 
+                                                                     with
+                                                                     (term ((:seq 
+                                                                             (:pair 2 H)
+                                                                             (:pair 1 O)))))))
+                                     )
+                          )))
+                ))
+                =
+                (:set (:pair 1 H) (:pair -2 O)))
+
+               ((the value of
+                     (the output of 
+                          (a Compute-Oxidation-State
+                             with 
+                             (input ((a SO4-Minus-2  
+                                        with
+                                        (atomic-chemical-formula (
+                                                                  (a Chemical-Formula 
+                                                                     with
+                                                                     (term ((:seq 
+                                                                             (:pair 1 S)
+                                                                             (:pair 4 O)))))))
+                                     )
+                          )))
+                ))
+                =
+                (:set (:pair -2 O) (:pair 6 S)))
+
+               ;;; the following test cases are created by SRI team
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a NaHCO3 with (charge ((a Charge-Value with (value ((:pair 0 *electronic-charge)))))))))
+                     )
+                ))
+                = (:set (:pair 1 Na) (:pair 1 H) (:pair -2 O) (:pair 4 C)))
+               
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Ionic-Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 Se)))))))
+                        )
+                     )))
+               ))
+               =
+               (:set (:pair 1 H) (:pair -2 Se)))
+               
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 2 O) (:pair 2 F)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair -1 F) (:pair 1 O)))
+
+               
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 Se) (:pair 6 F)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair -1 F) (:pair 6 Se)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 F)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 1 H) (:pair -1 F)))
+               
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 2 O))))))))
+                     )))
+                ))
+                =
+                (:set (:pair 0 O)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 Cl) (:pair 3 O)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 1 H) (:pair -2 O) (:pair 5 Cl)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 Na) (:pair 1 I) (:pair 3 O)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 1 Na) (:pair -2 O) (:pair 5 I)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 I)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 1 H) (:pair -1 I)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 Ca) (:pair 2 H)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 2 Ca) (:pair -1 H)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Cation with (charge ((a Charge-Value with (value ((:pair 1 *electronic-charge)))))) 
+                           (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 4 H)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 1 H) (:pair -3 N)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 2 C) (:pair 4 O)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 1 H) (:pair -2 O) (:pair 3 C)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 2 N) (:pair 1 O)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair -2 O) (:pair 1 N)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 K) (:pair 2 O)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 1 K) (:pair -1/2 O)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 Sn) (:pair 4 Br)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 4 Sn) (:pair -1 Br)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 1 S) (:pair 2 Cl)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 2 S) (:pair -1 Cl)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 2 O)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 1 H) (:pair -1 O)))
+
+               ((the value of (the output of 
+                     (a Compute-Oxidation-State with (input (
+                        (a Compound with (atomic-chemical-formula (
+                           (a Chemical-Formula with (term ((:seq (:pair 3 Ca) (:pair 2 P) (:pair 8 O)))))))
+                        )
+                     )))
+                ))
+                =
+                (:set (:pair 2 Ca) (:pair -2 O) (:pair 5 P)))
+
+               ((the value of (the oxidation-state of 
+                     (a Ionic-Compound with (has-chemical-formula (
+                        (a Chemical-Formula with (term ((:seq (:pair 1 Mn-Plus-2) (:pair 1 SO4-Minus-2)))))))
+                     )
+                ))
+                =
+                (:set (:pair 2 Mn) (:pair -2 O) (:pair 6 S)))
+
+))))

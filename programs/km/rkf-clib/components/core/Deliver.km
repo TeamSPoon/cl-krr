@@ -1,0 +1,100 @@
+;; 
+;;    $Id: Deliver.km,v 1.19 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Deliver has
+         (superclasses 	      (Transfer))
+         (required-slot       (recipient object))
+         (primary-slot 	      (agent donor instrument))
+         (secondary-slot      ())
+         (cmap-correspondence (
+			       (:seq agent "the Deliverer")
+			       (:seq donor "the original possessor")
+			       (:seq instrument "the thing used to Deliver")	
+			       (:seq object "the thing Delivered")
+			       (:seq recipient "the final possessor")
+			       ))
+       #|(sentence-type      (*punctual *conclusive))|#
+)
+
+(every Deliver has
+  (recipient ((a Tangible-Entity)))
+  (agent ((constraint ((not ((the donor of Self) includes TheValue)) and
+		       (not ((the recipient of Self) includes TheValue))))))
+  (soft-pcs-list ((if (has-value (the agent of Self))
+		      then
+		    (:triple (the agent of Self)
+			     abuts
+			     (the object of Self)))))
+  )
+
+(every Deliver has
+  (text-active-verbseq-sg ("delivers"))
+  (text-active-verbseq-pl ("deliver"))
+  (text-passive-verbseq-sg ("gets delivered"))
+  (text-passive-verbseq-pl ("get delivered"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Deliver has                   
+  (test-case ('( 
+                 (*Pizza has 
+			(instance-of (Tangible-Entity)))
+                 (*Dominoes has
+                        (instance-of (Tangible-Entity))
+                        (possesses (*Pizza)))
+		 (*Delivery-Guy has 
+			(instance-of (Tangible-Entity)))
+                 (*Albert has 
+			(instance-of (Tangible-Entity)))
+
+		 ;; *Delivery-Guy delivered *Pizza to *Albert
+                 (*Deliver has
+                        (instance-of (Deliver))
+                        (donor (*Dominoes))
+			(agent (*Delivery-Guy))
+                        (recipient (*Albert))
+                        (object (*Pizza)))
+                 (do-and-next *Deliver)
+		 (the text-gen of (thelast Deliver))
+		 ;; Test 1: *Dominoes no longer has *Pizza
+                 ((the possesses of *Dominoes) = nil)
+
+		 ;; Test 2: *Albert has *Pizza
+                 ((the possesses of *Albert) = *Pizza)
+
+		 ;; Test 3: The *Delivery-Guy delivered the *Pizza
+		 ((the agent of *Deliver) = *Delivery-Guy)
+
+		 ;; Test 4: The agent is not the donor and the recipient
+		 ( ((the agent of *Deliver) /= (the donor of *Deliver))
+		   and
+		   ((the agent of *Deliver) /= (the recipient of *Deliver)))
+               )))
+)
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Deliver has (wn16-synset ((:set  
+                                      (:triple "deliver" 3 "v")
+                                      (:triple "hand_over" 1 "v")
+                                      (:triple "get_in" 3 "v")
+                                      (:triple "render" 9 "v")
+                                      (:triple "turn_in" 3 "v")
+))))
+
+(Deliver has (wn20-synset ((:set
+                                      (:triple "deliver" 3 "v")
+                                      (:triple "hand_over" 1 "v")
+                                      (:triple "get_in" 3 "v")
+                                      (:triple "render" 8 "v")
+                                      (:triple "turn_in" 2 "v")
+))))
+(every Deliver has (text-nominalization ("delivery")))

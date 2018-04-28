@@ -1,0 +1,11 @@
+;;
+;; $Id: Rb-Plus.km,v 1.2 2003/03/26 19:45:27 wilder Exp $
+;;
+
+(Rb-Plus has (superclasses (Metal-Cation)))
+
+(every Rb-Plus has
+       (charge ((a Charge-Value with
+		   (value ((:pair 1 *electronic-charge))))))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term ((:seq (:pair 1 Rb))))))))

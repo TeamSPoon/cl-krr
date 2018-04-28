@@ -1,0 +1,815 @@
+<html>
+<head>
+
+<title>The Filebrowser Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Filebrowser</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">This is the ontology for Filebrowser information. 
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>Radar Networks' <a href="https://calo.sri.com/cgi-bin/rep.cgi/apps/iris/data/">irisOntology (search for "Filebrowser")</a> (.owl format)
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+	      <ul>
+		<li>Thing
+		  <ul>
+		    <li>Entity
+		      <ul>
+			<li>Intangible-Entity
+			  <ul>
+			    <li>Information
+			      <ul>
+				<li><a href=#InformationObject><b>InformationObject</b></a>
+				  <ul>
+				    <li><a href=#Folder><b>Folder</b></a>
+				  </ul>
+				</li>
+			      </ul>
+			    <li>Message
+			      <ul>
+				<li>Document
+				  <ul>
+				    <li>Computer-File
+				      <ul>
+					<li>Computer-Program
+					  <ul>
+					    <li><a href=#Software-Application><b>Software-Application</b></a></li>
+					  </ul>
+					</li>
+					<li><a href=#StillImage><b>StillImage</b></a>
+				      </ul>
+				    <li>Form-Document
+				      <ul>
+					<li><a href=#Archive><b>Archive</b></a>
+					  
+					<li><a href=#AudioDocument><b>AudioDocument</b></a>
+					  <ul>
+					    <li>AudioClipFilebrowserRecord
+					  </ul>
+				      </ul>
+				    <li><a href=#LinkFile><b>LinkFile</b></a>
+				    <li><a href=#WrittenDocument><b>WrittenDocument</b></a>
+				    <li><a href=#WrittenDocument><b>VisualDocument</b></a>	      
+				  </ul>
+			      </ul>
+			  </ul>
+		      </ul>
+		  </ul>
+		  <li>Role
+		  <ul>
+		    <li>Job-Role
+		      <ul><li><a href=#Provider><b>Provider</b></a>
+			  <ul><li><a href=#Representative><b>Representative</b></a></li>
+			  </ul>
+			</li>
+		      </ul>
+		  </ul>
+	      </ul>
+	    </ul>
+	    </div>
+	  </td></tr></table>
+    </p>
+    
+
+<p>
+<a name=InformationObject>
+<table>
+<tr><td>
+
+<div class="boxtop">InformationObject</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>An information artifact, a collection of information that exists in any InformationMedium.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a InformationObject with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;InformationObject-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+	<table>
+	  <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+          <tr><td><pre>hasAudienceMember</pre></td><td><pre>hasAudienceMember</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasAvailabilityStartDate</pre></td><td><pre>hasAvailabilityStartDate</pre></td><td align=center><pre>N</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+	  <tr><td><pre>hasCitationTo</pre></td><td><pre>hasCitationTo</pre></td><td align=center><pre>N</pre></td><td><pre>(a InformationObject)</pre></td></tr>
+	  <tr><td><pre>hasContainedItem</pre></td><td><pre>hasContainedItem</pre></td><td align=center><pre>N</pre></td><td><pre>(a Document) or (a InformationObject)</pre></td></tr>
+	  <tr><td><pre>hasContentRating</pre></td><td><pre>hasContentRating</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+	  <tr><td><pre>hasCreatedDate</pre></td><td><pre>hasCreatedDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+	  <tr><td><pre>hasCreatorApplication</pre></td><td><pre>hasCreatorApplication</pre></td><td align=center><pre>1</pre></td><td><pre>(a Software-Application)</pre></td></tr>
+	  <tr><td><pre>hasCreatorApplicationProductID</pre></td><td><pre>hasCreatorApplicationProductID</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasDataSize</pre></td><td><pre>hasDataSize</pre></td><td align=center><pre>N</pre></td><td><pre>(a Integer)</pre></td></tr>
+	  <tr><td><pre>hasDirectoryPath</pre></td><td><pre>hasDirectoryPath</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasDocumentFingerprint</pre></td><td><pre>hasDocumentFingerprint</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasDublinCoreResourceClassification</pre></td><td><pre>hasDublinCoreResourceClassification</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+	  <tr><td><pre>hasFileExtension</pre></td><td><pre>hasFileExtension</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasFilename</pre></td><td><pre>hasFilename</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasFormat</pre></td><td><pre>hasFormat</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+	  <tr><td><pre>hasIdenticalCopy</pre></td><td><pre>hasIdenticalCopy</pre></td><td align=center><pre>N</pre></td><td><pre>(a InformationObject)</pre></td></tr>
+	  <tr><td><pre>hasInformationPurpose</pre></td><td><pre>hasInformationPurpose</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+	  <tr><td><pre>hasKeyword</pre></td><td><pre>hasKeyword</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasLanguage</pre></td><td><pre>hasLanguage</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+	  <tr><td><pre>hasLastAccessedDate</pre></td><td><pre>hasLastAccessedDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+	  <tr><td><pre>hasMarkedUpContent</pre></td><td><pre>hasMarkedUpContent</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasMedium</pre></td><td><pre>hasMedium</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+	  <tr><td><pre>hasPlainTextContent</pre></td><td><pre>hasPlainTextContent</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasRequiredSecurityClassification</pre></td><td><pre>hasRequiredSecurityClassification</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+	  <tr><td><pre>hasSelfSummary</pre></td><td><pre>hasSelfSummary</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasSourceUID</pre></td><td><pre>hasSourceUID</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasSourceURI</pre></td><td><pre>hasSourceURI</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasAlternativeSourceURI</pre></td><td><pre>--</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasVersionNumber</pre></td><td><pre>hasVersionNumber</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>hasWatermark</pre></td><td><pre>hasWatermark</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>isAttachmentOf</pre></td><td><pre>isAttachmentOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+	  <tr><td><pre>isCitedFrom</pre></td><td><pre>isCitedFrom</pre></td><td align=center><pre>N</pre></td><td><pre>(a InformationObject)</pre></td></tr>
+	  <tr><td><pre>isSummarizedBy</pre></td><td><pre>isSummarizedBy</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+	  <tr><td><pre>isDerivedFrom</pre></td><td><pre>--</pre></td><td align=center><pre>N</pre></td><td><pre>(a InformationObject)</pre></td></tr>
+		  <tr><td colspan=3><i>+slots inherited from Information</i></td></tr>
+		</table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+
+<p>
+<a name=Archive>
+<table>
+<tr><td>
+
+<div class="boxtop">Archive</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A data structure for archiving.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Archive with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Archive-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from InformationObject</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=AudioDocument>
+<table>
+<tr><td>
+
+
+<div class="boxtop">AudioDocument</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+      <dd>A document that stores audio signals.
+      </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a AudioDocument with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;AudioDocument&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>isDepictionOf</pre></td><td><pre>isDepictionOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+
+    <tr><td colspan=3><i>+ slots inherited from Form-Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=Folder>
+<table>
+<tr><td>
+
+<div class="boxtop">Folder</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Folder.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Folder with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Folder-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasDirectoryPath</pre></td><td><pre>hasDirectoryPath</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasLogo</pre></td><td><pre>hasLogo</pre></td><td align=center><pre>1</pre></td><td><pre>(a StillImage) or (a AudioClip)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from InformationObject</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=StillImage>
+<table>
+<tr><td>
+
+<div class="boxtop">StillImage</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Folder.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a StillImage with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;StillImage-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>isLogoOf</pre></td><td><pre>isLogoOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from VisualDocument</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=LinkFile>
+<table>
+<tr><td>
+
+<div class="boxtop">LinkFile</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A file for linking.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a LinkFile with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;LinkFile-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Form</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=WrittenDocument>
+<table>
+<tr><td>
+
+<div class="boxtop">WrittenDocument</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Written Document.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a WrittenDocument with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;WrittenDocument-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasNumberOfPages</pre></td><td><pre>hasNumberOfPages</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td><pre>hasNumberOfParagraphs</pre></td><td><pre>hasNumberOfParagraphs</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td><pre>hasNumberOfWords</pre></td><td><pre>hasNumberOfWords</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td><pre>hasPublicationYear</pre></td><td><pre>hasPublicationYear</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=VisualDocument>
+<table>
+<tr><td>
+
+<div class="boxtop">VisualDocument</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Visual Document.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a VisualDocument with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;VisualDocument-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasBinaryRepresentation</pre></td><td><pre>hasBinaryRepresentation</pre></td><td align=center><pre>N</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>filebrowser-hisDepictionOf</pre></td><td><pre>isDepictionOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+    <tr><td><pre>isPictureOf</pre></td><td><pre>isPictureOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Document</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=Software-Application>
+<table>
+<tr><td>
+
+<div class="boxtop">Software-Application</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A computer program that is a Software Application.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Software-Application with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Software-Application&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasLogo</pre></td><td><pre>hasLogo</pre></td><td align=center><pre>N</pre></td><td><pre>(a Document)</pre></td></tr>
+    <tr><td><pre>hasMessage</pre></td><td><pre>hasMessage</pre></td><td align=center><pre>N</pre></td><td><pre>(a Message)</pre></td></tr>
+    <tr><td><pre>hasRepresentative</pre></td><td><pre>hasRepresentative</pre></td><td align=center><pre>N</pre></td><td><pre>(a Representative)</pre></td></tr>
+    <tr><td><pre>hasSoftwareApplicationPurpose</pre></td><td><pre>hasSoftwareApplicationPurpose</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+    <tr><td><pre>isCreatorApplicationOf</pre></td><td><pre>isCreatorApplicationOf</pre></td><td align=center><pre>N</pre></td><td><pre>(a Information)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer-Program</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+
+<p>
+<a name=Provider>
+<table>
+<tr><td>
+
+<div class="boxtop">Provider</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Provider.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Provider with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Provider&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Job-Role</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<p>
+<a name=Representative>
+<table>
+<tr><td>
+
+<div class="boxtop">Representative</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Representative.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Representative with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Representative&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+		 <tr><td><i>slot</i></td><td><i>iris property</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr> 
+		  <tr><td><pre>isRepresentativeFor</pre></td><td><pre>isRepresentativeFor</pre></td><td align=center><pre>N</pre></td><td><pre>(a Thing)</pre></td></tr>
+		  <tr><td colspan=3><i>+ slots inherited from Provider</i></td></tr>
+		</table>
+	      </dd>
+	      </dl>
+	      </div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</table>
+</p>
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

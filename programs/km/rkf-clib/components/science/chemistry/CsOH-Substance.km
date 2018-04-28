@@ -1,0 +1,11 @@
+;;
+;; $Id: CsOH-Substance.km,v 1.2 2003/04/22 05:07:25 jchaw Exp $
+;;
+
+(CsOH-Substance has (superclasses (Base)))
+
+(every CsOH-Substance has
+       (plays ((a Base-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *strong Base)))))))))
+   (has-basic-structural-unit ((a CsOH))))

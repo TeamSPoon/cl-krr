@@ -1,0 +1,31 @@
+;; 
+;;    $Id: is-beside.km,v 1.11 2007/04/11 21:23:39 jchaw Exp $
+;; 
+
+(is-beside has
+       (instance-of (Spatial-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Spatial-Entity))
+       (range (Spatial-Entity))
+       (fluent-status (*Inertial-Fluent))
+       (inverse (is-beside))
+       (text-slot (text-is-beside))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+(text-is-beside has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-is-beside))
+)
+
+
+
+

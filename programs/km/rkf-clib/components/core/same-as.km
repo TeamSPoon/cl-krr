@@ -1,0 +1,19 @@
+;;
+;;   $Id: same-as.km,v 1.11 2007/06/12 21:09:43 jchaw Exp $
+;;
+
+(same-as has
+  (instance-of (Property-Relation))      ; not a property (even though domain is Value)
+  (domain (Property-Value))
+  (range (Property-Value))
+  (inverse (same-as))
+  (cardinality (N-to-N))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+)
+
+(same-as has (text-gloss ("is the same as")))
+
+(same-as has (wn20-synset ((:set 
+				   (:triple "same as" 0 "n")
+))))

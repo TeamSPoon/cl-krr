@@ -1,0 +1,95 @@
+;; 
+;;    $Id: Exit.km,v 1.23 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Exit has
+         (superclasses 	 (Move-Out-Of Reflexive-Cliche))
+         (required-slot  (object agent origin))
+         (primary-slot 	 (destination path))
+         (secondary-slot ())
+	 (cmap-correspondence (
+			       (:seq agent "the exit'er")
+			       (:seq object "the exit'er")
+			       (:seq destination "final location")
+			       (:seq origin "original location")
+			       (:seq path "the portal")
+			       ))
+       #|(sentence-type  (*punctual *conclusive))|#
+)
+
+; The meaning of Exit is fully captured by its superclass, Move-Out-Of,
+; with the Reflexive cliche.  Nothing more to add.
+; (every Exit has ())
+
+(every Exit has-definition
+   (instance-of (Move-Out-Of Reflexive-Cliche)))
+
+(every Exit has
+  (text-active-verbseq-sg ("exits"))
+  (text-active-verbseq-pl ("exit"))
+
+  (text-base (()))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(Exit has
+      (test-case ('(
+		    (*Johnny-doorway has 
+			      (instance-of (Spatial-Entity))
+			      (plays ((a Portal))))
+                    (*Johnny-House-Location has (instance-of (Place)))
+		    (*Johnny-House has (instance-of (Physical-Object))
+		                (has-part    (*Johnny-Door))
+                                (location    (*Johnny-House-Location)))
+                    (*Inside-The-House has 
+                        (instance-of (Place))
+                        (is-inside (*Johnny-House)))
+
+                    (*Johnny-boy has 
+                       (instance-of (Living-Entity))
+		       (location (*Inside-The-House)))
+
+		    (a Exit with (agent (*Johnny-boy))
+		                 (base (*Johnny-House)))
+		    (the object of (thelast Exit))
+		    ((the content of (the Container plays of (the base of (thelast Exit)))) includes 
+                          *Johnny-boy)
+		    ((the is-inside of (the location of *Johnny-boy)) includes *Johnny-House)
+
+		    (do-and-next (thelast Exit))	
+		    (the text-gen of (thelast Exit))	    
+ 
+                    ((the is-outside of *Johnny-boy) includes *Johnny-House)
+                    ((the does-not-enclose of *Johnny-House-Location) includes *Johnny-boy)
+
+		    ;Test1: House shouldn't contain anything now
+		    (not ((the content of (the Container plays of *Johnny-House)) includes *Johnny-boy))
+		    ;Test2: *Johnny-boy is outside of the House
+		    ((the is-outside of (the location of *Johnny-boy)) includes
+                     *Johnny-House-Location)
+		    ;Test3: John is not inside of the House
+		    ((the does-not-enclose of *Johnny-House-Location) 
+			  includes (the location of *Johnny-boy))
+))))
+
+
+
+
+;; automatically added WN synsets
+(Exit has (wn16-synset ((:set  
+                                   (:triple "exit" 1 "v")
+                                   (:triple "go_out" 1 "v")
+                                   (:triple "get_out" 1 "v")
+                                   (:triple "leave" 5 "v")
+))))
+
+(Exit has (wn20-synset ((:set
+                                   (:triple "exit" 1 "v")
+                                   (:triple "go_out" 1 "v")
+                                   (:triple "get_out" 1 "v")
+                                   (:triple "leave" 5 "v")
+))))
+(every Exit has (text-nominalization ("exit")))

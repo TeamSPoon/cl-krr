@@ -1,0 +1,44 @@
+;; 
+;;    $Id: Lysine.km,v 1.13 2001/06/01 23:26:41 pnav Exp $ 
+;; 
+
+(Lysine has                
+         (superclasses (Basic-Amino-Acid Essential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A basic amino acid with a butylamine side chain.
+                        Souther")) 
+         (test-case ()))
+
+(every Lysine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 (((the Carbon-Atom has-part of 
+			    (the Amino-Acid-Side-Chain has-part of Self))
+		   called "Carbon-1")))
+		 ))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Butylamine))))
+	)))
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

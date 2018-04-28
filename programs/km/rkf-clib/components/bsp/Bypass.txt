@@ -1,0 +1,47 @@
+Bypass 
+  superclass: Tactical-Mission-Task 
+  superclass:  Move 
+  object: Military-Unit 
+  base: Tangible-Entity 
+  path: Spatial-Entity 
+  origin: Place 
+  destination: Place 
+ 
+   precondition: Be-Blocked with 
+                     object: the Spatial-Entity path-of Self 
+ 
+  subevent: 
+            Move-around:      
+                 superclass: Move  (Wordnet sense 1) 
+                 temporally-contained-by: Self 
+                 object: Tangible-Entity     (obstacle, position, or enemy force) 
+                 path: mustnt-be-a Spatial-Entity with 
+                            path of:  Self 
+                 origin: a Place with 
+                               is-on: SE path of Self                                           
+                               is-in-front-of: TE object of Self 
+                 destination: a Place with 
+                                          is-on: SE path of Self 
+                                          is-behind: TE object of Self 
+              Observe: 
+                  agent: MU called "friendly forces" agent of Self 
+                  object: MU called "enemy forces" 
+               Avoid: 
+                  agent: MU called "friendly forces" agent of Self 
+                  object: MU called "enemy forces" 
+                  cliché: Intentional-Act 
+                  defeats: Combat 
+                                   object: MU called "friendly forces" agent of Self 
+                                   object: MU called "enemy forces" 
+ 
+                  
+Bypass (A). 
+======. 
+1. Bypass is a tactical mission task in which the commander directs his unit to maneuver around an obstacle, position, or enemy force to maintain the momentum of the operation while deliberately avoiding combat with an enemy force. 
+2. The force normally keeps the bypassed enemy under observation until relieved by another force unless as part of a raid. 
+3. A senior commander does not normally delegate authority to bypass below the battalion task force level. 
+4. Before approving the bypass, the commander ensures that the bypassing force checks the bypass route for enemy presence and trafficability. 
+ 
+The two bypass techniques that the force can employ are: 
+- Avoiding the enemy totally. 
+Fixing the enemy in place with fires and then conducting the bypass. 

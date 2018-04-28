@@ -1,0 +1,58 @@
+<!--- $Id: Learn.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Learn><system-documentation name=Learn>
+<superconcept name=Interpret>
+
+<definition>
+
+  An interpret in which the agent acquires new knowledge
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the <conceptref name=Information> that's learned
+  </slotdescription>
+  
+  <slotdescription name=agent>
+     the <conceptref name=Tangible-Entity> that learns the information
+  </slotdescription>
+	
+</requiredslotlist>
+
+<comment>
+
+  This action puts the information into a <conceptref name=Be-Known>
+  state in which the <slot>agent</slot> is the <slot>experiencer</slot>.
+  If the information is already in this state, then the action cannot 
+  proceed (i.e. Learn requires that the agent is acquiring information 
+  that is new.)
+
+</comment>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Tom learned that elephants are big.</text>
+    <slotdescription name=agent>Tom</slotdescription>
+    <slotdescription name=object>that elephants are big</slotdescription>
+  </examplesentence>
+
+<neighborlist>
+
+  <neighbor name=Teach>
+    The Teach action causes a recipient to learn something new, but unlike Learn, requires a <conceptref name=Teacher>. 
+  </neighbor>
+  <neighbor name=Forget>
+    The Forget action is the opposite of Learn; it causes an entity to forget <conceptref name=Information>
+  </neighbor> 
+
+
+</neighborlist>
+
+</kml>
+

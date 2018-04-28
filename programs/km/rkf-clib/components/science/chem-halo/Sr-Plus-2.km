@@ -1,0 +1,20 @@
+;; $Id: Sr-Plus-2.km,v 1.5 2008/05/15 17:19:10 kunal Exp $ 
+
+(Sr-Plus-2 has (superclasses (Metal-Cation)))
+
+(every Sr-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *unity))))))
+	(has-chemical-name ("strontium"))
+        (is-ion-of ((a Sr)))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Sr))))))))
+
+(every Sr-Plus-2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("strontium"))
+  (charge ((a Charge-Value with
+	      (value ((:pair +2 *unity)))))))
+
+
+(Sr-Plus-2 has (wn20-synset ((:triple "Sr+2" 0 "n"))))

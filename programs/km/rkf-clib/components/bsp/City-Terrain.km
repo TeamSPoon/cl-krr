@@ -1,0 +1,18 @@
+
+;; 
+;;  $Id: City-Terrain.km,v 1.1 2004/12/18 15:35:28 kbarker Exp $
+;; 
+
+(City-Terrain has
+   (superclasses (Terrain))
+   (description ("A feature of the terrain")))
+
+(every City-Terrain has
+   (trafficability ((a Trafficability-Value with
+                       (value ((:pair *R Armor-Unit)
+                               (:pair *R Mechanized-Infantry-Unit)
+                               (:pair *UR Light-Infantry-Unit)))
+   )))
+)
+
+

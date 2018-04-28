@@ -1,0 +1,31 @@
+;; $Id: NH2-Minus.km,v 1.8 2008/05/15 22:45:41 vaibhav Exp $
+
+(NH2-Minus has (superclasses (Anion)))
+
+(every NH2-Minus has
+       (has-chemical-name ("amido group"))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 N)
+					  (:pair 2 H)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 N)
+					  (:pair 2 H)))))))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 N)
+					  (:pair 2 H)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair -1 *unity)))))))
+
+
+(every NH2-Minus has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 2 H)))))))
+  (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 2 H)))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 2 H)))))))
+  (charge ((a Charge-Value with (value ((:pair -1 *unity))))))
+)
+
+(NH2-Minus has (wn20-synset ((:triple "NH2-" 0 "n") (:triple "NH_2-" 0 "n"))))

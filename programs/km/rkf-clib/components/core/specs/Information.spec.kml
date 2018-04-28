@@ -1,0 +1,65 @@
+<!--- $Id: Information.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<kml>
+
+<concept name=Information><system-documentation name=Information>
+<superconcept name=Intangible-Entity>
+
+<definition>
+
+  The knowledge communicated or received concerning a 
+  particular fact or circumstance.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=information-content>
+     knowledge being communicated
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=truth>
+     whether the <slot>information-content</slot> is true or false
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The teacher taught us about World War II.</text>
+    <comment>
+    In this example, the Information is described by these properties:
+    </comment>
+    <slotdescription name=information-content>Word War II</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>People used to believe that the earth was flat.</text>
+    <comment>
+    In this example, the Information is described by these properties:
+    </comment>
+    <slotdescription name=information-content>the earth was flat</slotdescription>
+    <slotdescription name=truth>false</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Language>
+    The form in which the information is written out.
+  </neighbor>
+
+  <neighbor name=Message>
+    An encoding of information.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

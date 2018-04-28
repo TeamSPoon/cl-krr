@@ -1,0 +1,12 @@
+;; $Id: ClO-Minus-Substance.km,v 1.2 2003/04/09 17:54:42 jchaw Exp $ 
+(ClO-Minus-Substance has (superclasses (Anion-Substance)))
+(every ClO-Minus-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 3.33e-7 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a ClO-Minus)))
+)

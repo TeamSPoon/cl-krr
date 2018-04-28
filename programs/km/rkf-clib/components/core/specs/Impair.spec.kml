@@ -1,0 +1,64 @@
+<!--- $Id: Impair.spec.kml,v 1.2 2005/08/11 21:03:03 pzyeh Exp $ --->
+<kml>
+
+<concept name=Impair><system-documentation name=Impair>
+<superconcept name=Action>
+
+<definition>
+  Impair an object so it becomes worse or less effective.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that's impaired.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the impair to occur.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing that was used to impair the object.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the impair to occur.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The fog impaired Billy's vision.</text>
+    <slotdescription name=agent>The Fog</slotdescription>
+    <slotdescription name=object>Billy's vision</slotdescription>
+  </examplesentence>
+  <comment>
+     Billy's vision becomes less effective. Billy's vision, however, 
+     is not damaged. If its damaged, then use <conceptref name=Damage> 
+     to describe the action.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Damage>
+     A damage is a special kind of impair in which the object is not a living thing.
+  </neighbor>
+  
+  <neighbor name=Harm>
+     A harm is a special kind of impair in which the object is a living thing. 
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

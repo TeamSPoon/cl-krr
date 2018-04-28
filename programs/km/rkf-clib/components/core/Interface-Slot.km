@@ -1,0 +1,16 @@
+;; 
+;; $Id: Interface-Slot.km,v 1.3 2004/08/04 15:23:55 kbarker Exp $ 
+;; 
+
+(Interface-Slot has 
+  (superclasses (Slot))
+)
+
+;; this causes KM to assert an inappropriate (instance-of (Slot)) on 
+;; Interface-Slot on load
+#|
+(every Interface-Slot has
+  (fluent-status (*Inertial-Fluent))
+)
+|#
+

@@ -1,0 +1,28 @@
+<!--- $Id: has-chemical-formula.spec.kml,v 1.2 2008/02/05 19:09:44 vaibhav Exp $ --->
+<kml>
+<relation-doc name=has-chemical-formula>
+
+<from name=Chemical-Entity>
+<to name=Chemical-Formula>
+
+<description>The chemical formula of a Chemical-Entity. Expressed in terms of the component Ions in case of an Ionic-Compound.</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The chemical formula of <ex-from>hydrochloric acid</ex-from> is <ex-to>HCl</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The chemical formula of <ex-from>water</ex-from> is <ex-to>H2O</ex-to>.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=nested-atomic-chemical-formula>
+does not take into account nesting, but uses Ions
+ </neighbor>
+</neighborlist>
+
+</kml>

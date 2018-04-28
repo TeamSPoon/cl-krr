@@ -1,0 +1,90 @@
+;;
+;;    $Id: has-example.km,v 1.12 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(has-example has
+  (instance-of 	 (KM-Slot-Group))
+  (inverse       (is-example-of))
+  (superslots 	 ())
+  (subslots 	 ())
+  (domain 	 (Thing))
+  (range  	 (Thing))
+  (fluent-status (*Non-Fluent))
+  (original-slot      (t))	
+  (cardinality 	 (N-to-N))
+)
+
+(has-example   now-has (shaken-ui-hidden-slot ()))
+(is-example-of now-has (shaken-ui-hidden-slot ()))
+(has-example   now-has (name ("example")))
+
+(is-example-of has
+	(instance-of (KM-Slot-Group)))
+
+(has-example has (wn20-synset ((:set
+				(:triple "example" 0 "n")))))
+
+
+
+#|
+;;Version 1
+(every Thing has
+       (has-example ((if (has-value (oneof
+				     (the all-subclasses of Self)
+				     where (not (the all-subclasses of It))))
+			 then (an instance of 
+				  (#'(LAMBDA () (SECOND 
+						 (FIRST
+						  (SORT 
+						   (MAPCAR #'(LAMBDA (CONCEPT)
+								     (LIST (TAX-DIST CONCEPT 'Self) CONCEPT))
+							   (KM0 '(|allof|
+								    (|the| |all-subclasses| |of| |Self|)
+								    |where| (|not| (|the| |all-subclasses| |of| |It|)))))
+						   #'(LAMBDA (X Y) (> (FIRST X)(FIRST Y)))))))))
+			 else (oneof
+			       (the all-instances of Self)
+			       where (not ((the text-description of It) = (the text-description of (an instance of Self)))))))))
+|#
+
+#|
+;;Version 2
+(every Thing has
+       (has-example ((if ((the instance-of of Self) = Thing)
+			 then (if (has-value (oneof
+					      (the all-subclasses of Self)
+					      where (not (the all-subclasses of It))))
+				  then (an instance of 
+					   (#'(LAMBDA () (SECOND 
+							  (FIRST
+							   (SORT 
+							    (MAPCAR #'(LAMBDA (CONCEPT)
+									      (LIST (TAX-DIST CONCEPT 'Self) CONCEPT))
+								    (KM0 '(|allof|
+									     (|the| |all-subclasses| |of| |Self|)
+									     |where| (|not| (|the| |all-subclasses| |of| |It|)))))
+							    #'(LAMBDA (X Y) (> (FIRST X)(FIRST Y)))))))))
+				  else (oneof
+					(the all-instances of Self)
+					where (not ((the text-description of It) = (the text-description of (an instance of Self))))))
+			 else (the has-example of (the instance-of of Self))))))
+|#
+
+#|
+
+---------
+Heuristic for both Version 1 and Version 2
+---------
+
+Either 
+   1) Returns the an instance for concept which has no subclasses and is most taxonomically distant. 
+   2) Returns an instance whose text-description is different from a skolem's text-description
+   3) Returns nil
+
+|#
+
+(every Thing has
+	(has-example ((if ((the instance-of of Self) = Thing)
+			  then (#'(LAMBDA () (FIND-EXAMPLE-FOR-CONCEPT '|Self|)))
+			  else (the has-example of (#'(LAMBDA() (CAR (KM0 '(|the| |instance-of| |of| |Self|))))))))))
+

@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Electron-Carrier.km,v 1.10 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Electron-Carrier has
+         (superclasses (Chemical-Entity))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Molecule such as cytochrome C that transfers an 
+                        electron from a donor molecule to an acceptor
+                        molecule.  Alberts:ECB:G-7"))
+         (test-case ()))
+
+(every Electron-Carrier has
+       (purpose ((a Vehicle with
+                    (in-event ((a Electron-Transfer))))
+                 ))
+)(every Electron-Carrier has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

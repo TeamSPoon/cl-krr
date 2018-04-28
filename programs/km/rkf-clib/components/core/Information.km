@@ -1,0 +1,30 @@
+;;
+;;    $Id: Information.km,v 1.8 2009/12/16 17:04:47 kbarker Exp $
+;;
+        
+(Information has
+          (superclasses (Conceptual-Entity))
+          (required-slot (information-content))
+          (primary-slot ())
+          (description ("Knowledge communicated or received concerning a particular fact or circumstance. RHCD:1st Revised: 684."))
+          (secondary-slot ()) )
+
+;; Information should contain the knowledge
+
+(every Information has
+	;;pretty much anything is alowable ;instances, classes, triples, strings
+	(information-content ((a Thing)))
+	(truth		     ((must-be-a Truth-Value)))
+)
+
+
+;; automatically added WN synsets
+(Information has (wn16-synset ((:set  
+                                          (:triple "information" 1 "n")
+                                          (:triple "info" 1 "n")
+))))
+
+(Information has (wn20-synset ((:set
+                                          (:triple "information" 1 "n")
+                                          (:triple "info" 1 "n")
+))))

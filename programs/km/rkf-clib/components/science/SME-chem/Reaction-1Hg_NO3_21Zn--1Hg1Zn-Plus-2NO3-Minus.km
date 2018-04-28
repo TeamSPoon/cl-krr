@@ -1,0 +1,12 @@
+;;
+;;    $Id: Reaction-1Hg_NO3_21Zn--1Hg1Zn-Plus-2NO3-Minus.km,v 1.1 2007/12/02 05:38:51 vaibhav Exp $
+;;
+(Reaction-1Hg_NO3_21Zn--1Hg1Zn-Plus-2NO3-Minus has (superclasses (Reaction)))
+
+(every Reaction-1Hg_NO3_21Zn--1Hg1Zn-Plus-2NO3-Minus has-definition
+(instance-of (Reaction))
+(raw-material ((a Hg_NO3_2-Substance) (a Zn-Substance))))
+
+(every Reaction-1Hg_NO3_21Zn--1Hg1Zn-Plus-2NO3-Minus has
+(raw-material ((a Hg_NO3_2-Substance) (a Zn-Substance)))
+(result ((a Hg-Substance)(a Chemical with (has-basic-structural-unit ((a Zn-Plus-2))))(a Chemical with (has-basic-structural-unit ((a NO3-Minus)))))))

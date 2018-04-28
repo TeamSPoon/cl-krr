@@ -1,0 +1,44 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _H2SO4-Substance50747
+
+
+|#
+
+(disable-classification)
+
+(H2SO4-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every H2SO4-Substance has (has-chemical-name ("Sulfuric")) (has-basic-structural-unit ((a H2SO4))))
+
+(_H2SO4-Substance50789 has
+  (prototype-of (H2SO4-Substance))
+  (prototype-scope (H2SO4-Substance))
+  (prototype-participants (_Solubility-Value50790 _H2SO4-Substance50789 _Electrolyte-Status-Value8249)))
+
+(_H2SO4-Substance50789 has (instance-of (H2SO4-Substance)) (solubility (_Solubility-Value50790)) (electrolyte-status (_Electrolyte-Status-Value8249)))
+
+(_Solubility-Value50790 has (instance-of (Solubility-Value)) (value ((:pair *soluble Chemical))))
+
+(_Electrolyte-Status-Value8249 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *strong nil))))
+
+(enable-classification)
+
+(explanation (:triple _Solubility-Value50790 value (:pair *soluble Chemical)) (((@ SME entered)) (every H2SO4-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))))
+
+(explanation (:triple _H2SO4-Substance50789 instance-of H2SO4-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value50790 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every H2SO4-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+|#
+
+|#
+

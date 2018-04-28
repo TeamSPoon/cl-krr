@@ -1,0 +1,15 @@
+;; 
+;; $Id: WrittenDocumentCollection.km,v 1.3 2005/04/13 20:27:47 billj Exp $
+;;
+
+(WrittenDocumentCollection has (superclasses (Aggregate)))
+
+(every WrittenDocumentCollection has
+  (element-type (WrittenDocument))
+)
+
+(hasVolumeNumber has (instance-of (Interface-Slot)) (domain (WrittenDocumentCollection)) (range (Integer)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasIssueNumber has (instance-of (Interface-Slot)) (domain (WrittenDocumentCollection)) (range (Integer)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasPublicationYear has (instance-of (Interface-Slot)) (domain (WrittenDocumentCollection WrittenDocument)) (range (Integer)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasPublisher has (instance-of (Interface-Slot)) (domain (WrittenDocumentCollection WrittenDocument Book)) (range (Organization Person))(fluent-status (*Inertial-Fluent))(cardinality (N-to-1))(inverse (isPublisherOf))(description ("FRAME hasPublisher FILLER means that FILLER is the organization or person responsible for publishing, i.e. manufacturing, distributing of FRAME to the public.  FILLER can be any publishable information source such as a Book, a Document, or a WrittenDocumentCollection.")))
+

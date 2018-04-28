@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Extracellular-Matrix.km,v 1.14 2002/06/21 19:17:00 tecuci Exp $ 
+;; 
+
+(Extracellular-Matrix has
+         (superclasses (Organic-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Complex network of polysaccharides (such as
+                        glycosaminoglycans or cellulose) and proteins (such as
+                        collagen) secreted by cells.  A structural component
+                        of tissues that also influences their development and
+                        physiology. Alberts:ECB:G-7."))
+         (test-case ()))
+
+(every Extracellular-Matrix has
+     (has-part ((a Aggregate with
+
+		   (element-type (Polysaccharide)))
+                (a Aggregate with
+
+		   (element-type (Protein)))
+                )))
+
+
+

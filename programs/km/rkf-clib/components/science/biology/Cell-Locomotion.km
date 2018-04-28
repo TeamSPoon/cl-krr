@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Cell-Locomotion.km,v 1.12 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Cell-Locomotion has
+            (superclasses (Locomotion))
+            (required-slot       (agent))
+            (primary-slot        (object))
+	    (description ("The locomotion of a cell, usually accomplished 
+                            internally using actin filaments or externally
+                            using flagella or cilia.  Souther."))
+	    )
+
+(every Cell-Locomotion has
+       (agent ((a Cell)))
+       (object ((a Cell)))
+       (instrument ((a Aggregate with
+
+                       (element-type (Protein-Filament)))))
+)(every Cell-Locomotion has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Bacterial-RNA-Polymerase.km,v 1.9 2001/05/14 15:12:54 jfan Exp $ 
+;; 
+
+(Bacterial-RNA-Polymerase has
+		(superclasses (RNA-Polymerase))
+		(required-slot ())
+		(primary-slot ())
+		(secondary-slot ())
+		(description ("Enzyme that catalyzes the synthesis of an 
+                               RNA molecule on a DNA template from nucleoside
+                               triphosphate precursors in bacteria.
+                               (modified from Alberts: ECB:G-16)."))
+		(cmap-correspondence ()))
+
+(every Bacterial-RNA-Polymerase has
+       (purpose ((a Catalyst with
+                    (in-event ((a Bacterial-DNA-Transcription))))
+                 ))
+       (has-part ((a Sigma-Factor)))) ;sub-unit
+
+
+
+

@@ -1,0 +1,64 @@
+<!--- $Id: Secure.spec.kml,v 1.1 2005/08/01 20:56:42 jchaw Exp $ --->
+<kml>
+
+<concept name=Secure>
+<superconcept name=Military-Task>
+
+<definition>
+
+  A tactical mission task to prevent a unit, facility, or location
+  from being damaged
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that is securing the
+     <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=object>
+     the unit, facility or location (i.e. the <conceptref name=Spatial-Entity>)
+     that is being secured by the <slot>agent</slot>
+  </slotdescription>
+  
+</requiredslotlist>
+
+  <comment>
+  The <slot>agent</slot> and the <slot>object</slot> have the same 
+  <slot>allegiance</slot>
+  </comment>
+
+<primaryslotlist>
+
+  <slotdescription name=base>
+     The <conceptref name=Military-Unit> which is threatening the
+     <slot>object</slot>
+  </slotdescription>
+
+</primaryslotlist>
+
+  <comment>
+  The <slot>base</slot> and the <slot>agent</slot> have different
+  <slot>allegiance</slot>s
+  </comment>
+
+<neighborlist>
+
+  <neighbor name=Screen>
+    Screen is also a security action.  Screen primarily provides early
+    warning to a protected force.
+  </neighbor>
+
+  <neighbor name=Guard>
+    Guard is also a security action.  Guard is a military task to fix an
+    enemy ground force before it can engage the main body.
+  </neighbor>
+
+
+</neighborlist>
+
+</kml>
+
+

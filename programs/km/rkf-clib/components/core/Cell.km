@@ -1,0 +1,16 @@
+;; 
+;;    $Id: Cell.km,v 1.7 2009/12/16 17:04:47 kbarker Exp $ 
+;; 
+
+(Cell has
+      (superclasses (Living-Entity))
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (description ("The basic unit from which living organisms are made, consisting of an aqueous solution of organic molecules enclosed by a membrane.  All cells arise from existing cells, usually by a process of division into two.  (Alberts:ECB:G-3)."))
+       (cmap-correspondence ()))
+
+(every Cell has
+       (is-part-of ((must-be-a Organism)))
+       )
+

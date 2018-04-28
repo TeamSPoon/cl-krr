@@ -1,0 +1,604 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Free-Fall ----------
+
+(Free-Fall has (superclasses (Fall Linear-Move)))
+
+(_Free-Fall341 has 
+  (instance-of (Free-Fall))
+  (prototype-of (Free-Fall))
+  (prototype-scope (Free-Fall))
+  (prototype-participants (_Free-Fall341
+                           _System415
+                           _Equation-Set416
+                           _Equation-Set417
+                           _Equation-Set418
+                           _Equation-Set419
+                           _Duration-Value420
+                           _Acceleration-Magnitude-Value421
+                           _Speed-Value422
+                           _Speed-Value423
+                           _Length-Value424
+                           _Length-Value425
+                           _Length-Value426
+                           _Tangible-Entity427
+                           _Spatial-Entity428
+                           _Spatial-Entity429
+                           _Property-Node430
+                           _Property-Node432
+                           _Property-Node434
+                           _Property-Node436
+                           _Property-Node438
+                           _Equation-Big-Node439
+                           _Equation-Big-Node441
+                           _Equation-Big-Node445
+                           _Property-Node446
+                           _Property-Node447
+                           _Equation-Big-Node449))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Placeholder-Class340342
+               _Free-Fall485))
+  (has-built-clones (_Placeholder-Class340342
+                     _Free-Fall485))
+  (origin (_Spatial-Entity429))
+  (destination (_Spatial-Entity428))
+  (object (_Tangible-Entity427))
+  (initial-position (_Length-Value426))
+  (final-position (_Length-Value425))
+  (distance (_Length-Value424))
+  (final-speed (_Speed-Value423))
+  (initial-speed (_Speed-Value422))
+  (acceleration-magnitude (_Acceleration-Magnitude-Value421))
+  (duration (_Duration-Value420))
+  (component-of (_System415))
+  (cloned-from (_Linear-Move542))
+  (clone-built-from (_Linear-Move542))
+  (internally-expanded (t))
+  (big-nodes (_Equation-Big-Node449
+              _Property-Node447
+              _Property-Node446
+              _Equation-Big-Node445
+              _Equation-Big-Node441
+              _Equation-Big-Node439
+              _Property-Node438
+              _Property-Node436
+              _Property-Node434
+              _Property-Node432
+              _Property-Node430))
+  (edge-visibility ((:seq duration _Duration-Value420 t)
+                    (:seq initial-position _Length-Value426 t)
+                    (:seq final-position _Length-Value425 t)
+                    (:seq initial-speed _Speed-Value422 t)
+                    (:seq acceleration-magnitude _Acceleration-Magnitude-Value421 t)
+                    (:seq final-speed _Speed-Value423 t)
+                    (:seq distance _Length-Value424 t)
+                    (:seq object _Tangible-Entity427 t)
+                    (:seq destination _Spatial-Entity428 t)
+                    (:seq origin _Spatial-Entity429 t)))
+  (edge-coordinate ((:seq duration _Duration-Value420 214 560)
+                    (:seq initial-position _Length-Value426 193 316)
+                    (:seq final-position _Length-Value425 198 271)
+                    (:seq initial-speed _Speed-Value422 199 411)
+                    (:seq acceleration-magnitude _Acceleration-Magnitude-Value421 171 469)
+                    (:seq final-speed _Speed-Value423 199 366)
+                    (:seq distance _Length-Value424 214 516)
+                    (:seq object _Tangible-Entity427 214 604)
+                    (:seq destination _Spatial-Entity428 214 648)
+                    (:seq origin _Spatial-Entity429 214 692)))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_System415 has 
+  (contains-node-of (_Equation-Big-Node449
+                     _Equation-Big-Node445
+                     _Equation-Big-Node441
+                     _Equation-Big-Node439))
+  (equation (_Equation-Set419
+             _Equation-Set418
+             _Equation-Set417
+             _Equation-Set416))
+  (instance-of (System))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (component (_Free-Fall341))
+  (edge-visibility ((:seq component _Free-Fall341 t)
+                    (:seq equation _Equation-Set416 t)
+                    (:seq equation _Equation-Set417 t)
+                    (:seq equation _Equation-Set418 t)
+                    (:seq equation _Equation-Set419 t)))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_System484)))
+
+(_Equation-Set416 has 
+  (contains-node-of (_Equation-Big-Node449))
+  (equation-uses (_Length-Value426
+                  _Length-Value425
+                  _Length-Value424))
+  (instance-of (Equation-Set))
+  (internally-expanded (t))
+  (equation-of (_System415))
+  (equation-symbol ((:pair 'h _Length-Value424)
+                    (:pair 'i _Length-Value426)
+                    (:pair 'f _Length-Value425)))
+  (user-equation-expression ('(= h (- f i))))
+  (equation-expression ('(= h (- f i))))
+  (node-coordinate ((:pair 668 250)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Equation-Set483))
+  (edge-visibility ((:seq user-equation-expression '(= h (- f i)) t)
+                    (:seq equation-expression '(= h (- f i)) t)
+                    (:seq equation-symbol (:pair 'f _Length-Value425) t)
+                    (:seq equation-symbol (:pair 'i _Length-Value426) t)
+                    (:seq equation-symbol (:pair 'h _Length-Value424) t)
+                    (:seq equation-uses _Length-Value424 t)
+                    (:seq equation-uses _Length-Value425 t)
+                    (:seq equation-uses _Length-Value426 t))))
+
+(_Equation-Set417 has 
+  (contains-node-of (_Equation-Big-Node445))
+  (equation-uses (_Length-Value424
+                  _Speed-Value423
+                  _Speed-Value422
+                  _Acceleration-Magnitude-Value421))
+  (instance-of (Equation-Set))
+  (internally-expanded (t))
+  (equation-of (_System415))
+  (user-equation-expression ('(= (expt v 2) (+ (expt u 2) (* (* 2 g) h)))))
+  (equation-symbol ((:pair 'v _Speed-Value423)
+                    (:pair 'u _Speed-Value422)
+                    (:pair 'g _Acceleration-Magnitude-Value421)
+                    (:pair 'h _Length-Value424)))
+  (equation-expression ('(= (expt v 2) (+ (expt u 2) (* (* 2 g) h)))))
+  (node-coordinate ((:pair 673 593)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Equation-Set481))
+  (edge-visibility ((:seq user-equation-expression '(= (expt v 2) (+ (expt u 2) (* (* 2 g) h))) t)
+                    (:seq equation-expression '(= (expt v 2) (+ (expt u 2) (* (* 2 g) h))) t)
+                    (:seq equation-symbol (:pair 'h _Length-Value424) t)
+                    (:seq equation-symbol (:pair 'g _Acceleration-Magnitude-Value421) t)
+                    (:seq equation-symbol (:pair 'u _Speed-Value422) t)
+                    (:seq equation-symbol (:pair 'v _Speed-Value423) t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value421 t)
+                    (:seq equation-uses _Speed-Value422 t)
+                    (:seq equation-uses _Speed-Value423 t)
+                    (:seq equation-uses _Length-Value424 t))))
+
+(_Equation-Set418 has 
+  (contains-node-of (_Equation-Big-Node441))
+  (equation-uses (_Length-Value424
+                  _Speed-Value422
+                  _Acceleration-Magnitude-Value421
+                  _Duration-Value420))
+  (instance-of (Equation-Set))
+  (internally-expanded (t))
+  (equation-of (_System415))
+  (user-equation-expression ('(= h (+ (* u t) (* (* (/ 1 2) g) (expt t 2))))))
+  (equation-symbol ((:pair 'u _Speed-Value422)
+                    (:pair 'g _Acceleration-Magnitude-Value421)
+                    (:pair 't _Duration-Value420)
+                    (:pair 'h _Length-Value424)))
+  (equation-expression ('(= h (+ (* u t) (* (* (/ 1 2) g) (expt t 2))))))
+  (node-coordinate ((:pair 670 466)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Equation-Set480))
+  (edge-visibility ((:seq user-equation-expression '(= h (+ (* u t) (* (* (/ 1 2) g) (expt t 2)))) t)
+                    (:seq equation-expression '(= h (+ (* u t) (* (* (/ 1 2) g) (expt t 2)))) t)
+                    (:seq equation-symbol (:pair 'h _Length-Value424) t)
+                    (:seq equation-symbol (:pair 't _Duration-Value420) t)
+                    (:seq equation-symbol (:pair 'g _Acceleration-Magnitude-Value421) t)
+                    (:seq equation-symbol (:pair 'u _Speed-Value422) t)
+                    (:seq equation-uses _Duration-Value420 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value421 t)
+                    (:seq equation-uses _Speed-Value422 t)
+                    (:seq equation-uses _Length-Value424 t))))
+
+(_Equation-Set419 has 
+  (contains-node-of (_Equation-Big-Node439))
+  (equation-uses (_Speed-Value423
+                  _Speed-Value422
+                  _Acceleration-Magnitude-Value421
+                  _Duration-Value420))
+  (instance-of (Equation-Set))
+  (internally-expanded (t))
+  (equation-of (_System415))
+  (user-equation-expression ('(= v (+ u (* g t)))))
+  (equation-symbol ((:pair 'v _Speed-Value423)
+                    (:pair 'u _Speed-Value422)
+                    (:pair 'g _Acceleration-Magnitude-Value421)
+                    (:pair 't _Duration-Value420)))
+  (equation-expression ('(= v (+ u (* g t)))))
+  (node-coordinate ((:pair 674 330)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Equation-Set478))
+  (edge-visibility ((:seq user-equation-expression '(= v (+ u (* g t))) t)
+                    (:seq equation-expression '(= v (+ u (* g t))) t)
+                    (:seq equation-symbol (:pair 't _Duration-Value420) t)
+                    (:seq equation-symbol (:pair 'g _Acceleration-Magnitude-Value421) t)
+                    (:seq equation-symbol (:pair 'u _Speed-Value422) t)
+                    (:seq equation-symbol (:pair 'v _Speed-Value423) t)
+                    (:seq equation-uses _Duration-Value420 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value421 t)
+                    (:seq equation-uses _Speed-Value422 t)
+                    (:seq equation-uses _Speed-Value423 t))))
+
+(_Duration-Value420 has 
+  (contains-node-of (_Property-Node430))
+  (instance-of (Duration-Value))
+  (duration-of (_Free-Fall341))
+  (internally-expanded (t))
+  (used-in-equation (_Equation-Set419
+                     _Equation-Set418))
+  (node-coordinate ((:pair 364 554)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Duration-Value474)))
+
+(_Acceleration-Magnitude-Value421 has 
+  (contains-node-of (_Property-Node434))
+  (instance-of (Acceleration-Magnitude-Value))
+  (internally-expanded (f))
+  (acceleration-magnitude-of (_Free-Fall341))
+  (value ((:pair -9.8 *meter-per-second-squared)))
+  (used-in-equation (_Equation-Set419
+                     _Equation-Set417
+                     _Equation-Set418))
+  (node-coordinate ((:pair 330 465)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Acceleration-Magnitude-Value473))
+  (edge-visibility ((:seq value (:pair -9.8 *meter-per-second-squared) f))))
+
+(_Speed-Value422 has 
+  (contains-node-of (_Property-Node436))
+  (instance-of (Speed-Value))
+  (internally-expanded (f))
+  (initial-speed-of (_Free-Fall341))
+  (used-in-equation (_Equation-Set419
+                     _Equation-Set417
+                     _Equation-Set418))
+  (node-coordinate ((:pair 306 410)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Speed-Value472)))
+
+(_Speed-Value423 has 
+  (contains-node-of (_Property-Node438))
+  (instance-of (Speed-Value))
+  (internally-expanded (f))
+  (final-speed-of (_Free-Fall341))
+  (used-in-equation (_Equation-Set419
+                     _Equation-Set417))
+  (node-coordinate ((:pair 310 365)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Speed-Value471)))
+
+(_Length-Value424 has 
+  (contains-node-of (_Property-Node432))
+  (instance-of (Length-Value))
+  (distance-of (_Free-Fall341))
+  (internally-expanded (t))
+  (used-in-equation (_Equation-Set418
+                     _Equation-Set417
+                     _Equation-Set416))
+  (node-coordinate ((:pair 364 510)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Length-Value470)))
+
+(_Length-Value425 has 
+  (contains-node-of (_Property-Node447))
+  (instance-of (Length-Value))
+  (internally-expanded (f))
+  (final-position-of (_Free-Fall341))
+  (used-in-equation (_Equation-Set416))
+  (node-coordinate ((:pair 323 270)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Length-Value469)))
+
+(_Length-Value426 has 
+  (contains-node-of (_Property-Node446))
+  (instance-of (Length-Value))
+  (internally-expanded (f))
+  (initial-position-of (_Free-Fall341))
+  (used-in-equation (_Equation-Set416))
+  (node-coordinate ((:pair 320 316)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341))
+  (has-clones (_Length-Value468)))
+
+(_Tangible-Entity427 has 
+  (instance-of (Tangible-Entity
+                Thing))
+  (has-clones (_Tangible-Entity358
+               _Tangible-Entity467))
+  (cloned-from (_Tangible-Entity570))
+  (object-of (_Free-Fall341))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 364 598)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Spatial-Entity428 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity367
+               _Spatial-Entity466))
+  (destination-of (_Free-Fall341))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 364 642)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Spatial-Entity429 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity343
+               _Spatial-Entity465))
+  (origin-of (_Free-Fall341))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 364 686)))
+  (node-visibility (t))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Property-Node430 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node370
+               _Property-Node464))
+  (node-visibility (t))
+  (contains-node (_Duration-Value420))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Property-Node432 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node371
+               _Property-Node463))
+  (node-visibility (t))
+  (contains-node (_Length-Value424))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Property-Node434 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node378
+               _Property-Node462))
+  (node-visibility (t))
+  (contains-node (_Acceleration-Magnitude-Value421))
+  (contains-edge ((:triple _Acceleration-Magnitude-Value421 value (:pair -9.8 *meter-per-second-squared))))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Property-Node436 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node380
+               _Property-Node461))
+  (node-visibility (t))
+  (contains-node (_Speed-Value422))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Property-Node438 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node382
+               _Property-Node460))
+  (node-visibility (t))
+  (contains-node (_Speed-Value423))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Equation-Big-Node439 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node386
+               _Equation-Big-Node459))
+  (node-visibility (t))
+  (contains-node (_System415
+                  _Equation-Set419))
+  (contains-edge ((:triple _System415 component _Free-Fall341)
+                  (:triple _System415 equation _Equation-Set419)
+                  (:triple _Equation-Set419 user-equation-expression '(= v (+ u (* g t))))
+                  (:triple _Equation-Set419 equation-uses _Speed-Value423)
+                  (:triple _Equation-Set419 equation-symbol (:pair 'v _Speed-Value423))
+                  (:triple _Equation-Set419 equation-uses _Speed-Value422)
+                  (:triple _Equation-Set419 equation-symbol (:pair 'u _Speed-Value422))
+                  (:triple _Equation-Set419 equation-uses _Acceleration-Magnitude-Value421)
+                  (:triple _Equation-Set419 equation-symbol (:pair 'g _Acceleration-Magnitude-Value421))
+                  (:triple _Equation-Set419 equation-uses _Duration-Value420)
+                  (:triple _Equation-Set419 equation-expression '(= v (+ u (* g t))))
+                  (:triple _Equation-Set419 equation-symbol (:pair 't _Duration-Value420))))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Equation-Big-Node441 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node389
+               _Equation-Big-Node457))
+  (node-visibility (t))
+  (contains-node (_System415
+                  _Equation-Set418))
+  (contains-edge ((:triple _System415 component _Free-Fall341)
+                  (:triple _System415 equation _Equation-Set418)
+                  (:triple _Equation-Set418 user-equation-expression '(= h (+ (* u t) (* (* (/ 1 2) g) (expt t 2)))))
+                  (:triple _Equation-Set418 equation-uses _Speed-Value422)
+                  (:triple _Equation-Set418 equation-symbol (:pair 'u _Speed-Value422))
+                  (:triple _Equation-Set418 equation-uses _Acceleration-Magnitude-Value421)
+                  (:triple _Equation-Set418 equation-symbol (:pair 'g _Acceleration-Magnitude-Value421))
+                  (:triple _Equation-Set418 equation-uses _Duration-Value420)
+                  (:triple _Equation-Set418 equation-symbol (:pair 't _Duration-Value420))
+                  (:triple _Equation-Set418 equation-uses _Length-Value424)
+                  (:triple _Equation-Set418 equation-expression '(= h (+ (* u t) (* (* (/ 1 2) g) (expt t 2)))))
+                  (:triple _Equation-Set418 equation-symbol (:pair 'h _Length-Value424))))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Equation-Big-Node445 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node395
+               _Equation-Big-Node455))
+  (node-visibility (t))
+  (contains-node (_System415
+                  _Equation-Set417))
+  (contains-edge ((:triple _System415 component _Free-Fall341)
+                  (:triple _System415 equation _Equation-Set417)
+                  (:triple _Equation-Set417 user-equation-expression '(= (expt v 2) (+ (expt u 2) (* (* 2 g) h))))
+                  (:triple _Equation-Set417 equation-uses _Speed-Value423)
+                  (:triple _Equation-Set417 equation-symbol (:pair 'v _Speed-Value423))
+                  (:triple _Equation-Set417 equation-uses _Speed-Value422)
+                  (:triple _Equation-Set417 equation-symbol (:pair 'u _Speed-Value422))
+                  (:triple _Equation-Set417 equation-uses _Acceleration-Magnitude-Value421)
+                  (:triple _Equation-Set417 equation-symbol (:pair 'g _Acceleration-Magnitude-Value421))
+                  (:triple _Equation-Set417 equation-uses _Length-Value424)
+                  (:triple _Equation-Set417 equation-expression '(= (expt v 2) (+ (expt u 2) (* (* 2 g) h))))
+                  (:triple _Equation-Set417 equation-symbol (:pair 'h _Length-Value424))))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Property-Node446 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node406
+               _Property-Node453))
+  (node-visibility (t))
+  (contains-node (_Length-Value426))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Property-Node447 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node410
+               _Property-Node452))
+  (node-visibility (t))
+  (contains-node (_Length-Value425))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(_Equation-Big-Node449 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node413
+               _Equation-Big-Node451))
+  (node-visibility (t))
+  (contains-node (_System415
+                  _Equation-Set416))
+  (contains-edge ((:triple _System415 component _Free-Fall341)
+                  (:triple _System415 equation _Equation-Set416)
+                  (:triple _Equation-Set416 equation-uses _Length-Value424)
+                  (:triple _Equation-Set416 equation-symbol (:pair 'h _Length-Value424))
+                  (:triple _Equation-Set416 user-equation-expression '(= h (- f i)))
+                  (:triple _Equation-Set416 equation-uses _Length-Value426)
+                  (:triple _Equation-Set416 equation-symbol (:pair 'i _Length-Value426))
+                  (:triple _Equation-Set416 equation-uses _Length-Value425)
+                  (:triple _Equation-Set416 equation-expression '(= h (- f i)))
+                  (:triple _Equation-Set416 equation-symbol (:pair 'f _Length-Value425))))
+  (big-node-of (_Free-Fall341))
+  (prototype-participant-of (_Free-Fall341)))
+
+(explanation (:triple _Free-Fall341 origin _Spatial-Entity429) ((a Spatial-Entity (@ _Free-Fall341 Fall origin))))
+(explanation (:triple _Free-Fall341 destination _Spatial-Entity428) ((a Spatial-Entity (@ _Free-Fall341 Fall destination))))
+(explanation (:triple _Free-Fall341 object _Tangible-Entity427) ((cloned-from _Linear-Move542 _Free-Fall341)))
+(explanation (:triple _Free-Fall341 instance-of Linear-Move) ((a Linear-Move)))
+(explanation (:triple _Free-Fall341 object _Tangible-Entity427) ((a Tangible-Entity (@ _Free-Fall341 Move object))))
+(explanation (:triple _Free-Fall341 instance-of Event) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Free-Fall341 initial-time _Thing359) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Free-Fall341 initial-position _Thing360) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Free-Fall341 final-time _Thing361) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Free-Fall341 final-position _Thing362) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Free-Fall341 duration _Thing363) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Free-Fall341 velocity _Thing364) ((added-at Linear-Move "User defined")))
+(explanation (:triple _Free-Fall341 object _Tangible-Entity427) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Free-Fall341 initial-time _Thing359) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Free-Fall341 initial-position _Thing360) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Free-Fall341 final-time _Thing361) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Free-Fall341 final-position _Thing362) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Free-Fall341 duration _Thing363) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Free-Fall341 velocity _Thing364) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Free-Fall341 duration _Duration-Value420) ((a Duration-Value (@ _Free-Fall341 Fall duration))))
+(explanation (:triple _Free-Fall341 distance _Length-Value424) ((a Length-Value (@ _Free-Fall341 Fall distance))))
+(explanation (:triple _Free-Fall341 acceleration-magnitude _Acceleration-Magnitude-Value421) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Free-Fall341 initial-speed _Speed-Value422) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Free-Fall341 final-speed _Speed-Value423) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Free-Fall341 initial-position _Length-Value426) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Free-Fall341 final-position _Length-Value425) ((added-at Free-Fall "User defined")))
+(explanation (:triple _System415 instance-of System) ((added-at Free-Fall "User defined")))
+(explanation (:triple _System415 component _Free-Fall341) ((added-at Free-Fall "User defined")))
+(explanation (:triple _System415 equation _Equation-Set419) ((added-at Free-Fall "User defined")))
+(explanation (:triple _System415 equation _Equation-Set418) ((added-at Free-Fall "User defined")))
+(explanation (:triple _System415 equation _Equation-Set417) ((added-at Free-Fall "User defined")))
+(explanation (:triple _System415 equation _Equation-Set416) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 instance-of Equation-Set) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 equation-uses _Length-Value424) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 equation-symbol (:pair (QUOTE h) _Length-Value424)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 user-equation-expression (QUOTE (= h (- f i)))) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 equation-uses _Length-Value426) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 equation-symbol (:pair (QUOTE i) _Length-Value426)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 equation-uses _Length-Value425) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 equation-expression (QUOTE (= h (- f i)))) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set416 equation-symbol (:pair (QUOTE f) _Length-Value425)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 instance-of Equation-Set) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 user-equation-expression (QUOTE (= (expt v 2) (+ (expt u 2) (* (* 2 g) h))))) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-uses _Speed-Value423) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-symbol (:pair (QUOTE v) _Speed-Value423)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-uses _Speed-Value422) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-symbol (:pair (QUOTE u) _Speed-Value422)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-uses _Acceleration-Magnitude-Value421) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-symbol (:pair (QUOTE g) _Acceleration-Magnitude-Value421)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-uses _Length-Value424) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-expression (QUOTE (= (expt v 2) (+ (expt u 2) (* (* 2 g) h))))) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set417 equation-symbol (:pair (QUOTE h) _Length-Value424)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 instance-of Equation-Set) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 user-equation-expression (QUOTE (= h (+ (* u t) (* (* (/ 1 2) g) (expt t 2)))))) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-uses _Speed-Value422) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-symbol (:pair (QUOTE u) _Speed-Value422)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-uses _Acceleration-Magnitude-Value421) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-symbol (:pair (QUOTE g) _Acceleration-Magnitude-Value421)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-uses _Duration-Value420) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-symbol (:pair (QUOTE t) _Duration-Value420)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-uses _Length-Value424) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-expression (QUOTE (= h (+ (* u t) (* (* (/ 1 2) g) (expt t 2)))))) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set418 equation-symbol (:pair (QUOTE h) _Length-Value424)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 instance-of Equation-Set) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 user-equation-expression (QUOTE (= v (+ u (* g t))))) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-uses _Speed-Value423) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-symbol (:pair (QUOTE v) _Speed-Value423)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-uses _Speed-Value422) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-symbol (:pair (QUOTE u) _Speed-Value422)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-uses _Acceleration-Magnitude-Value421) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-symbol (:pair (QUOTE g) _Acceleration-Magnitude-Value421)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-uses _Duration-Value420) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-expression (QUOTE (= v (+ u (* g t))))) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Equation-Set419 equation-symbol (:pair (QUOTE t) _Duration-Value420)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Duration-Value420 instance-of Duration-Value) ((a Duration-Value (@ _Free-Fall341 Fall duration))))
+(explanation (:triple _Acceleration-Magnitude-Value421 instance-of Acceleration-Magnitude-Value) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value421 value (:pair -9.8 *meter-per-second-squared)) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value421 cardinal-value _Cardinal387) ((forall (the value of _Acceleration-Magnitude-Value421 (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value)) where ((the1 of It) isa Number (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value)) (a Cardinal with (numeric-value ((the1 of It (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value Cardinal numeric-value)))) (unit ((the2 of It (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value Cardinal unit)))) (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value)) (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value))))
+(explanation (:triple _Acceleration-Magnitude-Value421 property-slot acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value421) (@ _Acceleration-Magnitude-Value421 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value421 property-slot average-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value421) (@ _Acceleration-Magnitude-Value421 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value421 property-slot average-x-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value421) (@ _Acceleration-Magnitude-Value421 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value421 property-slot average-y-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value421) (@ _Acceleration-Magnitude-Value421 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value421 property-slot x-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value421) (@ _Acceleration-Magnitude-Value421 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value421 property-slot y-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value421) (@ _Acceleration-Magnitude-Value421 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value421 value (:pair -9.8 *meter-per-second-squared)) ((forall (the cardinal-value of _Acceleration-Magnitude-Value421 (@ _Acceleration-Magnitude-Value421 Property-Value value)) (:pair (the numeric-value of It) (the unit of It)) (@ _Acceleration-Magnitude-Value421 Property-Value value))))
+(explanation (:triple _Acceleration-Magnitude-Value421 value (:pair -9.8 *meter-per-second-squared)) (((FUNCTION (LAMBDA NIL (COND ((FBOUNDP (QUOTE EQUATION-SOLVE)) (EQUATION-SOLVE (QUOTE _Acceleration-Magnitude-Value421)))))) (@ _Acceleration-Magnitude-Value421 Property-Value value))))
+(explanation (:triple _Acceleration-Magnitude-Value421 cardinal-value _Cardinal486) ((forall (the value of _Acceleration-Magnitude-Value421 (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value)) where ((the1 of It) isa Number (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value)) (a Cardinal with (numeric-value ((the1 of It (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value Cardinal numeric-value)))) (unit ((the2 of It (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value Cardinal unit)))) (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value)) (@ _Acceleration-Magnitude-Value421 Property-Value cardinal-value))))
+(explanation (:triple _Speed-Value422 instance-of Speed-Value) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Speed-Value423 instance-of Speed-Value) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Length-Value424 instance-of Length-Value) ((a Length-Value (@ _Free-Fall341 Fall distance))))
+(explanation (:triple _Length-Value425 instance-of Length-Value) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Length-Value426 instance-of Length-Value) ((added-at Free-Fall "User defined")))
+(explanation (:triple _Tangible-Entity427 object-of _Free-Fall341) ((cloned-from _Linear-Move542 _Free-Fall341)))
+(explanation (:triple _Tangible-Entity427 instance-of Tangible-Entity) ((cloned-from _Linear-Move542 _Free-Fall341)))
+(explanation (:triple _Tangible-Entity427 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Free-Fall341 Move object))))
+(explanation (:triple _Tangible-Entity427 instance-of Tangible-Entity) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Tangible-Entity427 object-of _Free-Fall341) ((cloned-from _Free-Fall341 _Free-Fall341)))
+(explanation (:triple _Tangible-Entity427 instance-of Tangible-Entity) ((a Tangible-Entity)))
+(explanation (:triple _Tangible-Entity427 instance-of Thing) ((a Thing (@ _Free-Fall341 Action (object must-be-a)))))
+(explanation (:triple _Spatial-Entity428 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Free-Fall341 Fall destination))))
+(explanation (:triple _Spatial-Entity429 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Free-Fall341 Fall origin))))
+
+;;; ---------- end of prototype definition ----------
+
+(Free-Fall now-has (user-assumption ("We assume upward positive.")))
+(enable-classification)
+

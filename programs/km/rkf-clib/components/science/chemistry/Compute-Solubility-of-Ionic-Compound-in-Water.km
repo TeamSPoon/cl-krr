@@ -1,0 +1,294 @@
+;;
+;; $Id: Compute-Solubility-of-Ionic-Compound-in-Water.km,v 1.15 2003/09/26 21:55:14 jfan Exp $
+;;
+
+(Compute-Solubility-of-Ionic-Compound-in-Water has (superclasses (Method))
+					       (description ("given the cation and the anion of an ionic compound, return its solubility in water")))
+
+(every Compute-Solubility-of-Ionic-Compound-in-Water has
+       (input ((a Cation) (a Anion)))
+       (output ((if ((has-value (the Cation input of Self))
+                     and
+                     (has-value (the Anion input of Self))
+                     and
+                     (not (((the Cation input of Self) isa H-Plus)      ; don't
+                           and                                          ; test
+                           ((the Anion input of Self) isa OH-Minus)     ; water
+                          )
+                     )
+                    )
+                then
+		(a Solubility-Value with
+		   (value ((:pair
+			   (if (((the Anion input of Self) isa NO3-Minus)
+				or
+				((the Anion input of Self) isa CH3COO-Minus)
+				or
+				((((the Anion input of Self) isa Cl-Minus)
+				  or
+				  ((the Anion input of Self) isa Br-Minus)
+				  or
+				  ((the Anion input of Self) isa I-Minus))
+				 and
+				 (not ((the Cation input of Self) isa Ag-Plus))
+				 and
+				 (not ((the Cation input of Self) isa Hg2-Plus-2))
+				 and
+				 (not ((the Cation input of Self) isa Pb-Plus-2)))
+				or
+				(((the Anion input of Self) isa SO4-Minus-2)
+				 and
+				 (not ((the Cation input of Self) isa Sr-Plus-2))
+				 and
+				 (not ((the Cation input of Self) isa Ba-Plus-2))
+				 and
+				 (not ((the Cation input of Self) isa Hg2-Plus-2))
+				 and
+				 (not ((the Cation input of Self) isa Pb-Plus-2)))
+				or
+				((((the Anion input of Self) isa S-Minus-2)
+				  or
+				  ((the Anion input of Self) isa OH-Minus))
+				 and
+				 (((the Cation input of Self) isa NH4-Plus)
+				  or
+				  ;; it's a Alkali metal cation
+				  (((the2 of (the1 of (the term of (the has-chemical-formula of (the Cation input of Self)))))
+				   is-subsumed-by Alkali-Metal-Element)
+				   and
+				   (not ((the Cation input of Self) isa H-Plus)))
+				  or
+				  ((the Cation input of Self) isa Ca-Plus-2)
+				  or
+				  ((the Cation input of Self) isa Sr-Plus-2)
+				  or
+				  ((the Cation input of Self) isa Ba-Plus-2)))
+				or
+				((((the Anion input of Self) isa CO3-Minus-2)
+				  or
+				  ((the Anion input of Self) isa PO4-Minus-3))
+				 and
+				 (((the Cation input of Self) isa NH4-Plus)
+				  or
+				  ;; it's a Alkali metal cation
+				  (((the2 of (the1 of (the term of (the has-chemical-formula of (the Cation input of Self)))))
+				   is-subsumed-by Alkali-Metal-Element)
+				   and
+				   (not ((the Cation input of Self) isa H-Plus)))
+				  )
+				 )
+				)
+			     then *soluble
+			     else
+			     (if (
+				  ((((the Anion input of Self) isa Cl-Minus)
+				    or
+				    ((the Anion input of Self) isa Br-Minus)
+				    or
+				    ((the Anion input of Self) isa I-Minus))
+				   and
+				   (((the Cation input of Self) isa Ag-Plus)
+				    or
+				    ((the Cation input of Self) isa Hg2-Plus-2)
+				    or
+				    ((the Cation input of Self) isa Pb-Plus-2)))
+				  or
+				  (((the Anion input of Self) isa SO4-Minus-2)
+				   and
+				   (((the Cation input of Self) isa Sr-Plus-2)
+				    or
+				    ((the Cation input of Self) isa Ba-Plus-2)
+				    or
+				    ((the Cation input of Self) isa Hg2-Plus-2)
+				    or
+				    ((the Cation input of Self) isa Pb-Plus-2)))
+				  or
+				  ((((the Anion input of Self) isa S-Minus-2)
+				    or
+				    ((the Anion input of Self) isa OH-Minus))
+				   and
+				   (not ((the Cation input of Self) isa NH4-Plus))
+				   and
+				   ;; it's not a Alkali metal cation
+				   ((not ((the2 of (the1 of (the term of (the has-chemical-formula of (the Cation input of Self)))))
+					 is-subsumed-by Alkali-Metal-Element))
+				    or
+				    ((the Cation input of Self) isa H-Plus))
+				   and
+				   (not ((the Cation input of Self) isa Ca-Plus-2))
+				   and
+				   (not ((the Cation input of Self) isa Sr-Plus-2))
+				   and
+				   (not ((the Cation input of Self) isa Ba-Plus-2)))
+				  or
+				  ((((the Anion input of Self) isa CO3-Minus-2)
+				    or
+				    ((the Anion input of Self) isa PO4-Minus-3))
+				   and
+				   (not ((the Cation input of Self) isa NH4-Plus))
+				   and
+				  ;; it's not a Alkali metal cation
+				   (((the Cation input of Self) isa H-Plus)
+				    or
+				    (not ((the2 of (the1 of (the term of (the has-chemical-formula of (the Cation input of Self))))) is-subsumed-by Alkali-Metal-Element)))))
+			       then *insoluble
+                               else *not-known-to-be-soluble
+                              ))
+                              H2O-Substance))))
+       [Compute-Solubility-of-Ionic-Compound-in-Water-output-1]
+       )))
+)
+
+(Compute-Solubility-of-Ionic-Compound-in-Water 
+ has
+ (test-case ('(
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a NO3-Minus) (a Pb-Plus-2)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a CH3COO-Minus) (a Pb-Plus-2)))))))
+		= *soluble)
+
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a Cl-Minus) (a Ca-Plus-2)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a Cl-Minus) (a Pb-Plus-2)))))))
+		= *insoluble)
+
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a Br-Minus) (a Ba-Plus-2)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a Br-Minus) (a Hg2-Plus-2)))))))
+		= *insoluble)
+
+	        ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a I-Minus) (a Sr-Plus-2)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a I-Minus) (a Ag-Plus)))))))
+		= *insoluble)
+	       
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a SO4-Minus-2) (a Ca-Plus-2)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a SO4-Minus-2) (a Sr-Plus-2)))))))
+		= *insoluble)
+
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a S-Minus-2) (a NH4-Plus)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a S-Minus-2) (a Hg2-Plus-2)))))))
+		= *insoluble)
+
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a CO3-Minus-2) (a Li-Plus)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a CO3-Minus-2) (a Ba-Plus-2)))))))
+		= *insoluble)
+
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a PO4-Minus-3) (a K-Plus)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a PO4-Minus-3) (a Fe-Plus-2)))))))
+		= *insoluble)
+
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a OH-Minus) (a Sr-Plus-2)))))))
+		= *soluble)
+	       ((the1 of
+		      (the value of 
+			   (the output of 
+				(a Compute-Solubility-of-Ionic-Compound-in-Water
+				   with
+				   (input ((a OH-Minus) (a Mg-Plus-2)))))))
+		= *insoluble)
+
+	       ))))
+					       
+(comment [Compute-Solubility-of-Ionic-Compound-in-Water-output-1]
+  (:seq "According to Table 4.1 of Brown, LeMay and Bursten (2003), an Ionic Compound containing"
+        (the text-gen of (the Cation input of Self))
+        "and"
+        (the text-gen of (the Anion input of Self))
+        "is"
+        (the1 of (the value of (the output of Self)))
+        "in water"
+  )
+  "" ;; no "justification" 
+;  (:triple Self input *)
+)
+

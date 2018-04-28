@@ -1,0 +1,267 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Complete-Ionic-Equation589
+
+
+|#
+
+(Complete-Ionic-Equation has (superclasses (Event)))
+
+(_Complete-Ionic-Equation394 has
+  (prototype-of (Complete-Ionic-Equation))
+  (prototype-scope (Complete-Ionic-Equation))
+  (prototype-participants (_Solubility-Value576 _Solubility-Value577 _Chemical574 _Chemical575 _Reaction-Result426 _Anion-Substance425 _Cation-Substance424 _State-Value423 _Ionic-Compound422 _Solubility-Value421 _Reaction-Result420 _Anion-Substance419 _Cation-Substance418 _State-Value417 _Ionic-Compound416 _Solubility-Value415 _Reaction-Material414 _Anion-Substance413 _Cation-Substance412 _State-Value411 _Ionic-Compound410 _Solubility-Value409 _Reaction-Material408 _Anion-Substance407 _Cation-Substance406 _State-Value405 _Ionic-Compound404 _Solubility-Value403 _Chemical402 _Chemical401 _Ionic-Compound-Substance400 _Ionic-Compound-Substance399 _Chemical398 _Chemical397 _Reaction396 _Reaction395 _Complete-Ionic-Equation394)))
+
+(_Complete-Ionic-Equation394 has
+  (instance-of (Complete-Ionic-Equation))
+  (base (_Chemical575 _Chemical574))
+  (first-subevent (_Reaction395)))
+
+(_Reaction395 has
+  (instance-of (Reaction))
+  (result (_Chemical398 _Ionic-Compound-Substance400 (must-be-a Chemical) (must-be-a Entity)))
+  (raw-material (_Chemical397 _Ionic-Compound-Substance399 (must-be-a Chemical)))
+  (next-event (_Reaction396 (must-be-a Event))))
+
+(_Reaction396 has
+  (instance-of (Reaction))
+  (result (_Chemical402 _Cation-Substance418 _Anion-Substance419 _Chemical398 _Ionic-Compound-Substance400 _Cation-Substance424 _Anion-Substance425 (must-be-a Chemical) (must-be-a Entity)))
+  (raw-material (_Chemical401 _Cation-Substance406 _Anion-Substance407 _Chemical397 _Ionic-Compound-Substance399 _Cation-Substance412 _Anion-Substance413 (must-be-a Chemical))))
+
+(_Chemical397 has
+  (instance-of (Ionic-Compound-Substance))
+  (plays (_Reaction-Material408))
+  (has-part (_Cation-Substance406 _Anion-Substance407))
+  (physical-state (_State-Value405))
+  (has-basic-structural-unit (_Ionic-Compound404 (exactly 1 Ionic-Compound)))
+  (solubility (_Solubility-Value403)))
+
+(_Chemical398 has
+  (instance-of (Ionic-Compound-Substance))
+  (plays (_Reaction-Result420))
+  (has-part (_Cation-Substance418 _Anion-Substance419))
+  (physical-state (_State-Value417))
+  (has-basic-structural-unit (_Ionic-Compound416 (exactly 1 Ionic-Compound)))
+  (solubility (_Solubility-Value415)))
+
+(_Ionic-Compound-Substance399 has
+  (instance-of (Ionic-Compound-Substance))
+  (plays (_Reaction-Material414))
+  (has-part (_Cation-Substance412 _Anion-Substance413))
+  (physical-state (_State-Value411))
+  (has-basic-structural-unit (_Ionic-Compound410 (exactly 1 Ionic-Compound)))
+  (solubility (_Solubility-Value409)))
+
+(_Ionic-Compound-Substance400 has
+  (instance-of (Ionic-Compound-Substance))
+  (plays (_Reaction-Result426))
+  (has-part (_Cation-Substance424 _Anion-Substance425))
+  (physical-state (_State-Value423))
+  (has-basic-structural-unit (_Ionic-Compound422 (exactly 1 Ionic-Compound)))
+  (solubility (_Solubility-Value421)))
+
+(_Chemical401 has (instance-of (Chemical)))
+
+(_Chemical402 has (instance-of (Chemical)))
+
+(_Solubility-Value403 has (instance-of (Solubility-Value)))
+
+(_Ionic-Compound404 has (instance-of (Ionic-Compound)))
+
+(_State-Value405 has (instance-of (State-Value)))
+
+(_Cation-Substance406 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance407 has (instance-of (Anion-Substance)))
+
+(_Reaction-Material408 has (instance-of (Reaction-Material)))
+
+(_Solubility-Value409 has (instance-of (Solubility-Value)))
+
+(_Ionic-Compound410 has (instance-of (Ionic-Compound)))
+
+(_State-Value411 has (instance-of (State-Value)))
+
+(_Cation-Substance412 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance413 has (instance-of (Anion-Substance)))
+
+(_Reaction-Material414 has (instance-of (Reaction-Material)))
+
+(_Solubility-Value415 has (instance-of (Solubility-Value)))
+
+(_Ionic-Compound416 has (instance-of (Ionic-Compound)))
+
+(_State-Value417 has (instance-of (State-Value)))
+
+(_Cation-Substance418 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance419 has (instance-of (Anion-Substance)))
+
+(_Reaction-Result420 has (instance-of (Reaction-Result)))
+
+(_Solubility-Value421 has (instance-of (Solubility-Value)))
+
+(_Ionic-Compound422 has (instance-of (Ionic-Compound)))
+
+(_State-Value423 has (instance-of (State-Value)))
+
+(_Cation-Substance424 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance425 has (instance-of (Anion-Substance)))
+
+(_Reaction-Result426 has (instance-of (Reaction-Result)))
+
+(_Chemical575 has (instance-of (Chemical)) (solubility (_Solubility-Value576)))
+
+(_Chemical574 has (instance-of (Chemical)) (solubility (_Solubility-Value577)))
+
+(_Solubility-Value577 has (instance-of (Solubility-Value)) (value ((:pair *soluble Chemical) (:pair *insoluble Chemical))))
+
+(_Solubility-Value576 has (instance-of (Solubility-Value)) (value ((:pair *insoluble Chemical) (:pair *soluble Chemical))))
+
+(explanation (:triple _Complete-Ionic-Equation394 first-subevent _Reaction395) (((@ SME entered)) (every Complete-Ionic-Equation has (first-subevent ((a Reaction))))))
+
+(explanation (:triple _Reaction395 next-event _Reaction396) (((@ SME entered)) (every Complete-Ionic-Equation has (first-subevent ((a Reaction with (next-event ((a Reaction)))))))))
+
+(explanation (:triple _Reaction395 raw-material _Ionic-Compound-Substance399) (((@ SME entered)) (every Complete-Ionic-Equation has (first-subevent ((a Reaction with (raw-material ((a Ionic-Compound-Substance) (a Ionic-Compound-Substance)))))))))
+
+(explanation (:triple _Reaction395 result _Ionic-Compound-Substance400) (((@ SME entered)) (every Complete-Ionic-Equation has (first-subevent ((a Reaction with (result ((a Ionic-Compound-Substance) (a Ionic-Compound-Substance)))))))))
+
+(explanation (:triple _Reaction396 raw-material _Cation-Substance406) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 raw-material _Anion-Substance407) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 raw-material _Chemical397) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 raw-material _Ionic-Compound-Substance399) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 raw-material _Cation-Substance412) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 raw-material _Anion-Substance413) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 result _Cation-Substance418) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 result _Anion-Substance419) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 result _Chemical398) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 result _Ionic-Compound-Substance400) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 result _Cation-Substance424) (((@ SME entered))))
+
+(explanation (:triple _Reaction396 result _Anion-Substance425) (((@ SME entered))))
+
+(explanation (:triple _Complete-Ionic-Equation394 base _Chemical575) (((@ SME entered)) (every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical))))))
+
+(explanation (:triple _Complete-Ionic-Equation394 base _Chemical574) (((@ SME entered)) (every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical))))))
+
+(explanation (:triple _Chemical574 solubility _Solubility-Value577) (((@ SME entered)) (every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical with (solubility ((a Solubility-Value)))))))))
+
+(explanation (:triple _Solubility-Value577 value (:pair *soluble Chemical)) (((@ SME entered)) (every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical with (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical) (:pair *insoluble Chemical))))))))))))
+
+(explanation (:triple _Chemical575 solubility _Solubility-Value576) (((@ SME entered)) (every Complete-Ionic-Equation has (base ((a Chemical with (solubility ((a Solubility-Value)))) (a Chemical))))))
+
+(explanation (:triple _Solubility-Value576 value (:pair *insoluble Chemical)) (((@ SME entered)) (every Complete-Ionic-Equation has (base ((a Chemical with (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical) (:pair *soluble Chemical))))))) (a Chemical))))))
+
+(explanation (:triple _Complete-Ionic-Equation394 instance-of Complete-Ionic-Equation) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction395 instance-of Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction396 instance-of Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical397 instance-of Ionic-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical398 instance-of Ionic-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound-Substance399 instance-of Ionic-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound-Substance400 instance-of Ionic-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical401 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical402 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value403 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound404 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value405 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance406 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance407 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Material408 instance-of Reaction-Material) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value409 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound410 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value411 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance412 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance413 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Material414 instance-of Reaction-Material) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value415 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound416 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value417 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance418 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance419 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Result420 instance-of Reaction-Result) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value421 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound422 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value423 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance424 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance425 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Result426 instance-of Reaction-Result) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical575 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical574 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value577 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value576 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Complete-Ionic-Equation has (first-subevent ((a Reaction))))
+(every Complete-Ionic-Equation has (first-subevent ((a Reaction with (next-event ((a Reaction)))))))
+(every Complete-Ionic-Equation has (first-subevent ((a Reaction with (raw-material ((a Ionic-Compound-Substance) (a Ionic-Compound-Substance)))))))
+(every Complete-Ionic-Equation has (first-subevent ((a Reaction with (result ((a Ionic-Compound-Substance) (a Ionic-Compound-Substance)))))))
+(every Complete-Ionic-Equation has (first-subevent ((a Reaction with (raw-material ((a Ionic-Compound-Substance) (a Ionic-Compound-Substance)))))))
+(every Complete-Ionic-Equation has (first-subevent ((a Reaction with (result ((a Ionic-Compound-Substance) (a Ionic-Compound-Substance)))))))
+(every Complete-Ionic-Equation has (first-subevent ((a Reaction with (next-event ((a Reaction with (raw-material ((a Chemical) (a Cation-Substance) (a Anion-Substance) (a Ionic-Compound-Substance) (a Ionic-Compound-Substance) (a Cation-Substance) (a Anion-Substance))))))))))
+(every Complete-Ionic-Equation has (first-subevent ((a Reaction with (next-event ((a Reaction with (result ((a Chemical))))))))))
+(every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical))))
+(every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical))))
+(every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical with (solubility ((a Solubility-Value)))))))
+(every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical with (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical) (:pair *insoluble Chemical))))))))))
+(every Complete-Ionic-Equation has (base ((a Chemical with (solubility ((a Solubility-Value)))) (a Chemical))))
+(every Complete-Ionic-Equation has (base ((a Chemical with (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical) (:pair *soluble Chemical))))))) (a Chemical))))
+(every Complete-Ionic-Equation has (base ((a Chemical) (a Chemical with (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical) (:pair *insoluble Chemical))))))))))
+(every Complete-Ionic-Equation has (base ((a Chemical with (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical) (:pair *soluble Chemical))))))) (a Chemical))))
+
+|#
+
+|#
+

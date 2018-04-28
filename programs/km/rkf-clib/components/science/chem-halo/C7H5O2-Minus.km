@@ -1,0 +1,19 @@
+;; $Id: C7H5O2-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $ 
+(C7H5O2-Minus has (superclasses (Anion)))
+(every C7H5O2-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("benzoate"))
+	(has-acid-name ("benzoic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 7 C)(:pair 5 H)(:pair 2 O)))))))
+)
+
+
+(every C7H5O2-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("benzoate"))
+)
+
+(C7H5O2-Minus has (wn20-synset ((:triple "C7H5O2-" 0 "n") (:triple "C_7H_5O_2-" 0 "n"))))

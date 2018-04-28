@@ -1,0 +1,16 @@
+;;
+;; $Id: Cu.km,v 1.6 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Cu has (superclasses (Metal-Atom IB-Element)))
+(every Cu has
+       (atomic-symbol (Cu))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 29 NIL))))))
+       (has-ion ((a Cu-Plus-2)))
+       (chemical-period (4)))
+
+(every Cu has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("copper"))
+)

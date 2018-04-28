@@ -1,0 +1,46 @@
+<!--- $Id: Take-In.doc.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Take-In>
+<superconcept name=Move-Into>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Take-In>
+  <definition>take something from the outside into oneself</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+
+  <requiredslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= within the Enclosure of Self</restriction>
+  </requiredslot>
+
+  <primaryslot name=agent>
+    <inheritedfrom name=Move-Into>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+  </primaryslot>
+
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+
+  <primaryslot name=path>
+    <restriction>Portal</restriction>
+    <restriction>= a Portal of the Enclosure of Self</restriction>
+  </primaryslot>
+
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+  <wnsynsets><verb>sorb#1, take-up#8
+  </verb></wnsynsets>
+</component>
+
+<hr>
+
+</kml>
+

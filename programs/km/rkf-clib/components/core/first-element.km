@@ -1,0 +1,15 @@
+;;
+;; $Id: first-element.km,v 1.10 2008/02/12 19:20:09 jchaw Exp $
+;;
+
+(first-element has
+	 (instance-of (Meronymic-Relation))
+	 (domain (Aggregate Sequence))
+	 (range (Entity))
+	 (cardinality (N-to-N))
+         (original-slot      (t))	
+	 (fluent-status (*Inertial-Fluent)))
+(first-element has (text-gloss ("has as first element")))
+(first-element-of has 
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("is the first element of")))

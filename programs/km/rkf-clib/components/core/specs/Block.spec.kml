@@ -1,0 +1,85 @@
+<!--- $Id: Block.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Block><system-documentation name=Block>
+<superconcept name=Make-Inaccessible>
+
+<definition>
+
+  Prevent things from moving through some place, or along some object, 
+  by blocking such movements.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object or place that becomes blocked.  That object or place
+     is put in a <conceptref name=Be-Blocked> state.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes this action
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) used to block the object.
+  </slotdescription>
+
+</primaryslotlist>
+
+<musing>
+  The slots used to describe <conceptref name=Make-Inaccessible> actions
+  in general, can be used here, too.  For example, 
+  <slot>base</slot> and <slot>by-means-of</slot>.
+</musing>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The policeman blocked the sidewalk with a barricade.</text>
+    <slotdescription name=object>the sidewalk</slotdescription>
+    <slotdescription name=agent>the policeman</slotdescription>
+    <slotdescription name=instrument>a barricade</slotdescription>
+  </examplesentence>
+  <comment>
+      The sidewalk is the object that becomes blocked by this action;
+      it becomes inaccessible to things moving along it, such as pedestrians.
+  </comment>
+
+  <examplesentence>
+    <text>The rubble in the tunnel blocked the train's passage.</text>
+    <slotdescription name=object>the tunnel</slotdescription>
+    <slotdescription name=instrument>the rubble</slotdescription>
+    <slotdescription name=base>the train</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Inaccessible> 
+     Make-Inaccessible is more general than block.  Block applies only to 
+     the movement of things through places or along objects.
+  </neighbor>
+
+  <neighbor name=Close>
+     Close applies only to portal coverings, and the movement of 
+     things through portals.
+  </neighbor>
+
+  <neighbor name=Obstruct>
+     Obstruct inhibits the movement of some object, whereas Block 
+     affects a pathway.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

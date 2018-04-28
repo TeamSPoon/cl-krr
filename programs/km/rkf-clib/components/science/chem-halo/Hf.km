@@ -1,0 +1,14 @@
+;;
+;; $Id: Hf.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Hf has (superclasses (Metal-Atom IVB-Element)))
+(every Hf has
+       (atomic-symbol (Hf))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 72 NIL))))))
+       (chemical-period (6)))
+(every Hf has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hafnium"))
+)

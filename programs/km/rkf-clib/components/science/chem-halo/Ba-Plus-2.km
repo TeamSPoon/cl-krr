@@ -1,0 +1,20 @@
+;; $Id: Ba-Plus-2.km,v 1.5 2008/05/15 17:19:10 kunal Exp $ 
+(Ba-Plus-2 has (superclasses (Metal-Cation)))
+(every Ba-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *unity))))))
+	(has-chemical-name ("barium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Ba)))))))
+        (is-ion-of ((a Ba)))
+)
+
+(every Ba-Plus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("barium"))
+  (charge ((a Charge-Value with
+	      (value ((:pair +2 *unity)))))))
+
+
+(Ba-Plus-2 has (wn20-synset ((:triple "Ba+2" 0 "n"))))

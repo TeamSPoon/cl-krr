@@ -1,0 +1,27 @@
+;; 
+;;    $Id: width.km,v 1.15 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(width has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Length-Value))
+   (scale-class (Width-Scale))
+   (scalar-constant-class (Width-Constant))
+   (cardinal-unit-class   (UoM-Length)) 
+   (inverse 	(width-of))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(width-of has
+	(instance-of (EntityProperty)))
+
+(width has (wn20-synset ((:set
+                               (:triple "width" 1 "n")
+                               (:triple "breadth" 2 "n")
+))))
+

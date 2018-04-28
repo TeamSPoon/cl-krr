@@ -1,0 +1,19 @@
+;; $Id: C4H4O6-Minus-2.km,v 1.8 2008/05/15 17:19:10 kunal Exp $ 
+(C4H4O6-Minus-2 has (superclasses (Anion)))
+(every C4H4O6-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("tartrate" "2,3-dihydroxybutanedioate" "2,3-dihydroxysuccinate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 4 C)(:pair 4 H)(:pair 6 O)))))))
+)
+
+
+(every C4H4O6-Minus-2 has-definition
+  (instance-of (Chemical-Entity))
+  (charge ((a Charge-Value with (value ((:pair -2 *unity))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 4 C) (:pair 4 H) (:pair 6 O)))))))
+)
+
+
+(C4H4O6-Minus-2 has (wn20-synset ((:triple "C4H4O6-2" 0 "n") (:triple "C_4H_4O_6-2" 0 "n"))))

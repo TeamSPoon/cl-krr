@@ -1,0 +1,21 @@
+;;
+;;    $Id: Desktop-Computer.km,v 1.4 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Desktop-Computer has 
+  (superclasses (Computer))
+  (feature-slot ((the feature-slot of Computer)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Desktop-Computer))
+  ))
+)
+
+
+
+;;(every Desktop-Computer has 
+;;       (form-factor ((a Form-Factor with
+;;			(value ((:pair *Desktop nil)))))))
+
+(Desktop-Computer has (wn20-synset ((:set
+				     (:triple "desktop_computer" 1 "n")
+))))

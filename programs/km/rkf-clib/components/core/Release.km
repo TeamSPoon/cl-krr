@@ -1,0 +1,87 @@
+;; 
+;;    $Id: Release.km,v 1.21 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+
+(Release has
+  (superclasses		(Unobstruct))
+  (required-slot   	(object base))
+  (primary-slot 	(agent instrument))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "object")
+			 (:seq base "the enclosure")
+			 (:seq agent "releaser")
+			 (:seq instrument "instrument")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Release has
+  (base ((a Tangible-Entity)))
+  (defeats ((allof (the object-of of (the object of Self))
+		   where (((the base of It) = (the base of Self))
+			  and ((the classes of It) = Be-Confined)))))
+
+  (object ((a Tangible-Entity with  
+              (is-inside ((the base of Self))))))
+
+  (pcs-list ((forall (the object of Self)
+	       (:triple
+		 It
+	         object-of
+	         (a Be-Confined with
+	   	    (base ((the base of Self)))) [Release-pcs-1]))))
+
+  (del-list ((forall (the defeats of Self)
+	       (:set
+		 (:triple It object (the object of Self) [Release-del-1])
+		 (:triple It base (the base of Self) [Release-del-2])))))
+)
+
+(comment [Release-pcs-1] (:seq (the object of Self) " must be confined in " (the base of Self))
+	 "Something must be confined before it can be released.")
+
+(comment [Release-del-1] (:seq (the object of Self) " is no longer confined in " (the base of Self))
+	 "A release stops something from being confined in something else.")
+
+(comment [Release-del-2] (:seq (the object of Self) " is no longer confined in " (the base of Self))
+	 "A release stops something from being confined in something else.")
+
+
+(every Release has
+  (text-active-verbseq-sg ("releases"))
+  (text-active-verbseq-pl ("release"))
+  (text-passive-verbseq-sg ("gets released"))
+  (text-passive-verbseq-pl ("get released"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("from"))))
+
+)
+
+
+(every Release has
+       (preparatory-event ((:default
+			  (a Confine with
+			     (base ((the base of Self)))
+			     (object ((the object of Self))))))
+))
+
+;; Test cases are incorporated with that of Confine and can be 
+;; found in Confine.km
+(Release has (test-case ()))
+
+
+;; automatically added WN synsets
+(Release has (wn16-synset ((:set  
+                                      (:triple "release" 3 "v")
+                                      (:triple "turn" 13 "v")
+))))
+
+(Release has (wn20-synset ((:set
+                                      (:triple "release" 3 "v")
+                                      (:triple "turn" 14 "v")
+))))
+
+(every Release has (text-nominalization ("release")))

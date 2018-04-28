@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Resource.km,v 1.6 2005/06/27 19:32:49 billj Exp $
+;; 
+
+(Resource has
+  (superclasses (Role))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (cmap-correspondence ())
+  (test-case ())
+)
+
+
+(a Partition with (members (Nonrenewable-Resource Renewable-Resource)))
+
+
+; other slots that might appear on a Resource:
+;   base-of: filled by a Replenish or Consume
+;   various property slots and Values
+;   various case roles (e.g. instrument, object) relating the Entity
+;           playing the Resource with (the in-event of Self)
+
+(every Resource has
+       (in-event ((must-be-a Event))))
+ 

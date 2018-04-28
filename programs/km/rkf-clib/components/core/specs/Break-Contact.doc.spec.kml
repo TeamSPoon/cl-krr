@@ -1,0 +1,49 @@
+<!--- $Id: Break-Contact.doc.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Break-Contact::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Break-Contact>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Break-Contact>
+  <definition>objects break contact</definition>
+  <requiredslot name=object>
+    <restriction>exactly 1 Tangible-Entity</restriction>
+  </requiredslot>
+  <requriedslot name=base>
+    <restriction>exactly 1 Tangible-Entity</restriction>
+    <comment>the <slot>base</slot> of the Break-Contact is the object being 
+    	broken from the <slot>object</slot> of the Break-Contact.
+    </comment>
+  </requiredslot>
+  <requiredslot name=pre-condition>
+    <restriction><slot>object</slot> and <slot>base</slot> are in a 
+	<conceptref name=Be-Touching> state.
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-condition>
+    <restriction><slot>object</slot> and <slot>base</slot> are no longer 
+	in a <conceptref name=Be-Touching> state.
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot>s to Break-Contact</restriction>
+  </primaryslot>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>let-go#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Break-Contact take objects out of a <conceptref name=Be-Touching> state. 
+Objects are put in a <conceptref name=Be-Touching> state by
+<conceptref name=Make-Contact::doc>.
+</musing>
+
+</kml>
+
+

@@ -1,0 +1,32 @@
+<!--- $Id: donor.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=donor>
+
+
+<from name=Event>
+<to name=Entity>
+
+<description> 
+Entity releases object of Event (possibly unintentionally).
+</description>
+
+<examplesentencelist>
+ <examplesentence>
+	<text><ex-to>Edward</ex-to> <ex-from>sent</ex-from> the money.</text>
+  </examplesentence>
+ <examplesentence>
+	<text>The <ex-to>Hewlett Foundation</ex-to> <ex-from>donated</ex-from> $400 million dollars to Stanford University.</text>
+  </examplesentence>
+ <examplesentence>
+	<text><ex-to>Edsger</ex-to> <ex-from>lost</ex-from> his marbles.</text>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=agent>
+    An agent performs an action; if the donor intentionally releases
+    possession of the object, the donor is also the agent.
+ </neighbor>
+</neighborlist>
+
+</kml>

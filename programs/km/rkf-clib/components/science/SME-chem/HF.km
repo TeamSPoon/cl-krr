@@ -1,0 +1,11 @@
+(HF has (superclasses (Weak-Acid)))
+
+(every HF has
+	(has-chemical-name ("hydrogen fluoride"))
+	(has-part ((a H-Plus) (a F-Minus)))
+	(atomic-chemical-formula (
+        	(a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 F)))))))
+	(has-chemical-formula (
+        	(a Chemical-Formula with
+			(term ((:seq (:pair 1 H-Plus) (:pair 1 F-Minus)))))))
+)

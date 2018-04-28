@@ -1,0 +1,44 @@
+<!--- $Id: Deactivate.doc.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Deactivate::doc>
+<superconcept name=Make-Inaccessible>
+
+<sme-documentation name=Deactivate>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Deactivate>
+  <definition>To remove a Entity from an active state.</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Make-Inaccessible>    
+    <restriction>a Entity</restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is removed from a <conceptref name=Be-Activated> 
+      <conceptref name=State>. 
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Make-Inaccessible>
+    <restriction>causes <slot>object</slot> to be Deactivated</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>a Entity</restriction>
+    <restriction>used in Deactivating the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>deactivate#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>disable#1, disenable#1, inactivate#1, incapacitate#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+To Deactivate is to cause the <slot>object</slot> to become Deactive by removing
+it from the <conceptref name=Be-Activated> <conceptref name=State>.
+</musing>
+
+</kml>
+
+

@@ -1,0 +1,19 @@
+;; 
+;; $Id: Piece-of-Paper.km,v 1.2 2004/09/09 23:45:31 gking Exp $
+;; 
+
+(Piece-of-Paper has
+  (superclasses (Piece-of-Substance))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (cmap-correspondence ())
+)
+
+(every Piece-of-Paper has
+  (material ((a Paper)))
+)
+
+(Piece-of-Paper has (wn20-synset ((:set
+				   (:triple "paper" 5 "n")
+))))

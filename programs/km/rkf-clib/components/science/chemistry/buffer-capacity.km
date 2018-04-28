@@ -1,0 +1,17 @@
+;;
+;;  $Id: buffer-capacity.km,v 1.1 2003/04/01 20:46:30 wilder Exp $
+;;
+
+(buffer-capacity has
+	     (instance-of (Property))
+	     (superslots  ())
+	     (subslots    ())
+	     (domain      (Buffer))
+	     (range       (Buffer-Capacity-Value))
+	     (cardinal-unit-class (UoM-Unitless))
+	     (scalar-constant-class (Buffer-Capacity-Constant))
+	     (fluent-status (*Inertial-Fluent))
+	     (inherit-with-overrides (t))
+	     (inverse     (buffer-capacity-of))
+	     (cardinality (N-to-1))
+	     )

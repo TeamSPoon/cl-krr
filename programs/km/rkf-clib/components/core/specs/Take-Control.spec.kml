@@ -1,0 +1,32 @@
+<!--- $Id: Take-Control.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Take-Control>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Take-Control>
+  <definition>change of control of an object from one agent to another</definition>
+  <requiredslot name=agent>
+    <restriction>causes <slot>object</slot> to Be-Controlled by the <slot>agent</slot></restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>is no longer controlled by whoever was controlling it; is now controlled by the <slot>agent</slot></restriction>
+  </requiredslot>
+  <requiredslot name=postconditions>
+    <restriction><slot>object</slot> is no longer in any previous Be-Controlled state by other <slot>agent</slot>s</restriction>
+  </requiredslot>
+  <requiredslot name=postconditions>
+    <restriction><slot>object</slot> is now in a Be-Controlled state by the <slot>agent</slot></restriction>
+  </requiredslot>
+  <wnsynsets><verb>control#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>command#5
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

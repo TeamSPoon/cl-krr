@@ -1,0 +1,21 @@
+;; 
+;;    $Id: has-ion.km,v 1.1 2008/10/17 21:04:33 jchaw Exp $
+;; 
+
+(has-ion has
+   (instance-of   	(Participant-Relation))
+   (superslots    	())
+   (subslots 	  	())
+   (domain              (Chemical-Entity))
+   (range         	(Ion))
+   (inverse 		(is-ion-of))
+   (fluent-status 	(*Inertial-Fluent))
+   (cardinality 	(1-to-N)))
+
+(is-ion-of has
+   (instance-of (Participant-Relation))
+   (combine-values-by-appending (t)))
+
+
+(has-ion has (wn20-synset ((:set
+			    (:triple "ion" 0 "n")))))

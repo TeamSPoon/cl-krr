@@ -1,0 +1,17 @@
+;; 
+;;    $Id: all-subevents.km,v 1.10 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(all-subevents has
+  (instance-of 	 (CLIB-Slot-Group))
+  (domain 	 (Event))
+  (range 	 (Event))
+  (fluent-status (*Non-Fluent))
+  (original-slot (t))
+  (cardinality 	 (N-to-N)))
+
+(all-subevents-of has
+   (instance-of (CLIB-Slot-Group)))
+
+
+

@@ -1,0 +1,16 @@
+;;
+;; $Id: Bit-Length-Value.km,v 1.2 2005/02/14 22:27:41 kbarker Exp $
+;;
+
+
+(Bit-Length-Value has 
+   (superclasses (Property-Value)))
+
+(every Bit-Length-Value has
+   (property-slot (bit-length))
+   (data-transfer-rate-of ((must-be-a Computer-Equipment)))
+   (less-than ((must-be-a Bit-Length-Value)))
+   (greater-than ((must-be-a Bit-Length-Value)))
+   (same-as ((must-be-a Bit-Length-Value)))
+)
+

@@ -1,0 +1,22 @@
+;; 
+;; $Id: Device.km,v 1.2 2004/09/08 15:51:26 jfan Exp $
+;; 
+
+(Device has
+  (superclasses (Artifact))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("an artifact with an instrumental purpose"))
+  (cmap-correspondence ())
+)
+
+(every Device has
+  (purpose ((a Instrument-Role)))
+)
+
+(Device has (wn20-synset ((:set
+			   (:triple "device" 1 "n")
+			   (:triple "instrumentality" 3 "n")
+			   (:triple "instrumentation" 1 "n")
+			   ))))

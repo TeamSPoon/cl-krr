@@ -1,0 +1,20 @@
+;; $Id: HC2O4-Minus-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $ 
+(HC2O4-Minus-Substance has (superclasses (Anion-Substance)))
+(every HC2O4-Minus-Substance has
+	(plays (((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 6.4e-5 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid))))))))
+	       ((a Base-Role with		
+		   (default-kb ((a Equilibrium-Constant-Value with
+				   (value ((:pair 1.69e-13 nil))))))
+		   (intensity ((a Intensity-Value with
+				  (value ((:pair *weak Base))))))))
+	))
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a HC2O4-Minus)))
+)
+(every HC2O4-Minus-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a HC2O4-Minus))))

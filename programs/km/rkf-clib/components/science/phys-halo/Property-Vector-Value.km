@@ -1,0 +1,131 @@
+;;
+;; $Id: Property-Vector-Value.km,v 1.17 2010/05/18 15:21:17 kbarker Exp $
+;;
+
+(Property-Vector-Value has
+	(superclasses (Property-Value)))
+
+(every Property-Vector-Value has
+  (secondary-slot ((a Property)))
+  (property-slot ((oneof ?ps in (the primary-slot of Self)
+                   where ((the ?ps of (the (the inverse of ?ps) of Self)) = Self)
+  )))
+  (property-of-slot ((the inverse of (the property-slot of Self))))
+
+  (text-description ((the text-sentence of Self)))
+
+  (text-gen ((make-phrase (the text-phrase of Self))))
+
+  (text-sentence ((if (not ((make-phrase (the text-phrase of Self)) = ""))
+                   then (if ((has-value (the property-of-slot of Self))
+                             and
+                             (has-value (the (the property-of-slot of Self) of Self))
+                            )
+                         then (make-phrase
+                                (:seq "the"
+                                      (the property-slot of Self)
+                                      "of"
+                                      (the text-def-head of 
+                                           (the first of
+                                                (the (the property-of-slot of Self) of Self)))
+                                      "="
+                                      (the text-phrase of Self)
+                                )
+                              )
+                         else (make-phrase (the text-phrase of Self))
+                        )
+                   else (the text-existential-there of Self)
+  )))
+
+  (text-existential-there ((make-sentence 
+                              (:seq "there is"
+                                    (the text-indef-head of Self)
+                                    (the text-postmods of Self)
+                                    (if (has-value (the called of Self))
+                                     then (:seq "(called" (the called of Self) "nospace" ")")
+                                    )
+                              )
+  )))
+
+  (text-def-determiner ((:seq "the")))
+  (text-indef-determiner ((if ((:set "A" "E" "I" "O" "U" "a" "e" "i" "o" "u")
+                               includes
+                               (#'(LAMBDA () (STRING (CHAR (KM-UNIQUE0 '(|make-phrase| (|the| |first| |of| (|the| |primary-slot| |of| |Self|)))) 0))))
+                              )
+                           then (:seq "an")
+                           else (:seq "a")
+  )))
+
+  (text-phrase ((make-phrase (:seq (the text-head of Self)
+                                   (the text-postmods of Self))
+  )))
+
+  (text-def-head ((if (has-value (the text-head of Self))
+                   then (:seq (the text-def-determiner of Self)
+                              ((the property-slot of Self) or (the first of (the primary-slot of Self)))
+                              "of"
+                              (the text-head of Self)
+                        )
+                   else (:seq "the unknown" (the first of (the primary-slot of Self)))
+  )))
+  (text-indef-head ((if (has-value (the text-head of Self))
+                     then (:seq (the text-indef-determiner of Self)
+                                ((the property-slot of Self) or (the first of (the primary-slot of Self)))
+                                "of"
+                                (the text-head of Self)
+                          )
+                     else (:seq "an unknown" (the first of (the primary-slot of Self)))
+  )))
+
+  (text-head (((?card-val == (oneof ?val in (the value of (the (the secondary-slot of Self) of Self))
+                              where (((the1 of ?val)
+                                      and
+                                      ((the1 of ?val) isa Number)
+                                      and
+                                      (has-value (the cardinal-unit-class of (the secondary-slot of Self)))
+                                      and
+                                      ((the2 of ?val) isa (the cardinal-unit-class of (the secondary-slot of Self)))
+                                    ))
+               ))
+               and
+               (?conv-card-val == (if ((has-value ?card-val) 
+                                       and 
+                                       (has-value (the preferred-unit of 
+                                                       (the (the secondary-slot of Self) of Self)))
+                                      )
+                                   then (the value of
+                                             (the output of
+                                                  (a Unit-Conversion with
+                                                     (input ((the (the secondary-slot of Self) of Self)))
+                                                     (target-unit ((the preferred-unit of 
+                                                                        (the (the secondary-slot of Self) of Self)))))
+                                        ))
+               ))
+               and
+               (if ?conv-card-val
+                then (:seq (#'(LAMBDA () (MASSAGE-NUMBER (CAR (KM0 '|?conv-card-val|))))))
+                else (if ?card-val
+                      then (:seq (#'(LAMBDA () (MASSAGE-NUMBER (CAR (KM0 '|?card-val|))))))
+                      else (:seq "an unknown" (the secondary-slot of Self))
+                     )
+               )
+  )))
+
+  (text-postmods ((if (has-value (the value of (the direction of Self)))
+                   then (:seq "at an angle of" (the text-gen of (the direction of Self)))
+                   else "at an unknown angle"
+                  )
+  ))
+
+  (same-as ((constraint (if ((has-value  Self)
+			     and
+			     (has-value TheValue))
+			    then (#'(LAMBDA () 
+			    	 (LET ((SELF-TEXT-PHRASE     (KM-UNIQUE0 '(|the| |text-phrase| |of| |Self|)))
+						  (THEVALUE-TEXT-PHRASE (KM-UNIQUE0 '(|the| |text-phrase| |of| |TheValue|))))
+						 (IF (AND (STRINGP SELF-TEXT-PHRASE)
+							  (STRINGP THEVALUE-TEXT-PHRASE))
+						     (STRING= SELF-TEXT-PHRASE
+							      THEVALUE-TEXT-PHRASE)))))
+			    else t))))
+)

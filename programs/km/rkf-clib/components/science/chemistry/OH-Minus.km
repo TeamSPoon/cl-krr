@@ -1,0 +1,9 @@
+;; $Id: OH-Minus.km,v 1.9 2005/08/25 16:22:58 jfan Exp $ 
+(OH-Minus has (superclasses (Anion)))
+(every OH-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("hydroxide"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 O) (:pair 1 H)))))))
+)

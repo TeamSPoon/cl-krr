@@ -1,0 +1,39 @@
+)clear all
+
+
+X ==> EXPR INT
+P ==> PROP INT
+
+-- Group
+
+*:BOP:=operator 'op
+/:BOP:=operator 'inv
+e:X
+
+-- Axioms
+
+leftId := all(x,(e*x=x)$P)
+leftInv := all(x,(/x*x=e)$P)
+assoc := all([x,y,z],(x*(y*z)=(x*y)*z)$P)
+
+
+-- Hypotheses
+leftCancel := all([x,y,z], (x*y=x*z)$P >> (y=z)$P)
+rightId := all(x,(x*e=x)$P)
+rightInv := all(x,(x*/x=e)$P)
+rightInvUnique := all([x,y],(x*y=e)$P >> (y=/x)$P)
+invInvolution := all(x, (/(/x)=x)$P)
+invProd := all([x,y],( /(x*y)=(/y)*(/x))$P)
+
+-- Clear the BOP's
+)clear prop *
+)clear prop /
+
+-- Init/prove
+
+prove(leftCancel,[leftId,leftInv,assoc])
+prove(rightId,[leftId,leftInv,assoc])
+prove(rightInv,[leftId,leftInv,assoc])
+prove(invInvolution,[leftId,leftInv,assoc])
+prove(rightInvUnique,[leftId,leftInv,assoc])
+prove(invProd,[leftId,leftInv,assoc])

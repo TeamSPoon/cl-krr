@@ -1,0 +1,20 @@
+; $Id: Cr-Plus-3.km,v 1.6 2008/06/04 22:41:48 tecuci Exp $ 
+(Cr-Plus-3 has (superclasses (Cation)))
+(every Cr-Plus-3 has
+	(charge ((a Charge-Value with
+		(value ((:pair +3 *unity))))))
+	(has-chemical-name ("chromium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cr)))))))
+        (is-ion-of ((a Cr)))
+)
+
+(every Cr-Plus-3 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("chromium"))
+  (charge ((a Charge-Value with
+	      (value ((:pair +3 *unity)))))))
+
+
+(Cr-Plus-3 has (wn20-synset ((:triple "Cr+3" 0 "n"))))

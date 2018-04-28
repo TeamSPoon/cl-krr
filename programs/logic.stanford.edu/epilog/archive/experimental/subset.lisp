@@ -1,0 +1,1 @@
+(deftheory foo  (<= (subset ?x ?y)      (tr ?x ?xd)      (tr ?y ?yd)      (evaluate (subsetp ?xd ?yd) t))  (<= (tr ?x ?xd)      (nomination ?x ?xd))  (<= (tr (listof) (listof)))  (<= (tr (listof ?x @l) (listof ?xd @ld))      (tr ?x ?xd)      (tr (listof @l) (listof @ld))))

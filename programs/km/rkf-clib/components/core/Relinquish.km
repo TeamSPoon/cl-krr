@@ -1,0 +1,90 @@
+;; 
+;;    $Id: Relinquish.km,v 1.16 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Relinquish has
+	(superclasses 	(Lose))
+	(required-slot  (agent donor object))
+	(primary-slot 	(recipient instrument))
+	(secondary-slot ())
+	(cmap-correspondence (
+			      (:seq object "the thing Relinquished")
+			      (:seq agent "the Relinquisher")
+                              (:seq donor "the original possessor")
+                              (:seq recipient "the final possessor")
+                              (:seq instrument "the thing used to Relinquish")
+			     ))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+; the agent/donor is required, and they are equal
+(every Relinquish has
+  (agent (((a Tangible-Entity) & (the donor of Self))))
+  (donor ((exactly 1 Tangible-Entity)
+	  (the agent of Self)))
+)
+
+(every Relinquish has
+  (text-active-verbseq-sg ("relinquishes"))
+  (text-active-verbseq-pl ("relinquish"))
+  (text-passive-verbseq-sg ("is relinquished"))
+  (text-passive-verbseq-pl ("are relinquished"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Relinquish has
+  (test-case ('(
+		 (*Gold has (instance-of (Tangible-Entity)))
+                 (*Bill has 
+			(instance-of (Tangible-Entity))
+			(possesses (*Gold)))
+
+		 ;; Bill relinquished the *Gold
+                 (*Relinquish has
+                        (instance-of (Relinquish))
+                        (agent     (*Bill))
+                        (object    (*Gold)))
+                 (do-and-next *Relinquish)
+		 (the text-gen of (thelast Relinquish))
+		 ;; Test 1: The agent and the donor is *Bill
+		 ( ((the agent of *Relinquish) = *Bill) and
+		   ((the donor of *Relinquish) = *Bill) )
+
+		 ;; Test 2: *Bill does not the possess *Gold
+                 ((the possesses of *Bill) = nil)
+
+		 ;; Test 3: *Gold is not possessed-by *Bill
+		 ((the is-possessed-by of *Gold) /= *Bill)
+	       )))
+)
+
+
+
+
+
+
+;; automatically added WN synsets
+(Relinquish has (wn16-synset ((:set  
+                                         (:triple "relinquish" 1 "v")
+                                         (:triple "cede" 2 "v")
+                                         (:triple "deliver" 11 "v")
+                                         (:triple "free" 9 "v")
+                                         (:triple "give_up" 6 "v")
+                                         (:triple "give_up" 8 "v")
+                                         (:triple "release" 8 "v")
+                                         (:triple "surrender" 2 "v")
+))))
+
+(Relinquish has (wn20-synset ((:set
+                                         (:triple "relinquish" 1 "v")
+                                         (:triple "cede" 2 "v")
+                                         (:triple "deliver" 10 "v")
+                                         (:triple "free" 9 "v")
+                                         (:triple "give_up" 6 "v")
+                                         (:triple "give_up" 8 "v")
+                                         (:triple "release" 8 "v")
+                                         (:triple "surrender" 2 "v")
+))))
+(every Relinquish has (text-nominalization ("relinquishing")))

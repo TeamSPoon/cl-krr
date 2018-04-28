@@ -1,0 +1,14 @@
+;;
+;; $Id: Ge.km,v 1.4 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Ge has (superclasses (Metalloid-Atom IVA-Element)))
+(every Ge has
+       (atomic-symbol (Ge))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 32 NIL))))))
+       (chemical-period (4)))
+(every Ge has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("germanium"))
+)

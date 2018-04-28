@@ -1,0 +1,22 @@
+;; 
+;;    $Id: UoM-Electric-Current.km,v 1.1 2010/01/29 16:35:18 kbarker Exp $ 
+;; 
+
+(UoM-Electric-Current has
+ (superclasses (Unit-of-Measurement))
+ (base-unit (*ampere))
+ (instances (*ampere))
+)
+
+(*ampere has (instance-of (UoM-Electric-Current))
+  (name ("A"))
+  (wn20-synset ((:set (:triple "ampere" 1 "n")
+                      (:triple "international_ampere" 1 "n")
+                      (:triple "ampere" 2 "n")
+                      (:triple "amp" 1 "n")
+                      (:triple "A" 6 "n")
+  )))
+)
+
+(*ampere has (conversion-multiplier (1.0)))
+

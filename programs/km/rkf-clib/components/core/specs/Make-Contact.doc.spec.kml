@@ -1,0 +1,55 @@
+<!--- $Id: Make-Contact.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Make-Contact::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Make-Contact>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Make-Contact>
+  <definition>objects make contact</definition>
+  <requiredslot name=object>
+    <restriction>One Tangible-Entity</restriction>
+  </requiredslot>
+  <requriedslot name=base>
+    <restriction>the thing that the <slot>object</slot> makes contact with</restriction>
+  </requiredslot>
+  <requiredslot name=pre-condition>
+    <restriction>the <slot>object</slot> and the <slot>base</slot> must not already 
+       <conceptref name=Be-Touching>
+    </restriction>
+  </requiredslot>  
+  <requiredslot name=post-condition>
+    <restriction><slot>object</slot> and <slot>base</slot> are the <slot>object</slot>s
+                 of a <conceptref name=Be-Touching> state.
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> and <slot>base</slot> to Make-Contact</restriction>
+  </primaryslot>
+  <primaryslot name=location>
+    <restriction>a Place</restriction>
+    <comment>the <slot>location</slot> is the <slot>base</slot>'s 
+       <slot>location</slot>
+    </comment>
+  </primaryslot>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>touch#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Make-Contact is an action in which one <slot>object</slot> and a <slot>base</slot> 
+are made to touch each other. Make-Contact results in the <slot>object</slot> and 
+<slot>base</slot>) being <slot>object</slot>s of a <conceptref name=Be-Touching> 
+state. They can be taken out of the <conceptref name=Be-Touching> state by a 
+<conceptref name=Break-Contact::doc> action.
+</musing>
+
+</kml>
+
+

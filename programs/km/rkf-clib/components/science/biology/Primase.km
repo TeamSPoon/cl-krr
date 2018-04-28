@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Primase.km,v 1.11 2001/05/15 21:19:57 jfan Exp $ 
+;; 
+
+(Primase has
+         (superclasses (Polymerase))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("An RNA polymerase that makes the short RNA primer 
+                        needed to initiate DNA chain elongation during DNA 
+                        replication.  see Alberts:ECB:195."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Primase has
+       (purpose ((a Catalyst with
+		    (in-event ((a DNA-Replication))))
+		 )))
+
+

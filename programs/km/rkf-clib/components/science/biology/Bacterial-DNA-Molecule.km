@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Bacterial-DNA-Molecule.km,v 1.6 2001/08/08 20:59:50 kbarker Exp $ 
+;; 
+
+(Bacterial-DNA-Molecule has
+		 (superclasses (Procaryotic-DNA))
+		 (required-slot ())
+		 (primary-slot ())
+		 (secondary-slot ())
+		 (description ("Double-stranded polynucleotide formed from two 
+                                separate chains of deoxyribonucleotide units; 
+                                serves as the carrier of genetic information in
+                                bacteria. Alberts:ECB:G-6.")) 
+		 (cmap-correspondence ()))
+
+(every Bacterial-DNA-Molecule has
+       (has-functional-part
+	((a Procaryotic-Gene)
+	 (a Operon with	; several Procaryotic-Genes
+	     (has-functional-part 
+	      ((at-least 2 Procaryotic-Gene)
+	       (a Procaryotic-Gene)
+	       (a Procaryotic-Gene))))
+	 (at-least 483 Procaryotic-Gene)  ;smallest free-living organism.
+	 (at-most 5570 Procaryotic-Gene)  ;largest Bacterial genome so far
+	 ))
+       (has-structural-part
+	((exactly 2 Procaryotic-DNA-Strand)
+	 (a Procaryotic-DNA-Strand called "Strand1")
+	 (a Procaryotic-DNA-Strand called "Strand2")
+	 ))
+       )
+

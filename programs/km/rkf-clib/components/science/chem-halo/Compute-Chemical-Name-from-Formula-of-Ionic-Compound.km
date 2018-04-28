@@ -1,0 +1,25 @@
+
+;;
+;; $Id: Compute-Chemical-Name-from-Formula-of-Ionic-Compound.km,v 1.2 2005/11/01 22:13:11 jfan Exp $
+;;
+
+(Compute-Chemical-Name-from-Formula-of-Ionic-Compound has
+						      (superclasses (Method))
+						      (description ("compute the name of a ionic compound based on its formula")))
+
+(every Compute-Chemical-Name-from-Formula-of-Ionic-Compound has
+       ;;(input ((a Thing)))		; Actually, the term sequence
+       (output ((if (has-value (the input of Self))
+		    then
+		(#'(LAMBDA ()
+		     (CONCATENATE 'STRING
+				  (KM-UNIQUE0 '(the first of 
+						    (the has-chemical-name of
+							 (an instance of
+							     (the2 of (the1 of (the input of Self)))))))
+				  " "
+				  (KM-UNIQUE0 '(the first of 
+						    (the has-chemical-name of
+							 (an instance of
+							     (the2 of (the2 of (the input of Self)))))))))))))
+)

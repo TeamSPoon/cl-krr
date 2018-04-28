@@ -1,0 +1,20 @@
+;; 
+;;  $Id: scalar-concentration.km,v 1.1 2003/01/22 17:56:40 porter Exp $
+;; 
+
+(scalar-concentration has
+  (instance-of (Property))
+  (domain      (Chemical))
+  (range       (Scalar-Concentration-Value))
+  (scalar-constant-class (Concentration-Constant))   
+  (cardinal-unit-class   (UoM-Concentration))   
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     (scalar-concentration-of))
+  (cardinality (N-to-1))
+)
+
+(scalar-concentration-of has
+  (combine-values-by-appending (t))
+)
+

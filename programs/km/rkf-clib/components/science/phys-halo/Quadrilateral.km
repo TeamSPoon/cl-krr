@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Quadrilateral.km,v 1.3 2005/10/24 16:20:35 pzyeh Exp $ 
+;; 
+
+(Quadrilateral has (superclasses (Polygon)))
+
+(every Quadrilateral has
+  (has-part ((exactly 4 Line-Segment)
+             (exactly 4 Vertex)
+  ))
+)
+
+(Quadrilateral has 
+  (wn20-synset ((:set (:triple "quadrilateral" 1 "n")
+		      (:triple "quadrangle"    1 "n")
+		      (:triple "tetragon"      1 "n")
+))))
+

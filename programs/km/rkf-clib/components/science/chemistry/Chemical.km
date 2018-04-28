@@ -1,0 +1,762 @@
+;; 
+;;    $Id: Chemical.km,v 1.62 2005/08/25 16:22:57 jfan Exp $ 
+;; 
+
+(Chemical has
+ 	     (superclasses (Substance))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+(every Chemical has
+       (has-basic-structural-unit ((a Chemical-Entity)))
+
+       (quantity (
+          (if ((not (has-value (the quantity of Self)))
+               and (has-value (the Mixture is-part-of of Self))
+              )
+           then (the output of
+                     (a Compute-Quantity-from-Concentration-and-Volume with
+                        (input ((the concentration of Self)
+                                (the volume of 
+                                     (the Mixture is-part-of of Self))
+                        ))
+                     )
+                )
+       )))
+
+       (quantity (
+          (if ((not (has-value (the quantity of Self)))
+               and (has-value (the Mixture base-of of Self))
+              )
+           then (the output of
+                     (a Compute-Quantity-from-Concentration-and-Volume with
+                        (input ((the concentration of Self)
+                                (the volume of 
+                                     (the Mixture base-of of Self))
+                        ))
+                     )
+                )
+       )))
+
+       (quantity (
+          (if ((not (has-value (the quantity of Self)))
+               and (has-value 
+                        (the raw-material of 
+                             (the Mix result-of of 
+                                  (the Mixture is-part-of of Self)))
+                   )
+              )
+           then
+              (the output of
+                   (a Compute-Quantity-of-Chemical-in-Chemicals with
+                      (input ((the instance-of of
+                                   (the has-basic-structural-unit of Self))
+                              (the base of 
+                                   (the raw-material of
+                                        (the Mix result-of of 
+                                             (the Mixture is-part-of of Self))))
+                             )
+                   ))
+              )
+       )))
+
+       (concentration (
+          (if ((has-value (the Mixture is-part-of of Self))
+	       and
+	       (not (the Equilibrium-Reaction raw-material-of of Self))
+	       and
+	       (not (the Equilibrium-Reaction result-of of Self)))
+           then (the output of
+                     (a Compute-Concentration-from-Quantity-and-Volume with
+                        (input ((the quantity of Self)
+                                (the volume of 
+                                     (the Mixture is-part-of of Self))
+                        ))
+                     )
+                )
+            [Chemical-concentration-1]
+       )))
+
+       (concentration (
+          (if ((has-value (the Mixture base-of of Self))
+	       and
+	       (not (the Equilibrium-Reaction raw-material-of of Self))
+	       and
+	       (not (the Equilibrium-Reaction result-of of Self)))
+           then (the output of
+                     (a Compute-Concentration-from-Quantity-and-Volume with
+                        (input ((the quantity of Self)
+                                (the volume of 
+                                     (the Mixture base-of of Self))
+                        ))
+                     )
+                )
+            [Chemical-concentration-2]
+       )))
+
+       ;; [1] For figuring out initial concentration of a Chemical if it's 
+       ;;     a raw-material.
+       (concentration (
+	 (if ((not (the concentration of Self))
+	      and
+	      (the1 of (the value of (the equilibrium-concentration of Self)))
+	      and
+	      (the Equilibrium-Reaction raw-material-of of Self))
+	     then
+	     (a Concentration-Value with
+		(value ((:pair 
+			  ((the1 of (the value of 
+			     (the equilibrium-concentration of Self)))
+			   +
+			   ((the1 of (the value of (the coefficient of Self)))
+			    *
+			    ((the output of 
+			       (a Compute-Concentration-Change-Constant with
+				  (input ((the Equilibrium-Reaction raw-material-of of Self)))))
+			     or 0)))
+			  *molar)
+	     	)))
+            [Chemical-concentration-3]
+       )))
+
+       ;; [2] For figuring out initial concentration of a Chemical if it's
+       ;;     a result.
+       (concentration (
+	 (if ((not (the concentration of Self))
+	      and
+	      (the1 of (the value of (the equilibrium-concentration of Self)))
+	      and
+	      (the Equilibrium-Reaction result-of of Self) 	
+	      and
+	      (not (oneof (the Equilibrium-Reaction result-of of Self) 
+		     where 
+		     (It isa Hydrolysis)))
+	      and
+	      (not (oneof (the Equilibrium-Reaction result-of of Self) 
+		     where
+		     (It isa Complete-Dissociation-Reaction))))
+	     then
+	     (a Concentration-Value with
+		(value ((:pair 
+			  ((the1 of (the value of 
+			     (the equilibrium-concentration of Self)))
+			   -
+			   ((the1 of (the value of (the coefficient of Self)))
+			    *
+			    ((the output of 
+			       	  (a Compute-Concentration-Change-Constant with
+				     (input ((the Equilibrium-Reaction result-of of Self)))))
+			     or 0)))
+			  *molar)
+	     )))
+            [Chemical-concentration-4]
+       )))
+
+       ;; [3] For figuring out initial concentration of a Chemical if it's
+       ;;     a result.
+       (concentration (
+	 (if ((not (the concentration of Self))
+	      and
+	      (the Equilibrium-Reaction result-of of Self) 
+	      and
+	      ((oneof (the Equilibrium-Reaction result-of of Self) 
+		 where
+		 (It isa Hydrolysis))
+	       or
+	       (oneof (the Equilibrium-Reaction result-of of Self) 
+		 where
+		 (It isa Complete-Dissociation-Reaction))))
+	     then
+	     (a Concentration-Value with
+		(value ((:pair 0 *molar))))
+            [Chemical-concentration-5]
+       )))
+
+       ;; [4] For figuring out equilibrium-concentration of a Chemical if it's 
+       ;;     a raw-material. General form.
+       (equilibrium-concentration (
+	 (if ((not (the equilibrium-concentration of Self))
+	      and
+	      (the1 of (the value of (the concentration of Self)))
+	      and
+	      (the Equilibrium-Reaction raw-material-of of Self)		
+	      and
+	      ;; This covers bases as well.
+	      ((the1 of (the value of (the intensity of (the Acid-Role plays of Self)))) /= *strong))
+	     then
+	     (a Concentration-Value with
+		(value ((:pair 
+			  ((the1 of (the value of (the concentration of Self)))
+			   -
+			   ((the1 of (the value of (the coefficient of Self)))
+			    *
+			    ((the output of 
+			       (a Compute-Concentration-Change-Constant with
+				  (input ((the Equilibrium-Reaction raw-material-of of Self)))))
+			     or 0)))
+			  *molar)
+	     )))
+            [Chemical-equilibrium-concentration-1]
+       )))
+
+       ;; [5].  
+       (equilibrium-concentration (
+	 (if ((not (the equilibrium-concentration of Self))
+	      and
+	      (the1 of (the value of (the concentration of Self)))
+	      and
+	      (the Equilibrium-Reaction raw-material-of of Self)		
+	      and
+	      ((the1 of (the value of (the intensity of (the Acid-Role plays of Self)))) = *strong))
+	     then
+	     (a Concentration-Value with
+		(value ((:pair 0 *molar))))
+            [Chemical-equilibrium-concentration-2]
+       )))
+
+       ;; [6] General form.
+       (equilibrium-concentration (
+	 (if ((not (the equilibrium-concentration of Self))
+	      and
+	      (the1 of (the value of (the concentration of Self)))
+	      and
+	      (the Equilibrium-Reaction result-of of Self) 
+	      and
+	      (not (oneof (the Equilibrium-Reaction result-of of Self) 
+		     where
+		     (It isa Hydrolysis)))
+	      and 
+	      (not (oneof (the Equilibrium-Reaction result-of of Self) 
+		     where
+		     (It isa Complete-Dissociation-Reaction))))
+	     then
+	     (a Concentration-Value with
+		(value ((:pair 
+			  ((the1 of (the value of (the concentration of Self)))
+			   +
+			   ((the1 of (the value of (the coefficient of Self)))
+			    *
+			    ((the output of 
+			       (a Compute-Concentration-Change-Constant with
+				  (input ((the Equilibrium-Reaction result-of of Self)))))
+			     or 0)))
+			  *molar)
+	     )))
+            [Chemical-equilibrium-concentration-3]
+       )))
+
+       ;; [7] Special case #1. 
+       (equilibrium-concentration (
+	 (if ((not (the equilibrium-concentration of Self))
+	      and
+	      (the Equilibrium-Reaction result-of of Self) 
+	      and
+	      ((oneof (the Equilibrium-Reaction result-of of Self) 
+		 where
+		 (It isa Hydrolysis))
+	       or
+	       (oneof (the Equilibrium-Reaction result-of of Self) 
+		 where
+		 (It isa Complete-Dissociation-Reaction)))
+	      and
+	      ;; This is to break circular references that screw up the explanation.
+	      ((not (((the has-basic-structural-unit of Self) isa H-Plus)
+		     or
+		     ((the has-basic-structural-unit of Self) isa H3O-Plus)
+		     or
+		     ((the has-basic-structural-unit of Self) isa OH-Minus)))
+	       or
+	       ((((the has-basic-structural-unit of Self) isa H-Plus)
+		 or
+		 ((the has-basic-structural-unit of Self) isa H3O-Plus)
+		 or
+		 ((the has-basic-structural-unit of Self) isa OH-Minus))
+		and
+	        (not (oneof (the input-of of (the Equilibrium-Reaction result-of of Self))
+		       where
+		       ((It isa Compute-Equilibrium-Constant)
+		        or
+		        (It isa Compute-Concentration-H-Plus)
+		        or
+		        (It isa Compute-Concentration-OH-Minus))))
+		and
+	        (not (oneof (the input-of of (the raw-material of (the Equilibrium-Reaction result-of of Self)))
+		       where
+		       (It isa Compute-Ionization-Percentage)))
+	      ))
+	      and
+	      ((the1 of 
+		(the value of 
+		 (the intensity of
+		  (the Acid-Role plays of
+		   (oneof (the raw-material of (the result-of of Self))
+		     where 
+		     (not (It isa H2O-Substance)))))))
+	       /= *strong))
+	     then
+	     (a Concentration-Value with
+		(value ((:pair 
+			  (the output of 
+			       (a Compute-Concentration-Change-Constant with
+				  (input ((the Equilibrium-Reaction result-of of Self)))))
+			  *molar)
+	     )))
+            [Chemical-equilibrium-concentration-4]
+       )))
+
+       ;; [8] Special case #2. 
+       (equilibrium-concentration (
+	 (if ((not (the equilibrium-concentration of Self))
+	      and
+	      (the Equilibrium-Reaction result-of of Self) 
+	      and
+	      ((oneof (the Equilibrium-Reaction result-of of Self) 
+		 where
+		 (It isa Hydrolysis))
+	       or
+	       (oneof (the Equilibrium-Reaction result-of of Self) 
+		 where
+		 (It isa Complete-Dissociation-Reaction)))
+	      and
+	      ((the1 of 
+		(the value of 
+		 (the intensity of
+		  (the Acid-Role plays of
+		   (oneof (the raw-material of (the result-of of Self))
+		     where 
+		     ((not (It isa H2O-Substance))
+		      and
+		      (the1 of (the value of (the concentration of It))))
+	       	   )))))
+	       = *strong))
+	     then
+	     (a Concentration-Value with
+		(value ((:pair 
+			  (the1 of
+			   (the value of
+			    (the concentration of 
+		  	     (oneof (the raw-material of (the result-of of Self))
+		    		where 
+		    		((not (It isa H2O-Substance))
+		     		 and
+		     		 (the1 of (the value of (the concentration of It))))))))
+			  *molar)
+	     )))
+            [Chemical-equilibrium-concentration-5]
+       )))
+ 
+       ;; moved to Chemical-Substance 
+       (physical-state ((a State-Value)))
+       ; Pedro suggested that Chemical's playing the Role of Reactant have a
+       ; coefficient slot.  I'm leaving that out of this representation, and
+       ; assuming that coefficients are recorded in chemical formulas.
+
+       ;;
+       ;; NOTES:
+       ;; 	- Using H instead of H+ b/c it is easier to the 
+       ;;	  loss/gain of a proton.  
+       ;; 	- Is this the right place to put this?
+       ;;
+
+       ;; Plays a Base Role IF.
+       (plays (                                       ;; Reactant Side.
+         (if ((the term of 
+		   (the atomic-chemical-formula of
+                   	(the has-basic-structural-unit of Self)))
+	      and
+	      (not (the Base-Role plays of Self)))
+           then
+           (if ((has-value
+                (oneof 
+                  (the result of (the Reaction raw-material-of of Self))
+                  where (
+                    (
+                     (the elements of
+                       (the term of 
+                            (the atomic-chemical-formula of 
+                                 (the has-basic-structural-unit of It))))
+                     =
+                       (forall2 
+			(the elements of
+			(the term of 
+                             (the atomic-chemical-formula of
+                                (the has-basic-structural-unit of Self))))
+                          (if ((the2 of It2) = H)
+                           then (:pair ((the1 of It2) + 1) H)
+                           else It2))
+                    )
+                    or
+                    (
+                     (the elements of 
+                       (the term of 
+                            (the atomic-chemical-formula of 
+                                 (the has-basic-structural-unit of It))))
+                     =
+                     (the elements of
+                       (the append of
+                         (:seq
+                            (the term of 
+                               (the atomic-chemical-formula of
+                                  (the has-basic-structural-unit of Self)))
+                            (:seq (:pair 1 H))))))
+                    )
+             ))
+	     or                                       ;; Product Side.
+             (has-value
+                (oneof 
+                  (the raw-material of (the Reaction result-of of Self))
+                  where (
+                    (
+                     (the elements of
+                       (the term of 
+                            (the atomic-chemical-formula of 
+                                 (the has-basic-structural-unit of It))))
+                     =
+		     (forall2
+		      (the elements of
+			   (the term of 
+                             (the atomic-chemical-formula of
+                                (the has-basic-structural-unit of Self))))
+                          (if ((the2 of It2) = H)
+                           then (:pair ((the1 of It2) + 1) H)
+                           else It2))
+                    )
+                    or
+                    (
+                     (the elements of
+                       (the term of 
+                            (the atomic-chemical-formula of 
+                                 (the has-basic-structural-unit of It))))
+                     =
+                     (the elements of
+                       (the append of
+                         (:seq
+                            (the term of 
+                               (the atomic-chemical-formula of
+                                  (the has-basic-structural-unit of Self)))
+                            (:seq (:pair 1 H)))))
+                    )
+             )))
+            )
+	   then
+             (a Base-Role)
+             [Chemical-plays-1]
+        ))
+       ))
+
+	;; Plays a Acid Role IF.
+       (plays (                                    ;; Reactant Side.
+         (if ((the term of 
+		   (the atomic-chemical-formula of
+                   	(the has-basic-structural-unit of Self)))
+	      and
+	      (not (the Acid-Role plays of Self)))
+           then
+	   (if ((has-value
+                (oneof 
+                  (the result of (the Reaction raw-material-of of Self))
+                  where (
+                     (the elements of
+                       (the term of 
+                            (the atomic-chemical-formula of 
+                                 (the has-basic-structural-unit of It))))
+                     =
+			  (forall2 
+			   (the elements of
+                          (the term of 
+                             (the atomic-chemical-formula of
+                                (the has-basic-structural-unit of Self))))
+                          (if ((the2 of It2) = H)
+                           then (if ((the1 of It2) > 1)
+                                 then (:pair ((the1 of It2) - 1) H)
+                                )
+                           else It2)))
+             ))
+	     or                                     ;; Product Side.
+             (has-value
+                (oneof 
+                  (the raw-material of (the Reaction result-of of Self))
+                  where (
+                     (the elements of
+                       (the term of 
+                            (the atomic-chemical-formula of 
+                                 (the has-basic-structural-unit of It))))
+                     =
+		     (forall2 
+			   (the elements of
+                          (the term of 
+                             (the atomic-chemical-formula of
+                                (the has-basic-structural-unit of Self))))
+                          (if ((the2 of It2) = H)
+                           then (if ((the1 of It2) > 1)
+                                 then (:pair ((the1 of It2) - 1) H)
+                                )
+                           else It2)))
+             ))
+            )
+	   then
+	     (a Acid-Role)
+             [Chemical-plays-2]
+	))))
+#|
+  (color ((a Chemical-Color [Chemical-color-1]))) 
+|#
+)
+
+(comment [Chemical-concentration-1]
+  (:seq "The concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the concentration of Self)))
+        (the2 of (the value of (the concentration of Self)))
+  )
+  "The concentration of a chemical can be computed from its quantity and volume"
+  (:triple (a Compute-Concentration-from-Quantity-and-Volume with
+              (input ((the quantity of Self)
+                      (the volume of
+                           (the Mixture is-part-of of Self))
+              ))
+           )
+           output
+           *
+  )
+)
+
+(comment [Chemical-concentration-2]
+  (:seq "The concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the concentration of Self)))
+        (the2 of (the value of (the concentration of Self)))
+  )
+  "The concentration of a chemical can be computed from its quantity and volume"
+  (:triple (a Compute-Concentration-from-Quantity-and-Volume with
+              (input ((the quantity of Self)
+                      (the volume of
+                           (the Mixture base-of of Self))
+              ))
+           )
+           output
+           *
+  )
+)
+
+(comment [Chemical-concentration-3]
+  (:seq "The initial concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the concentration of Self)))
+        (the2 of (the value of (the concentration of Self)))
+  )
+  "The initial concentration of a reactant in an equilibrium reaction is equal to its equilibrium concentration plus the product of multiplying its coefficient by the concentration change constant for the reaction" 
+  (:set (:triple Self equilibrium-concentration *)
+        (:triple (a Compute-Concentration-Change-Constant with
+                    (input ((the Equilibrium-Reaction raw-material-of of Self))))
+                 output
+                 *
+        )
+  )
+)
+
+(comment [Chemical-concentration-4]
+  (:seq "The initial concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the concentration of Self)))
+        (the2 of (the value of (the concentration of Self)))
+  )
+  "The initial concentration of a product in an equilibrium reaction is equal to its equilibrium concentration minus the product of multiplying its coefficient by the concentration change constant for the reaction" 
+  (:set (:triple Self equilibrium-concentration *)
+        (:triple (a Compute-Concentration-Change-Constant with
+                    (input ((the Equilibrium-Reaction result-of of Self))))
+                 output
+                 *
+        )
+  )
+)
+
+(comment [Chemical-concentration-5]
+  (:seq "The initial concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the concentration of Self)))
+        (the2 of (the value of (the concentration of Self)))
+  )
+  "In a hydrolysis and complete dissociation reactions, the initial concentrations of the products are zero"
+)
+
+(comment [Chemical-equilibrium-concentration-1]
+  (:seq "The equilibrium concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the equilibrium-concentration of Self)))
+        (the2 of (the value of (the equilibrium-concentration of Self)))
+  )
+  "The equilibrium concentration of a reactant in an equilibrium reaction is equal to its initial concentration minus the product of multiplying its coefficient by the concentration change constant for the reaction" 
+  (:set (:triple Self concentration *)
+        (:triple (a Compute-Concentration-Change-Constant with
+                    (input ((the Equilibrium-Reaction raw-material-of of Self))))
+                 output
+                 *
+        )
+  )
+)
+
+(comment [Chemical-equilibrium-concentration-2]
+  (:seq "The equilibrium concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the equilibrium-concentration of Self)))
+        (the2 of (the value of (the equilibrium-concentration of Self)))
+  )
+  "The equilibrium concentration of strong acid reactants in equilibrium reactions is zero"
+)
+
+(comment [Chemical-equilibrium-concentration-3]
+  (:seq "The equilibrium concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the equilibrium-concentration of Self)))
+        (the2 of (the value of (the equilibrium-concentration of Self)))
+  )
+  "The equilibrium concentration of a reactant in an equilibrium reaction is equal to its initial concentration plus the product of multiplying its coefficient by the concentration change constant for the reaction" 
+  (:set (:triple Self concentration *)
+        (:triple (a Compute-Concentration-Change-Constant with
+                    (input ((the Equilibrium-Reaction result-of of Self))))
+                 output
+                 *
+        )
+  )
+)
+
+(comment [Chemical-equilibrium-concentration-4]
+  (:seq "The equilibrium concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the equilibrium-concentration of Self)))
+        (the2 of (the value of (the equilibrium-concentration of Self)))
+  )
+  "In hydrolysis and complete dissociation reactions that do not involve strong acid reactants, the equilibrium concentrations of the products are equal to the concentration change constant for the reaction"
+  (:triple (a Compute-Concentration-Change-Constant with
+              (input ((the Equilibrium-Reaction result-of of Self))))
+           output
+           *
+  )
+)
+
+(comment [Chemical-equilibrium-concentration-5]
+  (:seq "The equilibrium concentration of"
+        (the text-gen of Self)
+        "is thus"
+        (the1 of (the value of (the equilibrium-concentration of Self)))
+        (the2 of (the value of (the equilibrium-concentration of Self)))
+  )
+  "In hydrolysis and complete dissociation reactions that involve a strong acid reactant, the equilibrium concentrations of the products are equal to the initial concentration of the non-H2O reactants"
+  (:triple (oneof (the raw-material of (the result-of of Self))
+                  where ((not (It isa H2O-Substance))
+                         and
+                         (the1 of (the value of (the concentration of It))))
+           )
+           concentration
+           *
+  )
+)
+
+
+(comment [Chemical-plays-1]
+  (:seq (the text-gen of Self)
+        "gains a proton and is thus acting as a base"
+  )
+  "In an acid-base reaction, a chemical that gains a proton acts as a base"
+)
+
+(comment [Chemical-plays-2]
+  (:seq (the text-gen of Self)
+        "loses a proton and is thus acting as an acid"
+  )
+  "In an acid-base reaction, a chemical that loses a proton acts as an acid"
+)
+
+#|
+(comment [Chemical-color-1]
+  (:seq "There is insufficient knowledge to determine the color of"
+        (the text-gen of Self)
+  )
+  ""
+)
+|#
+
+(every Chemical has
+
+  (text-has-part        ("made of"))
+  (text-result-of       ("product of"))
+  (text-raw-material-of ("reactant in"))
+  (text-premodslots     ((:seq)))
+  (text-postmodslots    ((:seq has-part result-of raw-material-of)))
+
+  (text-gen ((make-phrase (the text-phrase of Self))))
+  (text-description ((the text-gen of Self)))
+
+  (text-def-head    ((the text-head of Self)))
+  (text-head        ((the text-head of 
+                          (the has-basic-structural-unit of Self)))
+  )
+
+  (text-base-phrase ((the text-base-phrase of 
+                          (the has-basic-structural-unit of Self)))
+  )
+
+  (text-phrase ((if (has-value 
+                         (the text-phrase of
+                              (the has-basic-structural-unit of Self)))
+                 then (the text-phrase of
+                           (the has-basic-structural-unit of Self))
+                 else (the text-base-phrase of Self)
+               ))
+  )
+)
+
+
+(Chemical has
+  (test-case (
+    '(
+	(a Hydrolysis with
+   	   (raw-material (
+     	     (a NH3-Substance called "Reactant" with
+        	(base-of ((a Solution with
+                     	     (pH ((a PH-Value with (value ((:pair 10.75 NIL))))))
+                )))
+        	(concentration ((a Concentration-Value with
+                           	   (value ((:pair 0.0180 *molar))))))
+     	     )
+     	     (a H2O-Substance)))
+   	   (result (
+     	     (a Chemical with
+        	(has-basic-structural-unit ((a OH-Minus)))
+     	     )
+     	     (a Chemical with
+        	(has-basic-structural-unit ((a NH4-Plus)))))))
+
+	((the1 of (the value of (the equilibrium-concentration of
+		((the raw-material of (thelast Hydrolysis)) called "Reactant"))))
+	 = (0.017437657))
+
+	((the1 of (the value of (the equilibrium-concentration of
+		(the first of (the result of (thelast Hydrolysis))))))
+	 = (5.623413e-4))
+
+	((the1 of (the value of (the equilibrium-concentration of
+		(the second of (the result of (thelast Hydrolysis))))))
+	 = (5.623413e-4))
+
+	((the1 of (the value of (the concentration of
+		(the first of (the result of (thelast Hydrolysis))))))
+	 = (0))
+
+	((the1 of (the value of (the concentration of
+		(the second of (the result of (thelast Hydrolysis))))))
+	 = (0))
+))))

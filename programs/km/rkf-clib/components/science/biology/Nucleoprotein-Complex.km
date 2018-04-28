@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Nucleoprotein-Complex.km,v 1.10 2001/05/17 20:22:53 jfan Exp $ 
+;; 
+
+(Nucleoprotein-Complex has
+         (superclasses (Molecular-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A complex made up of proteins and nucleic acids. 
+                        Examples include chromosomes, and the SNRP splicing 
+                        complex.  Souther."))
+         (test-case ()))
+
+(every Nucleoprotein-Complex has
+        (has-part ((a Protein)
+		   (at-least 1 Protein) 
+		   (a Polynucleotide)
+		   (at-least 1 Polynucleotide) 
+		   )))

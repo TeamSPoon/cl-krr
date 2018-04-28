@@ -1,0 +1,43 @@
+;; 
+;;    $Id: UoM-Time.km,v 1.12 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(UoM-Time has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*second))
+ (instances (*hour *minute *second *day *month *year)))
+                                         
+;; names of units defined in UoM-Duration.km
+
+(*hour has (instance-of (UoM-Time))
+       (wn20-synset ((:set (:triple "hour" 0 "n")
+			   (:triple "hours" 0 "n")))))
+			   
+(*minute has (instance-of (UoM-Time))
+	 (wn20-synset ((:set (:triple "minute" 0 "n")
+			     (:triple "minutes" 0 "n")))))
+
+(*second has (instance-of (UoM-Time))
+	 (wn20-synset ((:set (:triple "second" 0 "n") 
+			     (:triple "seconds" 0 "n") 
+			     (:triple "s" 0 "n")))))
+
+(*day has (instance-of (UoM-Time))
+      (wn20-synset ((:set (:triple "day" 0 "n") 
+			  (:triple "day" 0 "n")))))
+
+(*month has (instance-of (UoM-Time))
+	(wn20-synset ((:set (:triple "month" 0 "n")  
+			    (:triple "months" 0 "n")))))
+
+(*year has (instance-of (UoM-Time))
+       (wn20-synset ((:set (:triple "year" 0 "n") 
+			   (:triple "year" 0 "n")))))
+
+
+(*hour has (conversion-multiplier (3600.0)))
+(*minute has (conversion-multiplier (60.0)))
+(*second has (conversion-multiplier (1.0)))
+(*day has (conversion-multiplier (86400.0)))
+(*month has (conversion-multiplier (2629728.0)))
+(*year has (conversion-multiplier (3.1556736e+7)))

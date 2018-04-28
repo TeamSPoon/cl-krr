@@ -1,0 +1,15 @@
+;; $Id: Hg2I2.km,v 1.2 2008/04/11 17:42:05 mrglass Exp $
+
+(Hg2I2 has (superclasses (Ionic-Compound)))
+(every Hg2I2 has
+        (has-chemical-name ("mercury(I) iodide"))
+        (has-part ((a Hg2-Plus-2)(a I-Minus)))
+        (has-chemical-formula ((a Chemical-Formula with
+                (term ((:seq
+                        (:pair 1 Hg2-Plus-2)
+                        (:pair 2 I-Minus)))))))
+)
+(every Hg2I2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Hg2-Plus-2) (a I-Minus))))
+~

@@ -1,0 +1,145 @@
+;; 
+;;    $Id: Compute-Equilibrium-Position.km,v 1.9 2003/09/10 16:59:50 jchaw Exp $
+;; 
+
+(Compute-Equilibrium-Position has
+  (superclasses (Method)))
+
+;;
+;; Encodes L.22 and L.12
+;;
+(every Compute-Equilibrium-Position has
+
+  ;; All reactions are treated as equilibrium reactions
+  ;; when direction is being asked.
+  (input ((a Reaction)))
+
+  ;; 
+  ;; The position of equilibrium can be determined if Keq is known
+  ;;
+  (output ((if (((the input of Self) isa Equilibrium-Reaction)
+                and
+                (has-value (the1 of (the value of (the keq of (the input of Self))))))
+               then
+               (if ((the1 of (the value of (the keq of (the input of Self))))   
+                    > 1)
+                   then
+                   (the result of (the input of Self))
+                   else
+                   (the raw-material of (the input of Self)))
+               [Compute-Equilibrium-Position-output-1]
+        )))
+  ;;
+  ;; Keq is not known. So we can compare the Acids on both sides.
+  ;;
+  (output ((if ((not (the1 of (the value of (the keq of (the input of Self)))))
+                and
+                (oneof (the raw-material of (the input of Self))
+                       where
+                       (the Acid-Role plays of It))
+                and
+                (oneof (the result of (the input of Self))
+                       where
+                       (the Acid-Role plays of It))
+                and
+                (oneof (the raw-material of (the input of Self))
+                       where
+                       (the Base-Role plays of It))
+                and
+                (oneof (the result of (the input of Self))
+                       where
+                       (the Base-Role plays of It)))
+               then
+               ;; See if both the strong acid and base are on the LHS.
+               (if (;; Check the acids.
+                    ((the output of 
+                          (a Compare-Relative-Strengths-of-Acids with
+                             (input (
+                               (oneof (the raw-material of (the input of Self))
+                                 where
+                                 (the Acid-Role plays of It))
+                               (oneof (the result of (the input of Self))
+                                 where
+                                 (the Acid-Role plays of It))))))
+                     =
+                     (oneof (the raw-material of (the input of Self))
+                            where
+                            (the Acid-Role plays of It)))
+                    and
+                    ;; Check the bases.
+                    ((the output of 
+                          (a Compare-Relative-Strengths-of-Bases with
+                             (input (
+                               (oneof (the raw-material of (the input of Self))
+                                 where
+                                 (the Base-Role plays of It))
+                               (oneof (the result of (the input of Self))
+                                 where
+                                 (the Base-Role plays of It))))))
+                     =
+                     (oneof (the raw-material of (the input of Self))
+                            where
+                            (the Base-Role plays of It))))
+                   then
+                   (the result of (the input of Self))
+                   else
+                   (the raw-material of (the input of Self)))
+           [Compute-Equilibrium-Position-output-2]
+        )))
+)
+
+
+;; This explanation does not report the keq, merely whether it is
+;; greater than or less than 1. If the keq is given in the question,
+;; we don't need to report it. If it's not given, it will show up
+;; when calculated, since keq is in a dependent triple
+
+(comment [Compute-Equilibrium-Position-output-1]
+   (:seq "The equilibrium constant, Keq, is "
+         (if ((the1 of (the value of (the keq of (the input of Self)))) > 1)
+          then "> 1, therefore, the equilibrium lies to the right"
+          else "< 1, therefore, the equilibrium lies to the left"
+         )
+   )
+   "In a chemical reaction, the side on which equilibrium lies is related to the equilibrium constant as follows: if Keq > 1, the equilibrium lies to the right; whereas if Keq < 1, the equilibrium lies to the left."
+
+   (:set (:triple (the Equilibrium-Reaction input of Self)
+                  keq
+                  (the keq of (the Equilibrium-Reaction input of Self))))
+)
+
+(comment [Compute-Equilibrium-Position-output-2]
+   (:seq "The strong acid and base are"
+         (if ((the output of Self) = (the result of (the input of Self)))
+          then "reactants in the reaction, so equilibrium lies to the right"
+          else "products of the reaction, so equilibrium lies to the left"
+         )
+   )
+   "In a chemical reaction, equilibrium lies on the side opposite the strong acid and base"
+   (:set (:triple (a Compare-Relative-Strengths-of-Acids with
+                     (input (
+                       (oneof (the raw-material of (the input of Self))
+                              where
+                              (the Acid-Role plays of It))
+                       (oneof (the result of (the input of Self))
+                              where
+                              (the Acid-Role plays of It))
+                  )))
+                  output
+                  *
+         )
+         (:triple (a Compare-Relative-Strengths-of-Bases with
+                     (input (
+                       (oneof (the raw-material of (the input of Self))
+                              where
+                              (the Base-Role plays of It))
+                       (oneof (the result of (the input of Self))
+                              where
+                              (the Base-Role plays of It))
+                  )))
+                  output
+                  *
+         )
+   )
+)
+

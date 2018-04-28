@@ -1,0 +1,13 @@
+;;
+;; $Id: LCD-Projector.km,v 1.1 2004/10/19 19:31:13 kbarker Exp $
+;;
+
+(LCD-Projector has 
+  (superclasses (Projector))
+  (feature-slot ((the feature-slot of Projector)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) 
+                  where ((the domain of It) = LCD-Projector))
+  ))
+)
+
+

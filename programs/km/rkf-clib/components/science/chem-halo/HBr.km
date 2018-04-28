@@ -1,0 +1,24 @@
+;; 
+;;    $Id: HBr.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $
+;; 
+
+(HBr has (superclasses (Bronsted-Lowry-Acid-Compound)))
+
+(every HBr has
+#|       (nested-atomic-chemical-formula (
+					(a Chemical-Formula with
+					   (term ((:seq 
+						   (:pair 1 H)
+						   (:pair 1 Br)))))))
+|#
+       (has-chemical-name ("hydrobromic acid" "hydrogen bromide"))
+       (has-chemical-formula (
+			      (a Chemical-Formula with
+				 (term ((:seq
+					 (:pair 1 H-Plus)
+					 (:pair 1 Br-Minus)))))))
+       )
+(every HBr has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Br-Minus) (a H-Plus))))
+

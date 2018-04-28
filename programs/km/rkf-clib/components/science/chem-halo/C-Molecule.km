@@ -1,0 +1,16 @@
+;;
+;; $Id: C-Molecule.km,v 1.2 2008/11/03 00:15:26 tecuci Exp $
+;;
+
+(C-Molecule has (superclasses (Monoatomic-Molecule Inorganic-Molecule)))
+
+(every C-Molecule has
+       (has-part ((a C)))
+       (has-chemical-name ("carbon"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 C)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 C)))))))
+       (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 C))))))))
+
+(C-Molecule has (wn20-synset ((:set (:triple "carbon" 0 "n")
+				    (:triple "molecular carbon" 0 "n")
+				    ))))

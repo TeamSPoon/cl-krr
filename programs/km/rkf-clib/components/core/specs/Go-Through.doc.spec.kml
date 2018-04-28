@@ -1,0 +1,54 @@
+<!--- $Id: Go-Through.doc.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Go-Through>
+<superconcept name=Move-Through>
+<mixin name=Reflexive>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Go-Through>
+  <definition>cause self to change location through a Barrier</definition>
+  <requiredslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+    <restriction>= <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>= <slot>agent</slot></restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <inheritedfrom name=Move-Through>
+    <restriction>A Tangible-Entity that plays the role of Barrier</restriction>
+  </requiredslot>
+  <requiredslot name=path>
+    <inheritedfrom name=Move-Through>
+    <restriction>a Region on the <slot>base</slot></restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <primaryslot name=origin>
+    <inheritedfrom name=Move-Through>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=destination>
+    <inheritedfrom name=Move-Through>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+  <wnsynsets><verb>go_through#4
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Go-Through is a specialization of the <conceptref name=Move-Through> component
+and the <conceptref name=Reflexive> clich&eacute;.
+</musing>
+
+</kml>
+
+

@@ -1,0 +1,19 @@
+;; $Id: HAsO4-Minus-2.km,v 1.6 2008/05/15 17:19:10 kunal Exp $ 
+(HAsO4-Minus-2 has (superclasses (Anion)))
+(every HAsO4-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("hydrogen arsenate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)(:pair 1 As)(:pair 4 O)))))))
+)
+
+
+(every HAsO4-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen arsenate"))
+)
+
+
+(HAsO4-Minus-2 has (wn20-synset ((:triple "HAsO4-2" 0 "n") (:triple "HAsO_4-2" 0 "n"))))

@@ -1,0 +1,110 @@
+<!--- $Id: Come-Together.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Come-Together><system-documentation name=Come-Together>
+<superconcept name=Action>
+
+<definition>
+
+  Several <slot>object</slot>s change their own location to 
+  the same <conceptref name=Place>, which is the destination. 
+  Come-Together is an <conceptref name=Action> 
+  involving multiple <slot>object</slot>s that <conceptref name=Go-To>
+  the <slot>destination</slot>.
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    the things that move together 
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the place where the <slot>object</slot>s come together
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    Each <slot>object</slot> that comes together does so under 
+    its own power. As a result, the <slot>agent</slot> and the 
+    <slot>object</slot> are the same.
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot>s move
+     along.  Typically, this is an object or surface along which the
+     <slot>object</slot>s are moving
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot>s move.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot>s need not reach this
+    Place, but they may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot>s move away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot>s need not start at this
+    Place, but they may
+  </slotdescription>
+
+</primaryslotlist>
+
+<subeventlist>
+    
+  <subeventdescription name=Go-To>
+    for each <slot>object</slot> there is a <conceptref name=Go-To> where
+    the <slot>destination</slot> is the <slot>destination</slot> of the
+    Come-Together
+  </subeventdescription>
+    
+</subeventlist>
+    
+<subeventorder>
+  All the <conceptref name=Go-To>s occur simultaneously.
+</subeventorder>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The boy and his date met at the park </text>
+    <slotdescription name=object>the boy and his date</slotdescription>
+    <slotdescription name=agent>the boy and his date</slotdescription>
+    <slotdescription name=destination>the park</slotdescription>
+  </examplesentence>
+  <comment>
+    Here "met" is translated to "come-together" involving the boy
+    and his date.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move-Together>
+    Move-Together is the non-reflexive version of Come-Together (i.e.
+    the objects that move together are not necessarily acting by their
+    own volition.  Rather, the agent causes the objects to move).
+    Its opposite is Move-Apart.
+  </neighbor>
+
+  <neighbor name=Disperse>
+    Disperse is the opposite of Come-Together, and should be used
+    when specifying several objects leaving some place by their own
+    volition.    
+  </neighbor>
+
+  <neighbor name=Move-Apart>
+    Move-Apart is the non-reflexive version of Disperse (i.e. the
+    objects that move apart are not necessarily acting by their own
+    volition.) Its opposite is Move-Together.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

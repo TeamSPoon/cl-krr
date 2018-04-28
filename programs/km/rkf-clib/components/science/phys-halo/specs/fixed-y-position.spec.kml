@@ -1,0 +1,28 @@
+<!--- $Id: fixed-y-position.spec.kml,v 1.2 2006/03/01 20:12:16 kbarker Exp $ --->
+<kml>
+<property-doc name=fixed-y-position>
+<gpd-documentation name=Property>
+
+<from name=Entity>
+<to name=Length-Value>
+
+<description> 
+  fixed vertical position of an unmoving object;
+  note that fixed-y-position is a property of an Entity;
+  use <conceptref name=initial-y-position> or <conceptref name=final-y-position>
+  on a Move event for the changing vertical position of a moving object.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Length>
+<p>
+    <examplesentence>
+      <text>The fixed vertical position of the top of the cliff is at 60 meters.</text>
+      <slotdescription name=number>60</slotdescription>
+      <slotdescription name=unit of measure>meter</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+</value-description>
+</kml>

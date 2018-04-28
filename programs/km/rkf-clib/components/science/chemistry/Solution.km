@@ -1,0 +1,277 @@
+
+;;
+;; $Id: Solution.km,v 1.19 2005/11/11 16:30:32 kbarker Exp $
+;;
+
+(Solution has (superclasses (Mixture)))
+
+(base has (domain (Solution)))
+
+(every Solution has
+       ;; The computation of the pH.
+       (solute-species
+	((forall (the base of Self)
+		 where (It isa Nonelectrolyte)
+		 It)))
+       (solute-species
+	((forall (the base of Self)
+		 where (It isa Strong-Electrolyte)
+		 (the has-part of (the has-basic-structural-unit of It)))))
+       (solute-species
+	((forall (the base of Self)
+		 where (It isa Weak-Electrolyte)
+		 (:set (the has-part of (the has-basic-structural-unit of It))
+			It))))
+       (pH ((if (((the1 of (the value of (the solubility of (the base of Self)))) /= *insoluble)
+                 and
+                 (not (the pH of Self))
+		 and
+		 (not (the1 of (the value of (the pOH of Self)))))
+                then 
+                (the output of
+                     (a Compute-pH-for-Solution with
+                        (input (Self))))
+             [Solution-pH-1]
+       )))
+
+       (pH ((if ((not (the pH of Self))
+		 and
+		 (the1 of (the value of (the pOH of Self))))
+		then
+		(a PH-Value with
+		   (value ((:pair 
+			     (14 - (the1 of (the value of (the pOH of Self))))
+			     NIL))))
+       )))
+
+       ;; This alone should provide exhaustive coverage. Reason is that if we 
+       ;; know only the [H+] we can compute compute pH. If we know only the 
+       ;; [OH-], we can still compute the pH. Once we know the PH we can 
+       ;; get the pOH value.
+       (pOH ((if ((not (the pOH of Self))
+		  and
+		  (the1 of (the value of (the pH of Self))))
+		 then
+		 (a POH-Value with
+		    (value ((:pair 
+			      (14 - (the1 of (the value of (the pH of Self))))
+			      NIL))))
+       )))
+
+       (volume ((if (not (the volume of Self))
+		    then
+		    (the output of 
+			 (a Compute-Volume-from-Concentration-and-Quantity with
+			    (input ((the quantity of (the first of (the base of Self)))
+				    (the concentration of (the first of (the base of Self)))))))
+                 [Solution-volume-1]
+       )))
+
+       (buffer-status  ; for a weak base and its conjugate salt
+	((if ((the atomic-chemical-formula of
+		  (the has-basic-structural-unit of 
+		       (the base of Self)))
+	      and
+	      (oneof
+	       (the1 of
+		     (the value of
+			  (the intensity of
+			       (the Base-Role plays of (the base of Self)))))
+	       where
+	       (It = *weak))
+	      and
+	      (oneof (the base of Self)
+		     where
+		     (It isa Salt-Substance))
+	      )
+	     then
+	   (if ((
+		((the elements of
+		      (the term of
+			   (the atomic-chemical-formula of
+				(the has-basic-structural-unit of
+				     (the output of
+					  (a Compute-Conjugate-Acid with
+					     (input
+					      ((oneof (the base of Self)
+						      where
+						      ((the1 of
+							     (the value of
+								  (the intensity of
+								       (the Base-Role plays of It))))
+						       =
+						       *weak))))))))))
+		 =
+		 ;; the second half of the salt
+		 (the elements of 
+		       (the term of 
+			    (the atomic-chemical-formula of 
+				 (an instance of 
+				     (the2 of (the2 of (the term of (the has-chemical-formula of (the has-basic-structural-unit of (oneof (the base of Self)
+							where
+							(It isa Salt-Substance))))))))))))
+		or
+		((the elements of
+		      (the term of
+			   (the atomic-chemical-formula of
+				(the has-basic-structural-unit of
+				     (the output of
+					  (a Compute-Conjugate-Acid with
+					     (input
+					      ((oneof (the base of Self)
+						      where
+						      ((the1 of
+							     (the value of
+								  (the intensity of
+								       (the Base-Role plays of It))))
+						       =
+						       *weak))))))))))
+		 =
+		 ;; the first half of the salt
+		 (the elements of 
+		       (the term of 
+			    (the atomic-chemical-formula of 
+				 (an instance of 
+				     (the2 of (the1 of (the term of (the has-chemical-formula of (the has-basic-structural-unit of (oneof (the base of Self)
+							where
+							(It isa Salt-Substance)))))))))))))
+)
+	       then
+	     (a Buffer-Status-Value with
+		(value ((:pair *basic-buffer nil))))
+	     else
+	     (a Buffer-Status-Value with
+		(value ((:pair *non-buffer nil))))
+       ))))
+       (buffer-status  ; for a weak acid and its conjugate salt
+	((if ((the atomic-chemical-formula of
+		  (the has-basic-structural-unit of 
+		       (the base of Self)))
+	      and
+	      (oneof
+	       (the1 of
+		     (the value of
+			  (the intensity of
+			       (the Acid-Role plays of (the base of Self)))))
+	       where
+	       (It = *weak))
+	      and
+	      (oneof (the base of Self)
+		     where
+		     (It isa Salt-Substance))
+	      )
+	     then
+	   (if ((
+		 ((the elements of
+		       (the term of
+			    (the atomic-chemical-formula of
+				 (the has-basic-structural-unit of
+				      (the output of
+					   (a Compute-Conjugate-Base with
+					      (input
+					       ((oneof (the base of Self)
+						       where
+						       ((the1 of
+							      (the value of
+								   (the intensity of
+									(the Acid-Role plays of It))))
+							=
+							*weak))))))))))
+		  =
+		  ;; the first half of the salt
+		  (the elements of 
+		       (the term of 
+			    (the atomic-chemical-formula of 
+				 (an instance of 
+				     (the2 of (the1 of (the term of (the has-chemical-formula of (the has-basic-structural-unit of (oneof (the base of Self)
+							where
+							(It isa Salt-Substance)))))))))))
+		  
+		  )
+		 or
+		 ((the elements of
+		       (the term of
+			    (the atomic-chemical-formula of
+				 (the has-basic-structural-unit of
+				      (the output of
+					   (a Compute-Conjugate-Base with
+					      (input
+					       ((oneof (the base of Self)
+						       where
+						       ((the1 of
+							      (the value of
+								   (the intensity of
+									(the Acid-Role plays of It))))
+							=
+							*weak))))))))))
+		  =
+		  ;; the second half of the salt
+		  (the elements of 
+		       (the term of 
+			    (the atomic-chemical-formula of 
+				 (an instance of 
+				     (the2 of (the2 of (the term of (the has-chemical-formula of (the has-basic-structural-unit of (oneof (the base of Self)
+							where
+							(It isa Salt-Substance)))))))))))
+		  
+		  )
+
+
+))
+	       then
+	     (a Buffer-Status-Value with
+		(value ((:pair *acidic-buffer nil))))
+	     else
+	     (a Buffer-Status-Value with
+		(value ((:pair *non-buffer nil))))
+       ))))
+
+)
+
+
+(comment [Solution-pH-1]
+  (:seq "The pH of"
+        (the text-gen of Self)
+        "is therefore"
+        (the1 of (the value of (the pH of Self)))
+  )
+  "The pH of a chemical depends on the concentration of H+"
+  (:triple (a Compute-pH-for-Solution with
+              (input (Self)))
+           output
+           *
+  )
+)
+
+(comment [Solution-volume-1]
+  (:seq "The volume of"
+        (the text-gen of Self)
+        "is therefore"
+        (the1 of (the value of (the volume of Self)))
+        (the2 of (the value of (the volume of Self)))
+  )
+  "The volume of a solution can be computed from the quantity and concentration of its solute"
+  (:triple (a Compute-Volume-from-Concentration-and-Quantity with
+              (input ((the quantity of (the first of (the base of Self)))
+                      (the concentration of (the first of (the base of Self))))))
+           output
+           *
+  )
+)
+
+
+(every Solution has
+  (text-phrase ((if (has-value
+                         (the text-phrase of
+                              (the has-basic-structural-unit of
+                                   (the base of Self))))
+                 then (:seq (andify (the text-phrase of
+                                         (the has-basic-structural-unit of
+                                              (the base of Self))))
+                            Self
+                      )
+                 else (the text-base-phrase of Self)
+               ))
+  )
+)
+

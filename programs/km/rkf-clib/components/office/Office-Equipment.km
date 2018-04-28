@@ -1,0 +1,12 @@
+;;
+;;    $Id: Office-Equipment.km,v 1.3 2004/10/19 19:27:58 kbarker Exp $
+;;
+
+(Office-Equipment has 
+  (superclasses (Device))
+  (feature-slot ((the feature-slot of Device)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Office-Equipment))
+  ))
+)
+

@@ -1,0 +1,18 @@
+;;
+;; $Id: CuSO4.km,v 1.5 2006/01/24 20:27:29 jfan Exp $
+;;
+
+(CuSO4 has (superclasses (Ionic-Compound)))
+
+(every CuSO4 has	
+       (has-chemical-name ("copper(II) sulfate"))
+       (has-part 
+	((a Cu-Plus-2) (a SO4-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Cu-Plus-2)
+			 (:pair 1 SO4-Minus-2)))))))
+)(every CuSO4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Cu-Plus-2) (a SO4-Minus-2))))
+

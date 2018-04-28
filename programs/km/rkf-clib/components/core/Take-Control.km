@@ -1,0 +1,124 @@
+;; 
+;;    $Id: Take-Control.km,v 1.12 2008/08/04 22:33:47 jchaw Exp $
+;; 
+
+(Take-Control has
+  (superclasses 	(Action))
+  (required-slot 	(agent object))
+  (primary-slot  	())
+  (secondary-slot 	())
+  (cmap-correspondence 	(
+			 (:seq object "the object taken control of")
+			 (:seq agent "the agent taking control")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Take-Control has
+       (object 		((a Entity)))
+       (agent  		((a Entity)))
+
+       (defeats         ((allof (the object-of of (the object of Self))
+                          where
+                          ((the classes of It) = Be-Controlled))))
+
+       (resulting-state ((a Be-Controlled)))
+
+       (add-list (
+		  (:triple
+		   (the resulting-state of Self)
+		   agent 
+		   (the agent of Self) [Take-Control-add-1])
+		  (:triple
+		   (the resulting-state of Self)
+		   object 
+		   (the object of Self) [Take-Control-add-2])))
+
+       (del-list (
+                  (forall (the defeats of Self)
+                    (:triple It 
+                             object 
+                             (the object of Self) [Take-Control-del-1]))
+                  (forall (the defeats of Self)
+                    (:triple It
+                             agent
+                             (the agent of It) [Take-Control-del-2]))
+       ))
+)
+
+
+(comment [Take-Control-add-1] 
+         (:seq (the agent of Self) " now controls " (the object of Self))
+	 "The agent of a Take-Control is subsequently in control of the object."
+)
+
+(comment [Take-Control-add-2] 
+         (:seq (the object of Self) " is now controlled by " (the agent of Self))
+	 "If something takes control of X, X is now controlled."
+)
+
+(comment [Take-Control-del-1] 
+         (:seq (the object of Self) " is no longer controlled by someone else.")
+	 "An object taken control of is no longer controlled by someone else."
+)
+
+(comment [Take-Control-del-2] 
+         (:seq "The original controller no longer controls" (the object of Self))
+	 "An object taken control of is no longer controlled by someone else."
+)
+
+
+(every Take-Control has
+  (text-active-verbseq-sg ("takes control of"))
+  (text-active-verbseq-pl ("take control of"))
+
+  (text-argslots ((:seq instrument path result)))
+)
+
+
+(Take-Control has (test-case      
+   ('(
+      (new-situation)
+
+      (*ShinerBock has (instance-of (Physical-Object)))
+      (*MyOwnSelf has (instance-of (Physical-Object)))
+      (*MyOwnLife has (instance-of (Physical-Object)))
+
+      (a Be-Controlled with
+         (agent (*ShinerBock))
+         (object (*MyOwnLife)))
+
+      (a Take-Control with
+         (agent (*MyOwnSelf))
+         (object (*MyOwnLife)))
+
+      ((the agent of (the Be-Controlled object-of of *MyOwnLife))
+       = *ShinerBock)
+
+      (do-and-next (thelast Take-Control))
+
+      (not ((the agent of (the Be-Controlled object-of of *MyOwnLife))
+             = *ShinerBock))
+
+      ((the agent of (the Be-Controlled object-of of *MyOwnLife))
+       = *MyOwnSelf)
+))))
+
+
+
+
+
+;; automatically added WN synsets
+(Take-Control has (wn16-synset ((:set  
+                                           (:triple "control" 1 "v")
+                                           (:triple "command" 5 "v")
+))))
+
+(Take-Control has (wn20-synset ((:set (:triple "control" 1 "v")
+                                      (:triple "command" 5 "v")
+                                      (:triple "take_control" 1 "v")
+                                      (:triple "take_charge" 1 "v")
+                                      (:triple "take_hold" 1 "v")
+))))
+
+(every Take-Control has (text-nominalization ("taking control")))

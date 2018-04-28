@@ -1,0 +1,221 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1PbCO3--1PbO1CO2 ----------
+
+(Reaction-1PbCO3--1PbO1CO2 has (superclasses (Reaction)))
+
+(_Reaction-1PbCO3--1PbO1CO23085 has 
+  (instance-of (Reaction-1PbCO3--1PbO1CO2))
+  (prototype-of (Reaction-1PbCO3--1PbO1CO2))
+  (prototype-scope (Reaction-1PbCO3--1PbO1CO2))
+  (prototype-participants (_Property-Node3128
+                           _Property-Node3127
+                           _Property-Node3126
+                           _Chemical-Entity3124
+                           _Chemical3123
+                           _Coefficient-Value3122
+                           _Chemical-Entity3121
+                           _Chemical3119
+                           _Coefficient-Value3118
+                           _Chemical-Entity3116
+                           _Chemical3115
+                           _Coefficient-Value3114
+                           _Reaction-1PbCO3--1PbO1CO23085))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085))
+  (big-nodes (_Property-Node3126
+              _Property-Node3127
+              _Property-Node3128))
+  (raw-material (_Chemical3123))
+  (result (_Chemical3115
+           _Chemical3119))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3115 t)
+                    (:seq raw-material _Chemical3123 t)
+                    (:seq result _Chemical3119 t))))
+
+(_Property-Node3128 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3118))
+  (contains-edge ((:triple _Coefficient-Value3118 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1PbCO3--1PbO1CO23085))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Property-Node3127 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3114))
+  (contains-edge ((:triple _Coefficient-Value3114 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1PbCO3--1PbO1CO23085))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Property-Node3126 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3122))
+  (contains-edge ((:triple _Coefficient-Value3122 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1PbCO3--1PbO1CO23085))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Chemical-Entity3124 has 
+  (instance-of (Chemical-Entity
+                PbCO3))
+  (is-basic-structural-unit-of (_Chemical3123))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Chemical3123 has 
+  (has-basic-structural-unit (_Chemical-Entity3124))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1PbCO3--1PbO1CO23085))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3122))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3122 t)))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Coefficient-Value3122 has 
+  (contains-node-of (_Property-Node3126))
+  (coefficient-of (_Chemical3123))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Chemical-Entity3121 has 
+  (instance-of (Chemical-Entity
+                CO2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3119))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Chemical3119 has 
+  (has-basic-structural-unit (_Chemical-Entity3121))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3118))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3118 t)))
+  (result-of (_Reaction-1PbCO3--1PbO1CO23085))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Coefficient-Value3118 has 
+  (contains-node-of (_Property-Node3128))
+  (coefficient-of (_Chemical3119))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Chemical-Entity3116 has 
+  (instance-of (Chemical-Entity
+                PbO))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3115))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Chemical3115 has 
+  (has-basic-structural-unit (_Chemical-Entity3116))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1PbCO3--1PbO1CO23085))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3114))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3114 t)))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(_Coefficient-Value3114 has 
+  (contains-node-of (_Property-Node3127))
+  (coefficient-of (_Chemical3115))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1PbCO3--1PbO1CO23085)))
+
+(explanation (:triple _Reaction-1PbCO3--1PbO1CO23085 result _Chemical3119)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Reaction-1PbCO3--1PbO1CO23085 raw-material _Chemical3123)
+  ((a Chemical (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction raw-material))))
+(explanation (:triple _Reaction-1PbCO3--1PbO1CO23085 result _Chemical3115)
+  ((a Chemical (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction result))))
+(explanation (:triple _Reaction-1PbCO3--1PbO1CO23085 chemical-equation _Chemical-Equation-Expression3087)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1PbCO3--1PbO1CO23085) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1PbCO3--1PbO1CO23085) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1PbCO3--1PbO1CO23085) (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1PbCO3--1PbO1CO23085 instance-of Reaction-1PbCO3--1PbO1CO2)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity3124 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3123 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3124 instance-of PbCO3)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical3123 has-basic-structural-unit _Chemical-Entity3124)
+  ((a Chemical-Entity (@ _Chemical3123 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3123 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3123 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction raw-material))))
+(explanation (:triple _Chemical3123 coefficient _Coefficient-Value3122)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical3123 instance-of Chemical)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value3122 value (:pair 1 *unity))
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value3122 instance-of Coefficient-Value)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity3121 atomic-chemical-formula _Chemical-Formula3112)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3121)) or (the term of (the has-chemical-formula of _Chemical-Entity3121)) (@ _Chemical-Entity3121 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3121)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3121))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3121)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3121)))))))))) (@ _Chemical-Entity3121 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3121 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3121 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3121 nested-atomic-chemical-formula _Chemical-Formula3110)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 C) (:pair 2 O)))) (@ _Chemical-Entity3121 CO2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3121 instance-of CO2)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity3121 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3119 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3119 instance-of Entity)
+  ((a Entity (@ _Reaction-1PbCO3--1PbO1CO23085 Event (result must-be-a)))))
+(explanation (:triple _Chemical3119 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3119 coefficient _Coefficient-Value3118)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical3119 has-basic-structural-unit _Chemical-Entity3121)
+  ((a Chemical-Entity (@ _Chemical3119 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3119 instance-of Chemical)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value3118 value (:pair 1 *unity))
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value3118 instance-of Coefficient-Value)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity3116 instance-of PbO)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical-Entity3116 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3115 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3115 has-basic-structural-unit _Chemical-Entity3116)
+  ((a Chemical-Entity (@ _Chemical3115 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3115 instance-of Entity)
+  ((a Entity (@ _Reaction-1PbCO3--1PbO1CO23085 Event (result must-be-a)))))
+(explanation (:triple _Chemical3115 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3115 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1PbCO3--1PbO1CO23085 Reaction result))))
+(explanation (:triple _Chemical3115 coefficient _Coefficient-Value3114)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Chemical3115 instance-of Chemical)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value3114 value (:pair 1 *unity))
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+(explanation (:triple _Coefficient-Value3114 instance-of Coefficient-Value)
+  ((added-at Reaction-1PbCO3--1PbO1CO2 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

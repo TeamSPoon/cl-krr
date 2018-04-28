@@ -1,0 +1,149 @@
+;; 
+;;    $Id: Base-Role.km,v 1.21 2005/11/02 21:01:40 tecuci Exp $
+;; 
+
+(Base-Role has (superclasses (Role)))
+
+(every Base-Role has
+  (intensity (
+   (if ((has-value (the played-by of Self))
+	and
+	(not (the intensity of Self)))
+     then
+     
+	   ;; Case statement for Bases.
+	   (if ((the played-by of Self) isa Ionic-Compound-Substance) 
+	       then
+	       (if ((the played-by of Self) isa NH3-Substance)
+		   then
+		   (a Intensity-Value with (value ((:pair *weak Base))))
+		   else
+		   (if ((the played-by of Self) isa H2O-Substance)
+		       then
+		       (a Intensity-Value with (value ((:pair *negligible Base))))))
+	       else
+	       (if (((the played-by of Self) isa Cation-Substance) or
+	            ((the played-by of Self) isa Anion-Substance))
+		   then
+		   (if (((the has-basic-structural-unit of (the played-by of Self)) isa CH3-Minus) or
+			((the has-basic-structural-unit of (the played-by of Self)) isa H-Minus)   or
+			((the has-basic-structural-unit of (the played-by of Self)) isa O-Minus-2)  or
+			((the has-basic-structural-unit of (the played-by of Self)) isa OH-Minus))
+		       then
+		       (a Intensity-Value with (value ((:pair *strong Base))))
+		       else
+		       (if (((the has-basic-structural-unit of (the played-by of Self)) isa PO4-Minus-3)   or 
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa CO3-Minus-2)   or
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa HPO4-Minus-2)  or
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa HS-Minus)	   or
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa HCO3-Minus)	   or
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa CH3COO-Minus)  or
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa F-Minus)	   or
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa H2PO4-Minus)   or
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa CN-Minus) 	   or
+			    ((the has-basic-structural-unit of (the played-by of Self)) isa SO4-Minus-2)) 
+                           then
+                           (a Intensity-Value with (value ((:pair *weak Base))))
+			   else 
+			   (if (((the has-basic-structural-unit of (the played-by of Self)) isa NO3-Minus)  or 
+				((the has-basic-structural-unit of (the played-by of Self)) isa HSO4-Minus) or
+				((the has-basic-structural-unit of (the played-by of Self)) isa Cl-Minus))
+			       then
+			       (a Intensity-Value with (value ((:pair *negligible Base))))))))))))
+
+  ;;
+  ;; Like ka, kb is also the property of a Hydrolysis reaction. However, b/c 
+  ;; of the unique nature of hydrolysis, in that it only has one compound for
+  ;; the raw-material of the reaction, kb can also be viewed as the property 
+  ;; of the compound. The following allows kb to refer to both the compound
+  ;; and the hydrolysis.
+  ;;
+  (kb (
+    (if ((the played-by of Self)
+         and
+	 (the raw-material-of of (the played-by of Self))
+	 and
+         ((the raw-material-of of (the played-by of Self)) isa Hydrolysis)
+         and
+         (the kb of (the raw-material-of of (the played-by of Self))))
+        then
+        (the kb of (the raw-material-of of (the played-by of Self))))))
+
+  ;; compute the conjugate Acid/Base
+  (context (((?pair == (the Conjugate-Acid-Base-Pair complement-of of (the played-by of Self)))
+	     and
+	     (if (has-value ?pair)
+		 then (the element of ?pair)
+		 else
+		 (the complement of
+		      (a Conjugate-Acid-Base-Pair with
+			 (element ((the played-by of Self)))))))))
+
+  ;; Law 47 - det ka from kb of conj base
+  (kb ((if (((the context of Self) /= "none") and 
+	    (numberp (the1 of (the value of ((the ka of (the Acid-Role plays of (the context of Self)))
+					     or
+					     (the default-ka of (the Acid-Role plays of (the context of Self))))))))
+			       
+	   then
+	 (a Equilibrium-Constant-Value with
+	    (value ((:pair (1e-14 
+			    / 
+			    (the1 of (the value of 
+					  ((the ka of (the Acid-Role plays of 
+							  (the context of Self)))
+					   or
+					   (the default-ka of (the Acid-Role plays of 
+								   (the context of Self)))))))
+			   nil)))))))
+       
+#|  ;; Law 47 - det ka from kb of conj base
+  (default-kb ((if ((not (the default-kb of Self))
+		    and
+		    ((the context of Self) /= "none") 
+		    and 
+		    (numberp (the1 of (the value of 
+					   (the default-ka of 
+						(the Acid-Role plays of (the context of Self)))))))
+		   then
+		 (a Equilibrium-Constant-Value with
+		    (value ((:pair (1e-14 
+				    / 
+				    (the1 of (the value of 
+						  (the default-ka of (the Acid-Role plays of 
+									  (the context of Self))))))
+				   nil)))))))|#
+  (pkb (
+    (if ((the played-by of Self)
+         and
+	 (the raw-material-of of (the played-by of Self))
+	 and
+         ((the raw-material-of of (the played-by of Self)) isa Hydrolysis)
+         and
+         (the pkb of (the raw-material-of of (the played-by of Self))))
+        then
+        (the pkb of (the raw-material-of of (the played-by of Self))))))
+    
+  (kb-expression (
+    (if ((has-value (the played-by of Self))
+         and
+         ((the raw-material-of of (the played-by of Self)) isa Hydrolysis)
+         and
+         (the kb-expression of (the raw-material-of of (the played-by of Self))))
+        then
+        (the kb-expression of
+             (the raw-material-of of
+                  (the played-by of Self)))
+        else
+        (a Equilibrium-Constant-Expression))))
+)
+
+(Base-Role has
+	   (test-case (' (
+			  ((the1 of
+				 (the value of 
+				      (the default-kb of ((a Base-Role with 
+							     (played-by ((a NO2-Minus-Substance))))))))
+			   = 2.22e-11 +/- 1.0e-12)
+			  ))))
+			  

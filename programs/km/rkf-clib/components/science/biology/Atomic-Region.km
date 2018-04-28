@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Atomic-Region.km,v 1.9 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Atomic-Region has
+         (superclasses (Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A has-region of the atom. Souther."))
+         (test-case ()))
+
+(every Atomic-Region has 
+       (is-region-of ((must-be-a Atom)))
+       )
+
+
+
+(every Atomic-Region has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

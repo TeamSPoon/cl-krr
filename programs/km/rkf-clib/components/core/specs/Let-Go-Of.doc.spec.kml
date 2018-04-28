@@ -1,0 +1,49 @@
+<!--- $Id: Let-Go-Of.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Let-Go-Of::doc>
+<superconcept name=Unobstruct::doc>
+
+<sme-documentation name=Let-Go-Of>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Let-Go-Of>
+  <definition>Let go of an object you are holding</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Held> state whose <slot>agent</slot> is the
+      <slot>agent</slot> of the Let-Go-Of</restriction>
+  </requiredslot> 
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is not the <slot>object</slot> of a
+      <conceptref name=Be-Held> state whose <slot>agent</slot> is the
+      <slot>agent</slot> of the Let-Go-Of</restriction>
+  </requiredslot> 
+  <wnsynsets><verb>let_go_of#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>let_go#1, release#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Let-Go-Of takes an <slot>object</slot> out of a <conceptref name=Be-Held> 
+state. <conceptref name=Hold> puts the <slot>object</slot> into the
+<conceptref name=Be-Held> state. Unlike the other 
+<conceptref name=Be-Obstructed> states, <conceptref name=Be-Held> has
+an <slot>agent</slot>. Any <conceptref name=Move::doc> of an <slot>object</slot> 
+in a <conceptref name=Be-Held> state must be by the <slot>agent</slot> of the
+<conceptref name=Be-Held> and only this <slot>agent</slot> can
+<conceptref name=Let-Go-Of::doc> the <slot>object</slot>.
+</musing>
+
+</kml>
+
+
+

@@ -1,0 +1,43 @@
+<!--- $Id: area.spec.kml,v 1.3 2006/03/01 20:20:46 kbarker Exp $ --->
+<kml>
+<property-doc name=area/Area-Value>
+<system-documentation name=Area-Value>
+<gpd-documentation name=Property>
+
+<from name=Tangible-Entity>
+<to name=Area-Value>
+
+<description> 
+  area is a property for describing how big the two-dimensional extent of a Tangible-Entity is
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Area>
+<p>
+    <examplesentence>
+      <text>573 square feet apartment</text>
+      <slotdescription name=number>573</slotdescription>
+      <slotdescription name=unit of measure>square feet</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative
+    value relative to?)<p>
+<scalars>tiny, huge</scalars>
+<scale name=*tiny-huge-scale>tiny..huge</scale>
+    <p>
+    <examplesentence>
+      <text>Romania is large as a European country, but tiny compared to a US state.</text>
+      <slotdescription name=value>tiny</slotdescription>
+      <slotdescription name=relative to>US state</slotdescription><p>
+
+      <slotdescription name=value>large</slotdescription>
+      <slotdescription name=relative to>European country</slotdescription>
+    </examplesentence>
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+

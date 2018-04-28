@@ -1,0 +1,48 @@
+<!--- $Id: Pupil.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+<concept name=Pupil>
+<system-documentation name=Pupil>
+
+<superconcept name=Role>
+
+  <definition>
+    A pupil is the <conceptref name=Role> played by a 
+    <conceptref name=Tangible-Entity> that is the 
+    <slot>recipient</slot> of <conceptref name=Teach>ing
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the Tangible-Entity playing the role of Pupil
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Teach> event in which the pupil is the
+     <slot>recipient</slot>
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+
+     <text>Yoda taught Luke.</text>
+     <comment>
+     In this example, the role of Pupil is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Teach> with
+         <slot>agent</slot>=Yoda and
+         <slot>recipient</slot>=Luke</slotdescription>
+     <slotdescription name=played-by>Luke</slotdescription>
+     </comment>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+
+
+

@@ -1,0 +1,77 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Mg_NO3_2 ----------
+
+(Mg_NO3_2 has (superclasses (Ionic-Compound)))
+
+(_Mg_NO3_21281 has 
+  (instance-of (Mg_NO3_2))
+  (prototype-of (Mg_NO3_2))
+  (prototype-scope (Mg_NO3_2))
+  (prototype-participants (_Cation1358
+                           _Anion1356
+                           _Mg_NO3_21281))
+  (prototype-participant-of (_Mg_NO3_21281))
+  (has-part (_Anion1356
+             _Cation1358))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Cation1358 t)
+                    (:seq has-part _Anion1356 t)))
+  (internally-expanded (t)))
+
+(_Cation1358 has 
+  (instance-of (Cation
+                Mg-Plus-2))
+  (is-part-of (_Mg_NO3_21281))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Mg_NO3_21281)))
+
+(_Anion1356 has 
+  (instance-of (Anion
+                NO3-Minus))
+  (is-part-of (_Mg_NO3_21281))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Mg_NO3_21281)))
+
+(explanation (:triple _Mg_NO3_21281 nested-atomic-chemical-formula _Chemical-Formula1352)
+  ((_Chemical-Formula1352)))
+(explanation (:triple _Mg_NO3_21281 atomic-chemical-formula _Chemical-Formula1353)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Mg_NO3_21281)) or (the term of (the has-chemical-formula of _Mg_NO3_21281)) (@ _Mg_NO3_21281 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Mg_NO3_21281)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Mg_NO3_21281))))))) else (if (the term of (the has-chemical-formula of _Mg_NO3_21281)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Mg_NO3_21281)))))))))) (@ _Mg_NO3_21281 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Mg_NO3_21281 Chemical-Entity atomic-chemical-formula)) (@ _Mg_NO3_21281 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Mg_NO3_21281 nested-atomic-chemical-formula _Chemical-Formula1352)
+  ((if ((not (the nested-atomic-chemical-formula of _Mg_NO3_21281)) and (the has-chemical-formula of _Mg_NO3_21281) (@ _Mg_NO3_21281 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Mg_NO3_21281)))) (@ _Mg_NO3_21281 Ionic-Compound nested-atomic-chemical-formula)) (@ _Mg_NO3_21281 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Mg_NO3_21281 has-chemical-formula _Chemical-Formula1354)
+  ((if ((the has-part of _Mg_NO3_21281) and (has-value (the value of (the charge of (the Cation has-part of _Mg_NO3_21281)))) and (has-value (the value of (the charge of (the Anion has-part of _Mg_NO3_21281)))) (@ _Mg_NO3_21281 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Mg_NO3_21281) (the Anion has-part of _Mg_NO3_21281)))) (@ _Mg_NO3_21281 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Mg_NO3_21281) (@ _Mg_NO3_21281 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Mg_NO3_21281 has-chemical-name ("magnesium nitrate"))
+  ((added-at Mg_NO3_2 "User defined")))
+(explanation (:triple _Mg_NO3_21281 has-chemical-name "magnesium nitrate")
+  (("magnesium nitrate")))
+(explanation (:triple _Mg_NO3_21281 has-part _Cation1358)
+  ((a Cation (@ _Mg_NO3_21281 Ionic-Compound has-part))))
+(explanation (:triple _Mg_NO3_21281 has-part _Anion1356)
+  ((a Anion (@ _Mg_NO3_21281 Ionic-Compound has-part))))
+(explanation (:triple _Mg_NO3_21281 instance-of Mg_NO3_2)
+  ((added-at Mg_NO3_2 "User defined")))
+(explanation (:triple _Cation1358 has-chemical-formula _Chemical-Formula1316)
+  ((if ((not (the has-chemical-formula of _Cation1358)) and (the nested-atomic-chemical-formula of _Cation1358) (@ _Cation1358 Ion has-chemical-formula)) then (the nested-atomic-chemical-formula of _Cation1358 (@ _Cation1358 Ion has-chemical-formula)) (@ _Cation1358 Ion has-chemical-formula))))
+(explanation (:triple _Cation1358 nested-atomic-chemical-formula _Chemical-Formula1316)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Mg)))) (@ _Cation1358 Mg-Plus-2 nested-atomic-chemical-formula))))
+(explanation (:triple _Cation1358 instance-of Mg-Plus-2)
+  ((added-at Mg_NO3_2 "User defined")))
+(explanation (:triple _Cation1358 instance-of Cation)
+  ((a Cation (@ _Mg_NO3_21281 Ionic-Compound has-part))))
+(explanation (:triple _Anion1356 has-chemical-formula _Chemical-Formula1314)
+  ((if ((not (the has-chemical-formula of _Anion1356)) and (the nested-atomic-chemical-formula of _Anion1356) (@ _Anion1356 Ion has-chemical-formula)) then (the nested-atomic-chemical-formula of _Anion1356 (@ _Anion1356 Ion has-chemical-formula)) (@ _Anion1356 Ion has-chemical-formula))))
+(explanation (:triple _Anion1356 nested-atomic-chemical-formula _Chemical-Formula1314)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 3 O)))) (@ _Anion1356 NO3-Minus nested-atomic-chemical-formula))))
+(explanation (:triple _Anion1356 instance-of NO3-Minus)
+  ((added-at Mg_NO3_2 "User defined")))
+(explanation (:triple _Anion1356 instance-of Anion)
+  ((a Anion (@ _Mg_NO3_21281 Ionic-Compound has-part))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

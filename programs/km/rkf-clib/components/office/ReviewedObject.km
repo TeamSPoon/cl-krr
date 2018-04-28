@@ -1,0 +1,183 @@
+;;
+;; $Id: ReviewedObject.km,v 1.1 2004/11/22 20:29:13 kbarker Exp $
+;;
+
+(ReviewedObject has (superclasses (Role)))
+
+;; note that the semantics of these collector slots is as follows:
+;; - the total number of reviews is the sum of positive, negative and mixed reviews
+;; and
+;;
+;; - local asserted values trump computed values
+;; otherwise:
+;; - the number of positive reviews is the number of instances of Review that 
+;;   have any number of (:pair *good ?) or (:pair *excellent ?) values
+;; - the number of negative reviews is the number of instances of Review that 
+;;   have any number of (:pair *fair ?) or (:pair *poor ?) values
+;; - the number of negative reviews is the number of instances of Review that 
+;;   have any number of (:pair *average ?) values
+;;
+;; there are obviously other ways these could be computed
+
+(every ReviewedObject has
+  (review-number-of-positive-reviews (
+    (the number of (allof ?R in (the Review base-of of Self)
+                    where (oneof ?v in (the value of (the rating of ?R))
+                           where (((the1 of ?v) = *good) or ((the1 of ?v) = *excellent))
+                          )
+                   )
+  )))
+
+  (review-number-of-negative-reviews (
+    (the number of (allof ?R in (the Review base-of of Self)
+                    where (oneof ?v in (the value of (the rating of ?R))
+                           where (((the1 of ?v) = *fair) or ((the1 of ?v) = *poor))
+                          )
+                   )
+  )))
+
+  (review-number-of-mixed-reviews (
+    (the number of (allof ?R in (the Review base-of of Self)
+                    where (oneof ?v in (the value of (the rating of ?R))
+                           where ((the1 of ?v) = *average)
+                          )
+                   )
+  )))
+
+  (review-number-of-reviews (
+    (the sum of (:bag (the review-number-of-positive-reviews of Self)
+                      (the review-number-of-negative-reviews of Self)
+                      (the review-number-of-mixed-reviews of Self)
+                )
+  )))
+)
+
+(review-number-of-reviews has (instance-of (Interface-Slot)) (domain (ReviewedObject)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)) (dont-cache-values (t)) (inherit-with-overrides (t)))
+(review-number-of-positive-reviews has (instance-of (Interface-Slot)) (domain (ReviewedObject)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)) (dont-cache-values (t)) (inherit-with-overrides (t)))
+(review-number-of-negative-reviews has (instance-of (Interface-Slot)) (domain (ReviewedObject)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)) (dont-cache-values (t)) (inherit-with-overrides (t)))
+(review-number-of-mixed-reviews has (instance-of (Interface-Slot)) (domain (ReviewedObject)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)) (dont-cache-values (t)) (inherit-with-overrides (t)))
+
+(Review has
+  (test-case ('(
+                (*LiveOakHefeWeizen has 
+                  (instance-of (Liquid-Substance))
+                  (plays ((a ReviewedObject with
+                             (base-of ((a Review with
+                                          (rating ((a Rating-Value with
+                                                      (value ((:pair *excellent Review)
+                                                              (:pair 4.95 NIL))))))
+                                       )
+                                       (a Review with
+                                          (rating ((a Rating-Value with
+                                                      (value ((:pair *excellent Review)
+                                                              (:pair 5.0 NIL))))))
+                          ))))
+                )))
+                (*PauwelKwak has 
+                  (instance-of (Liquid-Substance))
+                  (plays ((a ReviewedObject with
+                             (base-of ((a Review with
+                                          (rating ((a Rating-Value with
+                                                      (value ((:pair *good Review)
+                                                              (:pair 3.8 NIL))))))
+                                       )
+                                       (a Review with
+                                          (rating ((a Rating-Value with
+                                                      (value ((:pair *average Review)
+                                                              (:pair 3.25 NIL))))))
+                          ))))
+                )))
+                (*Zambezi has 
+                  (instance-of (Liquid-Substance))
+                  (plays ((a ReviewedObject with
+                             (base-of ((a Review with
+                                          (rating ((a Rating-Value with
+                                                      (value ((:pair *fair Review)
+                                                              (:pair 3.05 NIL))))))
+                                       )
+                                       (a Review with
+                                          (rating ((a Rating-Value with
+                                                      (value ((:pair *average Review)
+                                                              (:pair 3.55 NIL))))))
+                          ))))
+                )))
+                (*Famosa has 
+                  (instance-of (Liquid-Substance))
+                  (plays ((a ReviewedObject with
+                             (base-of ((a Review with
+                                          (rating ((a Rating-Value with
+                                                      (value ((:pair *fair Review)
+                                                              (:pair 2.9 NIL))))))
+                                       )
+                                       (a Review with
+                                          (rating ((a Rating-Value with
+                                                      (value ((:pair *poor Review)
+                                                              (:pair 2.1 NIL))))))
+                          ))))
+                )))
+
+                ;; force those Reviews to instantiate
+                (the ReviewedObject plays of (the all-instances of Liquid-Substance))
+                (the base-of of (the all-instances of ReviewedObject))
+
+                ;; how many Things have *excellent reviews (wrt Review)?
+                ((the number of (allof (the all-instances of Review)
+                                 where ((the value of (the rating of It))
+                                        includes (:pair *excellent Review))))
+                 >= 2)
+
+                ;; how many reviews of *PauwelKwak are >= 3.5?
+                ((the number of (allof (the Review base-of of (the ReviewedObject plays of *PauwelKwak))
+                                 where ((the rating of It)
+                                        property-gte
+                                        (a Rating-Value with
+                                           (value ((:pair 3.5 NIL)))))))
+                 >= 1)
+
+                ;; how many reviews does *LiveOakHefeWeizen have?
+                ((the review-number-of-reviews of (the ReviewedObject plays of *LiveOakHefeWeizen)) >= 2)
+
+                ;; how many negative reviews does *Famosa have?
+                ((the review-number-of-negative-reviews of (the ReviewedObject plays of *Famosa)) >= 2)
+
+                ;; how many mixed reviews does *Zambezi have?
+                ((the review-number-of-mixed-reviews of (the ReviewedObject plays of *Zambezi)) >= 1)
+
+                ;; ==========================================================
+
+                ;; can also assert number of reviews without instantiating
+
+                (a Laptop-Computer with
+                   (hasModelName    ("HP Pavilion ZE5470US Laptop Computer"))
+                   (hasTotalPrice   ((a Worth-Value with (value ((:pair 1399.95 *usdollar))))))
+                   (hasProcessor    ((a Intel-Pentium-4 with
+                                                 (hasProcessorSpeed ((a Frequency-Value with
+                                                                                 (value ((:pair 2.66 *gigahertz)))
+                                                 )))
+                   )))
+                   (hasHardDrive    ((a Hard-Drive with
+                                                 (computer-storage-size ((a Computer-Storage-Size-Value with
+                                                                            (value ((:pair 80 *gigabyte)))
+                                                 )))
+                   )))
+                   (hasMemory       ((a Computer-Memory with
+                                                 (computer-storage-size ((a Computer-Storage-Size-Value with
+                                                                            (value ((:pair 512 *megabyte)))
+                                                 )))
+                   )))
+                   (hasWeight       ((a Weight-Value with (value ((:pair 7.5 *pound))))))
+                   (hasDisplaySize  ((a Length-Value with (value ((:pair 15.0 *inch))))))
+
+                   (identifier               ((a Text-Field called "producturl" with
+                                                 (information-content ("http://shopping.yahoo.com/p_hp-pavilion-ze5470us_notebooks_1991286544;_ylt=ApKx00SYe3sBihZW7G9ETSd7jnUC?clink=dmss//ctx=sc:cnotebook,c:cnotebook,mid:5,pid:1991286544,pdid:5,pos:4"))
+                   )))
+
+                   (plays ((a ReviewedObject with
+                              (review-number-of-reviews (6))
+                              (review-number-of-positive-reviews (5))
+                              (review-number-of-negative-reviews (1))
+                              (review-number-of-mixed-reviews (0))
+                   )))
+                )
+))))
+

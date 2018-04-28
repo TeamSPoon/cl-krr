@@ -1,0 +1,13 @@
+;;
+;; $Id: USB-Mini-Drive.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;;
+(USB-Mini-Drive has (superclasses (Computer-Storage)))
+
+(every USB-Mini-Drive has 
+  (size ((a Size-Value with
+	    (value ((:pair *small Computer-Storage)))
+  ))))
+(USB-Mini-Drive has
+  (feature-slot ((the feature-slot of Computer-Storage)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = USB-Mini-Drive)))))
+

@@ -1,0 +1,20 @@
+;; 
+;; $Id: UoM-Energy.km,v 1.1 2010/01/29 16:47:39 kbarker Exp $
+;; 
+
+(UoM-Energy has
+  (superclasses (Unit-of-Measurement))
+  (base-unit (*joule))
+  (instances (*joule))
+)
+
+(*joule has (instance-of (UoM-Energy))
+       (name ("J"))
+       (wn20-synset ((:set  
+		      (:triple "joule" 1 "n")
+		      (:triple "J" 1 "n")
+		      (:triple "watt_second" 1 "n")
+		      ))))
+
+
+(*joule has (conversion-multiplier (1.0)))

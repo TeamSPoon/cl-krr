@@ -1,0 +1,68 @@
+;; 
+;; $Id: Compete.km,v 1.7 2009/10/16 02:55:25 kbarker Exp $
+;; 
+
+(Compete has (superclasses (Action)))
+
+(every Compete has
+  (agent ((a Entity with
+             (plays ((a Contestant with (in-event ((the base of Self))))))
+             (has-goal ((a Be-Victorious with 
+                           (object ((the agent of Self)))
+                           (base ((the base of Self)))
+             )))
+             (has-goal ((forall ?c in (the instances of Contestant)
+                         where (((the in-event of ?c)
+                                 includes (the base of Self))
+                                and
+                                ((the played-by of ?c) /= (the agent of Self))
+                               )
+                         (a Be-Defeated with (object ((the played-by of ?c)))
+                                             (base ((the base of Self))))
+             )))
+  )))
+  (base ((a Contest)))
+)
+
+(every Compete has
+       (text-active-verbseq-sg ("competes"))
+       (text-active-verbseq-pl ("compete"))
+
+       (text-base ("in"))
+)
+      
+(Compete has (wn20-synset ((:set
+  (:triple "compete" 1 "v")
+  (:triple "vie" 1 "v")
+  (:triple "contend" 4 "v")
+))))
+
+(every Compete has (text-nominalization ("competing")))
+
+(Compete has
+  (test-case ('(
+     (*Blue-Team has (instance-of (Team)))
+     (*Red-Team has (instance-of (Team)))
+     (*Kill-Red has (instance-of (Compete)))
+     (*Kill-Blue has (instance-of (Compete)))
+     (*Battle has (instance-of (Contest)))
+
+     (*Kill-Red has (agent (*Blue-Team))
+                    (base (*Battle)))
+     (*Kill-Blue has (agent (*Red-Team))
+                     (base (*Battle)))
+
+     (the base of *Kill-Red)
+     ((the in-event of (the plays of *Blue-Team)) = *Battle)
+
+     (the base of *Kill-Blue)
+     ((the in-event of (the plays of *Red-Team)) = *Battle)
+
+     ((the object of (the Be-Victorious has-goal of (the agent of *Kill-Red)))
+      = *Blue-Team)
+     ((the object of (the Be-Defeated has-goal of (the agent of *Kill-Red)))
+      = *Red-Team)
+
+))))
+
+

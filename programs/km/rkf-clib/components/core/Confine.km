@@ -1,0 +1,134 @@
+;; 
+;;    $Id: Confine.km,v 1.24 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Confine has
+  (superclasses		(Obstruct))
+  (required-slot   	(object base))
+  (primary-slot 	(agent location))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "the object Confined")
+			 (:seq agent "the Confiner")
+			 (:seq location "the place where the Confine occurs")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Confine has
+  (preparatory-event ((:default
+	(a Admit with
+	   (object ((the object of Self)))
+	   (base   ((the location of Self))))
+	(a Open with
+	   (object ((the location of Self))))
+	(a Enter with
+	   (object ((the object of Self)))
+	   (base   ((the location of Self))))
+))))
+	
+
+(every Confine has
+
+  (resulting-state	((a Be-Confined)))
+  (base            ((a Tangible-Entity
+		       with
+		       (plays ((a Container)))
+		       )))
+
+  (object   ((a Tangible-Entity)))
+
+  (pcs-list ((:triple
+               (the object of Self)
+               is-inside
+               (the base of Self) [Confine-pcs-1])))
+
+  (add-list ((:triple 
+	       (the resulting-state of Self) 
+	       object 
+	       (the object of Self) [Confine-add-1])
+	     (:triple 
+	       (the resulting-state of Self) 
+	       base 
+	       (the base of Self) [Confine-add-2])))
+)
+
+
+(comment [Confine-pcs-1] (:seq (the object of Self) " must be inside " (the base of Self))
+	 "A thing must be inside something else before it can be confined in it.")
+
+(comment [Confine-add-1] (:seq (the object of Self) " is confined in " (the base of Self))
+	 "A confine causes something to be confined in something else.")
+
+(comment [Confine-add-2] (:seq (the base of Self) " is confining " (the object of Self))
+	 "A confine causes something to be confined in something else.")
+
+
+
+(every Confine has
+  (text-active-verbseq-sg ("confines"))
+  (text-active-verbseq-pl ("confine"))
+  (text-passive-verbseq-sg ("gets confined"))
+  (text-passive-verbseq-pl ("get confined"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Confine has 
+	 (test-case  ('(
+			(*prisoner has
+			  (instance-of (Physical-Object)))
+			(*prison-cell has
+			  (instance-of (Tangible-Entity)))
+
+			(a Confine with 
+			   (object (*prisoner))
+			   (base (*prison-cell)))
+
+			(not (has-value 
+                               (the Be-Confined object-of of *prisoner)))
+
+			(do-and-next (thelast Confine))
+			(the text-gen of (thelast Confine))
+
+			(has-value (the Be-Confined object-of of *prisoner))			
+
+			(a Move-Out-Of with
+                            (object 	   (*prisoner))
+                            (base          (*prison-cell)))
+
+			(not (try-do (thelast Move-Out-Of)))
+
+		        (the text-gen of (thelast Move-Out-Of))
+			(a Release with
+			   (object (*prisoner))
+			   (base (*prison-cell)))
+
+			(do-and-next (thelast Release))
+			(the text-gen of (thelast Release))
+			(not (has-value 
+                               (the Be-Confined object-of of *prisoner)))
+
+			(do-and-next (thelast Move-Out-Of))
+
+			((the is-outside of *prisoner) includes *prison-cell)
+		      ))))
+
+
+
+;; automatically added WN synsets
+(Confine has (wn16-synset ((:set  
+                                      (:triple "confine" 3 "v")
+                                      (:triple "confine" 4 "v")
+                                      (:triple "enclose" 2 "v")
+                                      (:triple "hold_in" 1 "v")
+))))
+
+(Confine has (wn20-synset ((:set
+                                      (:triple "confine" 3 "v")
+                                      (:triple "confine" 4 "v")
+                                      (:triple "enclose" 2 "v")
+                                      (:triple "hold_in" 1 "v")
+))))
+(every Confine has (text-nominalization ("confinement")))

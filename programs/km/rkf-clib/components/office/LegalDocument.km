@@ -1,0 +1,16 @@
+;; 
+;; $Id: LegalDocument.km,v 1.3 2005/04/25 02:46:45 gking Exp $
+;; 
+
+;; IRIS_class: LegalDocument
+
+;; in iris this is a subclass of InformationPurpose
+(LegalDocument has 
+	       (superclasses (Document)))
+
+(LegalDocument has (wn20-synset ((:set
+				  (:triple "legal_document" 1 "n")
+				  (:triple "legal_instrument" 1 "n")
+				  (:triple "official_document" 1 "n")
+				  (:triple "instrument" 4 "n")
+))))

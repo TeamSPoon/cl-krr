@@ -1,0 +1,44 @@
+<!--- $Id: Lose.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Lose>
+<superconcept name=Transfer>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Lose>
+  <definition>change of possession of an object from a donor</definition>
+  <requiredslot name=donor>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Lose</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Transfer>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Transfer>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+  </primaryslot>
+  <primaryslot name=recipient>
+    <inheritedfrom name=Transfer>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Lose</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Transfer>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>lose#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Lose is a specialization of the <conceptref name=Transfer> component
+with a required <slot>donor</slot> slot.
+</musing>
+
+</kml>
+
+

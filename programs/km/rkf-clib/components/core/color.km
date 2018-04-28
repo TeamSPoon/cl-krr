@@ -1,0 +1,28 @@
+;; 
+;;    $Id: color.km,v 1.12 2007/04/10 21:29:48 jchaw Exp $ 
+;; 
+
+(color has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Color-Value))
+   (categorical-constant-class (Color-Constant))
+   (inverse 	(color-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(color has (wn20-synset ((:set
+                               (:triple "color" 1 "n")
+                               (:triple "color" 2 "n")
+                               (:triple "colour" 6 "n")
+                               (:triple "coloring" 2 "n")
+                               (:triple "colouring" 2 "n")
+                               (:triple "colour" 8 "n")
+))))
+
+(color-of has
+	(instance-of (EntityProperty)))

@@ -1,0 +1,22 @@
+;;
+;; $Id: Head-Nod.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(Head-Nod has
+  (superclasses (Gesticulate))
+  (description ("The physical act of moving the head up and down, possibly repeatedly, so as to Embody a Gesture indicating assent."))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Head-Nod has
+	(agent ((:default (a Animal)))) ; default bc some Robots can nod.
+;;	(instrument ((a "Head"))) ; once Head is created.
+	)
+
+(Head-Nod has (wn20-synset ((:set
+			     (:triple "nod" 1 "v")
+			     (:triple "nod" 2 "v")
+))))
+
+	
+(every Head-Nod has (text-nominalization ("nodding")))

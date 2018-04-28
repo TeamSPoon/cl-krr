@@ -1,0 +1,29 @@
+;;
+;; $Id: Warranty.km,v 1.8 2005/04/15 06:16:41 gking Exp $
+;;
+
+(Warranty has 
+  (superclasses (Assurance))
+  (feature-slot ((allof (the all-instances of Interface-Slot) 
+                  where ((the domain of It) = Warranty))
+  ))
+)
+
+(every Warranty has
+  (base-of ((a Warranty-State with
+               (object ((the isWarrantyOf of Self)))
+               (duration ((the hasWarrantyDuration of Self)))
+               (base (Self))
+  )))
+)
+
+(hasWarrantyDuration has (instance-of (Interface-Slot)) (domain (Warranty)) (range (Duration-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isWarrantyDurationOf)))
+
+;; stub for computer ontology
+
+(Warranty has (wn20-synset ((:set
+			     (:triple "warranty" 1 "n")
+			     (:triple "warrantee" 3 "n")
+			     (:triple "warrant" 4 "n")
+			     (:triple "guarantee" 1 "n")
+))))

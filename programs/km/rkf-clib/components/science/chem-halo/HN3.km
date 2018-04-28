@@ -1,0 +1,14 @@
+;; $Id: HN3.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HN3 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HN3 has
+	(has-chemical-name ("hydrogen azide"))
+	(has-part ((a H-Plus)(a N3-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 N3-Minus)))))))
+)
+(every HN3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a N3-Minus))))
+

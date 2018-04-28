@@ -1,0 +1,31 @@
+;; 
+;;    $Id: RNA-Molecule.km,v 1.14 2005/07/07 18:27:53 pzyeh Exp $ 
+;; 
+
+(RNA-Molecule has
+     ;; (superclasses (Polyribonucleotide Nucleic-Acid-Molecule)) <-- Trimming for demo.
+     (superclasses (Nucleic-Acid-Molecule))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("Polymer formed from covalently linked ribonucleotide units.
+                    Alberts:ECB:G-16")) 
+     (cmap-correspondence ()))
+
+
+
+(every RNA-Molecule has
+       (text-base-phrase ((if (anonymous-instancep Self) then
+                              (:seq (the text-def-determiner of Self)
+                                    (the text-premods of Self)
+                                    (the text-head of Self))  
+                           else
+                              (:seq (the text-head of Self))
+       )))
+          
+       (text-phrase ((if (anonymous-instancep Self) then
+                         (:seq (the text-base-phrase of Self)
+                                 (the elements of
+                                   (the text-postmods of Self)))
+                      else (the text-base-phrase of Self))))
+)

@@ -1,0 +1,77 @@
+<!--- $Id: Duplicate.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<kml>
+
+<concept name=Duplicate><system-documentation name=Duplicate>
+<superconcept name=Copy>
+
+<definition>
+
+  Duplicate some object, thereby creating a new object which is 
+  identical to the original in its properties, parts, material,
+  and content.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's duplicated, i.e. the "original"
+  </slotdescription>
+
+  <slotdescription name=result>
+     The thing that's created, i.e. the "Duplicate"
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the Duplication
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the tool or aid that was used
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the Duplication to occur
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Mel's copy of the Statue of David was a perfect duplicate of
+          the original.</text>
+    <slotdescription name=agent>Mel</slotdescription>
+    <slotdescription name=object>the Statue of David</slotdescription>
+    <slotdescription name=result>Mel's copy</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>Using the new digital copier, Julie duplicated the document. </text>
+    <slotdescription name=object>the document</slotdescription>
+    <slotdescription name=agent>Julie</slotdescription>
+    <slotdescription name=instrument>the new digital copier</slotdescription>
+  </examplesentence>
+  <comment>
+    The <slot>result</slot> of this Duplicate process is left unstated.  
+    Implicitly it is "a Duplicate of the document".
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Copy>
+     Copy is more general than Duplicate.  It involves creating a result
+     that's identical to the original to some ways.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

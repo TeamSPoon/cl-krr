@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Allosteric-Enzyme.km,v 1.14 2001/05/31 21:49:51 pnav Exp $ 
+;; 
+
+(Allosteric-Enzyme has
+		   (superclasses (Allosteric-Protein))
+		   (required-slot ())
+		   (primary-slot ())
+		   (secondary-slot ())
+		   (cmap-correspondence ())
+		   (description ("Enzyme that exists in two or more 
+                        conformations depending on the binding of a molecule 
+                        [a ligand] at a site other than the catalytic site.
+                        Allosteric enzymes composed of multiple subunits often
+                        display a cooperative response to ligand binding.
+                        Alberts:ECB:G-1.")))
+
+(every Allosteric-Enzyme has
+       (has-region ((a Active-Site)
+		(a Regulatory-Site)
+		(at-least 2 Binding-Site)))
+       )
+
+
+
+

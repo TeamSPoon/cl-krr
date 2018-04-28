@@ -1,0 +1,78 @@
+;; 
+;;    $Id: Make-Inaccessible.km,v 1.20 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Make-Inaccessible has
+  (superclasses 	(Action))
+  (required-slot 	(object))
+  (primary-slot  	(agent base))
+  (secondary-slot 	())
+  (cmap-correspondence 	(
+			 (:seq object "the object made inaccessible")
+			 (:seq base "the thing the object is made inaccessible to")
+			 (:seq agent "the agent")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Make-Inaccessible has
+       (object 		((a Entity)))
+       (base 	((must-be-a Thing)))
+       (agent  		((must-be-a Entity)))
+       (resulting-state ((a Be-Inaccessible)))
+
+       (add-list ((if (has-value (the base of Self))
+		      then
+		    (:triple
+		     (the resulting-state of Self)
+		     base
+		     (the base of Self) [Make-Inaccessible-add-1]))
+		  (:triple
+		   (the resulting-state of Self)
+		   object 
+		   (the object of Self) [Make-Inaccessible-add-2])
+		  (if (has-value (the agent of Self))
+		      then
+		    (:triple
+		     (the resulting-state of Self)
+		     agent
+		     (the agent of Self) [Make-Inaccessible-add-3])))))
+
+
+(comment [Make-Inaccessible-add-1] (:seq (the base of Self) " now cannot access " (the object of Self))
+	 "Something that is made inaccessible cannot be accessed.")
+
+(comment [Make-Inaccessible-add-2] (:seq (the object of Self) " is now inaccessible.")
+	 "Something that is made inaccessible cannot be accessed.")
+
+(comment [Make-Inaccessible-add-3] (:seq (the agent of Self) " made " (the object of Self) " inaccessible.")
+	 "A thing can make something else inaccessible.")
+
+
+
+(every Make-Inaccessible has
+  (text-active-verbseq-sg ("makes"))
+  (text-active-verbseq-pl ("make"))
+  (text-passive-verbseq-sg ("gets made"))
+  (text-passive-verbseq-pl ("get made"))
+
+  (text-argslots ((:seq text-particle base instrument path result)))
+
+  (text-particle ("inaccessible"))
+)
+
+(every Make-Inaccessible has
+	(preparatory-event ((:default
+		(a Make-Accessible with
+		   (object ((the object of Self)))
+		   (agent  ((the agent of Self)))
+		   (base   ((the base of Self)))
+)))))
+
+
+;; test cases in Make-Accessible
+
+;; Make-Inaccessible has no links to WordNet. It serves as a grouper for
+;; more specific and useful concepts.
+
+(every Make-Inaccessible has (text-nominalization ("making")))

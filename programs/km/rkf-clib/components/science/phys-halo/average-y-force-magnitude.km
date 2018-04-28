@@ -1,0 +1,32 @@
+
+;;
+;; $Id: average-y-force-magnitude.km,v 1.3 2007/11/07 22:40:51 bsagashe Exp $
+;;
+
+(average-y-force-magnitude has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Exert-Force))
+  (range (Force-Magnitude-Value))
+  (scale-class (Force-Scale))
+  (scalar-constant-class (Force-Constant))
+  (cardinal-unit-class (UoM-Force))
+  (inverse (average-y-force-magnitude-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(average-y-force-magnitude has (wn20-synset ((:set
+                               (:triple "average y force" 0 "n")
+                               (:triple "average vertical force" 0 "n")
+                               (:triple "average y force magnitude" 0 "n")
+                               (:triple "average vertical force magnitude" 0 "n")
+))))
+
+(average-y-force-magnitude-of has (instance-of (EventProperty)))
+
+
+
+(average-y-force-magnitude has (name ("magnitude of the average vertical force")))

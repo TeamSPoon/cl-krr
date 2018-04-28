@@ -1,0 +1,18 @@
+;; 
+;;  $Id: pka.km,v 1.8 2008/07/04 18:08:51 jchaw Exp $
+;; 
+
+(pka has
+  (instance-of 		  (Property))
+  (user-description       ("the negative log to base 10 of the acidity constant, ka"))
+  (domain      		  (Hydrolysis Acid-Dissociation-Reaction Acid-Role Chemical))
+  (range       		  (PKa-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     		  (pka-of))
+  (cardinality 		  (N-to-1))
+  (scalar-constant-class (PH-Constant))
+)
+
+(pka-of has (instance-of (Property)))

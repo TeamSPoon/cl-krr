@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Be-Related.km,v 1.1 2006/08/21 02:07:08 jchaw Exp $ 
+;; 
+
+(Be-Related has (superclasses (State)))
+
+; This state is used primarily by CPL for handling of questions 
+; in the Aura system.
+
+; Given some scenario, we use Loosespeak's spreading activation
+; mechanism to enumerate the ways some source is related to 
+; some target instance in the KB.
+; 
+; In general use, you could instantiate Be-Related to assert
+; that two things are related. But this definition of Be-Related
+; makes no suggestions of how to record the relateness.
+;
+; Note that there are no actions whose simulation results in
+; object being put in a Be-Related state or taken out of one.
+
+(every Be-Related has
+  (object ((exactly 2 Thing)))
+)
+
+(every Be-Related has
+   (text-particle ("related"))
+)
+
+#|;;Need to be fixed.
+(Be-Related has (wn20-synset ((:set
+                                      (:triple "relate" 4 "v")
+                                      (:triple "relate" 5 "v")
+                                      (:triple "interrelate" 1 "v")
+))))
+|#
+
+

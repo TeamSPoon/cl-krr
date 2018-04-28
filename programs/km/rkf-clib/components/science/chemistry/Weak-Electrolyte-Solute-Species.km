@@ -1,0 +1,11 @@
+;; 
+;; $Id: Weak-Electrolyte-Solute-Species.km,v 1.2 2005/08/19 22:00:06 porter Exp $
+;; 
+
+(Weak-Electrolyte-Solute-Species has 
+		(superclasses (Solute-Species-Entity)))
+
+(every Weak-Electrolyte-Solute-Species has-definition
+       (instance-of (Solute-Species-Entity))
+       (is-part-of ((a Weak-Electrolyte-Entity))))
+

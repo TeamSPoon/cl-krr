@@ -1,0 +1,28 @@
+;; 
+;;    $Id: RNA-Polymerase.km,v 1.10 2001/05/14 15:13:12 jfan Exp $ 
+;; 
+
+(RNA-Polymerase has
+		(superclasses (Polymerase))
+		(required-slot ())
+		(primary-slot ())
+		(secondary-slot ())
+                (description ("Enzyme that catalyzes the synthesis of an RNA
+                               molecule on a DNA template from nucleoside 
+                               triphosphate precursors (Alberts: ECB:G-16)."))
+		(cmap-correspondence ()))
+
+(every RNA-Polymerase has
+       (purpose ((a Catalyst with
+                    (in-event ((a DNA-Transcription))))
+                  ))
+       )
+              
+
+
+
+
+
+
+
+

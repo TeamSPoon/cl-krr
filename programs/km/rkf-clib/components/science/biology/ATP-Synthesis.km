@@ -1,0 +1,25 @@
+;; 
+;;    $Id: ATP-Synthesis.km,v 1.9 2001/09/18 17:56:28 pnav Exp $ 
+;; 
+
+(ATP-Synthesis has
+	       (superclasses   (Phosphorylation))
+	       (required-slot  (result object base))
+	       (primary-slot   (raw-material agent instrument))
+	       (description	("The synthesis of ATP from ADP and 
+                                  and a monophosphate group. Souther."))
+	       )
+(every ATP-Synthesis has
+       (agent 	     ((a Suborganismal-Entity)))
+       (location     ((the location of (a Mitochondrion))))
+       (raw-material ((a ADP)))
+       (object ((a Monophosphate)))
+       (base ((the raw-material of Self)))
+       (result       ((a ATP)))
+       (instrument   ((a ATP-Synthase)))
+      )
+
+
+
+
+

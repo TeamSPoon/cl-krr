@@ -1,0 +1,12 @@
+;;
+;; $Id: has-molecular-name.km,v 1.1 2003/02/12 22:17:01 porter Exp $
+;;
+
+(has-molecular-name has
+		    (instance-of (Property))
+		    (domain      (Atom))
+		    (range       (String))
+		    (inherit-with-overrides (t))
+		    (inverse (has-molecular-name-of))
+		    (cardinality (1-to-N))
+		    )

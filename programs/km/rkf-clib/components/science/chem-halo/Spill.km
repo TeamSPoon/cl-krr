@@ -1,0 +1,55 @@
+
+;;
+;; $Id: Spill.km,v 1.5 2006/04/07 20:00:06 jchaw Exp $
+;;
+
+(Spill has (superclasses (Fall)))
+
+(Spill has (user-description ("the act of allowing a fluid to escape.")))
+
+(every Spill has
+  (object ((a Substance with 
+              (physical-state ((a State-Value with (value (*liquid)))))
+  )))
+
+  (defeated-by ((if (((the object of Self) isa Acid)
+                     and
+                     ((has-value (the destination of Self))
+                      and
+                      ((the destination of Self) isa Skin)
+                     )
+                    )
+                 then
+                 (:set (a Move with 
+                          (object ((a Aqueous-Solution with 
+                                      (has-solute ((a Na2CO3-Substance with
+						      (scalar-concentration ((a Scalar-Concentration-Value with
+										(value ((:pair *dilute Chemical))))))
+                                      )))
+                          )))
+                          (destination ((the destination of Self)))
+                       )
+                       (a Move with 
+                          (object ((a Aqueous-Solution with 
+                                      (has-solute ((a NaHCO3-Substance with
+						      (scalar-concentration ((a Scalar-Concentration-Value with
+										(value ((:pair *dilute Chemical))))))
+						      )))
+                          )))
+                          (destination ((the destination of Self)))
+                       )
+                 )
+                 [Spill-defeated-by-1]
+  )))
+)
+
+(comment [Spill-defeated-by-1]
+  "The bicarbonate or carbonate salt is added until the fizzing due to formation of CO2 stops"
+  "Both NaHCO3 and Na2CO3 are used as acid neutralizers in acid spills"
+)
+
+(every Spill has
+  (text-passive-verbseq-sg ("spills"))
+  (text-passive-verbseq-pl ("spill"))
+)
+

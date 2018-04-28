@@ -1,0 +1,1188 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Liver ----------
+
+(Liver has (superclasses (Organ)))
+
+(_Liver401 has 
+  (instance-of (Liver))
+  (prototype-of (Liver))
+  (prototype-scope (Liver))
+  (prototype-participants (_Polymer1430
+                           _Nucleotide1429
+                           _Deoxyribose1428
+                           _Cytosine1427
+                           _Thymine1426
+                           _Guanine1425
+                           _Polymer1424
+                           _Thymine1423
+                           _Atom1422
+                           _Phosphate1421
+                           _Nucleotide1420
+                           _Liver401
+                           _Organism496
+                           _Amino-Acid497
+                           _Atom498
+                           _Synthesis499
+                           _Ribosome500
+                           _Protein503
+                           _Protein504
+                           _RRNA505
+                           _Protein511
+                           _Atom515
+                           _Polymer517
+                           _Spatial-Entity518
+                           _Centromere519
+                           _Spatial-Entity520
+                           _DNA521
+                           _Chromatid522
+                           _Chromatid523
+                           _Atom524
+                           _Chromosome525
+                           _Chromatid526
+                           _Organism528
+                           _Cell529
+                           _Cytoplasm530
+                           _Plasma-membrane531
+                           _Living-Entity532
+                           _Protein534
+                           _Atom535
+                           _Polymer536
+                           _Carbohydrate537
+                           _Phospholipid538
+                           _Amino-Acid7446
+                           _Amino-Acid7447))
+  (prototype-participant-of (_Liver401))
+  (has-clones (_Placeholder-Class400402
+               _Liver712
+               _Liver958
+               _Liver1300
+               _Liver4361
+               _Liver6500
+               _Liver3558
+               _Liver3648))
+  (has-built-clones (_Placeholder-Class400402
+                     _Liver712
+                     _Liver958
+                     _Liver1300
+                     _Liver4361
+                     _Liver6500
+                     _Liver3558
+                     _Liver3648))
+  (has-basic-structural-unit (_Cell529))
+  (is-part-of (_Organism496))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Cell529 195 563)))
+  (edge-visibility ((:seq has-basic-structural-unit _Cell529 t))))
+
+(_Polymer1430 has 
+  (cloned-from (_Polymer326))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_DNA521))
+  (instance-of (Polymer))
+  (has-clones (_Thing970
+               _Polymer4350
+               _Polymer3571))
+  (node-visibility (t)))
+
+(_Nucleotide1429 has 
+  (cloned-from (_Nucleotide338))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_DNA521))
+  (instance-of (Nucleotide))
+  (has-clones (_Thing959
+               _Nucleotide4351
+               _Nucleotide3570))
+  (node-visibility (t)))
+
+(_Deoxyribose1428 has 
+  (cloned-from (_Deoxyribose337))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_DNA521))
+  (instance-of (Deoxyribose))
+  (has-clones (_Thing960
+               _Deoxyribose4352
+               _Deoxyribose3569))
+  (node-visibility (t)))
+
+(_Cytosine1427 has 
+  (cloned-from (_Cytosine335))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_Polymer1424))
+  (instance-of (Cytosine))
+  (has-clones (_Thing962
+               _Cytosine4353
+               _Cytosine3568))
+  (node-visibility (t)))
+
+(_Thymine1426 has 
+  (cloned-from (_Thymine334))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_Polymer1424))
+  (instance-of (Thymine))
+  (has-clones (_Thing963
+               _Thymine4354
+               _Thymine3567))
+  (node-visibility (t)))
+
+(_Guanine1425 has 
+  (cloned-from (_Guanine333))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_Polymer1424))
+  (instance-of (Guanine))
+  (has-clones (_Thing964
+               _Guanine4355
+               _Guanine3566))
+  (node-visibility (t)))
+
+(_Polymer1424 has 
+  (cloned-from (_Polymer332
+                _Polymer268))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_DNA521))
+  (has-part (_Nucleotide1420
+             _Cytosine1427
+             _Thymine1426
+             _Guanine1425))
+  (instance-of (Polymer))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Guanine1425 t)
+                    (:seq has-part _Thymine1426 t)
+                    (:seq has-part _Cytosine1427 t)
+                    (:seq has-part _Nucleotide1420 t)))
+  (has-clones (_Polymer4356
+               _Polymer3565))
+  (clone-built-from (_Polymer268)))
+
+(_Thymine1423 has 
+  (cloned-from (_Thymine331
+                _Thymine400))
+  (prototype-participant-of (_Liver401))
+  (complement-of (_Nucleotide1420))
+  (instance-of (Thymine))
+  (has-clones (_Thing966
+               _Thymine4357
+               _Thymine3563))
+  (node-visibility (t)))
+
+(_Atom1422 has 
+  (cloned-from (_Atom330
+                _Atom347
+                _Atom392))
+  (prototype-participant-of (_Liver401))
+  (is-basic-structural-unit-of (_Nucleotide1420))
+  (instance-of (Atom))
+  (has-clones (_Thing967
+               _Atom4358
+               _Atom3562))
+  (node-visibility (t)))
+
+(_Phosphate1421 has 
+  (cloned-from (_Phosphate329
+                _Phosphate346
+                _Phosphate391))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_Nucleotide1420))
+  (instance-of (Phosphate))
+  (has-clones (_Thing968
+               _Phosphate4359
+               _Phosphate3561))
+  (node-visibility (t)))
+
+(_Nucleotide1420 has 
+  (cloned-from (_Adenine328
+                _Nucleotide337
+                _Adenine378
+                _Organic-Molecule271))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Nucleotide
+                Adenine
+                Organic-Molecule))
+  (is-part-of (_Polymer1424))
+  (complement (_Thymine1423))
+  (has-basic-structural-unit (_Atom1422))
+  (has-part (_Phosphate1421))
+  (node-visibility (t))
+  (edge-visibility ((:seq complement _Thymine1423 t)
+                    (:seq has-basic-structural-unit _Atom1422 t)
+                    (:seq has-part _Phosphate1421 t)))
+  (has-clones (_Adenine4395
+               _Nucleotide3559))
+  (clone-built-from (_Nucleotide337
+                     _Adenine378)))
+
+(_Organism496 has 
+  (prototype-participant-of (_Liver401))
+  (has-part (_Liver401))
+  (instance-of (Organism))
+  (has-clones (_Organism404
+               _Organism711
+               _Organism957
+               _Organism1301
+               _Organism4362
+               _Organism6499
+               _Organism3557
+               _Organism3649))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Liver401 169 387)))
+  (edge-visibility ((:seq has-part _Liver401 f)))
+  (node-coordinate ((:pair -250 600))))
+
+(_Amino-Acid497 has 
+  (cloned-from (_Amino-Acid650
+                _Amino-Acid573))
+  (prototype-participant-of (_Liver401))
+  (raw-material-of (_Synthesis499))
+  (has-basic-structural-unit (_Atom498))
+  (instance-of (Amino-Acid))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 578 5)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom498 750 11)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom498 f)))
+  (has-clones (_Amino-Acid652
+               _Amino-Acid956
+               _Amino-Acid1334
+               _Amino-Acid4363
+               _Amino-Acid6469
+               _Amino-Acid3556
+               _Amino-Acid3683)))
+
+(_Atom498 has 
+  (cloned-from (_Atom651
+                _Atom574))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Amino-Acid497))
+  (has-clones (_Atom464
+               _Atom656
+               _Atom955
+               _Atom1333
+               _Atom4364
+               _Atom6470
+               _Atom3555
+               _Atom3682))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 900 5))))
+
+(_Synthesis499 has 
+  (cloned-from (_Synthesis652
+                _Synthesis575))
+  (prototype-participant-of (_Liver401))
+  (result (_Protein503))
+  (agent (_Ribosome500))
+  (instance-of (Synthesis))
+  (raw-material (_Amino-Acid497))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq agent _Ribosome500 502 585)
+                    (:seq raw-material _Amino-Acid497 428 11)
+                    (:seq result _Protein503 428 99)))
+  (edge-visibility ((:seq result _Protein503 f)
+                    (:seq agent _Ribosome500 f)
+                    (:seq raw-material _Amino-Acid497 f)))
+  (node-visibility (f))
+  (node-coordinate ((:pair 250 50)))
+  (has-clones (_Synthesis658
+               _Synthesis954
+               _Synthesis1332
+               _Synthesis4365
+               _Synthesis6471
+               _Synthesis3554
+               _Synthesis3679)))
+
+(_Ribosome500 has 
+  (cloned-from (_Ribosome195
+                _Ribosome567))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_Cell529))
+  (has-basic-structural-unit (_RRNA505
+                              _Protein504))
+  (instance-of (Ribosome
+                Entity))
+  (agent-of (_Synthesis499))
+  (clone-built-from (_Ribosome567))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _Protein504 817 591)
+                    (:seq has-basic-structural-unit _RRNA505 817 591)))
+  (edge-visibility ((:seq has-basic-structural-unit _Protein504 f)
+                    (:seq has-basic-structural-unit _RRNA505 f)))
+  (node-coordinate ((:pair 652 585)))
+  (has-clones (_Ribosome659
+               _Ribosome952
+               _Ribosome1331
+               _Ribosome4366
+               _Ribosome6472
+               _Ribosome3553
+               _Ribosome3678)))
+
+(_Protein503 has 
+  (cloned-from (_Protein653
+                _Protein576))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Protein
+                Entity))
+  (result-of (_Synthesis499))
+  (has-clones (_Protein433
+               _Protein670
+               _Protein951
+               _Protein1330
+               _Protein4367
+               _Protein6473
+               _Protein3552
+               _Protein3677))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 578 93))))
+
+(_Protein504 has 
+  (cloned-from (_Protein208
+                _Protein182))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Protein))
+  (is-basic-structural-unit-of (_Ribosome500))
+  (has-clones (_Protein475
+               _Protein672
+               _Protein950
+               _Protein1329
+               _Protein4368
+               _Protein6474
+               _Protein3551
+               _Protein3675))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 967 567))))
+
+(_RRNA505 has 
+  (cloned-from (_RRNA209
+                _RRNA180))
+  (prototype-participant-of (_Liver401))
+  (instance-of (RRNA))
+  (is-basic-structural-unit-of (_Ribosome500))
+  (has-clones (_RRNA476
+               _RRNA673
+               _RRNA949
+               _RRNA1328
+               _RRNA4369
+               _RRNA6475
+               _RRNA3550
+               _RRNA3674))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 967 602))))
+
+(_Protein511 has 
+  (cloned-from (_Protein210
+                _Protein415
+                _Protein305))
+  (prototype-participant-of (_Liver401))
+  (has-basic-structural-unit (_Amino-Acid7446
+                              _Atom515))
+  (is-part-of (_Chromosome525))
+  (has-part (_Polymer517))
+  (instance-of (Protein))
+  (clone-built-from (_Protein305))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom515 1136 558)
+                    (:seq has-part _Polymer517 1136 602)))
+  (edge-visibility ((:seq has-basic-structural-unit _Amino-Acid7446 f)
+                    (:seq has-basic-structural-unit _Atom515 f)
+                    (:seq has-part _Polymer517 f)))
+  (node-coordinate ((:pair 983 575)))
+  (has-clones (_Protein693
+               _Protein948
+               _Protein1319
+               _Protein4370
+               _Protein6484
+               _Protein3549
+               _Protein3664)))
+
+(_Atom515 has 
+  (cloned-from (_Atom211
+                _Atom416
+                _Atom309))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Protein511))
+  (has-clones (_Atom484
+               _Atom696
+               _Atom947
+               _Atom1316
+               _Atom4371
+               _Atom6485
+               _Atom3548
+               _Atom3663))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1286 552))))
+
+(_Polymer517 has 
+  (cloned-from (_Polymer1394
+                _Polymer308))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Polymer))
+  (is-part-of (_Protein511))
+  (has-clones (_Polymer430
+               _Polymer697
+               _Polymer946
+               _Polymer1313
+               _Polymer4372
+               _Polymer6486
+               _Polymer3547
+               _Polymer3662))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1286 596))))
+
+(_Spatial-Entity518 has 
+  (cloned-from (_Spatial-Entity378
+                _Spatial-Entity171))
+  (prototype-participant-of (_Liver401))
+  (location (_Centromere519))
+  (instance-of (Spatial-Entity))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq location _Centromere519 -150 478)))
+  (edge-visibility ((:seq location _Centromere519 f)))
+  (node-coordinate ((:pair 50 50)))
+  (has-clones (_Spatial-Entity700
+               _Spatial-Entity945
+               _Spatial-Entity1310
+               _Spatial-Entity4373
+               _Spatial-Entity6489
+               _Spatial-Entity3546
+               _Spatial-Entity3658)))
+
+(_Centromere519 has 
+  (cloned-from (_Centromere1396
+                _Centromere214
+                _Centromere167))
+  (prototype-participant-of (_Liver401))
+  (is-region-of (_Chromosome525))
+  (location-of (_Spatial-Entity520
+                _Spatial-Entity518))
+  (instance-of (Centromere
+                Place))
+  (clone-built-from (_Centromere167))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 983 496)))
+  (has-clones (_Centromere699
+               _Centromere943
+               _Centromere1311
+               _Centromere4374
+               _Centromere6488
+               _Centromere3545
+               _Centromere3659)))
+
+(_Spatial-Entity520 has 
+  (cloned-from (_Spatial-Entity1395
+                _Spatial-Entity213))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Spatial-Entity))
+  (location (_Centromere519))
+  (has-clones (_Spatial-Entity428
+               _Spatial-Entity698
+               _Spatial-Entity942
+               _Spatial-Entity1312
+               _Spatial-Entity4375
+               _Spatial-Entity6487
+               _Spatial-Entity3544
+               _Spatial-Entity3661))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq location _Centromere519 -150 513)))
+  (edge-visibility ((:seq location _Centromere519 f)))
+  (node-coordinate ((:pair 150 50))))
+
+(_DNA521 has 
+  (cloned-from (_DNA212
+                _DNA413
+                _DNA272))
+  (clone-built-from (_DNA272))
+  (prototype-participant-of (_Liver401))
+  (is-basic-structural-unit-of (_Chromosome525))
+  (has-basic-structural-unit (_Atom524))
+  (has-part (_Chromatid523
+             _Chromatid522
+             _Polymer1430
+             _Polymer1424
+             _Nucleotide1429
+             _Deoxyribose1428))
+  (instance-of (DNA
+                Nucleic-acid))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-part _Chromatid522 1123 436)
+                    (:seq has-part _Chromatid523 1123 436)
+                    (:seq has-basic-structural-unit _Atom524 1123 498)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom524 f)
+                    (:seq has-part _Chromatid523 f)
+                    (:seq has-part _Chromatid522 f)
+                    (:seq has-part _Polymer1430 f)
+                    (:seq has-part _Polymer1424 f)
+                    (:seq has-part _Nucleotide1429 f)
+                    (:seq has-part _Deoxyribose1428 f)))
+  (node-coordinate ((:pair 983 452)))
+  (has-clones (_DNA701
+               _DNA941
+               _DNA1309
+               _DNA4376
+               _DNA6490
+               _DNA3543
+               _DNA3657)))
+
+(_Chromatid522 has 
+  (cloned-from (_Chromatid379
+                _Chromatid529))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Chromatid))
+  (is-part-of (_DNA521))
+  (has-clones (_Chromatid492
+               _Chromatid702
+               _Chromatid940
+               _Chromatid1308
+               _Chromatid4377
+               _Chromatid6491
+               _Chromatid3542
+               _Chromatid3656))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1273 412))))
+
+(_Chromatid523 has 
+  (cloned-from (_Chromatid380
+                _Chromatid530
+                _Chromatid203))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Chromatid))
+  (is-part-of (_DNA521))
+  (has-clones (_Chromatid494
+               _Chromatid703
+               _Chromatid939
+               _Chromatid1307
+               _Chromatid4378
+               _Chromatid6492
+               _Chromatid3541
+               _Chromatid3655))
+  (clone-built-from (_Chromatid203))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1273 447))))
+
+(_Atom524 has 
+  (cloned-from (_Atom213
+                _Atom414
+                _Atom531))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_DNA521))
+  (has-clones (_Atom489
+               _Atom705
+               _Atom938
+               _Atom1306
+               _Atom4379
+               _Atom6494
+               _Atom3540
+               _Atom3654))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1273 492))))
+
+(_Chromosome525 has 
+  (cloned-from (_Chromosome186
+                _Chromosome164
+                _Tangible-Entity172))
+  (clone-built-from (_Chromosome164))
+  (prototype-participant-of (_Liver401))
+  (is-part-of (_Cell529))
+  (has-part (_Protein511
+             _Chromatid526))
+  (instance-of (Chromosome
+                Tangible-Entity))
+  (has-region (_Centromere519))
+  (has-basic-structural-unit (_DNA521))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _DNA521 833 458)
+                    (:seq has-region _Centromere519 833 502)
+                    (:seq has-part _Chromatid526 833 564)
+                    (:seq has-part _Protein511 833 564)))
+  (edge-visibility ((:seq has-part _Chromatid526 f)
+                    (:seq has-part _Protein511 f)
+                    (:seq has-region _Centromere519 f)
+                    (:seq has-basic-structural-unit _DNA521 f)))
+  (node-coordinate ((:pair 652 515)))
+  (has-clones (_Chromosome706
+               _Chromosome935
+               _Chromosome1305
+               _Chromosome4380
+               _Chromosome6495
+               _Chromosome3539
+               _Chromosome3653)))
+
+(_Chromatid526 has 
+  (cloned-from (_Chromatid1397
+                _Chromatid215))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Chromatid))
+  (is-part-of (_Chromosome525))
+  (has-clones (_Chromatid426
+               _Chromatid708
+               _Chromatid934
+               _Chromatid1304
+               _Chromatid4381
+               _Chromatid6496
+               _Chromatid3538
+               _Chromatid3652))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 983 540))))
+
+(_Organism528 has 
+  (cloned-from (_Organism185))
+  (prototype-participant-of (_Liver401))
+  (has-part (_Cell529))
+  (instance-of (Organism))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Cell529 233 529)))
+  (edge-visibility ((:seq has-part _Cell529 f)))
+  (node-coordinate ((:pair 83 529)))
+  (has-clones (_Organism709
+               _Organism933
+               _Organism1303
+               _Organism4382
+               _Organism6497
+               _Organism3537
+               _Organism3651)))
+
+(_Cell529 has 
+  (cloned-from (_Cell161
+                _Cell173))
+  (clone-built-from (_Cell161))
+  (prototype-participant-of (_Liver401))
+  (is-basic-structural-unit-of (_Liver401))
+  (is-inside (_Plasma-membrane531))
+  (has-part (_Ribosome500
+             _Cytoplasm530
+             _Chromosome525))
+  (instance-of (Cell
+                Physical-Object
+                Spatial-Entity))
+  (is-part-of (_Organism528))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq is-inside _Plasma-membrane531 t)
+                    (:seq has-part _Chromosome525 t)
+                    (:seq has-part _Cytoplasm530 t)
+                    (:seq has-part _Ribosome500 t)))
+  (edge-coordinate ((:seq is-inside _Plasma-membrane531 502 477)
+                    (:seq has-part _Chromosome525 502 556)
+                    (:seq has-part _Cytoplasm530 502 556)
+                    (:seq has-part _Ribosome500 502 556)))
+  (node-coordinate ((:pair 383 529)))
+  (has-clones (_Cell710
+               _Cell932
+               _Cell1302
+               _Cell4383
+               _Cell6498
+               _Cell3536
+               _Cell3650)))
+
+(_Cytoplasm530 has 
+  (cloned-from (_Cytoplasm193))
+  (prototype-participant-of (_Liver401))
+  (is-inside (_Plasma-membrane531))
+  (instance-of (Cytoplasm
+                Spatial-Entity))
+  (is-part-of (_Cell529))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq is-inside _Plasma-membrane531 821 556)))
+  (edge-visibility ((:seq is-inside _Plasma-membrane531 t)))
+  (node-coordinate ((:pair 652 550)))
+  (has-clones (_Cytoplasm692
+               _Cytoplasm931
+               _Cytoplasm1320
+               _Cytoplasm4384
+               _Cytoplasm6483
+               _Cytoplasm3535
+               _Cytoplasm3665)))
+
+(_Plasma-membrane531 has 
+  (cloned-from (_Plasma-membrane184
+                _Plasma-membrane168))
+  (prototype-participant-of (_Liver401))
+  (has-basic-structural-unit (_Phospholipid538))
+  (does-not-enclose (_Carbohydrate537))
+  (has-part (_Protein534))
+  (is-part-of (_Living-Entity532))
+  (instance-of (Plasma-membrane
+                Spatial-Entity))
+  (encloses (_Cell529
+             _Cytoplasm530))
+  (clone-built-from (_Plasma-membrane168))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Protein534 858 454)
+                    (:seq has-basic-structural-unit _Phospholipid538 858 498)))
+  (edge-visibility ((:seq has-basic-structural-unit _Phospholipid538 f)
+                    (:seq has-part _Protein534 f)))
+  (node-coordinate ((:pair 652 471)))
+  (has-clones (_Plasma-membrane677
+               _Plasma-membrane930
+               _Plasma-membrane1326
+               _Plasma-membrane4385
+               _Plasma-membrane6477
+               _Plasma-membrane3534
+               _Plasma-membrane3672)))
+
+(_Living-Entity532 has 
+  (cloned-from (_Living-Entity183
+                _Living-Entity174))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Living-Entity))
+  (has-part (_Plasma-membrane531))
+  (has-clones (_Living-Entity468
+               _Living-Entity688
+               _Living-Entity929
+               _Living-Entity1322
+               _Living-Entity4386
+               _Living-Entity6481
+               _Living-Entity3533
+               _Living-Entity3667))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Plasma-membrane531 502 453)))
+  (edge-visibility ((:seq has-part _Plasma-membrane531 f)))
+  (node-coordinate ((:pair 350 50))))
+
+(_Protein534 has 
+  (cloned-from (_Protein654
+                _Protein533
+                _Protein305))
+  (prototype-participant-of (_Liver401))
+  (has-basic-structural-unit (_Amino-Acid7447
+                              _Atom535))
+  (has-part (_Carbohydrate537
+             _Polymer536))
+  (instance-of (Protein))
+  (is-part-of (_Plasma-membrane531))
+  (clone-built-from (_Protein305))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom535 1161 414)
+                    (:seq has-part _Polymer536 1161 476)
+                    (:seq has-part _Carbohydrate537 1161 476)))
+  (edge-visibility ((:seq has-basic-structural-unit _Amino-Acid7447 f)
+                    (:seq has-basic-structural-unit _Atom535 f)
+                    (:seq has-part _Carbohydrate537 f)
+                    (:seq has-part _Polymer536 f)))
+  (node-coordinate ((:pair 1008 448)))
+  (has-clones (_Protein678
+               _Protein926
+               _Protein1325
+               _Protein4387
+               _Protein6478
+               _Protein3532
+               _Protein3671)))
+
+(_Atom535 has 
+  (cloned-from (_Atom1398
+                _Atom309))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Protein534))
+  (has-clones (_Atom425
+               _Atom679
+               _Atom924
+               _Atom1324
+               _Atom4388
+               _Atom6479
+               _Atom3531
+               _Atom3669))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1311 408))))
+
+(_Polymer536 has 
+  (cloned-from (_Polymer1399
+                _Polymer308))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Polymer))
+  (is-part-of (_Protein534))
+  (has-clones (_Polymer408
+               _Polymer685
+               _Polymer922
+               _Polymer1323
+               _Polymer4389
+               _Polymer6480
+               _Polymer3529
+               _Polymer3668))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1311 452))))
+
+(_Carbohydrate537 has 
+  (cloned-from (_Carbohydrate800
+                _Carbohydrate677))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Carbohydrate
+                Spatial-Entity))
+  (is-outside (_Plasma-membrane531))
+  (is-part-of (_Protein534))
+  (has-clones (_Carbohydrate474
+               _Carbohydrate676
+               _Carbohydrate921
+               _Carbohydrate1327
+               _Carbohydrate4390
+               _Carbohydrate6476
+               _Carbohydrate3528
+               _Carbohydrate3673))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 352 488)))
+  (edge-coordinate ((:seq is-outside _Plasma-membrane531 502 488)))
+  (edge-visibility ((:seq is-outside _Plasma-membrane531 f))))
+
+(_Phospholipid538 has 
+  (cloned-from (_Phospholipid655
+                _Phospholipid531))
+  (prototype-participant-of (_Liver401))
+  (instance-of (Phospholipid))
+  (is-basic-structural-unit-of (_Plasma-membrane531))
+  (has-clones (_Phospholipid431
+               _Phospholipid690
+               _Phospholipid920
+               _Phospholipid1321
+               _Phospholipid4391
+               _Phospholipid6482
+               _Phospholipid3527
+               _Phospholipid3666))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1008 492))))
+
+(_Amino-Acid7446 has 
+  (prototype-participant-of (_Liver401))
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing4400
+               _Amino-Acid3526))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Protein511)))
+
+(_Amino-Acid7447 has 
+  (prototype-participant-of (_Liver401))
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing4399
+               _Amino-Acid3525))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Protein534)))
+
+(explanation (:triple _Liver401 is-part-of _Organism496) ((a Organism (@ _Liver401 Suborganismal-Entity is-part-of))))
+(explanation (:triple _Liver401 has-basic-structural-unit _Cell529) ((added-at Liver "User defined")))
+(explanation (:triple _Polymer1430 instance-of Polymer) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Nucleotide1429 instance-of Nucleotide) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Deoxyribose1428 instance-of Deoxyribose) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Cytosine1427 instance-of Cytosine) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Thymine1426 instance-of Thymine) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Guanine1425 instance-of Guanine) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Polymer1424 has-part _Nucleotide1420) ((cloned-from _Polymer268 _Polymer1424)))
+(explanation (:triple _Polymer1424 instance-of Polymer) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Polymer1424 has-part _Nucleotide1420) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Polymer1424 has-part _Cytosine1427) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Polymer1424 has-part _Thymine1426) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Polymer1424 has-part _Guanine1425) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Thymine1423 complement-of _Nucleotide1420) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Thymine1423 instance-of Thymine) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Thymine1423 instance-of Thymine) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Atom1422 instance-of Atom) ((cloned-from _Nucleotide337 _Nucleotide1420)))
+(explanation (:triple _Atom1422 is-basic-structural-unit-of _Nucleotide1420) ((cloned-from _Nucleotide337 _Nucleotide1420)))
+(explanation (:triple _Atom1422 instance-of Atom) ((a Atom (@ _Nucleotide1420 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1422 is-basic-structural-unit-of _Nucleotide1420) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Atom1422 instance-of Atom) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Atom1422 instance-of Atom) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Atom1422 instance-of Atom) ((a Atom)))
+(explanation (:triple _Phosphate1421 instance-of Phosphate) ((cloned-from _Nucleotide337 _Nucleotide1420)))
+(explanation (:triple _Phosphate1421 is-part-of _Nucleotide1420) ((cloned-from _Nucleotide337 _Nucleotide1420)))
+(explanation (:triple _Phosphate1421 is-part-of _Nucleotide1420) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Phosphate1421 instance-of Phosphate) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Phosphate1421 instance-of Phosphate) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Nucleotide1420 is-part-of _Polymer1424) ((cloned-from _Polymer268 _Polymer1424)))
+(explanation (:triple _Nucleotide1420 instance-of Organic-Molecule) ((cloned-from _Polymer268 _Polymer1424)))
+(explanation (:triple _Nucleotide1420 instance-of Nucleotide) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Nucleotide1420 instance-of Adenine) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Nucleotide1420 complement _Thymine1423) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Nucleotide1420 has-basic-structural-unit _Atom1422) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Nucleotide1420 has-part _Phosphate1421) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Nucleotide1420 has-basic-structural-unit _Atom1422) ((cloned-from _Nucleotide337 _Nucleotide1420)))
+(explanation (:triple _Nucleotide1420 has-part _Phosphate1421) ((cloned-from _Nucleotide337 _Nucleotide1420)))
+(explanation (:triple _Nucleotide1420 has-basic-structural-unit _Atom1422) ((a Atom (@ _Nucleotide1420 Molecule has-basic-structural-unit))))
+(explanation (:triple _Nucleotide1420 has-basic-structural-unit _Atom1422) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Nucleotide1420 has-part _Phosphate1421) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Nucleotide1420 complement _Thymine1423) ((cloned-from _Adenine378 _Nucleotide1420)))
+(explanation (:triple _Organism496 instance-of Organism) ((a Organism (@ _Liver401 Suborganismal-Entity is-part-of))))
+(explanation (:triple _Amino-Acid497 raw-material-of _Synthesis499) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Amino-Acid497 has-basic-structural-unit _Atom498) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Amino-Acid497 instance-of Amino-Acid) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Amino-Acid497 raw-material-of _Synthesis499) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Amino-Acid497 has-basic-structural-unit _Atom498) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Amino-Acid497 instance-of Amino-Acid) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Amino-Acid497 instance-of Amino-Acid) ((added-at Ribosome "User defined")))
+(explanation (:triple _Amino-Acid497 has-basic-structural-unit _Atom498) ((a Atom (@ _Amino-Acid497 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom498 instance-of Atom) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Atom498 is-basic-structural-unit-of _Amino-Acid497) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Atom498 instance-of Atom) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Atom498 is-basic-structural-unit-of _Amino-Acid497) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Atom498 instance-of Atom) ((a Atom (@ _Amino-Acid497 Molecule has-basic-structural-unit))))
+(explanation (:triple _Synthesis499 result _Protein503) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Synthesis499 instance-of Synthesis) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Synthesis499 agent _Ribosome500) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Synthesis499 raw-material _Amino-Acid497) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Synthesis499 agent _Ribosome500) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Synthesis499 result _Protein503) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Synthesis499 instance-of Synthesis) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Synthesis499 raw-material _Amino-Acid497) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Synthesis499 instance-of Synthesis) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis499 result _Protein503) ((a Entity (@ _Synthesis499 Create result))))
+(explanation (:triple _Synthesis499 raw-material _Amino-Acid497) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis499 agent _Ribosome500) ((added-at Ribosome "User defined")))
+(explanation (:triple _Ribosome500 is-part-of _Cell529) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Ribosome500 agent-of _Synthesis499) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Ribosome500 instance-of Ribosome) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Ribosome500 instance-of Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Ribosome500 has-basic-structural-unit _RRNA505) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Ribosome500 has-basic-structural-unit _Protein504) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Ribosome500 instance-of Entity) ((a Entity (@ _Synthesis499 Create (agent must-be-a)))))
+(explanation (:triple _Ribosome500 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Synthesis499) (@ _Synthesis499 Event (agent must-be-a) Entity abuts)) then (the instrument of _Synthesis499 (@ _Synthesis499 Event (agent must-be-a) Entity abuts)) (@ _Synthesis499 Event (agent must-be-a) Entity abuts)))) (@ _Synthesis499 Event (agent must-be-a)))))
+(explanation (:triple _Ribosome500 agent-of _Synthesis499) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Ribosome500 abuts (if (has-value (the instrument of _Synthesis499) (@ _Synthesis499 Event agent (must-be-a Entity) abuts)) then (the instrument of _Synthesis499 (@ _Synthesis499 Event agent (must-be-a Entity) abuts)) (@ _Synthesis499 Event agent (must-be-a Entity) abuts))) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Ribosome500 instance-of Ribosome) ((a Ribosome)))
+(explanation (:triple _Ribosome500 instance-of Ribosome) ((added-at Cell "User defined")))
+(explanation (:triple _Ribosome500 has-basic-structural-unit _RRNA505) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Ribosome500 has-basic-structural-unit _Protein504) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Protein503 instance-of Protein) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein503 instance-of Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein503 result-of _Synthesis499) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein503 instance-of Protein) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Protein503 instance-of Entity) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Protein503 result-of _Synthesis499) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Protein503 instance-of Protein) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein503 instance-of Entity) ((a Entity (@ _Synthesis499 Create result))))
+(explanation (:triple _Protein504 is-basic-structural-unit-of _Ribosome500) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein504 instance-of Protein) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein504 instance-of Protein) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _RRNA505 is-basic-structural-unit-of _Ribosome500) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _RRNA505 instance-of RRNA) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _RRNA505 instance-of RRNA) ((cloned-from _Ribosome567 _Ribosome500)))
+(explanation (:triple _Protein511 has-part _Polymer517) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein511 is-part-of _Chromosome525) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein511 instance-of Protein) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein511 has-basic-structural-unit _Atom515) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein511 is-part-of _Chromosome525) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Protein511 has-basic-structural-unit _Atom515) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Protein511 instance-of Protein) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Protein511 instance-of Protein) ((added-at Chromosome "User defined")))
+(explanation (:triple _Protein511 has-basic-structural-unit _Atom515) ((a Atom (@ _Protein511 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein511 has-basic-structural-unit _Atom515) ((cloned-from _Protein305 _Protein511)))
+(explanation (:triple _Protein511 has-part _Polymer517) ((cloned-from _Protein305 _Protein511)))
+(explanation (:triple _Protein511 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein511 has-part _Polymer517) ((added-at Protein "User defined")))
+(explanation (:triple _Protein511 has-basic-structural-unit _Amino-Acid7446) ((cloned-from _Protein305 _Protein511)))
+(explanation (:triple _Atom515 is-basic-structural-unit-of _Protein511) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Atom515 instance-of Atom) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Atom515 instance-of Atom) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Atom515 is-basic-structural-unit-of _Protein511) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Atom515 instance-of Atom) ((a Atom (@ _Protein511 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom515 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom515 is-basic-structural-unit-of _Protein511) ((cloned-from _Protein305 _Protein511)))
+(explanation (:triple _Atom515 instance-of Atom) ((cloned-from _Protein305 _Protein511)))
+(explanation (:triple _Polymer517 instance-of Polymer) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Polymer517 is-part-of _Protein511) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Polymer517 is-part-of _Protein511) ((cloned-from _Protein305 _Protein511)))
+(explanation (:triple _Polymer517 instance-of Polymer) ((cloned-from _Protein305 _Protein511)))
+(explanation (:triple _Polymer517 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Spatial-Entity518 location _Centromere519) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Spatial-Entity518 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Spatial-Entity518 location _Centromere519) ((cloned-from _Centromere167 _Centromere519)))
+(explanation (:triple _Spatial-Entity518 instance-of Spatial-Entity) ((cloned-from _Centromere167 _Centromere519)))
+(explanation (:triple _Spatial-Entity518 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Centromere519 Place location-of))))
+(explanation (:triple _Spatial-Entity518 instance-of Spatial-Entity) ((a Spatial-Entity)))
+(explanation (:triple _Centromere519 instance-of Centromere) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Centromere519 instance-of Place) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Centromere519 is-region-of _Chromosome525) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Centromere519 location-of _Spatial-Entity518) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Centromere519 location-of _Spatial-Entity520) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Centromere519 is-region-of _Chromosome525) ((cloned-from _Centromere167 _Centromere519)))
+(explanation (:triple _Centromere519 location-of _Spatial-Entity518) ((cloned-from _Centromere167 _Centromere519)))
+(explanation (:triple _Centromere519 location-of _Spatial-Entity518) ((a Spatial-Entity (@ _Centromere519 Place location-of))))
+(explanation (:triple _Centromere519 is-region-of _Chromosome525) ((a Tangible-Entity (@ _Centromere519 Region is-region-of))))
+(explanation (:triple _Centromere519 instance-of Centromere) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Centromere519 instance-of Place) ((a Place (@ _Spatial-Entity520 Spatial-Entity (location must-be-a)))))
+(explanation (:triple _Centromere519 location-of _Spatial-Entity520) ((a Spatial-Entity (@ _Centromere519 Place location-of))))
+(explanation (:triple _Centromere519 instance-of Place) ((a Place (@ _Spatial-Entity518 Spatial-Entity (location must-be-a)))))
+(explanation (:triple _Spatial-Entity520 location _Centromere519) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Spatial-Entity520 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Spatial-Entity520 instance-of Spatial-Entity) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Spatial-Entity520 location _Centromere519) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Spatial-Entity520 instance-of Spatial-Entity) ((a Spatial-Entity)))
+(explanation (:triple _DNA521 instance-of Nucleic-acid) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _DNA521 is-basic-structural-unit-of _Chromosome525) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _DNA521 instance-of DNA) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _DNA521 has-basic-structural-unit _Atom524) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _DNA521 has-part _Chromatid523) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _DNA521 has-part _Chromatid522) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _DNA521 is-basic-structural-unit-of _Chromosome525) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _DNA521 has-basic-structural-unit _Atom524) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _DNA521 instance-of DNA) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _DNA521 instance-of DNA) ((added-at Chromosome "User defined")))
+(explanation (:triple _DNA521 has-basic-structural-unit _Atom524) ((a Atom (@ _DNA521 Molecule has-basic-structural-unit))))
+(explanation (:triple _DNA521 has-basic-structural-unit _Atom524) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _DNA521 has-part _Chromatid523) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _DNA521 has-part _Chromatid522) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _DNA521 instance-of DNA) ((a DNA)))
+(explanation (:triple _DNA521 has-part _Chromatid523) ((added-at DNA "User defined")))
+(explanation (:triple _DNA521 has-part _Chromatid522) ((added-at DNA "User defined")))
+(explanation (:triple _DNA521 has-part _Polymer1430) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _DNA521 has-part _Polymer1424) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _DNA521 has-part _Nucleotide1429) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _DNA521 has-part _Deoxyribose1428) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Chromatid522 is-part-of _DNA521) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromatid522 instance-of Chromatid) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromatid522 is-part-of _DNA521) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Chromatid522 instance-of Chromatid) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Chromatid522 instance-of Chromatid) ((added-at DNA "User defined")))
+(explanation (:triple _Chromatid523 is-part-of _DNA521) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromatid523 instance-of Chromatid) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromatid523 is-part-of _DNA521) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Chromatid523 instance-of Chromatid) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Chromatid523 instance-of Chromatid) ((added-at DNA "User defined")))
+(explanation (:triple _Atom524 is-basic-structural-unit-of _DNA521) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Atom524 instance-of Atom) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Atom524 instance-of Atom) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Atom524 is-basic-structural-unit-of _DNA521) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Atom524 instance-of Atom) ((a Atom (@ _DNA521 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom524 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom524 is-basic-structural-unit-of _DNA521) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Atom524 instance-of Atom) ((cloned-from _DNA272 _DNA521)))
+(explanation (:triple _Chromosome525 is-part-of _Cell529) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromosome525 has-part _Protein511) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromosome525 has-part _Chromatid526) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromosome525 has-region _Centromere519) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromosome525 instance-of Chromosome) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromosome525 instance-of Tangible-Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromosome525 has-basic-structural-unit _DNA521) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromosome525 instance-of Chromosome) ((added-at Cell "User defined")))
+(explanation (:triple _Chromosome525 has-part _Protein511) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Chromosome525 has-basic-structural-unit _DNA521) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Chromosome525 has-basic-structural-unit _DNA521) ((added-at Chromosome "User defined")))
+(explanation (:triple _Chromosome525 has-part _Protein511) ((added-at Chromosome "User defined")))
+(explanation (:triple _Chromosome525 has-part _Chromatid526) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Chromosome525 has-region _Centromere519) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Chromosome525 instance-of Tangible-Entity) ((a Tangible-Entity)))
+(explanation (:triple _Chromosome525 has-region _Centromere519) ((cloned-from _Centromere167 _Centromere519)))
+(explanation (:triple _Chromosome525 instance-of Tangible-Entity) ((cloned-from _Centromere167 _Centromere519)))
+(explanation (:triple _Chromosome525 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Centromere519 Region is-region-of))))
+(explanation (:triple _Chromatid526 instance-of Chromatid) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromatid526 is-part-of _Chromosome525) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Chromatid526 instance-of Chromatid) ((cloned-from _Chromosome164 _Chromosome525)))
+(explanation (:triple _Organism528 has-part _Cell529) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Organism528 instance-of Organism) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Organism528 instance-of Organism) ((a Organism (@ _Cell529 Suborganismal-Entity is-part-of))))
+(explanation (:triple _Organism528 instance-of Organism) ((a Organism)))
+(explanation (:triple _Cell529 instance-of Cell) ((added-at Liver "User defined")))
+(explanation (:triple _Cell529 has-part _Ribosome500) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cell529 has-part _Cytoplasm530) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cell529 has-part _Chromosome525) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cell529 is-part-of _Organism528) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cell529 is-inside _Plasma-membrane531) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cell529 instance-of Cell) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Cell529 instance-of Physical-Object) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Cell529 is-inside _Plasma-membrane531) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Cell529 instance-of Cell) ((added-at Plasma-membrane "User defined")))
+(explanation (:triple _Cell529 instance-of Physical-Object) ((a Physical-Object (@ _Plasma-membrane531 Membrane-Enclosure encloses))))
+(explanation (:triple _Cell529 instance-of Cell) ((a Cell)))
+(explanation (:triple _Cell529 is-part-of _Organism528) ((a Organism (@ _Cell529 Suborganismal-Entity is-part-of))))
+(explanation (:triple _Cell529 has-part _Chromosome525) ((added-at Cell "User defined")))
+(explanation (:triple _Cell529 has-part _Cytoplasm530) ((added-at Cell "User defined")))
+(explanation (:triple _Cell529 has-part _Ribosome500) ((added-at Cell "User defined")))
+(explanation (:triple _Cell529 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Plasma-membrane531 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Cytoplasm530 is-part-of _Cell529) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cytoplasm530 is-inside _Plasma-membrane531) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cytoplasm530 instance-of Cytoplasm) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cytoplasm530 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Cytoplasm530 instance-of Cytoplasm) ((added-at Cell "User defined")))
+(explanation (:triple _Cytoplasm530 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Plasma-membrane531 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Plasma-membrane531 encloses _Cell529) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Plasma-membrane531 encloses _Cytoplasm530) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Plasma-membrane531 has-basic-structural-unit _Phospholipid538) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Plasma-membrane531 has-part _Protein534) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Plasma-membrane531 is-part-of _Living-Entity532) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Plasma-membrane531 instance-of Plasma-membrane) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Plasma-membrane531 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Plasma-membrane531 does-not-enclose _Carbohydrate537) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Plasma-membrane531 instance-of Plasma-membrane) ((added-at Cell "User defined")))
+(explanation (:triple _Plasma-membrane531 is-part-of _Living-Entity532) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Plasma-membrane531 encloses _Cell529) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Plasma-membrane531 encloses _Cell529) ((a Physical-Object (@ _Plasma-membrane531 Membrane-Enclosure encloses))))
+(explanation (:triple _Plasma-membrane531 is-part-of _Living-Entity532) ((a Living-Entity (@ _Plasma-membrane531 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Plasma-membrane531 encloses _Cytoplasm530) ((added-at Cell "User defined")))
+(explanation (:triple _Plasma-membrane531 has-basic-structural-unit _Phospholipid538) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Plasma-membrane531 has-part _Protein534) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Plasma-membrane531 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Carbohydrate537 Spatial-Entity (is-outside must-be-a)))))
+(explanation (:triple _Plasma-membrane531 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cell529 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Living-Entity532 instance-of Living-Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Living-Entity532 has-part _Plasma-membrane531) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Living-Entity532 instance-of Living-Entity) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Living-Entity532 has-part _Plasma-membrane531) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Living-Entity532 instance-of Living-Entity) ((a Living-Entity (@ _Plasma-membrane531 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Protein534 has-part _Carbohydrate537) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein534 has-part _Polymer536) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein534 has-basic-structural-unit _Atom535) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein534 instance-of Protein) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein534 is-part-of _Plasma-membrane531) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Protein534 instance-of Protein) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Protein534 has-part _Carbohydrate537) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Protein534 has-basic-structural-unit _Atom535) ((cloned-from _Protein305 _Protein534)))
+(explanation (:triple _Protein534 has-part _Polymer536) ((cloned-from _Protein305 _Protein534)))
+(explanation (:triple _Protein534 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein534 has-basic-structural-unit _Atom535) ((a Atom (@ _Protein534 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein534 has-part _Polymer536) ((added-at Protein "User defined")))
+(explanation (:triple _Protein534 has-basic-structural-unit _Amino-Acid7447) ((cloned-from _Protein305 _Protein534)))
+(explanation (:triple _Atom535 instance-of Atom) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Atom535 is-basic-structural-unit-of _Protein534) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Atom535 is-basic-structural-unit-of _Protein534) ((cloned-from _Protein305 _Protein534)))
+(explanation (:triple _Atom535 instance-of Atom) ((cloned-from _Protein305 _Protein534)))
+(explanation (:triple _Atom535 instance-of Atom) ((a Atom (@ _Protein534 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom535 instance-of Atom) ((a Atom)))
+(explanation (:triple _Polymer536 instance-of Polymer) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Polymer536 is-part-of _Protein534) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Polymer536 is-part-of _Protein534) ((cloned-from _Protein305 _Protein534)))
+(explanation (:triple _Polymer536 instance-of Polymer) ((cloned-from _Protein305 _Protein534)))
+(explanation (:triple _Polymer536 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Carbohydrate537 is-part-of _Protein534) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Carbohydrate537 is-outside _Plasma-membrane531) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Carbohydrate537 instance-of Carbohydrate) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Carbohydrate537 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Carbohydrate537 instance-of Carbohydrate) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Carbohydrate537 is-outside _Plasma-membrane531) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Carbohydrate537 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Plasma-membrane531 Spatial-Entity (does-not-enclose must-be-a)))))
+(explanation (:triple _Phospholipid538 instance-of Phospholipid) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Phospholipid538 is-basic-structural-unit-of _Plasma-membrane531) ((cloned-from _Cell161 _Cell529)))
+(explanation (:triple _Phospholipid538 instance-of Phospholipid) ((cloned-from _Plasma-membrane168 _Plasma-membrane531)))
+(explanation (:triple _Amino-Acid7446 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein511)))
+(explanation (:triple _Amino-Acid7447 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein534)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

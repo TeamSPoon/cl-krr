@@ -1,0 +1,26 @@
+;; 
+;;    $Id: capacity.km,v 1.13 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(capacity has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Capacity-Value))
+   (scale-class (Capacity-Scale))
+   (scalar-constant-class (Capacity-Constant))      
+   (inverse 	(capacity-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(capacity has (wn20-synset ((:set
+                               (:triple "capacity" 3 "n")
+                               (:triple "capacity" 6 "n")
+                               (:triple "content" 4 "n")
+))))
+
+(capacity-of has
+	(instance-of (EntityProperty)))

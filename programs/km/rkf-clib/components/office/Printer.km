@@ -1,0 +1,23 @@
+;;
+;;    $Id: Printer.km,v 1.4 2004/09/23 23:31:55 tecuci Exp $
+;;
+
+(Printer has 
+  (superclasses (Output-Device))
+  (feature-slot ((the feature-slot of Output-Device)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Printer))
+  ))
+)
+
+(Printer has (wn20-synset ((:set (:triple "printer" 2 "n")))))
+
+;;(every Computer-Display has
+;;       (purpose	 ((a Instrument-Role with
+;;		     (in-event  ((must-be-a Express with
+;;					    (instrument ((Self)))
+;;					    ;; information is transfered to the Computer
+;;					    ;; might change part-of to some other more specialized slot
+;;					    (destination ((the Computer part-of of Self))))))
+;;		     (played-by (Self))
+;;		     )))

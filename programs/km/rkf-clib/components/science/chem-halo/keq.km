@@ -1,0 +1,19 @@
+;; 
+;;  $Id: keq.km,v 1.6 2008/07/04 18:08:51 jchaw Exp $
+;; 
+
+(keq has
+  (instance-of 		  (Property))
+  (user-description       ("the ratio between the concentration of products in a reaction and the concentration of reactants. It expresses the extent to which equilibrium has proceeded in either direction."))
+  (domain      		  (Equilibrium-Reaction))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  (inverse     		  (keq-of))
+  (inherit-with-overrides (t))
+  (cardinality 		  (N-to-1))
+  (scale-class         (KI-Scale))
+  (scalar-constant-class (KI-Constant))
+)
+
+(keq-of has (instance-of (Property)))

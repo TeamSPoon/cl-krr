@@ -1,0 +1,19 @@
+
+;; 
+;; $Id: Bridge-Terrain.km,v 1.1 2004/02/01 23:31:37 kbarker Exp $
+;; 
+
+(Bridge-Terrain has
+   (superclasses (Terrain))
+   (description ("A feature of the terrain")))
+
+(every Bridge-Terrain has
+   (trafficability ((a Trafficability-Value with
+                       (value ((:pair *UR Armor-Unit)
+                               (:pair *UR Infantry-Unit)))
+   )))
+
+   (site-of ((a Bridge)))
+)
+
+

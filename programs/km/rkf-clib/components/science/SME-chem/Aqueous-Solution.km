@@ -1,0 +1,83 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Aqueous-Solution1649
+
+
+|#
+
+(Aqueous-Solution has (superclasses (Solution)))
+
+(Aqueous-Solution now-has (user-description ("An aqueous solution is a solution in which water is the solvent.")))
+
+(_Aqueous-Solution391 has
+  (prototype-of (Aqueous-Solution Solution))
+  (prototype-scope (Aqueous-Solution (the-class Solution with (has-solvent ((a H2O-Substance))))))
+  (prototype-participants (_Conductivity-Value1023 _Chemical1022 _State-Value395 _Chemical1021 _Chemical393 _Chemical-Entity1018 _Aqueous-Solution391)))
+
+(_Aqueous-Solution391 has
+  (instance-of (Aqueous-Solution))
+  (conductivity (_Conductivity-Value1023))
+  (has-part (_Chemical1022))
+  (physical-state (_State-Value395))
+  (has-solute (_Chemical1021))
+  (has-solvent (_Chemical393))
+  (has-basic-structural-unit (_Chemical-Entity1018)))
+
+(_Chemical-Entity1018 has (instance-of (Chemical-Entity)))
+
+(_Chemical393 has (instance-of (H2O-Substance)))
+
+(_Chemical1021 has (instance-of (Chemical)))
+
+(_State-Value395 has (instance-of (State-Value)) (value (*liquid)))
+
+(_Chemical1022 has (instance-of (Chemical)))
+
+(_Conductivity-Value1023 has (instance-of (Conductivity-Value)))
+
+(explanation (:triple _Aqueous-Solution391 has-basic-structural-unit _Chemical-Entity1018) (((@ SME entered)) (every Aqueous-Solution has (has-basic-structural-unit ((a Chemical-Entity))))))
+
+(explanation (:triple _Aqueous-Solution391 has-solvent _Chemical393) (((@ SME entered)) (every Aqueous-Solution has (has-solvent ((a H2O-Substance))))))
+
+(explanation (:triple _Aqueous-Solution391 has-solute _Chemical1021) (((@ SME entered)) (every Aqueous-Solution has (has-solute ((a Chemical))))))
+
+(explanation (:triple _Aqueous-Solution391 physical-state _State-Value395) (((@ SME entered)) (every Aqueous-Solution has (physical-state ((a State-Value))))))
+
+(explanation (:triple _Aqueous-Solution391 has-part _Chemical1022) (((@ SME entered)) (every Aqueous-Solution has (has-part ((a Chemical))))))
+
+(explanation (:triple _State-Value395 value *liquid) (((@ SME entered)) (every Aqueous-Solution has (physical-state ((a State-Value with (value (*liquid))))))))
+
+(explanation (:triple _Aqueous-Solution391 conductivity _Conductivity-Value1023) (((@ SME entered)) (every Aqueous-Solution has (conductivity ((a Conductivity-Value))))))
+
+(explanation (:triple _Aqueous-Solution391 instance-of Aqueous-Solution) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity1018 instance-of Chemical-Entity) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical393 instance-of H2O-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical1021 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value395 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical1022 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Conductivity-Value1023 instance-of Conductivity-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Aqueous-Solution has (has-basic-structural-unit ((a Chemical-Entity))))
+(every Aqueous-Solution has (has-solvent ((a H2O-Substance))))
+(every Aqueous-Solution has (has-solute ((a Chemical))))
+(every Aqueous-Solution has (physical-state ((a State-Value))))
+(every Aqueous-Solution has (has-part ((a Chemical))))
+(every Aqueous-Solution has (physical-state ((a State-Value with (value (*liquid))))))
+(every Aqueous-Solution has (conductivity ((a Conductivity-Value))))
+
+|#
+
+|#
+

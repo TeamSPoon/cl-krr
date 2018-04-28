@@ -1,0 +1,15 @@
+;;
+;; $Id: Re.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Re has (superclasses (Metal-Atom VIIB-Element)))
+(every Re has
+       (atomic-symbol (Re))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 75 NIL))))))
+       (chemical-period (6)))
+
+(every Re has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("rhenium"))
+)

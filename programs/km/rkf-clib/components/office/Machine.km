@@ -1,0 +1,22 @@
+;; 
+;; $Id: Machine.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;; 
+
+(Machine has
+	 (superclasses (Device))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+	 ;; WN2.0 definition
+	 (description ("any mechanical or electrical device that transmits or modifies energy to perform or assist in the performance of human tasks"))
+	 (cmap-correspondence ())
+)
+
+;; encode the transmission or modification of Energy
+
+(Machine has (wn20-synset ((:set
+			   (:triple "machine" 1 "n")))))
+(Machine has
+  (feature-slot ((the feature-slot of Device)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Machine)))))
+

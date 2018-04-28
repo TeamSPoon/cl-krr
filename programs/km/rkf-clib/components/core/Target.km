@@ -1,0 +1,12 @@
+
+;; $Id: Target.km,v 1.3 2002/07/10 21:09:05 kbarker Exp $
+
+(Target has (superclasses (Role)))
+
+(every Target has
+  (in-event ((must-be-a Move)))
+  (played-by ((a Spatial-Entity with
+                 (toward-of ((the in-event of Self))))))
+)
+
+

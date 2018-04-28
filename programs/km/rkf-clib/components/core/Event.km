@@ -1,0 +1,795 @@
+;;
+;;    $Id: Event.km,v 1.89 2010/05/18 14:58:30 kbarker Exp $
+;; 
+
+;; An Event is an Action or a State.
+
+(Event has
+       (superclasses        (Thing))
+       (required-slot       ())
+       (primary-slot        (time-during))
+       (secondary-slot      ())
+       (cmap-correspondence (
+                             (:seq time-during "when")
+                            )))
+
+(a Partition with (members (Event Entity)))
+
+(every Event has
+  ;; this code for identifier is repeated in Entity and Role
+  (identifier ((forall (the called of Self)
+                (a Text-Field with (information-content (It))))))
+  (identifier ((forall (the uniquely-called of Self)
+                (a Text-Field with (information-content (It))))))
+  
+  (subevent      ((<> Self) 
+                  (must-be-a Event)
+                  (the first-subevent of Self)
+  ))
+  (next-event ((must-be-a Event with (time-during ((a Time-Interval with 
+					       (time-after ((the time-during of Self)))))))))
+  (all-subevents ((the subevent of Self)
+                  (the all-subevents of (the subevent of Self))))
+
+  ; The following code collects the subevents of the Event into
+  ; a single list, which can then be simulated by KM.
+  ; The semantics of the "actions" slot is built into KM.
+  (actions       ((:set (forall (the subevent of Self)
+                                (the actions of It))
+                        Self)))
+
+  (primitive-actions ((the primitive-actions of (the subevent of Self))
+                      (if (not (the subevent of Self))
+                          then
+                          Self)))
+
+
+  (time-during     ((a Time-Interval with 
+		(time-after ((forall (the subevent of (the subevent-of of Self)) 
+				where ((the next-event of It) = Self)
+				(the time-during of It))))
+		(time-before ((the time-during of (the next-event of Self)))))))
+  (site     ((must-be-a Spatial-Entity with
+		(is-near ((if (has-value (the object of Self)) 
+			      then
+			      (the location of (the object of Self))))))))
+
+  (agent    ((must-be-a Entity with
+               ;; - capable of performing the event
+               ;; - capable of using the instruments if any
+               ;; (capability ((a Agent-Role with
+               ;;                 (in-event (Self)))))
+
+               ;; - has the control of the instruments if any
+               ;;   removed until this notion is more stable    
+               ;;   (26 Feb 2001)
+               ;;
+               ;;       (agent-of ((a In-Control with
+               ;;                      (object ((the instrument of Self)))
+               ;;                      (time-during   ((a Time-Interval with
+               ;;                                  (time-int-overlaps
+               ;;                                     ((the time-during of Self))))))
+               ;;                  )))
+
+               ;; - co-located with the object, instrument 
+               (abuts ((if (has-value (the instrument of Self))
+                        then
+                        (the instrument of Self))))
+                           
+	       ;; - temporally overlapping with the beneficiary, 
+	       ;;   experiencer, object, instrument, recipient
+	       ;; comment out for the time being -- jf
+	       #|(time-of-existence 
+		 ((a Time-Interval with
+		     (time-int-overlaps
+			((the time-of-existence of (the object of Self))
+			 (if (has-value (the beneficiary of Self))
+			     then
+			     (the time-of-existence of 
+				  (the beneficiary of Self)))
+			 (if (has-value (the experiencer of Self))
+			     then
+			     (the time-of-existence of 
+				  (the experiencer of Self)))
+			 (if (has-value (the instrument of Self))
+			     then
+			     (the time-of-existence of 
+				  (the instrument of Self)))
+			 (if (has-value (the recipient of Self))
+			     then
+			     (the time-of-existence of 
+				  (the recipient of Self))))))))|#
+	       )))
+  
+  ;; beneficiary constraints
+  ;; comment out for the time being -- jf
+  (beneficiary ((must-be-a Living-Entity)))
+  #|(beneficiary ((must-be-a Living-Entity with
+		  ;; temporally overlapping with the agent, 
+		  ;; experiencer, object, instrument, and recipient 
+		  (time-of-existence 
+		    ((a Time-Interval with
+			(time-int-overlaps
+			  ((the time-of-existence of (the object of Self))
+			   (if (has-value (the agent of Self))
+			       then
+			       (the time-of-existence of (the agent of Self)))
+			   (if (has-value (the experiencer of Self))
+			       then
+			       (the time-of-existence of 
+				    (the experiencer of Self)))
+			   (if (has-value (the instrument of Self))
+			       then
+			       (the time-of-existence of 
+				    (the instrument of Self)))
+			   (if (has-value (the recipient of Self))
+			       then
+			       (the time-of-existence of 
+				    (the recipient of Self)))))))))))|#
+
+  ;; donor constraints
+  ;; comment out for the time being -- jf
+  (donor ((must-be-a Entity)))
+  #|(donor ((must-be-a Living-Entity with
+	    ;; temporally overlapping with the agent, experiencer,
+	    ;; object, instrument, and recipient
+	    (time-of-existence 
+	      ((a Time-Interval with
+		  (time-int-overlaps
+			  ((the time-of-existence of (the object of Self))
+			   (if (has-value (the agent of Self))
+			       then
+			       (the time-of-existence of (the agent of Self)))
+			   (if (has-value (the experiencer of Self))
+			       then
+			       (the time-of-existence of 
+				    (the experiencer of Self)))
+			   (if (has-value (the instrument of Self))
+			       then
+			       (the time-of-existence of 
+				    (the instrument of Self)))
+			   (if (has-value (the recipient of Self))
+			       then
+			       (the time-of-existence of 
+				    (the recipient of Self)))))))))))|#
+
+  ;; instrument constraints
+  (instrument ((must-be-a Entity with
+                 ;;  co-located with the object, agent
+                 (abuts ((if (has-value (the agent of Self))
+                          then (the agent of Self))))
+
+                 ;; the instrument cannot be in broken state
+                 ;; ***belongs in pcs-list***
+                 ;; (object-of ((mustnt-be-a Be-Broken)))
+
+		 ;; temporally overlapping with the agent, beneficiary, 
+		 ;; experiencer, object, and recipient
+		 ;; comment out for the time being -- jf
+		 #|(time-of-existence 
+		  ((a Time-Interval with
+		      (time-int-overlaps
+		       ((the time-of-existence of (the object of Self))
+			(if (has-value (the beneficiary of Self))
+			    then
+			  (the time-of-existence of 
+			       (the beneficiary of Self)))
+			(if (has-value (the experiencer of Self))
+			    then
+			  (the time-of-existence of 
+			       (the experiencer of Self)))
+			(if (has-value (the agent of Self))
+			    then
+			  (the time-of-existence of (the agent of Self)))
+			(if (has-value (the recipient of Self))
+			    then
+			  (the time-of-existence of 
+			       (the recipient of Self))))))))|#
+		 )))
+  
+  ;; comment even this one out (object could be a Role)
+  #| (object ((must-be-a Entity))) |#
+  ;; object constraints
+  ;; comment out for the time being -- jf
+  #|(object ((must-be-a Entity with
+		      ;; temporally overlapping with the agent, beneficiary, 
+		      ;; experiencer, object, and recipient
+		   (time-of-existence 
+		    ((a Time-Interval with
+			(time-int-overlaps
+			 ((if (has-value (the beneficiary of Self))
+			      then
+			    (the time-of-existence of 
+				 (the beneficiary of Self)))
+			  (if (has-value (the experiencer of Self))
+			      then
+			    (the time-of-existence of 
+				 (the experiencer of Self)))
+			  (if (has-value (the agent of Self))
+			      then
+			    (the time-of-existence of (the agent of Self)))
+			  (if (has-value (the recipient of Self))
+			      then
+			       (the time-of-existence of 
+				    (the recipient of Self)))))))))))|#
+  ;; recipient constraints
+  ;; comment out for the time being -- jf
+  (recipient ((must-be-a Entity)))
+  #|(recipient ((must-be-a Living-Entity with
+		   ;; temporally overlapping with the agent, beneficiary,
+		   ;; experiencer, object, and object
+		   (time-of-existence 
+		     ((a Time-Interval with
+			 (time-int-overlaps
+			  ((the time-of-existence of (the object of Self))
+			   (if (has-value (the beneficiary of Self))
+			       then
+			       (the time-of-existence of 
+				    (the beneficiary of Self)))
+			   (if (has-value (the agent of Self))
+			       then
+			       (the time-of-existence of (the agent of Self)))
+			   (if (has-value (the object of Self))
+			       then
+			       (the time-of-existence of 
+				    (the object of Self)))))))))))|#
+
+  ;; result constraints
+  ;; comment out for the time being -- jf
+  (result ((must-be-a Entity)))
+  #|(result ((must-be-a Entity with
+		   ;; temporally overlapping with the agent, beneficiary,
+		   ;; experiencer, object, recipient
+		   (time-of-existence 
+		     ((a Time-Interval with
+			 (time-int-overlaps
+			  ((the time-of-existence of (the object of Self))
+			   (if (has-value (the beneficiary of Self))
+			       then
+			       (the time-of-existence of 
+				    (the beneficiary of Self)))
+			   (if (has-value (the recipient of Self))
+			       then
+			       (the time-of-existence of 
+				    (the recipient of Self)))))))))))|#
+)
+
+;; Contextual information
+(every Event has
+       (pcs-list (      
+                  ;; an object cannot be the object/instrument of an action
+                  ;; if it is inaccessible to the agent
+;                  (if (not (Self isa Make-Accessible))
+;                      then
+;                      (if (has-value (the agent of Self))
+;                          then
+;                          (forall (the object of Self)
+;                            (:triple
+;                              It
+;                              object-of
+;                              (mustnt-be-a Be-Inaccessible with
+;                                (object      (It))
+;                                (base ((the agent of Self))))))
+;                          else
+;                          (forall (the object of Self)
+;                            (:triple
+;                              It
+;                              object-of
+;                              (mustnt-be-a Be-Inaccessible with
+;                                (object (It))))))
+;                      else
+;                      (the del-list of Self))
+;
+;                  (if (not (Self isa Make-Accessible))
+;                      then
+;                      (if (has-value (the agent of Self))
+;                          then
+;                          (forall (the instrument of Self)
+;                            (:triple
+;                              It
+;                             object-of
+;                              (mustnt-be-a Be-Inaccessible with
+;                                (object      (It))
+;                                (base ((the agent of Self))))))
+;                          else
+;                          (forall (the instrument of Self)
+;                            (:triple
+;                              It
+;                              object-of
+;                              (mustnt-be-a Be-Inaccessible with
+;                                (object (It))))))
+;                      else
+;                      (the del-list of Self))
+
+                  ;; the instrument of the Event shouldn't have the function 
+                  ;; of being
+                  ;; the instrument and Be-Broken at the same time 
+                  ;; (i.e. it can be the function and not Be-Broken or 
+                  ;; it can Be-Broken but not have the function)
+                  ;; - this last case seems strange, but the instrument 
+                  ;;   could be used for something besides its function
+                  ;; This condition covers the case of the instrument 
+                  ;; Being-Ruined
+                  (if (has-value (the instrument of Self))
+                      then
+                    (forall (the instrument of Self)
+                            ((:triple (It) 
+                                      instance-of 
+                                      (mustnt-be-a Entity with
+                                                   (plays
+                                                    ((a Instrument-Role)))
+						   #|with
+                                                        (in-event (Self)))))|#
+                                                   (object-of  
+                                                    ((a Be-Broken with 
+                                                        (object (It))))))))
+                              )))))
+
+;; Text generation
+
+(every Event has
+       (text-gen ((make-sentence (the text-sentence of Self))))
+       (text-description ((the text-nom-sentence of Self)))
+
+;*; text-dobj is a fix to handle Actions that get both an object and a result
+;*; through multiple inheritance (as opposed to inheritance from Copy)
+       (text-dobj ((if (has-value (the object of Self))
+                    then (the object of Self)
+                    else (the result of Self))))
+
+;*; if there's an agent, by default it's the subject of the sentence
+;*; if there's no agent but there's an instrument, it's the subject
+;*; text-subj can be assigned other roles explicitly
+       (text-subj ((if (has-value (the agent of Self))
+                    then (the agent of Self)
+                    else (the instrument of Self))))
+
+       (text-subj-phrase (
+          (if (
+               ((:set Thing Entity Intangible-Entity
+                      Spatial-Entity Place Tangible-Entity)
+                is-superset-of
+                (the instance-of of (the text-subj of Self)))
+              and
+               ((the text-def-head of (the text-subj of Self))
+                =
+                (:seq (:seq "the") (:seq (the text-subj of Self) NIL)))
+              )
+           then
+              (:seq "the" (oneof (the all-instances of Relation)
+                           where ((the It of Self) = (the text-subj of Self))))
+           else
+              (andify (the text-def-head of (the text-subj of Self)))   ;; text-def-head is ok because subjects are always Entities
+       )))
+
+       (text-dobj-phrase (
+          (if (
+               ((:set Thing Entity Intangible-Entity
+                      Spatial-Entity Place Tangible-Entity)
+                is-superset-of
+                (the instance-of of (the text-dobj of Self)))
+              and
+               ((the text-def-head of (the text-dobj of Self))
+                =
+                (:seq (:seq "the") (:seq (the text-dobj of Self) NIL)))
+              )
+           then
+              (:seq "the" (oneof (the all-instances of Relation)
+                           where ((the It of Self) = (the text-dobj of Self))))
+           else
+              (andify (the text-def-head of (the text-dobj of Self)))   ;; text-def-head is ok because objects are always Entities
+       )))
+
+       (text-number ((if (has-value (the text-subj of Self))
+                      then (the number of (the text-subj of Self))
+                      else (the number of (the text-dobj of Self)))))
+
+       (text-active-verbseq ((if ((the text-number of Self) > 1)
+                              then (the text-active-verbseq-pl of Self)
+                              else (the text-active-verbseq-sg of Self)
+       )))
+       (text-passive-verbseq ((if ((the text-number of Self) > 1)
+                               then (the text-passive-verbseq-pl of Self)
+                               else (the text-passive-verbseq-sg of Self)
+       )))
+
+       (text-active-phrase
+          ((if ((the number of (the text-active-verbseq of Self)) = 1)
+            then (the text-active-verbseq of Self)
+            else 
+              ((if ((the text-number of Self) = 1)
+                then ((:seq "does" (andify (the instance-of of Self))))
+                else ((:seq "do" (andify (the instance-of of Self))))))))
+       )
+       (text-passive-phrase
+          ((if ((the number of (the text-passive-verbseq of Self)) = 1)
+            then (the text-passive-verbseq of Self)
+            else
+              ((if ((the number of (the text-dobj of Self)) > 1)
+                then ((:seq 
+                         "have" 
+                         (andify (the instance-of of Self)) "done to them"))
+                else ((:seq 
+                         "has" 
+                         (andify (the instance-of of Self)) 
+                         "done to it")))))))
+
+       (text-sentence ((:seq (if (oneof (the superclasses of (the classes of Self))   ;; if this class has no verb
+                                  where ((the text-active-verbseq-sg of               ;; of its own...
+                                              (an instance of It))
+                                         =
+                                         (the text-active-verbseq-sg of Self)
+                                        )
+                                 )                                                    ;; ...prefix the sentence 
+                              then (:seq (the name of Self) "nospace" ":")            ;; with the class name
+                             )
+                             (if (has-value (the text-subj of Self))
+                              then (the text-active-sentence of Self)
+                              else (the text-passive-sentence of Self)
+                             )
+       )))
+
+       (text-active-sentence (
+          (:seq (the text-subj-phrase of Self)
+                (the text-active-phrase of Self)
+                (if ((the agent of Self) /= (the text-dobj of Self))
+                 then 
+                   (if (the text-dobj of Self) then
+                       (the text-dobj-phrase of Self)))
+                (the text-arguments of Self)
+       )))
+
+       (text-passive-sentence (
+          (if (has-value (the text-dobj of Self))
+           then (:seq (the text-dobj-phrase of Self)
+                      (the text-passive-phrase of Self)
+                      (the text-arguments of Self)
+                )
+           else (if ((not (has-value (the elements of (the text-arguments of Self))))  ;; no args
+                     and
+                     (not (has-value (the text-passive-verbseq of Self)))
+                    )
+                 then (the text-nom-sentence of Self)
+                 else (:seq "something" 
+                            (the text-passive-phrase of Self)
+                            (the text-arguments of Self)
+                      )
+                )
+       )))
+
+;===
+       ;; this is an approximation to finding the most specific of the
+       ;; instance's classes (it just finds one class that doesn't subsume
+       ;; any of the others)
+       (name ((if (anonymous-instancep Self) then
+                  (oneof ?c1 in (the classes of Self) where
+                         (not (oneof ?c2 in (the classes of Self) where 
+                              ((?c1 /= ?c2) and (?c1 subsumes ?c2))))))))
+
+;; The text-nominalization (which really comes from core classes
+;; only) is too general for QA. It often suggests something is
+;; true of a general class, when it is only true of a subclass
+;; whose text-nominalization is the same as that of its super.
+;; So use the text-nominalization only if it's defined for the
+;; exact class, not if it's inherited.
+#|
+       (text-head ((if (anonymous-instancep Self) then
+                       (if (has-value (the text-nominalization of Self))
+                        then (if ((:set "activity" "action") includes (the first of (the text-nominalization of Self)))
+                              then Self                               ;; prefer class name over overly general noms
+                              else (the first of (the text-nominalization of Self))
+                             )
+                        else Self
+                       )
+                    else
+                       (the name of Self)
+       )))
+|#
+
+       (text-head ((if ((has-value (the text-nominalization of Self))
+                        and
+                        (not (oneof ?sc in (the superclasses of (the classes of Self))
+                              where ((the first of (the text-nominalization of Self)) =
+                                     (the first of (the text-nominalization of (an instance of ?sc)))
+                                    )
+                             )
+                        )
+                       )
+                    then (the first of (the text-nominalization of Self))
+                    else (the name of Self)
+       )))
+
+       (text-def-determiner ((:seq "the")))
+       (text-indef-determiner (
+         (if ((:set "A" "E" "I" "O" "U" "a" "e" "i" "o" "u")
+              includes
+              (#'(LAMBDA () (STRING (CHAR (KM-UNIQUE0 '(|make-phrase| (|the| |text-head| |of| |Self|))) 0))))
+             )
+          then (:seq "an")
+          else (:seq "a")
+       )))
+
+
+
+       (text-def-head ((:seq (the text-def-determiner of Self)
+                             (the text-head of Self))))
+       (text-indef-head ((:seq (the text-indef-determiner of Self)
+                               (the text-head of Self))))
+
+;;     the text-indef-phrase is a little different
+;;     if there's a direct object, make the event head definite and the object indef
+;;     so the text-indef-phrase of a Create is "the creation of a result" (instead of "a creation of a result")
+       (text-indef-phrase ((if (has-value (the text-dobj of Self))
+                            then (:seq (the text-def-head of Self)
+                                       (if ((the text-dobj of Self) = (the result of Self))
+                                        then (the text-result of Self)
+                                        else (the text-object of Self)
+                                       )
+                                       (andify (the text-indef-head of (the text-dobj of Self)))
+                                 )
+                            else (the text-indef-head of Self)
+       )))
+                                       
+       (text-premodslots ((:seq manner duration acceleration acceleration-magnitude velocity speed
+                                rotational-rate frequency distance displacement
+                                direction rate
+;;                                object result                 ;; sometimes these are useful
+       )))
+
+       (text-premods (
+          (if (has-value (the text-premodslots of Self))
+           then
+             (forall-seq (the text-premodslots of Self)
+                   where ((has-value (the It of Self))
+                          and
+                          (not ((:set Thing Entity Intangible-Entity Spatial-Entity Place Tangible-Entity)
+                                 is-superset-of
+                                 (the instance-of of (the It of Self))))
+                         )
+                         (if (It isa Property) then
+                             (the text-phrase of (the It of Self))
+                          else
+                             (:seq (the text-premods of (the It of Self))
+                                   (the text-head of (the It of Self)))))
+       )))
+
+       (text-postmodslots ((:seq subevent-of            ;; don't add object or result, they're handled by text-dobj
+                                 raw-material agent donor recipient beneficiary instrument
+                                 #| resulting-state|# resulting-state-of #|causes|# caused-by        ;; could add the rest
+                                 origin destination toward away-from path)))
+     
+       (text-postmods (
+          (if (has-value (the text-postmodslots of Self))
+           then
+           (forall-seq (the text-postmodslots of Self)
+                 where (has-value (the It of Self))
+              (:seq (if (has-value (the text-slot of It))
+                     then (the (the text-slot of It) of Self))
+                    (if (It isa Property)
+                     then (the text-phrase of (the It of Self))
+                     else (andify (the text-def-head of (the It of Self)))
+                    )
+              )
+           )
+       )))
+
+       (text-base-phrase ((if (anonymous-instancep Self) then
+                              (:seq (the text-def-determiner of Self)
+                                    (the text-premods of Self)
+                                    (the text-head of Self)
+                                    (if ((the text-dobj of Self) = (the result of Self))
+                                     then (the (the text-slot of result) of Self)
+                                     else (the (the text-slot of object) of Self)
+                                    )
+                                    (the text-dobj-phrase of Self)
+                              )
+                           else 
+                              (:seq (the text-head of Self))
+       )))
+
+       (text-nom-sentence 
+             ((make-sentence
+                      ((if (has-value (the elements of (the text-postmods of Self))) then
+                           (:seq (the text-base-phrase of Self)
+                                 "is"
+                                 (the text-postmods of Self))
+                        else (if (has-value (the elements of (the text-premods of Self))) then
+                                 (:seq (the text-def-head of Self)
+                                       "is"
+                                       (the text-premods of Self))
+                              else (the text-existential-there of Self)
+       ))))))
+
+       (text-existential-there ((make-sentence 
+                                   (:seq "there is"
+                                         (the text-indef-phrase of Self)))))
+
+       (text-definition-sentence ((
+         (?sups == (allof ?sc in (the superclasses of (the classes of Self))
+                    where (not ((the text-indef-head of (an instance of ?sc))
+                                =
+                                (the text-indef-head of Self))
+                          )
+                   )
+         )
+         and
+         (?sup-text == (forall ?sup in ?sups
+                        (if (((?sup = Increase) or (?sup = Decrease))
+                             and
+                             (has-value (the property-slot of (the from-value of Self))))
+                         then (:seq (the text-indef-head of (an instance of ?sup))
+                                    "of" (the property-slot of (the from-value of Self)))
+                         else (the text-indef-head of (an instance of ?sup))
+                        )
+                       )
+         )
+         and
+         (if ?sups 
+          then (make-sentence (:seq (the text-indef-phrase of Self) 
+                                    "is"
+                                    (andify ?sup-text)
+               ))
+          else (the text-existential-there of Self)
+         )
+       )))
+
+       (text-phrase ((if (anonymous-instancep Self) then
+                         (:seq (the text-base-phrase of Self)
+                               (the elements of
+                                    (the text-postmods of Self)))
+                      else (the text-base-phrase of Self))))
+
+       (text-argslots ((:seq base instrument)))
+
+       (text-arguments (
+          (forall-seq (the text-argslots of Self)
+                where ((has-value (the It of Self)) and
+                       ((the It of Self) /= (the text-subj of Self)) and
+                       ((the It of Self) /= (the text-dobj of Self)))
+                (:seq ((if (has-value (the text-slot of It)) then
+                         (the1 of 
+                            (the (the text-slot of It) of Self))))
+
+                      ((if (
+                            ((:set Thing Entity Intangible-Entity
+                                   Spatial-Entity Place Tangible-Entity)
+                             is-superset-of
+                             (the instance-of of (the It of Self)))
+                           and
+                            ((the text-def-head of (the It of Self))
+                             =
+                             (:seq (:seq "the") (:seq (the It of Self) NIL)))
+                           )
+                        then
+                           (:seq "the" It)
+                        else
+                           ((if ((the number of (the It of Self)) = 1) then
+                                ((if ((the It of Self) isa String) then
+                                     (the It of Self)    ;; for text-particle
+                                  else
+                                     (the text-def-head of 
+                                          (the It of Self))))
+                             else
+                                (the text-def-head of 
+                                     (the It of Self)))))))
+       )))
+
+       (text-subevent-of        ((if (has-value (the subevent-of of Self))
+                                  then ("part of"))))
+       (text-object             ((if (has-value (the object of Self))
+                                  then ("of"))))
+       (text-result             ((if (has-value (the result of Self)) 
+                                  then ("of"))))
+       (text-raw-material       ((if (has-value (the raw-material of Self))
+                                  then ("out of"))))
+       (text-agent              ((if (has-value (the agent of Self))
+                                  then ("by"))))
+       (text-donor              ((if (has-value (the donor of Self))
+                                  then ("from"))))
+       (text-recipient          ((if (has-value (the recipient of Self))
+                                  then ("to"))))
+       (text-beneficiary        ((if (has-value (the beneficiary of Self))
+                                  then ("for"))))
+       (text-instrument         ((if (has-value (the instrument of Self))
+                                  then ("using"))))
+       (text-base               ((if (has-value (the base of Self)) 
+                                  then ("to"))))
+       (text-resulting-state    ((if (has-value (the resulting-state of Self))
+                                  then ("resulting in"))))
+       (text-resulting-state-of ((if (has-value (the resulting-state-of of Self))
+                                  then ("resulting from"))))
+       (text-causes             ((if (has-value (the causes of Self))
+                                  then ("causing"))))
+       (text-caused-by          ((if (has-value (the caused-by of Self))
+                                  then ("caused by"))))
+       (text-origin             ((if (has-value (the origin of Self))
+                                  then ("from"))))
+       (text-destination        ((if (has-value (the destination of Self))
+                                  then ("to"))))
+       (text-toward             ((if (has-value (the toward of Self))
+                                  then ("toward"))))
+       (text-away-from          ((if (has-value (the away-from of Self))
+                                  then ("away from"))))
+       (text-path               ((if (has-value (the path of Self))
+                                  then ("along"))))
+       (text-site               ((if (has-value (the site of Self))
+                                  then ("at"))))
+
+)
+
+(Event has 
+       (test-case   ('(
+                       (Knife has (superclasses (Physical-Object)))
+                       (every Knife has 
+                        (purpose ((a Instrument-Role with
+                                     (in-event 
+                                       ((a Cut)))))))
+                       
+                       (*K has (instance-of (Knife))
+                           (object-of ((a Be-Ruined))))
+                       
+                       (Cut has (superclasses (Event)))
+                       (every Cut has (instrument ((a Knife))))
+                       
+                       (a Cut with (instrument (*K)))
+                       
+                       (not (try-do (thelast Cut)))
+
+                       ))))
+
+(Event has (wn20-synset ((:set
+			  (:triple "event" 1 "n")
+			  (:triple "event" 3 "n")
+))))
+
+;;same-as constraint does a LISP string-compare when Self and TheValue have valid CLib text-description strings.
+;;returns null otherwise, i.e., they are not "same-as".
+;; (every Event has
+;;        (same-as (
+;;                  (constraint 
+;;                   (#'(LAMBDA () (LET ((DEBUG NIL)
+;;                                       (SELF-STRING (KM-UNIQUE0 
+;;                                                     '(|the| |text-description| |of| |Self|)))
+;;                                       (THEVALUE-STRING 
+;;                                        (KM-UNIQUE0 
+;;                                         '(|the| |text-description| |of| |TheValue|))))
+;;                                      (IF DEBUG (FORMAT T "(doing same-as test between ~a(~s) and ~a(~s).~%"
+;;                                                        '|Self| 
+;;                                                        SELF-STRING
+;;                                                        '|TheValue| 
+;;                                                        THEVALUE-STRING))
+;;                                      (AND (STRINGP SELF-STRING)
+;;                                           (STRINGP THEVALUE-STRING)
+;;                                           (STRING= SELF-STRING THEVALUE-STRING)))))))))
+
+
+; why are these constraints hosing chemistry?
+; (every Event has
+;   (disjunctive-next-events ((<> Self)))
+;   (disjunctive-next-events-of ((<> Self)))
+;   (first-subevent ((<> Self)))
+;   (first-subevent-of ((<> Self)))
+;   (next-event ((<> Self)))
+;   (prev-event ((<> Self)))
+;   (subevent ((<> Self)))
+;   (subevent-of ((<> Self)))
+;   (by-means-of ((<> Self)))
+;   (means-by-which ((<> Self)))
+;   (causes ((<> Self)))
+;   (caused-by ((<> Self)))
+;   (defeats ((<> Self)))
+;   (defeated-by ((<> Self)))
+;   (enables ((<> Self)))
+;   (enabled-by ((<> Self)))
+;   (inhibits ((<> Self)))
+;   (inhibited-by ((<> Self)))
+;   (objective ((<> Self)))
+;   (objective-of ((<> Self)))
+;   (prevents ((<> Self)))
+;   (prevented-by ((<> Self)))
+;   (resulting-state ((<> Self)))
+;   (resulting-state-of ((<> Self)))
+;   (supports ((<> Self)))
+;   (supported-by ((<> Self)))
+; )
+

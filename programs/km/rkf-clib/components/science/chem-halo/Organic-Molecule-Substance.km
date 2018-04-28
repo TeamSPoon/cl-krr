@@ -1,0 +1,16 @@
+;; 
+;;    $Id: Organic-Molecule-Substance.km,v 1.1 2006/03/16 23:08:29 jfan Exp $ 
+;; 
+
+(Organic-Molecule-Substance has
+			      (superclasses (Molecule-Substance))
+			      (test-case ()))
+
+(Organic-Molecule-Substance has
+  (user-description ((the user-description of Organic-Molecule))))
+
+(every Organic-Molecule-Substance has-definition
+       (instance-of (Chemical))
+       (has-basic-structural-unit ((a Organic-Molecule))))  ;; is this right?
+
+

@@ -1,0 +1,18 @@
+
+;;
+;; $Id: Compute-Molecule-from-Formula.km,v 1.7 2008/07/22 15:09:25 tecuci Exp $
+;;
+
+(Compute-Molecule-from-Formula has (superclasses (Method)))
+
+(every Compute-Molecule-from-Formula has
+       ;;(input ((a Thing)))
+       ;; hack, but Compute-Molecule-from-Formula is only called in Compute-Compound-Computing-Method-from-Formula
+       ;; which is only called in Compute-Compound-from-Chemical-Formula 
+       ;; which calls first translate-from-common-compound-formula (compute-chemical-from-defs)
+       ;; so this is supposed to ensure we return a Chemical-Entity with a chemical formula
+       (output ((if (has-value (the input of Self))
+		    then
+		  (a Chemical-Entity with
+		     (atomic-chemical-formula ((a Chemical-Formula with
+						  (term ((the input of Self)))))))))))

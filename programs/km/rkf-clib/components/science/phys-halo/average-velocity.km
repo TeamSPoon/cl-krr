@@ -1,0 +1,24 @@
+;;    $Id: average-velocity.km,v 1.11 2008/06/03 21:54:20 jchaw Exp $
+
+(average-velocity has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Move))
+  (range (Velocity-Vector-Value))
+  ;(scale-class (Velocity-Scale))
+  ;(scalar-constant-class (Velocity-Constant))
+  ;(cardinal-unit-class (UoM-Speed))
+  (inverse (average-velocity-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(average-velocity has (wn20-synset ((:set 
+				   (:triple "average velocity" 0 "n")
+;				   (:triple "average speed" 0 "n")
+))))
+
+(average-velocity-of has (instance-of (EventProperty)))
+(average-velocity has (name ("average velocity")))

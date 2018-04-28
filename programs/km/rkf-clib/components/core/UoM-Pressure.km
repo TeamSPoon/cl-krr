@@ -1,0 +1,43 @@
+;; 
+;;    $Id: UoM-Pressure.km,v 1.9 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(UoM-Pressure has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*pascal))
+ (instances (*pounds-per-square-inch *pascal *kilopascal *bar *millibar))
+)
+
+(*pounds-per-square-inch has (instance-of (UoM-Pressure))
+  (name ("psi"))
+  (wn20-synset ((:set (:triple "pounds per square inch" 1 "n")
+                      (:triple "psi" 1 "n")
+))))
+
+(*pascal has (instance-of (UoM-Pressure))
+  (name ("Pa"))
+  (wn20-synset ((:set (:triple "pascal" 1 "n")
+                       (:triple "pa" 1 "n")
+))))
+
+(*kilopascal has (instance-of (UoM-Pressure))
+  (name ("kPa"))
+  (wn20-synset ((:set (:triple "kilopascal" 0 "n")
+                       (:triple "kpa" 0 "n")
+))))
+
+(*bar has (instance-of (UoM-Pressure))
+  (name ("bar"))
+  (wn20-synset ((:set (:triple "bar" 7 "n")
+))))
+
+(*millibar has (instance-of (UoM-Pressure))
+  (name ("mbar"))
+  (wn20-synset ((:set (:triple "millibar" 1 "n")
+))))
+
+(*pounds-per-square-inch has (conversion-multiplier (6894.758)))
+(*pascal has (conversion-multiplier (1.0)))
+(*kilopascal has (conversion-multiplier (1000.0)))
+(*bar has (conversion-multiplier (100000.0)))
+(*millibar has (conversion-multiplier (100.0)))

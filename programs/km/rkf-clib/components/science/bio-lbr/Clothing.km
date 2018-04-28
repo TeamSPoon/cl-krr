@@ -1,0 +1,26 @@
+;; 
+;; $Id: Clothing.km,v 1.1 2006/06/27 20:44:03 kbarker Exp $
+;; 
+
+(Clothing has
+  (superclasses (Artifact))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("covering for the human body"))
+  (cmap-correspondence ())
+)
+
+(every Clothing has
+  (purpose ((a Instrument-Role with
+               (in-event ((a Protect with
+                             (object ((a Body-Part)))
+                             (instrument (Self))
+               )))
+  )))
+)
+
+(Clothing has (wn20-synset ((:set
+                                  (:triple "clothing" 1 "n")
+))))
+

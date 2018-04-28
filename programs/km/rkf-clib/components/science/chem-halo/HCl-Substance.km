@@ -1,0 +1,12 @@
+;;
+;; $Id: HCl-Substance.km,v 1.9 2008/11/03 03:11:26 tecuci Exp $ 
+;;
+
+(HCl-Substance has (superclasses (Bronsted-Lowry-Acid)))
+(every HCl-Substance has
+	(has-chemical-name ("hydrochloric"))
+	(has-basic-structural-unit ((a HCl)))
+)
+(every HCl-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a HCl))))

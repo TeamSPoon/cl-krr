@@ -1,0 +1,18 @@
+;; 
+;;    $Id: remaining-strength.km,v 1.5 2002/09/03 20:51:17 kbarker Exp $
+;; 
+
+(remaining-strength has
+   (instance-of (Property))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Military-Unit))    
+   (range       (Remaining-Strength-Value))
+   (cardinal-unit-class   (UoM-Unitless))
+   (scalar-constant-class (Remaining-Strength-Constant))
+   (inverse 	(remaining-strength-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (cardinality (N-to-1))
+)
+

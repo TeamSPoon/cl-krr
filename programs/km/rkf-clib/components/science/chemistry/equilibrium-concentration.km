@@ -1,0 +1,20 @@
+;; 
+;;  $Id: equilibrium-concentration.km,v 1.1 2003/02/11 22:09:35 pzyeh Exp $
+;; 
+
+(equilibrium-concentration has
+  (instance-of (Property))
+  (domain      (Chemical))
+  (range       (Concentration-Value))
+  (scalar-constant-class (Concentration-Constant))   
+  (cardinal-unit-class   (UoM-Concentration))   
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     (equilibrium-concentration-of))
+  (cardinality (N-to-1))
+)
+
+(equilibrium-concentration-of has
+  (combine-values-by-appending (t))
+)
+

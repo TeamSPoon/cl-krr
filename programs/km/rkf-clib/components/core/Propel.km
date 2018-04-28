@@ -1,0 +1,35 @@
+;;
+;; $Id: Propel.km,v 1.8 2005/10/25 03:02:10 sdbaji Exp $
+;;
+
+(Propel has
+  (superclasses  (Move))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Propel has
+  (agent       ((must-be-a Entity)))
+  (object      ((a Tangible-Entity with
+                   (is-near ((the agent of Self))))))
+  (toward      ((a Spatial-Entity with
+                   (plays ((a Target))))))
+  (destination ((the toward of Self)))  ; we're normative, so as long as
+                                        ; the Action is simulatable, we
+                                        ; hit the target
+)
+
+
+
+
+;; automatically added WN synsets
+(Propel has (wn16-synset ((:set  
+                                     (:triple "propel" 1 "v")
+                                     (:triple "impel" 2 "v")
+))))
+
+(Propel has (wn20-synset ((:set
+                                     (:triple "propel" 1 "v")
+                                     (:triple "impel" 2 "v")
+))))
+
+(every Propel has (text-nominalization ("propulsion")))

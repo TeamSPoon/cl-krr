@@ -1,0 +1,29 @@
+Block   
+  superclass: Tactical-Mission-Task 
+  superclass: Block 
+  agent: Military-Unit <----> Actor  
+  base: Military-Unit <----> Acted on 
+  object: Place <----> Location            [This is defined as the Block Line in Morrison's document] 
+  instrument: Tangible-Entity plays Barrier 
+  objective: Make-Inaccessible with 
+                       agent:  M-U called "friendly forces" 
+                       object: Place 
+                       base: MU called "enemy forces" 
+                  Action with 
+                       prevents: Move 
+                                         object: MU called "enemy forces" 
+                                         direction: *forward 
+                                         path: Avenue-of-Approach 
+                        
+                      
+ 
+Note:  The military block concept is close to the core library block. 
+Note: agent is required (see 3 below) 
+Note: Direction *forward presupposes notion of Advance 
+ 
+Block (E). 
+=====. 
+1. Block is a tactical mission task that denies the enemy access to an area or prevents his advance in a direction or along an avenue of approach. 
+2. A blocking force may employ blocking obstacles to assist in the task. 
+3. Obstacles alone cannot accomplish a blocking task. 
+4. Block as a tactical mission task differs from the tactical mission task of fix because a blocked enemy force can move in any direction other than the obstructed one, while a fixed enemy force cannot move in any direction. 

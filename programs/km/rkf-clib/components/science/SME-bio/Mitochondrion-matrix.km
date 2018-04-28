@@ -1,0 +1,141 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Mitochondrion-matrix ----------
+
+(Mitochondrion-matrix has (superclasses (Subcellular-Entity Spatial-Entity)))
+
+(_Mitochondrion-matrix10 has 
+  (instance-of (Mitochondrion-matrix))
+  (prototype-of (Mitochondrion-matrix))
+  (prototype-scope (Mitochondrion-matrix))
+  (prototype-participants (_DNA15
+                           _Mitochondrion-matrix10
+                           _Ribosome13
+                           _Cellular-respiration16
+                           _Enzyme17
+                           _Respiratory-enzyme19))
+  (prototype-participant-of (_Mitochondrion-matrix10))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 515 736)))
+  (has-part (_Ribosome13
+             _DNA15))
+  (edge-coordinate ((:seq has-part _DNA15 733 672)
+                    (:seq has-part _Ribosome13 733 672)))
+  (edge-visibility ((:seq has-part _DNA15 t)
+                    (:seq has-part _Ribosome13 t)))
+  (edge-never-visible ((:seq has-part _DNA15 f)
+                       (:seq has-part _Ribosome13 f)))
+  (encloses (_Respiratory-enzyme19
+             _Enzyme17
+             _Ribosome13
+             _DNA15)))
+
+(_DNA15 has 
+  (instance-of (DNA))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (is-part-of (_Mitochondrion-matrix10))
+  (is-inside (_Mitochondrion-matrix10))
+  (node-coordinate ((:pair 619 567)))
+  (edge-coordinate ((:seq is-inside _Mitochondrion-matrix10 600 629)))
+  (edge-visibility ((:seq is-inside _Mitochondrion-matrix10 t)))
+  (edge-never-visible ((:seq is-inside _Mitochondrion-matrix10 f)))
+  (prototype-participant-of (_Mitochondrion-matrix10)))
+
+(_Ribosome13 has 
+  (prototype-participant-of (_Mitochondrion-matrix10))
+  (is-part-of (_Mitochondrion-matrix10))
+  (is-inside (_Mitochondrion-matrix10))
+  (instance-of (Ribosome))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 664 451)))
+  (edge-coordinate ((:seq is-inside _Mitochondrion-matrix10 445 528)))
+  (edge-visibility ((:seq is-inside _Mitochondrion-matrix10 t)))
+  (edge-never-visible ((:seq is-inside _Mitochondrion-matrix10 f))))
+
+(_Cellular-respiration16 has 
+  (prototype-participant-of (_Mitochondrion-matrix10))
+  (instrument (_Enzyme17))
+  (instance-of (Cellular-respiration))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq instrument _Enzyme17 423 411)))
+  (edge-visibility ((:seq instrument _Enzyme17 t)))
+  (edge-never-visible ((:seq instrument _Enzyme17 f)))
+  (node-coordinate ((:pair 531 372))))
+
+(_Enzyme17 has 
+  (prototype-participant-of (_Mitochondrion-matrix10))
+  (is-inside (_Mitochondrion-matrix10))
+  (instance-of (Enzyme
+                Tangible-Entity
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (instrument-of (_Cellular-respiration16))
+  (edge-coordinate ((:seq is-inside _Mitochondrion-matrix10 319 616)))
+  (edge-visibility ((:seq is-inside _Mitochondrion-matrix10 t)))
+  (edge-never-visible ((:seq is-inside _Mitochondrion-matrix10 f)))
+  (node-coordinate ((:pair 293 500))))
+
+(_Respiratory-enzyme19 has 
+  (prototype-participant-of (_Mitochondrion-matrix10))
+  (is-inside (_Mitochondrion-matrix10))
+  (instance-of (Respiratory-enzyme))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq is-inside _Mitochondrion-matrix10 774 733)))
+  (edge-visibility ((:seq is-inside _Mitochondrion-matrix10 t)))
+  (edge-never-visible ((:seq is-inside _Mitochondrion-matrix10 f)))
+  (node-coordinate ((:pair 789 669))))
+
+(explanation (:triple _Mitochondrion-matrix10 instance-of Spatial-Entity)
+  ((a Spatial-Entity (@ _DNA15 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Mitochondrion-matrix10 has-part _DNA15)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Mitochondrion-matrix10 instance-of Placeholder-Class9)
+  ((added-at Placeholder-Class9 "User defined")))
+(explanation (:triple _Mitochondrion-matrix10 has-part _Ribosome13)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Mitochondrion-matrix10 instance-of Spatial-Entity)
+  ((a Spatial-Entity (@ _Ribosome13 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _DNA15 is-inside _Mitochondrion-matrix10)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _DNA15 instance-of DNA)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Ribosome13 instance-of Ribosome)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Ribosome13 is-inside _Mitochondrion-matrix10)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Cellular-respiration16 instance-of Cellular-respiration)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Cellular-respiration16 instrument _Enzyme17)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Enzyme17 instance-of Enzyme)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Enzyme17 instance-of Tangible-Entity)
+  ((a Tangible-Entity (@ _Cellular-respiration16 Create (instrument must-be-a)))))
+(explanation (:triple _Enzyme17 instance-of Entity)
+  ((a Entity (@ _Cellular-respiration16 Action (instrument must-be-a)))))
+(explanation (:triple _Enzyme17 instance-of Entity)
+  ((a Entity with (abuts ((if (has-value (the agent of _Cellular-respiration16) (@ _Cellular-respiration16 Event (instrument must-be-a) Entity abuts)) then (the agent of _Cellular-respiration16 (@ _Cellular-respiration16 Event (instrument must-be-a) Entity abuts)) (@ _Cellular-respiration16 Event (instrument must-be-a) Entity abuts)))) (@ _Cellular-respiration16 Event (instrument must-be-a)))))
+(explanation (:triple _Enzyme17 is-inside _Mitochondrion-matrix10)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Respiratory-enzyme19 instance-of Respiratory-enzyme)
+  ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Respiratory-enzyme19 is-inside _Mitochondrion-matrix10)
+  ((added-at Mitochondrion-matrix "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

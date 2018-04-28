@@ -1,0 +1,55 @@
+;; 
+;;    $Id: Salt-Substance.km,v 1.7 2008/11/11 21:43:46 tecuci Exp $
+;; 
+
+(Salt-Substance has
+      (superclasses (Ionic-Compound-Substance))
+      (test-case ()))
+
+(Salt-Substance has
+  (user-description ("A Chemical whose basic structural unit is a Salt (an ionic compound formed by replacing one or more H+ of an acid by other cations).")))
+
+(every Salt-Substance has-definition
+       (instance-of (Chemical [Salt-Substance-instance-of-1]))
+       (has-basic-structural-unit ((a Salt))))
+
+;; Salt is an Ionic-Compound that is not Base, Acid or H2O
+(a Partition with (members (Salt-Substance Base Acid)))
+(a Partition with (members (Salt-Substance H2O)))
+
+(comment [Salt-Substance-instance-of-1]
+  (:seq (the text-gen of Self)
+        "is made up of"
+        (the text-gen of 
+             (the Anion has-part of (the has-basic-structural-unit of Self)))
+        "and"
+        (the text-gen of 
+             (the Cation has-part of (the has-basic-structural-unit of Self)))
+        "nospace" 
+        ", and is therefore a salt"
+  )
+  "A chemical is a salt if it is made up of a cation that comes from a base and an anion that comes from an acid" 
+)
+
+(every Salt-Substance has
+       (physical-state ((a State-Value with
+		  (value (*solid))
+                [Salt-Substance-state-1]
+       )))
+)
+
+(comment [Salt-Substance-state-1]
+  (:seq (the text-gen of Self)
+        "is made up of the metal"
+        (the text-gen of 
+             (the Cation has-part of
+                  (the has-basic-structural-unit of Self)))
+        "and the nonmetal"
+        (the text-gen of 
+             (the Anion has-part of
+                  (the has-basic-structural-unit of Self)))
+        "and is therefore a solid at room temperature"
+  )
+  "Ionic compounds made of a metal and a nonmetal are solids at room temperature"
+)
+

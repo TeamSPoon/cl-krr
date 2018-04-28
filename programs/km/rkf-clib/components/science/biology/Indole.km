@@ -1,0 +1,125 @@
+;; 
+;;    $Id: Indole.km,v 1.9 2001/09/25 19:53:53 kbarker Exp $ 
+;; 
+
+(Indole has
+	(superclasses (Heterocyclic-Compound))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+	(description ("An azole ring fused to a benzene ring.  Souther."))
+	(cmap-correspondence ()))
+
+(every Indole has
+       (has-part
+        (
+         (a Nitrogen-Atom uniquely-called "Nitrogen-1" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument ((a Covalent-CN-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument ((a Covalent-CN-Bond))))
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "N1-Hydrogen")))
+                 (instrument ((a Covalent-NH-Bond))))    
+	      )))
+	 
+         (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To with                        
+                 (object (((the has-part of Self) uniquely-called "Carbon-3")))
+                 (instrument ((a Double-Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C2-Hydrogen")))
+                 (instrument ((a Covalent-CH-Bond)))))))
+
+         (a Carbon-Atom uniquely-called "Carbon-3" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument ((a Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C3-Hydrogen")))
+                 (instrument ((a Covalent-CH-Bond))) )
+	      )))
+         (a Carbon-Atom uniquely-called "Carbon-4" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C4-Hydrogen")))
+                 (instrument ((a Covalent-CH-Bond))) )    
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument ((a Double-Covalent-CC-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-9")))
+                 (instrument ((a Covalent-CC-Bond)))))))
+
+         (a Carbon-Atom uniquely-called "Carbon-5" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C5-Hydrogen")))
+                 (instrument ((a Covalent-CH-Bond))) )    
+              (a Be-Attached-To with
+		 (object (((the has-part of Self) uniquely-called "Carbon-6")))
+                 (instrument ((a Covalent-CC-Bond)))
+		 ))))
+
+         (a Carbon-Atom uniquely-called "Carbon-6" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C6-Hydrogen")))
+                 (instrument ((a Covalent-CH-Bond))) )    
+              (a Be-Attached-To with
+		 (object (((the has-part of Self) uniquely-called "Carbon-7")))
+                 (instrument ((a Double-Covalent-CC-Bond)))  
+		 ))))
+         (a Carbon-Atom uniquely-called "Carbon-7" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C7-Hydrogen")))
+                 (instrument ((a Covalent-CH-Bond))) )    
+              (a Be-Attached-To with
+                     (object (((the has-part of Self) uniquely-called "Carbon-8")))
+		     (instrument ((a Covalent-CC-Bond)))  
+		     ))))
+         (a Carbon-Atom uniquely-called "Carbon-8" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C8-Hydrogen")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-9")))
+                 (instrument ((a Double-Covalent-CC-Bond)))
+                 ))))       
+         (a Carbon-Atom uniquely-called "Carbon-9" with
+	    (object-of
+	     (
+	      (a Be-Attached-To with
+		 (object (((the has-part of Self) uniquely-called "C9-Hydrogen")))
+		 (instrument ((a Covalent-CH-Bond))) )
+	      )))
+	 
+	 (a Hydrogen-Atom uniquely-called "N1-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C3-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C4-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C5-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C6-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C7-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C8-Hydrogen")
+	 (a Hydrogen-Atom uniquely-called "C9-Hydrogen")
+	 )))
+
+
+
+

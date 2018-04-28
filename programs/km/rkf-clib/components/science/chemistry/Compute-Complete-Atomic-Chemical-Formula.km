@@ -1,0 +1,72 @@
+;; 
+;;    $Id: Compute-Complete-Atomic-Chemical-Formula.km,v 1.3 2003/09/23 15:39:10 jfan Exp $
+;; 
+
+(Compute-Complete-Atomic-Chemical-Formula has
+ 	     (superclasses (Method))
+	     (description ("compute complete atomic formula of a chemical substance")))
+
+(every Compute-Complete-Atomic-Chemical-Formula has
+      (input ((a Chemical)))
+       (multiplier ((if (the coefficient of (the input of Self)) then
+		      (the1 of 
+			    (the value of 
+				 (the coefficient of (the input of Self))))
+		     else
+		      1)))
+       (output ((a Chemical-Formula with 
+		   (term 
+		    ((forall-seq (the term of 
+				      (the atomic-chemical-formula of 
+					   (the has-basic-structural-unit of
+						(the input of Self))))
+				 (:pair ((the1 of It) * (the multiplier of Self))
+					(the2 of It)))))
+		   [Compute-Complete-Atomic-Chemical-Formula-output-1]	
+		   )))
+)
+		
+(comment [Compute-Complete-Atomic-Chemical-Formula-output-1]
+    (:seq
+     "In its original form, "
+     (the text-gen of (the input of Self))
+     "has/have the following composition,"
+     (forall-seq (the term of 
+		      (the atomic-chemical-formula of 
+			   (the has-basic-structural-unit of
+				(the input of Self))))
+		 (:set (make-phrase (the1 of It))
+		       (make-phrase (the2 of It))
+		       "atom/s,"))
+     " only."
+     (if ((the multiplier of Self) = 1) then
+       "Since the coefficient value is 1, thus the atomic composition is not changed."
+       else
+       (:set
+	"We proceed to account for the coefficient value."
+	"The complete atomic chemical formula for "
+	(the text-gen of (the input of Self))
+	"having coefficient "
+	(the multiplier of Self)
+	"is/are"
+	(forall-seq (the term of (the output of Self))
+		    (:set (make-phrase (the1 of It))
+			  (make-phrase (the2 of It))
+			  "atom/s,"))
+	"only."))
+     )
+  "The complete atomic chemical formula of a chemical is derived by multiplying each atom's cardinality by the coefficient associated with the chemical."
+)
+
+(Compute-Complete-Atomic-Chemical-Formula has
+     (test-case 
+      ('(((the term of 
+	       (the output of 
+		    (an instance of Self with
+			(input 
+			 ((a HCl-Substance with
+			     (coefficient 
+			      ((a Coefficient-Value with 
+				  (value ((:pair 2 nil)))))))))))) = 
+	  (:seq (:pair 2 H) (:pair 2 Cl)))))))
+				    

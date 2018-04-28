@@ -1,0 +1,19 @@
+
+;;
+;; $Id: Conservation-of-Volume.km,v 1.1 2005/09/01 15:53:23 jfan Exp $
+;;
+
+(Conservation-of-Volume has
+  (superclasses (Method)))
+
+;;; The total volume of a solution resulting from a Mix action is the 
+;;; sum of the volumes of the solutions that are the raw-materials for the Mix 
+;;; Note: this version only works when the Mix has a single result.
+
+(every Conservation-of-Volume has
+  (context ((a Mix)))
+
+  (input ((the volume of (the raw-material of (the context of Self)))))
+  (output ((the volume of (the result of (the context of Self)))))
+)
+

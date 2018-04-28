@@ -1,0 +1,27 @@
+;; 
+;;    $Id: distance.km,v 1.15 2007/07/02 21:14:09 jchaw Exp $ 
+;; 
+
+(distance has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Event))
+   (range       (Length-Value))
+   (scale-class (Distance-Scale))
+   (scalar-constant-class (Distance-Constant))
+   (cardinal-unit-class   (UoM-Length))
+   (inverse 	(distance-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(distance has (wn20-synset ((:set
+                               (:triple "distance" 1 "n")
+                               (:triple "displacement" 3 "n")
+                               (:triple "translation" 7 "n")
+))))
+
+(distance-of has
+	(instance-of (EventProperty)))

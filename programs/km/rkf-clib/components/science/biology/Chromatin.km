@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Chromatin.km,v 1.10 2001/06/03 06:16:35 souther Exp $ 
+;; 
+
+(Chromatin has
+         (superclasses (Organic-Substance))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Complex of DNA, histones, and nonhistone proteins found
+                        in the nucleus of a eucaryotic cell.  The material of
+                        which chromosomes are made. Alberts:ECB:G-4."))
+         (test-case ()))
+
+(every Chromatin has 
+       (material-of ((a Chromosome))))
+
+
+
+
+

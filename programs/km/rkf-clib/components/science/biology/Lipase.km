@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Lipase.km,v 1.5 2001/05/15 21:19:38 jfan Exp $ 
+;; 
+
+(Lipase has
+         (superclasses (Catabolic-Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Enzyme that catalyzes the cleavage of fatty acids from
+                        from the glycerol moiety.  Alberts:MBC:G-14."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Lipase has
+       (purpose ((a Catalyst with
+		    (in-event ((a Lipolysis))))))
+       )
+
+

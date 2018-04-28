@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Deaminase.km,v 1.5 2001/05/15 21:19:23 jfan Exp $ 
+;; 
+
+(Deaminase has
+         (superclasses (Removal-Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Enzyme that removes an amino group from a
+                        molecule. Souther."))
+         (test-case ()))
+
+(every Deaminase has       
+       (purpose ((a Catalyst with
+                    (in-event ((a Deamination)))
+		    ))))
+
+
+

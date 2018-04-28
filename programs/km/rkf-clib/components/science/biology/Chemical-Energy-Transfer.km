@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Chemical-Energy-Transfer.km,v 1.2 2001/05/01 22:30:18 pnav Exp $ 
+;; 
+
+(Chemical-Energy-Transfer has
+        (superclasses   (Energy-Transfer))
+        (required-slot  (object donor recipient))
+        (primary-slot   (agent instrument))
+        (secondary-slot ())
+	(description	("The transfer of chemical energy from one entity to 
+                          another.  Souther. ")))
+
+(every Chemical-Energy-Transfer has
+  (donor        ((a Chemical-Entity)))
+  (recipient    ((a Chemical-Entity)))
+  (object       ((a Chemical-Energy)))
+  )
+
+
+
+
+

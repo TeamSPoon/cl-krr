@@ -1,0 +1,16 @@
+;;
+;;    $Id: ChatMessage.km,v 1.5 2004/09/28 01:10:58 jchaw Exp $
+;;
+
+(ChatMessage has
+	    (superclasses (Electronic-Message ChatElement)))
+
+
+;;Content can be modeled using the has-part slot, which is defined in Form-Document component.
+;;The has-part slot expects the Message-Field component. This is used to represent textual content.
+;;Form-Document is a grand-parent superclass of ChatMessage. Below is the inheritance hierarchy.
+;;
+;;Document
+;;  Form-Document
+;;    Electronic-Message
+;;      ChatMessage

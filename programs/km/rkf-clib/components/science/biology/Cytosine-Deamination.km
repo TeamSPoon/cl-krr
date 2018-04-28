@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Cytosine-Deamination.km,v 1.9 2002/09/05 01:45:32 kbarker Exp $ 
+;; 
+
+(Cytosine-Deamination has
+		      (superclasses  (Deamination))
+		      (required-slot (object base))
+		      (primary-slot  (agent instrument))
+		      (description   ("The loss of an amino group from a cytosine base
+                               in a DNA molecule.  
+                               Souther, see Alberts:ECB:202.")))
+
+(every Cytosine-Deamination has
+       (agent        ((a Living-Entity)))
+; clashes with base of superclass
+;       (base       ((a Cytosine with
+;			 (is-part-of ((a DNA-Strand))))))
+       (object       ((a Amino-Group)))
+       (result       ((a Uracil)))
+       )
+
+
+
+
+

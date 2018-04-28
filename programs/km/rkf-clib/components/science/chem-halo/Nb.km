@@ -1,0 +1,14 @@
+;;
+;; $Id: Nb.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Nb has (superclasses (Metal-Atom VB-Element)))
+(every Nb has
+       (atomic-symbol (Nb))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 41 NIL))))))
+       (chemical-period (5)))
+(every Nb has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("niobium"))
+)

@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Be-Attached-To.km,v 1.15 2004/10/26 21:30:06 porter Exp $ 
+;; 
+
+(Be-Attached-To has
+		(superclasses   (Be-Touching))
+		(required-slot  ())
+		(primary-slot   (instrument))
+                (caused-by-class      (Attach))
+                (defeated-by-class    (Detach))
+		(cmap-correspondence (
+			(:seq object "the attached objects")
+			(:seq instrument "the connector")
+		     )))
+
+(every Be-Attached-To has
+       (object      ((exactly 2 Tangible-Entity)))
+)
+
+(every Be-Attached-To has
+   (text-particle ("attached"))
+)
+
+#| 
+     Be-Attached-To results from a Attach with either two objects
+     or one object and one base;
+     It is defeated by a Detach with either two objects or one
+     object and one source;
+     but all that complexity is handled in Attach and Detach -- Be-Attached-To
+     always has two objects
+|#
+
+
+(Be-Attached-To has (wn20-synset ((:set
+				   (:triple "attached" 1 "a")
+				   (:triple "attach" 2 "v")
+))))
+

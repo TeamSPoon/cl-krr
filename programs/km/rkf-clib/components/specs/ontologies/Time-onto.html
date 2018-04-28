@@ -1,0 +1,1024 @@
+<!-- $Id: Time-onto.html,v 1.8 2005/01/19 21:08:08 kbarker Exp $ -->
+
+<html>
+<head>
+
+<title>The Time Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Time</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">The Time ontology specifies Calo's representation
+for temporal entities, relations and predicates (KM operators).</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>the <a href="http://www.cs.rochester.edu/~ferguson/daml/">DAML-Time Ontology</a> 
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+<ul>
+<li>Thing 
+    <ul>
+    <li><a href=#Entity><b>Entity</b></a>
+    <li><a href=#Event><b>Event</b></a>
+    <li>Property-Group
+        <ul>
+        <li>Constant
+            <ul>
+            <li><a href=#Day-Constant><b>Day-Constant</b></a>
+            <li><a href=#Time-Zone-Constant><b>Time-Zone-Constant</b></a>
+            </ul>
+        <li>Property-Value
+            <ul>
+            <li><a href=#Duration-Value><b>Duration-Value</b></a>
+            </ul>
+        <li>Unit-of-Measurement
+            <ul>
+            <li><a href=#UoM-Duration><b>UoM-Duration</b></a>
+            <li><a href=#UoM-Time><b>UoM-Time</b></a>
+            </ul>
+        </ul>
+    <li><a href=#Temporal-Entity><b>Temporal-Entity</b></a>
+        <ul>
+        <li><a href=#Time-Instant><b>Time-Instant</b></a>
+        <li><a href=#Time-Interval><b>Time-Interval</b></a>
+        </ul>
+    </ul>
+</ul>
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Operators</div>
+<div class="boxbody">
+<ul>
+<li><a href=#Operators><b>time-eq</b></a>
+<li><a href=#Operators><b>time-gt</b></a>
+<li><a href=#Operators><b>time-lt</b></a>
+<li><a href=#Operators><b>time-gte</b></a>
+<li><a href=#Operators><b>time-lte</b></a>
+<li><a href=#Operators><b>time-starts-or-during</b></a>
+<li><a href=#Operators><b>time-non-overlap</b></a>
+</ul>
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<a name=Entity>
+<table>
+<tr><td>
+
+<div class="boxtop">Entity</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>The top-level class of "things that are" (as opposed to "things that
+        happen"). Entity is not part of the Calo Time ontology, but all
+        Entities have a time-of-existence.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Entity with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Entity-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td><td><i>slot inverse</i></td></tr>
+    <tr><td><pre>time-of-existence</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Interval)</pre></td><td><pre>time-of-existence-of</pre></td></tr>
+    <tr><td colspan=4><i>+ slots not relevant to time</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Entity with
+   (time-of-existence ((a Time-Interval with
+                          (time-begins ((a Time-Instant with
+                                           (time-value ((:pair 2001 *year)
+                                                        (:pair 2 *month)
+                                                        (:pair 5 *day)
+                                                        (:pair 17 *hour)
+                                                        *CST
+                                                        *Monday
+                                           ))
+                          )))
+                          (time-ends   ((a Time-Instant with
+                                           (time-value ((:pair 2003 *year)
+                                                        (:pair 2 *month)
+                                                        (:pair 4 *day)
+                                                        (:pair 16 *hour)
+                                                        (:pair 59 *minute)
+                                                        *CST
+                                                        *Wednesday
+                                           ))
+                          )))
+   )))
+)</pre></td></tr>
+
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Event>
+<table>
+<tr><td>
+
+<div class="boxtop">Event</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>The top-level class of "things that happen" (as opposed to "things 
+        that are"). Event is not part of the Calo Time ontology, but all
+        Events have a time-at.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Event with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Event-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td><td><i>slot inverse</i></td></tr>
+    <tr><td><pre>duration</pre></td><td align=center><pre>1</pre></td><td><pre>(a Duration-Value)</pre></td><td><pre>duration-of</pre></td></tr>
+    <tr><td><pre>time-at</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td><td><pre>time-of</pre></td></tr>
+    <tr><td><pre>time-during</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Interval)</pre></td><td><pre>time-contains</pre></td></tr>
+    <tr><td colspan=4><i>+ slots not relevant to time</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Event with
+   (time-during ((a Time-Interval with
+                    (time-begins ((a Time-Instant with
+                                     (time-value ((:pair 1999 *year)
+                                                  (:pair 12 *month)
+                                                  (:pair 31 *day)
+                                                  (:pair 23 *hour)
+                                                  (:pair 59 *hour)
+                                                  (:pair 50 *second)
+                                                  *PST
+                                 ))
+                    )))
+                    (time-ends   ((a Time-Instant with
+                                     (time-value ((:pair 2000 *year)
+                                                  (:pair 1 *month)
+                                                  (:pair 1 *day)
+                                                  (:pair 0 *hour)
+                                                  *PST
+                                 ))
+                    )))
+   )))
+   (duration ((a Duration-Value with
+                 (value ((:pair 10 *second)
+                         (:pair *brief Event)))
+   )))
+)</pre></td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td><pre>(a Event with
+   (time-at ((a Time-Instant with
+                (time-value ((:pair 0 *hour)
+                             (:pair 0 *minute)
+                             *Saturday
+                ))
+   )))
+)</pre></td></tr>
+
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Day-Constant>
+<table>
+<tr><td>
+
+<div class="boxtop">Day-Constant</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Named instances for the days of the week.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Instances</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>*Sunday</pre></td></tr>
+    <tr><td><pre>*Monday</pre></td></tr>
+    <tr><td><pre>*Tuesday</pre></td></tr>
+    <tr><td><pre>*Wednesday</pre></td></tr>
+    <tr><td><pre>*Thursday</pre></td></tr>
+    <tr><td><pre>*Friday</pre></td></tr>
+    <tr><td><pre>*Saturday</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Time-Zone-Constant>
+<table>
+<tr><td>
+
+<div class="boxtop">Time-Zone-Constant</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Named instances for the common time zones.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Instances</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>*IDLW     ; -12</pre></td></tr>
+    <tr><td><pre>*HST      ; -10</pre></td></tr>
+    <tr><td><pre>*AKST     ; -9</pre></td></tr>
+    <tr><td><pre>*AKDT     ; -8</pre></td></tr>
+    <tr><td><pre>*PST      ; -8</pre></td></tr>
+    <tr><td><pre>*PDT      ; -7</pre></td></tr>
+    <tr><td><pre>*MST      ; -7</pre></td></tr>
+    <tr><td><pre>*MDT      ; -6</pre></td></tr>
+    <tr><td><pre>*CST      ; -6</pre></td></tr>
+    <tr><td><pre>*CDT      ; -5</pre></td></tr>
+    <tr><td><pre>*EST      ; -5</pre></td></tr>
+    <tr><td><pre>*EDT      ; -4</pre></td></tr>
+    <tr><td><pre>*AST      ; -4</pre></td></tr>
+    <tr><td><pre>*ADT      ; -3</pre></td></tr>
+    <tr><td><pre>*NST      ; -3.5</pre></td></tr>
+    <tr><td><pre>*NDT      ; -2.5</pre></td></tr>
+    <tr><td><pre>*UTC      ; +0</pre></td></tr>
+    <tr><td><pre>*GMT      ; +0</pre></td></tr>
+    <tr><td><pre>*WET      ; +0</pre></td></tr>
+    <tr><td><pre>*IST      ; +1</pre></td></tr>
+    <tr><td><pre>*WEST     ; +1</pre></td></tr>
+    <tr><td><pre>*CET      ; +1</pre></td></tr>
+    <tr><td><pre>*CEST     ; +2</pre></td></tr>
+    <tr><td><pre>*EET      ; +2</pre></td></tr>
+    <tr><td><pre>*EEST     ; +3</pre></td></tr>
+    <tr><td><pre>*MSK      ; +3</pre></td></tr>
+    <tr><td><pre>*MSD      ; +4</pre></td></tr>
+    <tr><td><pre>*GET      ; +4</pre></td></tr>
+    <tr><td><pre>*GEST     ; +5</pre></td></tr>
+    <tr><td><pre>*KGT      ; +5</pre></td></tr>
+    <tr><td><pre>*KGST     ; +6</pre></td></tr>
+    <tr><td><pre>*CXT      ; +7</pre></td></tr>
+    <tr><td><pre>*AWST     ; +8</pre></td></tr>
+    <tr><td><pre>*JST      ; +9</pre></td></tr>
+    <tr><td><pre>*KST      ; +9</pre></td></tr>
+    <tr><td><pre>*KDT      ; +10</pre></td></tr>
+    <tr><td><pre>*ACST     ; +9.5</pre></td></tr>
+    <tr><td><pre>*ACDT     ; +10.5</pre></td></tr>
+    <tr><td><pre>*AEST     ; +10</pre></td></tr>
+    <tr><td><pre>*AEDT     ; +11</pre></td></tr>
+    <tr><td><pre>*IDLE     ; +12</pre></td></tr>
+    <tr><td><pre>*NZST     ; +12</pre></td></tr>
+    <tr><td><pre>*NZDT     ; +13</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Duration-Value>
+<table>
+<tr><td>
+
+<div class="boxtop">Duration-Value</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Property-Value for time durations.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Duration-Value with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Duration-Value-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>The time-iCalendar-duration-string slot can be queried for an iCalendar-format 
+        duration string (P[wwW][ddD]T[hhH][mmM][ssS]). The infix "T" only appears if at
+        least one of the hours, minutes and seconds parts is non-NIL. The minutes part
+        appears as "0M" if it is NIL and the hours and seconds parts are non-NIL.<br><br>
+
+        The time-iCalendar-duration-string slot should only be queried, as its value is 
+        computed from the Duration-Value structure.<br><br>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>time-iCalendar-duration-string</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Duration-Value with (value ((:pair 7 *week))))
+
+KM> (the time-iCalendar-duration-string of (thelast Duration-Value))
+("P7W")</pre></td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td><pre>(a Duration-Value with (value ((:pair 15 *day) 
+                               (:pair 5 *hour) 
+                               (:pair 20 *second)
+)))
+
+KM> (the time-iCalendar-duration-string of (thelast Duration-Value))
+("P15DT5H0M20S")</pre></td></tr>
+
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=UoM-Duration>
+<table>
+<tr><td>
+
+<div class="boxtop">UoM-Duration</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Named instances for legal units of measure within descriptions of
+        duration. Note that for unit conversion *year is equal to 365 *day
+        and a *month is equal to 1/12 *year.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Instances</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>*year</pre></td></tr>
+    <tr><td><pre>*month</pre></td></tr>
+    <tr><td><pre>*week</pre></td></tr>
+    <tr><td><pre>*day</pre></td></tr>
+    <tr><td><pre>*hour</pre></td></tr>
+    <tr><td><pre>*minute</pre></td></tr>
+    <tr><td><pre>*second</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=UoM-Time>
+<table>
+<tr><td>
+
+<div class="boxtop">UoM-Time</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Named instances for legal units of measure within descriptions of
+        Time-Instants.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Instances</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>*year</pre></td></tr>
+    <tr><td><pre>*month</pre></td></tr>
+    <tr><td><pre>*day</pre></td></tr>
+    <tr><td><pre>*hour</pre></td></tr>
+    <tr><td><pre>*minute</pre></td></tr>
+    <tr><td><pre>*second</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Temporal-Entity>
+<table>
+<tr><td>
+
+<div class="boxtop">Temporal-Entity</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>The top-level class of temporal "things" (time intervals and instances).
+        The subclasses Time-Interval and Time-Instant are almost always used
+        in favor of the more general Temporal-Entity class.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Temporal-Entity with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Temporal-Entity-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td><td><i>slot inverse</i></td></tr>
+    <tr><td><pre>time-begins</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td><td><pre>time-beginning-of</pre></td></tr>
+    <tr><td><pre>time-ends</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)     ;; for Time-Instant, time-ends = time-begins</pre></td><td><pre>time-end-of</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Temporal-Entity with
+   (time-begins ((a Time-Instant with
+                    (time-value ((:pair 1900 *year)
+                                 (:pair 7 *month)
+                                 (:pair 1 *day)
+                    ))
+   )))
+   (time-ends   ((a Time-Instant with
+                    (time-value ((:pair 1901 *year)
+                                 (:pair 1 *month)
+                                 (:pair 1 *day)
+                    ))
+   )))
+)</pre></td></tr>
+
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Time-Instant>
+<table>
+<tr><td>
+
+<div class="boxtop">Time-Instant</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Temporal-Entity of zero duration or one that can be considered "point-like"
+        for its application. 
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Time-Instant with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Time-Instant-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>There must be at most one (:pair) for each UoM-Time, at
+        most one Day-Constant and at most one Time-Zone-Constant in each time-value
+        structure. The times must also be "normalized": years are integers, months are
+        the integers 1-12, days are integers 1-31, hours are integers 0-23, minutes 
+        are integers 0-59 and seconds are real numbers < 60.<br><br>
+
+        The time-year, time-month, etc. slots can be used along with or instead of the
+        time-value structure. Values are copied automatically between the time-value
+        structure and the more specific accessor slots. <br><br>
+
+        The time-iCalendar-date-time-string slot can be queried for an iCalendar-format
+        date-time string (yyyymmddThhmmssZ). This slot should only be queried, as its 
+        value is computed from the time-value structure. The slot deviates from the 
+        iCalendar spec in two important ways: first, fields with unknown values appear
+        as zeros; second, the trailing Z always appears and does not reflect any time
+        zone information (as currently required by the Action group's Task Manager).<br><br>
+
+        The time-xmls-date-time-string slot can be queried for an XML Schema-format
+        date-time string (yyyy-mm-ddThh:mm:ss). This slot should only be queried, as its 
+        value is computed from the time-value structure. In keeping with the XML Schema
+        dateTime type, date fields with unknown values appear as 1 and time fields with
+        unknown values appear as 0. Time zone information is not recorded (all times
+        are considered "local").<br><br>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td><td><i>slot inverse</i></td></tr>
+    <tr><td><pre>time-value</pre></td><td align=center><pre>8</pre></td><td><pre>(:pair (a Number) (a UoM-Time))
+...
+(a Day-Constant)
+(a Time-Zone-Constant)</pre></td><td><pre>time-value-of</pre></td></tr>
+    <tr><td><pre>time-year</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td><td><pre>time-year-of</pre></td></tr>
+    <tr><td><pre>time-month</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td><td><pre>time-month-of</pre></td></tr>
+    <tr><td><pre>time-day</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td><td><pre>time-day-of</pre></td></tr>
+    <tr><td><pre>time-day-of-week</pre></td><td align=center><pre>1</pre></td><td><pre>(a Day-Constant)</pre></td><td><pre>time-day-of-week-of</pre></td></tr>
+    <tr><td><pre>time-hour</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td><td><pre>time-hour-of</pre></td></tr>
+    <tr><td><pre>time-minute</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td><td><pre>time-minute-of</pre></td></tr>
+    <tr><td><pre>time-second</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td><td><pre>time-second-of</pre></td></tr>
+    <tr><td><pre>time-zone</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Zone-Constant)</pre></td><td><pre>time-zone-of</pre></td></tr>
+    <tr><td><pre>time-iCalendar-date-time-string</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td><td><pre> </pre></td></tr>
+    <tr><td><pre>time-xmls-date-time-string</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td><td><pre> </pre></td></tr>
+    <tr><td colspan=4><i>+ slots inherited from Temporal-Entity</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Time-Instant with
+   (time-value ((:pair 2003 *year)
+                (:pair 12 *month)
+                (:pair 18 *day)
+                (:pair 15 *hour)
+                (:pair 5 *minute)
+                (:pair 45 *second)
+                *Thursday
+                *CST
+   ))
+)
+
+KM&gt; (the time-iCalendar-date-time-string of (thelast Time-Instant))
+("20031218T150545Z")
+
+KM&gt; (the time-xmls-date-time-string of (thelast Time-Instant))
+("2003-12-18T15:05:45")</pre></td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td><pre>(a Time-Instant with
+   (time-year        (2003))
+   (time-month       (12))
+   (time-day         (18))
+   (time-hour        (15))
+   (time-minute      (5))
+   (time-second      (45))
+   (time-day-of-week (*Thursday))
+   (time-zone        (*CST))
+)</pre></td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td><pre>(a Time-Instant with
+   (time-value ((:pair 2 *month)))
+   (time-day   (27))
+)
+
+KM&gt; (the time-iCalendar-date-time-string of (thelast Time-Instant))
+("00000227T000000Z")
+
+KM&gt; (the time-iCalendar-date-time-string of (thelast Time-Instant))
+("0001-02-27T00:00:00")</pre></td></tr>
+
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Time-Interval>
+<table>
+<tr><td>
+
+<div class="boxtop">Time-Interval</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Temporal-Entity of non-zero duration; a Temporal-Entity with "extent".
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Time-Interval with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Time-Interval-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td><td><i>slot inverse</i></td></tr>
+    <tr><td><pre>time-inside</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)            ;; [  *  ]</pre></td><td><pre>time-is-inside</pre></td></tr>
+    <tr><td><pre>time-begins-or-in</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)</pre></td><td><pre>time-is-beginning-or-inside</pre></td></tr>
+    <tr><td><pre>time-between</pre></td><td align=center><pre>2</pre></td><td><pre>(:args (a Time-Instant)     ;; = time-begins
+       (a Time-Instant))    ;; = time-ends</pre></td><td><pre>--</pre></td></tr>
+    <tr><td><pre>time-int-before</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Interval)           ;; [...]
+                            ;;         [...]</pre></td><td><pre>time-int-after</pre></td></tr>
+    <tr><td><pre>time-int-meets</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Interval)           ;; [...]
+                            ;;     [...]</pre></td><td><pre>time-int-met-by</pre></td></tr>
+    <tr><td><pre>time-int-overlaps</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Interval)           ;; [...]
+                            ;;   [...]</pre></td><td><pre>time-int-overlapped-by</pre></td></tr>
+    <tr><td><pre>time-int-starts</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Interval)           ;; [..]
+                            ;; [....]</pre></td><td><pre>time-int-started-by</pre></td></tr>
+    <tr><td><pre>time-int-during</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Interval)           ;;   [..]
+                            ;; [......]</pre></td><td><pre>time-int-contains</pre></td></tr>
+    <tr><td><pre>time-int-finishes</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Interval)           ;;   [..]
+                            ;; [....]</pre></td><td><pre>time-int-finished-by</pre></td></tr>
+    <tr><td><pre>time-int-equals</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Interval)           ;; [...]
+                            ;; [...]</pre></td><td><pre>time-int-equals</pre></td></tr>
+    <tr><td colspan=4><i>+ slots inherited from Temporal-Entity</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Time-Interval with
+   (time-begins ((a Time-Instant with
+                    (time-value ((:pair 16 *hour)
+                                 (:pair 0 *minute)
+                    ))
+   )))
+   (time-ends   ((a Time-Instant with
+                    (time-value ((:pair 16 *hour)
+                                 (:pair 30 *minute)
+                    ))
+   )))
+   (time-before ((a Time-Interval with
+                    (time-begins ((a Time-Instant with
+                                     (time-value ((:pair 17 *hour)))
+                                  )
+                    ))
+   )))
+   (time-meets  ((a Time-Interval with
+                    (time-begins ((a Time-Instant with
+                                     (time-value ((:pair 16 *hour)
+                                                  (:pair 30 *minute)
+                                     ))
+                                  )
+                    ))
+   )))
+)</pre></td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td><pre>(*Lunchtime has
+   (instance-of (Time-Interval))
+   (time-begins ((a Time-Instant with
+                    (time-value ((:pair 12 *hour)))
+   )))
+   (time-ends   ((a Time-Instant with
+                    (time-value ((:pair 13 *hour)))
+   )))
+)
+
+(TodaysMeeting has
+   (instance-of (Meeting))
+   (time-begins ((a Time-Instant with
+                    (time-value ((:pair 11 *hour)
+                                 (:pair 30 *minute)
+                    ))
+   )))
+   (time-ends   ((a Time-Instant with
+                    (time-value ((:pair 12 *hour)
+                                 (:pair 30 *minute)
+                    ))
+   )))
+   (time-int-overlaps (*Lunchtime))
+)</pre></td></tr>
+
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Operators>
+<table>
+<tr><td>
+
+<div class="boxtop">Operators</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>The following boolean binary infix operators are defined for Temporal-Entities.
+        It is possible to use the operators with underspecified Temporal-Entities but
+        certain underspecified times are considered ill-formed for comparison. The 
+        operators will return NIL for these ill-formed times. For example, (t1 time-lt t2) 
+        will evaluate to true if t1 can be proven to be earlier than t2. It will evaluate 
+        to NIL if t1 can be proven to be equal to or later than t2 or if it is 
+        inappropriate to compare t1 and t2.<br><br>
+        Conversion of time zones is not yet implemented.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(&lt;Temporal-Entity-instance&gt; &lt;operator&gt; &lt;Temporal-Entity-instance&gt;)</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>operator</i></td><td align=center><i>arg1 type</i></td><td><i>arg2 type</i></td><td><i>semantics</i></td></tr>
+    <tr><td><pre>time-eq</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>arg1 is equal to (same time as) arg2</pre></td>
+    </tr>
+    <tr><td><pre>time-gt</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>arg1 is greater than (later than) arg2</pre></td>
+    </tr>
+    <tr><td><pre>time-lt</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>arg1 is less than (earlier than) arg2</pre></td>
+    </tr>
+    <tr><td><pre>time-gte</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>arg1 is greater than or equal to (same time as or later than) arg2</pre></td>
+    </tr>
+    <tr><td><pre>time-lte</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>(a Time-Instant)</pre></td>
+        <td><pre>arg1 is less than or equal to (same time as or earlier than) arg2</pre></td>
+    </tr>
+    <tr><td><pre>time-starts-or-during</pre></td>
+        <td><pre>(a Time-Interval)</pre></td>
+        <td><pre>(a Time-Interval)</pre></td>
+        <td><pre>the beginning of arg1 is later than or equal to the beginning of arg2;
+the end of arg1 is earlier than the end of arg2</pre></td>
+    </tr>
+    <tr><td><pre>time-non-overlap</pre></td>
+        <td><pre>(a Time-Interval)</pre></td>
+        <td><pre>(a Time-Interval)</pre></td>
+        <td><pre>the end of arg1 is earlier than the beginning of arg2</pre></td>
+    </tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>KM&gt; ((a Time-Instant with (time-value ((:pair 17 *hour) *Friday)))
+     time-eq
+     (a Time-Instant with (time-value ((:pair 17 *hour) *Friday)))
+    )
+(t)
+
+KM&gt; ((a Time-Instant with (time-value ((:pair 3 *month) (:pair 17 *day))))
+     time-eq
+     (a Time-Instant with (time-value ((:pair 3 *month))))
+    )
+NIL
+
+KM&gt; ((a Time-Instant with (time-value ((:pair 2000 *year) (:pair 1 *month) (:pair 1 *day))))
+     time-gt
+     (a Time-Instant with (time-value ((:pair 1999 *year) (:pair 12 *month) (:pair 31 *day))))
+    )
+(t)
+
+KM&gt; ((a Time-Instant with (time-value ((:pair 4 *hour))))
+     time-lt
+     (a Time-Instant with (time-value ((:pair 4 *hour) (:pair 30 *minute))))
+    )
+(t)
+
+KM&gt; ((a Time-Instant with (time-value ((:pair 4 *hour) (:pair 10 *second))))
+     time-lt
+     (a Time-Instant with (time-value ((:pair 4 *hour) (:pair 1 *minute))))
+    )
+(t)
+
+KM&gt; ((a Time-Instant with (time-value (*Wednesday (:pair 16 *hour))))
+     time-lt
+     (a Time-Instant with (time-value (*Thursday (:pair 15 *hour))))
+    )
+(t)
+
+KM&gt; ((a Time-Instant with (time-value (*Monday)))                      ;; inappropriate underspecification 
+     time-lt
+     (a Time-Instant with (time-value (*Monday (:pair 1 *hour))))
+    )
+NIL
+
+KM&gt; ((a Time-Instant with (time-value ((:pair 2 *month) (:pair 5 *day))))
+     time-lt
+     (a Time-Instant with (time-value ((:pair 2 *month) *Saturday)))   ;; inappropriate underspecification 
+    )
+NIL
+
+
+</pre></td></tr>
+
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

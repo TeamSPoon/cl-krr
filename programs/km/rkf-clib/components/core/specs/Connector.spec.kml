@@ -1,0 +1,41 @@
+<!--- $Id: Connector.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+
+<kml>
+<concept name=Connector>
+<system-documentation name=Connector>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    Connector is the <conceptref name=Role> played by an Entity which is
+    the <slot>instrument</slot> of a <conceptref name=Be-Attached-To>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the entity that's playing the role of Connector
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Be-Attached-To> event that the Entity is engaged in
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The bike is connected to the rack with a chain.</text>
+     <comment>
+     In this example, the Connector role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Be-Attached-To> 
+         </slotdescription>
+     <slotdescription name=played-by>chain</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

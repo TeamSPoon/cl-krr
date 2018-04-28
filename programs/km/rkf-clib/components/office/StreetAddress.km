@@ -1,0 +1,16 @@
+
+;; $Id: StreetAddress.km,v 1.4 2005/04/15 17:13:35 jchaw Exp $
+
+(StreetAddress has (superclasses (ContactRecordSubAddressComponent)))
+
+(hasCity has (instance-of (Interface-Slot)) (domain (StreetAddress)) (range (City)) (inverse (isCityOf)) (cardinality (N-to-N)))
+(hasNation has (instance-of (Interface-Slot)) (domain (StreetAddress)) (range (Country)) (inverse (isNationOf)) (cardinality (N-to-N)))
+(hasStateOrProvince has (instance-of (Interface-Slot)) (domain (StreetAddress)) (range (Political-State Province)) (inverse (isStateOrProvinceOf)) (cardinality (N-to-N)))
+(hasStreet has (instance-of (Interface-Slot)) (domain (StreetAddress)) (range (String)) (cardinality (N-to-N)))
+(hasStreetAddressNumber has (instance-of (Interface-Slot)) (domain (StreetAddress)) (range (String)) (cardinality (N-to-N)))
+(hasZipCode has (instance-of (Interface-Slot)) (domain (StreetAddress)) (range (String)) (cardinality (N-to-N)))
+
+(StreetAddress has (wn20-synset ((:set
+				(:triple "street_address" 1 "n")
+))))
+

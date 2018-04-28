@@ -1,0 +1,9 @@
+;; $Id: Hg2-Plus-2.km,v 1.4 2003/03/26 19:45:24 wilder Exp $ 
+(Hg2-Plus-2 has (superclasses (Metal-Cation)))
+(every Hg2-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *electronic-charge))))))
+	(has-chemical-name ("mercury(I)"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 Hg)))))))
+)

@@ -1,0 +1,98 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Sugar-Solution458
+
+
+|#
+
+(Sugar-Solution has (superclasses (Aqueous-Solution)))
+
+(_Sugar-Solution501 has
+  (prototype-of (Sugar-Solution))
+  (prototype-scope (Sugar-Solution))
+  (prototype-participants (_C12H22O747 _Conductivity-Value508 _Color-Value507 _State-Value505 _Chemical504 _H2O-Substance503 _Chemical-Entity502 _Sugar-Solution501)))
+
+(_Sugar-Solution501 has
+  (instance-of (Sugar-Solution))
+  (conductivity (_Conductivity-Value508))
+  (color (_Color-Value507))
+  (has-part (_Chemical504))
+  (physical-state (_State-Value505))
+  (has-solute (_Chemical504))
+  (has-solvent (_H2O-Substance503))
+  (has-basic-structural-unit (_Chemical-Entity502)))
+
+(_Chemical-Entity502 has (instance-of (Chemical-Entity)))
+
+(_H2O-Substance503 has (instance-of (H2O-Substance)))
+
+(_Chemical504 has
+  (instance-of (C12H22O11-Substance))
+  (called ("Sugar"))
+  (has-basic-structural-unit (_C12H22O747)))
+
+(_State-Value505 has (instance-of (State-Value)))
+
+(_Color-Value507 has (instance-of (Color-Value)) (value (*colorless)))
+
+(_Conductivity-Value508 has (instance-of (Conductivity-Value)) (value ((:pair *no-conductivity Tap-Water))))
+
+(_C12H22O747 has (instance-of (C12H22O11)))
+
+(explanation (:triple _Sugar-Solution501 has-basic-structural-unit _Chemical-Entity502) (((@ SME entered)) (every Sugar-Solution has (has-basic-structural-unit ((a Chemical-Entity))))))
+
+(explanation (:triple _Sugar-Solution501 has-solvent _H2O-Substance503) (((@ SME entered)) (every Sugar-Solution has (has-solvent ((a H2O-Substance))))))
+
+(explanation (:triple _Sugar-Solution501 has-solute _Chemical504) (((@ SME entered)) (every Sugar-Solution has (has-solute ((the first of (the has-part of Self)))))))
+
+(explanation (:triple _Sugar-Solution501 physical-state _State-Value505) (((@ SME entered)) (every Sugar-Solution has (physical-state ((a State-Value))))))
+
+(explanation (:triple _Sugar-Solution501 has-part _Chemical504) (((@ SME entered)) (every Sugar-Solution has (has-part ((the first of (the has-solute of Self)))))))
+
+(explanation (:triple _Sugar-Solution501 color _Color-Value507) (((@ SME entered)) (every Sugar-Solution has (color ((a Color-Value))))))
+
+(explanation (:triple _Color-Value507 value *colorless) (((@ SME entered)) (every Sugar-Solution has (color ((a Color-Value with (value (*colorless))))))))
+
+(explanation (:triple _Sugar-Solution501 conductivity _Conductivity-Value508) (((@ SME entered)) (every Sugar-Solution has (conductivity ((a Conductivity-Value))))))
+
+(explanation (:triple _Conductivity-Value508 value (:pair *no-conductivity Tap-Water)) (((@ SME entered)) (every Sugar-Solution has (conductivity ((a Conductivity-Value with (value ((:pair *no-conductivity Tap-Water)))))))))
+
+(explanation (:triple _Chemical504 has-basic-structural-unit _C12H22O747) (((@ SME entered)) (every Sugar-Solution has (has-solute ((a C12H22O11-Substance with (has-basic-structural-unit ((a C12H22O11)))))))))
+
+(explanation (:triple _Sugar-Solution501 instance-of Sugar-Solution) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity502 instance-of Chemical-Entity) (((@ SME entered)) NIL))
+
+(explanation (:triple _H2O-Substance503 instance-of H2O-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical504 instance-of C12H22O11-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value505 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Color-Value507 instance-of Color-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Conductivity-Value508 instance-of Conductivity-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _C12H22O747 instance-of C12H22O11) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Sugar-Solution has (has-basic-structural-unit ((a Chemical-Entity))))
+(every Sugar-Solution has (has-solvent ((a H2O-Substance))))
+(every Sugar-Solution has (has-solute ((the first of (the has-part of Self)))))
+(every Sugar-Solution has (physical-state ((a State-Value))))
+(every Sugar-Solution has (has-part ((the first of (the has-solute of Self)))))
+(every Sugar-Solution has (color ((a Color-Value))))
+(every Sugar-Solution has (color ((a Color-Value with (value (*colorless))))))
+(every Sugar-Solution has (conductivity ((a Conductivity-Value))))
+(every Sugar-Solution has (conductivity ((a Conductivity-Value with (value ((:pair *no-conductivity Tap-Water)))))))
+(every Sugar-Solution has (has-solute ((a C12H22O11-Substance with (has-basic-structural-unit ((a C12H22O11)))))))
+
+|#
+
+|#
+

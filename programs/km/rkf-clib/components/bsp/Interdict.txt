@@ -1,0 +1,63 @@
+;; 
+;;    $Id: Interdict.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Interdict 
+  superclass: Tactical-Mission-Task  
+  superclass: Interfere?? Intercept?? 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+                  object-of : Move 
+  duration: (required) 
+  starts-after: Time-Interval with 
+                            starts: Move object-of of Military-Unit object of Self 
+  supports: Action with  
+                      agent: MU called "friendly forces"            
+ 
+  by-means-of:  
+      Attack-by-fire 
+      Block 
+ 
+  objective: Action with 
+                     prevent: Move 
+                         agent: MU agent of Self 
+                         object: MU object of Self 
+                         destination: Place 
+                  Disrupt with  
+                      inhibit: Move 
+                         agent: MU agent of Self 
+                         object: MU object of Self 
+                         destination: Place 
+                  Delay with 
+                         agent: MU agent of Self 
+                         object: MU object of Self 
+ 
+                   
+ 
+ 
+Note: Difference (I think) between INTERDICT and FIX is that in the former  the enemy troops typically are already moving. 
+ 
+Interdict (E). 
+=========. 
+ 
+1. Interdict is a tactical mission task where the commander prevents, disrupts, or delays the enemy's use of an area or route. 
+2. Interdiction is a shaping operation conducted to complement and reinforce other ongoing offensive or defensive operations. 
+3. An interdiction task must specify how long to interdict, defined as a length of time or some event that must occur before the interdiction is lifted, or the exact effect desired from the interdiction. 
+4. The depth at which the attacking force conducts the interdiction generally determines the friendly force's freedom of action. 
+Increasing the depth of operations reduces the danger of fratricide to air and surface forces, reduces the coordination required, and allows increasingly flexible operations. 
+With more freedom of action, aerial forces leave the enemy with no location immune from attack. 
+5. The depth at which interdiction takes place also determines the speed with which its effects are observed. 
+Normally, ground maneuver units first focus on targets close to the forward of line own troops (FLOT). 
+Interdiction efforts there have immediate impact on enemy forces near the interdiction target but do not affect the enemy's ability to mass force effects. 
+Attacks at greater distances from the FLOT have a delayed impact on close combat but eventually degrade the enemy's ability to mass effects. 
+6. The friendly force's capability to interdict may have a devastating impact on the enemy's plans and ability to respond to friendly actions. 
+For example, interdiction efforts that result in the enemy's maneuver being delayed or disrupted enhances the friendly force's ability to achieve tactical advantages. 
+Delaying or disrupting enemy resupply efforts limits his ability to sustain intense, high-tempo offensive or defensive operations and restricts the mobility of his forces. 
+7. Interdicting the movement of enemy units can be extremely effective in assisting their encirclement and eventual destruction. 
+Fixed enemy ground forces-or those trapped by the loss of their mobility-provide lucrative targets.89.  Commander should plan to interdict withdrawing enemy forces to enhance his pursuit. 
+9. While interdiction can contribute to success by hampering reinforcement and resupply, it can also contribute by trapping enemy forces or canalizing their maneuvers, leading to their destruction in detail. 
+ 
+ 
+ 
+ 
+ 

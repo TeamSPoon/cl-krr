@@ -1,0 +1,45 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _HCl-Substance8199
+
+
+|#
+
+(disable-classification)
+
+(HCl-Substance has (superclasses (Strong-Acid)))
+
+(every HCl-Substance has (has-chemical-name ("Hydrochloric")) (has-basic-structural-unit ((a HCl))))
+
+(_HCl-Substance8243 has
+  (prototype-of (HCl-Substance))
+  (prototype-scope (HCl-Substance))
+  (prototype-participants (_Electrolyte-Status-Value8249 _HCl-Substance8243)))
+
+(_HCl-Substance8243 has (instance-of (HCl-Substance)) (electrolyte-status (_Electrolyte-Status-Value8249)))
+
+(_Electrolyte-Status-Value8249 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *strong nil))))
+
+(enable-classification)
+
+(explanation (:triple _HCl-Substance8243 electrolyte-status _Electrolyte-Status-Value8249) (((@ SME entered)) (every HCl-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value8249 value (:pair *strong Acid)) (((@ SME entered)) (every HCl-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Acid)))))))))
+
+(explanation (:triple _HCl-Substance8243 instance-of HCl-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value8249 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every HCl-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+(every HCl-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong Acid)))))))
+
+|#
+
+|#
+

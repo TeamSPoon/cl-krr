@@ -1,0 +1,12 @@
+
+;;
+;; $Id: Journal-Entry.km,v 1.1 2003/10/09 20:56:09 kbarker Exp $
+;;
+
+(Journal-Entry has (superclasses (Calendar-Entry)))
+
+(every Journal-Entry has
+  (information-content ((a Document)))
+  (information-content ((the calendar-referent of Self)))
+)
+

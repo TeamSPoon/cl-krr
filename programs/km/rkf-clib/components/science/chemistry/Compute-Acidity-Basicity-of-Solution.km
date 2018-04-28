@@ -1,0 +1,111 @@
+;;
+;;    $Id: Compute-Acidity-Basicity-of-Solution.km,v 1.4 2003/09/23 15:39:10 jfan Exp $
+(Compute-Acidity-Basicity-of-Solution has
+  (superclasses (Method))
+  (description ("compute the acidity/basicity of a solution")))
+
+;;
+;; This method encodes L.45. 
+;; 
+(every Compute-Acidity-Basicity-of-Solution has
+  (input ((a Solution with
+	     (pH ((a PH-Value))))))
+  ;; 
+  ;; If pH = 7 then neutral.
+  ;; 
+  (output ((if (oneof (the value of (the pH of (the input of Self)))
+		 where
+		 ((numberp (the1 of It))
+		  and
+		  ((the1 of It) = 7 +/- 0.001)         ; inexact
+;		  ((the1 of It) = 7)                   ; exact
+                 )
+               )
+	       then
+	       (a PH-Value with
+		  (pH-of ((the input of Self)))
+		  (value ((:pair *neutral Solution))))
+            [Compute-Acidity-Basicity-of-Solution-output-1]
+	  )))
+  ;; 
+  ;; If pH > 7 then basic.
+  ;; 
+  (output ((if (oneof (the value of (the pH of (the input of Self)))
+		 where
+		 ((numberp (the1 of It))
+		  and
+                  (not ((the1 of It) = 7 +/- 0.001))   ; inexact
+                  and
+		  ((the1 of It) > 7)))
+	       then
+	       (a PH-Value with
+		  (pH-of ((the input of Self)))
+		  (value ((:pair *basic Solution))))
+            [Compute-Acidity-Basicity-of-Solution-output-2]
+	  )))
+  ;; 
+  ;; If pH < 7 then neutral.
+  ;; 
+  (output ((if (oneof (the value of (the pH of (the input of Self)))
+		 where
+		 ((numberp (the1 of It))
+		  and
+                  (not ((the1 of It) = 7 +/- 0.001))   ; inexact
+                  and
+		  ((the1 of It) < 7)))
+	       then
+	       (a PH-Value with
+		  (pH-of ((the input of Self)))
+		  (value ((:pair *acidic Solution))))
+            [Compute-Acidity-Basicity-of-Solution-output-3]
+	  )))
+)
+
+(comment [Compute-Acidity-Basicity-of-Solution-output-1]
+  (:seq "The pH of"
+        (the text-gen of (the input of Self))
+        "="
+        (the1 of (oneof (the value of (the pH of (the input of Self)))
+                        where (numberp (the1 of It))
+                 )
+        )
+        "nospace" ";"
+        (the text-gen of (the input of Self))
+        "is thus neutral"
+  )
+  "A solution with pH = 7 is neutral"
+  (:triple (the input of Self) pH *)
+)
+
+(comment [Compute-Acidity-Basicity-of-Solution-output-2]
+  (:seq "The pH of"
+        (the text-gen of (the input of Self))
+        "="
+        (the1 of (oneof (the value of (the pH of (the input of Self)))
+                        where (numberp (the1 of It))
+                 )
+        )
+        "nospace" ";"
+        (the text-gen of (the input of Self))
+        "is thus basic"
+  )
+  "A solution with pH > 7 is basic"
+  (:triple (the input of Self) pH *)
+)
+
+(comment [Compute-Acidity-Basicity-of-Solution-output-3]
+  (:seq "The pH of"
+        (the text-gen of (the input of Self))
+        "="
+        (the1 of (oneof (the value of (the pH of (the input of Self)))
+                        where (numberp (the1 of It))
+                 )
+        )
+        "nospace" ";"
+        (the text-gen of (the input of Self))
+        "is thus acidic"
+  )
+  "A solution with pH < 7 is acidic"
+  (:triple (the input of Self) pH *)
+)
+

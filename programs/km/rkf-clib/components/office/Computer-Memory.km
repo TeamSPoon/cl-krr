@@ -1,0 +1,20 @@
+;;
+;;    $Id: Computer-Memory.km,v 1.4 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Computer-Memory has 
+  (superclasses (Computer-Storage))
+  (feature-slot ((the feature-slot of Computer-Storage)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Computer-Memory))
+  ))
+)
+
+(Computer-Memory has (wn20-synset ((:set
+				    (:triple "memory" 4 "n")
+				    (:triple "computer_memory" 1 "n")
+				    (:triple "storage" 5 "n")
+				    (:triple "computer_storage" 1 "n")
+				    (:triple "store" 3 "n")
+				    (:triple "memory_board" 1 "n")
+))))

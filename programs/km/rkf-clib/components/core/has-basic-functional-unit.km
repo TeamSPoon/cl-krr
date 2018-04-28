@@ -1,0 +1,35 @@
+;; 
+;;    $Id: has-basic-functional-unit.km,v 1.15 2009/10/29 21:29:07 kbarker Exp $
+;; 
+
+(has-basic-functional-unit has
+     (instance-of 	 (Meronymic-Relation))
+     (superslots  	 ())
+     (subslots 	  	 ())
+     (domain 	  	 (Entity))
+     (range 	  	 (Entity))
+     (inverse 	  	 (is-basic-functional-unit-of))
+     (fluent-status 	 (*Inertial-Fluent))
+     (original-slot      (t))	
+     (cardinality 	 (N-to-N)))
+
+(is-basic-functional-unit-of has
+    (combine-values-by-appending (t))
+)
+
+(has-basic-functional-unit has (shaken-ui-hidden-slot (t)))
+
+(has-basic-functional-unit has (wn20-synset ((:set
+					      (:triple "basic functional unit" 0 "n")))))
+
+
+
+
+
+
+
+(has-basic-functional-unit has (text-gloss ("has as basic functional unit")))
+
+(is-basic-functional-unit-of has 
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("is a basic functional unit of")))

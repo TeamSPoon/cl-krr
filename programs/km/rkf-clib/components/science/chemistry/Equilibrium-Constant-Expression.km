@@ -1,0 +1,28 @@
+;;
+;;    $Id: Equilibrium-Constant-Expression.km,v 1.2 2005/07/20 14:51:19 kbarker Exp $
+;;
+
+(Equilibrium-Constant-Expression has (superclasses (KM-Class)))
+
+(every Equilibrium-Constant-Expression has
+       ;;
+       ;; The form is a :pair of two elements. The first element of 
+       ;; the :pair is the numerator. The second element of the :pair 
+       ;; is the denominator. Furthermore, each element in the :pair
+       ;; is a set of :pairs of the form:
+       ;;	
+       ;; 	(:pair <coefficient> <chemical>)
+       ;;
+       ;; For example:
+       ;;
+       ;;  xA + yB <-> wC + zD 
+       ;;  ==>
+       ;;  [C]w [D]z / [A]x [B]y
+       ;;  ==>
+       ;;  (:pair (:set (:pair w C) (:pair z D))
+       ;;	  (:set (:pair x A) (:pair y B)))
+       ;;
+       ;; where w, x, y, and z are the coefficients.
+       ;;
+       (term ((a Thing)))
+)

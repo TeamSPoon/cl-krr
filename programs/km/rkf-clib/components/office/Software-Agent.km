@@ -1,0 +1,14 @@
+
+;;
+;; $Id: Software-Agent.km,v 1.2 2004/08/30 14:59:24 kbarker Exp $
+;;
+
+(Software-Agent has
+  (superclasses (Agent-Role))
+  (description ("a role played by a computer program that performs services for and assists its user"))
+)
+
+(every Software-Agent has
+  (played-by ((must-be-a Computer-Program)))
+)
+

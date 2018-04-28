@@ -1,0 +1,57 @@
+;;
+;;    $Id: Hydrocarbon-Molecule.km,v 1.11 2009/08/12 16:13:46 tecuci Exp $ 
+;; 
+
+(Hydrocarbon-Molecule has (superclasses (Organic-Molecule)))
+
+;; [from Hydrocarbon-Molecule-substance]
+;; turn the following from a definition to just a property
+;; for the following reason: if it's a definition then:
+;; for a Substance w/o formula, it shouldn't be classified
+;; therefore the constraint check must return NIL
+;; however for a Hydrocarbon-Substance w/o formula, the
+;; constraint check should return T
+;; there is no way we can satisfy both
+
+;; this shouldn't cause a problem because Aura users cannot
+;; create new molecules, and the definition won't be used anyway
+
+;;mrglass changed to definition
+;;This should work
+;;(a Chemical-Entity with (nested-atomic-chemical-formula ((a Chemical-Formul with (term ((:seq (:pair 1 C) (:pair 10 H))))))))
+;;(a CH3-Minus)
+(every Hydrocarbon-Molecule has-definition
+       (instance-of (Chemical-Entity))
+       (charge ((must-be-a Charge-Value with
+			   (value ((:pair 0 *unity))))))
+       (atomic-chemical-formula ((at-least 1 Chemical-Formula)
+				 (constraint ((if (the term of TheValue)
+						  then
+						;; have to have a C
+						((oneof (the elements of
+							     (the term of TheValue))
+							where
+							((the2 of It) = C))
+						 and
+						 ;; have to have a H
+						 (oneof (the elements of
+							     (the term of TheValue))
+							where
+							((the2 of It) = H))
+						 and
+						 ;; all elements used should be C, H
+						 (not
+						  (oneof (the elements of
+							      (the term of TheValue))
+							 where
+							 (((the2 of It) /= C)
+							  and
+							  ((the2 of It) /= H)
+							  )))
+						 )
+						else t))))))
+
+
+(Hydrocarbon-Molecule has (wn20-synset ((:set
+			  (:triple "hydrocarbon" 1 "n")
+))))

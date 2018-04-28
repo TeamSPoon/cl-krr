@@ -1,0 +1,10 @@
+;; $Id: Cr2O7-Minus-2.km,v 1.4 2003/02/22 18:28:27 jfan Exp $ 
+(Cr2O7-Minus-2 has (superclasses (Anion)))
+(every Cr2O7-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *electronic-charge))))))
+	(has-chemical-name ("dichromate"))
+	(has-acid-name ("dichromic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 Cr) (:pair 7 O)))))))
+)

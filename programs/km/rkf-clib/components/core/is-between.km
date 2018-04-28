@@ -1,0 +1,29 @@
+;; 
+;;    $Id: is-between.km,v 1.16 2009/07/23 19:08:24 kbarker Exp $ 
+;; 
+
+(is-between has
+	    (instance-of (Spatial-Relation))
+	    (superslots ())     
+	    (subslots ())
+	    (domain (Spatial-Entity))
+	    (range (Spatial-Entity))
+	    (fluent-status (*Inertial-Fluent))
+	    (text-slot (text-is-between))
+            (original-slot      (t))	
+            (ignore-inverses (t))
+	    (inverse ())                       ; no inverse - it's more
+	    (cardinality (N-to-N)))            ; confusing than it's worth!
+
+(text-is-between has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+; (text-is-between-of has (instance-of (NL-Slot-Group)))

@@ -1,0 +1,37 @@
+<!--- $Id: Be-Shut-Out.doc.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Shut-Out>
+<superconcept name=Be-Obstructed>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Shut-Out>
+  <definition>object unable to Move-Into</definition>
+  <requiredslot name=object>
+    <restriction>may not be the <slot>object</slot> of any
+      <conceptref name=Move-Into> Event with <slot>destination</slot>
+      inside the <slot>base</slot>
+    </restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <restriction>the enclosure that the <slot>object</slot> 
+	cannot <conceptref name=Move-Into></restriction>
+  </requiredslot>
+  <wnsynsets>--
+  </wnsynsets>
+  <wnsynsets>--
+  </wnsynsets>
+</component>
+
+<musing>
+The semantics of Be-Shut-Out are captured as conditions of the Actions
+that put an <slot>object</slot> into this state (<conceptref name=Shut-Out>),
+that take an <slot>object</slot> out of this state (<conceptref name=Admit>) 
+and that are prevented by this state (<conceptref name=Move-Into>).
+</musing>
+
+</kml>
+
+

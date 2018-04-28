@@ -1,0 +1,16 @@
+;; 
+;;    $Id: Cytoplasmic-Protein.km,v 1.8 2001/05/22 21:13:23 kbarker Exp $ 
+;; 
+
+(Cytoplasmic-Protein has
+	(superclasses (Protein))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+        (description ("A protein located in the cytoplasm of the cell.
+                       Souther. "))
+	(cmap-correspondence ()))
+
+(every Cytoplasmic-Protein has 
+       (is-inside ((a Cytoplasm))))
+

@@ -1,0 +1,17 @@
+;;
+;;    $Id: Mouse.km,v 1.4 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Mouse has 
+  (superclasses (Input-Device))
+  (feature-slot ((the feature-slot of Input-Device)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Mouse))
+  ))
+)
+
+(Mouse has (wn20-synset ((:set
+			  (:triple "mouse" 2 "n")
+			  (:triple "computer_mouse" 1 "n")
+))))
+

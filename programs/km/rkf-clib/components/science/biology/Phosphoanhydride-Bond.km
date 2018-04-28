@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Phosphoanhydride-Bond.km,v 1.10 2001/06/01 23:26:46 pnav Exp $ 
+;; 
+
+(Phosphoanhydride-Bond has
+         (superclasses (Covalent-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A chemical bond formed between two phosphate groups.
+                        Souther. "))
+         (test-case ()))
+
+(every Phosphoanhydride-Bond has 
+       (purpose ((a Connector with
+                    (in-event ((a Be-Attached-To with
+                                  (object ((a Monophosphate called "MP1")
+					   (a Monophosphate called "MP2") 
+                                           (exactly 2 Monophosphate)))
+                                  )))
+                    )))      
+       )
+

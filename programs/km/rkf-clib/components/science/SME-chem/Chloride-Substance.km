@@ -1,0 +1,46 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Chloride-Substance2474
+
+
+|#
+
+(disable-classification)
+
+(Chloride-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Chloride-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Chloride-Substance363 has
+  (prototype-of (Chloride-Substance Ionic-Compound-Substance))
+  (prototype-scope (Chloride-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Cl-Minus)))))))))
+  (prototype-participants (_Anion369 _Chemical-Entity365 _Chloride-Substance363)))
+
+(_Chloride-Substance363 has (instance-of (Chloride-Substance)) (has-basic-structural-unit (_Chemical-Entity365)))
+
+(_Chemical-Entity365 has (instance-of (Ionic-Compound)) (has-part (_Anion369)))
+
+(_Anion369 has (instance-of (Cl-Minus)))
+
+(enable-classification)
+
+(explanation (:triple _Chloride-Substance363 has-basic-structural-unit _Chemical-Entity365) (((@ SME entered)) (every Chloride-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chloride-Substance363 instance-of Chloride-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity365 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion369 instance-of Cl-Minus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Chloride-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

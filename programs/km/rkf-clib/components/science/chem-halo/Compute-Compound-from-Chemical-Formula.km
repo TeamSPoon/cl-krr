@@ -1,0 +1,41 @@
+;; 
+;;    $Id: Compute-Compound-from-Chemical-Formula.km,v 1.6 2008/08/06 02:10:35 tecuci Exp $
+;; 
+
+(Compute-Compound-from-Chemical-Formula has
+					(superclasses (Method)))
+
+(every Compute-Compound-from-Chemical-Formula has
+       ;;(input ((a Thing)))
+       (output ((#'(LAMBDA ()
+			   (COMPUTE-CHEMICAL-ENTITY-FROM-DEFS :ATOMIC-CHEMICAL-FORMULA (KM-UNIQUE0 '(the input of Self))
+							      ;; hack ?? since we give only chemical formula and want only non-ions
+							      :CHARGE (KM-UNIQUE0 '(:pair 0 *unity))))))))
+
+
+(Compute-Compound-from-Chemical-Formula 
+ has
+ (test-case
+  ('(
+     (new-situation)
+     ((the classes of 
+	   (the has-part of 
+		(the output of (a Compute-Compound-from-Chemical-Formula with (input ((:seq (:pair 1 K) (:pair 1 N) (:pair 3 O))))))))
+      =
+      (:set K-Plus NO3-Minus))
+     ((the classes of 
+	   (the has-part of 
+		(the output of (a Compute-Compound-from-Chemical-Formula with (input ((:seq (:pair 1 Cu) (:pair 2 Cl))))))))
+      =
+      (:set Cu-Plus-2 Cl-Minus))
+     ((the classes of
+	   (the has-part of
+		(the output of (a Compute-Compound-from-Chemical-Formula with (input ((:seq (:pair 1 Na) (:pair 3 N))))))))
+      =
+      (:set Na-Plus N3-Minus))
+     ((the classes of
+	   (the has-part of
+		(the output of (a Compute-Compound-from-Chemical-Formula with (input ((:seq (:pair 1 Cu) (:pair 2 O))))))))
+      =
+      (:set Cu-Plus-2 O2-Minus-2))
+     ))))

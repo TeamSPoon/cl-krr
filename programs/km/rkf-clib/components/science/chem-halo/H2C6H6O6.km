@@ -1,0 +1,17 @@
+;;
+;; $Id: H2C6H6O6.km,v 1.6 2008/06/04 22:41:48 tecuci Exp $ 
+;;
+
+(H2C6H6O6 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H2C6H6O6 has
+	(has-chemical-name ("ascoribic acid" "vitamin c"))
+	(has-part ((a H-Plus)(a C6H6O6-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 2 H-Plus)
+			(:pair 1 C6H6O6-Minus-2)))))))
+)
+(every H2C6H6O6 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C6H6O6-Minus-2))))
+

@@ -1,0 +1,69 @@
+;;
+;;    $Id: Acid-Role.km,v 1.7 2008/08/28 03:26:47 tecuci Exp $
+;;
+(Acid-Role has (superclasses (Role)))
+
+(every Acid-Role has
+  ;; 
+  ;; Strictly speaking, ka is the property of a Hydrolysis reaction. However,
+  ;; b/c of the unique nature of hydrolysis, in that it only has one compound
+  ;; for the raw-material of the reaction, ka can also be viewed as the property 
+  ;; of the compound. The following allows ka to refer to both the compound and
+  ;; the hydrolysis.
+  ;;
+  (ka (
+       (if ((the played-by of Self)
+	    and
+	    (the raw-material-of of (the played-by of Self))
+	    and
+	    (oneof (the raw-material-of of (the played-by of Self)) 
+		   where ((It isa Hydrolysis) 
+			  or 
+			  (It isa Acid-Dissociation-Reaction)))
+	    and
+	    (the ka of (the raw-material-of of (the played-by of Self))))
+	   then
+	 (the ka of (the raw-material-of of (the played-by of Self))))))
+  
+  ;; if played-by of Self already in a Conjugate-Acid-Base-Pair, don't recompute
+  
+  
+  ;; Law 47 - det ka from kb of conj base
+  
+  
+  (pka (
+	(if ((the played-by of Self)
+	     and
+	     (the raw-material-of of (the played-by of Self))
+	     and
+	     (oneof (the raw-material-of of (the played-by of Self)) 
+		    where ((It isa Hydrolysis)
+			   or
+			   (It isa Acid-Dissociation-Reaction)))
+	     and
+	     (the pka of (the raw-material-of of (the played-by of Self))))
+	    then
+	  (the pka of (the raw-material-of of (the played-by of Self))))))
+  
+  (ka-expression (
+		  (if ((has-value (the played-by of Self))
+		       and
+		       (oneof (the raw-material-of of (the played-by of Self))
+			      where (It isa Hydrolysis))
+		       and
+		       (the ka-expression of (the raw-material-of of (the played-by of Self))))
+		      then
+		    (the ka-expression of 
+			 (the raw-material-of of 
+			      (the played-by of Self))))))
+  
+  )
+#|
+(Acid-Role has
+	   (test-case (' (
+			  ((the1 of (the value of 
+					 (the default-ka of 
+					      ((a Acid-Role with (played-by ((a NH4-Plus-Substance))))))))
+			   = 5.55e-10 +/- 1e-12)
+			  ))))
+	   |#

@@ -1,0 +1,64 @@
+;; 
+;; $Id: Engine.km,v 1.2 2007/07/16 20:29:32 kbarker Exp $
+;; 
+;;
+;;    $Id: Engine.km,v 1.2 2007/07/16 20:29:32 kbarker Exp $
+;; 
+
+
+(Engine has (superclasses (Device)))
+
+(every Engine has
+  (purpose 
+   ((a Instrument-Role with
+       (in-event 
+	((a Produce with
+	    (raw-material ((a Tangible-Entity with 
+			      (plays ((a Fuel))))))
+	    (causes ((a Move)))
+	    (subevent 
+	     ((a Cycle with
+		 (subevent ((a Load with 
+			       (object 
+				((the raw-material of 
+				      (the in-event of 
+					   (the Instrument-Role 
+						purpose of Self)))))
+			       (base ((the Container has-part of Self)))
+			       (next-event ((the Combust subevent of
+					    (the Cycle subevent of
+						 (the in-event of 
+						      (the Instrument-Role 
+							   purpose of Self))
+						 )))))
+			    (a Combust with 
+			       (object ((the raw-material of 
+					     (the in-event of 
+						  (the Instrument-Role 
+						       purpose of Self))
+					     ))) ; actually, a portion
+			       (next-event 
+				((the Move-Out-Of subevent of 
+				      (the Cycle subevent of
+					   (the in-event of 
+						(the Instrument-Role
+						     purpose of Self)))))))
+			    (a Move-Out-Of with 
+			       (object 
+				((allof 
+				  (the result of 
+				       (the Combust subevent of
+					    (the subevent of 
+						 (the in-event of 
+						      (the Instrument-Role 
+							   purpose of Self)))))
+				  where ((the plays of It) isa Waste))))
+			       (base ((the Container has-part of Self))))
+		       )))))))))))
+  (has-part ((a Container uniquely-called "combustion chamber"))))
+
+
+(Engine has (wn20-synset ((:set
+			   (:triple "engine" 1 "n")
+))))
+

@@ -1,0 +1,65 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Cytokinesis ----------
+
+(Cytokinesis has (superclasses (Divide)))
+
+(_Cytokinesis427 has 
+  (instance-of (Cytokinesis))
+  (prototype-of (Cytokinesis))
+  (prototype-scope (Cytokinesis))
+  (prototype-participants (_Cytoplasm436
+                           _Cleavage-furrow435
+                           _Cytokinesis427))
+  (prototype-participant-of (_Cytokinesis427))
+  (has-clones (_Placeholder-Class426429))
+  (has-built-clones (_Placeholder-Class426429))
+  (object (_Cytoplasm436))
+  (result (_Cleavage-furrow435))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-coordinate ((:seq result _Cleavage-furrow435 219 321)
+                    (:seq object _Cytoplasm436 241 410)))
+  (edge-visibility ((:seq result _Cleavage-furrow435 t)
+                    (:seq object _Cytoplasm436 t)))
+  (node-coordinate ((:pair 61 404))))
+
+(_Cytoplasm436 has 
+  (instance-of (Cytoplasm
+                Tangible-Entity
+                Thing))
+  (has-clones (_Cytoplasm431))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (object-of (_Cytokinesis427))
+  (node-coordinate ((:pair 391 404)))
+  (prototype-participant-of (_Cytokinesis427)))
+
+(_Cleavage-furrow435 has 
+  (instance-of (Cleavage-furrow
+                Entity))
+  (has-clones (_Cleavage-furrow434))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (result-of (_Cytokinesis427))
+  (node-coordinate ((:pair 327 322)))
+  (prototype-participant-of (_Cytokinesis427)))
+
+(explanation (:triple _Cytokinesis427 object _Cytoplasm436) ((a Tangible-Entity (@ _Cytokinesis427 Break object))))
+(explanation (:triple _Cytokinesis427 object _Cytoplasm436) ((a Tangible-Entity (@ _Cytokinesis427 Damage object))))
+(explanation (:triple _Cytokinesis427 object _Cytoplasm436) ((a Tangible-Entity (@ _Cytokinesis427 Impair object))))
+(explanation (:triple _Cytokinesis427 result _Cleavage-furrow435) ((added-at Cytokinesis "User defined")))
+(explanation (:triple _Cytoplasm436 instance-of Cytoplasm) ((added-at Cytokinesis "User defined")))
+(explanation (:triple _Cytoplasm436 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Cytokinesis427 Break object))))
+(explanation (:triple _Cytoplasm436 instance-of Thing) ((a Thing (@ _Cytokinesis427 Action (object must-be-a)))))
+(explanation (:triple _Cleavage-furrow435 instance-of Cleavage-furrow) ((added-at Cytokinesis "User defined")))
+(explanation (:triple _Cleavage-furrow435 instance-of Entity) ((added-at Cytokinesis "User defined")))
+(explanation (:triple _Cleavage-furrow435 instance-of Entity) ((a Entity (@ _Cytokinesis427 Event (result must-be-a)))))
+
+;;; ---------- end of prototype definition ----------
+
+(Cytokinesis now-has (user-comment ("Cleavage furrow is a narrow waist formed around the cell that causes the pinch and resulting final split.")))
+(Cytokinesis now-has (user-description ("Cytokinesis is the process whereby the cytoplasm of a single cell is divided to spawn two daughter cells.")))
+(enable-classification)
+

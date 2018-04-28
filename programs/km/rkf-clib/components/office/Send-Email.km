@@ -1,0 +1,71 @@
+;;
+;; $Id: Send-Email.km,v 1.6 2005/04/15 06:16:41 gking Exp $
+;;
+
+(Send-Email has
+  (superclasses (Action))
+  (description ("to communicate via Email"))
+)
+
+(every Send-Email has
+  (object ((a Email)))
+
+  (donor ((the email-From of (the object of Self))))
+  (recipient ((the email-To of (the object of Self))
+              (the email-Bcc of (the object of Self))
+              (the email-Cc of (the object of Self))
+  ))
+
+  (first-subevent ((the subevent of Self)))
+  (subevent ((forall (the recipient of Self)   ;; for now, Communicate handles only 1 recp
+              (a Communicate with
+                 (object ((a Information with
+                             (information-content (
+                                (the email-content of 
+                                     (the object of Self))))
+                 )))
+                 (donor ((the donor of Self)))
+                 (recipient (It))
+
+                 ;; Communicate already has this subevent, we're just adding the Email
+                 (subevent ((a Express with
+                               (result ((the Email object of Self)))
+                 )))
+              )
+  )))
+)
+
+(Send-Email has
+  (test-case ('(
+                (*TodaysMeeting has 
+                   (instance-of (Meeting))
+                   (meeting-start ((:triple 14 30 *CDT))))
+                (*JohnnyP has (instance-of (Person)))
+                (*MaryS has (instance-of (Person)))
+                (*GernB has (instance-of (Person)))
+
+                (a Send-Email with 
+                   (object ((a Email with
+                               (email-From (*JohnnyP)) 
+                               (email-To (*MaryS)) 
+                               (email-Cc (*GernB)) 
+                               (email-Subject ("today's meeting"))
+                               (email-message ("Hey Mare. Today's meeting is at 2:30pm. Seeya, j"))
+                               (email-content ((:triple *TodaysMeeting meeting-start ((:triple 14 30 *CDT))))))
+                )))
+
+                (do-script (thelast Send-Email))
+))))
+
+(Send-Email has (wn20-synset ((:set
+			       (:triple "e-mail" 1 "v")
+			       (:triple "email" 1 "v")
+			       (:triple "netmail" 1 "v")
+))))
+
+
+
+
+
+
+

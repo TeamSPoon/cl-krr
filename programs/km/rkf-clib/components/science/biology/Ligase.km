@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Ligase.km,v 1.10 2001/05/15 21:19:37 jfan Exp $ 
+;; 
+
+(Ligase has
+         (superclasses (Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Enzyme that joins two segments of DNA or RNA together
+                        end to end. Alberts:ECB:G-10."))
+         (test-case ()))
+
+(every Ligase has                       
+       (purpose ((a Catalyst with
+                    (in-event ((a Ligation)))))))
+
+
+

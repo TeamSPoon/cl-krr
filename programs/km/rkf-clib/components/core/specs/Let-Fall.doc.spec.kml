@@ -1,0 +1,46 @@
+<!--- $Id: Let-Fall.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Let-Fall::doc>
+<superconcept name=Unobstruct::doc>
+
+<sme-documentation name=Let-Fall>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Let-Fall>
+  <definition>remove support from an object</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Supported> state</restriction>
+  </requiredslot> 
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is not the <slot>object</slot> of a
+      <conceptref name=Be-Supported> state</restriction>
+  </requiredslot> 
+  <requiredslot name=causes>
+    <restriction>a <conceptref>Fall</conceptref> whose <slot>object</slot>
+    is the <slot>object</slot> of the Let-Fall</restriction>
+  </requiredslot>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>drop#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Let-Fall takes an <slot>object</slot> out of a <conceptref name=Be-Supported> 
+state. <conceptref name=Support> puts the <slot>object</slot> into the
+<conceptref name=Be-Supported> state.
+</musing>
+
+</kml>
+
+
+

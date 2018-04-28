@@ -1,0 +1,58 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Hydrocarbon-Combustion-Reaction8184
+
+
+|#
+
+(disable-classification)
+
+(Hydrocarbon-Combustion-Reaction has (superclasses (Combustion-Reaction)))
+
+(Hydrocarbon-Combustion-Reaction now-has (user-description ("When hydrocarbons are combusted in air, they react with O2 to form CO2 and H2O. The number of molecules of O2 required in the reaction and the number of molecules of CO2 and H2O  formed depend on the composition of the hydrocarbon, which acts as the fuel in the reaction.")))
+
+(_Hydrocarbon-Combustion-Reaction8751 has
+  (prototype-of (Hydrocarbon-Combustion-Reaction Combustion-Reaction))
+  (prototype-scope (Hydrocarbon-Combustion-Reaction (the-class Combustion-Reaction with (raw-material ((a Hydrocarbon-Substance))))))
+  (prototype-participants (_H2O-Substance8755 _O2-Substance8754 _Hydrocarbon-Substance8753 _CO2-Substance8752 _Hydrocarbon-Combustion-Reaction8751)))
+
+(_Hydrocarbon-Combustion-Reaction8751 has
+  (instance-of (Hydrocarbon-Combustion-Reaction))
+  (result (_CO2-Substance8752 _H2O-Substance8755 (must-be-a Chemical) (must-be-a Entity)))
+  (raw-material (_Hydrocarbon-Substance8753 _O2-Substance8754 (must-be-a Chemical) (must-be-a Chemical))))
+
+(_CO2-Substance8752 has (instance-of (CO2-Substance)))
+
+(_Hydrocarbon-Substance8753 has (instance-of (Hydrocarbon-Substance)))
+
+(_O2-Substance8754 has (instance-of (O2-Substance)))
+
+(_H2O-Substance8755 has (instance-of (H2O-Substance)))
+
+(enable-classification)
+
+(explanation (:triple _Hydrocarbon-Combustion-Reaction8751 result _CO2-Substance8752) (((@ SME entered)) (every Hydrocarbon-Combustion-Reaction has (result NIL))))
+
+(explanation (:triple _Hydrocarbon-Combustion-Reaction8751 instance-of Hydrocarbon-Combustion-Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _CO2-Substance8752 instance-of CO2-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Hydrocarbon-Substance8753 instance-of Hydrocarbon-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _O2-Substance8754 instance-of O2-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _H2O-Substance8755 instance-of H2O-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Hydrocarbon-Combustion-Reaction has (result NIL))
+(every Hydrocarbon-Combustion-Reaction has (result NIL))
+
+|#
+
+|#
+

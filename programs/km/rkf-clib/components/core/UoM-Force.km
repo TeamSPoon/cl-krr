@@ -1,0 +1,36 @@
+;; 
+;;    $Id: UoM-Force.km,v 1.5 2010/01/29 17:00:25 kbarker Exp $
+;; 
+
+(UoM-Force has
+ (superclasses (Unit-of-Measurement))
+ (base-unit (*newton))
+ (instances (*newton *dyne *pound-force *kilogram-force)))
+
+(*newton      has (instance-of (UoM-Force))
+                  (name ("N"))
+                  (wn20-synset ((:set (:triple "newton" 0 "n") 
+                                      (:triple "newtons" 0 "n") 
+                                      (:triple "N" 0 "n")))))
+
+(*dyne        has (instance-of (UoM-Force))
+                  (name ("dyn"))
+                  (wn20-synset ((:set (:triple "dyne" 0 "n")
+                                      (:triple "dynes" 0 "n")))))
+
+(*pound-force has (instance-of (UoM-Force))
+                  (name ("lbf"))
+                  (wn20-synset ((:set (:triple "pound force" 0 "n")
+                                      ;; added because CPL contained this mapping
+                                      (:triple "pound" 0 "n")))))
+
+(*kilogram-force has (instance-of (UoM-Force))
+                  (name ("kgf"))
+                  (wn20-synset ((:set (:triple "kilogram force" 0 "n")))))
+
+(*newton has (conversion-multiplier (1.0)))
+(*dyne has (conversion-multiplier (0.00001)))
+(*kilogram-force has (conversion-multiplier (9.80665)))
+(*pound-force has (conversion-multiplier (4.448222)))
+
+

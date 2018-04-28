@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Point.km,v 1.3 2005/10/21 19:23:30 pzyeh Exp $ 
+;; 
+
+(Point has (superclasses (Geometric-Object)))
+
+(every Point has
+  (area          ((exactly 0 Area-Value)))
+  (volume        ((exactly 0 Volume-Value)))
+  (length        ((exactly 0 Length-Value)))
+  (height        ((exactly 0 Length-Value)))
+  (width         ((exactly 0 Length-Value)))
+  (depth         ((exactly 0 Length-Value)))
+  (diameter      ((exactly 0 Length-Value)))
+  (radius        ((exactly 0 Length-Value)))
+  (thickness     ((exactly 0 Length-Value)))
+  (circumference ((exactly 0 Length-Value)))
+  (perimeter     ((exactly 0 Length-Value)))
+)
+
+(Point has (wn20-synset ((:set 	(:triple "point" 1  "n")
+                                (:triple "point" 9  "n")
+				(:triple "dot"   1  "n")
+))))
+

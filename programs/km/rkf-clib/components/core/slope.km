@@ -1,0 +1,26 @@
+;; 
+;;    $Id: slope.km,v 1.10 2007/04/11 21:42:43 jchaw Exp $
+;; 
+
+(slope has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Unitless-Value))
+   (scale-class (Slope-Scale))
+   (scalar-constant-class (Slope-Constant))
+   (cardinal-unit-class   (UoM-Unitless))
+   (inverse 	(slope-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(slope has (wn20-synset ((:set
+                               (:triple "slope" 2 "n")
+                               (:triple "gradient" 2 "n")
+))))
+
+(slope-of has
+	(instance-of (EntityProperty)))

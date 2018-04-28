@@ -1,0 +1,42 @@
+;; 
+;;    $Id: Eucaryotic-DNA.km,v 1.13 2001/06/01 23:26:32 pnav Exp $ 
+;; 
+
+(Eucaryotic-DNA has
+		(superclasses (DNA-Molecule))
+		(required-slot ())
+		(primary-slot ())
+		(secondary-slot ())
+		(description ("Double-stranded polynucleotide formed from two
+                                separate chains of deoxyribonucleotide units;
+                                serves as the carrier of genetic information in
+                                eucaryotes. Alberts:ECB:G-6.")) 
+		(cmap-correspondence ()))
+
+(every Eucaryotic-DNA has
+  (has-part
+   (
+    (at-least 5885 Gene)       ;Saccharomyces cerevisiae
+    (at-most 34000 Gene)       ; for humans (may not be most)
+     (exactly 2 DNA-Strand)
+     (a DNA-Strand called "DS1" with 
+	(has-part 
+           ((a DNA-Gene-Coding-Sequence with
+		(has-part 
+                  ((at-least 1 Gene)
+		   (a Gene))
+		  )))))
+
+     (a DNA-Strand called "DS2" with
+        (has-part ((a DNA-Gene-Coding-Sequence with
+                      (has-part ((at-least 1 Gene)
+				 (a Gene)))
+		      ))))
+     ))
+  )
+
+;; how to encode that the genes are separated by variable length spacer
+;; regions up to 100,000 nucleotides long.
+
+
+

@@ -1,0 +1,42 @@
+;; 
+;;    $Id: Dinucleotide.km,v 1.6 2001/06/03 06:16:39 souther Exp $
+;; 
+
+(Dinucleotide has
+	      (superclasses (Nucleotide-Sequence))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("A sequence of two nucleotides.  Larger sequences
+                             (3-50) are termed oligonucleotides. Souther"))
+	      (cmap-correspondence ()))
+
+(every Dinucleotide has
+       (has-part ((a 5-Prime-Nucleotide with
+                     (instance-of (Nucleoside-Triphosphate))
+                     (object-of
+                      ((a Be-Attached-To with
+                          (object ((the 3-Prime-Nucleotide has-part of Self)))
+                          (site  
+			   (((the Carbon-Atom has-part of
+				  (the Pentose has-part of
+				       (the 5-Prime-Nucleotide 
+					    has-part of Self)))
+			     called "Carbon-3")
+			    ((the Carbon-Atom has-part of
+				  (the Pentose has-part of
+				       (the 3-Prime-Nucleotide has-part of Self)))
+			     called "Carbon-5"))) 
+                          (instrument ((a Phosphodiester-Bond)))
+                          ))))
+                  (a 3-Prime-Nucleotide)
+		  ))
+       )
+
+
+
+
+
+
+
+

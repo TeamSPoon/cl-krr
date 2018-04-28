@@ -1,0 +1,15 @@
+
+;;
+;; $Id: Compute-Ionic-Compound-Parts-from-Nested-Formula.km,v 1.2 2010/05/18 15:05:12 kbarker Exp $
+;;
+
+(Compute-Ionic-Compound-Parts-from-Nested-Formula has
+				     (superclasses (Method)))
+
+(every Compute-Ionic-Compound-Parts-from-Nested-Formula has
+       ;;(input ((a Thing)))
+
+       (output (
+	  #'(LAMBDA ()
+		    (COMPUTE-IC-PARTS-FROM-NESTED-FORMULA (KM-UNIQUE0 '(|the| |input| |of| |Self|)))))))
+       

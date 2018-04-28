@@ -1,0 +1,63 @@
+<!--- $Id: Be-Broken.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Broken><system-documentation name=Be-Broken>
+
+<superconcept name=State>
+
+<definition>
+
+  An <slot>object</slot> becomes nonfunctional in some way.  This can describe
+  the effects of numerous actions, as exemplified by the sentences
+  below.
+
+  An object is put in this state by <conceptref name=Break>.
+
+  An object is taken out of this state by <conceptref name=Repair>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the thing that becomes broken
+      <restriction> this must be a <conceptref name=Physical-Object> </restriction>
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>Sally broke the window.</text>
+     <slotdescription name=object>the window</slotdescription>
+   </examplesentence>
+   
+   <examplesentence>
+     <text>Jerome crashed his bicycle.</text>
+     <slotdescription name=object>his bicycle</slotdescription>
+   </examplesentence>
+   <comment>
+      Depending on the severity of damaged sustained to the bicycle, 
+      <conceptref name=Be-Ruined> may be more appropriate.
+   </comment>
+
+   <examplesentence>
+     <text>King Arthur dented his armor.</text>
+     <slotdescription name=object>his armor</slotdescription>
+   </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Ruined>
+      Be-Ruined is specifically for things that are broken beyond repair.
+   </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

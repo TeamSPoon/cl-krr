@@ -1,0 +1,12 @@
+;;
+;;    $Id: Acidic-Solution.km
+;;
+
+(Acidic-Solution has
+(superclasses (Solution)))
+
+(every Acidic-Solution has-definition
+(instance-of (Solution))
+(has-solute ((a Acid))))
+
+(every Acidic-Solution has (pH ((a PH-Value with (value ((:pair (the abs of (the quotient of ((:bag (the log of (the1 of (the value of ((the concentration of Self)))))(the log of 10))))) *unity)))(less-than ((a PH-Value with (value ((:pair 7 *unity))))))))))

@@ -1,0 +1,68 @@
+<!--- $Id: Remove.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Remove><system-documentation name=Remove>
+<superconcept name=Action>
+
+<definition>
+
+  Remove a part from an object.  This action severs the
+  <slot>has-part</slot> relationship between the action's
+  <slot>object</slot> and <slot>base</slot>.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing (a <conceptref name=Physical-Object>) that's removed from the 
+     <slot>base</slot>.  (Before this action, the <slot>object</slot>
+     is a part of the <slot>base</slot>.)
+  </slotdescription>
+
+  <slotdescription name=base>
+     the thing from which the <slot>object</slot> is removed
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the action to occur
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) that is used to remove the <slot>object</slot>
+    from the <slot>base</slot>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Sara removed the handlebars from the bike with a wrench.</text>
+    <slotdescription name=agent>Sara</slotdescription>
+    <slotdescription name=object>the handlebars</slotdescription>
+    <slotdescription name=base>the bike</slotdescription>
+    <slotdescription name=instrument>a wrench</slotdescription>
+  </examplesentence>
+
+<neighborlist>
+
+  <neighbor name=Detach>
+    Detach breaks the attachment between two objects, such as a dog
+    and a leash.
+    In contrast, Remove breaks the <slot>has-part</slot> relationship
+    between two objects.
+  </neighbor>
+
+  <neighbor name=Add>
+    Add is the opposite of Remove.
+  </neighbor>
+</neighborlist>
+
+</kml>
+
+

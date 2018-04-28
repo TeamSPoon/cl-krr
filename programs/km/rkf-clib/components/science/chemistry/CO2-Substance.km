@@ -1,0 +1,10 @@
+;; 
+;;    $Id: CO2-Substance.km,v 1.3 2005/09/02 18:14:31 jfan Exp $ 
+;; 
+
+(CO2-Substance has (superclasses (Molecular-Compound-Substance)))
+
+(every CO2-Substance has
+       (has-basic-structural-unit ((a CO2)))
+       (physical-state ((a State-Value with
+		  (value (*gas))))))

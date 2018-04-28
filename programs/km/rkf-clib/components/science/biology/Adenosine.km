@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Adenosine.km,v 1.19 2001/05/31 22:47:03 pnav Exp $ 
+;; 
+
+(Adenosine has
+	   (superclasses (Ribonucleoside))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (description ("A nucleoside containing adenine that when joined 
+                          with a monophosphate group forms one of the four
+                          nucleotides in RNA.  As a nucleoside triphosphate
+                          it is the principle energy yielding molecule in
+                          the cell.  Souther."))
+	   (cmap-correspondence ()))
+
+(every Adenosine has
+       (has-part
+	((a Adenine with
+	    (object-of
+	     ((a Be-Attached-To with
+		 (object ((the Ribose has-part of Self)))
+                 (instrument ((a Covalent-CN-Bond)))
+		 (site            
+		     (((the Carbon-Atom has-part of 
+			    (the Ribose has-part of Self))
+		       uniquely-called "Carbon-1" )
+		      ((the Nitrogen-Atom has-part of
+			    (the Adenine has-part of Self))
+		       uniquely-called "Nitrogen-9" )))
+		 ))))
+          (a Ribose))))
+
+
+
+
+

@@ -1,0 +1,38 @@
+;;
+;;    $Id: Optical-Drive.km,v 1.6 2004/10/20 16:07:14 jfan Exp $
+;;
+
+(Optical-Drive has 
+  (superclasses (Computer-Component))
+  (feature-slot ((the feature-slot of Computer-Component)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Optical-Drive))
+  ))
+)
+
+
+;; in general, we allow optical drives to have both read and write speeds
+;; some optical drives (e.g., CD-ROM) will block the write speed; for now
+;;    this seems preferable to having orthogonal subclasses of optical
+;;    drive (both CD vs DVD and rw vs read-only)
+;; the speeds do not have their own properties/Values because they specify
+;; something more complex: a multiplier for the default speed of the original
+;;    audio CD drives (which is also more accurately a data-transfer-rate
+;;    than a rotational-rate)
+
+;; Here's what it should look like:
+;;
+;; (every Optical-Drive has
+;;   (instrument-of ((must-be-a Read-Data with
+;;                      (data-transfer-rate ((a Data-Transfer-Rate-Value with
+;;                                              (value ((:pair ((the1 of the value of the Read speed of *TheOriginalAudioCDReader)
+;;                                                              *
+;;                                                              (the hasReadSpeed of Self))
+;;                                                             (the2 of the value of the Read speed of *TheOriginalAudioCDReader)
+;;                      ))))))
+;; ))))
+                                                                    
+
+(hasReadSpeed has (instance-of (Interface-Slot)) (domain (Optical-Drive)) (range (Number)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasWriteSpeed has (instance-of (Interface-Slot)) (domain (Optical-Drive)) (range (Number)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+

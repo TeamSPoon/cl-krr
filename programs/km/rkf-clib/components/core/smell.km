@@ -1,0 +1,28 @@
+;; 
+;;    $Id: smell.km,v 1.11 2007/04/11 21:42:43 jchaw Exp $ 
+;; 
+
+(smell has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Smell-Value))
+   (categorical-constant-class (Smell-Constant))
+   (inverse 	(smell-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(smell has (wn20-synset ((:set
+                               (:triple "smell" 2 "n")
+                               (:triple "olfactory property" 1 "n")
+                               (:triple "aroma" 1 "n")
+                               (:triple "odor" 1 "n")
+                               (:triple "odour" 2 "n")
+                               (:triple "scent" 3 "n")
+))))
+
+(smell-of has
+	(instance-of (EntityProperty)))

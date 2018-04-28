@@ -1,0 +1,75 @@
+
+;;; ---------- Definition of prototype for Polysaccharide ----------
+
+(Polysaccharide has (superclasses (Carbohydrate)))
+
+(_Polysaccharide435 has 
+  (instance-of (Polysaccharide))
+  (prototype-of (Polysaccharide))
+  (prototype-scope (Polysaccharide))
+  (prototype-participants (_Atom447
+                           _Atom446
+                           _Carbohydrate445
+                           _Polysaccharide435))
+  (prototype-participant-of (_Polysaccharide435))
+  (has-clones (_Placeholder-Class434436))
+  (has-built-clones (_Placeholder-Class434436))
+  (has-basic-structural-unit (_Atom447
+                              _Carbohydrate445))
+  (cloned-from (_Carbohydrate669))
+  (clone-built-from (_Carbohydrate669))
+  (edge-coordinate ((:seq has-basic-structural-unit _Carbohydrate445 237 606)
+                    (:seq has-basic-structural-unit _Atom447 237 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Carbohydrate445 t)
+                    (:seq has-basic-structural-unit _Atom447 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Atom447 has 
+  (instance-of (Atom))
+  (has-clones (_Atom438))
+  (cloned-from (_Atom672))
+  (is-basic-structural-unit-of (_Polysaccharide435))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 387 600)))
+  (prototype-participant-of (_Polysaccharide435)))
+
+(_Atom446 has 
+  (instance-of (Atom))
+  (has-clones (_Atom442))
+  (cloned-from (_Atom672))
+  (is-basic-structural-unit-of (_Carbohydrate445))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 776 549)))
+  (prototype-participant-of (_Polysaccharide435)))
+
+(_Carbohydrate445 has 
+  (has-basic-structural-unit (_Atom446))
+  (instance-of (Carbohydrate))
+  (cloned-from (_Carbohydrate669))
+  (clone-built-from (_Carbohydrate669))
+  (internally-expanded (t))
+  (is-basic-structural-unit-of (_Polysaccharide435))
+  (node-coordinate ((:pair 440 549)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom446 626 555)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom446 f)))
+  (prototype-participant-of (_Polysaccharide435)))
+
+(explanation (:triple _Polysaccharide435 has-basic-structural-unit _Atom447) ((cloned-from _Carbohydrate669 _Polysaccharide435)))
+(explanation (:triple _Polysaccharide435 has-basic-structural-unit _Atom447) ((a Atom (@ _Polysaccharide435 Molecule has-basic-structural-unit))))
+(explanation (:triple _Polysaccharide435 has-basic-structural-unit _Carbohydrate445) ((added-at Polysaccharide "User defined")))
+(explanation (:triple _Atom447 is-basic-structural-unit-of _Polysaccharide435) ((cloned-from _Carbohydrate669 _Polysaccharide435)))
+(explanation (:triple _Atom447 instance-of Atom) ((cloned-from _Carbohydrate669 _Polysaccharide435)))
+(explanation (:triple _Atom447 instance-of Atom) ((a Atom (@ _Polysaccharide435 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom446 is-basic-structural-unit-of _Carbohydrate445) ((cloned-from _Carbohydrate669 _Carbohydrate445)))
+(explanation (:triple _Atom446 instance-of Atom) ((cloned-from _Carbohydrate669 _Carbohydrate445)))
+(explanation (:triple _Atom446 instance-of Atom) ((a Atom (@ _Carbohydrate445 Molecule has-basic-structural-unit))))
+(explanation (:triple _Carbohydrate445 instance-of Carbohydrate) ((added-at Polysaccharide "User defined")))
+(explanation (:triple _Carbohydrate445 has-basic-structural-unit _Atom446) ((cloned-from _Carbohydrate669 _Carbohydrate445)))
+(explanation (:triple _Carbohydrate445 has-basic-structural-unit _Atom446) ((a Atom (@ _Carbohydrate445 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(Polysaccharide now-has (user-description ("a polymer of carbohydrate subunits.")))

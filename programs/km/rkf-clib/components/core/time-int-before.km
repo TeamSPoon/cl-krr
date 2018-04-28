@@ -1,0 +1,19 @@
+;; 
+;;    $Id: time-int-before.km,v 1.6 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(time-int-before has
+       (instance-of (Temporal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Time-Interval))
+       (range (Time-Interval))
+       (inverse (time-int-after))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+
+(time-int-after has
+	(instance-of (Temporal-Relation)))
+

@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Protein-Complex.km,v 1.10 2001/05/17 20:23:02 jfan Exp $ 
+;; 
+
+(Protein-Complex has
+         (superclasses (Molecular-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A group of proteins which act together to provide
+                        structure or perform some function.  They are often
+                        held together by weak bonds such as hydrogen bonds.
+                        Examples: histones and the mitotic spindle. Souther."))
+         (test-case ()))
+
+(every Protein-Complex has
+     (has-part ((a Protein)
+                (at-least 2 Protein))))  ;typically several proteins (a mob)
+
+

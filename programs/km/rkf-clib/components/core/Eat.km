@@ -1,0 +1,31 @@
+;; 
+;; $Id: Eat.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(Eat has
+  (superclasses  (Take-In))
+  (required-slot  (agent object))
+  (secondary-slot ())
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Eat has 
+  (agent ((a Animal)))
+
+  (object ((a Tangible-Entity with 
+              (plays ((a Food)))
+  )))
+)
+
+(every Eat has
+  (text-active-verbseq-sg ("eats"))
+  (text-active-verbseq-pl ("eat"))
+)
+
+(Eat has (wn20-synset ((:set
+			(:triple "eat" 1 "v")
+			(:triple "eat" 2 "v")
+			(:triple "feed" 6 "v")
+			(:triple "eat" 3 "v")
+))))
+(every Eat has (text-nominalization ("eating")))

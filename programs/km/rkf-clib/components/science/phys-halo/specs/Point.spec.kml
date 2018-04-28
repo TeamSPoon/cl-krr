@@ -1,0 +1,28 @@
+<!--- $Id: Point.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Point>
+<superconcept name=Geometric-Object>
+
+<definition>
+	A <conceptref name=Geometric-Object> that has no area, volume, height, width, depth,
+        diameter, radius, circumference, thickness, or length. It is simply an indefinitely 
+	small space.
+</definition>
+
+<neighborlist>
+  <neighbor name=Geometric-Object>
+	A <conceptref name=Spatial-Entity> describing objects in 2D geometry.
+  </neighbor>
+  <neighbor name=Line-Segment>
+	A <conceptref name=Line> with two points, one on each end.
+  </neighbor>
+  <neighbor name=Ray>
+	A <conceptref name=Line> with a point on one end only.
+  </neighbor>
+  <neighbor name=Vertex>
+	A point that has an <conceptref name=Angle-Value> and is part of two <conceptref name=Line>s.
+  </neighbor>
+</neighborlist>
+
+</kml>

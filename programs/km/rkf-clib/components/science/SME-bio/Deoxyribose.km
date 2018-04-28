@@ -1,0 +1,47 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Deoxyribose ----------
+
+(Deoxyribose has (superclasses (Carbohydrate)))
+
+(_Deoxyribose292 has 
+  (instance-of (Deoxyribose))
+  (prototype-of (Deoxyribose))
+  (prototype-scope (Deoxyribose))
+  (prototype-participants (_Atom323
+                           _Deoxyribose292))
+  (prototype-participant-of (_Deoxyribose292))
+  (has-clones (_Placeholder-Class291293))
+  (has-built-clones (_Placeholder-Class291293))
+  (has-basic-structural-unit (_Atom323))
+  (cloned-from (_Carbohydrate669))
+  (clone-built-from (_Carbohydrate669))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom323 223 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom323 t))))
+
+(_Atom323 has 
+  (instance-of (Atom))
+  (has-clones (_Atom294))
+  (cloned-from (_Atom672))
+  (is-basic-structural-unit-of (_Deoxyribose292))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 373 600)))
+  (prototype-participant-of (_Deoxyribose292)))
+
+(explanation (:triple _Deoxyribose292 instance-of Deoxyribose) ((added-at Deoxyribose "User defined")))
+(explanation (:triple _Deoxyribose292 has-basic-structural-unit _Atom323) ((cloned-from _Carbohydrate669 _Deoxyribose292)))
+(explanation (:triple _Deoxyribose292 has-basic-structural-unit _Atom323) ((a Atom (@ _Deoxyribose292 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom323 is-basic-structural-unit-of _Deoxyribose292) ((cloned-from _Carbohydrate669 _Deoxyribose292)))
+(explanation (:triple _Atom323 instance-of Atom) ((cloned-from _Carbohydrate669 _Deoxyribose292)))
+(explanation (:triple _Atom323 instance-of Atom) ((a Atom (@ _Deoxyribose292 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom323 instance-of Atom) ((a Atom)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,17 @@
+;;
+;; $Id: has-molecular-name.km,v 1.5 2006/09/29 18:57:37 jchaw Exp $
+;;
+
+(has-molecular-name has
+		    (instance-of (CLIB-Slot-Group))
+		    (domain      (Atom))
+		    (range       (String))
+		    ; (inherit-with-overrides (t))
+		    (inverse (has-molecular-name-of))
+		    (cardinality (1-to-N))
+		    )
+
+(has-molecular-name has (wn20-synset ((:set
+				       (:triple "molecular name" 0 "n")))))
+
+(has-molecular-name-of has (instance-of (CLIB-Slot-Group)))

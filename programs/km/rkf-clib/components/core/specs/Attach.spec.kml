@@ -1,0 +1,82 @@
+<!--- $Id: Attach.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Attach><system-documentation name=Attach>
+<superconcept name=Action>
+
+<definition>
+
+  Establish a link - an attachment - between two things.
+
+  This Attach action encodes an asymmetric attach, such as 
+  occurs when a bike is locked to a rack.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    for the attach action, give one <slot>object</slot> and 
+    one <slot>base</slot>.  See examples below.
+ 
+    An Attach causes the <slot>object</slot> and the <slot>base</slot>
+    to be in a <conceptref name=Be-Attached-To> state.
+
+  </slotdescription>
+
+  <slotdescription name=base>
+    the thing that the <slot>object</slot> attaches to.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+  <slotdescription name=agent>
+    the entity responsible for the attach action
+  </slotdescription>
+
+  <slotdescription name=location>
+    the Place where the attach occurs
+  </slotdescription>
+
+  <slotdescription name=resulting-state>
+    the <conceptref name=Be-Attached-To> state that results from this action
+  </slotdescription>
+
+</primaryslotlist>
+
+<comment>
+   To record the point of attachment between the objects, use the
+   <slot>site</slot> on the Be-Attached-To state that results from this action.
+</comment>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The bike was attached to bike rack with a chain</text>
+    <slotdescription name=object>the bike</slotdescription>
+    <slotdescription name=base>the bike rack</slotdescription>
+  <comment>
+    In this example, the chain is the <slot>instrument</slot> of the
+    <conceptref name=Be-Attached-To> state that's created by this attach
+    action.
+  </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Contact>
+    Attach is a type of Make-Contact with one extra property: it 
+    puts the objects into a <conceptref name=Be-Attached-To> state
+    with each other
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

@@ -1,0 +1,87 @@
+<!--- $Id: Expose.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Expose><system-documentation name=Expose>
+<superconcept name=Make-Accessible>
+
+<definition>
+
+  Expose some entity which was previously concealed (i.e. physically or 
+  visibly hidden).
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's exposed.  It's assumed to be 
+     in a <conceptref name=Be-Concealed> state before this
+     action is taken, and afterwards it's no longer in that state.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused this action
+  </slotdescription>
+
+  <slotdescription name=base>
+    the thing (entity or event) that the object becomes exposed to
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that exposed the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The plant was exposed to sunlight.</text>
+    <slotdescription name=object>the plant</slotdescription>
+    <slotdescription name=base>sunlight</slotdescription>
+  </examplesentence>
+  <comment>
+    The plant is assumed to be concealed from sunlight beforehand.
+  </comment>
+
+  <examplesentence>
+    <text>By removing the front panel, John revealed the broken spring.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the broken spring</slotdescription>
+    <slotdescription name=by-means-of>removing the front panel</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Accessible> 
+     Make-Accessible is more general than Expose.  Expose reveals
+     a concealed object, whereas Make-Accessible ...
+  </neighbor>
+
+  <neighbor name=Open>
+     Open applies only to portal coverings.  It causes a
+     portal to become accessible to things moving through it.  
+  </neighbor>
+
+  <neighbor name=Unblock>
+     Unblock takes a blocked path and makes it accessible to 
+     things moving through it or along it.
+  </neighbor>
+
+  <neighbor name=Unobstruct>
+     Unobstruct takes an
+     obstructed object and allows it to move.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

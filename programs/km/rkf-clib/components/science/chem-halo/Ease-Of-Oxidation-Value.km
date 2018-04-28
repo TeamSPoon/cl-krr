@@ -1,0 +1,16 @@
+
+;;
+;; $Id: Ease-Of-Oxidation-Value.km,v 1.3 2007/05/21 04:43:14 mrglass Exp $
+;;
+
+
+(Ease-Of-Oxidation-Value has 
+       (superclasses (Property-Value)))
+
+(every Ease-Of-Oxidation-Value has
+  (property-slot (ease-of-oxidation))
+  (ease-of-oxidation-of ((must-be-a Chemical)))
+  (same-as ((must-be-a Ease-Of-Oxidation-Value)))
+  )
+
+(Ease-Of-Oxidation-Value has (description ("the relative ease with which a metal is oxidized; since this property is relative only, it is best used in a table showing increasing or decreasing relative values")))

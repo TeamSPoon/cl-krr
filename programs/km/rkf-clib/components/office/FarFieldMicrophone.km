@@ -1,0 +1,9 @@
+;; $Id: FarFieldMicrophone.km,v 1.12 2005/05/23 18:52:00 kbarker Exp $
+
+(FarFieldMicrophone has
+	(description ("A type of Microphone which usually remains stationary."))
+	(superclasses (Microphone)))
+(FarFieldMicrophone has
+  (feature-slot ((the feature-slot of Microphone)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = FarFieldMicrophone)))))
+

@@ -1,0 +1,101 @@
+<!--- $Id: Move-Out-Of.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Move-Out-Of><system-documentation name=Move-Out-Of>
+<superconcept name=Move-Through>
+
+<definition>
+
+  An <slot>object</slot> changes location by moving out of a container,
+  thereby removing the <slot>object</slot> from its 
+  <conceptref name=Be-Contained> state.    
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that moves
+  </slotdescription>
+
+  <slotdescription name=base>
+     the Tangible-Entity, playing the role of <conceptref name=Container>,
+     which the <slot>object</slot> moves out of 
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the move to occur
+  </slotdescription>
+
+  <slotdescription name=path>
+    the <conceptref name=Portal> through which the 
+    <slot>object</slot> leaves the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the move.  
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-inside</slot> the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the move.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-outside</slot> the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The ball slipped out of the goal through a hole in the net.</text>
+    <slotdescription name=object>the ball</slotdescription>
+    <slotdescription name=base>the goal</slotdescription>
+    <slotdescription name=path>hole in the net</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move-Into>
+    Move-Into puts an object into a Be-Contained state
+  </neighbor>
+
+  <neighbor name=Be-Contained>
+    Move-Out-Of takes an object out of a Be-Contained state
+  </neighbor>
+
+  <neighbor name=Move-Through>
+     Move-Out-Of is a special type of Move-Through in which the 
+     the <slot>object</slot> moves through a portal and out of 
+     a container
+  </neighbor>
+
+  <neighbor name=Enter>
+     Exit is a special type of Move-Out-Of in which the
+     <slot>object</slot> moves of its own volition, i.e. 
+     it locomotes
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

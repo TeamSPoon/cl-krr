@@ -1,0 +1,15 @@
+;;
+;; $Id: cardinal-unit-class.km,v 1.8 2007/04/10 21:29:48 jchaw Exp $
+;;
+
+(cardinal-unit-class has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Property))
+   (range  (Unit-of-Measurement))
+   (cardinality (N-to-N))
+   (original-slot      (t))	
+   (fluent-status (*Non-Fluent))
+) 
+
+(cardinal-unit-class-of has
+   (instance-of (CLIB-Slot-Group)))

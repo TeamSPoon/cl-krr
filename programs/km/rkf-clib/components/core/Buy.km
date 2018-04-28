@@ -1,0 +1,98 @@
+;;
+;; $Id: Buy.km,v 1.12 2005/10/29 14:00:51 kbarker Exp $
+;;
+
+(Buy has
+  (superclasses  (Obtain))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+;; From Obtain, Buy inherits a single Transfer in which the
+;; recipient is the agent. All we need to add for Buy is the
+;; extra Transfer of money (implicit in the term "buy") and
+;; the fact that the donor (seller) is required.
+
+;; Note that an instance of Buy doesn't imply that there is
+;; an instance of Sell. Each "sales transaction" is either
+;; one or the other, depending on the point of view. We don't
+;; have two instances.
+
+;; By default, the amount of money paid is the same as the
+;; worth slot on the object bought. A specific instance of
+;; Buy could specify a different amount of Money.
+
+(every Buy has
+; (object ((a Entity)))          ;; this is inherited from Obtain
+  (donor ((a Tangible-Entity)))
+  (instrument ((a Money with
+                  (worth ((a Worth-Value with
+                             (value ((the value of
+                                          (the worth of
+                                               (the object of Self))))))))
+  )))
+
+  (first-subevent ((a Transfer with
+                      (object ((the instrument of Self)))
+                      (agent ((the agent of Self)))
+                      (donor ((the agent of Self)))
+                      (recipient ((the donor of Self)))
+  )))
+
+  (subevent ((the first-subevent of Self)))
+)
+
+(every Buy has
+  (text-active-verbseq-sg ("buys"))
+  (text-active-verbseq-pl ("buy"))
+
+  (text-instrument ("for"))
+)
+
+(Buy has 
+     (test-case ('(
+		   (new-situation) 
+		   
+		   (*My-Bike has (instance-of (Tangible-Entity)))
+		   (*Me has 
+			(instance-of (Tangible-Entity))
+			(possesses (*My-Bike)))
+
+		   (*200-Dollars has (instance-of (Money))
+				 (worth ((a Worth-Value with
+					    (value ((:pair 200 *usdollar)))))))
+		   (*Jim has 
+			 (instance-of (Tangible-Entity))
+			 (possesses (*200-Dollars)))
+
+		   ;; *Jim Buying *My-Bike
+		   (a Buy with
+		      (agent (*Jim))
+		      (object (*My-Bike))
+		      (donor (*Me))
+		      (instrument (*200-Dollars)))
+		   
+		   (do-script (thelast Buy))
+		   (the text-gen of (thelast Buy))
+
+		   ;; Test 1: *Jim has possesion of the bike
+		   ((the possesses of *Jim) = *My-Bike)
+		   
+		   ;; Test 2: the bike is possessed-by *Jim
+		   ((the is-possessed-by of *My-Bike) = *Jim)
+		   
+		   ;; Test 3: the agent should be the recipient
+		   ((the agent of (thelast Buy)) = (the recipient of (thelast Buy)))
+
+		   ;; Test 4: *Me has possesion of the the money
+		   ((the possesses of *Me) = *200-Dollars)
+		   
+		   ;; Test 5: the money is possessed-by *Me
+		   ((the is-possessed-by of *200-Dollars) = *Me)
+		   
+))))
+
+(Buy has (wn20-synset ((:set
+			(:triple "buy" 1 "v")
+			(:triple "purchase" 1 "v")
+))))
+(every Buy has (text-nominalization ("buying")))

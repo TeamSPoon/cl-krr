@@ -1,0 +1,22 @@
+;;
+;; $Id: Au-Plus-2.km,v 1.8 2008/11/29 03:57:54 tecuci Exp $
+;;
+
+(Au-Plus-2 has (superclasses (Metal-Cation)))
+
+(every Au-Plus-2 has
+       (has-chemical-name ("gold (II)"))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 Au)))))))
+       (is-ion-of ((a Au)))
+       (charge ((a Charge-Value with
+		   (value ((:pair 2 *unity)))))))
+
+(every Au-Plus-2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Au)))))))
+  (charge ((a Charge-Value with (value ((:pair 2 *unity))))))
+)
+
+(Au-Plus-2 has (wn20-synset ((:triple "Au+2" 0 "n"))))

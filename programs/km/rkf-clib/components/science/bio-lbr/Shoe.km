@@ -1,0 +1,23 @@
+;; 
+;; $Id: Shoe.km,v 1.2 2006/06/27 21:14:54 kbarker Exp $
+;; 
+
+(Shoe has
+  (superclasses (Clothing))
+  (description ("covering for the human foot"))
+  (cmap-correspondence ())
+)
+
+(every Shoe has
+  (purpose ((a Instrument-Role with
+               (in-event ((a Protect with
+                             (object ((a Foot)))
+                             (instrument (Self))
+               )))
+  )))
+)
+
+(Shoe has (wn20-synset ((:set
+                                  (:triple "shoe" 1 "n")
+))))
+

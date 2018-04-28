@@ -1,0 +1,10 @@
+;; $Id: SeO3-Minus-2.km,v 1.2 2003/02/22 16:25:29 jchaw Exp $ 
+(SeO3-Minus-2 has (superclasses (Anion)))
+(every SeO3-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *electronic-charge))))))
+	(has-chemical-name ("selenite"))
+	(has-acid-name ("selenous"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Se)(:pair 3 O)))))))
+)

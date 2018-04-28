@@ -1,0 +1,197 @@
+<!--- $Id: gpd12170101-Roles.html,v 1.2 2003/09/10 20:45:16 jchaw Exp $ --->
+
+<html>
+<head>
+<title>SHAKEN Roles</title>
+</head>
+
+<body bgcolor=white>
+
+<h5>SHAKEN gpd 12170101</h5>
+
+<table border=0 width="100%" bgcolor=#8C3016 cellpadding=0>
+<tr><td><font color=white><h1>SHAKEN Roles</font></td></tr>
+</table></h1><p>
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href=#Roles>Roles</a>
+<li><a href=#Use>How to Use Roles in SHAKEN</a>
+<li><a href=#Define>Defining Your Own Roles</a>
+<li><a href=#Distinguish>Is It a Role or an Entity</a>
+</ul><p>
+
+<a name=Roles>
+<hr noshade size=6 color=#8C3016>
+
+<h2>Roles</h2>
+
+SHAKEN divides the world into two major kinds of things: <i>Entities</i>
+("things that are") and <i>Events</i> ("things that happen"). A <i>Role</i>
+represents an Entity's participation in an Event.<p>
+
+Here are some examples of Roles in SHAKEN.<ul>
+<li>Barrier
+<li>Connector
+<li>Container
+<li>Food
+<li>Product
+<li>Vehicle
+<li>etc.
+</ul><p>
+
+You can see all the Roles currently defined in SHAKEN by expanding
+Role in SHAKEN's Browse window. Just click on the
+<img src=expandicon.gif align=bottom> symbol next to '<u>Role</u>':<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src=Browser.gif><p>
+
+Although Roles look like regular Entities, there are 
+important differences:<ol>
+<li>Many different kinds of Entities can play the same Role. For
+example, just about anything can be considered a Food, as long as
+some organism eats it.
+<li>An Entity can play many different Roles, depending on what
+Events it participates in. For example, a Car can play the Role
+of Container, Product and Vehicle (the Role it is <i>intended</i>
+to play).
+<li>An Entity can stop playing a Role, but it can't stop being an
+Entity. For example, you can use chewing gum as a Connector to 
+attach two objects. It can stop playing the Role of Connector, but
+it can't stop being chewing gum.
+</ol>
+
+<a name=Use>
+<hr noshade size=6 color=#8C3016>
+
+<h2>How to Use Roles in SHAKEN</h2>
+
+Roles can be added to concept maps, just like Entities and Events.
+They can be connected to Entities and Events using special relations.
+Usually there are three things involved in representing a Role: the
+Role itself, the Entity playing the Role and the Event in which the
+Entity is playing the role. For example, to encode the knowledge that
+a police car is being used as a barrier to block the road, you would 
+say that the PoliceCar is playing the Role of Barrier in a Block 
+(with a Road as object):<p>
+<center><img src=PoliceCar.gif><p></center>
+
+Note that if we had defined PoliceCar as a kind of Barrier, it would
+mean that police cars are a specific kind of Barrier -- not quite
+what we want.<p>
+
+Sometimes, however, there is such a strong association between an
+Entity and the Role it is <i>intended</i> to play that it is natural
+to say that the Entity <i>is</i> that Role. For example, a Fence is
+intended to be a Barrier. It is natural to say that a Fence is a
+Barrier (not just that Fences happen to be able to play the Role of Barrier).
+For such examples in SHAKEN we say that the <i>purpose</i> of a Fence
+is to be a Barrier in some Block:<p>
+<center><img src=Fence.gif><p></center>
+
+Specifying the purpose of an Entity does not mean that it cannot play
+other Roles in other Events. The purpose of PoliceCar is to be a Vehicle,
+but it can play the Role of Barrier as well:<p>
+<center><img src=PoliceCar2.gif><p></center>
+
+<a name=Define>
+<hr noshade size=6 color=#8C3016>
+
+<h2>Defining Your Own Roles</h2>
+
+As with Entities and Events, it's possible to define your own Roles
+in SHAKEN:<ol>
+<li>Choose "Enter Knowledge" from SHAKEN's main menu
+<li>then "Create a New Concept".
+<li>Enter the name of the new Role and hit the "Continue" button.
+<li>When prompted for "an existing concept to start from", type in 
+<tt>Role</tt> (or a concept more specific than Role).
+<li>Be sure to specify what kind of Entity <i>plays</i> your new Role
+(using the <tt>plays</tt> relationship), what Event is involved
+(using the <tt>in-event</tt> relationship) and what the relationship
+is between that Entity and the Event.
+</ol><p>
+
+Here is an example of a newly defined Role. The Role is Student, which
+is a Role played by a Person in a Learn Event.<p>
+<center><img src=Student.gif><p></center>
+
+<a name=Distinguish>
+<hr noshade size=6 color=#8C3016>
+
+<h2>Is It a Role or an Entity?</h2>
+
+It is not always obvious whether a given concept should be defined as
+a Role or simply as an Entity. Most new concepts you define will probably
+be Entities. Here is a simple test to help determine if your concept may
+be better encoded as a Role. For some new concept called "Flam":<ol>
+<li>Can something be a Flam temporarily?
+<li>Can something stop being a Flam (without ceasing to exist altogether)?
+<li>Can something that isn't intended to be a Flam still be a Flam?
+</ol><p>
+
+If the answer to these questions is "Yes", then "Flam" is probably a
+Role. Here are some examples to help distinguish Roles and Entities.<p>
+
+<table border=1>
+<tr>
+<td><center><b><i>Role</i></b></center></td>
+<td><center><b><i>Entity</i></b></center></td>
+</tr>
+
+<tr>
+<td><dl>
+<dt>Shelter</dt>
+<dd><i>(a cardboard box can be a Shelter temporarily)</i></dd>
+</dl></td>
+<td><dl>
+<dt>Cave</dt>
+<dd><i>(something can't be a Cave temporarily)</i></dd>
+</dl></td>
+</tr>
+
+<tr>
+<td><dl>
+<dt>Teacher</dt>
+<dd><i>(you can stop being a Teacher)</i></dd>
+</dl></td>
+<td><dl>
+<dt>Person</dt>
+<dd><i>(if you "stop being a Person", you cease to exist)</i></dd>
+</dl></td>
+</tr>
+
+<tr>
+<td><dl>
+<dt>Paper-Weight</dt>
+<dd><i>(a Computer isn't </i>intended<i> to be a Paper-Weight, 
+but it can still be used as one)</i></dd>
+</dl></td>
+<td><dl>
+<dt>Rock</dt>
+<dd><i>(something can't be a rock just because you intend it
+to be a rock)</i></dd>
+</dl></td>
+</tr>
+
+</table><p>
+
+Sometimes a particular Entity is so strongly associated with its
+intended Role (its purpose) that the two seem indistinguishable.
+Here is a trickier example:<ul>
+<li><i>a Screwdriver is an Entity whose purpose is to drive screws<p></i>
+<center><img src=Screwdriver.gif><p></center>
+It is tempting to define Screwdriver as a Role (anything that is the
+instrument of driving screws). Then other things, such as knives, coins 
+and thumbnails could play the Screwdriver Role. But the term Screwdriver
+so strongly denotes that particular physical object designed to drive
+screws that it's probably better to define Screwdriver as an Entity and
+say that other things can play the same Role that is the purpose of a
+Screwdriver.<p>
+<center><img src=Screwdriver2.gif><p></center>
+</ul><p>
+
+<hr noshade size=12 color=#8C3016>
+
+</body>
+</html>

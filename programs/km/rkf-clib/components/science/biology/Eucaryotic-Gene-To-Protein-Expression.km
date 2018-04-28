@@ -1,0 +1,31 @@
+;;
+;;    $Id: Eucaryotic-Gene-To-Protein-Expression.km,v 1.1 2001/05/30 23:31:02 souther Exp $
+;;
+
+(Eucaryotic-Gene-To-Protein-Expression has
+		   (superclasses   (Gene-To-Protein-Expression))
+		   (required-slot  (object donor recipient))
+		   (primary-slot   (agent instrument))
+		   (secondary-slot ())
+		   (description	
+                         ("Gene expression of proteins in eucaryotes, which
+                           often involves post-transcription MRNA processing
+                           including splicing to remove introns and 
+                           modification of the two ends of the MRNA.
+                           Souther. "))
+		   )
+
+(every Eucaryotic-Gene-To-Protein-Expression has
+       (donor        ((a Eucaryotic-Gene)))
+       (recipient    ((a Protein)))
+       (object       ((a Genetic-Information)))
+       (instrument   ((a Eucaryotic-MRNA)))
+       (first-subevent ((the Eucaryotic-DNA-Transcription subevent of Self)))
+       (subevent     ((a Eucaryotic-DNA-Transcription)
+					;		 (a RNA-Translation)
+			)))
+		       
+;; needs to be fleshed out
+
+
+

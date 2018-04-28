@@ -1,0 +1,38 @@
+;;
+;;   $Id: Decrease.km,v 1.13 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Decrease has
+  (superclasses  (Action))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Decrease has
+  (from-value ((a Property-Value)))
+  (to-value   ((an instance of (the instance-of of (the from-value of Self)) with
+                   (less-than ((the from-value of Self)))
+  )))
+
+  (del-list ((:triple (the (the property-of-slot of (the from-value of Self)) of (the from-value of Self))
+                      (the property-slot of (the from-value of Self))
+                      *
+  )))
+
+  (add-list ((:triple (the (the property-of-slot of (the from-value of Self)) of (the from-value of Self))
+                      (the property-slot of (the from-value of Self))
+                      (the to-value of Self)
+  )))
+)
+
+(Decrease has (wn20-synset ((:set
+			     (:triple "decrease" 1 "v")
+			     (:triple "diminish" 1 "v")
+			     (:triple "lessen" 1 "v")
+			     (:triple "fall" 7 "v")
+			     (:triple "decrease" 2 "v")
+			     (:triple "lessen" 2 "v")
+			     (:triple "minify" 1 "v")
+))))
+
+(every Decrease has (text-nominalization ("decrease")))
+

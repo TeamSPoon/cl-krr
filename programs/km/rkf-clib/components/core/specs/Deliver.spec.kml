@@ -1,0 +1,78 @@
+<!--- $Id: Deliver.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<kml>
+
+<concept name=Deliver>
+<system-documentation name=Deliver>
+<superconcept name=Transfer>
+
+  <definition> 
+      Change of possession of an <slot>object</slot> to a 
+      <slot>recipient</slot> by an <slot>agent</slot>
+      who is not the <slot>donor</slot>
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the thing that is delivered
+  </slotdescription>
+
+  <slotdescription name=recipient>
+       the entity that <slot>possesses</slot> the object after the delivery
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+       the entity that causes the delivery.  The <slot>agent</slot>
+       is neither the <slot>donor</slot> nor the <slot>recipient</slot>, 
+       i.e. the delivery is by a third party
+  </slotdescription>
+
+  <slotdescription name=donor>
+       the entity that <slot>possesses</slot> the object before the delivery
+  </slotdescription>
+
+  <slotdescription name=instrument>
+       the medium of delivery of the <slot>object</slot>
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>FedEx delivered John's package to Sally.</text>
+    <slotdescription name=object>package</slotdescription>
+    <slotdescription name=agent>FedEx</slotdescription>
+    <slotdescription name=donor>John</slotdescription>
+    <slotdescription name=recipient>Sally</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Lose>
+        Lose is a special type of Transfer in which a <slot>donor</slot>
+        is mandatory
+  </neighbor>  
+
+  <neighbor name=Receive>
+        Receive is a special type of Transfer in which a <slot>recipient</slot>
+        is mandatory
+  </neighbor>  
+
+  <neighbor name=Withdraw>
+        Withdraw is a special type of Transfer in which the 
+        <slot>object</slot> is withdrawn from a <slot>base</slot>,
+        thereby removing it from a <conceptref name=Be-Stored> state
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+		  "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<head>
+<script type="text/javascript">
+      function update_visited_select() {
+        document.myform.visited.options[0] = new Option("Recently Visited Concepts",0);
+        for (i=0; i<top.code.visitedNo; i++) {
+          document.myform.visited.options[i+1] = new Option(top.code.recentlyVisited[i], top.code.recentlyVisited[i]);
+          //alert ("option " + (i+1) + "-" + document.myform.visited.options[i+1].value);
+        }
+        return;}
+      
+      function reset_visited_select() {
+        //alert("Max visited: " + top.code.max_visited + " Visited: " + top.code.visitedNo);
+        for (i=top.code.visitedNo; i>=1; i--) {
+          //alert ("Deleting option " + i);
+          //alert(document.myform.visited.options[i].value);
+          document.myform.visited.options[i] = null;
+          top.code.recentlyVisited[i] = null;
+        }
+        document.myform.visited.options[0] = new Option("Recently Visited Concepts",0);
+        top.code.visitedNo = 0;
+      return;}
+
+      function change_build (build) {
+        reset_visited_select(); 
+        parent.code.document.location = build;
+        parent.text.document.location = "main.html";
+        return;}
+</script>
+</head>
+
+<html>
+  <body>
+    <form name=myform>
+      <table width="100%" cellpadding=0 cellspacing=0 border=0>
+	    <tr>
+	      <td rowspan=2 colspan=2><center><h1>Component Library v1.0</h1></center></td>
+	      <td><div align=left font-size=80%><input type="radio" name="display" value="specs" onClick="top.code.showSpec()">
+		  Display specification</div></td>
+	      <td><div align=left font-size=80%><a href="javascript:top.code.to_slot_dir()"
+		    onmouseover="window.status='See the slot dictionary'; return true;" 
+		    onmouseout="window.status='';return true;">Slot Dictionary</a></div></td> 
+	    </tr>
+	    <tr>
+	      <td><div align=left font-size=80%><input type="radio" name="display" value="code" checked=true onClick="top.code.showKM()">
+		  Display KM axioms</div></td>
+	      <td><div align=left font-size=80%><a href="javascript:top.code.to_rkf()" 
+		    onmouseover="window.status='Go to RKF homepage'; return true;" 
+		    onmouseout="window.status='';return true;">Our homepage</a></div></td> 
+	    </tr>
+	    <tr><td width=300><SELECT size="1" name="treeselect" 
+		  onchange="change_build(document.forms[0].treeselect.options[document.forms[0].treeselect.selectedIndex].value);">
+		  <OPTION selected value="code-core.html">Core</OPTION>
+		  <OPTION value="code.html">Core+Everything</OPTION>
+		  <!-- OPTION value="code-office.html">Core+Office</OPTION -->
+		  <OPTION value="code-halo2.html">Core+Halo2</OPTION>
+		  <OPTION value="code-science.html">Core+Science</OPTION>
+		  <OPTION value="code-bsp.html">Core+BSP</OPTION>
+		  <option value="code-lbr.html">Core+LBR</option>
+		  <option value="code-hovy.html">Core+Hovy</option>
+		</SELECT></td>
+		<td><SELECT size="1" name="visited" 
+		  onchange="if(document.forms[0].visited.options[document.forms[0].visited.selectedIndex].value != 0) { top.code.dispatch(document.forms[0].visited.options[document.forms[0].visited.selectedIndex].value);}" >
+		  
+		  <OPTION selected value="Recently Visited Concepts">Recently Visited Concepts</OPTION>
+		</select>
+	      </td>
+	      <td><div align=left font-size=80%><a href = "javascript:top.code.search()"
+		    onmouseover="window.status='Search the Component Library'; return true;" 
+		    onmouseout="window.status='';return true;">Search</a></div>
+	      </td>
+	      <td><div align=left font-size=80%><a href="javascript:top.code.to_download()" 
+		    onmouseover="window.status='Download the Component Library';  return true;" 
+		    onmouseout="window.status='';return true;">Download the Component Library</a></div></td>
+	    </tr>
+	    
+	</table>
+      </form>
+      
+    </body>
+  </html>
+

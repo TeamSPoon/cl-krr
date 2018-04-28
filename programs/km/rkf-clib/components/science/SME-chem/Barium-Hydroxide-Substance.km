@@ -1,0 +1,50 @@
+s#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Barium-Hydroxide-Substance9001
+
+
+|#
+
+(disable-classification)
+
+(Barium-Hydroxide-Substance has (superclasses (Hydroxide-Substance)))
+
+(every Barium-Hydroxide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Barium-Hydroxide-Substance9754 has
+  (prototype-of (Barium-Hydroxide-Substance Hydroxide-Substance))
+  (prototype-scope (Barium-Hydroxide-Substance (the-class Hydroxide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Ba-Plus-2) (a OH-Minus)))))))))
+  (prototype-participants (_Ba-Plus-9751 _OH-Minus9752 _Ionic-Compound9750 _Barium-Hydroxide-Substance9754)))
+
+(_Ionic-Compound9750 has (instance-of (Ionic-Compound)) (has-part (_Ba-Plus-9751 _OH-Minus9752)))
+
+(_Ba-Plus-9751 has (instance-of (Ba-Plus-2)))
+
+(_OH-Minus9752 has (instance-of (OH-Minus)))
+
+(_Barium-Hydroxide-Substance9754 has (instance-of (Barium-Hydroxide-Substance)) (has-basic-structural-unit (_Ionic-Compound9750)))
+
+(enable-classification)
+
+(explanation (:triple _Barium-Hydroxide-Substance9754 has-basic-structural-unit _Ionic-Compound9750) (((@ SME entered)) (every Barium-Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Ionic-Compound9750 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ba-Plus-9751 instance-of Ba-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _OH-Minus9752 instance-of OH-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Barium-Hydroxide-Substance9754 instance-of Barium-Hydroxide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Barium-Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

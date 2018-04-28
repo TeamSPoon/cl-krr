@@ -1,0 +1,19 @@
+;;
+;;    $Id: Coffee-Maker.km,v 1.7 2005/05/23 18:52:00 kbarker Exp $
+;;
+(Coffee-Maker has (superclasses (Office-Equipment)))
+
+(every Coffee-Maker has 
+       (purpose ((a Instrument-Role with
+       		    (in-event  ((must-be-a Produce)))
+       		    (played-by (Self))
+       )))
+)
+
+(Coffee-Maker has (wn20-synset ((:set
+				 (:triple "coffee_maker" 1 "n")
+))))
+(Coffee-Maker has
+  (feature-slot ((the feature-slot of Office-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Coffee-Maker)))))
+

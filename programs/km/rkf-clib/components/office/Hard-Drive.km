@@ -1,0 +1,21 @@
+;;
+;;    $Id: Hard-Drive.km,v 1.7 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Hard-Drive has 
+  (superclasses (Computer-Storage))
+  (feature-slot ((the feature-slot of Computer-Storage)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Hard-Drive))
+  ))
+)
+
+
+(hasHardDriveRotationalSpeed has (instance-of (Interface-Slot)) (domain (Hard-Drive)) (range (Rotational-Rate-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isHardDriveRotationalSpeedOf)))
+
+(Hard-Drive has (wn20-synset ((:set
+			       (:triple "disk_drive" 1 "n")
+			       (:triple "disc_drive" 1 "n")
+			       (:triple "hard_drive" 1 "n")
+			       (:triple "Winchester_drive" 1 "n")
+))))

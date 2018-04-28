@@ -1,0 +1,17 @@
+;;
+;; $Id: LiOH.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(LiOH has (superclasses (Ionic-Compound)))
+
+(every LiOH has	
+       (has-chemical-name ("lithium hydroxide"))
+	 (has-part ((a Li-Plus) (a OH-Minus)))
+	 (has-chemical-formula ((a Chemical-Formula with
+				   (term ((:seq (:pair 1 Li-Plus)
+						(:pair 1 OH-Minus))))))))
+
+(every LiOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Li-Plus) (a OH-Minus))))
+

@@ -1,0 +1,30 @@
+<!--- $Id: Interpret.doc.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Interpret>
+<superconcept name=Communicate>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Interpret>
+  <definition>Causes <conceptref name=Information> to be known to the <slot>agent</slot>
+  </definition>
+  <requiredslot name=object>
+    <restriction><conceptref name=Information>
+  </restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+    <restriction><slot>agent</slot> must be a <conceptref name=Tangible-Entity>
+    </restriction>
+  </requiredslot>
+
+  <wnsynsets><verb>interpret#1, interpret#6
+  </verb></wnsynsets>
+  <wnsynsets><verb>understand#1, understand#3
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

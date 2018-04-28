@@ -1,0 +1,15 @@
+
+;;
+;; $Id: Tissue.km,v 1.2 2006/06/27 20:50:52 kbarker Exp $
+;;
+
+(Tissue has (superclasses (Suborganismal-Entity)))
+(every Tissue has 
+       (is-part-of ((a Multicellular-Organism)))
+       (has-basic-structural-unit ((a Cell)))
+)
+
+(Tissue has (wn20-synset ((:set 
+                                  (:triple "tissue" 1 "n")
+))))
+

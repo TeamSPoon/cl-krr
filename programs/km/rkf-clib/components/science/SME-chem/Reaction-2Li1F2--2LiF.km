@@ -1,0 +1,218 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-2Li1F2--2LiF ----------
+
+(Reaction-2Li1F2--2LiF has (superclasses (Reaction)))
+
+(_Reaction-2Li1F2--2LiF2931 has 
+  (instance-of (Reaction-2Li1F2--2LiF))
+  (prototype-of (Reaction-2Li1F2--2LiF))
+  (prototype-scope (Reaction-2Li1F2--2LiF))
+  (prototype-participants (_Property-Node2974
+                           _Property-Node2973
+                           _Property-Node2972
+                           _Chemical-Entity2971
+                           _Chemical2969
+                           _Coefficient-Value2968
+                           _Chemical-Entity2966
+                           _Chemical2965
+                           _Coefficient-Value2964
+                           _Chemical-Entity2962
+                           _Chemical2961
+                           _Coefficient-Value2960
+                           _Reaction-2Li1F2--2LiF2931))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931))
+  (big-nodes (_Property-Node2972
+              _Property-Node2973
+              _Property-Node2974))
+  (raw-material (_Chemical2965
+                 _Chemical2969))
+  (result (_Chemical2961))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical2961 t)
+                    (:seq raw-material _Chemical2965 t)
+                    (:seq raw-material _Chemical2969 t))))
+
+(_Property-Node2974 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2960))
+  (contains-edge ((:triple _Coefficient-Value2960 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2Li1F2--2LiF2931))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Property-Node2973 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2968))
+  (contains-edge ((:triple _Coefficient-Value2968 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-2Li1F2--2LiF2931))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Property-Node2972 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2964))
+  (contains-edge ((:triple _Coefficient-Value2964 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2Li1F2--2LiF2931))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Chemical-Entity2971 has 
+  (instance-of (Chemical-Entity
+                F2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical2969))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Chemical2969 has 
+  (has-basic-structural-unit (_Chemical-Entity2971))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value2968))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2968 t)))
+  (raw-material-of (_Reaction-2Li1F2--2LiF2931))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Coefficient-Value2968 has 
+  (contains-node-of (_Property-Node2973))
+  (coefficient-of (_Chemical2969))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Chemical-Entity2966 has 
+  (instance-of (Chemical-Entity
+                Li))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical2965))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Chemical2965 has 
+  (has-basic-structural-unit (_Chemical-Entity2966))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-2Li1F2--2LiF2931))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2964))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2964 t)))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Coefficient-Value2964 has 
+  (contains-node-of (_Property-Node2972))
+  (coefficient-of (_Chemical2965))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Chemical-Entity2962 has 
+  (instance-of (Chemical-Entity
+                LiF))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical2961))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Chemical2961 has 
+  (has-basic-structural-unit (_Chemical-Entity2962))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-2Li1F2--2LiF2931))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2960))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2960 t)))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(_Coefficient-Value2960 has 
+  (contains-node-of (_Property-Node2974))
+  (coefficient-of (_Chemical2961))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2Li1F2--2LiF2931)))
+
+(explanation (:triple _Reaction-2Li1F2--2LiF2931 raw-material _Chemical2969)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Reaction-2Li1F2--2LiF2931 raw-material _Chemical2965)
+  ((a Chemical (@ _Reaction-2Li1F2--2LiF2931 Reaction raw-material))))
+(explanation (:triple _Reaction-2Li1F2--2LiF2931 result _Chemical2961)
+  ((a Chemical (@ _Reaction-2Li1F2--2LiF2931 Reaction result))))
+(explanation (:triple _Reaction-2Li1F2--2LiF2931 chemical-equation _Chemical-Equation-Expression2933)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-2Li1F2--2LiF2931) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-2Li1F2--2LiF2931) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-2Li1F2--2LiF2931) (@ _Reaction-2Li1F2--2LiF2931 Reaction chemical-equation))))
+(explanation (:triple _Reaction-2Li1F2--2LiF2931 instance-of Reaction-2Li1F2--2LiF)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical-Entity2971 atomic-chemical-formula _Chemical-Formula2953)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity2971)) or (the term of (the has-chemical-formula of _Chemical-Entity2971)) (@ _Chemical-Entity2971 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2971)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2971))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity2971)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity2971)))))))))) (@ _Chemical-Entity2971 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity2971 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity2971 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2971 nested-atomic-chemical-formula _Chemical-Formula2951)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 F)))) (@ _Chemical-Entity2971 F2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2971 instance-of F2)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical-Entity2971 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2969 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2969 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2Li1F2--2LiF2931 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2Li1F2--2LiF2931 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical2969 coefficient _Coefficient-Value2968)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical2969 has-basic-structural-unit _Chemical-Entity2971)
+  ((a Chemical-Entity (@ _Chemical2969 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2969 instance-of Chemical)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Coefficient-Value2968 value (:pair 1 *unity))
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Coefficient-Value2968 instance-of Coefficient-Value)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical-Entity2966 instance-of Li)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical-Entity2966 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2965 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2965 has-basic-structural-unit _Chemical-Entity2966)
+  ((a Chemical-Entity (@ _Chemical2965 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2965 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2Li1F2--2LiF2931 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2Li1F2--2LiF2931 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical2965 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2Li1F2--2LiF2931 Reaction raw-material))))
+(explanation (:triple _Chemical2965 coefficient _Coefficient-Value2964)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical2965 instance-of Chemical)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Coefficient-Value2964 value (:pair 2 *unity))
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Coefficient-Value2964 instance-of Coefficient-Value)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical-Entity2962 instance-of LiF)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical-Entity2962 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2961 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2961 has-basic-structural-unit _Chemical-Entity2962)
+  ((a Chemical-Entity (@ _Chemical2961 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2961 instance-of Entity)
+  ((a Entity (@ _Reaction-2Li1F2--2LiF2931 Event (result must-be-a)))))
+(explanation (:triple _Chemical2961 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2Li1F2--2LiF2931 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2Li1F2--2LiF2931 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2961 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2Li1F2--2LiF2931 Reaction result))))
+(explanation (:triple _Chemical2961 coefficient _Coefficient-Value2960)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Chemical2961 instance-of Chemical)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Coefficient-Value2960 value (:pair 2 *unity))
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+(explanation (:triple _Coefficient-Value2960 instance-of Coefficient-Value)
+  ((added-at Reaction-2Li1F2--2LiF "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

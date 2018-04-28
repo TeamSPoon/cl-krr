@@ -1,0 +1,971 @@
+
+;;
+;; $Id: Match-Result-Viewpoint.km,v 1.22 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(Match-Result-Viewpoint has (superclasses (Viewpoint)))
+
+(every Match-Result-Viewpoint has
+  (viewpoint-question ((
+     (?i1-raw == (the1 of (the viewpoint-target of Self)))
+     and
+     (?i2-raw == (the viewpoint-source of Self))
+     and
+     (?i1 == (if ((?i1-raw isa Property-Value)
+                  and
+                  (?i2-raw isa Property-Value)
+                  and
+                  (not (the value of ?i1-raw))
+                  and
+                  (not (the value of ?i2-raw))
+                 )
+              then ((the property-slot of ?i1-raw)
+                    or
+                    (the first of (the primary-slot of ?i1-raw))
+                    or
+                    (the first of (the text-slot of ?i1-raw))
+                    or
+                    (make-phrase ?i1-raw)
+                   )
+              else (the text-indef-head of ?i1-raw)
+             )
+     )
+     and
+     (?i2 == (if ((?i1-raw isa Property-Value)
+                  and
+                  (?i2-raw isa Property-Value)
+                  and
+                  (not (the value of ?i1-raw))
+                  and
+                  (not (the value of ?i2-raw))
+                 )
+              then ((the property-slot of ?i2-raw)
+                    or
+                    (the first of (the primary-slot of ?i2-raw))
+                    or
+                    (the first of (the text-slot of ?i2-raw))
+                    or
+                    (make-phrase ?i2-raw)
+                   )
+              else (the text-indef-head of ?i2-raw)
+             )
+     )
+     and
+     (make-phrase (:seq "What are the"
+                        (if ((the1 of (the2 of (the1 of (the viewpoint-query of Self)))) isa Be-Similar)
+                         then "similarities"
+                         else "differences"
+                        )
+                        "between"
+                        ?i1
+                        "and"
+                        ?i2
+                        "nospace" "?"
+                  )
+      )
+  )))
+
+  (viewpoint-detail-title ("Detail Should Be Turned Off"))
+
+  (viewpoint-detail (""))
+
+;; Turn off viewpoint-detail: it only shows descriptions of the two concepts
+;; (which can be had through links from viewpoint-answer if the concepts are domspec
+#|
+  (viewpoint-detail (
+     (make-phrase
+        (:seq "
+<li><b>"
+              (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE (CAR (KM0 '(|the1| |of| (|the| |viewpoint-target| |of| |Self|))))
+                                                          (CAR (KM0 '(|make-phrase| (|the| |first| |of| 
+                                                                               (|the| |classes| |of| 
+                                                                                    (|the1| |of| (|the| |viewpoint-target| |of| |Self|))))))))))
+              "nospace" ":</b>"
+              (make-sentence (
+                (the user-description of
+                     (the instance-of of (the1 of (the viewpoint-target of Self))))
+                or
+                (the description of
+                     (the instance-of of (the1 of (the viewpoint-target of Self))))
+                or
+                (the text-definition-sentence of (the1 of (the viewpoint-target of Self)))
+              ))
+              "</li>
+<li><b>"
+              (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE (CAR (KM0 '(|the1| |of| (|the| |viewpoint-source| |of| |Self|))))
+                                                          (CAR (KM0 '(|make-phrase| (|the| |first| |of| 
+                                                                               (|the| |classes| |of| 
+                                                                                    (|the1| |of| (|the| |viewpoint-source| |of| |Self|))))))))))
+              "nospace" ":</b>"
+              (make-sentence (
+                (the user-description of
+                     (the instance-of of (the viewpoint-source of Self)))
+                or
+                (the description of
+                     (the instance-of of (the viewpoint-source of Self)))
+                or
+                (the text-definition-sentence of (the viewpoint-source of Self))
+              ))
+              "</li>
+"
+        )
+     )
+  ))
+|#
+
+  (viewpoint-answer (
+     (if ((the1 of (the2 of (the1 of (the viewpoint-query of Self)))) isa Be-Similar)
+      then (make-phrase (
+        (?i1 == (the1 of (the viewpoint-target of Self)))
+        and
+        (?i2 == (the viewpoint-source of Self))
+        and
+        (?i1-text == 
+           (make-phrase 
+              (if ((?i1 isa Property-Value)
+                   and
+                   (?i2 isa Property-Value)
+                   and
+                   (not (the value of ?i1))
+                   and
+                   (not (the value of ?i2))
+                  )
+               then ((the property-slot of ?i1)
+                     or
+                     (the first of (the primary-slot of ?i1))
+                     or
+                     (the first of (the text-slot of ?i1))
+                     or
+                     ?i1
+                    ) 
+               else (the text-indef-head of ?i1)
+              )
+           )
+        )
+        and
+        (?i2-text == 
+           (make-phrase
+              (if ((?i1 isa Property-Value)
+                   and
+                   (?i2 isa Property-Value)
+                   and
+                   (not (the value of ?i1))
+                   and
+                   (not (the value of ?i2))
+                  )
+               then ((the property-slot of ?i2)
+                     or
+                     (the first of (the primary-slot of ?i2))
+                     or
+                     (the first of (the text-slot of ?i2))
+                     or
+                     ?i2
+                    )
+               else (the text-indef-head of ?i2)
+              )
+           )
+        )
+        and
+        (?c1 == (the classes of ?i1))
+        and
+        (?c2 == (the classes of ?i2))
+        and
+        (?sc1 == (          ;; the classes and all superclasses of the first instance
+                  (?c1) && ((the all-superclasses of ?c1))
+                 )
+        )
+        and
+        (?sc2 == (          ;; the classes and all superclasses of the first instance
+                  (?c2) && ((the all-superclasses of ?c2))
+                 )
+        )
+        and
+        (?usc == ((?sc1) && (?sc2)))     ;; the union of classes
+        and
+        (?isc == (allof ?c in ?usc       ;; the intersection of classes
+                  where ((?sc1 includes ?c) and (?sc2 includes ?c))
+                 )
+        )
+        and
+        (?msca == (oneof ?sc in ?isc     ;; the most specific common ancestor of the two instances
+                   where (not (oneof ?scsub in ?isc           ;; approximated as one of the classes
+                               where ((?scsub /= ?sc)         ;; in the intersection that subsumes
+                                      and                     ;; no other class in the intersection
+                                      (?sc subsumes ?scsub)
+                                     )
+                              )
+                         )
+                  )
+        )
+        and
+        (?commpart == (allof ?vc in (the viewpoint-correspondence of Self)
+                       where ((not ((the1 of ?vc) = ?i2))   ;; filter out the concepts themselves
+                              and
+                              ((make-phrase (the text-indef-head of (the1 of ?vc)))
+                               =
+                               (make-phrase (the text-indef-head of (the2 of ?vc)))
+                              )
+                             )
+                      )
+        )
+        and
+        (:seq (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                              '|?i1|
+                              (CAPITALIZE (MAKE-PHRASE (KM0 '|?i1-text|)))))
+              )
+              "and" 
+              (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                              '|?i2|
+                              (MAKE-PHRASE (KM0 '|?i2-text|))))
+              )
+              "have the following in common:
+<ul>
+"
+              (if (has-value ?msca)
+               then (if ((?c1 includes ?msca) and (not (?c2 includes ?msca)))
+                     then (:seq "<li>" "nospace"
+                                (make-sentence 
+                                  (:seq ?i2-text
+                                        "is a specific kind of"
+                                        ?i1-text
+                                  )
+                                )
+                                "</li>
+"
+                          )
+                     else (if ((?c2 includes ?msca) and (not (?c1 includes ?msca)))
+                           then (:seq "<li>" "nospace"
+                                      (make-sentence 
+                                        (:seq ?i1-text
+                                              "is a specific kind of"
+                                              ?i2-text
+                                        )
+                                      )
+                                      "</li>
+"
+                                )
+                           else (:seq "<li>They are both a kind of" 
+;                                      ?msca 
+                                      (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                       (CAR (KM0 '(|an| |instance| |of| |?msca|)))
+                                                       (CAR (KM0 '(|make-phrase| |?msca|))))))
+                                      "nospace" "." "</li>
+")
+                          )
+                    )
+              )
+              (if (has-value ?commpart)
+               then (:seq "<li>They both involve"
+                          (andify (the text-indef-phrase of (the1 of ?commpart)))
+                          "nospace" "."
+                          "</li>
+"
+                    )
+              )
+
+              "<ul>
+"
+              (forall ?vp-pair in ?commpart
+                      ((?desc1 == (the text-description of (the1 of ?vp-pair)))
+                       and
+                       (?desc2 == (the text-description of (the2 of ?vp-pair)))
+                       and
+                       (?sent1 == (the text-sentence of (the1 of ?vp-pair)))
+                       and
+                       (?sent2 == (the text-sentence of (the2 of ?vp-pair)))
+                       and
+                       (?exst1 == (the text-existential-there of (the1 of ?vp-pair)))
+                       and
+                       (?exst2 == (the text-existential-there of (the2 of ?vp-pair)))
+                       and
+                       (?text1 == (if ((the1 of ?vp-pair) isa Event)        ;; use text-description for Events
+                                   then (if (not (?desc1 = ?exst1))         ;; but don't use if same as existential
+                                         then ?desc1)
+                                   else (if (not (?sent1 = ?exst1))
+                                         then ?sent1)                       ;; use text-sentence for non-Events
+                                  )
+                       )
+                       and
+                       (?text2 == (if ((the2 of ?vp-pair) isa Event)        ;; same for the2 of ?vp-pair
+                                   then (if (not (?desc2 = ?exst2))
+                                         then ?desc2)
+                                   else (if (not (?sent2 = ?exst2))
+                                         then ?sent2)
+                                  )
+                       )
+                       and
+                       (:seq (if (has-value ?text1)
+                              then (:seq "<li>" ?text1 "</li>
+")
+                             )
+                             (if ((has-value ?text2) and (?text2 /= ?text1))
+                              then (:seq "<li>" ?text2 "</li>
+")
+                             )
+                       )
+                      )
+              )
+              "</ul>
+</ul>
+"
+        )  ;; end :seq
+       ))  ;; end make-phrase
+      else   ;; else of if Be-Similar... must be Be-Different
+        (if ((the1 of (the2 of (the1 of (the viewpoint-query of Self)))) isa Be-Different)
+         then
+           (make-phrase (
+             (?vpmg == (the1 of (the viewpoint-target of Self)))
+             and
+             (?i1 == (the1 of (the viewpoint-target of Self)))
+             and
+             (?i2 == (the viewpoint-source of Self))
+             and
+             (?i1-text == 
+                (make-phrase
+                   (if ((?i1 isa Property-Value)
+                        and
+                        (?i2 isa Property-Value)
+                        and
+                        (not (the value of ?i1))
+                        and
+                        (not (the value of ?i2))
+                       )
+                    then ((the property-slot of ?i1)
+                          or
+                          (the first of (the primary-slot of ?i1))
+                          or
+                          (the first of (the text-slot of ?i1))
+                          or
+                          (make-phrase ?i1)
+                         )
+                    else (the text-indef-head of ?i1)
+                   )
+                )
+             )
+             and
+             (?i2-text == 
+                (make-phrase
+                   (if ((?i1 isa Property-Value)
+                        and
+                        (?i2 isa Property-Value)
+                        and
+                        (not (the value of ?i1))
+                        and
+                        (not (the value of ?i2))
+                       )
+                    then ((the property-slot of ?i2)
+                          or
+                          (the first of (the primary-slot of ?i2))
+                          or
+                          (the first of (the text-slot of ?i2))
+                          or
+                          (make-phrase ?i2)
+                         )
+                    else (the text-indef-head of ?i2)
+                   )
+                )
+             )
+             and
+             (?c1 == (the classes of ?i1))
+             and
+             (?c2 == (the classes of ?i2))
+             and
+             (?sc1 == (          ;; the classes and all superclasses of the first instance
+                       (?c1) && ((the all-superclasses of ?c1))
+                      )
+             )
+             and
+             (?sc2 == (          ;; the classes and all superclasses of the first instance
+                       (?c2) && ((the all-superclasses of ?c2))
+                      )
+             )
+             and
+             (?usc == ((?sc1) && (?sc2)))     ;; the union of classes
+             and
+             (?isc == (allof ?c in ?usc       ;; the intersection of classes
+                       where ((?sc1 includes ?c) and (?sc2 includes ?c))
+                      )
+             )
+             and
+             (?msca == (oneof ?sc in ?isc     ;; the most specific common ancestor of the two instances
+                        where (not (oneof ?scsub in ?isc           ;; approximated as one of the classes
+                                    where ((?scsub /= ?sc)         ;; in the intersection that subsumes
+                                           and                     ;; no other class in the intersection
+                                           (?sc subsumes ?scsub)
+                                          )
+                                   )
+                              )
+                       )
+             )
+             and
+             (?diffc1 == (oneof ?sc in ?sc1
+                          where (((the superclasses of ?sc) includes ?msca)    ;; one step down from ?msca
+                                 and
+                                 (not (?c1 includes ?sc))                      ;; not a direct class of ?i1
+                                 and
+                                 (not (?sc2 includes ?sc))                     ;; not among ?i2's class tree
+                                 and
+                                 (not (?c2 includes ?msca))                    ;; ?i2 is not the ?msca
+                                )
+                         )
+             )
+             and
+             (?diffc2 == (oneof ?sc in ?sc2
+                          where (((the superclasses of ?sc) includes ?msca)    ;; one step down from ?msca
+                                 and
+                                 (not (?c2 includes ?sc))                      ;; not a direct class of ?i2
+                                 and
+                                 (not (?sc1 includes ?sc))                     ;; not among ?i1's class tree
+                                 and
+                                 (not (?c1 includes ?msca))                    ;; ?i1 is not the ?msca
+                                )
+                         )
+             )
+             and
+             (?relconc1 == (if (not ((?c1 includes ?msca) and (not (?c2 includes ?msca))))  ;; don't elaborate on ?i1
+                            then (forall ?trip in (the viewpoint-model-graph of Self)       ;; if it's a superclass of ?i2
+                                  where (((the2 of ?trip) = instance-of)
+                                         and
+                                         ((the1 of ?trip) /= ?i1)
+                                         and
+                                         ((make-phrase (the text-indef-phrase of (the1 of ?trip)))
+                                          /=
+                                          (make-phrase (the text-indef-phrase of ?i1))
+                                         )
+                                         and
+                                         (not ((the2 of (the viewpoint-correspondence of Self)) includes (the1 of ?trip)))
+                                        )
+                                  (the1 of ?trip)
+                                 )
+                           )
+             )
+             and
+             (?concsl1 == (if (not ((?c1 includes ?msca) and (not (?c2 includes ?msca))))
+                           then (forall ?trip in (the viewpoint-model-graph of Self)    ;; get unique concept-slot pairs
+                                 where ((has-value (the text-gloss of (the2 of ?trip))) ;; from the list of triples
+                                        or
+                                        (has-value (the text-slot of (the2 of ?trip)))
+;                                        or
+;                                        ((the2 of ?trip) isa Property)
+                                        or
+                                        ((the2 of ?trip) = value)
+                                       )
+                                 (:pair (the1 of ?trip) (the2 of ?trip))
+                                )
+                          )
+             )
+             and
+             (?relconc2 == (if (not ((?c2 includes ?msca) and (not (?c1 includes ?msca))))
+                            then (forall ?trip in (the viewpoint-scenario of Self)
+                                  where (((the2 of ?trip) = instance-of)
+                                         and
+                                         ((the1 of ?trip) /= ?i2)
+                                         and
+                                         ((make-phrase (the text-indef-phrase of (the1 of ?trip)))
+                                          /=
+                                          (make-phrase (the text-indef-phrase of ?i2))
+                                         )
+                                         and
+                                         (not ((the1 of (the viewpoint-correspondence of Self)) includes (the1 of ?trip)))
+                                        )
+                                  (the1 of ?trip)
+                                 )
+                           )
+             )
+             and
+             (?concsl2 == (if (not ((?c2 includes ?msca) and (not (?c1 includes ?msca))))
+                           then (forall ?trip in (the viewpoint-scenario of Self)
+                                 where ((has-value (the text-gloss of (the2 of ?trip))) ;; from the list of triples
+                                        or
+                                        (has-value (the text-slot of (the2 of ?trip)))
+;                                        or
+;                                        ((the2 of ?trip) isa Property)
+                                        or
+                                        ((the2 of ?trip) = value)
+                                       )
+                                 (:pair (the1 of ?trip) (the2 of ?trip))
+                                )
+                          )
+             )
+             and
+             (:seq (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                   '|?i1|
+                                   (CAPITALIZE (MAKE-PHRASE (KM0 '|?i1-text|)))))
+                   )
+                   "and" 
+                   (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                   '|?i2|
+                                   (MAKE-PHRASE (KM0 '|?i2-text|))))
+                   )
+                   "differ in the following ways:
+<ul>"
+
+                   (if ((?i1 isa Property-Value)
+                        and
+                        (?i2 isa Property-Value)
+                        and
+                        (has-value (the description of ?c1))
+                        and
+                        (has-value (the description of ?c2))
+                       )
+                    then (:seq "<li>" 
+                               (if (the primary-slot of ?i1)
+                                then (the first of (the primary-slot of ?i1))
+                                else ?c1
+                               )
+                               "nospace" ":" (the description of ?c1) "</li>
+"
+                               "<li>"
+                               (if (the primary-slot of ?i2)
+                                then (the first of (the primary-slot of ?i2))
+                                else ?c2
+                               )
+                               "nospace" ":" (the description of ?c2) "</li>
+"
+                         )
+                   )
+
+                   (if (has-value ?msca)
+                    then (if ((?c1 includes ?msca) and (not (?c2 includes ?msca)))
+                          then (:seq "<li><b><i>" "nospace"                            ;; html tags outside the make-sentence
+                                     (make-sentence 
+                                       (:seq ?i2-text "</i></b>"
+                                             "is a specific kind of"
+                                             "<b><i>" ?i1-text "</i></b>"
+                                       )
+                                     )
+                                     "</li>
+"
+                               )
+                          else (if ((?c2 includes ?msca) and (not (?c1 includes ?msca)))
+                                then (:seq "<li><b><i>" "nospace"
+                                           (make-sentence 
+                                             (:seq ?i1-text "</i></b>"
+                                                   "is a specific kind of"
+                                                   "<b><i>" ?i2-text "</i></b>"
+                                             )
+                                           )
+                                           "</li>
+"
+                                     )
+                               )
+                         )
+                   )
+
+                   (if ((has-value ?diffc1) and (has-value ?diffc2))
+                    then (:seq "<li><b><i>" "nospace"
+                               (make-sentence
+                                 (:seq ?i1-text "</i></b>"
+                                       "is a kind of" ?diffc1
+                                       "whereas"
+                                       "<b><i>" ?i2-text "</i></b>"
+                                       "is a kind of" ?diffc2
+                                 )
+                               )
+                               "</li>
+"
+                         )
+                     else (if (has-value ?diffc1)
+                           then (:seq "<li><b><i>" "nospace"
+                                      (make-sentence
+                                        (:seq ?i1-text "</i></b>"
+                                              "is a kind of" ?diffc1
+                                              "nospace" ", which is a different kind of"
+                                              (?msca or "thing")
+                                              "than <b><i>" ?i2-text "</i></b>"
+                                        )
+                                      )
+                                      "</li>
+"
+                                )
+                           else (if (has-value ?diffc2)
+                                 then (:seq "<li><b><i>" "nospace"
+                                            (make-sentence
+                                              (:seq ?i2-text "</i></b>"
+                                                    "is a kind of" ?diffc2
+                                                    "nospace" ", which is a different kind of"
+                                                    (?msca or "thing")
+                                                    "than <b><i>" ?i1-text "</i></b>"
+                                              )
+                                            )
+                                            "</li>
+"
+                                      )
+                                )
+                          )
+                   )
+
+                   (if (has-value ?concsl1)
+                    then (:seq "<li><b><i>" "nospace"
+                               (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                               '|?i1|
+                                               (CAR (KM0 '(|make-phrase| (|the| |text-head| |of| |?i1|))))))
+                               )
+                               "</i></b></li>
+"
+                         )
+                   )
+
+                   "<ul>
+"
+                   (forall ?cs in ?concsl1
+                    where ((the classes of (the1 of ?cs)) = (the classes of ?i1))  ;; solve def ref doing ?i1 trips 1st
+                    (make-phrase      ;; make-phrase removes dupes
+                     (if ((the2 of ?cs) = value)
+                      then
+                       (:seq "<li>"
+                             (the text-description of (the1 of ?cs))
+                             (
+                              (?pr == (oneof ?p in (the all-instances of Property)
+                                       where ((the ?p of ?i1) = (the1 of ?cs))))
+                              and
+                              (?trip == (:triple ?i1 ?pr (the1 of ?cs)))
+                              and
+                              (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                              and
+                              (if ?trip-index
+                               then (:seq "["
+                                          "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                          "nospace"
+                                          ?trip-index
+                                          "nospace"
+                                          "')\">why?</A> ]
+"
+                                    )
+                              )
+                             )
+                             "</li>
+"
+                       )
+
+                      else
+                       (:seq "<li>"
+                             (if (has-value (the text-def-head of (the1 of ?cs)))
+                              then (the text-def-head of (the1 of ?cs))
+                              else (the1 of ?cs)
+                             )
+                             (if (has-value (the text-gloss of (the2 of ?cs)))
+                              then (the text-gloss of (the2 of ?cs))
+                              else (if (has-value (the text-slot of (the2 of ?cs)))
+                                    then (:seq "is" (the (the text-slot of (the2 of ?cs)) of (the1 of ?cs)))
+                                   )
+                             )
+
+                             (andify
+                               (forall ?trip in (the viewpoint-model-graph of Self)
+                                where (((the1 of ?trip) = (the1 of ?cs))
+                                       and
+                                       ((the2 of ?trip) = (the2 of ?cs))
+                                      )
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (?tripfiller == (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                                 (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                 (CAR (KM0 '(|make-phrase| (|the| |text-indef-phrase| |of| (|the3| |of| |?trip|)))))))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq ?tripfiller
+                                             "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                  else (:seq ?tripfiller)
+                                 )
+                                )
+                               )
+                             )
+                             "</li>
+"
+                       )
+                     )
+                    )
+                   )
+                   (forall ?cs in ?concsl1
+                    where ((the classes of (the1 of ?cs)) /= (the classes of ?i1))
+;;; put in a check here to filter out properties not on the top-level concept
+                    (make-phrase      ;; make-phrase removes dupes
+                     (if ((the2 of ?cs) = value)
+                      then
+                       (:seq "<li>"
+                             (the text-description of (the1 of ?cs))
+                             (
+                              (?pr == (oneof ?p in (the all-instances of Property)
+                                       where ((the ?p of ?i1) = (the1 of ?cs))))
+                              and
+                              (?trip == (:triple ?i1 ?pr (the1 of ?cs)))
+                              and
+                              (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                              and
+                              (if ?trip-index
+                               then (:seq "["
+                                          "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                          "nospace"
+                                          ?trip-index
+                                          "nospace"
+                                          "')\">why?</A> ]
+"
+                                    )
+                              )
+                             )
+                             "</li>
+"
+                       )
+
+                      else
+                       (:seq "<li>"
+                             (if (has-value (the text-def-head of (the1 of ?cs)))
+                              then (the text-def-head of (the1 of ?cs))
+                              else (the1 of ?cs)
+                             )
+                             (if (has-value (the text-gloss of (the2 of ?cs)))
+                              then (the text-gloss of (the2 of ?cs))
+                              else (if (has-value (the text-slot of (the2 of ?cs)))
+                                    then (:seq "is" (the (the text-slot of (the2 of ?cs)) of (the1 of ?cs)))
+                                   )
+                             )
+
+                             (andify
+                               (forall ?trip in (the viewpoint-model-graph of Self)
+                                where (((the1 of ?trip) = (the1 of ?cs))
+                                       and
+                                       ((the2 of ?trip) = (the2 of ?cs))
+                                      )
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (?tripfiller == (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                                 (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                 (CAR (KM0 '(|make-phrase| (|the| |text-indef-phrase| |of| (|the3| |of| |?trip|)))))))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq ?tripfiller
+                                             "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                  else (:seq ?tripfiller)
+                                 )
+                                )
+                               )
+                             )
+                             "</li>
+"
+                       )
+                     )
+                    )
+                   )
+                   "</ul>
+"
+
+                   (if (has-value ?concsl2)
+                    then (:seq "<li><b><i>" "nospace"
+                               (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                               '|?i2|
+                                               (CAR (KM0 '(|make-phrase| (|the| |text-head| |of| |?i2|))))))
+                               )
+                               "</i></b></li>
+"
+                         )
+                   )
+
+                   "<ul>
+"
+                   (forall ?cs in ?concsl2
+                    where ((the classes of (the1 of ?cs)) = (the classes of ?i2))  ;; solve def ref doing ?i2 trips 1st
+                    (make-phrase      ;; make-phrase removes dupes
+                     (if ((the2 of ?cs) = value)
+                      then
+                       (:seq "<li>"
+                             (the text-description of (the1 of ?cs))
+                             (
+                              (?pr == (oneof ?p in (the all-instances of Property)
+                                       where ((the ?p of ?i2) = (the1 of ?cs))))
+                              and
+                              (?trip == (:triple ?i2 ?pr (the1 of ?cs)))
+                              and
+                              (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                              and
+                              (if ?trip-index
+                               then (:seq "["
+                                          "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                          "nospace"
+                                          ?trip-index
+                                          "nospace"
+                                          "')\">why?</A> ]
+"
+                                    )
+                              )
+                             )
+                             "</li>
+"
+                       )
+
+                      else
+                       (:seq "<li>"
+                             (if (has-value (the text-def-head of (the1 of ?cs)))
+                              then (the text-def-head of (the1 of ?cs))
+                              else (the1 of ?cs)
+                             )
+                             (if (has-value (the text-gloss of (the2 of ?cs)))
+                              then (the text-gloss of (the2 of ?cs))
+                              else (if (has-value (the text-slot of (the2 of ?cs)))
+                                    then (:seq "is" (the (the text-slot of (the2 of ?cs)) of (the1 of ?cs)))
+                                   )
+                             )
+
+                             (andify
+                               (forall ?trip in (the viewpoint-scenario of Self)
+                                where (((the1 of ?trip) = (the1 of ?cs))
+                                       and
+                                       ((the2 of ?trip) = (the2 of ?cs))
+                                      )
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (?tripfiller == (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                                 (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                 (CAR (KM0 '(|make-phrase| (|the| |text-indef-phrase| |of| (|the3| |of| |?trip|)))))))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq ?tripfiller
+                                             "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                  else (:seq ?tripfiller)
+                                 )
+                                )
+                               )
+                             )
+                             "</li>
+"
+                       )
+                     )
+                    )
+                   )
+                   (forall ?cs in ?concsl2
+                    where ((the classes of (the1 of ?cs)) /= (the classes of ?i2))
+                    (make-phrase      ;; make-phrase removes dupes
+                     (if ((the2 of ?cs) = value)
+                      then
+                       (:seq "<li>"
+                             (the text-description of (the1 of ?cs))
+                             (
+                              (?pr == (oneof ?p in (the all-instances of Property)
+                                       where ((the ?p of ?i2) = (the1 of ?cs))))
+                              and
+                              (?trip == (:triple ?i2 ?pr (the1 of ?cs)))
+                              and
+                              (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                              and
+                              (if ?trip-index
+                               then (:seq "["
+                                          "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                          "nospace"
+                                          ?trip-index
+                                          "nospace"
+                                          "')\">why?</A> ]
+"
+                                    )
+                              )
+                             )
+                             "</li>
+"
+                       )
+
+                      else
+                       (:seq "<li>"
+                             (if (has-value (the text-def-head of (the1 of ?cs)))
+                              then (the text-def-head of (the1 of ?cs))
+                              else (the1 of ?cs)
+                             )
+                             (if (has-value (the text-gloss of (the2 of ?cs)))
+                              then (the text-gloss of (the2 of ?cs))
+                              else (if (has-value (the text-slot of (the2 of ?cs)))
+                                    then (:seq "is" (the (the text-slot of (the2 of ?cs)) of (the1 of ?cs)))
+                                   )
+                             )
+
+                             (andify
+                               (forall ?trip in (the viewpoint-scenario of Self)
+                                where (((the1 of ?trip) = (the1 of ?cs))
+                                       and
+                                       ((the2 of ?trip) = (the2 of ?cs))
+                                      )
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (?tripfiller == (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                                 (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                 (CAR (KM0 '(|make-phrase| (|the| |text-indef-phrase| |of| (|the3| |of| |?trip|)))))))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq ?tripfiller
+                                             "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                  else (:seq ?tripfiller)
+                                 )
+                                )
+                               )
+                             )
+                             "</li>
+"
+                       )
+                     )
+                    )
+                   )
+                   "</ul>
+</ul>
+"
+             ) ;; end :seq
+           ))  ;; end make-phrase
+        )      ;; end if Be-Different
+      )    ;; end if Be-Similar
+  ))
+)
+
+#|
+(nocomments)
+(load-kb "../CLib/components/core/Match-Result-Viewpoint.km")
+(load-kb "../CLib/components/core/Role.km")
+(in-situation _Situation1075)
+(the viewpoint-answer-page of _Match-Result-Viewpoint1372)
+
+
+(a Plant-Cell)
+(a Animal-Cell)
+(a Be-Similar)
+(a Be-Different)
+(a Match-Result-Viewpoint with
+   (viewpoint-source (_Plant-Cell9537))
+   (viewpoint-target ((:seq _Animal-Cell9538)))
+   (viewpoint-query ((:seq (:pair *match-result (:triple _Be-Similar9539 * *)))))
+)
+(the viewpoint-answer-page of _Match-Result-Viewpoint9541)
+(a Match-Result-Viewpoint with
+   (viewpoint-source (_Plant-Cell9537))
+   (viewpoint-target ((:seq _Animal-Cell9538)))
+   (viewpoint-query ((:seq (:pair *match-result (:triple _Be-Different9540 * *)))))
+)
+(the viewpoint-answer-page of _Match-Result-Viewpoint9542)
+
+|#

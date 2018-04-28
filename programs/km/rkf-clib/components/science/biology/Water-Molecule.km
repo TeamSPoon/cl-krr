@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Water-Molecule.km,v 1.11 2001/06/01 23:26:56 pnav Exp $ 
+;; 
+
+(Water-Molecule has
+         (superclasses (Inorganic-Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Molecule made up of two hydrogen atoms each covalently
+                        bonded to the same oxygen atom.  Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Water-Molecule has
+  (has-part (
+	     (a Hydrogen-Atom called "one hydrogen")
+	     (a Hydrogen-Atom called "the other hydrogen")
+	     (a Oxygen-Atom with
+		(object-of
+		  ((a Be-Attached-To with
+		      (object (((the Hydrogen-Atom has-part of Self) 
+			 	called "one hydrogen")))
+		      (instrument ((a Covalent-OH-Bond)))
+		      )
+		   (a Be-Attached-To with
+		      (object (((the Hydrogen-Atom has-part of Self)
+				called "the other hydrogen")))
+		      (instrument ((a Covalent-OH-Bond)))
+		      ))))
+	     ))
+  )
+
+
+

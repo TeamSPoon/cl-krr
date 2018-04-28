@@ -1,0 +1,14 @@
+;; 
+;;    $Id: UoM-Concentration.km,v 1.4 2007/05/17 20:55:05 kbarker Exp $
+;; 
+
+(UoM-Concentration has
+ (superclasses (Unit-of-Measurement))
+ (instances (*molar)))
+
+(*molar has (instance-of (UoM-Concentration))
+        (name ("M"))
+	(wn20-synset ((:set
+		       (:triple "molar" 0 "n")
+		       (:triple "molars" 0 "n")
+		       (:triple "M" 0 "n")))))

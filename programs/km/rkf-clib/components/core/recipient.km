@@ -1,0 +1,40 @@
+;; 
+;;    $Id: recipient.km,v 1.20 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(recipient has
+   (instance-of (Participant-Relation))
+   (superslots ())
+   (subslots ())
+   (domain      (Event))
+   (range       (Entity))
+   (fluent-status (*Inertial-Fluent))
+   (inverse (recipient-of))
+   (text-slot (text-recipient))
+   (original-slot      (t))	
+   (cardinality (N-to-N)))
+
+(recipient has (text-gloss ("has recipient")))
+
+(text-recipient has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-recipient-of has (instance-of (NL-Slot-Group)))
+
+(recipient has (wn20-synset ((:set
+                                   (:triple "recipient_role" 1 "n")
+                                   (:triple "recipient" 2 "n")
+))))
+
+
+(recipient-of has 
+	(instance-of (Participant-Relation))
+	(text-gloss ("is recipient of")))

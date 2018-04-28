@@ -1,0 +1,32 @@
+;; 
+;;    $Id: UoM-Density.km,v 1.12 2010/01/29 18:11:15 kbarker Exp $ 
+;; 
+
+(UoM-Density has
+ (superclasses (Unit-of-Measurement))
+ (base-unit (*kilogram-per-meter-cubed))
+ (instances (*gram/liter *gram-per-liter *kilogram-per-meter-cubed))
+)
+
+(*kilogram-per-meter-cubed has (instance-of (UoM-Density))
+             (name ("kg/m^3"))
+)
+
+(*gram-per-liter has (instance-of (UoM-Density))
+             (name ("g/l"))
+	     (wn20-synset ((:set
+			    (:triple "gram/liter" 0 "n")
+			    (:triple "gram per liter" 0 "n")
+			    (:triple "g/l" 0 "n")
+			    (:triple "grams/liter" 0 "n")
+			    (:triple "grams per liter" 0 "n")
+			    ))))
+
+(*gram/liter has (instance-of (UoM-Density))
+             (name ("g/l"))
+)
+
+(*kilogram-per-meter-cubed has (conversion-multiplier (1.0)))
+(*gram-per-liter has (conversion-multiplier (1.0)))
+(*gram/liter has (conversion-multiplier (1.0)))
+

@@ -1,0 +1,16 @@
+;;
+;; $Id: In-Basket.km,v 1.3 2005/04/14 17:50:15 jchaw Exp $
+;;
+(In-Basket has (superclasses (Artifact)))
+
+(every In-Basket has
+       (purpose ((a Container with
+		    (content ((a Message)))
+		    (in-event ((must-be-a Be-Contained)))
+		    (played-by (Self)))))
+       )
+
+(In-Basket has (wn20-synset ((:set
+		       (:triple "in-basket" 1 "n")
+		       (:triple "in-tray" 1 "n")
+))))

@@ -1,0 +1,20 @@
+;;
+;; $Id: RbOH.km,v 1.6 2007/08/07 21:12:33 tecuci Exp $
+;;
+
+(RbOH has (superclasses (Ionic-Compound)))
+
+(every RbOH has	
+       (has-chemical-name ("rubidium hydroxide"))
+       (has-part 
+	((a Rb-Plus) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Rb-Plus)
+			 (:pair 1 OH-Minus)))))))
+       )
+
+(every RbOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Rb-Plus) (a OH-Minus))))
+

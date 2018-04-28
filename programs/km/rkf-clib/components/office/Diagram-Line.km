@@ -1,0 +1,17 @@
+;; $Id: Diagram-Line.km,v 1.3 2005/02/25 15:36:29 billj Exp $
+
+(Diagram-Line has
+	(superclasses (Diagram-Object))) 
+
+; perhap this should also have Linear-Object and/or Line as
+; superclasses in light of Jerry Hobbs's document entitled "A Theory
+; of Diagrams and Diagram Construction, with the Special Case of Gantt
+; Charts"
+
+
+;	(description ("The subclass of Diagram-Objects that resemble straight lines.  Unlike a geometic line, a Diagram-Line need not be perfectly straight although it may be treated as if it were."))))
+; 
+; The above description may need rehab. It was written with the view that Diagram-Object's were
+; Physical-Marks.  But as of 2005-02-21, Diagram-Line are not Physical-Marks.  Rather
+; they are LinguisticUnits (which, as a kind of Intangible-Entity, can not also be
+; Physical-Marks since such things are a kind of Tangible-Entity).

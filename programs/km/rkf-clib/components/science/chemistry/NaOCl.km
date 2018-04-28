@@ -1,0 +1,14 @@
+;;
+;; $Id: NaOCl.km,v 1.1 2003/04/22 05:39:58 jchaw Exp $
+;;
+
+(NaOCl has (superclasses (Ionic-Compound)))
+
+(every NaOCl has	
+       (has-part 
+	((a Na-Plus) (a OCl-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Na-Plus)
+			 (:pair 1 OCl-Minus)))))))
+       )

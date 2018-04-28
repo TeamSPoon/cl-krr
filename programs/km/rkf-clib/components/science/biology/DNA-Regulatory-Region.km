@@ -1,0 +1,20 @@
+;; 
+;;    $Id: DNA-Regulatory-Region.km,v 1.15 2001/05/31 21:49:59 pnav Exp $ 
+;; 
+
+(DNA-Regulatory-Region has
+         (superclasses (Regulatory-Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A has-region of the DNA that contains regulatory sequences.
+                        Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every DNA-Regulatory-Region has
+       ;; location/entity change -- jf
+       (encloses ((a DNA-Regulatory-Sequence)))
+       )
+
+

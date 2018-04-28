@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Enzyme.km,v 1.13 2002/01/21 16:44:05 jfan Exp $ 
+;; 
+
+(Enzyme has
+	(superclasses (Protein #|Catalyst|#))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+        (description ("A protein that catalyzes a specific chemical reaction.
+                       Alberts:ECB:G-7."))
+	(cmap-correspondence ()))
+
+(every Enzyme has
+       (has-functional-part ((a Active-Site)))
+       (purpose ((a Catalyst with            
+		    (in-event ((a Enzyme-Catalysis))))
+		 ))
+       )
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<!--- $Id: Circle.spec.kml,v 1.2 2005/11/29 16:32:48 kbarker Exp $ --->
+
+<kml>
+<concept name=Circle>
+<superconcept name=Geometric-Object>
+
+<definition>
+ 	A <conceptref name=Geometric-Object> bounded by a single curve line 
+	called its circumference, every part of which is equally distant from 
+	its center.
+</definition>
+
+<primaryslotlist>
+   <slotdescription name=area>
+	The area of the circle.
+   </slotdescription>
+   <slotdescription name=radius>
+	The radius of the circle specified by a <conceptref name=Length-Value>.
+   </slotdescription>
+   <slotdescription name=circumference>
+	The circumference of the circle specified by a <conceptref name=Length-Value>.
+   </slotdescription>
+   <slotdescription name=diameter>
+	The diameter of the circle specified by a <conceptref name=Length-Value>.
+   </slotdescription>
+</primaryslotlist>
+
+<neighborlist>
+  <neighbor name=Geometric-Object>
+	A <conceptref name=Spatial-Entity> describing objects in 2D geometry.
+  </neighbor>
+</neighborlist>
+
+</kml>

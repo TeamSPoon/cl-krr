@@ -1,0 +1,16 @@
+;; 
+;;    $Id: Acidic-Protein.km,v 1.2 2004/01/30 22:02:41 kbarker Exp $
+;; 
+
+(Acidic-Protein has
+         (superclasses (Protein Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("Proteins with a net positive charge in solution that 
+                        are rich in the acidic amino acids aspartic acid and
+                        glutamic acid. Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Acidic-Protein has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

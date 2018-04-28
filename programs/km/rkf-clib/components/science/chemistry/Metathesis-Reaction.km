@@ -1,0 +1,99 @@
+;; 
+;;    $Id: Metathesis-Reaction.km,v 1.11 2005/08/24 21:28:27 jchaw Exp $ 
+;; 
+
+
+(Metathesis-Reaction has (superclasses (Reaction)))
+
+(every Metathesis-Reaction has-definition
+       (instance-of (Reaction [Metathesis-Reaction-instance-of-1]))
+
+;;        (value ((constraint ((the1 of TheValue) > 2)))))
+
+       (raw-material ((a Ionic-Compound-Substance with
+			 (base-of ((a Aqueous-Solution))))
+		      (a Ionic-Compound-Substance with
+			 (base-of ((a Aqueous-Solution))))
+		     ))
+)
+
+(every Metathesis-Reaction has
+       ;; 
+       ;; NOTE: Since metathesis reaction involves the transposing of a
+       ;; 	cation and anion, it makes since that there are exactly
+       ;;	two raw material.
+       ;; 	Whether Aqueous-Solution is the right granularity needs
+       ;;	to be examined.
+       ;; 
+       (raw-material ((exactly 2 Ionic-Compound-Substance)))
+       ;;
+       ;; The creation of two Ionic Compounds where the Anion and Cation
+       ;; are transposed. This should be done with add and del-list, but
+       ;; since we are not using the situation mechanism, this is a 
+       ;; work around.
+       ;;
+       (result 	(
+	 (a Ionic-Compound-Substance with
+	    (base-of ((a Aqueous-Solution)))
+	    (has-basic-structural-unit (
+	      (a Ionic-Compound with
+		 (has-part ((an instance of (the instance-of of
+				(the Cation has-part of 
+				     (the has-basic-structural-unit of 
+					  (the first of (the raw-material of Self))))))
+			    (an instance of (the instance-of of
+				(the Anion has-part of 
+				     (the has-basic-structural-unit of 
+			  		  (the second of (the raw-material of Self))))))
+			   ))))))
+	 (a Ionic-Compound-Substance with
+	    (base-of ((a Aqueous-Solution)))
+	    (has-basic-structural-unit (
+	      (a Ionic-Compound with
+		 (has-part ((an instance of (the instance-of of
+				(the Cation has-part of 
+				     (the has-basic-structural-unit of 
+					  (the second of (the raw-material of Self))))))
+			    (an instance of (the instance-of of
+				(the Anion has-part of 
+				     (the has-basic-structural-unit of 
+			  		  (the first of (the raw-material of Self))))))
+			   )))))
+	  [Metathesis-Reaction-result-1] ))   ;; this tag is for both results
+       )                                      ;; but must be embedded in one
+)
+
+(Metathesis-Reaction has
+     (test-case
+      ('(
+	 ((make-phrase 
+	   (the output of
+		(a Format-Equation with 
+		   (input 
+		    ((the chemical-equation of 
+			  (a Reaction with
+			     (raw-material 
+			      ((the base of 
+				    (a Aqueous-Solution with
+				       (base ((a KI-Substance)))))
+			       (the base of 
+				    (a Aqueous-Solution with
+				       (base ((a Pb_NO3_2-Substance))))))))))))))
+	 =
+	 "2KI + Pb(NO3)2 --> 2KNO3 + PbI2")))))
+
+(comment [Metathesis-Reaction-instance-of-1]
+  "Therefore, this reaction is a metathesis reaction"
+  "By definition, a reaction involving ionic reactants is a metathesis reaction"
+;  (:triple Self instance-of *)
+)
+
+(comment [Metathesis-Reaction-result-1]
+  (:seq "The products of a metathesis reaction of"
+        (andify (the text-gen of (the raw-material of Self)))
+        "are thus"
+        (andify (the text-gen of (the result of Self)))
+  )
+  "In a metathesis reaction, the cation of each reactant is combined with the anion of the other reactant"
+)
+

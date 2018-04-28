@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Triangle.km,v 1.2 2005/10/21 19:23:30 pzyeh Exp $ 
+;; 
+
+(Triangle has (superclasses (Polygon)))
+
+(every Triangle has
+  (has-part ((exactly 3 Line-Segment)
+             (exactly 3 Vertex)
+  ))
+)
+
+(Triangle has
+  (wn20-synset ((:set (:triple "triangle" 1 "n")
+                      (:triple "trigon" 1 "n")
+                      (:triple "trilateral" 1 "n")
+                      (:triple "triangle" 2 "n")
+))))
+

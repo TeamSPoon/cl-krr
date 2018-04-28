@@ -1,0 +1,15 @@
+;; 
+;; $Id: kreq-list.km,v 1.5 2007/04/11 21:23:40 jchaw Exp $
+;; 
+
+(kreq-list has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Thing))
+  #|(range (Thing))|#                  ;; :triples
+  (fluent-status (*Non-Fluent))
+  (original-slot      (t))	
+  (cardinality (N-to-N))
+)
+
+(kreq-list-of has
+   (instance-of (CLIB-Slot-Group)))

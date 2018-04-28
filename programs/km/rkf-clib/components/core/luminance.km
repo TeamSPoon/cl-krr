@@ -1,0 +1,28 @@
+;; 
+;; $Id: luminance.km,v 1.6 2007/04/11 21:23:40 jchaw Exp $
+;; 
+
+(luminance has
+  (instance-of            (EntityProperty))
+  (domain                 (Spatial-Entity))    
+  (range                  (Luminance-Value))
+  (scalar-constant-class  (Luminance-Constant))
+  (cardinal-unit-class    (UoM-Luminance))
+  (inverse                (luminance-of))
+  (fluent-status          (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (original-slot      (t))	
+  (cardinality            (N-to-1))
+)
+
+(luminance has (wn20-synset ((:set
+                               (:triple "luminance" 1 "n")
+                               (:triple "brightness" 3 "n")
+                               (:triple "luminosity" 1 "n")
+                               (:triple "brightness level" 1 "n")
+                               (:triple "luminousness" 1 "n")
+                               (:triple "light" 4 "n")
+))))
+
+(luminance-of has
+	(instance-of (EntityProperty)))

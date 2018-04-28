@@ -1,0 +1,20 @@
+;; $Id: S-Minus-2.km,v 1.5 2008/05/15 17:19:10 kunal Exp $ 
+(S-Minus-2 has (superclasses (Anion)))
+(every S-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("sulfide"))
+	(has-acid-name ("hydrosulfuric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 S)))))))
+        (is-ion-of ((a S)))
+)
+
+(every S-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("sulfide"))
+)
+
+
+(S-Minus-2 has (wn20-synset ((:triple "S-2" 0 "n"))))

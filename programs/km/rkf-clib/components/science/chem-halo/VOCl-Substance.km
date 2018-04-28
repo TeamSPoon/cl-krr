@@ -1,0 +1,15 @@
+;;
+;; $Id: VOCl-Substance.km,v 1.6 2008/11/03 03:11:28 tecuci Exp $
+;;
+
+(VOCl-Substance has 
+  (superclasses (Inorganic-Molecule-Substance)))
+
+(every VOCl-Substance has
+  (has-basic-structural-unit (
+    (a VOCl)))
+)
+
+(every VOCl-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a VOCl))))

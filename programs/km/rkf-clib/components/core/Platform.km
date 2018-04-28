@@ -1,0 +1,49 @@
+;; 
+;; $Id: Platform.km,v 1.5 2006/04/12 19:33:24 jchaw Exp $
+;; 
+
+(Platform has
+  (superclasses (Architectural-Structure))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("a horizontal architectural structure supporting everything on it"))
+  (cmap-correspondence ())
+)
+
+(every Platform has
+  (orientation ((a Angle-Value with
+                   (value ((:pair *horizontal Entity)))
+  )))
+
+  (instrument-of ((forall (the has-on-it of Self)
+                   (a Be-Supported with
+                      (object (It))
+                      (instrument (Self))
+                   )
+  )))
+)
+
+(Platform has
+  (test-case ('(
+                (*TheOrchestra has (instance-of (Organization)))
+                (*TheChoir has (instance-of (Organization)))
+                (*TheConductor has (instance-of (Person)))
+                (*TheStage has (instance-of (Platform))
+                               (has-on-it (*TheOrchestra
+                                           *TheChoir
+                                           *TheConductor))
+                )
+                ((the object of (the Be-Supported instrument-of of *TheStage))
+                  includes *TheOrchestra
+                )
+                ((the instrument of (the Be-Supported object-of of *TheChoir))
+                 = *TheStage
+                )
+))))
+
+(Platform has (wn20-synset ((:set
+			     (:triple "support" 7 "n")
+			     (:triple "support" 10 "n")
+			     (:triple "supporting_structure" 1 "n")
+))))

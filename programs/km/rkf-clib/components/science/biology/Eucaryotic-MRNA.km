@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Eucaryotic-MRNA.km,v 1.12 2001/09/25 19:32:35 kbarker Exp $ 
+;; 
+
+(Eucaryotic-MRNA has
+      (superclasses (MRNA))
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (description ("RNA molecule that specifies the amino acid sequence of a
+                     protein, produced by RNA splicing from
+                     a larger RNA molecule made by RNA polymerase as a
+                     complementary copy of DNA.  It is translated into protein
+                     in a process catalyzed by ribosomes. Alberts:ECB:G-11"))
+      (cmap-correspondence ())
+      (test-case ()))
+
+(every Eucaryotic-MRNA has
+       (purpose ((a Vehicle with
+		    (in-event ((a Gene-To-Protein-Expression with
+				  (object ((a Cistron)))
+                                                   )))
+                            )))
+;       (purpose ((a Instrument-Role in
+;		    (in-event ((a Eucaryotic-RNA-Translation)))
+;		    )))
+;       (lifespan ((between (30 *minute) (10 *hour))))
+
+       (has-part ((a RNA-5prime-UTR)
+		  (a RNA-Translated-Region)   ;; called open reading frame
+		  (a RNA-3prime-UTR)
+		  (a Poly-A-Tail)))
+       )
+				
+; spatial ordering of regions
+
+

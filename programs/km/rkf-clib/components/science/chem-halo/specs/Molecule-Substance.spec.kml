@@ -1,0 +1,31 @@
+<!--- $Id: Molecule-Substance.spec.kml,v 1.1 2005/12/01 15:59:31 jfan Exp $ --->
+
+<kml>
+<concept name=Molecule-Substance>
+
+<superconcept name=Chemical>
+
+  <definition>
+    A chemical defined by having a <conceptref name=Molecule>
+    as its basic structural unit
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=has-basic-structural-unit>
+    the <conceptref name=Molecule> 
+    which is the fundamental building block of this Chemical
+  </slotdescription>
+
+</requiredslotlist>
+
+<neighborlist>
+
+   <neighbor name=Molecule>
+      A chemical combination of two or more atoms
+   </neighbor>
+
+</neighborlist>
+
+</kml>
+

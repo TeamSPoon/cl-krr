@@ -1,0 +1,21 @@
+;; 
+;;    $Id: NH3.km,v 1.6 2008/08/14 18:56:29 tecuci Exp $ 
+;; 
+
+(NH3 has (superclasses (Inorganic-Molecule)))
+
+(every NH3 has
+       (has-chemical-name ("ammonia"))
+       (nested-atomic-chemical-formula (
+				 (a Chemical-Formula with
+				    (term ((:seq 
+					    (:pair 1 N)
+					    (:pair 3 H)))))))
+       )
+
+
+(every NH3 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("ammonia"))
+)

@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Asparagine.km,v 1.8 2001/05/01 22:29:58 pnav Exp $ 
+;; 
+
+(Asparagine has                
+         (superclasses (Uncharged-Polar-Amino-Acid Nonessential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A polar amino acid with a acetamino side chain.
+                        Souther")) 
+         (test-case ()))
+
+(every Asparagine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 ((the Carbon-Atom has-part of 
+		       (the Acetamino-Group has-part of
+			    (the Amino-Acid-Side-Chain has-part of Self)))
+		  )))
+	     )))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Acetamino-Group))))	
+	)))
+
+ 
+
+
+

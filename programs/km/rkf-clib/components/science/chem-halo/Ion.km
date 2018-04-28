@@ -1,0 +1,28 @@
+;;    $Id: Ion.km,v 1.6 2008/09/15 19:25:19 tecuci Exp $
+
+(Ion has (superclasses (Chemical-Entity)))
+  
+(Ion has
+  (user-description ("An ion is an electrically charged atom or group of atoms (polyatomic ion); ions can be positively or negatively charged, depending on whether electrons are lost (positive) or gained (negative) by the atoms.")))
+
+(every Ion has
+       (has-chemical-formula ((must-be-a Chemical-Formula)))
+       (charge ((a Charge-Value)))
+       (nested-atomic-chemical-formula ((if ((not (the nested-atomic-chemical-formula of Self))
+					     and (the has-chemical-formula of Self))
+					    then (the has-chemical-formula of Self))))
+       (has-chemical-formula ((if ((not (the has-chemical-formula of Self))
+				   and 
+				   (the nested-atomic-chemical-formula of Self))
+				  then
+				(the nested-atomic-chemical-formula of Self))))
+       )   
+
+(every Ion has
+       (text-postmodslots (NIL))
+)
+
+(a Partition with
+  (members (Anion Cation Molecule)))
+
+   

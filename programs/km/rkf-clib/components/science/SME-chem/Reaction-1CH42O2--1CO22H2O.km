@@ -1,0 +1,293 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1CH42O2--1CO22H2O ----------
+
+(Reaction-1CH42O2--1CO22H2O has (superclasses (Reaction)))
+
+(_Reaction-1CH42O2--1CO22H2O5236 has 
+  (instance-of (Reaction-1CH42O2--1CO22H2O))
+  (prototype-of (Reaction-1CH42O2--1CO22H2O))
+  (prototype-scope (Reaction-1CH42O2--1CO22H2O))
+  (prototype-participants (_Property-Node5308
+                           _Property-Node5307
+                           _Property-Node5306
+                           _Property-Node5305
+                           _Chemical-Entity5304
+                           _Chemical5302
+                           _Coefficient-Value5301
+                           _Chemical-Entity5299
+                           _Chemical5298
+                           _Coefficient-Value5297
+                           _Chemical-Entity5296
+                           _Chemical5294
+                           _Coefficient-Value5293
+                           _Chemical-Entity5291
+                           _Chemical5290
+                           _Coefficient-Value5289
+                           _Reaction-1CH42O2--1CO22H2O5236))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (big-nodes (_Property-Node5305
+              _Property-Node5306
+              _Property-Node5307
+              _Property-Node5308))
+  (raw-material (_Chemical5298
+                 _Chemical5302))
+  (result (_Chemical5290
+           _Chemical5294))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical5290 t)
+                    (:seq raw-material _Chemical5298 t)
+                    (:seq raw-material _Chemical5302 t)
+                    (:seq result _Chemical5294 t))))
+
+(_Property-Node5308 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5293))
+  (contains-edge ((:triple _Coefficient-Value5293 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Property-Node5307 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5289))
+  (contains-edge ((:triple _Coefficient-Value5289 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Property-Node5306 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5301))
+  (contains-edge ((:triple _Coefficient-Value5301 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Property-Node5305 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value5297))
+  (contains-edge ((:triple _Coefficient-Value5297 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Chemical-Entity5304 has 
+  (instance-of (Chemical-Entity
+                O2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5302))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Chemical5302 has 
+  (has-basic-structural-unit (_Chemical-Entity5304))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value5301))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5301 t)))
+  (raw-material-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Coefficient-Value5301 has 
+  (contains-node-of (_Property-Node5306))
+  (coefficient-of (_Chemical5302))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Chemical-Entity5299 has 
+  (instance-of (Chemical-Entity
+                CH4))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5298))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Chemical5298 has 
+  (has-basic-structural-unit (_Chemical-Entity5299))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value5297))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5297 t)))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Coefficient-Value5297 has 
+  (contains-node-of (_Property-Node5305))
+  (coefficient-of (_Chemical5298))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Chemical-Entity5296 has 
+  (instance-of (Chemical-Entity
+                H2O))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5294))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Chemical5294 has 
+  (has-basic-structural-unit (_Chemical-Entity5296))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value5293))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5293 t)))
+  (result-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Coefficient-Value5293 has 
+  (contains-node-of (_Property-Node5308))
+  (coefficient-of (_Chemical5294))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Chemical-Entity5291 has 
+  (instance-of (Chemical-Entity
+                CO2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical5290))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Chemical5290 has 
+  (has-basic-structural-unit (_Chemical-Entity5291))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1CH42O2--1CO22H2O5236))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value5289))
+  (edge-visibility ((:seq coefficient _Coefficient-Value5289 t)))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(_Coefficient-Value5289 has 
+  (contains-node-of (_Property-Node5307))
+  (coefficient-of (_Chemical5290))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1CH42O2--1CO22H2O5236)))
+
+(explanation (:triple _Reaction-1CH42O2--1CO22H2O5236 result _Chemical5294)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Reaction-1CH42O2--1CO22H2O5236 raw-material _Chemical5302)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Reaction-1CH42O2--1CO22H2O5236 raw-material _Chemical5298)
+  ((a Chemical (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction raw-material))))
+(explanation (:triple _Reaction-1CH42O2--1CO22H2O5236 result _Chemical5290)
+  ((a Chemical (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction result))))
+(explanation (:triple _Reaction-1CH42O2--1CO22H2O5236 chemical-equation _Chemical-Equation-Expression5238)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1CH42O2--1CO22H2O5236) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1CH42O2--1CO22H2O5236) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1CH42O2--1CO22H2O5236) (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1CH42O2--1CO22H2O5236 instance-of Reaction-1CH42O2--1CO22H2O)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical-Entity5304 atomic-chemical-formula _Chemical-Formula5264)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity5304)) or (the term of (the has-chemical-formula of _Chemical-Entity5304)) (@ _Chemical-Entity5304 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5304)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5304))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity5304)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity5304)))))))))) (@ _Chemical-Entity5304 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity5304 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity5304 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5304 nested-atomic-chemical-formula _Chemical-Formula5262)
+  ((_Chemical-Formula5262)))
+(explanation (:triple _Chemical-Entity5304 nested-atomic-chemical-formula _Chemical-Formula5262)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 O)))) (@ _Chemical-Entity5304 O2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5304 instance-of O2)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical-Entity5304 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5302 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5302 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical5302 coefficient _Coefficient-Value5301)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical5302 has-basic-structural-unit _Chemical-Entity5304)
+  ((a Chemical-Entity (@ _Chemical5302 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5302 instance-of Chemical)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Coefficient-Value5301 value (:pair 2 *unity))
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Coefficient-Value5301 instance-of Coefficient-Value)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical-Entity5299 atomic-chemical-formula _Chemical-Formula5281)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity5299)) or (the term of (the has-chemical-formula of _Chemical-Entity5299)) (@ _Chemical-Entity5299 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5299)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5299))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity5299)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity5299)))))))))) (@ _Chemical-Entity5299 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity5299 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity5299 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5299 nested-atomic-chemical-formula _Chemical-Formula5282)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 C) (:pair 4 H)))) (@ _Chemical-Entity5299 CH4 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5299 atomic-chemical-formula _Chemical-Formula5281)
+  ((a Chemical-Formula (@ _Chemical-Entity5299 Hydrocarbon-Molecule atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5299 instance-of CH4)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical-Entity5299 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5298 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5298 has-basic-structural-unit _Chemical-Entity5299)
+  ((a Chemical-Entity (@ _Chemical5298 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5298 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical5298 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction raw-material))))
+(explanation (:triple _Chemical5298 coefficient _Coefficient-Value5297)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical5298 instance-of Chemical)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Coefficient-Value5297 value (:pair 1 *unity))
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Coefficient-Value5297 instance-of Coefficient-Value)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical-Entity5296 atomic-chemical-formula _Chemical-Formula5279)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity5296)) or (the term of (the has-chemical-formula of _Chemical-Entity5296)) (@ _Chemical-Entity5296 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5296)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity5296))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity5296)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity5296)))))))))) (@ _Chemical-Entity5296 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity5296 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity5296 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5296 nested-atomic-chemical-formula _Chemical-Formula5277)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 O)))) (@ _Chemical-Entity5296 H2O nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity5296 instance-of H2O)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical-Entity5296 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5294 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5294 instance-of Entity)
+  ((a Entity (@ _Reaction-1CH42O2--1CO22H2O5236 Event (result must-be-a)))))
+(explanation (:triple _Chemical5294 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical5294 coefficient _Coefficient-Value5293)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical5294 has-basic-structural-unit _Chemical-Entity5296)
+  ((a Chemical-Entity (@ _Chemical5294 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5294 instance-of Chemical)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Coefficient-Value5293 value (:pair 2 *unity))
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Coefficient-Value5293 instance-of Coefficient-Value)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical-Entity5291 instance-of CO2)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical-Entity5291 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical5290 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5290 has-basic-structural-unit _Chemical-Entity5291)
+  ((a Chemical-Entity (@ _Chemical5290 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical5290 instance-of Entity)
+  ((a Entity (@ _Reaction-1CH42O2--1CO22H2O5236 Event (result must-be-a)))))
+(explanation (:triple _Chemical5290 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical5290 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1CH42O2--1CO22H2O5236 Reaction result))))
+(explanation (:triple _Chemical5290 coefficient _Coefficient-Value5289)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Chemical5290 instance-of Chemical)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Coefficient-Value5289 value (:pair 1 *unity))
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+(explanation (:triple _Coefficient-Value5289 instance-of Coefficient-Value)
+  ((added-at Reaction-1CH42O2--1CO22H2O "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

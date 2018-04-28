@@ -1,0 +1,13 @@
+;; $Id: HCl.km,v 1.7 2008/06/04 22:41:49 tecuci Exp $ 
+(HCl has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HCl has
+	(has-chemical-name ("hydrochloric acid" "hydrogen chloride"))
+	;;(has-part ((a H-Plus) (a Cl-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 Cl-Minus)))))))
+)
+(every HCl has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Cl-Minus) (a H-Plus))))

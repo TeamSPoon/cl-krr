@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Covalent-Bond.km,v 1.11 2001/11/17 06:50:14 jarred Exp $ 
+;; 
+
+(Covalent-Bond has
+         (superclasses (Chemical-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A stable chemical link between two atoms produced by
+                        sharing one or more electrons. Alberts:ECB:G-5"))
+         (test-case ()))
+
+(every Covalent-Bond has 
+       (intensity ((a Intensity-Value with 
+		(value ((:pair 90 *kilocalorie/mole))))))
+       (length ((a Length-Value with 
+		(value ((:pair .15 *nanometer)))))) 
+       )
+
+
+

@@ -1,0 +1,55 @@
+;; 
+;;    $Id: Direction-Constant.km,v 1.5 2007/05/15 15:27:32 kbarker Exp $
+;; 
+
+(Direction-Constant has
+ (superclasses (Constant)))
+
+;; putting the constants back in; you need a Reference Class
+;; now that direction is scalar, which is kind of awkward; but
+;; CPL should supply one for QA.
+
+;; e.g. (a Move with
+;;         (direction ((a Angle-Value with 
+;;                        (value ((:pair *northwest Move)))))))
+
+(*north has (instance-of (Direction-Constant)))
+
+(*south has (instance-of (Direction-Constant)))
+
+(*west has (instance-of (Direction-Constant)))
+
+(*east has (instance-of (Direction-Constant)))
+
+(*up has (instance-of (Direction-Constant)))
+
+(*down has (instance-of (Direction-Constant)))
+
+(*right has (instance-of (Direction-Constant)))
+
+(*left has (instance-of (Direction-Constant)))
+
+(*northwest has (instance-of (Direction-Constant)))
+
+(*westnorthwest has (instance-of (Direction-Constant)))
+
+(*westsouthwest has (instance-of (Direction-Constant)))
+
+(*southwest has (instance-of (Direction-Constant)))                
+
+(*southsouthwest has (instance-of (Direction-Constant)))
+
+(*southsoutheast has (instance-of (Direction-Constant)))                
+
+(*southeast has (instance-of (Direction-Constant)))
+
+(*eastsoutheast has (instance-of (Direction-Constant)))                                 
+
+(*eastnortheast has (instance-of (Direction-Constant)))
+
+(*northeast has (instance-of (Direction-Constant)))                
+
+(*northnortheast has (instance-of (Direction-Constant)))
+
+(*northnorthwest has (instance-of (Direction-Constant)))
+

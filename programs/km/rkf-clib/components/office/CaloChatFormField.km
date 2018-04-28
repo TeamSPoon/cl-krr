@@ -1,0 +1,16 @@
+;;
+;;    $Id: CaloChatFormField.km,v 1.6 2005/02/22 21:18:23 jchaw Exp $
+;; 
+
+(CaloChatFormField has
+ (superclasses (CaloChatFieldDefinition))      
+ (required-slot          ()) 
+ (primary-slot     	    ())  
+ (secondary-slot         ())
+ )
+
+
+(hasFieldInitialValue has  (instance-of (Interface-Slot))  (domain (CaloChatFormField)) (range (String))  (cardinality (N-to-1)))
+
+  
+(hasFieldIndex has (instance-of (Interface-Slot))(domain (CaloChatFormField))(range (Integer))(cardinality (N-to-N))) 

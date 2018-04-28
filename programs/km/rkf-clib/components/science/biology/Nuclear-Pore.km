@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Nuclear-Pore.km,v 1.10 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Nuclear-Pore has
+         (superclasses (Place))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Channel through the nuclear envelope that allows 
+                        selected molecules to move between the nucleus and 
+                        cytoplasm.  Alberts:ECB:G-13."))
+         (test-case ()))
+
+(every Nuclear-Pore has
+       (is-part-of ((a Nuclear-Envelope with
+		      (encloses ((a Nucleoplasm)))))))
+
+
+(every Nuclear-Pore has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

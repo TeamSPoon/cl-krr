@@ -1,0 +1,19 @@
+
+;;
+;; $Id: Compute-Chemical-Entity.km,v 1.2 2006/02/01 22:38:28 jfan Exp $
+;;
+
+(Compute-Chemical-Entity has
+			 (superclasses (Method)))
+
+(every Compute-Chemical-Entity has
+       ;; input: a seq of name, has-chem-form nested-atom-chem-form atom-chem-form charge parts
+       (output
+	(#'(LAMBDA ()
+		   (COMPUTE-CHEMICAL-FROM-DEFS (KM-UNIQUE0 '(oneof (the1 of (the input of Self)) where t))
+					       (KM-UNIQUE0 '(the2 of (the input of Self)))
+					       (KM-UNIQUE0 '(the3 of (the input of Self)))
+					       (KM-UNIQUE0 '(theN 4 of (the input of Self)))
+					       (KM-UNIQUE0 '(theN 5 of (the input of Self)))
+					       ;;(KM0 '(theN 6 of (the input of Self)))
+					       )))))

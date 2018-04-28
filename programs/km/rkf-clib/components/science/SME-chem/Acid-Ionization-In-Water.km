@@ -1,0 +1,38 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Acid-Ionization-In-Water1329
+
+
+|#
+
+(Acid-Ionization-In-Water has (superclasses (Aqueous-Solution-Of-Ionic-Compound-Substance)))
+
+(Acid-Ionization-In-Water now-has (user-description ("When acids dissolve in water they ionize, breaking apart into Anions and Cations.")))
+
+(_Acid-Ionization-In-Water1451 has
+  (prototype-of (Acid-Ionization-In-Water))
+  (prototype-scope (Acid-Ionization-In-Water))
+  (prototype-participants (_Ionic-Compound-Substance1455 _Acid-Ionization-In-Water1451)))
+
+(_Acid-Ionization-In-Water1451 has (instance-of (Acid-Ionization-In-Water)) (has-solute (_Ionic-Compound-Substance1455)))
+
+(_Ionic-Compound-Substance1455 has (instance-of (Acid)))
+
+(explanation (:triple _Acid-Ionization-In-Water1451 has-solute _Ionic-Compound-Substance1455) (((@ SME entered)) (every Acid-Ionization-In-Water has (has-solute ((the second of (the is-part-of of (the first of (the has-part of Self)))))))))
+
+(explanation (:triple _Acid-Ionization-In-Water1451 instance-of Acid-Ionization-In-Water) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound-Substance1455 instance-of Acid) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Acid-Ionization-In-Water has (has-solute ((the second of (the is-part-of of (the first of (the has-part of Self)))))))
+
+|#
+
+|#
+

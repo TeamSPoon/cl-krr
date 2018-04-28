@@ -1,0 +1,14 @@
+;; $Id: CH3CHOHCOOH.km,v 1.2 2006/01/23 23:33:41 jfan Exp $ 
+(CH3CHOHCOOH has (superclasses (Ionic-Compound)))
+(every CH3CHOHCOOH has
+	(has-chemical-name ("lactic acid"))
+	(has-part ((a H-Plus)(a C3H5O3-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 C3H5O3-Minus)))))))
+)
+(every CH3CHOHCOOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C3H5O3-Minus))))
+

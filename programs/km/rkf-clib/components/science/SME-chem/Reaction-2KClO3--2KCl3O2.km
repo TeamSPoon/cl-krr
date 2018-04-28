@@ -1,0 +1,221 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-2KClO3--2KCl3O2 ----------
+
+(Reaction-2KClO3--2KCl3O2 has (superclasses (Reaction)))
+
+(_Reaction-2KClO3--2KCl3O22782 has 
+  (instance-of (Reaction-2KClO3--2KCl3O2))
+  (prototype-of (Reaction-2KClO3--2KCl3O2))
+  (prototype-scope (Reaction-2KClO3--2KCl3O2))
+  (prototype-participants (_Property-Node2825
+                           _Property-Node2824
+                           _Property-Node2823
+                           _Chemical-Entity2821
+                           _Chemical2820
+                           _Coefficient-Value2819
+                           _Chemical-Entity2818
+                           _Chemical2816
+                           _Coefficient-Value2815
+                           _Chemical-Entity2813
+                           _Chemical2812
+                           _Coefficient-Value2811
+                           _Reaction-2KClO3--2KCl3O22782))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782))
+  (big-nodes (_Property-Node2823
+              _Property-Node2824
+              _Property-Node2825))
+  (raw-material (_Chemical2820))
+  (result (_Chemical2812
+           _Chemical2816))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical2812 t)
+                    (:seq raw-material _Chemical2820 t)
+                    (:seq result _Chemical2816 t))))
+
+(_Property-Node2825 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2815))
+  (contains-edge ((:triple _Coefficient-Value2815 value (:pair 3 *unity))))
+  (big-node-of (_Reaction-2KClO3--2KCl3O22782))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Property-Node2824 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2811))
+  (contains-edge ((:triple _Coefficient-Value2811 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2KClO3--2KCl3O22782))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Property-Node2823 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value2819))
+  (contains-edge ((:triple _Coefficient-Value2819 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2KClO3--2KCl3O22782))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Chemical-Entity2821 has 
+  (instance-of (Chemical-Entity
+                KClO3))
+  (is-basic-structural-unit-of (_Chemical2820))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Chemical2820 has 
+  (has-basic-structural-unit (_Chemical-Entity2821))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-2KClO3--2KCl3O22782))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2819))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2819 t)))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Coefficient-Value2819 has 
+  (contains-node-of (_Property-Node2823))
+  (coefficient-of (_Chemical2820))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Chemical-Entity2818 has 
+  (instance-of (Chemical-Entity
+                O2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical2816))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Chemical2816 has 
+  (has-basic-structural-unit (_Chemical-Entity2818))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value2815))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2815 t)))
+  (result-of (_Reaction-2KClO3--2KCl3O22782))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Coefficient-Value2815 has 
+  (contains-node-of (_Property-Node2825))
+  (coefficient-of (_Chemical2816))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 3 *unity)))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Chemical-Entity2813 has 
+  (instance-of (Chemical-Entity
+                KCl))
+  (is-basic-structural-unit-of (_Chemical2812))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Chemical2812 has 
+  (has-basic-structural-unit (_Chemical-Entity2813))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-2KClO3--2KCl3O22782))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value2811))
+  (edge-visibility ((:seq coefficient _Coefficient-Value2811 t)))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(_Coefficient-Value2811 has 
+  (contains-node-of (_Property-Node2824))
+  (coefficient-of (_Chemical2812))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2KClO3--2KCl3O22782)))
+
+(explanation (:triple _Reaction-2KClO3--2KCl3O22782 result _Chemical2816)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Reaction-2KClO3--2KCl3O22782 raw-material _Chemical2820)
+  ((a Chemical (@ _Reaction-2KClO3--2KCl3O22782 Reaction raw-material))))
+(explanation (:triple _Reaction-2KClO3--2KCl3O22782 result _Chemical2812)
+  ((a Chemical (@ _Reaction-2KClO3--2KCl3O22782 Reaction result))))
+(explanation (:triple _Reaction-2KClO3--2KCl3O22782 chemical-equation _Chemical-Equation-Expression2784)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-2KClO3--2KCl3O22782) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-2KClO3--2KCl3O22782) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-2KClO3--2KCl3O22782) (@ _Reaction-2KClO3--2KCl3O22782 Reaction chemical-equation))))
+(explanation (:triple _Reaction-2KClO3--2KCl3O22782 instance-of Reaction-2KClO3--2KCl3O2)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical-Entity2821 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2820 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity2821 instance-of KClO3)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical2820 has-basic-structural-unit _Chemical-Entity2821)
+  ((a Chemical-Entity (@ _Chemical2820 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2820 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2KClO3--2KCl3O22782 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2KClO3--2KCl3O22782 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical2820 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2KClO3--2KCl3O22782 Reaction raw-material))))
+(explanation (:triple _Chemical2820 coefficient _Coefficient-Value2819)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical2820 instance-of Chemical)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Coefficient-Value2819 value (:pair 2 *unity))
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Coefficient-Value2819 instance-of Coefficient-Value)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical-Entity2818 atomic-chemical-formula _Chemical-Formula2809)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity2818)) or (the term of (the has-chemical-formula of _Chemical-Entity2818)) (@ _Chemical-Entity2818 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2818)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity2818))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity2818)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity2818)))))))))) (@ _Chemical-Entity2818 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity2818 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity2818 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2818 nested-atomic-chemical-formula _Chemical-Formula2807)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 O)))) (@ _Chemical-Entity2818 O2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity2818 instance-of O2)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical-Entity2818 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2816 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2816 instance-of Entity)
+  ((a Entity (@ _Reaction-2KClO3--2KCl3O22782 Event (result must-be-a)))))
+(explanation (:triple _Chemical2816 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2KClO3--2KCl3O22782 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2KClO3--2KCl3O22782 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2816 coefficient _Coefficient-Value2815)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical2816 has-basic-structural-unit _Chemical-Entity2818)
+  ((a Chemical-Entity (@ _Chemical2816 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2816 instance-of Chemical)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Coefficient-Value2815 value (:pair 3 *unity))
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Coefficient-Value2815 instance-of Coefficient-Value)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical-Entity2813 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical2812 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity2813 instance-of KCl)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical2812 has-basic-structural-unit _Chemical-Entity2813)
+  ((a Chemical-Entity (@ _Chemical2812 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical2812 instance-of Entity)
+  ((a Entity (@ _Reaction-2KClO3--2KCl3O22782 Event (result must-be-a)))))
+(explanation (:triple _Chemical2812 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2KClO3--2KCl3O22782 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2KClO3--2KCl3O22782 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical2812 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2KClO3--2KCl3O22782 Reaction result))))
+(explanation (:triple _Chemical2812 coefficient _Coefficient-Value2811)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Chemical2812 instance-of Chemical)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Coefficient-Value2811 value (:pair 2 *unity))
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+(explanation (:triple _Coefficient-Value2811 instance-of Coefficient-Value)
+  ((added-at Reaction-2KClO3--2KCl3O2 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

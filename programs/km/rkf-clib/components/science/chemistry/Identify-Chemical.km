@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Identify-Chemical.km,v 1.2 2003/09/26 21:55:15 jfan Exp $ 
+;; 
+
+(Identify-Chemical has
+		   (superclasses (Method))
+		   (description ("given a chemical, specialize it into the right class if possible")))
+
+
+(every Identify-Chemical has
+       (input ((a Chemical)))
+       (output (#'(LAMBDA ()
+			  (IDENTIFY-CH-CACHED  (KM-UNIQUE0 '(|the| |input| |of| |Self|)))))))
+					    
+
+(Identify-Chemical has
+    (test-case ('(
+		  ((the output of 
+			(a Identify-Chemical with 
+			   (input ((a Chemical with 
+				      (has-basic-structural-unit ((a HC2H3O2))))))))
+		   isa HC2H3O2-Substance)))))

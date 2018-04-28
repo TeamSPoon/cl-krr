@@ -1,0 +1,86 @@
+<!--- $Id: Unobstruct.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Unobstruct><system-documentation name=Unobstruct>
+<superconcept name=Make-Accessible>
+
+<definition>
+
+  Allow things that were previously obstructed to move freely.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that becomes unobstructed.  It's assumed to be 
+     in a <conceptref name=Be-Obstructed> state before this
+     action is taken, and afterwards it's no longer in that state.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes this action
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) used to free the object
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that frees the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The policeman let the prisoner go.</text>
+    <slotdescription name=object>the prisoner</slotdescription>
+    <slotdescription name=agent>the policeman</slotdescription>
+  </examplesentence>
+  <comment>
+      It's assumed that beforehand the policeman was obstucting the 
+      prisoner from moving in some way.
+  </comment>
+
+  <examplesentence>
+    <text>The dog broke the leash that tied him.</text>
+    <slotdescription name=object>the dog</slotdescription>
+    <slotdescription name=agent>the dog</slotdescription>
+    <slotdescription name=by-means-of>breaking his leash</slotdescription>
+  </examplesentence>
+  <comment>
+      The dog's movements become unobstructed.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Accessible> 
+     Make-Accessible is more general than Unobstruct.  
+     Unobstruct applies only to 
+     the movement of things that were previously obstructed.
+  </neighbor>
+
+  <neighbor name=Open>
+     Open applies only to portal coverings, and the movement of 
+     things through portals.
+  </neighbor>
+
+  <neighbor name=Unblock>
+     Unblock makes a path accessible, whereas Unobstruct allows
+     some thing to move freely.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

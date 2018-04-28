@@ -1,0 +1,26 @@
+<!--- $Id: Aggregate.doc.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+<concept name=Aggregate>
+<superconcept name=Entity><hr>
+<h3>Component Semantics:</h3>
+<component tag=Aggregate>
+<definition>top level component for collections</definition>
+
+  <primaryslot name=element>
+  the individual entities that comprise the aggregate.
+  </primaryslot>
+
+  <primaryslot name=number-of-elements>
+    <restriction>the <slot>number-of-elements</slot> has to be larger then the number 
+		of the <slot>element</slot></restriction>
+  </primaryslot>
+
+  <wnsynsets>--
+  </wnsynsets>
+  <wnsynsets>--
+  </wnsynsets>
+</component>
+
+</kml>
+

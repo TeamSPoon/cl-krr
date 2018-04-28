@@ -1,0 +1,34 @@
+;; 
+;;    $Id: is-on.km,v 1.15 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(is-on has
+       (instance-of (Spatial-Relation)) ;;; more general than over (which applies only
+       (superslots ())      ;;; to surfaces)
+       (subslots ())
+       (domain (Spatial-Entity))
+       (range (Spatial-Entity))
+       (inverse (has-on-it))
+       (text-slot (text-is-on))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+(text-is-on has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-has-on-it))
+)
+
+(text-has-on-it has
+   (instance-of (NL-Slot-Group)))
+
+(has-on-it has 
+	(instance-of (Spatial-Relation))
+	(text-gloss ("has on it")))

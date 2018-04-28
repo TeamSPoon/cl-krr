@@ -1,0 +1,16 @@
+;; 
+;;    $Id: CH3NH2.km,v 1.4 2003/04/21 19:19:06 jchaw Exp $
+;; 
+
+(CH3NH2 has (superclasses (Ionic-Compound)))
+
+(every CH3NH2 has
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq 
+		    (:pair 1 C)
+		    (:pair 3 H)
+		    (:pair 1 N)
+		    (:pair 2 H)
+		    ))))))
+)

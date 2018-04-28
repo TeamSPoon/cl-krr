@@ -1,0 +1,16 @@
+;;
+;; $Id: P-Molecule.km,v 1.2 2008/11/03 00:11:36 tecuci Exp $
+;;
+
+(P-Molecule has (superclasses (Monoatomic-Molecule Inorganic-Molecule)))
+
+(every P-Molecule has
+       (has-part ((a P)))
+       (has-chemical-name ("phosphorus"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 P)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 P)))))))
+       (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 P))))))))
+
+(P-Molecule has (wn20-synset ((:set (:triple "phosphorus" 0 "n")
+				    (:triple "molecular phosphorus" 0 "n")
+				    ))))

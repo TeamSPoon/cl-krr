@@ -1,0 +1,47 @@
+<!--- $Id: Barrier.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+<concept name=Barrier>
+<system-documentation name=Barrier>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    Barrier is the <conceptref name=Role> played by an Entity which is
+    the <slot>instrument</slot> of a <conceptref name=Block>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the entity that's playing the role of barrier
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Block> event that the Entity is engaged in
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+   <slotdescription name=is-between>
+     the two regions separated by the barrier     
+   </slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The dam blocked the river.</text>
+     <comment>
+     In this example, the Barrier role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Block> with
+         <slot>object</slot>=river</slotdescription>
+     <slotdescription name=played-by>dam</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

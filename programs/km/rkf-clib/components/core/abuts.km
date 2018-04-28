@@ -1,0 +1,30 @@
+;; 
+;;    $Id: abuts.km,v 1.17 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(abuts has
+       (instance-of 	   (Spatial-Relation))
+       (superslots 	   ())
+       (subslots 	   ())
+       (domain 		   (Spatial-Entity))
+       (range 		   (Spatial-Entity))
+       (inverse 	   (abuts))
+       (text-slot          (text-abuts))
+       (cardinality 	   (N-to-N))
+       (fluent-status 	   (*Inertial-Fluent))
+       (original-slot      (t))
+)
+
+(text-abuts has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-abuts))
+)
+
+(text-abuts-of has (instance-of (NL-Slot-Group)))

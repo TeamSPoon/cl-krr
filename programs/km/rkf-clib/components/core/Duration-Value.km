@@ -1,0 +1,60 @@
+
+;;
+;; $Id: Duration-Value.km,v 1.20 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(Duration-Value has 
+       (superclasses (Property-Value)))
+
+(every Duration-Value has (primary-slot (duration)))
+
+(Duration-Value has (doc-file ("duration")))
+
+(Duration-Value has
+   (test-case ('(
+                 (BasketballGame has (superclasses (Event)))
+                 (CakeBake has (superclasses (Event)))
+                 (*baking-my-cake has (instance-of (CakeBake))
+                                (duration ((a Duration-Value))))
+                 (*lakers-vs-6ers has (instance-of (BasketballGame))
+                              (duration
+                                 ((a Duration-Value with
+                                     (value ((:pair 3 *hour)
+                                             (:pair *brief Event)
+                                     ))
+                                     (same-as
+                                        ((the duration of *baking-my-cake)))
+                              ))))
+
+                 (the value of (the duration of *lakers-vs-6ers))
+
+                ;; ((the same-as of (the duration of *baking-my-cake)
+                ;;       includes (the duration of *lakers-vs-6ers))
+                 ((the same-as of (the duration of *lakers-vs-6ers))
+                       includes (the duration of *baking-my-cake))
+
+
+                 (Drink has (superclasses (Substance)))
+                 (*Coca-cola has (instance-of (Drink))
+                                 (age ((a Duration-Value))))
+                 (*LaRoche30year has (instance-of (Drink))
+                                 (age
+                                    ((a Duration-Value with
+                                        (value ((:pair 30 *year)
+                                                (:pair *old Drink)
+                                        ))
+                                        (greater-than
+                                           ((the age of *Coca-cola)))
+                                 ))))
+
+                 (the value of (the age of *LaRoche30year))
+
+                 ((the greater-than of (the age of *LaRoche30year))
+                       includes (the age of *Coca-cola))
+                 ((the less-than of (the age of *Coca-cola))
+                       includes (the age of *LaRoche30year))
+))))
+
+
+
+(Duration-Value has (description ("duration of an Event of Time-Interval")))

@@ -1,0 +1,116 @@
+;; 
+;;    $Id: Move.km,v 1.21 2008/08/13 18:03:42 kbarker Exp $ 
+;; 
+
+(Move has
+      (superclasses   (Action))
+      (required-slot  (object))
+      (primary-slot   (agent origin destination path))
+      (secondary-slot (toward away-from))
+      (cmap-correspondence (
+                            (:seq object "the thing moved")
+                            (:seq agent "the mover")
+                            (:seq origin "moved from")
+                            (:seq destination "moved to")
+                            (:seq path "moved through")
+                            (:seq toward "moved toward")
+                            (:seq away-from "moved away from")
+                           ))
+    #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Move has
+  (object ((a Tangible-Entity) 
+           (excluded-values (the origin of Self)
+                            (the destination of Self)
+                            (the away-from of Self)
+                            (the toward of Self)
+                            (the path of Self))
+  ))
+
+;  (direction       (((a Angle-Value) & (the direction of (the initial-velocity of Self)))))
+
+  (initial-x-speed (((a Speed-Value) & (the x-speed of (the initial-velocity of Self)))))
+
+  (initial-y-speed (((a Speed-Value) & (the y-speed of (the initial-velocity of Self)))))
+
+  (initial-speed   (((a Speed-Value) & (the speed of (the initial-velocity of Self)))))
+
+  (initial-velocity ((a Velocity-Vector-Value with
+;                        (direction (((a Angle-Value) & (the direction of Self))))
+                        (x-speed   (((a Speed-Value) & (the initial-x-speed of Self))))
+                        (y-speed   (((a Speed-Value) & (the initial-y-speed of Self))))
+                        (speed     (((a Speed-Value) & (the initial-speed of Self))))))
+  )
+
+  (x-speed (((a Speed-Value) & (the x-speed of (the velocity of Self)))))
+
+  (y-speed (((a Speed-Value) & (the y-speed of (the velocity of Self)))))
+
+  (speed   (((a Speed-Value) & (the speed of (the velocity of Self)))))
+
+  (velocity ((a Velocity-Vector-Value with
+                (x-speed (((a Speed-Value) & (the x-speed of Self))))
+                (y-speed (((a Speed-Value) & (the y-speed of Self))))
+                (speed   (((a Speed-Value) & (the speed of Self))))))
+  )
+
+  (final-x-speed (((a Speed-Value) & (the x-speed of (the final-velocity of Self)))))
+
+  (final-y-speed (((a Speed-Value) & (the y-speed of (the final-velocity of Self)))))
+
+  (final-speed   (((a Speed-Value) & (the speed of (the final-velocity of Self)))))
+
+  (final-velocity ((a Velocity-Vector-Value with
+                      (x-speed   (((a Speed-Value) & (the final-x-speed of Self))))
+                      (y-speed   (((a Speed-Value) & (the final-y-speed of Self))))
+                      (speed     (((a Speed-Value) & (the final-speed of Self))))))
+  )
+
+  (x-acceleration-magnitude (((a Acceleration-Magnitude-Value) 
+                              & 
+                              (the x-acceleration-magnitude of (the acceleration of Self)))))
+
+  (y-acceleration-magnitude (((a Acceleration-Magnitude-Value) 
+                              & 
+                              (the y-acceleration-magnitude of (the acceleration of Self)))))
+
+  (acceleration-magnitude   (((a Acceleration-Magnitude-Value) 
+                              & 
+                              (the acceleration-magnitude of (the acceleration of Self)))))
+
+  (acceleration-magnitude   ((if (oneof ?val in (:set (the value of (the speed of Self))
+                                                      (the value of (the speed of (the velocity of Self))))
+                                  where ((the1 of ?val) = *constant))
+                              then (a Acceleration-Magnitude-Value with
+                                      (value ((:pair 0 *meter-per-second-squared)))
+                                   )
+  )))
+
+  (acceleration ((a Acceleration-Vector-Value with
+                    (x-acceleration-magnitude (((a Acceleration-Magnitude-Value) 
+                                                & 
+                                                (the x-acceleration-magnitude of Self))))
+                    (y-acceleration-magnitude (((a Acceleration-Magnitude-Value) 
+                                                & 
+                                                (the y-acceleration-magnitude of Self))))
+                    (acceleration-magnitude   (((a Acceleration-Magnitude-Value) 
+                                                & 
+                                                (the acceleration-magnitude of Self))))
+  )))
+
+  (x-distance (((a Length-Value) & (the x-distance of (the displacement of Self)))))
+
+  (y-distance (((a Length-Value) & (the y-distance of (the displacement of Self)))))
+
+  (distance (((a Length-Value) & (the distance of (the displacement of Self)))))
+
+  (displacement ((a Displacement-Vector-Value with
+                    (x-distance (((a Length-Value) & (the x-distance of Self))))
+                    (y-distance (((a Length-Value) & (the y-distance of Self))))
+                    (distance (((a Length-Value) & (the distance of Self))))
+  )))
+  
+  (duration ((a Duration-Value)))
+)
+

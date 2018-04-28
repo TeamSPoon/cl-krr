@@ -1,0 +1,100 @@
+;; 
+;;    $Id: Let-Go-Of.km,v 1.18 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Let-Go-Of has
+  (superclasses		(Unobstruct))
+  (required-slot   	(object agent))
+  (primary-slot 	())
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "object")
+			 (:seq agent  "agent")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Let-Go-Of has
+  (object  ((a Tangible-Entity)))
+  (agent   ((a Tangible-Entity))) 
+
+  ;; SOFT PCS:
+  (soft-pcs-list ((forall (the object of Self)
+		    (:triple It
+			     object-of 
+			     (a Be-Held)))))
+
+  (defeats ((allof (the object-of of (the object of Self))
+		   where 
+		   ( ((the classes of It) = Be-Held) and
+		     ((the agent of It) = (the agent of Self))))))
+ 
+  ;; previously has a precond that agent must be in a Be-Held state
+  ;; precond removed in the spirit of Detach precond
+ 
+  ;; We add that the agent will no longer be the agent of the 
+  ;; Be-Held State and the object will no longer be the object 
+  ;; of the Be-Held State.
+  (del-list ((forall (the defeats of Self)
+	       (:set
+		 (:triple It object (the object of Self) [Let-Go-Of-del-1])
+		 (:triple It agent (the agent of Self) [Let-Go-Of-del-2])))))
+
+  ;; During Condition: The location of the agent and the
+  ;;    object are the same during the process of carrying
+  ;;    out the Hold.
+  (dcs-list ((forall (the location of (the agent of Self))
+		     (:triple
+		      It
+		      is-at
+		      (the location of (the object of Self)) [Let-Go-Of-dcs-1]))))
+
+  ;; The interrupted-by is the inverse of that of Hold. In other
+  ;; words, a Let-Go-Of is interrupted if the agent Holds the
+  ;; object during the process.
+  (interrupted-by ((must-be-a Hold with
+                     (object ((the object of Self)))
+                     (agent  ((the agent of Self))) [Let-Go-Of-interrupted-1]))))
+
+(comment [Let-Go-Of-del-1] (:seq (the object of Self) " is no longer held.")
+	 "A let-go-of stops something from being held.")
+
+(comment [Let-Go-Of-del-2] (:seq (the agent of Self) " is no longer holding " (the object of Self))
+	 "A let-go-of stops something from holding something else.")
+
+(comment [Let-Go-Of-dcs-1] (:seq "The location of " (the agent of Self) " is the same as the location of " (the object of Self))
+	 "Something that is held is in the same place as that which is holding it.")
+
+(comment [Let-Go-Of-interrupted-1] "A hold interrupts a let-go-of"
+	 "A hold stops a let-go-of.")
+
+
+(every Let-Go-Of has
+  (text-active-verbseq-sg ("lets go of"))
+  (text-active-verbseq-pl ("let go of"))
+  (text-passive-verbseq-sg ("is let go of"))
+  (text-passive-verbseq-pl ("are let go of"))
+)
+
+
+;; nothing extra to say about contextual info
+
+;; Test cases are incorporated with that of Hold and can be
+;; found in Hold.km
+(Let-Go-Of has (test-case ()))
+
+
+
+;; automatically added WN synsets
+(Let-Go-Of has (wn16-synset ((:set  
+                                        (:triple "let_go_of" 1 "v")
+                                        (:triple "let_go" 1 "v")
+                                        (:triple "release" 1 "v")
+))))
+
+(Let-Go-Of has (wn20-synset ((:set
+                                        (:triple "let_go_of" 1 "v")
+                                        (:triple "let_go" 1 "v")
+                                        (:triple "release" 1 "v")
+))))
+(every Let-Go-Of has (text-nominalization ("letting")))

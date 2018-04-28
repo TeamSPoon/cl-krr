@@ -1,0 +1,17 @@
+;;
+;; $Id: Operating-System.km,v 1.5 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Operating-System has
+  (superclasses (Computer-Program))
+  (description ("a computer program for controlling the operation of a computer and its resources"))
+)
+
+(hasOSVersion has (instance-of (Interface-Slot)) (domain (Operating-System)) (range (String)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasOSEdition has (instance-of (Interface-Slot)) (domain (Operating-System)) (range (String)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+
+(Operating-System has (wn20-synset ((:set
+				     (:triple "operating_system" 1 "n")
+				     (:triple "OS" 3 "n")
+))))
+

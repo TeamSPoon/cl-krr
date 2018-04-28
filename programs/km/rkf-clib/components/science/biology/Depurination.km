@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Depurination.km,v 1.8 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Depurination has
+	      (superclasses  (Lose))
+	      (required-slot  (object donor))
+	      (primary-slot   (agent recipient instrument))
+	      (description   ("The spontaneous loss of a purine from a DNA
+                               strand.  Souther, see Alberts:ECB:202.")))
+
+(every Depurination has
+  (donor        ((a DNA-Strand)))
+  (object       ((a Purine)))
+  )
+
+
+
+
+
+(every Depurination has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

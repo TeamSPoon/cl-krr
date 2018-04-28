@@ -1,0 +1,168 @@
+
+;;
+;;  $Id: Blue-Army.km,v 1.6 2002/08/20 14:40:22 kbarker Exp $
+;;
+
+;; This definition comes from the IET document COA_cp_toe-2.ppt
+
+
+
+(Blue-Army has           ; a class since SHAKEN doesn't display named instances
+   (superclasses (Army))
+)
+
+(every Blue-Army has
+   (allegiance ((a Allegiance-Value with (value (*Blue)))))
+   (element 
+      ((a Armored-Division called "The 23rd Armored Division" with
+          (element ((a Mechanized-Infantry-Brigade uniquely-called
+                               "The 3rd Brigade" with
+                       (element (
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 1st Mechanized Infantry Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 2nd Mechanized Infantry Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 1st Direct Support Artillery Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 1st Armored Battalion"))))
+                    (a Armored-Brigade uniquely-called
+                               "The 1st Brigade" with
+                       (element (
+                          (a Armored-Battalion uniquely-called
+                               "The 2nd Armored Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 3rd Armored Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 2nd Direct Support Artillery Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 3rd Mechanized Infantry Battalion"))))
+                    (a Armored-Brigade uniquely-called
+                               "The 2nd Brigade" with
+                       (element (
+                          (a Armored-Battalion uniquely-called
+                               "The 4th Armored Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 5th Armored Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 3rd Direct Support Artillery Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 4th Mechanized Infantry Battalion"))))
+                    (a Armored-Brigade uniquely-called
+                               "The 4th Brigade" with
+                       (element (
+                          (a Armored-Battalion uniquely-called
+                               "The 6th Armored Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 7th Armored Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 4th Direct Support Artillery Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 5th Mechanized Infantry Battalion"))))
+                    (a General-Support-Artillery-Battalion uniquely-called
+                               "The 1st General Support Artillery Battalion")
+                    (a Aviation-Battalion uniquely-called
+                               "The 1st Aviation Attack Battalion")
+                    (a Aviation-Battalion uniquely-called
+                               "The 2nd Aviation Attack Battalion")
+                    (a Armored-Cavalry-Squadron uniquely-called
+                               "The 1st Armored Cavalry Squadron")
+       )))
+       (a Mechanized-Infantry-Division called "The 1st Mechanized Infantry Division" with
+          (element ((a Mechanized-Infantry-Brigade uniquely-called
+                               "The 1st Mechanized Infantry Brigade" with
+                       (element (
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 1st Mechanized Infantry Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 2nd Mechanized Infantry Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 1st Direct Support Artillery Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 1st Armored Battalion"))))
+                    (a Mechanized-Infantry-Brigade uniquely-called
+                               "The 2nd Mechanized Infantry Brigade" with
+                       (element (
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 3rd Mechanized Infantry Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 4th Mechanized Infantry Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 2nd Direct Support Artillery Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 2nd Armored Battalion"))))
+                    (a Mechanized-Infantry-Brigade uniquely-called
+                               "The 4th Mechanized Infantry Brigade" with
+                       (element (
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 5th Mechanized Infantry Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 6th Mechanized Infantry Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 3rd Direct Support Artillery Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 3rd Armored Battalion"))))
+                    (a Armored-Brigade uniquely-called
+                               "The 3rd Tank Brigade" with
+                       (element (
+                          (a Armored-Battalion uniquely-called
+                               "The 4th Armored Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 5th Armored Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 4th Direct Support Artillery Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 7th Mechanized Infantry Battalion"))))
+                    (a General-Support-Artillery-Battalion uniquely-called
+                               "The 1st General Support Artillery Battalion")
+       )))
+       (a Mechanized-Infantry-Division called "The 2nd Mechanized Infantry Division" with
+          (element ((a Mechanized-Infantry-Brigade uniquely-called
+                               "The 1st Mechanized Infantry Brigade" with
+                       (element (
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 1st Mechanized Infantry Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 2nd Mechanized Infantry Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 1st Direct Support Artillery Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 1st Armored Battalion"))))
+                    (a Mechanized-Infantry-Brigade uniquely-called
+                               "The 2nd Mechanized Infantry Brigade" with
+                       (element (
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 3rd Mechanized Infantry Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 4th Mechanized Infantry Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 2nd Direct Support Artillery Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 2nd Armored Battalion"))))
+                    (a Mechanized-Infantry-Brigade uniquely-called
+                               "The 4th Mechanized Infantry Brigade" with
+                       (element (
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 5th Mechanized Infantry Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 6th Mechanized Infantry Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 3rd Direct Support Artillery Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 3rd Armored Battalion"))))
+                    (a Armored-Brigade uniquely-called
+                               "The 3rd Tank Brigade" with
+                       (element (
+                          (a Armored-Battalion uniquely-called
+                               "The 4th Armored Battalion")
+                          (a Armored-Battalion uniquely-called
+                               "The 5th Armored Battalion")
+                          (a Direct-Support-Artillery-Battalion uniquely-called
+                               "The 4th Direct Support Artillery Battalion")
+                          (a Mechanized-Infantry-Battalion uniquely-called
+                               "The 7th Mechanized Infantry Battalion"))))
+                    (a General-Support-Artillery-Battalion uniquely-called
+                               "The 1st General Support Artillery Battalion")
+      )))
+)))
+

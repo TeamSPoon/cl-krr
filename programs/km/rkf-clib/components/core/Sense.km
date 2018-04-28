@@ -1,0 +1,58 @@
+;; 
+;;   $Id: Sense.km,v 1.15 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Sense has
+        (superclasses (Create))
+        (required-slot (experiencer object))
+        (primary-slot ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+
+(every Sense has
+    	(object ((a Tangible-Entity)))
+	(agent ((constraint (TheValue & (the experiencer of Self)))))
+  	(experiencer ((a Tangible-Entity)))
+	;;(instrument ((a Tangible-Entity)))
+	(result ((a Message)))
+)
+
+
+
+(every Sense has
+  (text-active-verbseq-sg ("Senses"))
+  (text-active-verbseq-pl ("Sense"))
+  (text-argslots ((:seq experiencer object))))
+
+
+(Sense has                   
+  (test-case ('( 
+                 (*Sound-Wave-1 has 
+			(instance-of (Entity)))
+                 (*Ted has 
+			(instance-of (Tangible-Entity)))
+
+		 ;; Ted percieves the sound wave
+                 (*Sense has
+                        (instance-of (Sense))
+                        (experiencer (*Ted))
+                        (object (*Sound-Wave-1)))
+
+                 (do-and-next *Sense)
+		 
+		 (the text-gen of (thelast Sense))))))
+
+
+;; automatically added WN synsets
+(Sense has (wn16-synset ((:set  
+                                    (:triple "sense" 1 "v")
+                                    (:triple "feel" 1 "v")
+))))
+
+
+(Sense has (wn20-synset ((:set
+                                    (:triple "sense" 1 "v")
+                                    (:triple "feel" 1 "v")
+))))
+(every Sense has (text-nominalization ("sensing")))

@@ -1,0 +1,26 @@
+;;    $Id: WrittenDocument.km,v 1.5 2005/04/15 17:09:10 jchaw Exp $
+
+(WrittenDocument has
+	    (superclasses (Document InformationObject))
+	    (required-slot ())
+	    (primary-slot ())
+	    (secondary-slot ())
+	    (cmap-correspondence ())
+	    (test-case ()))
+
+(every WrittenDocument has
+       (hasNumberOfPages ((a Integer)))
+       (hasNumberOfParagraphs ((a Integer)))
+       (hasNumberOfWords ((a Integer))))
+
+(hasNumberOfPages has (instance-of (Interface-Slot))(domain (WrittenDocument)) (range (Integer))(cardinality (N-to-1)))
+
+(hasNumberOfParagraphs has (instance-of (Interface-Slot))(domain (WrittenDocument)) (range (Integer))(cardinality (N-to-1)))
+
+(hasNumberOfWords has (instance-of (Interface-Slot))(domain (WrittenDocument)) (range (Integer))(cardinality (N-to-1)))
+
+(WrittenDocument has (wn20-synset ((:set
+		   	     (:triple "document" 1 "n")
+		   	     (:triple "written_document" 1 "n")
+			     (:triple "papers" 1 "n")
+))))

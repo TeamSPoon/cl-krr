@@ -1,0 +1,45 @@
+;; 
+;;  $Id: Counterattack.km,v 1.10 2002/09/19 21:18:40 kbarker Exp $
+;;
+
+(Counterattack has
+	       (superclasses (Attack))
+	       (description ("attack by part or all of a defending force against an enemy attacking force")))
+
+
+(every Counterattack has
+       (agent  ((a Military-Unit with
+                   (object-of ((the Attack agent-of of
+                                    (the object of Self)))))))
+       (object ((a Military-Unit with
+                   (agent-of ((a Attack with 
+                                 (object ((the agent of Self)))))))))
+       (object ((set-constraint
+                    (((the number of 
+                           (the value of (the allegiance of TheValues))) <= 1)
+                     and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+       (enemy ((the object of Self)))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 2 NIL))))))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.85 NIL))))))
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.5 NIL))))))
+
+
+       (text-active-verbseq-sg ("counterattacks"))
+       (text-active-verbseq-pl ("counterattack"))
+)
+ 

@@ -1,0 +1,32 @@
+
+;;
+;; $Id: Volume-Value.km,v 1.16 2008/05/12 17:26:11 tecuci Exp $
+;;
+
+
+(Volume-Value has 
+       (superclasses (Magnitude-Value)))
+
+(Volume-Value has
+   (test-case ('(
+                 (Drink has (superclasses (Substance)))
+                 (*mycoffee has (instance-of (Drink))
+                                (volume ((a Volume-Value))))
+                 (*mybeer has (instance-of (Drink))
+                              (volume
+                                 ((a Volume-Value with
+                                     (value ((:pair 0.5 *liter)
+                                             (:pair *small Drink)
+                                     ))
+                                     (less-than
+                                        ((the volume of *mycoffee)))
+                              ))))
+
+                 (the value of (the volume of *mybeer))
+
+                 ((the less-than of (the volume of *mybeer))
+                       includes (the volume of *mycoffee))
+                 ((the greater-than of (the volume of *mycoffee))
+                       includes (the volume of *mybeer))
+))))
+(Volume-Value has (description ("volume is a property for describing the amount of space occupied by a three-dimensional object as measured in cubic units")))

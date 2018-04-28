@@ -1,0 +1,21 @@
+;; 
+;;    $Id: CH3NH2.km,v 1.5 2006/01/23 23:33:41 jfan Exp $
+;; 
+
+(CH3NH2 has (superclasses (Ionic-Compound)))
+
+(every CH3NH2 has
+       (has-chemical-name ("aniline" "aminobenzene"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq 
+		    (:pair 1 C)
+		    (:pair 3 H)
+		    (:pair 1 N)
+		    (:pair 2 H)
+		    ))))))
+)
+#|(every CH3NH2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Anion) (a Cation))))
+|#

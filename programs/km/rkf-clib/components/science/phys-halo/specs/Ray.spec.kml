@@ -1,0 +1,31 @@
+<!--- $Id: Ray.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Ray>
+<superconcept name=Line>
+
+<definition>
+	A <conceptref name=Line> with a <conceptref name=Point> on one end only.
+</definition>
+
+<requiredslotlist>
+   <slotdescription name=has-part>
+	The end point of the ray.
+   </slotdescription>
+</requiredslotlist>
+
+<neighborlist>
+  <neighbor name=Point>
+	A <conceptref name=Geometric-Object> with no geometric properties such as area, volume,
+        height, etc. It is simply an indefinitely small space.
+  </neighbor>
+  <neighbor name=Line>
+	A <conceptref name=Geometric-Object> with no geometric properties (i.e. area, volume, etc.)
+        except for length.
+  </neighbor>
+  <neighbor name=Line-Segment>
+	A <conceptref name=Line> with two <conceptref name=Point>s, one on each end.
+  </neighbor>
+</neighborlist>
+
+</kml>

@@ -1,0 +1,55 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Centromere ----------
+
+(Centromere has (superclasses (Biological-Region)))
+
+(_Centromere167 has 
+  (instance-of (Centromere))
+  (prototype-of (Centromere))
+  (prototype-scope (Centromere))
+  (prototype-participants (_Tangible-Entity172
+                           _Spatial-Entity171
+                           _Centromere167))
+  (prototype-participant-of (_Centromere167))
+  (has-clones (_Placeholder-Class166168))
+  (has-built-clones (_Placeholder-Class166168))
+  (is-region-of (_Tangible-Entity172))
+  (location-of (_Spatial-Entity171))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600))))
+
+(_Tangible-Entity172 has 
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity170))
+  (has-region (_Centromere167))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-region _Centromere167 -100 617)))
+  (edge-visibility ((:seq has-region _Centromere167 t)))
+  (node-coordinate ((:pair -250 617)))
+  (prototype-participant-of (_Centromere167)))
+
+(_Spatial-Entity171 has 
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity169))
+  (location (_Centromere167))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (edge-coordinate ((:seq location _Centromere167 -100 582)))
+  (edge-visibility ((:seq location _Centromere167 t)))
+  (node-coordinate ((:pair -250 582)))
+  (prototype-participant-of (_Centromere167)))
+
+(explanation (:triple _Centromere167 location-of _Spatial-Entity171) ((a Spatial-Entity (@ _Centromere167 Place location-of))))
+(explanation (:triple _Centromere167 is-region-of _Tangible-Entity172) ((a Tangible-Entity (@ _Centromere167 Region is-region-of))))
+(explanation (:triple _Tangible-Entity172 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Centromere167 Region is-region-of))))
+(explanation (:triple _Spatial-Entity171 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Centromere167 Place location-of))))
+
+;;; ---------- end of prototype definition ----------
+
+(Centromere now-has (user-description ("Centromere: the chromosome has a narrow \"waist\" at a specialized region called the centromere.")))
+(enable-classification)
+

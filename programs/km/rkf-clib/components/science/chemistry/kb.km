@@ -1,0 +1,14 @@
+;; 
+;;  $Id: kb.km,v 1.6 2003/02/22 00:49:38 pzyeh Exp $
+;; 
+
+(kb has
+  (instance-of 		  (Property))
+  (domain      		  (Hydrolysis Base-Role Chemical))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     		  (kb-of))
+  (cardinality 		  (N-to-1))
+)

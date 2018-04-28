@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Okazaki-Fragment.km,v 1.5 2001/09/18 17:56:30 pnav Exp $
+;; 
+
+(Okazaki-Fragment has
+         (superclasses (DNA-Strand-Fragment))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A short length of DNA produced on the lagging strand
+                        during DNA replication, discovered by R. Okazaki.  They
+                        are rapidly joined by DNA ligase to form a continuous
+                        DNA strand.  Alberts:MBC:G-17."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Okazaki-Fragment has   
+       (length ((at-least 100 Nucleotide)
+		(at-most 200 Nucleotide)))
+      )
+

@@ -1,0 +1,17 @@
+
+;;
+;; $Id: Combat-Strength-Value.km,v 1.3 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+
+(Combat-Strength-Value has 
+       (superclasses (Property-Value)))
+
+(every Combat-Strength-Value has
+   (property-slot (combat-strength))
+   (combat-strength-of ((must-be-a Thing)))
+   (less-than ((must-be-a Combat-Strength-Value)))
+   (greater-than ((must-be-a Combat-Strength-Value)))
+   (same-as ((must-be-a Combat-Strength-Value)))
+)
+

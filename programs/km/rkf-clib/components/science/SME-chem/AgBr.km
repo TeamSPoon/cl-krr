@@ -1,0 +1,13 @@
+(AgBr has (superclasses (Ionic-Compound)))
+
+(every AgBr has
+	(has-chemical-name ("silver bromide"))
+	(solubility ((a Solubility-Value with
+                       (value ((:pair *insoluble Chemical))))))
+	(has-part ((a Ag-Plus) (a Br-Minus)))
+	(atomic-chemical-formula (
+        	(a Chemical-Formula with (term ((:seq (:pair 1 Ag) (:pair 1 Br)))))))
+	(has-chemical-formula (
+        	(a Chemical-Formula with
+			(term ((:seq (:pair 1 Ag-Plus) (:pair 1 Br-Minus)))))))
+)

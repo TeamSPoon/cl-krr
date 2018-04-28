@@ -1,0 +1,16 @@
+;; 
+;;    $Id: UoM-Moment-of-Inertia.km,v 1.6 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Moment-of-Inertia has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*kilogram-meter-squared))
+ (instances (*kilogram-meter-squared)))
+
+(*kilogram-meter-squared has (instance-of (UoM-Moment-of-Inertia))
+                         (name ("kgm^2"))
+			 (wn20-synset ((:set (:triple "kilogram meter squared" 0 "n")
+					     (:triple "kilograms meter squared" 0 "n")))))
+					
+
+(*kilogram-meter-squared has (conversion-multiplier (1.0)))

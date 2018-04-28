@@ -1,0 +1,36 @@
+<kml>
+
+<concept name=Department>
+<superconcept name=Organization>
+
+<hr>
+<h3>Component Semantics:</h3>
+  <component tag=Department>
+<definition>
+  (an <conceptref name=Organization> that is) a specialized division of an <conceptref name=Institution>.
+</definition>
+</component>
+
+<requiredslotlist>
+
+  <slotdescription name=is-part-of>
+    an <conceptref name=Institution>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>the CS department of UT Austin.</text>
+<slotdescription name=is-part-of>UT Austin</slotdescription>.
+    <comment>
+
+UT Austin is the <conceptref name=Institution>.  
+    </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

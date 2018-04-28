@@ -1,0 +1,32 @@
+
+;;
+;; $Id: Capacity-Value.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(Capacity-Value has 
+       (superclasses (Property-Value)))
+
+(Capacity-Value has
+   (test-case ('(
+                 (*myBigBox has (instance-of (Physical-Object))
+                                (capacity ((a Capacity-Value))))
+                 (*myLittleBox has (instance-of (Physical-Object))
+                              (capacity
+                                 ((a Capacity-Value with
+                                     (value ((:pair *roomy Physical-Object)
+                                     ))
+                                     (less-than
+                                        ((the capacity of *myBigBox)))
+                              ))))
+
+                 (the value of (the capacity of *myLittleBox))
+
+                 ((the less-than of (the capacity of *myLittleBox))
+                       includes (the capacity of *myBigBox))
+                 ((the greater-than of (the capacity of *myBigBox))
+                       includes (the capacity of *myLittleBox))
+))))
+
+
+
+(Capacity-Value has (description ("the capacity (potential for storing or accomodating) of a Tangible-Entity")))

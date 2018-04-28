@@ -1,0 +1,42 @@
+<!--- $Id: Medium.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<kml>
+<concept name=Medium>
+<system-documentation name=Medium>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    Medium is the <conceptref name=Role> played by an Entity which is
+    the <slot>base</slot> of a <conceptref name=Express> or a <conceptref name=Interpret>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the Communication-Entity that's playing the role of medium
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Action> event that the Entity is engaged in
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The president told him about the war.</text>
+     <comment>
+     In this example, the Medium role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Express> with
+         <slot>object</slot>= Is the <conceptref name=Information> which in this example is the information about the war.
+</slotdescription> and the <slot> agent </slot> = The preseident.
+     <slotdescription name=played-by> speech (spoken language) </slotdescription> as the <slot> base-of </slot> the <conceptref name=Express>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

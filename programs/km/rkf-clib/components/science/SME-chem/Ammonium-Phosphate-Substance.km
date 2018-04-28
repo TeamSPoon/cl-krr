@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Ammonium-Phosphate-Substance8014
+
+
+|#
+
+(disable-classification)
+
+(Ammonium-Phosphate-Substance has (superclasses (Phosphate-Substance)))
+
+(every Ammonium-Phosphate-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Ammonium-Phosphate-Substance683 has
+  (prototype-of (Ammonium-Phosphate-Substance Phosphate-Substance))
+  (prototype-scope (Ammonium-Phosphate-Substance (the-class Phosphate-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a NH4-Plus) (a PO4-Minus-3)))))))))
+  (prototype-participants (_NH4-Plus689 _PO4-Minus-690 _Chemical-Entity685 _Ammonium-Phosphate-Substance683)))
+
+(_Chemical-Entity685 has (instance-of (Ionic-Compound)) (has-part (_NH4-Plus689 _PO4-Minus-690)))
+
+(_NH4-Plus689 has (instance-of (NH4-Plus)))
+
+(_PO4-Minus-690 has (instance-of (PO4-Minus-3)))
+
+(_Ammonium-Phosphate-Substance683 has (instance-of (Ammonium-Phosphate-Substance)) (has-basic-structural-unit (_Chemical-Entity685)))
+
+(enable-classification)
+
+(explanation (:triple _Ammonium-Phosphate-Substance683 has-basic-structural-unit _Chemical-Entity685) (((@ SME entered)) (every Ammonium-Phosphate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity685 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _NH4-Plus689 instance-of NH4-Plus) (((@ SME entered)) NIL))
+
+(explanation (:triple _PO4-Minus-690 instance-of PO4-Minus-3) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ammonium-Phosphate-Substance683 instance-of Ammonium-Phosphate-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Ammonium-Phosphate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

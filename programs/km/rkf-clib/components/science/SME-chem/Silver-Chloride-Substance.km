@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Silver-Chloride-Substance4089
+
+
+|#
+
+(disable-classification)
+
+(Silver-Chloride-Substance has (superclasses (Chloride-Substance)))
+
+(every Silver-Chloride-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Silver-Chloride-Substance393 has
+  (prototype-of (Silver-Chloride-Substance Chloride-Substance))
+  (prototype-scope (Silver-Chloride-Substance (the-class Chloride-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Ag-Plus) (a Cl-Minus)))))))))
+  (prototype-participants (_Ag-Plus6211 _Cl-Minus6210 _Chemical-Entity395 _Silver-Chloride-Substance393)))
+
+(_Silver-Chloride-Substance393 has (instance-of (Silver-Chloride-Substance)) (has-basic-structural-unit (_Chemical-Entity395)))
+
+(_Chemical-Entity395 has (instance-of (Ionic-Compound)) (has-part (_Cl-Minus6210 _Ag-Plus6211)))
+
+(_Cl-Minus6210 has (instance-of (Cl-Minus)))
+
+(_Ag-Plus6211 has (instance-of (Ag-Plus)))
+
+(enable-classification)
+
+(explanation (:triple _Silver-Chloride-Substance393 has-basic-structural-unit _Chemical-Entity395) (((@ SME entered)) (every Silver-Chloride-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Silver-Chloride-Substance393 instance-of Silver-Chloride-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity395 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cl-Minus6210 instance-of Cl-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ag-Plus6211 instance-of Ag-Plus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Silver-Chloride-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

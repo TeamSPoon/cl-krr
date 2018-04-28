@@ -1,0 +1,38 @@
+<!--- $Id: Be-Blocked.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Blocked>
+<superconcept name=Be-Inaccessible>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Blocked>
+  <definition>object unable to Move-Through</definition>
+  <requiredslot name=object>
+    <restriction>may not be the <slot>path</slot> of any
+      <conceptref name=Move> Event
+    </restriction>
+  </requiredslot>
+  <requiredslot name=location>
+    <restriction>a Place</restriction>
+    <restriction>= <slot>object</slot></restriction>
+  </requiredslot>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+</component>
+
+<musing>
+The semantics of Be-Blocked are captured as conditions of the Actions
+that put an <slot>object</slot> (Place) into this state 
+(<conceptref name=Block>), that take an <slot>object</slot> out of this state 
+(<conceptref name=Unblock>) and that are prevented by this state 
+(<conceptref name=Move> whose <slot>path</slot> = <slot>object</slot> of
+Be-Blocked).
+</musing>
+
+</kml>
+
+

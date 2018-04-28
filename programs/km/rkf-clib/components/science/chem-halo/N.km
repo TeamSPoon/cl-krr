@@ -1,0 +1,19 @@
+;;
+;; $Id: N.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(N has (superclasses (Non-Metal-Atom VA-Element)))
+
+(every N has
+       (has-molecular-name ("nitride"))
+       (atomic-symbol (N))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 7 NIL))))))
+       (chemical-period (2))
+       (has-ion ((a N-Minus-3)))
+)
+
+(every N has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("nitrogen"))
+)

@@ -1,0 +1,124 @@
+<!--- $Id: Penetrate.doc.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Penetrate::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Penetrate>
+
+<hr>
+<subevent name=Breach::doc>
+<subevent name=Traverse>
+<hr>
+
+<h3>Component Semantics:</h3>
+<component tag=Penetrate>
+  <definition>Breach then Traverse</definition>
+  <requiredslot name=agent>
+    <restriction>causes (is <slot>agent</slot> of) the <conceptref name=Breach::doc></restriction>
+    <restriction>traverses (moves self through) the Breach</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Barrier</restriction>
+    <restriction><conceptref name=Breach::doc>ed by the <slot>agent</slot></restriction>
+  </requiredslot>
+  <requiredslot name=path>
+    <restriction>a Portal in the <slot>object</slot> (the <slot>result</slot> of the <conceptref name=Breach::doc>)</restriction>
+    <restriction>transient <slot>location</slot> of the <slot>agent</slot></restriction>
+  </requiredslot>
+  <wnsynsets><verb>penetrate#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+<musing>
+The required slot <slot>path</slot> is filled automatically
+with the Portal <slot>result</slot>ing from the <conceptref name=Breach::doc>,
+and is not specified by the user.
+</musing>
+
+<hr>
+<h3>Core Senses:</h3>
+<senselist>
+<sense tag=penetrate1>
+  <sense-definition>Breach then Traverse</sense-definition>
+  <requiredslot name=agent>
+    <restriction>causes (is the agent of) the Breach</restriction>
+    <restriction>traverses (moves self through) the Breach</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Barrier</restriction>
+    <restriction>Breached by the agent</restriction>
+  </requiredslot>
+  <requiredslot name=path>
+    <restriction>a Portal in the object (the result of the Breach)</restriction>
+    <restriction>transient location of the agent</restriction>
+  </requiredslot>
+</sense>
+</senselist>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=penetrate2>
+  <sense-definition>understand</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=penetrate3>
+  <sense-definition>infiltrate</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=penetrate4>
+  <sense-definition>enter</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=penetrate5>
+  <sense-definition>see through</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=penetrate6>
+  <sense-definition>extend</sense-definition>
+  <transitivity>intransitive (+into)</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDpenetrate1><equiv tag=penetrate4></sense>
+<sense tag=COBUILDpenetrate2><equiv tag=penetrate3></sense>
+<sense tag=COBUILDpenetrate3><equiv tag=penetrate1></sense>
+<sense tag=COBUILDpenetrate4><equiv tag=penetrate2></sense>
+<sense tag=COBUILDpenetrate5><equiv tag=penetrate5></sense>
+<sense tag=COBUILDpenetrate6><equiv tag=penetrate4></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<sense tag=LDOCEpenetrate1><equiv tag={penetrate1, penetrate4}></sense>
+<sense tag=LDOCEpenetrate2><equiv tag=penetrate5></sense>
+<sense tag=LDOCEpenetrate3><equiv tag=penetrate2></sense>
+</reference>
+
+<reference source=NODE>
+<sense tag=NODEpenetrate1><equiv tag={penetrate1, penetrate6}></sense>
+<sense tag=NODEpenetrate1.1><equiv tag=penetrate4></sense>
+<sense tag=NODEpenetrate1.2><equiv tag=penetrate3></sense>
+<sense tag=NODEpenetrate1.3><equiv tag=penetrate3></sense>
+<sense tag=NODEpenetrate1.4><equiv tag=penetrate2></sense>
+<sense tag=NODEpenetrate1.5><equiv tag=none><comment>abstract intransitive</comment></sense>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNpenetrate#1><equiv tag=penetrate1></sense>
+<sense tag=WNpenetrate#2><equiv tag=penetrate2></sense>
+<sense tag=WNpenetrate#3><equiv tag=penetrate2></sense>
+</senselist>
+</reference>
+
+</kml>
+
+
+

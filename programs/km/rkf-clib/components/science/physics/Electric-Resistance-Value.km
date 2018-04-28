@@ -1,0 +1,14 @@
+;; 
+;;  $Id: Electric-Resistance-Value.km,v 1.2 2005/02/14 22:41:31 kbarker Exp $
+;; 
+
+(Electric-Resistance-Value has 
+		(superclasses (Property-Value)))
+
+(every Electric-Resistance-Value has
+  (property-slot (electric-resistance))
+       (electric-resistance-of ((must-be-a Entity)))
+       (less-than ((must-be-a Electric-Resistance-Value)))
+       (greater-than ((must-be-a Electric-Resistance-Value)))
+       (same-as ((must-be-a Electric-Resistance-Value)))
+)

@@ -1,0 +1,92 @@
+<!--- $Id: Breach.doc.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Breach::doc>
+<superconcept name=Break::doc>
+
+<sme-documentation name=Breach>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Breach>
+  <definition>Break that results in a Portal</definition>
+  <requiredslot name=object>
+    <restriction>a Barrier</restriction>
+    <restriction>has as <slot>has-part</slot> a Portal, the <slot>result</slot> of the Breach</restriction>
+  </requiredslot>
+  <requiredslot name=result>
+    <restriction>a Portal</restriction>
+    <restriction>is a new <slot>is-part-of</slot> the <slot>object</slot></restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>creates the Portal in the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>breach#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>gap#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+The slot <slot>result</slot> is required but is understood 
+(<i>i.e.</i>, usually left unspecified).
+</musing>
+
+<hr>
+<h3>Core Senses:</h3>
+<senselist>
+<sense tag=breach1>
+  <sense-definition>Break that results in a Portal</sense-definition>
+  <requiredslot name=object>
+    <restriction>a Barrier</restriction>
+    <restriction>has a new Portal, the result of the Breach</restriction>
+  </requiredslot>
+  <requiredslot name=result>
+    <restriction>a Portal</restriction>
+    <restriction>is a new part of the object</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>creates the Portal in the object</restriction>
+  </primaryslot>
+</sense>
+</senselist>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=breach2>
+  <sense-definition>break rules</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDbreach2><equiv tag=breach2></sense>
+<sense tag=COBUILDbreach6><equiv tag=breach1></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<sense tag=LDOCEbreach1><equiv tag=breach1></sense>
+<sense tag=LDOCEbreach2><equiv tag=breach2></sense>
+</reference>
+
+<reference source=NODE>
+<sense tag=NODEbreach1.1><equiv tag=breach1></sense>
+<sense tag=NODEbreach1.2><equiv tag=breach2></sense>
+<sense tag=NODEbreach2><equiv tag=none><comment>leaping whales</comment></sense>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNbreach#1><equiv tag=breach2></sense>
+<sense tag=WNbreach#2><equiv tag=breach1></sense>
+</senselist>
+</reference>
+
+</kml>
+
+
+

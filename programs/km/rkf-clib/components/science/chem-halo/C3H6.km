@@ -1,0 +1,18 @@
+;;
+;; $Id: C3H6.km,v 1.1 2007/05/18 02:32:31 tecuci Exp $
+;;
+
+(C3H6 has (superclasses (Hydrocarbon-Molecule)))
+
+(every C3H6 has	
+       (has-chemical-name ("propene"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 3 C)
+		    (:pair 6 H))))))))
+       
+(every C3H6 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("propene"))
+)

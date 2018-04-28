@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Phagocytose.km,v 1.7 2001/05/22 21:13:32 kbarker Exp $ 
+;; 
+
+;; Not yet released:
+;; - need to specify that the object of a Phagocytose is "surrounded by water"
+
+(Phagocytose has
+       (superclasses   (Endocytose))
+       (required-slot  (object destination))
+       (primary-slot   (agent origin path))
+       (secondary-slot ())
+       (description ("The process by which particulate matter is engulfed by
+                      a cell.  Prominent in predatory protozoa, such as Amoeba
+                      proteus, and to certain specialized cells of 
+                      multicellular animals such as macrophages. 
+                      Alberts:ECB:G-14."))
+       )
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(every Phagocytose has
+       (agent ((a Cell)))
+       (object ((a Particulate-Matter)))       
+       (destination ((a Spatial-Entity with
+                        (is-inside ((the Cell agent of Self))))))
+       )
+
+
+
+
+
+
+

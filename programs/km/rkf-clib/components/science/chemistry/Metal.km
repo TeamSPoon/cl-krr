@@ -1,0 +1,37 @@
+
+;$Id: Metal.km,v 1.13 2005/08/18 22:39:50 oursland Exp $
+
+(Metal has (superclasses (Chemical)))
+(every Metal has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Metal-Atom)))
+)
+
+(every Metal has
+       (text-has-part        ("made of"))
+       (text-result-of       ("product of"))
+       (text-raw-material-of ("reactant in"))
+       (text-premodslots     ((:seq)))
+       (text-postmodslots    ((:seq has-part result-of raw-material-of)))
+
+       (text-gen ((make-phrase (the text-phrase of Self))))
+       (text-description ((the text-gen of Self)))
+
+       (text-def-head    ((the text-head of Self)))
+       (text-head        ((the text-head of 
+                               (the has-basic-structural-unit of Self)))
+                         )
+ 
+       (text-base-phrase ((the text-base-phrase of
+                               (the has-basic-structural-unit of Self)))
+                         )
+   
+       (text-phrase ((if (has-value
+                          (the text-phrase of
+                               (the has-basic-structural-unit of Self)))
+                         then (the text-phrase of
+                                   (the has-basic-structural-unit of Self))
+                         else (the text-base-phrase of Self)  
+                         ))
+                    )
+       )

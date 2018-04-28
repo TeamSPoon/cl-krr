@@ -1,0 +1,108 @@
+<!--- $Id: Feed.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Feed>
+<superconcept name=Supply>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Feed>
+  <definition>to Supply nutrients to Living Entity.</definition>
+  <requiredslot name=recipient>
+    <restriction>a Living Entity</restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+    <inheritedfrom name=Supply>
+    <restriction>a Living Entity</restriction>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+    <restriction>= <slot>donor</slot>
+  </requiredslot>
+  <requiredslot name=donor>
+    <inheritedfrom name=Supply>
+    <restriction>a Living Entity</restriction>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Feed</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Supply>
+    <restriction>a Food</restriction>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Supply>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>feed#1, feed#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>grub#3, give#24
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Feed applies to any incident of providing food.
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=feed2>
+  <sense-definition>To satisfy; gratify or minister to, as any sense, talent, taste, or desire.
+</sense-definition>
+</sense>
+<sense tag=feed3>
+  <sense-definition>is sufficient for (a number of recipients)</sense-definition>
+</sense>
+<sense tag=feed4>
+  <sense-definition>to furnish something essential to the growth, sustenance, maintenance of
+</sense-definition>
+</sense>
+<sense tag=feed5>
+  <sense-definition>to supply </sense-definition>
+</sense>
+<sense tag=feed6>
+  <sense-definition>to send (as by wire or satellite) to a transmitting station for broadcast
+</sense-definition>
+</sense>
+<sense tag=feed7>
+  <sense-definition>to pass a ball or puck to (a teammate) especially for a shot at the goal
+</sense-definition>
+</sense>
+<sense tag=feed8>
+  <sense-definition>to introduce continuously; as into a machine or processor
+ </sense-definition>
+</sense>
+<sense tag=feed9>
+  <sense-definition>to support or promote 
+</sense-definition>
+</sense>
+<sense tag=feed10>
+  <sense-definition>to profit from in an exploitatory manner
+</sense-definition>
+</sense>
+<sense tag=feed11>
+  <sense-definition>to provide with fertilizers or add nutrients to</sense-definition>
+</sense>
+<sense tag=feed12>
+  <sense-definition>eat</sense-definition>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNfeed#1><equiv tag=feed1></sense>
+<sense tag=WNfeed#2><equiv tag=feed1></sense>
+<sense tag=WNfeed#3><equiv tag=feed5></sense>
+<sense tag=WNfeed#4><equiv tag=feed8></sense>
+<sense tag=WNfeed#5><equiv tag=feed9></sense>
+<sense tag=WNfeed#6><equiv tag=feed12></sense>
+<sense tag=WNfeed#7><equiv tag=feed3></sense>
+<sense tag=WNfeed#8><equiv tag=feed10></sense>
+<sense tag=WNfeed#9><equiv tag=feed2></sense>
+<sense tag=WNfeed#10><equiv tag=feed11></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

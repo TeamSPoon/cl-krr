@@ -1,0 +1,46 @@
+<!-- $Id: Speak.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ -->
+<kml>
+
+<concept name=Speak><system-documentation name=Speak>
+<superconcept name=Embody>
+
+<definition>
+
+The physical act of a producing speech sounds.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    <conceptref name=Message> being converted to sound.
+  </slotdescription>
+
+  <slotdescription name=result>
+    the <conceptref name=Sound> that embodies the message
+  </slotdescription>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Fred spoke the news.</text>
+    <slotdescription name=agent>Fred</slotdescription>
+    <slotdescription name=object>the news (qua <conceptref name=Message> encoded in a language).</slotdescription>
+    <slotdescription name=result>sound waves that <conceptref name=Embody> the message.</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>Polly the parrot squawked "Hello".</text>
+    <slotdescription name=agent>Polly</slotdescription>
+    <slotdescription name=object>the <conceptref name=Message> "Hello".</slotdescription>
+    <slotdescription name=result>sound waves that <conceptref name=Embody> the message.</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+
+
+		
+
+

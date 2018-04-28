@@ -1,0 +1,58 @@
+;;
+;; $Id: Velocity-Vector-Value.km,v 1.10 2008/07/04 15:18:13 kbarker Exp $
+;;
+
+
+(Velocity-Vector-Value has 
+  (description ("A vector measure of an object's displacement over time"))
+  (superclasses (Property-Vector-Value)))
+
+(every Velocity-Vector-Value has
+  (primary-slot (velocity apex-velocity average-velocity final-velocity initial-velocity))
+  (secondary-slot (speed))
+  (x-component-slot (x-speed))
+  (y-component-slot (y-speed))
+  (speed ((a Speed-Value)))
+  (direction ((a Angle-Value)))
+  (x-speed ((a Speed-Value)))
+  (y-speed ((a Speed-Value)))
+
+  (component-of (( a System with
+                  ( equation (( a Equation-Set with 
+                                ( equation-uses (( the y-speed of Self )
+                                                 ( the speed of Self )
+                                                 ( the direction of Self )))
+                                ( equation-symbol (( :pair (QUOTE v_y) ( the y-speed of Self ))
+                                                   ( :pair (QUOTE v) ( the speed of Self ))
+                                                   ( :pair (QUOTE theta) ( the direction of Self ))))
+                                ( equation-expression (( QUOTE ( = v_y ( * v (sin theta)))))))
+
+                              ( a Equation-Set with 
+                                ( equation-uses (( the x-speed of Self )
+                                                 ( the speed of Self )
+                                                 ( the direction of Self )))
+                                ( equation-symbol (( :pair (QUOTE v_x) ( the x-speed of Self ))
+                                                   ( :pair (QUOTE v) ( the speed of Self ))
+                                                   ( :pair (QUOTE theta) ( the direction of Self ))))
+                                ( equation-expression (( QUOTE ( = v_x ( * v (cos theta)))))))
+                  
+                              ( a Equation-Set with 
+                                ( equation-uses (( the speed of Self )
+                                                 ( the x-speed of Self )
+                                                 ( the y-speed of Self )))
+                                ( equation-symbol (( :pair (QUOTE v) ( the speed of Self ))
+                                                   ( :pair (QUOTE v_x) ( the x-speed of Self ))
+                                                   ( :pair (QUOTE v_y) ( the y-speed of Self ))))
+                                ( equation-expression (( QUOTE ( = v (sqrt (+ (expt v_y 2) (expt v_x 2))))))))
+
+                              ( a Equation-Set with 
+                                ( equation-uses (( the direction of Self )
+                                                 ( the x-speed of Self )
+                                                 ( the y-speed of Self )))
+                                ( equation-symbol (( :pair (QUOTE theta) ( the direction of Self ))
+                                                   ( :pair (QUOTE v_x) ( the x-speed of Self ))
+                                                   ( :pair (QUOTE v_y) ( the y-speed of Self ))))
+                                ( equation-expression (( QUOTE ( = theta ( atan v_y v_x ))))))))))))
+
+(Velocity-Vector-Value has (wn20-synset ((:set 
+			     (:triple "velocity" 1 "n")))))

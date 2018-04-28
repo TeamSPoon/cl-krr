@@ -1,0 +1,88 @@
+<!--- $Id: Receive.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+<kml>
+
+<concept name=Receive>
+<system-documentation name=Receive>
+<superconcept name=Transfer>
+
+  <definition>
+        Change of possession of an <slot>object</slot> to a
+        <slot>recipient</slot>.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the thing received
+  </slotdescription>
+
+  <slotdescription name=recipient>
+       the entity that receives the <slot>object</slot>, and then
+       <slot>possesses</slot> it
+  </slotdescription>
+
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+       the entity that causes the Receive action
+  </slotdescription>
+
+  <slotdescription name=donor>
+       the entity that <slot>possesses</slot> the <slot>object</slot>
+       before it's received by the <slot>recipient</slot>
+  </slotdescription>
+
+  <slotdescription name=instrument>
+       the medium of transfer of the <slot>object</slot>
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Mickey received a wedding gift from his mother.</text>
+    <slotdescription name=object>wedding gift</slotdescription>
+    <slotdescription name=recipient>Mickey</slotdescription>
+    <slotdescription name=donor>his mother</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Transfer>
+        Transfer involves a change in ownership.  Receive is a special 
+        type of Transfer with a required <slot>recipient</slot>
+  </neighbor>
+
+  <neighbor name=Obtain>
+        Obtain is a special type of Receive in which the <slot>recipient</slot>
+        intentionally gains possession of the <slot>object</slot>
+  </neighbor>
+
+  <neighbor name=Deliver>
+        Deliver is a special type of Transfer performed by an 
+        <slot>agent</slot> who is not the <slot>donor</slot>
+  </neighbor>  
+
+  <neighbor name=Lose>
+        Lose is a special type of Transfer in which a <slot>donor</slot>
+        is mandatory
+  </neighbor>  
+
+  <neighbor name=Withdraw>
+        Withdraw is a special type of Transfer in which the 
+        <slot>object</slot> is withdrawn from a <slot>base</slot>,
+        thereby removing it from a <conceptref name=Be-Stored> state
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

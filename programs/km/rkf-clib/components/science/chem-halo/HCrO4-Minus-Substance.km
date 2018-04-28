@@ -1,0 +1,14 @@
+;; $Id: HCrO4-Minus-Substance.km,v 1.6 2008/11/29 03:57:54 tecuci Exp $ 
+(HCrO4-Minus-Substance has (superclasses (Anion-Substance)))
+(every HCrO4-Minus-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 3.0e-7 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("hydrogen chromate"))
+	(has-basic-structural-unit ((a HCrO4-Minus)))
+)
+(every HCrO4-Minus-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a HCrO4-Minus))))

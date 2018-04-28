@@ -1,0 +1,17 @@
+;; 
+;;    $Id: space-int-covers.km,v 1.6 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(space-int-covers has
+		 (instance-of (Spatial-Relation))
+		 (superslots ())
+		 (subslots ())
+		 (domain (Spatial-Entity))
+		 (range (Spatial-Entity))
+		 (inverse (space-int-coveredby))
+		 (fluent-status (*Inertial-Fluent))
+                 (original-slot      (t))	
+		 (cardinality (N-to-N)))
+
+(space-int-coveredby has
+	(instance-of (Spatial-Relation)))

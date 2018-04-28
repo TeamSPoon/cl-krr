@@ -1,0 +1,18 @@
+;; $Id: CaloUser.km,v 1.1 2005/03/24 16:35:22 billj Exp $
+
+(CaloUser has
+	(superclasses (Agent-Role))
+
+	(description ("This class is intended to contain instances
+that correspond to the role corresponding to the human user of a CALO
+agent.  There is supposed to be only one entity playing this role,
+i.e. *TheCaloUser, thus this class may not be entirely necessary.  It
+was reified to increase expressiveness and ensure against any
+difficulties e.g. those caused by how the OWL translates instances.")))
+
+; (every CaloUser has (all-instances ((set-constraint ((the number of (allof TheValues))) = 1)))) 
+; 
+; Debug the above, because it did not cause an error when I had
+; reified a second CaloUser and sanity checking was turned on.
+
+(*TheCaloUser has (instance-of (CaloUser)))

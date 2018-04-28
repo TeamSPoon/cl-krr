@@ -1,0 +1,17 @@
+;; 
+;; $Id: Lunch.km,v 1.3 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(Lunch has
+  (superclasses (Meal))
+)
+
+;; stubby
+
+(Lunch has 
+       (wn20-synset 
+	((:set (:triple "lunch" 1 "n"))
+	 (:set (:triple "luncheon" 1 "n"))
+	 (:set (:triple "tiffin" 1 "n"))
+	 (:set (:triple "dejeuner" 1 "n")))))
+(every Lunch has (text-nominalization ("lunch")))

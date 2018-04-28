@@ -1,0 +1,112 @@
+<!--- $Id: Create.doc.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Create::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Create>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Create>
+  <definition>cause a Tangible-Entity to exist</definition>
+  <requiredslot name=result>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>exists as a <slot>result</slot> of the Create</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>result</slot> to exist</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>used in the Creation of the <slot>result</slot></restriction>
+  </primaryslot>
+  <primaryslot name=by-means-of>
+    <restriction>an Event necessary to the Creation of the <slot>result</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>create#1, create#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>make#3
+  </verb></wnsynsets>
+</component>
+
+<musing>
+This is the top level component for verbs that result in a new Entity
+coming into existence.<p>
+
+Note that Create does not have an <slot>object</slot> (although subclasses
+of Create -- such as <conceptref name=Copy> -- may).
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=create2>
+  <sense-definition>enage in creative activity</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+<sense tag=create3>
+  <sense-definition>originate/invent</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=create4>
+  <sense-definition>inspire/instigate</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=create5>
+  <sense-definition>be responsible for</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=create6>
+  <sense-definition>appoint</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=create7>
+  <sense-definition>express anger</sense-definition>
+  <transitivity>intransitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+<sense tag=COBUILDcreate1.1><equiv tag={create1, create4}></sense>
+<sense tag=COBUILDcreate1.2><equiv tag=create1></sense>
+<sense tag=COBUILDcreate1.3><equiv tag={create2, create3}></sense>
+<sense tag=COBUILDcreate1.4><equiv tag=create4></sense>
+<sense tag=COBUILDcreate2><equiv tag=create7><comment>informal</comment></sense>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+<sense tag=LDOCEcreate1><equiv tag=create1></sense>
+<sense tag=LDOCEcreate2><equiv tag=create6></sense>
+<sense tag=LDOCEcreate3><equiv tag=create7></sense>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+<sense tag=NODEcreate1><equiv tag=create1></sense>
+<sense tag=NODEcreate1.1><equiv tag=create4></sense>
+<sense tag=NODEcreate1.2><equiv tag=create3></sense>
+<sense tag=NODEcreate1.3><equiv tag=create6></sense>
+<sense tag=NODEcreate2><equiv tag=create7></sense>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNcreate#1><equiv tag={create1, create4}></sense>
+<sense tag=WNcreate#2><equiv tag=create1></sense>
+<sense tag=WNcreate#3><equiv tag=create2></sense>
+<sense tag=WNcreate#4><equiv tag=create6></sense>
+<sense tag=WNcreate#5><equiv tag=create3></sense>
+<sense tag=WNcreate#6><equiv tag=none><comment>see <conceptref name=Produce></comment></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

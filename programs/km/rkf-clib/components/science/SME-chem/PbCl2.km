@@ -1,0 +1,12 @@
+(PbCl2 has (superclasses (Ionic-Compound)))
+
+(every PbCl2 has
+  (has-part ((a Pb-Plus-2) (a Cl-Minus)))
+  (solubility ((a Solubility-Value with
+         (value ((:pair *insoluble Chemical))))))
+  (atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 1 Pb) (:pair 2 Cl)))))))
+  (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Pb-Plus-2) (:pair 2 Cl-Minus)))))))
+)

@@ -1,0 +1,12 @@
+;;
+;; $Id: Flatbed-Scanner.km,v 1.1 2004/10/07 19:46:06 kbarker Exp $
+;;
+
+(Flatbed-Scanner has 
+  (superclasses (Scanner))
+  (feature-slot ((the feature-slot of Scanner)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Flatbed-Scanner))
+  ))
+)
+

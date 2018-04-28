@@ -1,0 +1,28 @@
+<!--- $Id: Hallway.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<kml>
+
+<concept name=Hallway>
+<system-documentation name=Hallway>
+<superconcept name=Room>
+
+<definition>
+	 A interior pasage onto which rooms open.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the Hallway is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Room>
+     A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

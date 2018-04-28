@@ -1,0 +1,35 @@
+<!--- $Id: Molecule.spec.kml,v 1.1 2005/08/01 20:59:20 jchaw Exp $ --->
+<kml>
+
+<concept name=Molecule><system-documentation name=Molecule>
+<superconcept name=Chemical-Entity>
+
+<definition>
+
+  A chemical combination of two or more atoms (Brown, et.al)
+
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=chemical-formula>
+    the formula of the molecule composition
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Molecular-Compound>
+    A compound that contains no ions
+  </neighbor>
+
+  <neighbor name=Molecular-Compound-Substance>
+    A chemical consisting of a Molecular-Compound
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,17 @@
+;; 
+;;    $Id: viewpoint-parent.km,v 1.3 2006/09/27 16:18:17 jchaw Exp $
+;; 
+
+(viewpoint-parent has
+   (instance-of (KM-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Viewpoint))
+;;   (range (Thing))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inverse (viewpoint-child))
+)
+
+(viewpoint-child has
+   (instance-of (KM-Slot-Group)))

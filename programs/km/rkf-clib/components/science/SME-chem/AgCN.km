@@ -1,0 +1,18 @@
+(AgCN has (superclasses (Ionic-Compound)))
+
+(every AgCN has
+  (has-chemical-name ("silver cyanide"))
+  (electrolyte-status ((a Electrolyte-Status-Value with
+          (value ((:pair *non nil))))))
+  (has-part ((a Ag-Plus) (a CN-Minus)))
+  (atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 1 Ag) (:pair 1 CN)))))))
+  (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Ag-Plus) (:pair 1 CN-Minus)))))))
+)
+
+(every AgCN has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ag-Plus) (:pair 1 CN-Minus)))))))
+)

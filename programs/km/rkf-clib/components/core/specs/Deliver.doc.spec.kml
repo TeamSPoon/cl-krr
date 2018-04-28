@@ -1,0 +1,122 @@
+<!--- $Id: Deliver.doc.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Deliver>
+<superconcept name=Receive>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Deliver>
+  <definition>change of possession of an object to a recipient by an optional agent who is not the donor</definition>
+  <requiredslot name=recipient>
+    <inheritedfrom name=Receive>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Deliver</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Receive>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+    <restriction>!= <slot>recipient</slot></restriction>
+    <restriction>!= <slot>donor</slot></restriction>
+  </primaryslot>
+  <primaryslot name=donor>
+    <inheritedfrom name=Receive>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Deliver</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Receive>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>deliver#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>hand_over#1, get_in#3, render#9, turn_in#3
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Deliver is a specialization of the <conceptref name=Receive> component
+with an optional <slot>agent</slot> slot that is not the <slot>donor</slot>
+or the <slot>recipient</slot>.
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=deliver2>
+  <sense-definition>to send (something aimed or guided) to an intended target or
+                     destination
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=deliver3>
+  <sense-definition>to set free <and lead us not into temptation, but deliver us from evi   
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=deliver4>
+  <sense-definition>to assist in giving birth
+</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=deliver5>
+  <sense-definition>to give birth</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=deliver6>
+  <sense-definition>SPEAK, SING, UTTER </sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=deliver7>
+  <sense-definition>to cause (oneself) to produce as if by giving birth 
+
+</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=deliver8>
+  <sense-definition>to bring (as votes) to the support of a candidate or cause 
+
+ </sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=deliver9>
+  <sense-definition>to come through with : PRODUCE <can deliver the goods>
+
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=deliver10>
+  <sense-definition>to give results that are promised, expected, or desired  
+
+</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=deliver11>
+  <sense-definition>to rid of 
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNdeliver#1><equiv tag=deliver6></sense>
+<sense tag=WNdeliver#2><equiv tag=deliver1></sense>
+<sense tag=WNdeliver#3><equiv tag=deliver2></sense>
+<sense tag=WNdeliver#4><equiv tag=deliver3></sense>
+<sense tag=WNdeliver#5><equiv tag=deliver11></sense>
+<sense tag=WNdeliver#6><equiv tag=deliver5></sense>
+<sense tag=WNdeliver#7><equiv tag=deliver4></sense>
+<sense tag=WNdeliver#8><equiv tag=deliver3></sense>
+<sense tag=WNdeliver#9><equiv tag=deliver2></sense>
+<sense tag=WNdeliver#10><equiv tag=deliver11></sense>
+<sense tag=WNdeliver#11><equiv tag=deliver12></sense>
+<sense tag=WNdeliver#12><equiv tag=deliver5></sense>
+
+
+</senselist>
+</reference>
+</kml>
+
+

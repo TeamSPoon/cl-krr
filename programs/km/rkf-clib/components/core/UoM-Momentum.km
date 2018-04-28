@@ -1,0 +1,15 @@
+;; 
+;;    $Id: UoM-Momentum.km,v 1.6 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Momentum has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*kilogram-meter-per-second))
+ (instances (*kilogram-meter-per-second)))
+
+(*kilogram-meter-per-second has (instance-of (UoM-Momentum))
+                            (name ("kg*m/s"))
+			    (wn20-synset ((:set (:triple "kilogram meter per second" 0 "n")
+						(:triple "kilograms meter per second" 0 "n")))))
+
+(*kilogram-meter-per-second has (conversion-multiplier (1.0)))

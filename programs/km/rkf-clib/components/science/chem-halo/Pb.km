@@ -1,0 +1,16 @@
+;;
+;; $Id: Pb.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Pb has (superclasses (Metal-Atom IVA-Element)))
+(every Pb has
+       (atomic-symbol (Pb))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 82 NIL))))))
+       (has-ion ((a Pb-Plus-2)))
+       (chemical-period (6)))
+
+(every Pb has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("lead"))
+)

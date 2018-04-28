@@ -1,0 +1,28 @@
+<!--- $Id: initial-x-position.spec.kml,v 1.2 2006/03/01 20:24:28 kbarker Exp $ --->
+<kml>
+<property-doc name=initial-x-position>
+<gpd-documentation name=Property>
+
+<from name=Event>
+<to name=Length-Value>
+
+<description> 
+  initial horizontal position of a moving object;
+  note that initial-x-position is a property of a Move event; 
+  use <conceptref name=fixed-x-position> for the fixed horizontal position 
+  of an object that is not moving.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Length>
+<p>
+    <examplesentence>
+      <text>The initial horizontal position of the puck is at 3 meters.</text>
+      <slotdescription name=number>3</slotdescription>
+      <slotdescription name=unit of measure>meter</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+</value-description>
+</kml>

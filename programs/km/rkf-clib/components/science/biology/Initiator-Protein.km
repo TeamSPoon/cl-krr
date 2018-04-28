@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Initiator-Protein.km,v 1.2 2001/06/03 06:16:41 souther Exp $
+;; 
+
+(Initiator-Protein has
+         (superclasses (DNA-Regulatory-Protein Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("An enzyme that binds to the replication origin and 
+                        catalyzes the separation of strands in
+                        a DNA molecule before replication. Lehninger:PBC:G-6"))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Initiator-Protein has
+       (purpose ((a Catalyst with
+		    (in-event ((a Replicon-DNA-Melting))))))
+       )
+
+;; NOTE: specialize to subevent
+
+
+
+
+
+

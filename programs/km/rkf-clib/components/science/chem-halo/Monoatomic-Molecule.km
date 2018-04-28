@@ -1,0 +1,16 @@
+;;    $Id: Monoatomic-Molecule.km,v 1.2 2008/11/03 00:13:06 tecuci Exp $
+
+(Monoatomic-Molecule has
+		     (superclasses (Molecule)))
+
+
+(Monoatomic-Molecule has
+		     (user-description ("A molecule that contains only one atom.")))
+
+(every Monoatomic-Molecule has-definition
+       (instance-of (Molecule))
+       (has-part ((exactly 1 Atom))))
+
+(Monoatomic-Molecule has (wn20-synset ((:set
+					(:triple "monoatomic molecule" 0 "n")))))
+

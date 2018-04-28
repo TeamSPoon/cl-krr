@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Eucaryotic-Cell.km,v 1.7 2001/05/01 22:31:02 pnav Exp $ 
+;; 
+
+(Eucaryotic-Cell has
+         (superclasses (Cell))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Cells which contain a nucleus and other organelles
+                       in addition to cytoplasm. Modified from Alberts:ECB:9"))
+         (test-case ()))
+
+(every Eucaryotic-Cell has
+       (has-part ((a Nucleus)
+                  (a Eucaryotic-Plasma-Membrane) 
+		  (a Eucaryotic-Cytoplasm)) ))
+
+
+
+

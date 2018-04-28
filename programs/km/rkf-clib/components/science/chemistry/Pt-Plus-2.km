@@ -1,0 +1,12 @@
+;;
+;; $Id: Pt-Plus-2.km,v 1.2 2003/03/26 19:45:26 wilder Exp $
+;;
+
+(Pt-Plus-2 has (superclasses (Metal-Cation)))
+
+(every Pt-Plus-2 has
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 Pt)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair 2 *electronic-charge)))))))

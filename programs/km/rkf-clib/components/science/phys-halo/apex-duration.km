@@ -1,0 +1,28 @@
+;; 
+;;    $Id: apex-duration.km,v 1.6 2008/07/31 22:05:32 tecuci Exp $
+;; 
+
+(apex-duration has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Move Time-Interval))    
+   (range       (Duration-Value))
+   (scalar-constant-class (Duration-Constant))
+   (cardinal-unit-class   (UoM-Duration))
+   (scale-class (Duration-Scale))
+   (inverse 	(apex-duration-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(apex-duration has (wn20-synset ((:set
+                               (:triple "duration to reach apex" 0 "n")
+                               (:triple "duration to apex" 0 "n")
+                               (:triple "apex-duration" 0 "n")
+))))
+
+(apex-duration-of has
+	(instance-of (EventProperty)))
+(apex-duration has (name ("duration to apex")))

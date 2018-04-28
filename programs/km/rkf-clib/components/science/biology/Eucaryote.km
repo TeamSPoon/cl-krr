@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Eucaryote.km,v 1.11 2005/08/23 14:38:51 kbarker Exp $ 
+;; 
+
+(Eucaryote has
+         (superclasses (Organism))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Living organism composed of one or more cells with a
+                        distinct nucleus and cytoplasm.  Alberts:ECB:G-7."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Eucaryote has
+
+       (element-type (Eucaryotic-Cell))
+       (has-basic-functional-unit ((a Eucaryotic-Cell)))
+       )
+		  
+(taxonomy Living-Entity)
+
+

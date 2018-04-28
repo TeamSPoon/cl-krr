@@ -1,0 +1,14 @@
+;;
+;; $Id: Ir.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Ir has (superclasses (Metal-Atom VIIIB-Element)))
+(every Ir has
+       (atomic-symbol (Ir))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 77 NIL))))))
+       (chemical-period (6)))
+(every Ir has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("iridium"))
+)

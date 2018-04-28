@@ -1,0 +1,46 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Sulfide-Substance2912
+
+
+|#
+
+(disable-classification)
+
+(Sulfide-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Sulfide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Sulfide-Substance1229 has
+  (prototype-of (Sulfide-Substance Ionic-Compound-Substance))
+  (prototype-scope (Sulfide-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a S-Minus-2)))))))))
+  (prototype-participants (_S-Minus-1235 _Chemical-Entity1231 _Sulfide-Substance1229)))
+
+(_Sulfide-Substance1229 has (instance-of (Sulfide-Substance)) (has-basic-structural-unit (_Chemical-Entity1231)))
+
+(_Chemical-Entity1231 has (instance-of (Ionic-Compound)) (has-part (_S-Minus-1235)))
+
+(_S-Minus-1235 has (instance-of (S-Minus-2)))
+
+(enable-classification)
+
+(explanation (:triple _Sulfide-Substance1229 has-basic-structural-unit _Chemical-Entity1231) (((@ SME entered)) (every Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Sulfide-Substance1229 instance-of Sulfide-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity1231 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _S-Minus-1235 instance-of S-Minus-2) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

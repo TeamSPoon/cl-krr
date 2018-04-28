@@ -1,0 +1,18 @@
+;; $Id: N3-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $ 
+(N3-Minus has (superclasses (Anion)))
+(every N3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("azide"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 3 N)))))))
+)
+
+
+(every N3-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("azide"))
+)
+
+(N3-Minus has (wn20-synset ((:triple "N3-" 0 "n") (:triple "N_3-" 0 "n"))))

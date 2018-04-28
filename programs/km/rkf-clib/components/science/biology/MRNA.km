@@ -1,0 +1,31 @@
+;; 
+;;    $Id: MRNA.km,v 1.9 2001/05/30 23:31:08 souther Exp $ 
+;; 
+
+(MRNA has
+      (superclasses (RNA-Molecule))
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (cmap-correspondence ())
+      (description ("RNA molecule that specifies the amino acid sequence of a
+                     protein.  Produced by RNA splicing (in eucaryotes) from
+                     a larger RNA molecule made by RNA polymerase as a 
+                     complementary copy of DNA.  It is translated into protein
+                     in a process catalyzed by ribosomes. Alberts:ECB:G-11"))
+      (test-case ()))
+
+(every MRNA has
+       (purpose ((a Vehicle with
+		    (in-event ((a Gene-To-Protein-Expression))))))
+
+
+       (has-part (
+                  (a Ribosome-Binding-Site with    
+                     (location ()))	;a few nucleotides 5' of initiator
+		  (a Protein-Initiator-Codon)      
+		  (a RNA-Translated-Region)        
+		  (a Protein-Stop-Codon))))
+
+
+

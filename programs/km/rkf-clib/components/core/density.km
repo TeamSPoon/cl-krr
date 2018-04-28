@@ -1,0 +1,26 @@
+;; 
+;;    $Id: density.km,v 1.12 2007/04/10 21:29:48 jchaw Exp $ 
+;; 
+
+(density has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Density-Value))
+   (scale-class (Density-Scale))
+   (scalar-constant-class (Density-Constant))
+   (cardinal-unit-class   (UoM-Density))
+   (inverse 	(density-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(density has (wn20-synset ((:set
+                               (:triple "density" 1 "n")
+                               (:triple "denseness" 3 "n")
+))))
+
+(density-of has
+	(instance-of (EntityProperty)))

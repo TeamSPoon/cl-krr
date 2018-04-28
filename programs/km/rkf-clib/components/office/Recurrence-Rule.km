@@ -1,0 +1,37 @@
+;;
+;; $Id: Recurrence-Rule.km,v 1.3 2005/01/18 21:21:14 kbarker Exp $
+;;
+
+(Recurrence-Rule has (superclasses (Message)))
+
+(every Recurrence-Rule has
+  (calendar-interval   ((constraint (TheValue >= 1))))
+  (calendar-bysecond   ((constraint ((TheValue >= 0) and (TheValue <= 59)))))
+  (calendar-byminute   ((constraint ((TheValue >= 0) and (TheValue <= 59)))))
+  (calendar-byhour     ((constraint ((TheValue >= 0) and (TheValue <= 23)))))
+  (calendar-bymonthday ((constraint ((TheValue >= -31) and (TheValue <= 31)))))
+  (calendar-byyearday  ((constraint ((TheValue >= -366) and (TheValue <= 366)))))
+  (calendar-byweekno   ((constraint ((TheValue >= 1) and (TheValue <= 53)))))
+  (calendar-bymonth    ((constraint ((TheValue >= 1) and (TheValue <= 12)))))
+  (calendar-bysetpos   ((constraint ((TheValue >= -366) and (TheValue <= 366)))))
+)
+
+;; see WeekdayNum.km for constraints on the arguments of calendar-byday
+
+(calendar-freq has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (UoM-Frequency)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(calendar-until has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Time-Instant)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(calendar-count has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(calendar-interval has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(calendar-bysecond has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-byminute has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-byhour has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-byday has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (WeekdayNum)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-bymonthday has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-byyearday has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-byweekno has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-bymonth has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-bysetpos has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Integer)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(calendar-wkst has (instance-of (Interface-Slot)) (domain (Recurrence-Rule)) (range (Day-Constant)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+
+;; also legal: calendar-x-prop, as defined in Calendar-Entry.km
+

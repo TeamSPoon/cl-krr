@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Coding-Sequence.km,v 1.14 2001/11/22 00:31:12 tecuci Exp $ 
+;; 
+
+(Coding-Sequence has
+          (superclasses (Coding-Sequence-Type))
+          (required-slot ())
+          (primary-slot ())
+          (description ("A DNA or RNA sequence which contains genetic 
+                         information, encoded in nucleotide triplets, termed
+                         codons.  Souther."))
+          (secondary-slot ()) )
+
+(Coding-Sequence has
+       (has-basic-functional-unit ((a Codon)))
+       (element ((at-least 1 Codon)))
+       )
+                      
+
+

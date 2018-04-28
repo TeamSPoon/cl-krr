@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Nonpolar-Molecule.km,v 1.9 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Nonpolar-Molecule has
+         (superclasses (Molecule Hydrophobic-Structure))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Molecule that lacks any local accumulation of positive
+                        or negative charge.  Nonpolar molecules are generally
+                        insoluble in water.  Alberts:ECB:G-13."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+
+
+(every Nonpolar-Molecule has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

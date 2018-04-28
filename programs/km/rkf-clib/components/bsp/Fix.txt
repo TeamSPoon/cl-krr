@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Fix.txt,v 1.5 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Fix 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+  base: <----> Location 
+  objective: Action with 
+                     prevent: Move 
+                                       object: MU called "enemy forces" object of Self 
+  by-means-of: 
+          *Deceive 
+          Attack 
+ 
+  supports: Action with  
+                      agent: MU called "friendly forces"    
+ 
+  resulting-state: mustnt-be-a Be-Destroyed with 
+                                                   object: MU called "enemy forces" object of Self 
+ 
+Fix (E). 
+===. 
+1. Fix is a tactical mission task where a commander prevents the enemy from moving any part of his force from a specific location for a specific period. 
+2. This may occur by engaging him to prevent his withdrawal for use elsewhere, or by using deception, such as transmitting false orders. 
+3. Fixing an enemy force does not mean destroying it. 
+The friendly force has to prevent the enemy from moving in any direction. 
+4. The tactical mission task of fix differs from that of block in that a fixed enemy force cannot move from a given location, but a blocked enemy force can move in any direction other than the one obstructed. 

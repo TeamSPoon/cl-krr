@@ -1,0 +1,81 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Adenine ----------
+
+(Adenine has (superclasses (Nucleotide)))
+
+(_Adenine378 has 
+  (instance-of (Adenine))
+  (prototype-of (Adenine))
+  (prototype-scope (Adenine))
+  (prototype-participants (_Thymine400
+                           _Atom392
+                           _Phosphate391
+                           _Adenine378))
+  (prototype-participant-of (_Adenine378))
+  (has-clones (_Placeholder-Class377379))
+  (has-built-clones (_Placeholder-Class377379))
+  (has-basic-structural-unit (_Atom392))
+  (has-part (_Phosphate391))
+  (cloned-from (_Nucleotide337))
+  (clone-built-from (_Nucleotide337))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq complement _Thymine400 t)
+                    (:seq has-part _Phosphate391 t)
+                    (:seq has-basic-structural-unit _Atom392 f)))
+  (edge-coordinate ((:seq complement _Thymine400 209 637)
+                    (:seq has-part _Phosphate391 198 583)
+                    (:seq has-basic-structural-unit _Atom392 198 627)))
+  (node-coordinate ((:pair 50 600)))
+  (complement (_Thymine400)))
+
+(_Thymine400 has 
+  (instance-of (Thymine))
+  (has-clones (_Thymine397))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (complement-of (_Adenine378))
+  (node-coordinate ((:pair 369 674)))
+  (prototype-participant-of (_Adenine378)))
+
+(_Atom392 has 
+  (instance-of (Atom))
+  (has-clones (_Atom380))
+  (cloned-from (_Atom347))
+  (is-basic-structural-unit-of (_Adenine378))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 348 621)))
+  (prototype-participant-of (_Adenine378)))
+
+(_Phosphate391 has 
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate381))
+  (cloned-from (_Phosphate346))
+  (is-part-of (_Adenine378))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 348 577)))
+  (prototype-participant-of (_Adenine378)))
+
+(explanation (:triple _Adenine378 has-basic-structural-unit _Atom392) ((cloned-from _Nucleotide337 _Adenine378)))
+(explanation (:triple _Adenine378 has-part _Phosphate391) ((cloned-from _Nucleotide337 _Adenine378)))
+(explanation (:triple _Adenine378 has-basic-structural-unit _Atom392) ((a Atom (@ _Adenine378 Molecule has-basic-structural-unit))))
+(explanation (:triple _Adenine378 has-part _Phosphate391) ((added-at Nucleotide "User defined")))
+(explanation (:triple _Adenine378 complement _Thymine400) ((added-at Adenine "User defined")))
+(explanation (:triple _Thymine400 instance-of Thymine) ((added-at Adenine "User defined")))
+(explanation (:triple _Thymine400 instance-of Spatial-Entity) ((added-at Adenine "User defined")))
+(explanation (:triple _Atom392 instance-of Atom) ((cloned-from _Nucleotide337 _Adenine378)))
+(explanation (:triple _Atom392 is-basic-structural-unit-of _Adenine378) ((cloned-from _Nucleotide337 _Adenine378)))
+(explanation (:triple _Atom392 instance-of Atom) ((a Atom (@ _Adenine378 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom392 instance-of Atom) ((a Atom)))
+(explanation (:triple _Phosphate391 instance-of Phosphate) ((cloned-from _Nucleotide337 _Adenine378)))
+(explanation (:triple _Phosphate391 is-part-of _Adenine378) ((cloned-from _Nucleotide337 _Adenine378)))
+(explanation (:triple _Phosphate391 instance-of Phosphate) ((added-at Nucleotide "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

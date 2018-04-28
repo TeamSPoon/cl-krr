@@ -1,0 +1,75 @@
+;; 
+;;    $Id: Be-Available.km,v 1.3 2004/11/12 19:06:39 jchaw Exp $
+;; 
+
+(Be-Available has
+  (superclasses		(State))
+  (required-slot 	(object))
+  (primary-slot   	(base))
+  (caused-by-class      (Allocate-Resource))
+  (defeated-by-class    (Release-Resource))
+  (cmap-correspondence 	((:seq object "Resource available")
+			 (:seq base "the thing the object is available to")
+			)))
+
+(every Be-Available has
+  (object ((a Resource)))
+  (base ((must-be-a Thing)))
+
+  (resulting-state-of ((if (has-value (the base of Self))
+			   then
+			 (must-be-a Allocate-Resource with
+				    (object ((the object of Self)))
+				    (base ((the base of Self))))
+			 else
+			 (must-be-a Allocate-Resource with
+				    (object ((the object of Self)))))))
+  
+  (defeated-by ((if (has-value (the base of Self))
+		    then
+		  (must-be-a Release-Resource with
+			     (object ((the object of Self)))
+			     (base ((the base of Self))))
+		  else
+		  (must-be-a Release-Resource with
+			     (object ((the object of Self))))))))
+
+(every Be-Available has
+   (text-particle ("available"))
+)
+
+
+(Be-Available has 
+	      (test-case ('(
+			    (*Mojo has (instance-of (Resource)))
+			    
+			    (*AustinPowers has (instance-of (Living-Entity)))
+			    
+			    (a Release-Resource with 
+			       (object (*Mojo))
+			       (base (*AustinPowers)))
+			    
+			    (try-do-and-next (thelast Release-Resource))
+			    (the text-gen of (thelast Release-Resource))
+			    
+			    ;; *Mojo is unavailable to *AustinPowers
+			    
+			    (has-value 
+			     (the Be-Available object-of of *Mojo))
+			    
+			    (a Allocate-Resource with 
+			       (object (*Mojo))
+			       (base (*AustinPowers)))
+			    
+			    (try-do-and-next (thelast Allocate-Resource))
+			    (the text-gen of (thelast Allocate-Resource))
+			    
+			    
+			    (not
+			     (has-value 
+			      (the Be-Available object-of of *Mojo)))
+			    
+			    ))))
+
+
+

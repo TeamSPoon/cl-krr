@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Carbonyl-Group.km,v 1.10 2001/05/01 22:30:10 pnav Exp $ 
+;; 
+
+(Carbonyl-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Chemical group consisting of a carbon atom linked
+                             to an oxygen atom by a double bond. 
+                             Alberts:ECB:G-3."))
+	      (cmap-correspondence ()))
+
+(every Carbonyl-Group has
+       (has-part ((a Oxygen-Atom)
+                  (a Carbon-Atom with
+                     (object-of
+                        ((a Be-Attached-To with
+                           (object ((the Oxygen-Atom has-part of Self)))
+                           (instrument ((a Double-Covalent-CO-Bond)))
+                          ))) )) ))
+
+
+

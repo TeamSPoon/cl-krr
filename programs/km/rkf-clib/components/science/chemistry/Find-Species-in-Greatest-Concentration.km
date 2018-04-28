@@ -1,0 +1,56 @@
+;;
+;; $Id: Find-Species-in-Greatest-Concentration.km,v 1.2 2003/09/26 21:55:15 jfan Exp $
+;;
+(Find-Species-in-Greatest-Concentration has
+   (superclasses (Method))
+   (description ("given a complete-dissociation reaction, finds the species in the greatest concentration")))
+
+(every Find-Species-in-Greatest-Concentration has
+   (input ((a Complete-Dissociation-Reaction)))
+
+   (output (
+     (if ((not (the value of 
+		(the ka of 
+		 (the Acid-Role plays of
+                  ((the raw-material of (the input of Self)) called "Reactant")))))
+          and
+          (not (the value of 
+		(the kb of 
+		 (the Base-Role plays of
+                  ((the raw-material of (the input of Self)) called "Reactant"))))))
+         then  
+         (if ((the value of
+               (the intensity of
+                (the Acid-Role plays of
+                 ((the raw-material of (the input of Self)) called "Reactant"))))
+              = (:pair *strong Acid))
+	     ;; choose the protons: H+ or H30+
+             then
+             (oneof (the result of (the input of Self))
+               where
+               (((the has-basic-structural-unit of It) isa H-Plus)
+                or
+                ((the has-basic-structural-unit of It) isa H3O-Plus)))
+             ;; Otherwise, the acid molecules...
+             ;; The following could be buggy:
+             #| else (oneof (the result of (the input of Self))
+                       where
+                       (not (the term of (the has-basic-structural-unit of It)) isa H-Plus))
+             |#
+             [Find-Species-in-Greatest-Concentration-output-1]
+        )
+        ;; else compute using dissociation.
+   )))
+)
+
+(comment [Find-Species-in-Greatest-Concentration-output-1]
+    (:seq "The dissociation constants for the reactant"
+        (the text-gen of ((the raw-material of
+                               (the input of Self)) called "Reactant"))
+        "are not known. However, since it is a strong acid,
+        the highest concentration corresponds to the protons,"
+        (the text-gen of (the output of Self))
+        )       
+    "Finding the species in greatest concentration in a dissociation reaction."
+    ;; (:seq (the text-gen of (the output of Self))) ;; what should go here?
+    )

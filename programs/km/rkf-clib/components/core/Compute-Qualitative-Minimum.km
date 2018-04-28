@@ -1,0 +1,30 @@
+;;
+;; $Id: Compute-Qualitative-Minimum.km,v 1.2 2003/10/28 16:34:01 jfan Exp $
+;;
+
+(Compute-Qualitative-Minimum has (superclasses (Method)))
+
+(every Compute-Qualitative-Minimum has
+       ;; input is a list of qualitative values of same context.
+       ;; if 2 inputs having same qualitative value, a quantitative
+       ;; comparison will be used to determine their maximum.
+       ;; Naturally we assume these have quantitative values
+       (output
+	(((?x == (allof
+		  (the input of Self)
+		  where
+		  ((the value of It)
+		   includes
+		   #'(LAMBDA ()
+			     (LIST
+			      (FIND-SCALAR-MIN
+			       (KM0 '(the value of (the input of Self)))))))))
+	  and
+	  (if (((the number of ?x) > 1) and
+	       (not ((the input of Self) = ?x)))
+	      then
+	    (the output of (a Compute-Minimum with
+			      (input (?x))))
+	    else
+	    ?x))))
+       )

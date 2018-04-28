@@ -1,0 +1,27 @@
+;; 
+;;    $Id: pressure.km,v 1.2 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(pressure has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Pressure-Value))
+   (scale-class (Pressure-Scale))
+   (scalar-constant-class   (Pressure-Constant))
+   (cardinal-unit-class     (UoM-Pressure))  
+   (inverse (pressure-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(pressure has (wn20-synset ((:set
+                               (:triple "pressure" 1 "n")
+                               (:triple "pressure level" 1 "n")
+                               (:triple "force per unit area" 1 "n")
+))))
+
+(pressure-of has
+	(instance-of (EntityProperty)))

@@ -1,0 +1,113 @@
+<!--- $Id: Receive.doc.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Receive>
+<superconcept name=Transfer>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Receive>
+  <definition>change of possession of an object to a recipient</definition>
+  <requiredslot name=recipient>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Receive</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Transfer>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Transfer>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+  </primaryslot>
+  <primaryslot name=donor>
+    <inheritedfrom name=Transfer>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Receive</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Transfer>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>receive#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>have#16
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Receive is a specialization of the <conceptref name=Transfer> component
+with a required <slot>recipient</slot> slot.
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=receive2>
+  <sense-definition>to act as a receptacle or container for <the cistern receives water from the roof
+</sense-definition>
+</sense>
+<sense tag=receive3>
+  <sense-definition>to assimilate through the mind or senses <receive
+                     new ideas</sense-definition>
+</sense>
+<sense tag=receive4>
+  <sense-definition>to permit to enter admit, welcome, greet to react to in
+                     a specified manner
+</sense-definition>
+</sense>
+<sense tag=receive5>
+  <sense-definition>to accept as authoritative, true, or accurate </sense-definition>
+</sense>
+<sense tag=receive6>
+  <sense-definition>to support the weight or pressure of </sense-definition>
+</sense>
+<sense tag=receive7>
+  <sense-definition>to take (a mark or impression) from the weight of something <some clay receives clear impressions
+
+</sense-definition>
+</sense>
+<sense tag=receive8>
+  <sense-definition>acquire, experience <received his early schooling at home>
+
+ </sense-definition>
+</sense>
+<sense tag=receive9>
+  <sense-definition>to suffer the hurt or injury of <received a broken nose>
+
+</sense-definition>
+</sense>
+<sense tag=receive10>
+  <sense-definition>to convert incoming radio waves into perceptible signals
+</sense-definition>
+</sense>
+<sense tag=receive11>
+  <sense-definition>to prepare to take possession of the ball from a kick in football 
+</sense-definition>
+</sense>
+<sense tag=receive12>
+  <sense-definition>to receive a specified treatment 
+</sense-definition>
+</sense>
+
+
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNreceive#1><equiv tag=receive9></sense>
+<sense tag=WNreceive#2><equiv tag=receive12></sense>
+<sense tag=WNreceive#3><equiv tag=receive8></sense>
+<sense tag=WNreceive#4><equiv tag=receive8></sense>
+<sense tag=WNreceive#5><equiv tag=receive4></sense>
+<sense tag=WNreceive#6><equiv tag=receive5></sense>
+<sense tag=WNreceive#7><equiv tag=receive4></sense>
+<sense tag=WNreceive#8><equiv tag=receive10></sense>
+<sense tag=WNreceive#9><equiv tag=receive8></sense>
+<sense tag=WNreceive#10><equiv tag=receive4></sense>
+<sense tag=WNreceive#11><equiv tag=receive8></sense>
+<sense tag=WNreceive#12><equiv tag=receive8></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

@@ -1,0 +1,18 @@
+;; $Id: Microphone.km,v 1.15 2005/05/23 18:52:00 kbarker Exp $
+(Microphone has
+	(description ("A kind of Sensor that responds to Sound."))
+	(superclasses (Sensor)))
+ 
+(every Microphone has
+       (purpose 
+	((a Instrument-Role with (in-event-of ((a Hear))))
+	 (a Instrument-Role with (in-event-of ((a AudioRecording with (object ((a Sound))))))))))
+
+(Microphone has (wn20-synset ((:set
+			     (:triple "microphone" 1 "n")
+			     (:triple "mike" 1 "n")
+))))
+(Microphone has
+  (feature-slot ((the feature-slot of Sensor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Microphone)))))
+

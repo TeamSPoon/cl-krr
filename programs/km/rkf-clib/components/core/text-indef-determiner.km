@@ -1,0 +1,17 @@
+;; 
+;;    $Id: text-indef-determiner.km,v 1.4 2006/09/27 16:18:16 jchaw Exp $
+;; 
+
+(text-indef-determiner has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Thing))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+   (dont-cache-values (t))
+   (inherit-with-overrides (t))
+)
+
+(text-indef-determiner-of has (instance-of (NL-Slot-Group)))

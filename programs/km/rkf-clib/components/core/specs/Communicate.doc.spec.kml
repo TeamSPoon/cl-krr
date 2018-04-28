@@ -1,0 +1,35 @@
+<!--- $Id: Communicate.doc.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Communicate::doc>
+<superconcept name=Action::doc>
+
+<sme-documentation name=Communicate>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Communicate>
+  <definition>communicate information from one entity to another</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Action::doc>
+    <restriction>an <conceptref name=Information> which is the <slot>object</slot> 
+      of a <conceptref name=Be-Known> state whose <slot>experiencer</slot> is the 
+      <slot>agent</slot> of the Communicate
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Action::doc>
+    <restriction>the expresser of the <slot>object</slot> of the Communicate
+    </restriction>
+  </primaryslot>
+  <primaryslot name=recipient>
+    <inheritedfrom name=Action::doc>
+    <restriction>will know the <slot>object</slot> after the Communicate</restriction>
+  </primaryslot>
+  <wnsynsets><verb>communicate#1, communicate#2, communicate#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>pass on#7, pass#12, put across#1, intercommunicate#2, convey#3, transmit#1
+  </verb></wnsynsets>
+</component>
+
+</kml>

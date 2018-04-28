@@ -1,0 +1,71 @@
+<!--- $Id: Damage.spec.kml,v 1.2 2005/08/11 21:03:03 pzyeh Exp $ --->
+<kml>
+
+<concept name=Damage><system-documentation name=Damage>
+<superconcept name=Impair>
+
+<definition>
+  Damage an object (which does not have to be a living thing) so it becomes worse or less 
+  effective. The object can still perform its function, but at a diminished capacity.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that's damaged. The object does not have to be a living thing.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the damage to occur.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing that was used to damage the object.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the damage to occur.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John damaged the TV with a bat.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the TV</slotdescription>
+    <slotdescription name=instrument>a bat</slotdescription>
+  </examplesentence>
+  <comment>
+     The TV becomes worse and less effective, but it is not broken. If the
+     TV becomes broken, then use <conceptref name=Break> to describe the 
+     action.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Impair>
+     An impair is a general kind of damage where there is no restriction on the object.
+  </neighbor>
+
+  <neighbor name=Break>
+     A break is a special kind of damage where the object is broken and
+     can no longer perform its function.
+  </neighbor>
+
+  <neighbor name=Harm>
+     A harm is similar to a damage, but the object being harmed is a living thing. 
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

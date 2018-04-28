@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Thiol-Group.km,v 1.6 2001/05/19 02:50:39 souther Exp $ 
+;; 
+
+(Thiol-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Chemical group containing sulfur and hydrogen
+                             found in the amino acid cysteine and other
+                             molecules.  Two sulfhydryls can join to produce a
+                             disulfide bond. Alberts:ECB:G-17"))
+	      (cmap-correspondence ()))
+
+(every Thiol-Group has
+              (has-part 
+                 (
+                  (a Hydrogen-Atom)
+                  (a Sulfur-Atom with
+                    (object-of 
+                       ((a Be-Attached-To with
+                          (object ((the Hydrogen-Atom has-part of Self)))
+			  ))))
+		  )))
+
+
+
+

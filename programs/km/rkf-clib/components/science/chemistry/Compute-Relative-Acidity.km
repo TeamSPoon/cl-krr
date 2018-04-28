@@ -1,0 +1,53 @@
+;;
+;;    $Id: Compute-Relative-Acidity.km,v 1.4 2003/09/26 21:55:14 jfan Exp $
+(Compute-Relative-Acidity has
+  (superclasses (Method))
+  (description ("given several solutions, find the most acidic one"))) 
+
+;;
+;; This method encodes L.45(b) for acidity. 
+;; 
+(every Compute-Relative-Acidity has
+  (input ((a Solution with
+	     (pH ((a PH-Value))))))
+  ;; 
+  ;; Find the most acidic element of the input.
+  ;; 
+  (output (#'(LAMBDA ()
+	       (LET ((SOLNS (KM0 '(|the| |input| |of| |Self|)))
+		     (MAX 7) MAX-SOLN X)
+		 (DOLIST (SOLN SOLNS MAX-SOLN)
+		   (SETF X (FIRST (KM0 `(|the1| |of|
+                                          (|the| |value| |of|
+                                            (|oneof| (|the| |pH| |of| ,SOLNS)
+                                               |where|
+                                               (|numberp| (|the1| |of| (|the| |value| |of| |It|))))))
+                                  )))
+		   (IF (AND X (< X MAX))
+		       (SETF MAX X MAX-SOLN SOLN))))
+              [Compute-Relative-Acidity-output-1]
+  )))
+)
+
+(comment [Compute-Relative-Acidity-output-1]
+  (:seq "Among"
+        (andify (forall (the input of Self)
+                        (:seq (the text-gen of It)
+                              "(pH ="
+                              (the1 of 
+                                    (oneof2 (the value of (the pH of It))
+                                            where (numberp (the1 of It2)))
+                              )
+                              "nospace" ")"
+                        )
+                )
+        )
+        "nospace" "," 
+        (the text-gen of (the output of Self))
+        "is the most acidic"
+  )
+  "When comparing solutions, the one with the lowest pH is the most acidic"
+  (forall (the input of Self) (:triple It pH *))
+)
+
+

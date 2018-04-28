@@ -1,0 +1,20 @@
+;;
+;;    $Id: Prosecution.km,v 1.3 2005/10/25 03:02:10 sdbaji Exp $
+;;
+
+(Prosecution has
+	     (superclasses (Activity))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+
+(Prosecution has (wn20-synset ((:set 
+				(:triple "prosecution" 1 "n")
+				(:triple "criminal_prosecution" 1 "n")
+				(:triple "legal_action" 1 "n")
+))))
+
+(every Prosecution has (text-nominalization ("prosecution")))

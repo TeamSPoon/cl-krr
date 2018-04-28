@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Hydrogen-Ion.km,v 1.11 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Hydrogen-Ion has
+         (superclasses (Cation))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A proton in aqueous solution - the basis of acidity.
+                        Such protons readily combine with water molecules to
+                        form H3O+, so that hydrogen ions in a strict sense are
+                        a rarity.  Alberts:ECB:G-9."))
+         (test-case ()))
+
+(every Hydrogen-Ion has
+       (has-part ((a Proton)))
+       (mass ((a Mass-Value with
+		(value ((:pair 1 *dalton))))))
+       )    
+
+
+
+(every Hydrogen-Ion has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

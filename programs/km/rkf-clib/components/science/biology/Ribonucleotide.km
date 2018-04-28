@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Ribonucleotide.km,v 1.12 2001/05/01 22:32:51 pnav Exp $ 
+;; 
+
+(Ribonucleotide has
+     (superclasses (Nucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("Nucleotide containing D-ribose as the pentose
+                    component.  Lehninger:PBC:G-12."))
+     (cmap-correspondence ()))
+
+(every Ribonucleotide has
+       (has-part ((at-least 1 Phosphoryl-Group)
+		  (at-most 3 Phosphoryl-Group)
+		  (a Phosphoryl-Group)
+		  (a Nucleoside with
+		     (has-part ((a Ribose)
+				(a Nitrogenous-Base with
+				   (instance-of ((possible-values
+						  Adenine
+						  Guanine
+						  Uracil
+						  Cytosine))))))))))
+
+
+
+
+
+

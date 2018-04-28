@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Salt.km,v 1.19 2003/03/27 17:26:12 wilder Exp $ 
+;; 
+
+;;; a Salt is an ionic compound
+;;; that isn't an acid or a base, but acid and base deal with substances
+;;; and Salt is an entity, so Salt-Substance is the class to deal with
+
+
+
+
+(Salt has
+      (superclasses (Ionic-Compound))
+      (test-case ()))
+
+(every Salt has-definition
+       (instance-of (Compound))
+       (salt-status ((a Salt-Status-Value with
+			(value ((:pair *salt nil)))))))
+
+(Salt has
+      (test-case ('(
+		    ((a NH4Cl) isa Salt)
+		    ((a CH3NH3Cl) isa Salt)))))
+
+
+

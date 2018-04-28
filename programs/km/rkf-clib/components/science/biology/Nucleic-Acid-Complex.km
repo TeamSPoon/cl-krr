@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Nucleic-Acid-Complex.km,v 1.10 2001/05/19 02:50:18 souther Exp $ 
+;; 
+
+(Nucleic-Acid-Complex has
+         (superclasses (Organic-Complex Nucleic-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A group of nucleic acids which act together to provide
+                        structure or perform some function.  They are often
+                        held together by weak bonds such as hydrogen bonds.
+                        Examples: DNA double helix and base pairs. Souther."))
+         (test-case ()))
+
+(every Nucleic-Acid-Complex has
+     (has-part ((a Nucleotide-Sequence)
+                (at-least 2 Nucleotide-Sequence)))
+     )
+
+
+

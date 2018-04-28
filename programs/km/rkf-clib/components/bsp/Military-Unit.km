@@ -1,0 +1,81 @@
+
+;;
+;; $Id: Military-Unit.km,v 1.16 2004/02/01 22:22:48 jfan Exp $
+;;
+
+(Military-Unit has (superclasses (Aggregate Tangible-Entity)))
+
+(a Partition with (members (Military-Unit Terrain)))
+
+(a Partition with 
+   (members 
+      (Army Battalion Battery Brigade Military-Company Corps Crew Detachment 
+       Division Military-Group Platoon Regiment Section Squad Squadron Military-Team Troop)))
+
+(every Military-Unit has
+   (allegiance ((the allegiance of (the element-of of Self))))
+
+   (default-combat-power 
+      ((if (has-value (the Military-Equipment possesses of Self))
+        then
+          (a Default-Combat-Power-Value with
+             (value (
+                (:pair 
+                   (the max of
+                        (the bag of
+                             (the1 of
+                                   (the value of
+                                        (the default-combat-power of
+                                             (the Military-Equipment possesses
+                                                  of Self))))))
+                   NIL)))
+          )
+        else
+          (if (has-value (the element of Self))
+           then
+              (a Default-Combat-Power-Value with
+                 (value (
+                    (:pair
+                        (the sum of
+                             (forall-bag
+                                (the bag of
+                                     (the default-combat-power of
+                                          (the element of Self)))
+                                (the1 of (the value of It))))
+                        NIL))))
+           else
+              (a Default-Combat-Power-Value with
+                 (value ((:pair 1 NIL)))
+              ))
+   )))
+
+;;   (remaining-strength ((a Remaining-Strength-Value with
+;;                           (value ((:pair 1 NIL)))          ;; to start
+;;   )))
+
+;; BIG assumption here: that the values of default-combat-power and
+;; remaining-strength will never get more than one :pair in them
+
+   (relative-combat-power 
+      ((if (has-value (the remaining-strength of Self))
+        then
+           ((a Relative-Combat-Power-Value with
+               (value ((:pair ((the1 of 
+                                     (the value of 
+                                          (the remaining-strength of Self)))
+                               *
+                               (the1 of
+                                     (the value of
+                                          (the default-combat-power of Self))))
+                              NIL)))))
+        else
+           ((a Relative-Combat-Power-Value with
+               (value ((:pair ((the1 of 
+                                     (the value of
+                                          (the default-combat-power of Self))))
+                              NIL)))))
+   )))
+
+   (text-premodslots ((:seq allegiance)))
+)
+

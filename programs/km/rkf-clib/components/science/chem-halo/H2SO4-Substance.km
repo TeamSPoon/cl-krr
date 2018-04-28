@@ -1,0 +1,10 @@
+;; $Id: H2SO4-Substance.km,v 1.7 2008/11/03 03:11:26 tecuci Exp $ 
+
+(H2SO4-Substance has (superclasses (Bronsted-Lowry-Acid)))
+(every H2SO4-Substance has
+	(has-chemical-name ("sulfuric"))
+	(has-basic-structural-unit ((a H2SO4)))
+)
+(every H2SO4-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a H2SO4))))

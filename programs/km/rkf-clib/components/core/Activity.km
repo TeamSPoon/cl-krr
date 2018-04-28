@@ -1,0 +1,48 @@
+;;
+;; $Id: Activity.km,v 1.5 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(Activity has
+  (superclasses (Event))
+  (description  ("a collection of related events, often to achieve a goal or produce a result, but less structured than a step-by-step process"))
+)
+
+;; An Activity is an Event with multiple subevent instances with no (or loose)
+;; ordering. Standard Event slots apply: pcs-list, add-list, del-list, time,
+;; participants, result, site. Strangely, object is probably less common. And
+;; since there is often no ordering among the subevents, they won't be simulated
+;; (unless forced by making them all first-subevent).
+
+
+(Activity has 
+  (test-case ('(
+                (*BeNeatAndClean has (instance-of (State)))
+                (*MyHouse has (instance-of (Building)))
+                (*Dusting has (instance-of (Action)))
+                (*Vacuuming has (instance-of (Action)))
+                (*Washing has (instance-of (Action)))
+
+                (*Housekeeping has 
+                  (instance-of (Activity))
+                  (objective (*BeNeatAndClean))
+                  (subevent (*Dusting *Vacuuming *Washing))
+                  (add-list ((:triple *MyHouse 
+                                      object-of
+                                      (the objective of Self)))
+                  )
+                )
+
+                (do-and-next (*Housekeeping))
+
+                ;;((the object-of of *MyHouse) includes *BeNeatAndClean)
+))))
+
+(Activity has (wn20-synset ((:set 
+			     (:triple "activity" 1 "n")
+			     (:triple "act" 2 "n")
+			     (:triple "human_action" 1 "n")
+			     (:triple "human_activity" 1 "n")
+))))
+
+
+(every Activity has (text-nominalization ("activity")))

@@ -1,0 +1,47 @@
+<!--- $Id: Block.doc.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Block::doc>
+<superconcept name=Make-Inaccessible::doc>
+
+<sme-documentation name=Block>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Block>
+  <definition>prevent any movement through a path</definition>
+  <requiredslot name=object>
+    <restriction>a Place</restriction>
+    <comment>Block a Place to prevent movement of Entities through it</comment>
+  </requiredslot>
+  <requiredslot name=location>
+    <restriction>a Place</restriction>
+    <restriction>= <slot>object</slot>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Blocked> whose <slot>location</slot> is the
+      <slot>location</slot> of the Block</restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Obstruct>
+    <restriction>causes <slot>object</slot> to be Blocked</restriction>
+  </primaryslot>
+  <wnsynsets><verb>block#1, block#9, block#10
+  </verb></wnsynsets>
+  <wnsynsets><verb>bar#2, barricade#1, block_off#2, block_up#1, blockade#2, choke_up#1, close_up#1, impede#2, jam#7, lug#2, obstruct#2, occlude#1, stuff#4
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Blocking an <slot>object</slot> (Place) puts that <slot>object</slot> into a
+<conceptref name=Be-Blocked> state, preventing <conceptref name=Move::doc>s
+with the <slot>object</slot> as <slot>path</slot>. A blocked 
+<slot>object</slot> may be taken out of 
+the <conceptref name=Be-Blocked> state with a <conceptref name=Unblock::doc> action.
+</musing>
+
+</kml>
+
+

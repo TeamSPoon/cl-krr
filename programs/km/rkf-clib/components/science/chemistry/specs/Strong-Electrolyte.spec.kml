@@ -1,0 +1,43 @@
+<!--- $Id: Strong-Electrolyte.spec.kml,v 1.1 2005/08/01 20:59:34 jchaw Exp $ --->
+
+<kml>
+<concept name=Strong-Electrolyte>
+
+<superconcept name=Ionic-Compound>
+
+  <definition>
+    A substance that is completely ionized in solution, for example strong <conceptref name=Acid>s, strong <conceptref name=Base>s and most <conceptref name=Salt>s
+  </definition>
+
+<primaryslotlist>
+</primaryslotlist>
+
+<neighborlist>
+
+   <neighbor name=Salt>
+     An Ionic-Compound formed by replacing one or more 
+     <conceptref name=Hydrogen-Atom>s of an <conceptref name=Acid>
+     by other <conceptref name=Cation>
+  </neighbor>
+
+   <neighbor name=Acid>
+     An Ionic-Compound that is able to donate a 
+     <conceptref name=Hydrogen-Ion> (a <conceptref name=Proton>)
+     and hence increases the <slot>concentration</slot> of 
+     <conceptref name=Hydrogen-Atom>s when it dissolves in water
+
+  </neighbor>
+
+   <neighbor name=Base>
+     An Ionic-Compound that is an <conceptref name=Hydrogen-Ion>
+     acceptor
+  </neighbor>
+
+   <neighbor name=Molecular-Compound>
+      A Chemical that consists of (non-ionic) molecules
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

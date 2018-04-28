@@ -1,0 +1,96 @@
+
+;; 
+;; $Id: Match.km,v 1.1 2004/10/26 20:16:42 porter Exp $
+;; 
+
+(Match has
+  (superclasses (Action))
+  (description ("Find instances that match a specification"))
+)
+
+;; the information-content of the base is a list of :triples all
+;; having the same instance in position 1;
+;; the object must be unifiable with that list (as an approximation
+;; to matching)
+
+(every Match has
+  (object ((a Specification)))
+
+  ;; a real Specification has triples, so check first
+  (result ((if (the3 of (the information-content of (the object of Self)))
+            then (
+                  (?spec-instance == (the1 of (the information-content of
+                                                   (the object of Self)))
+                  )
+                  and
+                  (allof (the all-instances of 
+                              (the instance-of of ?spec-instance))
+                   where ((It /= ?spec-instance)
+                          and
+                          (It &? ?spec-instance)
+                         )
+                  )
+                 )
+  )))
+)
+
+;; This test case uses stuff from the office directory and should
+;; probably not be tested automatically.
+;;
+;; The test case also points out a problem with using unification here
+;; with the current Computer ontology: a computer can have multiple 
+;; processors. If a computer has a processor that clashes with the
+;; processor in the spec (as below), unification will succeed anyway.
+;; Maybe there's a computer with both a mac processor and an intel.
+;; The use of constraints is pretty cool, though.
+
+#|
+(Match has 
+     (test-case ('(
+                   (new-situation) 
+                   
+                   (*CompS has (instance-of (Computer))
+                               (computer-hasProcessor (
+                                 (a Intel-Pentium-Processor)))
+                               (computer-hasWeight (
+                                 (constraint (TheValue 
+                                              property-lt
+                                              (a Weight-Value with
+                                                 (value ((:pair 2 *kilogram))))
+                                             )
+                               )))
+                   )
+                   (_Comp1 == (a Computer with
+                                 (computer-hasProcessor ((a Intel-Pentium-4))))
+                   )
+                   (_Comp2 == (a Computer with
+                                 (computer-hasProcessor ((a PowerPC-G5))))
+                   )
+                   (_Comp3 == (a Laptop-Computer with
+                                 (computer-hasProcessor ((a Intel-Pentium-M)))
+                                 (computer-hasModelName ("Inspiron 300m"))
+                                 (computer-hasDimension (
+                                   (:seq *inch 0.96 10.8 9.2))))
+                   )
+                   (_Comp4 == (a Desktop-Computer with
+                                 (computer-hasWeight (
+                                   (a Weight-Value with
+                                      (value ((:pair 6 *pound)))))))
+                   )
+                   (_Comp5 == (a Laptop-Computer with
+                                 (computer-hasWeight (
+                                   (a Weight-Value with
+                                      (value ((:pair 3 *pound)))))))
+                   )
+
+                   (*Specify-CompS has (instance-of (Specify))
+                                       (object (*CompS))
+                   )
+                   (*Match-CompS has (instance-of (Match))
+                                     (object ((the result of *Specify-CompS)))
+                   )
+                   ((the result of *Match-CompS) = 
+                    (:set _Comp1 _Comp2 _Comp3 _Comp5))
+))))
+|#
+

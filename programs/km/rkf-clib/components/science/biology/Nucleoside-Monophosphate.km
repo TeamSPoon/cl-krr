@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Nucleoside-Monophosphate.km,v 1.7 2001/06/12 19:18:06 souther Exp $ 
+;; 
+
+(Nucleoside-Monophosphate has
+         (superclasses (Nucleotide))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A nucleotide in which the 5' terminal group is a
+                        monophosphate.  Souther.")) 
+         (test-case ()))
+
+(every Nucleoside-Monophosphate has
+	(has-part ((a Monophosphate)
+		   (a Nucleoside))
+		  )
+	)
+
+
+

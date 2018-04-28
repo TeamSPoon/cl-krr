@@ -1,0 +1,13 @@
+;; 
+;;  $Id: PKa-Value.km,v 1.3 2007/10/23 16:30:39 tecuci Exp $
+;; 
+
+(PKa-Value has (superclasses (Unitless-Value)))
+
+(every PKa-Value has
+  (property-slot (pka))
+       (less-than    ((must-be-a PKa-Value)))
+       (greater-than ((must-be-a PKa-Value)))
+       (same-as      ((must-be-a PKa-Value)))
+)
+(PKa-Value has (description ("the negative log to base 10 of the acidity constant, ka.")))

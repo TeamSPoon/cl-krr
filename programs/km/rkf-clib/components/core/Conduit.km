@@ -1,0 +1,20 @@
+;;
+;;    $Id: Conduit.km,v 1.4 2004/09/08 06:33:35 jchaw Exp $
+;;
+
+(Conduit has
+            (superclasses (Role))
+            (required-slot ())
+            (primary-slot ())
+            (secondary-slot ())
+            (cmap-correspondence ())
+            (test-case ()))
+
+(every Conduit has
+       (in-event ((a Move)))
+       (played-by ((a Spatial-Entity with
+                      (path-of ((the in-event of Self)))))))
+
+(Conduit has 
+       (wn20-synset 
+	((:set (:triple "conduit" 1 "n")))))

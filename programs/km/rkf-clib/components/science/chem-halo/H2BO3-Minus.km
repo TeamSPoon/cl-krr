@@ -1,0 +1,18 @@
+;; $Id: H2BO3-Minus.km,v 1.7 2008/12/02 20:47:37 tecuci Exp $ 
+(H2BO3-Minus has (superclasses (Anion)))
+(every H2BO3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("dihydrogen borate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 B) (:pair 3 O)))))))
+)
+
+
+(every H2BO3-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("dihydrogen borate"))
+)
+
+(H2BO3-Minus has (wn20-synset ((:triple " H2BO3-" 0 "n") (:triple " H_2BO_3-" 0 "n"))))

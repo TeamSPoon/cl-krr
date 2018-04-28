@@ -1,0 +1,18 @@
+;;
+;;  $Id: oxidation-state.km,v 1.5 2006/09/29 18:57:37 jchaw Exp $
+;;
+
+(oxidation-state has
+    (instance-of (Property))
+    (user-description ("the degree of oxidation of an atom or ion or molecule"))
+    (domain      (Chemical-Entity))
+    (range       (Oxidation-State-Value))
+    (fluent-status (*Inertial-Fluent))
+    ; (inherit-with-overrides (t))
+    (inverse     (oxidation-state-of))
+    (cardinality (N-to-1))
+    (scale-class         (Oxidation-Scale))
+    (scalar-constant-class (Oxidation-Constant))
+)
+
+(oxidation-state-of has (instance-of (Property)))

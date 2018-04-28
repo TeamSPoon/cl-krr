@@ -1,0 +1,16 @@
+;;
+;; $Id: scalar-value.km,v 1.7 2007/04/11 21:42:43 jchaw Exp $
+;;
+
+(scalar-value has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Property-Value))
+  (range (Scalar))
+  (inverse (scalar-value-of))
+  (cardinality (N-to-N))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+)
+
+(scalar-value-of has
+   (instance-of (CLIB-Slot-Group)))

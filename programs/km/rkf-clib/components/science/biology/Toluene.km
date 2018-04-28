@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Toluene.km,v 1.8 2001/06/01 23:26:53 pnav Exp $ 
+;; 
+
+(Toluene has
+	 (superclasses (Aromatic-Compound))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+	 (description ("Methylbenzene. Souther"))
+	 (cmap-correspondence ()))
+
+(every Toluene has
+       (has-part
+        (
+         (a Benzene with
+            (object-of
+             (
+              (a Be-Attached-To with                        
+                 (object ((the Methyl-Group has-part of Self)))
+                 (instrument ((a Conjugated-Double-Bond))) 
+		 (site
+		  ((the Carbon-Atom has-part of
+			(the Methyl-Group has-part of Self))
+		   (((the has-part of (the Benzene has-part of Self))
+		     called "Carbon-1")))))
+	      )))
+	 (a Methyl-Group)
+	 ))
+       )

@@ -1,0 +1,24 @@
+
+;;
+;; $Id: NaCl-Substance.km,v 1.3 2003/02/13 23:06:08 wilder Exp $
+;;
+
+(NaCl-Substance has 
+  (superclasses (Salt-Substance)))
+
+(every NaCl-Substance has
+  (has-basic-structural-unit (
+    (a Salt with
+       (has-part ((a Na-Plus) (a Cl-Minus)))
+       (nested-atomic-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Na) (:pair 1 Cl)))))))
+       (atomic-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Na) (:pair 1 Cl)))))))
+       (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Na-Plus) (:pair 1 Cl-Minus)))))))
+  )))
+)
+

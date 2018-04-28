@@ -1,0 +1,44 @@
+<kml>
+
+<concept name=Follow>
+<superconcept name=Locomotion>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Follow>
+<definition>
+
+  to do a <conceptref name=Locomotion> with the same path as a "prior" <conceptref name=Locomotion>.
+
+</definition>
+</component>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Entity> that moves (follows).
+  </slotdescription>
+  <comment>
+     Follow is a type of <conceptref name=Locomotion>.  Therefore, the
+     <slot>agent</slot> (the <conceptref name=Entity> that causes the move) is the same
+     as the <slot>object</slot> (the thing being moved).
+  </comment>
+
+  <slotdescription name=base>
+     the <conceptref name=Entity> that is being followed by the <slot>agent</slot>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John followed Jane to the restaurant.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=base>Jane</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+</kml>
+
+

@@ -1,0 +1,17 @@
+;; 
+;;    $Id: space-int-contains.km,v 1.5 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(space-int-contains has
+		 (instance-of (Spatial-Relation))
+		 (superslots ())
+		 (subslots ())
+		 (domain (Spatial-Entity))
+		 (range (Spatial-Entity))
+		 (inverse (space-int-inside))
+		 (fluent-status (*Inertial-Fluent))
+                 (original-slot      (t))	
+		 (cardinality (N-to-N)))
+
+(space-int-inside has
+	(instance-of (Spatial-Relation)))

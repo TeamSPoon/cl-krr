@@ -1,0 +1,91 @@
+<!--- $Id: Ruin.doc.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Ruin::doc>
+<superconcept name=Break::doc>
+
+<sme-documentation name=Ruin>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Ruin>
+  <definition>damage an existing Tangible-Entity so that it can never again serve its function</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>must already exist</restriction>
+    <restriction>is ruined</restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Ruined> <conceptref name=State></restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Break::doc>
+    <restriction>causes <slot>object</slot> to be Ruined</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Break::doc>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>used in Ruining the <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=by-means-of>
+    <inheritedfrom name=Break::doc>
+    <restriction>an Event necessary to the Ruining of the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>ruin#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>destroy#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Strictly, to Ruin is to cause to <conceptref name=Be-Ruined>. The
+interpretation is that the <slot>object</slot> will never again be able to
+serve its <slot>function</slot>.
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=ruin2>
+  <sense-definition>break</sense-definition>
+  <transitivity>intransitive/transitive</transitivity>
+</sense>
+<sense tag=ruin3>
+  <sense-definition>impoverish</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+<sense tag=ruin4>
+  <sense-definition>lay waste</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNruin#1><equiv tag=ruin1></sense>
+<sense tag=WNruin#2><equiv tag=ruin2></sense>
+<sense tag=WNruin#3><equiv tag=ruin3></sense>
+<sense tag=WNruin#4><equiv tag=ruin4></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

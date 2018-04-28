@@ -1,0 +1,16 @@
+;;
+;; $Id: cardinal-value.km,v 1.7 2007/04/10 21:29:48 jchaw Exp $
+;;
+
+(cardinal-value has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Property-Value))
+  (range (Cardinal))
+  (inverse (cardinal-value-of))
+  (cardinality (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Inertial-Fluent))
+)
+
+(cardinal-value-of has
+   (instance-of (CLIB-Slot-Group)))

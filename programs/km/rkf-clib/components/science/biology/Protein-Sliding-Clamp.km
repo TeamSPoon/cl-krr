@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Protein-Sliding-Clamp.km,v 1.7 2003/12/19 14:25:41 kbarker Exp $ 
+;; 
+
+(Protein-Sliding-Clamp has
+         (superclasses (DNA-Regulatory-Protein))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A protein which encircles the DNA strand and holds the
+                        DNA polymerase in place during replication.
+                        Alberts:ECB:197."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Protein-Sliding-Clamp has 
+       (purpose 
+	((a Agent-Role with
+	    (in-event 
+	     ((a Restrain with
+		 (location ((a Replication-Fork)))
+		 (time-during ((the time-during of (a DNA-Replication))))
+		 (object ((a DNA-Polymerase with
+			     (location ((the Replication-Fork location of
+					     (the Restrain in-event of
+						  (the Agent-Role purpose of Self)
+						  )))
+				       )))
+			 ))
+	      )))
+	 ))
+       )
+

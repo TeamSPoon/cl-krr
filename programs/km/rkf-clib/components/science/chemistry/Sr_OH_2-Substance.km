@@ -1,0 +1,11 @@
+;;
+;; $Id: Sr_OH_2-Substance.km,v 1.2 2003/04/22 05:11:38 jchaw Exp $
+;;
+
+(Sr_OH_2-Substance has (superclasses (Base)))
+
+(every Sr_OH_2-Substance has 
+       (plays ((a Base-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *strong Base)))))))))
+       (has-basic-structural-unit ((a Sr_OH_2))))

@@ -1,0 +1,15 @@
+
+;;
+;; $Id: Polarity-Constant.km,v 1.3 2008/05/29 14:54:57 kbarker Exp $
+;;
+
+(Polarity-Constant has (superclasses (Constant)))
+
+(*positive has (instance-of (Polarity-Constant)))
+(*negative has (instance-of (Polarity-Constant)))
+
+
+(a Constant-Exclusion-Set with
+  (exclusive-constants (*positive *negative))
+)
+

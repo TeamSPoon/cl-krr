@@ -1,0 +1,17 @@
+;;
+;; $Id: HCN-Substance.km,v 1.6 2008/11/03 03:11:26 tecuci Exp $ 
+;;
+
+(HCN-Substance has (superclasses (Bronsted-Lowry-Acid)))
+(every HCN-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 4.9e-10 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("hydrocyanic"))
+	(has-basic-structural-unit ((a HCN)))
+)
+(every HCN-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a HCN))))

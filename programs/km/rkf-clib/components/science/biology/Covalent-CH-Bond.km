@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Covalent-CH-Bond.km,v 1.10 2001/11/17 06:50:15 jarred Exp $ 
+;; 
+
+(Covalent-CH-Bond has
+         (superclasses (Covalent-Single-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Chemical bond between carbon and hydrogen.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Covalent-CH-Bond has      
+       (purpose ((a Connector with
+		    (in-event ((a Be-Attached-To with
+				  (object ((a Carbon-Atom)
+					   (a Hydrogen-Atom)
+					   (exactly 2 Atom)))
+                                      )))
+                        )))
+       (intensity ((a Intensity-Value with 
+		(value ((:pair 99 *kilocalorie/mole))))))
+;;       (length ((a Length-Value with (value ((:pair ?? *nanometer))))))  
+       )

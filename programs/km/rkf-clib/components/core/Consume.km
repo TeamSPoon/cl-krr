@@ -1,0 +1,53 @@
+;;
+;;   $Id: Consume.km,v 1.5 2008/02/13 19:28:58 kbarker Exp $
+;;
+
+(Consume has 
+  (superclasses  (Action))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Consume has
+       (base ((a Resource with
+	      (played-by ((the object of Self))))))
+       (object ((a Entity with
+		   (plays ((a Resource with 
+			      (base-of ((Self))))))))))
+
+
+(Consume has (wn20-synset ((:set
+			    (:triple "consume" 5 "v")
+			    (:triple "eat_up" 2 "v")
+			    (:triple "use_up" 1 "v")
+			    (:triple "eat" 4 "v")
+			    (:triple "deplete" 1 "v")
+			    (:triple "exhaust" 2 "v")
+			    (:triple "run_through" 2 "v")
+			    (:triple "wipe_out" 1 "v")
+))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(every Consume has (text-nominalization ("consumption")))

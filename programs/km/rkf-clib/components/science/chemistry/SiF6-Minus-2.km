@@ -1,0 +1,14 @@
+;; 
+;;    $Id: SiF6-Minus-2.km,v 1.1 2003/04/03 00:08:56 jchaw Exp $
+;; 
+
+(SiF6-Minus-2 has (superclasses (Anion)))
+
+(every SiF6-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *electronic-charge))))))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with 
+		    (term ((:seq (:pair 1 Si) 
+				 (:pair 6 F)))))))
+)

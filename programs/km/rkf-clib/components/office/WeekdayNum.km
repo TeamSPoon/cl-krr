@@ -1,0 +1,13 @@
+;;
+;; $Id: WeekdayNum.km,v 1.1 2005/01/18 21:21:58 kbarker Exp $
+;;
+
+(WeekdayNum has (superclasses (Message)))
+
+(every WeekdayNum has
+  (calendar-ordwk ((constraint ((TheValue >= 1) and (TheValue <= 53)))))
+)
+
+(calendar-ordwk has (instance-of (Interface-Slot)) (domain (WeekdayNum)) (range (Integer)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(calendar-weekday has (instance-of (Interface-Slot)) (domain (WeekdayNum)) (range (Day-Constant)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+

@@ -1,0 +1,40 @@
+<!--- $Id: material.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=material>
+
+
+<from name=Tangible-Entity>
+<to name=Tangible-Entity>
+
+<description> 
+  The substance that an object is made of.
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-from>My desk</ex-from> is made of <ex-to>wood</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-from>This dessert</ex-from> is made of <ex-to>jello and whipped cream</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-from>The soil</ex-from> contains <ex-to>nitrogen</ex-to>.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=has-part>
+   The parts of an object are themselves objects, whereas the 
+   <slot>material</slot> of an object is the substance it's made of.
+   For example, the parts of a chair include its seat and armrests, 
+   whereas the <slot>material</slot> of a chair might be wood or
+   metal.
+ </neighbor>
+</neighborlist>
+
+
+</kml>

@@ -1,0 +1,33 @@
+;; 
+;;    $Id: origin.km,v 1.16 2007/04/11 21:31:10 jchaw Exp $
+;; 
+
+(origin has
+   (instance-of (Spatial-Relation))
+   (superslots ())
+   (subslots ())
+   (domain      (Event))
+   (range       (Spatial-Entity))
+   (inverse (origin-of))
+   (text-slot (text-origin))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+
+(text-origin has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-origin-of has (instance-of (NL-Slot-Group)))
+
+(origin-of has 
+	(instance-of (Spatial-Relation))
+	(text-gloss ("is the origin of")))

@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Microtubule.km,v 1.19 2005/10/04 23:17:10 kbarker Exp $ 
+;; 
+
+(Microtubule has
+         (superclasses (Protein-Filament))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Long, stiff, cylindrical intracellular structure, 20
+                       nanometers in diameter, composed of the protein tubulin;
+                       one of the major components of the cytoskeleton, used
+                       by eucaryotic cells to regulate their shape and control
+                       their movements. Alberts:ECB:G-11."))
+         (test-case ()))       
+
+(every Microtubule has
+       (width ((a Length-Value with 
+			(value ((:pair 20 *nanometer))))))
+
+       (element-type (Tubulin-Molecule))
+       )
+
+

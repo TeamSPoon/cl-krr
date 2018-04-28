@@ -1,0 +1,21 @@
+;; 
+;; $Id: Artifact.km,v 1.2 2004/09/08 15:51:26 jfan Exp $
+;; 
+
+(Artifact has
+  (superclasses (Inanimate-Object))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("A man-made object"))
+  (cmap-correspondence ())
+)
+
+(every Artifact has
+  (result-of ((a Create)))       ; Create implies "agent-made"
+)
+
+
+(Artifact has (wn20-synset ((:set
+			     (:triple "artifact" 1 "n")
+			     ))))

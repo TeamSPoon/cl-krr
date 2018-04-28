@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Basic-Amino-Acid.km,v 1.12 2001/11/23 19:07:54 jarred Exp $ 
+;; 
+
+(Basic-Amino-Acid has                
+         (superclasses (Chemical-Base Amino-Acid ))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("An amino acid which carries a net positive charge at
+                        pH 7.  Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Basic-Amino-Acid has
+       (possesses ((a Electric-Charge with
+                      (polarity ((a Polarity-Value with
+			(value  (*positive))))))))
+       )      
+
+

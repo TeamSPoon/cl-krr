@@ -1,0 +1,65 @@
+
+;;; ---------- Definition of prototype for Tonoplast ----------
+
+(Tonoplast has (superclasses (Membrane-Enclosure)))
+
+(_Tonoplast394 has 
+  (instance-of (Tonoplast))
+  (prototype-of (Tonoplast))
+  (prototype-scope (Tonoplast))
+  (prototype-participants (_Tonoplast394
+                           _Physical-Object398
+                           _Living-Entity399))
+  (prototype-participant-of (_Tonoplast394))
+  (has-clones (_Placeholder-Class393395
+               _Tonoplast403
+               _Tonoplast411
+               _Tonoplast419))
+  (has-built-clones (_Placeholder-Class393395
+                     _Tonoplast403
+                     _Tonoplast411
+                     _Tonoplast419))
+  (is-part-of (_Living-Entity399))
+  (encloses (_Physical-Object398))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 121 464)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq encloses _Physical-Object398 208 606)))
+  (edge-visibility ((:seq encloses _Physical-Object398 t))))
+
+(_Physical-Object398 has 
+  (instance-of (Central-vacuole
+                Physical-Object))
+  (has-clones (_Central-vacuole401
+               _Central-vacuole409
+               _Central-vacuole413
+               _Central-vacuole418))
+  (is-inside (_Tonoplast394))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 358 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq is-inside _Tonoplast394 384 526)))
+  (edge-visibility ((:seq is-inside _Tonoplast394 t)))
+  (prototype-participant-of (_Tonoplast394)))
+
+(_Living-Entity399 has 
+  (instance-of (Living-Entity))
+  (has-clones (_Living-Entity397
+               _Living-Entity404
+               _Living-Entity412
+               _Living-Entity417))
+  (has-part (_Tonoplast394))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Tonoplast394 -100 600)))
+  (edge-visibility ((:seq has-part _Tonoplast394 f)))
+  (node-coordinate ((:pair -250 600)))
+  (prototype-participant-of (_Tonoplast394)))
+
+(explanation (:triple _Tonoplast394 encloses _Physical-Object398) ((a Physical-Object (@ _Tonoplast394 Membrane-Enclosure encloses))))
+(explanation (:triple _Tonoplast394 is-part-of _Living-Entity399) ((a Living-Entity (@ _Tonoplast394 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Physical-Object398 instance-of Central-vacuole) ((added-at Tonoplast "User defined")))
+(explanation (:triple _Physical-Object398 instance-of Physical-Object) ((a Physical-Object (@ _Tonoplast394 Membrane-Enclosure encloses))))
+(explanation (:triple _Living-Entity399 instance-of Living-Entity) ((a Living-Entity (@ _Tonoplast394 Membrane-Enclosure is-part-of))))
+
+;;; ---------- end of prototype definition ----------
+

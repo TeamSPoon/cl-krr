@@ -1,0 +1,13 @@
+;; 
+;;    $Id: NO-Substance.km,v 1.6 2008/11/03 03:11:27 tecuci Exp $ 
+;; 
+
+(NO-Substance has (superclasses (Inorganic-Molecule-Substance)))
+	
+(every NO-Substance has
+  (has-basic-structural-unit ((a NO))))
+
+
+(every NO-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a NO))))

@@ -1,0 +1,69 @@
+<!--- $Id: Let-Go-Of.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Let-Go-Of><system-documentation name=Let-Go-Of>
+<superconcept name=Unobstruct>
+
+<definition>
+
+  Let go of an object that is being held.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     Some tangible entity.
+     Before this action, the object is
+     assumed to be held by the agent, i.e. it's in a state of
+     <conceptref name=Be-Held>.
+     Afterwards it's no longer in that state.
+  </slotdescription>
+
+  <slotdescription name=agent>
+     Somebody or something that's holding the object, then lets go of it
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) used to let go of the object
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that facilitates letting go of the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John let the dog go.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the dog</slotdescription>
+  </examplesentence>
+
+  <comment>
+    It's assumed that John was holding the dog beforehand.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Unobstruct> 
+     Unobstruct is more general than Let-Go-Of.
+     Unobstruct allows some object to move more freely, whereas
+     Let-Go-Of (more specifically) is when an agent stops holding 
+     some object.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

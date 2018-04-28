@@ -1,0 +1,76 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Strong-Acid386
+
+
+|#
+
+(disable-classification)
+
+(Strong-Acid has (superclasses (Acid Strong-Electrolyte))
+		 (description ("A strong acid is an acid that dissociates completely in an aqueous solution")))
+
+(_Strong-Acid574 has
+  (prototype-of (Strong-Acid Acid))
+  (prototype-scope (Strong-Acid 
+        (the-class Acid with (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *strong nil))))))) 
+        (the-class Acid with (plays ((a Acid-Role with (intensity ((a Intensity-Value with (value ((:pair *strong Acid))))))))))))
+  (prototype-participants (_Intensity-Value581 _Acid-Role576 _Ionic-Compound580 _Cation-Substance579 _Anion-Substance578 _State-Value577 _Electrolyte-Status-Value575 _Strong-Acid574)))
+
+(_Strong-Acid574 has
+  (instance-of (Strong-Acid))
+  (plays (_Acid-Role576))
+  (has-basic-structural-unit (_Ionic-Compound580))
+  (has-part (_Anion-Substance578 _Cation-Substance579))
+  (physical-state (_State-Value577))
+  (electrolyte-status (_Electrolyte-Status-Value575)))
+
+(_Electrolyte-Status-Value575 has (instance-of (Electrolyte-Status-Value)))
+
+(_Acid-Role576 has (instance-of (Acid-Role)) (intensity (_Intensity-Value581)))
+
+(_State-Value577 has (instance-of (State-Value)))
+
+(_Anion-Substance578 has (instance-of (Anion-Substance)))
+
+(_Cation-Substance579 has (instance-of (Cation-Substance)))
+
+(_Ionic-Compound580 has (instance-of (Ionic-Compound)))
+
+(_Intensity-Value581 has (instance-of (Intensity-Value)))
+
+(enable-classification)
+
+(explanation (:triple _Acid-Role576 intensity _Intensity-Value581) (((@ SME entered)) (every Strong-Acid has (plays ((a Acid-Role with (intensity ((a Intensity-Value)))))))))
+
+(explanation (:triple _Strong-Acid574 plays _Acid-Role576) (((@ SME entered)) (every Strong-Acid has (plays ((a Acid-Role))))))
+
+(explanation (:triple _Strong-Acid574 instance-of Strong-Acid) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value575 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Acid-Role576 instance-of Acid-Role) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value577 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance578 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance579 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound580 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Intensity-Value581 instance-of Intensity-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Strong-Acid has (plays ((a Acid-Role with (intensity ((a Intensity-Value)))))))
+(every Strong-Acid has (plays ((a Acid-Role))))
+
+|#
+
+|#
+

@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Neutron.km,v 1.10 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Neutron has
+         (superclasses (Subatomic-Particle))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Fundamental subatomic particle found in the atomic
+                        nucleus; it has a mass similar to that of a proton,
+                        but no electric charge. Alberts:ECB:G-12.")) 
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Neutron has
+       (mass  ((a Mass-Value with
+		(value ((:pair 1 *dalton))))))
+       (is-at ((a Atomic-Nucleus)))
+      )   
+
+
+
+(every Neutron has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

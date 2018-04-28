@@ -1,0 +1,43 @@
+<kml>
+
+<concept name=Release-Resource>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+  <component tag=Release-Resource>
+<definition> 
+to make some <conceptref name=Entity>, that is playing the <conceptref name=Role> of a <conceptref name=Resource>, available.
+</definition>
+</component>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The <conceptref name=Resource> that's made available. It's put 
+     in a <conceptref name=Be-Available> state by this action.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the <conceptref name=Entity> that caused this action
+  </slotdescription>
+
+  <slotdescription name=base>
+    the <conceptref name=Thing> (<conceptref name=Entity> or <conceptref name=Event>) that the object becomes available to.
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Release>
+     In <conceptref name=Release-Resource>, the "release" signifies the "becoming available" of the resource, while in <conceptref name=Release>, it signifies the freeing of something from confinement.
+  </neighbor>
+  
+</neighborlist>
+
+</kml>

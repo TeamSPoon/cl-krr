@@ -1,0 +1,23 @@
+; 
+;;    $Id: Hydrolysis-Acid-Reactant.km,v 1.2 2003/02/10 23:09:36 pzyeh Exp $ 
+;; 
+
+(Hydrolysis-Acid-Reactant has (superclasses (Reaction-Material)))
+
+(every Hydrolysis-Acid-Reactant has-definition
+       (instance-of (Chemical))
+       (ka ((a Equilibrium-Constant-Value))))
+
+(every Hydrolysis-Acid-Reactant has
+  (called ("Reactant"))
+  (raw-material-of (
+    (if (not (the raw-material-of of Self))
+	then
+	(a Hydrolysis with
+	   (raw-material (Self))
+	   (ka ((the ka of Self))))
+    )))
+  (plays ((a Acid-Role with
+	     (ka ((the ka of Self))))))
+)
+       

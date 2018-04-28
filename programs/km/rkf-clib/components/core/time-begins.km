@@ -1,0 +1,18 @@
+;; 
+;; $Id: time-begins.km,v 1.6 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(time-begins has
+  (instance-of (Temporal-Relation))
+  (domain (Temporal-Entity))
+  (range (Time-Instant))
+  (inverse (time-beginning-of))
+  (fluent-status (*Inertial-Fluent))
+  (cardinality (N-to-1))
+  (original-slot      (t))	
+)
+
+(time-begins has (text-gloss ("begins at")))
+
+(time-beginning-of has
+	(instance-of (Temporal-Relation)))

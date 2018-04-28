@@ -1,0 +1,14 @@
+;;
+;;    $Id: SoftwareAgent.km,v 1.4 2005/01/28 22:34:17 billj Exp $
+;;
+
+;; IRIS_class: SoftwareAgent
+
+(SoftwareAgent has
+	       (superclasses (Software-Application)))
+
+;; range is Concept, not in CLib
+(hasConcept has (instance-of (Interface-Slot)) (domain (SoftwareAgent)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isConceptOf))) 
+
+;; range is Interest, not in CLib
+(hasInterest has (instance-of (Interface-Slot)) (domain (SoftwareAgent)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isInterestOf))) 

@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Replication-Origin-Sequence.km,v 1.14 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(Replication-Origin-Sequence has
+			     (superclasses (DNA-Regulatory-Sequence))
+			     (required-slot ())
+			     (primary-slot ())
+			     (secondary-slot ())
+			     (description ("A DNA sequence that attracts initiator proteins
+                    for DNA replication.  Alberts:ECB:190"))
+			     (cmap-correspondence ()))
+
+(every Replication-Origin-Sequence has
+
+       (element-type (Deoxyribonucleotide))
+       (first-element (((the D-TMP element of Self) called "first"))) 
+       (element ((a D-TMP called "first" with
+		    (next-element (((the D-AMP element of Self) called "second")))) 
+		 (a D-AMP called "second" with
+		    (next-element (((the D-TMP element of Self) called "third")))) 
+		 (a D-TMP called "third" with
+		    (next-element (((the D-AMP element of Self) called "fourth")))) 
+		 (a D-AMP called "fourth" with
+		   (next-element (((the D-TMP element of Self) called "fifth")))) 
+		 (a D-TMP called "fifth" with
+		    (next-element (((the D-TMP element of Self) called "sixth")))) 
+		 (a D-TMP called "sixth"))))
+
+
+
+

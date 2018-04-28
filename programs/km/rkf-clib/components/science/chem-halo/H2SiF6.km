@@ -1,0 +1,18 @@
+;;
+;; $Id: H2SiF6.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $
+;;
+
+(H2SiF6 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+
+(every H2SiF6 has
+       (has-chemical-name ("fluorosilicic acid" "hexafluorosilicic acid" "hydrogen hexafluorosilicate"))
+       (has-part ((a H-Plus)(a SiF6-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 H-Plus)
+		    (:pair 1 SiF6-Minus-2))))))))
+(every H2SiF6 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a SiF6-Minus-2))))
+

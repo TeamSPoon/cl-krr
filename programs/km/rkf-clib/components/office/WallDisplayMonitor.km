@@ -1,0 +1,11 @@
+;;
+;;    $Id: WallDisplayMonitor.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(WallDisplayMonitor has 
+  (superclasses (Computer-Display)))
+
+(WallDisplayMonitor has
+  (feature-slot ((the feature-slot of Computer-Display)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = WallDisplayMonitor)))))
+

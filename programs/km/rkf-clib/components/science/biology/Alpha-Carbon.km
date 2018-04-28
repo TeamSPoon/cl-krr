@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Alpha-Carbon.km,v 1.11 2001/05/18 13:13:50 souther Exp $ 
+;; 
+
+(Alpha-Carbon has
+         (superclasses (Carbon-Atom))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("The central carbon atom in an alpha amino acid, to
+                        which the carboxyl and amino groups and the side chain
+                        group are attached. Souther."))
+         (test-case ()))
+
+(every Alpha-Carbon has  
+       (is-part-of ((must-be-a Amino-Acid))))  ;; for attachment info, 
+                                               ;; see Amino Acid
+
+
+
+

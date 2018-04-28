@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Poly-A-Tail.km,v 1.9 2001/05/19 02:50:24 souther Exp $ 
+;; 
+
+(Poly-A-Tail has
+	     (superclasses (Polyribonucleotide))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (description ("The polyadenylate chain added to the end of a
+                            newly synthesized mRNA in eucaryotes.  Souther."))
+	     (cmap-correspondence ())
+	     (test-case ()))
+				
+(every Poly-A-Tail has
+       (is-part-of ((a Functional-MRNA-Transcript)))
+       (has-part ((a AMP)
+		  (at-least 100 AMP)
+		  (at-most 200 AMP)))
+       )
+;      (lifespan ((at-least 30 *minute)(at-most 10 *hour))) <- Need to revise
+
+;;; Purpose: help guide mRNA out of nucleus. protect from degradation

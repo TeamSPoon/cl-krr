@@ -1,0 +1,66 @@
+;;    $Id: TM-Find-Computer.km,v 1.2 2004/10/21 14:57:27 jfan Exp $ 
+(TM-Find-Computer has (superclasses (TM-Task-Model)))
+
+(every TM-Find-Computer has
+       ;;----------------------------------------------------------------
+       ;; SPARK parameters.
+       ;;----------------------------------------------------------------
+       (result 	   ((must-be-a Computer)))  				;; The result of this event corresponds to $selection
+       (object 	   ((a Specification))) 				;; The object of this event corresponds to $criteria
+       (base 	   ((a Computer with 					;; The base of this event corresponds to $item
+		       (hasTotalPrice ((a Worth-Value)))))) 	
+	
+       ;;----------------------------------------------------------------
+       ;; Additional axioms.
+       ;;----------------------------------------------------------------
+       (instrument    ((must-be-a Entity)))
+       (soft-pcs-list (
+		       (if ((has-value (the agent of Self)) and 
+			    (has-value (the instrument of Self)))
+			   then
+			   (forall (the instrument of Self)
+				   (:set (:triple It
+						  object-of
+						  (a Be-Controlled with
+						     (agent ((the agent of Self)))))
+				         (:triple It 
+						  object-of 
+						  (mustnt-be-a Be-Inaccessible 
+							       with
+							       (base ((the agent of Self))))))))
+		       
+		       (if (has-value (the instrument of Self))
+			   then
+			   (forall (the instrument of Self)
+				   (:triple It object-of (mustnt-be-a Be-Inaccessible))))
+		       
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the object of Self)))
+			   then
+			   (forall (the object of Self)
+				   (:triple It
+					    object-of
+					    (mustnt-be-a Be-Inaccessible with
+						         (base ((the agent of Self)))))))
+		       
+		       (forall (the object of Self)
+			       (:triple It
+					object-of
+					(mustnt-be-a Be-Inaccessible)))
+       ))
+
+       (duration ((a Duration-Value)))
+
+#| NOTE: Since SPARK does not specify any subevents, we will omit them for now.
+       ;; precondition:  none
+       ;; postcondition: none
+       (subevent ((a TM-Find-Bids with
+		     (object ((the object of Self)))
+		     (base ((the hasTotalPrice of (the base of Self))))
+		     (result ((the base of Self))))
+		  (a TM-Choose-Item with
+		     (base ((the hasTotalPrice of (the base of Self))))
+		     (object ((the result of Self)))
+       )))
+|#
+)

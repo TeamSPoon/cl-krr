@@ -1,0 +1,28 @@
+;; 
+;;    $Id: ATP-Hydrolysis.km,v 1.1 2001/06/12 19:17:59 souther Exp $
+;; 
+
+(ATP-Hydrolysis has
+		   (superclasses  (Enzyme-Catalysis))
+		   (required-slot (object ))
+		   (primary-slot  (agent instrument))   
+		   (secondary-slot (result))
+	(description	("The removal of a phosphoryl group from ATP, releasing
+                          energy fthat can be used to drive energetically
+                          unfavorable reactions like biosynthesis or changes
+                          in protein conformation.  Souther.")))
+
+(every ATP-Hydrolysis has
+       (agent        ((a Living-Entity)))
+       (substrate ((the ATP object of Self)))
+       (object       ((a ATP)))
+       (result       ((a Monophosphate)
+		      (a ADP)))
+       (instrument   ((a ATPase)))   )
+
+;;a typically these reactions defuse the molecule which had the phosphate.
+;; the resulting phosphate bearing molecule is typically a monophosphate group
+;; or a diphosphate (pyrophosphate).
+
+
+

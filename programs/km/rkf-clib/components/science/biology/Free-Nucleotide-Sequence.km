@@ -1,0 +1,46 @@
+;; 
+;;    $Id: Free-Nucleotide-Sequence.km,v 1.9 2001/06/13 22:23:54 pnav Exp $ 
+;; 
+
+
+(Free-Nucleotide-Sequence has
+         (superclasses (Nucleotide-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A nucleotide sequence with a free 5'-triphosphate and 
+                        free 3'-OH, i.e. a sequence which is not an internal
+                        sequence. Examples include DNA-Strand, Free-Nucleotide.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Free-Nucleotide-Sequence has 
+       (has-part ((a 5-Prime-Nucleoside-Triphosphate with
+		     (object-of
+		      ((mustnt-be-a Be-Attached-To with
+				    (object ((a Nucleotide-Sequence)))
+				    (site   (((the Carbon-Atom has-part of
+						   (the Pentose has-part of
+							(the 5-Prime-Nucleotide 
+							     has-part of Self)))
+					      called "Carbon-5")))
+				    (instrument ((a Phosphodiester-Bond)))
+				    ))
+		      ))
+		  (a 3-Prime-Nucleoside-Monophosphate with
+                     (object-of
+                      ((mustnt-be-a ((a Be-Attached-To with
+				       (object ((a Nucleotide-Sequence)))
+				       (site   (((the Carbon-Atom has-part of
+						      (the Pentose has-part of
+							   (the 3-Prime-Nucleotide 
+								has-part of Self)))
+						 called "Carbon-3")))
+				       (instrument ((a Phosphodiester-Bond)))
+				       )))))
+		     )
+		  (a Nucleotide-Sequence called "Nucleotide Sequence")
+		  )))
+
+		 

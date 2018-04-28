@@ -1,0 +1,46 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Iodide-Substance8922
+
+
+|#
+
+(disable-classification)
+
+(Iodide-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Iodide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Iodide-Substance589 has
+  (prototype-of (Iodide-Substance Ionic-Compound-Substance))
+  (prototype-scope (Iodide-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a I-Minus)))))))))
+  (prototype-participants (_Anion595 _Chemical-Entity591 _Iodide-Substance589)))
+
+(_Iodide-Substance589 has (instance-of (Iodide-Substance)) (has-basic-structural-unit (_Chemical-Entity591)))
+
+(_Chemical-Entity591 has (instance-of (Ionic-Compound)) (has-part (_Anion595)))
+
+(_Anion595 has (instance-of (I-Minus)))
+
+(enable-classification)
+
+(explanation (:triple _Iodide-Substance589 has-basic-structural-unit _Chemical-Entity591) (((@ SME entered)) (every Iodide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Iodide-Substance589 instance-of Iodide-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity591 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion595 instance-of I-Minus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Iodide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

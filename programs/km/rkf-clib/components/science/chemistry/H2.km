@@ -1,0 +1,12 @@
+;;
+;; $Id: H2.km,v 1.2 2003/04/22 18:54:58 jchaw Exp $
+;;
+
+(H2 has (superclasses (Molecular-Compound)))
+
+(every H2 has	
+       (nested-atomic-chemical-formula (
+			  (a Chemical-Formula with
+			     (term ((:seq
+				     (:pair 2 H)))))))
+)

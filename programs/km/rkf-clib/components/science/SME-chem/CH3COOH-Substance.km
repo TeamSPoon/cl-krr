@@ -1,0 +1,55 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _CH3COOH-Substance50344
+
+
+|#
+
+(disable-classification)
+
+(CH3COOH-Substance has (superclasses (Weak-Acid)))
+
+(every CH3COOH-Substance has (plays ((a Acid-Role with (intensity ((a Intensity-Value with (value ((:pair *weak Acid)))))) (default-ka ((a Equilibrium-Constant-Value with (value ((:pair 1.8e-5 nil))))))))) (has-basic-structural-unit ((a CH3COOH))))
+
+(_CH3COOH-Substance8177 has
+  (prototype-of (CH3COOH-Substance))
+  (prototype-scope (CH3COOH-Substance))
+  (prototype-participants (_Electrolyte-Status-Value50742 _Solubility-Value8178 _CH3COOH-Substance8177)))
+
+(_CH3COOH-Substance8177 has
+  (instance-of (CH3COOH-Substance))
+  (electrolyte-status (_Electrolyte-Status-Value50742))
+  (solubility (_Solubility-Value8178)))
+
+(_Solubility-Value8178 has (instance-of (Solubility-Value)) (value ((:pair *soluble Chemical))))
+
+(_Electrolyte-Status-Value50742 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *weak nil))))
+
+(enable-classification)
+
+(explanation (:triple _Solubility-Value8178 value (:pair *soluble Chemical)) (((@ SME entered)) (every CH3COOH-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Acid)))))))))
+
+(explanation (:triple _CH3COOH-Substance8177 electrolyte-status _Electrolyte-Status-Value50742) (((@ SME entered)) (every CH3COOH-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value50742 value (:pair *weak nil)) (((@ SME entered)) (every CH3COOH-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak Acid)))))))))
+
+(explanation (:triple _CH3COOH-Substance8177 instance-of CH3COOH-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value8178 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value50742 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every CH3COOH-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+(every CH3COOH-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+(every CH3COOH-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak nil)))))))
+
+|#
+
+|#
+

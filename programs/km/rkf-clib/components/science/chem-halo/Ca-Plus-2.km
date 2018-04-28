@@ -1,0 +1,20 @@
+;; $Id: Ca-Plus-2.km,v 1.5 2008/05/15 17:19:10 kunal Exp $ 
+(Ca-Plus-2 has (superclasses (Metal-Cation)))
+(every Ca-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *unity))))))
+	(has-chemical-name ("calcium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Ca)))))))
+        (is-ion-of ((a Ca)))
+)
+
+(every Ca-Plus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("calcium"))
+  (charge ((a Charge-Value with
+	      (value ((:pair +2 *unity)))))))
+
+
+(Ca-Plus-2 has (wn20-synset ((:triple "Ca+2" 0 "n"))))

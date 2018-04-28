@@ -1,0 +1,10 @@
+;;
+;; $Id: H2NNH3-Plus-Substance.km,v 1.5 2008/11/03 03:11:26 tecuci Exp $
+;;
+
+(H2NNH3-Plus-Substance has (superclasses (Cation-Substance)))
+(every H2NNH3-Plus-Substance has
+	(has-basic-structural-unit ((a H2NNH3-Plus))))
+(every H2NNH3-Plus-Substance has-definition
+  (instance-of (Ionic-Substance))
+  (has-basic-structural-unit ((a H2NNH3-Plus))))

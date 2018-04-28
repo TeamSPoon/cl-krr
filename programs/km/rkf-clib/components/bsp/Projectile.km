@@ -1,0 +1,12 @@
+
+;; $Id: Projectile.km,v 1.1 2002/07/10 21:12:30 kbarker Exp $
+
+(Projectile has (superclasses (Role)))
+
+(every Projectile has
+  (in-event ((must-be-a Fire)))
+  (played-by ((a Tangible-Entity with
+                 (object-of ((the in-event of Self))))))
+)
+
+

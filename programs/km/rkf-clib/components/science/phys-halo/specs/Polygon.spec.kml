@@ -1,0 +1,37 @@
+<!--- $Id: Polygon.spec.kml,v 1.2 2005/10/26 20:21:29 pzyeh Exp $ --->
+
+<kml>
+<concept name=Polygon>
+<superconcept name=Geometric-Object>
+
+<definition>
+	A <conceptref name=Geometric-Object> bounded by <conceptref name=Line-Segment>s.
+</definition>
+
+<primaryslotlist>
+  <slotdescription name=area>
+	The amount of area enclosed by the polygon; see <conceptref name=Area-Value>.
+  </slotdescription>
+  <slotdescription name=has-part>
+	The <conceptref name=Line-Segment>s and <conceptref name=Vertex>es which form the polygon.
+	There must be at least 3 segments and 3 vertexes.
+  </slotdescription>
+</primaryslotlist>
+
+<neighborlist>
+  <neighbor name=Line-Segment>
+	A <conceptref name=Line> with two <conceptref name=Point>s, one on each end.
+  </neighbor>
+  <neighbor name=Vertex>
+	A <conceptref name=Point> that has an <conceptref name=Angle-Value> and is part of 
+	two <conceptref name=Line>s.
+  </neighbor>
+  <neighbor name=Quadrilateral>
+	A polygon bounded by exactly 4 <conceptref name=Line-Segment>s.
+  </neighbor>
+  <neighbor name=Triangle>
+	A polygon bounded by exactly 3 <conceptref name=Line-Segment>s.
+  </neighbor>
+</neighborlist>
+
+</kml>

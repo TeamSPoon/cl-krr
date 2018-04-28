@@ -1,0 +1,15 @@
+;;
+;; $Id: Tape-Dispenser.km,v 1.5 2005/05/23 18:52:00 kbarker Exp $
+;;
+(Tape-Dispenser has (superclasses (Office-Equipment)))
+
+(every Tape-Dispenser has
+       (purpose ((a Container with
+		    (in-event ((must-be-a Be-Contained)))
+		    (content ((a Tape)))
+		    (played-by (Self)))))
+)
+(Tape-Dispenser has
+  (feature-slot ((the feature-slot of Office-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Tape-Dispenser)))))
+

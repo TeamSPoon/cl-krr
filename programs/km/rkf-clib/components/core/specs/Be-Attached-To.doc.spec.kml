@@ -1,0 +1,46 @@
+<!--- $Id: Be-Attached-To.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Attached-To>
+<superconcept name=Be-Touching>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Attached-To>
+  <definition>one object attached to another</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Be-Touching>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <primaryslot name=instrument>
+    <restriction>a Tangible-Entity</restriction>
+    <comment>the connector</comment>
+  </primaryslot>
+  <wnsynsets><adj>attached#1
+  </adj></wnsynsets>
+  <wnsynsets>--
+  </wnsynsets>
+</component>
+
+<musing>
+Be-Attached-To respresents an asymmetric connection between two entities.
+One entity (the <slot>object</slot>) is restricted in movement relative
+to the other entity (the <slot>base</slot>). In particular, the
+<slot>object</slot> of the Be-Attached-To can only be the object of
+<conceptref name=Move>s in which the <slot>path</slot> is the 
+<slot>location</slot> of the <slot>base</slot> entity of the
+Be-Attached-To state. This is probably overly restrictive.<p>
+
+An object is put into a Be-Attached-To state by an <conceptref name=Attach>
+action. The object is taken out of the Be-Attached-To state by a
+<conceptref name=Detach> action. Note that the <slot>base</slot> of
+the <conceptref name=Attach> corresponds to the <slot>base</slot> of
+the Be-Attached-To, but the <slot>base</slot> slot of the
+<conceptref name=Detach> refers to the <slot>base</slot> of the 
+Be-Attached-To.
+</musing>
+
+</kml>
+
+

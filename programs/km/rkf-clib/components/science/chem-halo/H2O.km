@@ -1,0 +1,18 @@
+;; $Id: H2O.km,v 1.8 2007/09/11 19:34:28 tecuci Exp $ 
+(H2O has (superclasses (Ionic-Compound)))
+(every H2O has
+	(has-chemical-name ("water"))
+	(has-part ((a H-Plus)(a OH-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 OH-Minus)))))))
+	(nested-atomic-chemical-formula ((a Chemical-Formula with
+					    (term ((:seq
+						    (:pair 2 H)
+						    (:pair 1 O)))))))
+)
+(every H2O has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a OH-Minus))))
+

@@ -1,0 +1,61 @@
+;;
+;; $Id: Stand-Up.km,v 1.6 2005/10/25 03:02:11 sdbaji Exp $
+;;
+
+(Stand-Up has 
+  (superclasses (Orient))  
+  (description ("The act of standing up. To go to a state of Be-Standing."))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Stand-Up has
+  (agent    ((a Entity)))
+  (object   ((the agent of Self)))
+  (resulting-state ((a Be-Standing)))
+  (defeats  ((allof (the object-of of (the agent of Self))
+                    where
+                    (((the classes of It) = Be-Sitting) and
+                     ((the object of It) includes (the agent of Self))))))
+  
+  ;; Pre and Post conditions.
+  (pcs-list ((forall (the object of Self)
+                     (:triple
+                      It
+                      object-of
+                      (mustnt-be-a Be-Standing with
+                                   (object ((the agent of Self)))) [Stand-Up-pcs-1]))))
+  (add-list ((:triple
+              (the resulting-state of Self)
+              object
+              (the agent of Self) [Stand-Up-add-1])
+  ))
+
+  (del-list ((forall (the defeats of Self)
+                     (:triple It object (the agent of Self) [Stand-Up-del-1]))
+  ))
+)
+
+
+(comment [Stand-Up-pcs-1] (:seq (the agent of Self) " must not be standing already.")
+         "Something cannot stand up if it is already standing.")
+
+(comment [Stand-Up-add-1] (:seq (the agent of Self) " is now standing")
+         "A Stand-Up causes an Entity to be standing.")
+
+(comment [Stand-Up-del-1] (:seq (the agent of Self) " is no longer sitting")
+         "If an Entity is sitting, a Stand-Up stops the Entity from sitting.")
+
+
+(every Stand-Up has
+  (text-active-verbseq-sg ("stands"))
+  (text-active-verbseq-pl ("stand"))
+)
+
+
+(Stand-Up has (wn20-synset ((:set
+			(:triple "stand" 1 "v")
+			(:triple "stand_up" 4 "v")
+))))
+
+
+(every Stand-Up has (text-nominalization ("standing")))

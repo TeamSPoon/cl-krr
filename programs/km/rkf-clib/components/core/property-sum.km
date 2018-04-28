@@ -1,0 +1,28 @@
+;; $Id: property-sum.km,v 1.1 2007/10/16 00:12:45 jchaw Exp $
+
+(property-sum has 
+  (instance-of (Set-Aggregation-Slot))
+  (aggregation-function ('#'(LAMBDA (PVALS) (FIRST (PROPERTY-SUM-FUNCTION PVALS)))))
+)
+
+;; used like this:
+;; KM> (the property-sum of (:set _Length-Value9 _Length-Value10 _Length-Value11))
+;; (_Length-Value13)
+
+#|
+[_Situation11679] KM> (a Length-Value with (value ((:pair 2 *meter))))
+(_Length-Value12976)
+
+[_Situation11679] KM> (a Length-Value with (value ((:pair 3 *meter))))
+(_Length-Value12978)
+
+[_Situation11679] KM> (a Length-Value with (value ((:pair 4 *meter))))
+(_Length-Value12980)
+
+[_Situation11679] KM> (the property-sum of (:set _Length-Value12976
+_Length-Value12978 _Length-Value12980))
+(_Length-Value12987)
+
+[_Situation11679] KM> (the value of (_Length-Value12987))
+((:pair 9 *meter))
+|#

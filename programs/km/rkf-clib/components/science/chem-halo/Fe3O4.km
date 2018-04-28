@@ -1,0 +1,38 @@
+
+;;
+;; $Id: Fe3O4.km,v 1.11 2007/11/20 17:37:23 tecuci Exp $
+;;
+
+(Fe3O4 has (superclasses (Ionic-Compound)))
+
+(every Fe3O4 has
+       (has-chemical-name ("magnetite"))
+       (has-part ((a Fe-Plus-2) (a Fe-Plus-3) (a O-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 2 Fe-Plus-3)
+			 (:pair 1 Fe-Plus-2)
+			 (:pair 4 O-Minus-2)))))))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 3 Fe)
+			 (:pair 4 O)))))))
+       (atomic-chemical-formula 
+          ((a Chemical-Formula with
+                (term ((:seq (:pair 3 Fe)
+                         (:pair 4 O)))))))       
+       #|(has-chemical-formula 
+          ((a Chemical-Formula with
+                (term ((:seq (:pair 3 Fe)
+                         (:pair 4 O)))))))|#
+       )
+
+(every Fe3O4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("magnetite"))
+;;  (has-chemical-formula 
+;;   ((a Chemical-Formula with
+;;       (term ((:seq (:pair 3 Fe)
+;;		    (:pair 4 O)))))))
+   ;;(has-part ((a Fe-Plus-2) (a Fe-Plus-3) (a O-Minus-2)))
+)

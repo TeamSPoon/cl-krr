@@ -1,0 +1,135 @@
+;; 
+;;    $Id: Make-Contact.km,v 1.40 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Make-Contact has
+              (superclasses   (Action))
+              (required-slot  (object base))
+              (primary-slot   (agent))
+              (secondary-slot ())
+              (cmap-correspondence (
+                                    (:seq object "the things that Make-Contact")
+                                    (:seq agent "the Contact-Maker")
+				    (:seq base "the place Made-Contact to")
+				   ))
+	    #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Make-Contact has
+  (object       ((exactly 1 Tangible-Entity)
+		 (a Tangible-Entity)))
+
+  (base  	((exactly 1 Tangible-Entity)
+		 (a Tangible-Entity)))
+
+  (resulting-state ((a Be-Touching)))
+
+  ;; SOFT PCS: *** ASK KEN ***
+  (soft-pcs-list ((if (not ((the location of (the base of Self)) = 
+			    (the location of (the object of Self))))
+		      then
+		      (:triple (the object of Self)
+			       object-of
+			       (a Move with
+				  (destination ((the base of Self))))))))
+  
+  (pcs-list 	((:triple 
+		   (the object of Self)
+		   object-of 
+		   (mustnt-be-a Be-Touching with
+				(object ((the base of Self)))) [Make-Contact-pcs-1])
+		 (:triple
+		   (the base of Self)
+		   object-of
+		   (mustnt-be-a Be-Touching with
+				(object ((the object of Self)))) [Make-Contact-pcs-2])))
+
+  (add-list	((:set (:triple (the resulting-state of Self) object (the object of Self) [Make-Contact-add-1])
+		       (:triple (the resulting-state of Self) object (the base of Self) [Make-Contact-add-2])
+		       (:triple (the base of Self) abuts (the object of Self) [Make-Contact-add-3])
+		       (:triple (the object of Self) abuts (the base of Self) [Make-Contact-add-4])
+))))
+
+(comment  [Make-Contact-pcs-1] (:seq (the object of Self) " cannot already be touching " (the base of Self))
+	  "Things that are to come in contact cannot already be touching.")
+
+(comment  [Make-Contact-pcs-2] (:seq (the base of Self) " cannot already be touching " (the object of Self))
+	  "Things that are to come in contact cannot already be touching.")
+
+(comment  [Make-Contact-add-1] (:seq (the object of Self) " now touches " (the base of Self))
+	  "Things that make contact touch.")
+
+(comment  [Make-Contact-add-2] (:seq (the base of Self) " now touches " (the object of Self))
+	  "Things that make contact touch.")
+
+(comment  [Make-Contact-add-3] (:seq (the base of Self) " now abuts " (the object of Self))
+	  "Things that make contact must be next to each other.")
+
+(comment  [Make-Contact-add-4] (:seq (the object of Self) " now abuts " (the base of Self))
+	  "Things that make contact must be next to each other.")
+
+
+(every Make-Contact has
+  (text-active-verbseq-sg ("makes contact between"))
+  (text-active-verbseq-pl ("make contact between"))
+  (text-passive-verbseq-sg ("makes contact"))
+  (text-passive-verbseq-pl ("make contact"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("with"))))
+
+)
+
+(every Make-Contact has
+  (preparatory-event ((:default
+	(a Break-Contact with
+	   (object ((the object of Self)))
+	   (agent  ((the agent of Self)))
+	   (base   ((the base of Self)))
+)))))
+	
+
+
+(Make-Contact has
+   (test-case ('(
+                 (new-situation)
+                 (*mylips has (instance-of (Tangible-Entity)))
+                 (*yourlips has (instance-of (Tangible-Entity)))
+
+                 (not ((the abuts of *mylips) includes *yourlips))
+
+                 (a Make-Contact with
+                    (object (*mylips))
+                    (base (*yourlips)))
+                 (do-and-next (thelast Make-Contact))
+		 (the text-gen of (thelast Make-Contact))
+ (forall (the resulting-state of (thelast Make-Contact)) (the text-gen of It))
+                 (oneof (the Be-Touching object-of of *mylips)
+                        where ((the object of It) includes *yourlips))
+
+                 ((the abuts of *mylips) includes *yourlips)
+
+                 (a Break-Contact with
+                    (object (*yourlips))
+                    (base (*mylips)))
+                 (do-and-next (thelast Break-Contact))
+		  (the text-gen of (thelast Break-Contact))
+
+                 (not ((the abuts of *mylips) includes *yourlips))
+
+                 (not (has-value (the Be-Touching object-of of *mylips)))
+
+
+))))
+
+
+;; automatically added WN synsets
+(Make-Contact has (wn16-synset ((:set  
+                                           (:triple "touch" 1 "v")
+))))
+
+(Make-Contact has (wn20-synset ((:set
+                                           (:triple "touch" 1 "v")
+))))
+
+(every Make-Contact has (text-nominalization ("making")))

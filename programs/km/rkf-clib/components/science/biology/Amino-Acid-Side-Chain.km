@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Amino-Acid-Side-Chain.km,v 1.11 2001/05/18 13:13:52 souther Exp $ 
+;; 
+
+(Amino-Acid-Side-Chain has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("A chemical group which is attached to the alpha
+                             carbon in alpha amino acids.  For living 
+                             organisms, there are about 20 different side
+                             chains yielding 20 different amino acids which
+                             make up proteins. Souther. "))
+	      (cmap-correspondence ()))
+
+(every Amino-Acid-Side-Chain has
+     (is-part-of ((a Amino-Acid)))
+     (object-of ((a Be-Attached-To with
+                   (base ((the Alpha-Carbon has-part of 
+			       (the Amino-Acid is-part-of of Self)))
+			 ))))
+     )
+
+
+                                 
+
+
+
+

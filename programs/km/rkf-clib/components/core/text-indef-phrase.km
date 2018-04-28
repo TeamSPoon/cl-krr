@@ -1,0 +1,16 @@
+;; 
+;;    $Id: text-indef-phrase.km,v 1.2 2006/09/27 16:18:16 jchaw Exp $
+;; 
+
+
+(text-indef-phrase has
+   (instance-of (NL-Slot-Group))
+   (domain (Thing))                      ; Entity or Role
+   #|(range (Thing))|#                       ; sequence of strings etc.
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+   (dont-cache-values (t))
+   (inherit-with-overrides (t))
+)
+
+(text-indef-phrase-of has (instance-of (NL-Slot-Group)))

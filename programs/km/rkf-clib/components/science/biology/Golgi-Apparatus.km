@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Golgi-Apparatus.km,v 1.10 2001/05/17 20:22:45 jfan Exp $ 
+;; 
+
+(Golgi-Apparatus has
+         (superclasses (Organelle))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Membrane-bounded organelle in eucaryotic cells, where 
+                       the proteins and lipids made in the endoplasmic 
+                       reticulum are modified and sorted.  Alberts:ECB:G-8."))
+         (test-case ()))
+
+(every Golgi-Apparatus has
+       (has-part ((a Vesicle)
+		  (at-least 3 Vesicle)))
+       )
+
+;; need to capture the layered orientation of these vesicles and their
+;; spatial relation in the cell.
+

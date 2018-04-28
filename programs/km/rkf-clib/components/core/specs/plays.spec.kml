@@ -1,0 +1,31 @@
+<!--- $Id: plays.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=plays>
+
+
+<from name=Entity>
+<to name=Role>
+
+<description>
+	an Entity is playing the Role in an Event
+</description>
+
+<examplesentencelist>
+   <examplesentence>
+	<text><ex-from>a knife</ex-from> is playing <ex-to>the role of 
+	an instrument</ex-to> in a Pry Event.</text>
+   </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+   <neighbor name=purpose>
+	an Entity can play any number of Roles, while its purposes are limited.
+   </neighbor>
+
+   <neighbor name=in-event>
+	in-event emphasizes the Role and the Event in which it is played
+   </neighbor>
+</neighborlist>
+
+</kml>

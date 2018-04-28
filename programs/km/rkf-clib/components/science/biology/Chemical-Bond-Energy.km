@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Chemical-Bond-Energy.km,v 1.7 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Chemical-Bond-Energy has
+		     (superclasses (Chemical-Energy))
+		     (required-slot ())
+		     (primary-slot ())
+		     (secondary-slot ())
+                     (description ("The strength of the chemical linkage 
+                                    between two atoms, measured by the energy
+                                    in kilocalories/mole needed to break it.
+                                    Alberts:ECB:G-3."))
+		     (cmap-correspondence ()))
+
+
+
+(every Chemical-Bond-Energy has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

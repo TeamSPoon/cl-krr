@@ -1,0 +1,22 @@
+;; 
+;;    $Id: time-at.km,v 1.7 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(time-at has
+       (instance-of (Temporal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Event))
+       (range (Time-Instant))
+       (inverse (time-of))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+
+
+
+(time-at has (text-gloss ("occurs at")))
+
+(time-of has 
+	(instance-of (Temporal-Relation)))

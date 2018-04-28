@@ -1,0 +1,18 @@
+;;
+;;    $Id: RAM.km,v 1.5 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(RAM has 
+  (superclasses (Computer-Memory)))
+
+(RAM has (wn20-synset ((:set
+			(:triple "random-access_memory" 1 "n")
+			(:triple "random_access_memory" 1 "n")
+			(:triple "random_memory" 1 "n")
+			(:triple "RAM" 1 "n")
+			(:triple "read/write_memory" 1 "n")
+))))
+(RAM has
+  (feature-slot ((the feature-slot of Computer-Memory)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = RAM)))))
+

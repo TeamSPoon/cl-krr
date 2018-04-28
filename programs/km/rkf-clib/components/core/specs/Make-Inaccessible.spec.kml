@@ -1,0 +1,89 @@
+<!--- $Id: Make-Inaccessible.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Make-Inaccessible><system-documentation name=Make-Inaccessible>
+<superconcept name=Action>
+
+<definition>
+
+  Make some entity inaccessible, perhaps to prevent it from being acted upon.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's made inaccessible.  It's put 
+     in a <conceptref name=Be-Inaccessible> state by this action.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused this action
+  </slotdescription>
+
+  <slotdescription name=base>
+    the thing (entity or event) that the object becomes inaccessible to
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the object to become inaccessible
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John made the book unavailable for copying.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the book</slotdescription>
+    <slotdescription name=base>copying</slotdescription>
+  </examplesentence>
+  <comment>
+    The book may be available for other things, but not for copying.
+  </comment>
+
+  <examplesentence>
+    <text>By moving it to the top shelf, Mom made the cookie jar
+          inaccessible. </text>
+    <slotdescription name=agent>Mom</slotdescription>
+    <slotdescription name=object>the cookie jar</slotdescription>
+    <slotdescription name=by-means-of>moving the cookie jar to the top
+     shelf</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Conceal>
+     Conceal is more specific than Make-Inaccessible.  It hides an object 
+     from view.
+  </neighbor>
+  
+  <neighbor name=Close>
+     Close applies only to portal coverings.  It causes a portal to
+     become inaccessible to things moving through it.
+  </neighbor>
+
+  <neighbor name=Block>
+     Block is more specific than Make-Inaccessible.  It makes a path
+     inaccessible to things moving through it or along it.
+  </neighbor>
+
+  <neighbor name=Obstruct>
+     Obstruct is more specific than Make-Inaccessible.  It inhibits 
+     the movement of an object.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

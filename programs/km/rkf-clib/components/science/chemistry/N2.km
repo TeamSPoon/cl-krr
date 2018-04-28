@@ -1,0 +1,15 @@
+;;
+;; $Id: N2.km,v 1.4 2005/08/29 22:14:50 jfan Exp $
+;;
+
+(N2 has (superclasses (Molecular-Compound)))
+
+(every N2 has	
+       #|(has-chemical-formula ((a Chemical-Formula with
+			     (term ((:seq
+				     (:pair 2 N)))))))|#
+       (nested-atomic-chemical-formula (
+			  (a Chemical-Formula with
+			     (term ((:seq
+				     (:pair 2 N)))))))
+)

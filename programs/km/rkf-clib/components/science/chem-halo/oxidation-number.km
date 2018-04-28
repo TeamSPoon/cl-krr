@@ -1,0 +1,14 @@
+;;
+;;  $Id: oxidation-number.km,v 1.5 2007/11/02 20:44:36 mrglass Exp $
+;;
+
+(oxidation-number has
+    (instance-of (Property))
+    (domain      (Chemical-Entity))
+    (range       (Charge-Value))
+    (fluent-status (*Inertial-Fluent))
+    (inherit-with-overrides (t))
+    (inverse     (oxidation-number-of))
+    (cardinality (N-to-N)))
+
+(oxidation-number-of has (instance-of (Property)))

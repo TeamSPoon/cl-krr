@@ -1,0 +1,60 @@
+<!--- $Id: Teach.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Teach><system-documentation name=Teach>
+<superconcept name=Inform>
+
+<definition>
+
+  A <conceptref name=Teacher> informs a <conceptref name=Pupil> of 
+ <conceptref name=Information> not previously known by the pupil.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+   the <conceptref name=Tangible-Entity> that plays the role of
+   <conceptref name=Teacher>
+  </slotdescription>
+  
+  <slotdescription name=recipient>
+   the <conceptref name=Tangible-Entity> that plays the role of 
+   <conceptref name=Pupil>.  It's assumed that the pupil doesn't 
+   know the information before the event occurs
+
+  <slotdescription name=object>
+     the <conceptref name=Information> that's learned by the recipient
+  </slotdescription>
+	
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Tom taught Joe that Earth is a planet.</text>
+    <slotdescription name=agent>Tom</slotdescription>
+    <slotdescription name=recipient>Joe</slotdescription>
+    <slotdescription name=object>Earth is a planet</slotdescription>
+  </examplesentence>
+
+<neighborlist>
+
+  <neighbor name=Learn>
+    Learn involves an agent acquiring new knowledge, possibly without
+    the help of a teacher
+  </neighbor>
+ 
+
+ <neighbor name=Lie>
+    Lie involves expressing false information
+  </neighbor>
+
+ <neighbor name=Deceive>
+    Deceive is a lie that is believed by the recipient
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

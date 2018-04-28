@@ -1,0 +1,80 @@
+;;
+;;  $Id: Learn.km,v 1.12 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(Learn has 
+	(superclasses (Interpret))
+        (description ("Someone acquires knowledge not known before"))
+	(required-slot (agent object))
+	(primary-slot ())
+	(secondary-slot ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Learn has
+	;; SOFT PCS:
+	(soft-pcs-list ((:triple (the agent of Self)
+				 experiencer-of 
+				 (mustnt-be-a Be-Known with
+				   (object ((the object of Self)))))))
+
+	(dcs-list ((:triple
+		     (the agent of Self)
+		     experiencer-of
+		     (a Be-Known with 
+			(object ((the object of Self)))))))
+)	
+
+(Learn has 
+ (test-case ('( 
+       	       (*Fire-Is-Pretty-Hot has
+	        (instance-of (Information)))
+	       (*Little-Joe has
+	        (instance-of (Tangible-Entity)))
+	       
+	       ;; *Little-Joe learns that *Fire-Is-Pretty-Hot
+	       (*Learn has
+   		(instance-of (Learn))
+		(agent       (*Little-Joe))
+		(result      (*Fire-Is-Pretty-Hot)))
+
+		(not (the Be-Known experiencer-of of *Little-Joe))
+	       (do-and-next *Learn)
+		((the object of (the resulting-state of *Learn)) = *Fire-Is-Pretty-Hot)
+	       
+	       ((the experiencer of (the resulting-state of *Learn)) = *Little-Joe)
+	       
+
+	      
+))))
+
+			
+;; automatically added WN synsets
+(Learn has (wn16-synset ((:set  
+                                    (:triple "learn" 1 "v")
+                                    (:triple "learn" 2 "v")
+                                    (:triple "learn" 3 "v")
+                                    (:triple "learn" 4 "v")
+                                    (:triple "word" 1 "v")
+                                    (:triple "pick_up" 5 "v")
+                                    (:triple "out" 2 "v")
+                                    (:triple "discover" 2 "v")
+                                    (:triple "see" 6 "v")
+                                    (:triple "memorize" 1 "v")
+                                    (:triple "study" 4 "v")
+))))
+
+(Learn has (wn20-synset ((:set
+                                    (:triple "learn" 1 "v")
+                                    (:triple "learn" 2 "v")
+                                    (:triple "learn" 3 "v")
+                                    (:triple "learn" 4 "v")
+                                    (:triple "word" 1 "v")
+                                    (:triple "pick_up" 5 "v")
+                                    (:triple "out" 3 "v")
+                                    (:triple "discover" 3 "v")
+                                    (:triple "see" 6 "v")
+                                    (:triple "memorize" 1 "v")
+                                    (:triple "study" 4 "v")
+))))
+(every Learn has (text-nominalization ("learning")))

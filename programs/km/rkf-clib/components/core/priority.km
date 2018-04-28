@@ -1,0 +1,30 @@
+
+;;
+;; $Id: priority.km,v 1.7 2007/04/11 21:31:10 jchaw Exp $
+;;
+
+;; maybe this should only be a property of Events;
+;; then things like a "high priority product" would be loose-speak
+;; for "the product of a high priority project"
+
+(priority has
+  (instance-of           (EntityProperty EventProperty))
+  (domain                (Thing))
+  (range                 (Unitless-Value))
+  (scale-class           (Priority-Scale))
+  (scalar-constant-class (Priority-Constant))
+  (cardinal-unit-class   (UoM-Unitless))
+  (inverse               (priority-of))
+  (fluent-status         (*Inertial-Fluent))
+  (cardinality           (N-to-1))
+  (original-slot      (t))	
+)
+
+(priority has (wn20-synset ((:set
+                               (:triple "priority" 1 "n")
+                               (:triple "precedence" 1 "n")
+                               (:triple "precedency" 1 "n")
+))))
+
+(priority-of has
+	(instance-of (EntityProperty EventProperty)))

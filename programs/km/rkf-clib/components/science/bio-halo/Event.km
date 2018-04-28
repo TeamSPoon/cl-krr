@@ -1,0 +1,35 @@
+;;
+;;    $Id: Event.km,v 1.1 2009/06/05 16:17:20 kbarker Exp $
+;; 
+
+; these constraints hose chemistry when we assert them in core
+; so I've moved them to science/bio-halo
+(every Event has
+  (disjunctive-next-events ((<> Self)))
+  (disjunctive-next-events-of ((<> Self)))
+  (first-subevent ((<> Self)))
+  (first-subevent-of ((<> Self)))
+  (next-event ((<> Self)))
+  (prev-event ((<> Self)))
+  (subevent ((<> Self)))
+  (subevent-of ((<> Self)))
+  (by-means-of ((<> Self)))
+  (means-by-which ((<> Self)))
+  (causes ((<> Self)))
+  (caused-by ((<> Self)))
+  (defeats ((<> Self)))
+  (defeated-by ((<> Self)))
+  (enables ((<> Self)))
+  (enabled-by ((<> Self)))
+  (inhibits ((<> Self)))
+  (inhibited-by ((<> Self)))
+  (objective ((<> Self)))
+  (objective-of ((<> Self)))
+  (prevents ((<> Self)))
+  (prevented-by ((<> Self)))
+  (resulting-state ((<> Self)))
+  (resulting-state-of ((<> Self)))
+  (supports ((<> Self)))
+  (supported-by ((<> Self)))
+)
+

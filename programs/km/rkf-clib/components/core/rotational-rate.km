@@ -1,0 +1,21 @@
+;; 
+;; $Id: rotational-rate.km,v 1.6 2007/04/11 21:31:10 jchaw Exp $
+;; 
+
+(rotational-rate has
+  (instance-of (EventProperty))
+  (superslots  ())
+  (subslots    ())
+  (domain      (Event))    
+  (range       (Rotational-Rate-Value))
+  (scalar-constant-class (Rotational-Rate-Constant))
+  (cardinal-unit-class (UoM-Rotational-Rate))
+  (inverse     (rotational-rate-of))
+  (fluent-status (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (original-slot      (t))	
+  (cardinality (N-to-1))
+)
+
+(rotational-rate-of has
+	(instance-of (EventProperty)))

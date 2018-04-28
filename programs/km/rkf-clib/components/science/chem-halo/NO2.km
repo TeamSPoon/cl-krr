@@ -1,0 +1,20 @@
+;;
+;; $Id: NO2.km,v 1.7 2006/03/16 23:08:29 jfan Exp $
+;;
+
+(NO2 has (superclasses (Inorganic-Molecule)))
+
+(every NO2 has	
+       (has-chemical-name ("nitrogen dioxide"))
+       (nested-atomic-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 N)
+		    (:pair 2 O))))))))
+
+
+(every NO2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("nitrogen dioxide"))
+)

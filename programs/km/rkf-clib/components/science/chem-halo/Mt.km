@@ -1,0 +1,14 @@
+;;
+;; $Id: Mt.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Mt has (superclasses (Metal-Atom VIIIB-Element)))
+(every Mt has
+       (atomic-symbol (Mt))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 109 NIL))))))
+       (chemical-period (7)))
+(every Mt has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("meitnerium"))
+)

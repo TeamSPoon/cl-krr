@@ -1,0 +1,22 @@
+;;
+;; $Id: CH3NH3Cl.km,v 1.1 2003/03/27 17:26:10 wilder Exp $
+;;
+
+(CH3NH3Cl has (superclasses (Salt)))
+
+(every CH3NH3Cl has
+       (has-part ((a CH3NH3-Plus)
+		  (a Cl-Minus)))
+       
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 CH3NH3-Plus)
+					      (:pair 1 Cl-Minus))))))
+			     )
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 C)
+					      (:pair 3 H)
+					      (:pair 1 N)
+					      (:pair 3 H)
+					      (:pair 1 Cl))))))
+			     )
+       )

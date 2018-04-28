@@ -1,0 +1,21 @@
+;; 
+;;    $Id: TRNA-Charging.km,v 1.5 2004/01/30 22:02:43 kbarker Exp $ 
+;; 
+
+(TRNA-Charging has
+  (superclasses         (Attach Enzyme-Catalysis))
+  (required-slot        (object))
+  (primary-slot         (instrument agent base))
+  (secondary-slot       ())
+  (description    ("The attachment of an amino acid to the appropriate tRNA
+                    during RNA translation.  Souther.")))
+
+(every TRNA-Charging has
+       (object       ((a Amino-Acid)))
+       (agent  ((a Cell)))
+       (base ((a TRNA)))
+       (instrument ((a Amino-Acyl-TRNA-Synthetase)))
+       )
+
+
+(every TRNA-Charging has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

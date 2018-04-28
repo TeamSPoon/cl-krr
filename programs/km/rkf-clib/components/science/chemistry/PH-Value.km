@@ -1,0 +1,81 @@
+;;
+;; $Id: PH-Value.km,v 1.7 2005/02/14 22:39:43 kbarker Exp $
+;;
+
+(PH-Value has (superclasses (Property-Value)))
+
+(every PH-Value has
+  (property-slot (pH))
+       (pH-of ((must-be-a Chemical-Entity)))
+       (less-than ((must-be-a PH-Value)))
+       (greater-than ((must-be-a PH-Value)))
+       (same-as ((must-be-a PH-Value)))
+)
+       ;; ksm
+#|
+       (min-value 
+	((if ((the value of Self) includes (:pair *acidic Chemical-Entity)) 
+	     then (:pair 7 nil)
+	     else (if ((the value of Self) includes (:pair *neutral Chemical-Entity))
+		      then (:pair 7 nil)
+		      else (:pair 0 nil)))))
+       (max-value 
+	((if ((the value of Self) includes (:pair *basic Chemical-Entity))
+	     then (:pair 7 nil)
+	     else (if ((the value of Self) includes (:pair *neutral Chemical-Entity)) 
+		      then (:pair 7 nil)
+		      else (:pair 14 nil)))))
+       (computed-value
+	((if ((oneof (the value of Self) where ((the1 of It) isa Number)))
+	     then (if (7 > (the1 of (theoneof (the value of Self) where ((the1 of It) isa Number))))
+		      then (:pair *basic Chemical-Entity)
+		      else (if (7 < (the1 of (theoneof (the value of Self) where ((the1 of It) isa Number))))
+			       then (:pair *acidic Chemical-Entity)
+			       else (if (7 = (the1 of (theoneof (the value of Self) where ((the1 of It) isa Number))))
+					then (:pair *neutral Chemical-Entity)))))))
+			       
+       (value 
+	((if (7 < (the1 of (the min-value of Self))) 
+	     then (:pair *acidic Chemical-Entity)
+	     else (if (7 > (the1 of (the max-value of Self)))
+		      then (:pair *basic Chemical-Entity)
+		      else (if ((7 = (the1 of (the min-value of Self)))
+				and
+				(7 = (the1 of (the max-value of Self))))
+			       then (:pair *neutral Chemical-Entity))))
+	 (constraint 
+	  (not ((TheValue = (:pair *acidic Chemical-Entity))
+		and
+		((the value of Self) includes (:pair *basic Chemical-Entity)))))
+
+	 (constraint ((not ((the1 of TheValue) isa Number))		      
+		      or
+		      (((the1 of TheValue) >= (the1 of (the min-value of Self)))
+		       and
+		       ((the1 of TheValue) <= (the1 of (the max-value of Self)))))))))
+
+|#
+
+(PH-Value has
+   (test-case ('(
+                 (Drink has (superclasses (Substance)))
+                 (*mycoffee has (instance-of (Drink))
+                                (pH ((a PH-Value))))
+                 (*mybeer has (instance-of (Drink))
+                              (pH
+                                 ((a PH-Value with
+                                     (value ((:pair 300 NIL)
+                                             (:pair *basic Drink)
+                                             (:pair *acidic Water)
+                                     ))
+                                     (less-than
+                                        ((the pH of *mycoffee)))
+                              ))))
+
+                 (the value of (the pH of *mybeer))
+
+                 ((the less-than of (the pH of *mybeer))
+                       includes (the pH of *mycoffee))
+                 ((the greater-than of (the pH of *mycoffee))
+                       includes (the pH of *mybeer))
+))))

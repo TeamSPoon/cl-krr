@@ -1,0 +1,48 @@
+<!--- $Id: Reaction.spec.kml,v 1.1 2005/08/01 20:59:32 jchaw Exp $ --->
+
+<kml>
+<concept name=Reaction>
+
+
+<superconcept name=Action>
+
+  <definition>
+    A Reaction is the transformation of substances into chemically different substances.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=raw-material>
+     The chemicals to be transformed.
+   </slotdescription>
+   <slotdescription name=result>
+     The resulting chemicals.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>H2 reacts with O2 to form H2O.</text>
+     <slotdescription name=raw-material> H2 and O2.</slotdescription>
+     <slotdescription name=result> H2O.</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+     <text>Na reacts with H2O to form NaOH and H2.</text>
+     <slotdescription name=raw-material> Na and H2O</slotdescription>
+     <slotdescription name=result> NaOH and H2</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Mix>
+     A Mix differs from a reaction in the sense that it does not result in chemically different substances.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,18 @@
+
+;;
+;; $Id: Internal-Organ.km,v 1.2 2006/06/27 20:50:52 kbarker Exp $
+;;
+
+(Internal-Organ has (superclasses (Body-Part)))
+(every Internal-Organ has
+       (is-part-of ((a Multicellular-Organism)))
+       (has-part ((a Tissue)))
+       (agent-of ((a Event with 
+		     (site ((the Multicellular-Organism 
+				 is-part-of of Self))))))
+)
+
+(Internal-Organ has (wn20-synset ((:set 
+                                  (:triple "organ" 1 "n")
+))))
+

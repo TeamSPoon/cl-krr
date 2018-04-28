@@ -1,0 +1,45 @@
+
+;;; ---------- Definition of prototype for Plasmodesmata ----------
+
+(Plasmodesmata has (superclasses (Organic-Structure)))
+
+(_Plasmodesmata475 has 
+  (has-clones (_Plasmodesmata483
+               _Placeholder-Class474476
+               _Plasmodesmata296
+               _Plasmodesmata299))
+  (has-built-clones (_Plasmodesmata483
+                     _Placeholder-Class474476
+                     _Plasmodesmata296
+                     _Plasmodesmata299))
+  (instance-of (Plasmodesmata))
+  (prototype-of (Plasmodesmata))
+  (prototype-scope (Plasmodesmata))
+  (prototype-participants (_Plasmodesmata475
+                           _Organic-Molecule478))
+  (prototype-participant-of (_Plasmodesmata475))
+  (has-basic-structural-unit (_Organic-Molecule478))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Organic-Molecule478 243 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Organic-Molecule478 t))))
+
+(_Organic-Molecule478 has 
+  (has-clones (_Organic-Molecule484
+               _Organic-Molecule477
+               _Organic-Molecule295
+               _Organic-Molecule298))
+  (prototype-participant-of (_Plasmodesmata475))
+  (is-basic-structural-unit-of (_Plasmodesmata475))
+  (instance-of (Organic-Molecule))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 393 600)))
+  (node-visibility (t)))
+
+(explanation (:triple _Plasmodesmata475 has-basic-structural-unit _Organic-Molecule478) ((a Organic-Molecule (@ _Plasmodesmata475 Organic-Structure has-basic-structural-unit))))
+(explanation (:triple _Organic-Molecule478 instance-of Organic-Molecule) ((a Organic-Molecule (@ _Plasmodesmata475 Organic-Structure has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(Plasmodesmata now-has (user-description ("Plasmodesmata are channels in the plant cell wall that allow for some sharing of cytoplasm between cells.")))

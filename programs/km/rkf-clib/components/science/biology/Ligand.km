@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Ligand.km,v 1.6 2001/05/01 22:31:35 pnav Exp $ 
+;; 
+
+(Ligand has
+         (superclasses (Organic-Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Molecule such as a hormone or a neurotransmitter that
+                        that binds to a specific site on a protein.
+                        Alberts:ECB:G-10."))
+         (test-case ()))
+
+(every Ligand has 
+       (object-of ((a Attach with
+		      (object ((a Protein)))
+		      )))
+       )
+
+

@@ -1,0 +1,49 @@
+;;
+;;   $Id: Cool.km,v 1.12 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Cool has 
+  (superclasses  (Decrease))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Cool has-definition
+  (instance-of (Decrease))
+  (from-value ((a Temperature-Value)))
+)
+
+(every Cool has
+  (from-value ((a Temperature-Value with (temperature-of ((the base of Self))))))
+  (base ((a Tangible-Entity with (temperature ((the from-value of Self))))))
+)
+
+(Cool has
+   (test-case ('(
+                 (*mytea has (instance-of (Substance))
+                             (temperature (*myteatemperature)))
+                 (*myteatemperature has (instance-of (Temperature-Value))
+                                        (value ((:pair *hot Substance))))
+
+                 (a Decrease with (from-value (*myteatemperature))
+                                  (base ((*mytea)))
+                 )
+
+                 ((thelast Decrease) isa Cool)
+
+                 (do-and-next (thelast Cool))
+
+                 ((the less-than of (the temperature of *mytea))
+                       includes *myteatemperature)
+
+))))
+
+
+(Cool has (wn20-synset ((:set
+			 (:triple "cool" 1 "v")
+			 (:triple "chill" 2 "v")
+			 (:triple "cool_down" 1 "v")
+			 (:triple "cool" 2 "v")
+			 (:triple "chill" 3 "v")
+			 (:triple "cool_down" 3 "v")
+))))
+(every Cool has (text-nominalization ("cooling")))

@@ -1,0 +1,16 @@
+;;
+;; $Id: Kr-Molecule.km,v 1.2 2008/11/03 00:13:47 tecuci Exp $
+;;
+
+(Kr-Molecule has (superclasses (Monoatomic-Molecule Inorganic-Molecule)))
+
+(every Kr-Molecule has
+       (has-part ((a Kr)))
+       (has-chemical-name ("krypton"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Kr)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Kr)))))))
+       (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Kr))))))))
+
+(Kr-Molecule has (wn20-synset ((:set (:triple "krypton" 0 "n")
+				     (:triple "molecular krypton" 0 "n")
+				     ))))

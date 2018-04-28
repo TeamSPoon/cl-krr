@@ -1,0 +1,78 @@
+<!--- $Id: Restrain.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Restrain>
+<system-documentation name=Restrain>
+<superconcept name=Obstruct>
+
+<definition>
+  The object of a Restrain is prevented from moving.
+  This action results in the <slot>object</slot> being in a
+  <conceptref name=Be-Restrained> state, which can be undone by the 
+  <conceptref name=Unrestrain> action.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's restrained.  The object is put in a
+     <conceptref name=Be-Restrained> state by this action. 
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+  <slotdescription name=agent>
+     The Tangible-Entity that's restraining the object
+  </slotdescription>
+
+  <slotdescription name=site>
+    the place where the object is restrained
+  </slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The wrestler restrained his opponent on the mat.</text>
+    <slotdescription name=object>the opponent</slotdescription>
+    <slotdescription name=agent>the wrestler</slotdescription>
+    <slotdescription name=site>the mat</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Block>
+     Prevent things from moving through some place, or along some
+     object, by blocking such movements.
+  </neighbor>
+  
+  <neighbor name=Confine>
+     Confine is more specific than Obstruct.  It prevents the object
+     from moving out of its enclosure.
+  </neighbor>
+
+  <neighbor name=Hold>
+     Hold is more specific than Obstruct.  The object that's held can 
+     only be moved by the thing holding it.
+  </neighbor>
+
+  <neighbor name=Shut-Out>
+     Shut-Out is more specific than Obstruct.  It prevents
+     the object from moving into an enclosure.
+  </neighbor>
+
+  <neighbor name=Support>
+     Support is more specific than Obstruct.  It prevents
+     the object from falling.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

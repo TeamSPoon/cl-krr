@@ -1,0 +1,34 @@
+<!--- $Id: is-between.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=is-between>
+
+
+<from name=Spatial-Entity>
+<to name=Spatial-Entity>
+
+<description>
+	a place or object separates two others
+</description>
+
+<examplesentencelist>
+   <examplesentence>
+	<text><ex-from>The car</ex-from> passed between <ex-to>the tree</ex-to> and <ex-to>the post</ex-to>.</text>
+   </examplesentence>
+
+   <examplesentence>
+	<text><ex-from>Austin</ex-from> is between <ex-to>Dallas</ex-to> and <ex-to>San-Antonio</ex-to>.</text>
+   </examplesentence>
+</examplesentencelist>
+
+<comment>
+is-between is an unusual relationship because it relates three nodes, not
+the normal two.
+</comment>
+
+<neighborlist>
+   <neighbor name=is-near>
+	is-near is more general and does not imply any spatial ordering of the places or objects.
+   </neighbor>
+</neighborlist>
+
+</kml>

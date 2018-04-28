@@ -1,0 +1,29 @@
+;; 
+;;    $Id: UUA.km,v 1.15 2002/06/21 19:17:03 tecuci Exp $ 
+;; 
+
+(UUA has
+     (superclasses (Protein-Stop-Codon))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A codon in mRNA which signals the termination point for
+                        translation of a polypeptide.  Souther."))
+     (cmap-correspondence ())
+     (test-case ()))
+
+
+(every UUA has
+
+       (element-type (Ribonucleotide))
+       (first-element (((the UMP element of Self) called "first"))) 
+       (element ((a UMP called "first" with
+		    (next-element (((the UMP element of Self) called "second"))))
+		 (a UMP called "second" with
+		    (next-element (((the AMP element of Self) called "third"))))
+		 (a AMP called "third"))))
+
+
+
+
+

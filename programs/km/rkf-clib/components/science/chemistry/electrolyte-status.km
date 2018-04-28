@@ -1,0 +1,17 @@
+;;
+;;  $Id: electrolyte-status.km,v 1.2 2003/01/08 19:21:44 wilder Exp $
+;;
+
+(electrolyte-status has
+		    (instance-of (Property))
+		    (superslots  ())
+		    (subslots    ())
+		    (domain      (Ionic-Compound-Substance))
+		    (range       (Electrolyte-Status-Value))
+		    (cardinal-unit-class (UoM-Unitless))
+		    (scalar-constant-class (Electrolyte-Status-Constant))
+		    (fluent-status (*Inertial-Fluent))
+		    (inherit-with-overrides (t))
+		    (inverse     (electrolyte-status-of))
+		    (cardinality (N-to-1))
+		    )

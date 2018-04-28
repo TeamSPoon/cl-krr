@@ -1,0 +1,20 @@
+;; 
+;;  $Id: concentration.km,v 1.2 2002/11/20 19:22:04 kbarker Exp $
+;; 
+
+(concentration has
+  (instance-of (Property))
+  (domain      (Chemical))
+  (range       (Concentration-Value))
+  (scalar-constant-class (Concentration-Constant))   
+  (cardinal-unit-class   (UoM-Concentration))   
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     (concentration-of))
+  (cardinality (N-to-1))
+)
+
+(concentration-of has
+  (combine-values-by-appending (t))
+)
+

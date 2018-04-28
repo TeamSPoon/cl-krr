@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Nucleoside.km,v 1.8 2001/05/04 21:43:51 souther Exp $ 
+;; 
+
+(Nucleoside has
+         (superclasses (Organic-Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Compound composed of a purine or pyrimidine base linked
+                        to either a ribose or a deoxyribose sugar. 
+                        Alberts:ECB:G-13."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Nucleoside has
+       (has-part ((a Pentose)
+		  (a Nitrogenous-Base with
+		     (instance-of
+		      ((possible-values Purine Pyrimidine))))
+		  ))  
+       )

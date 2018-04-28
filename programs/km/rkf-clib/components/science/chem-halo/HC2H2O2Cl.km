@@ -1,0 +1,14 @@
+;; $Id: HC2H2O2Cl.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HC2H2O2Cl has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HC2H2O2Cl has
+	(has-chemical-name ("chloride acetate"))
+	(has-part ((a H-Plus)(a C2H2O2Cl-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 C2H2O2Cl-Minus)))))))
+)
+(every HC2H2O2Cl has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C2H2O2Cl-Minus))))
+

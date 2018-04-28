@@ -1,0 +1,46 @@
+;; 
+;;    $Id: DNA-Melting.km,v 1.18 2004/01/30 22:02:42 kbarker Exp $
+;; 
+
+(DNA-Melting has
+  (superclasses         (Divide))
+  (required-slot        (object))
+  (primary-slot         (agent result instrument))
+  (secondary-slot       ())
+  (description ("The separation of the two strands of a DNA molecule.  Can be
+                 caused by sufficiently high temperatures or by an enzyme.
+                 Souther."))
+  )
+
+(every DNA-Melting has
+  (object 
+    ((a DNA-Double-Strand with
+	(has-part
+	  ((a DNA-Molecule-Segment
+	      called "segment containing AT-rich sequences" with
+	      (has-part 
+		((a Aggregate called "AT Base Pairs" with
+
+		    (element-type (A-T-Base-Pair))
+		    (number-of-elements ((constraint 
+				      TheValue > 
+				      (the number-of-elements of
+					   (the Aggregate has-part of
+						(the DNA-Molecule-Segment object-of
+						     (the DNA-Melting subevent of Self))
+					   called "G-C Base Pairs"))))))
+		 (a Aggregate called "G-C Base Pairs" with
+
+		    (element-type (G-C-Base-Pair) ))))))))))
+  
+  (result ((a DNA-Sequence called "DNA-Sequence-1" with
+	      (complement (((the DNA-Sequence result of Self)
+			    called "DNA-Sequence-2"))))
+	   
+	   (a DNA-Sequence called "DNA-Sequence-2" with
+	      (complement (((the DNA-Sequence result of Self)
+			    called "DNA-Sequence-1"))))
+	   )))
+
+
+(every DNA-Melting has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,22 @@
+;;
+;; $Id: Money.km,v 1.5 2004/09/08 01:22:58 gking Exp $
+;;
+
+(Money has 
+  (superclasses (Intangible-Entity))
+)
+
+(every Money has
+  (purpose ((a Resource with 
+	       (in-event ((a Buy with
+			     (instrument ((Self)))))))
+	    (a Resource with 
+	       (in-event ((a Sell with
+			     (instrument ((Self)))))))))
+  (worth ((a Worth-Value)))
+)
+
+(Money has (wn20-synset ((:set
+			  (:triple "money" 1 "n")
+			  (:triple "money" 3 "n")
+))))

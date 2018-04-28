@@ -1,0 +1,36 @@
+;; 
+;;    $Id: possesses.km,v 1.17 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(possesses has
+	    (instance-of   	(Participant-Relation))
+	    (superslots    	())
+	    (subslots      	())
+	    (domain 	   	(Entity))
+	    (range 	   	(Entity))
+	    (inverse 	   	(is-possessed-by))
+	    (fluent-status 	(*Inertial-Fluent))
+            (original-slot      (t))	
+	    (cardinality   	(N-to-N)))
+
+(is-possessed-by has
+	(instance-of (Participant-Relation))
+	(text-slot (text-is-possessed-by))
+)
+
+(text-possesses has 
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+   (inherit-with-overrides (t))
+   (inverse (text-is-possessed-by)))
+
+(text-is-possessed-by has
+   (instance-of (NL-Slot-Group)))
+
+(possesses has (text-gloss ("possesses")))
+(is-possessed-by has (text-gloss ("is possessed by")))

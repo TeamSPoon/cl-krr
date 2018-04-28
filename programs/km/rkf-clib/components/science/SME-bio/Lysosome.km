@@ -1,0 +1,492 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Lysosome ----------
+
+(Lysosome has (superclasses (Organelle Membrane-Enclosure Tangible-Entity Spatial-Entity Entity)))
+
+(_Lysosome589 has 
+  (has-clones (_Lysosome592
+               _Lysosome643
+               _Lysosome348
+               _Lysosome789))
+  (has-built-clones (_Lysosome592
+                     _Lysosome643
+                     _Lysosome348
+                     _Lysosome789))
+  (instance-of (Lysosome))
+  (prototype-of (Lysosome))
+  (prototype-scope (Lysosome))
+  (prototype-participants (_Be-Contained346
+                           _Container345
+                           _Shape-Value344
+                           _Spatial-Entity343
+                           _Lysosome589
+                           _Physical-Object494
+                           _Living-Entity495
+                           _Tangible-Entity496
+                           _Carbohydrate518
+                           _Atom521
+                           _Polysaccharide522
+                           _Atom523
+                           _Lipid524
+                           _Atom525
+                           _Take-Apart526
+                           _Subcellular-Entity527
+                           _Tangible-Entity528))
+  (prototype-participant-of (_Lysosome589))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (encloses (_Tangible-Entity496
+             _Physical-Object494))
+  (is-part-of (_Living-Entity495))
+  (edge-coordinate ((:seq encloses _Tangible-Entity496 299 516)
+                    (:seq encloses _Physical-Object494 299 516)
+                    (:seq shape _Shape-Value344 224 570)
+                    (:seq plays _Container345 -57 538)
+                    (:seq is-between _Spatial-Entity343 224 648)
+                    (:seq is-between _Physical-Object494 224 648)
+                    (:seq is-between _Tangible-Entity496 224 648)))
+  (edge-visibility ((:seq encloses _Tangible-Entity496 t)
+                    (:seq encloses _Physical-Object494 t)
+                    (:seq shape _Shape-Value344 f)
+                    (:seq plays _Container345 t)
+                    (:seq is-between _Spatial-Entity343 t)
+                    (:seq is-between _Physical-Object494 t)
+                    (:seq is-between _Tangible-Entity496 t)))
+  (instrument-of (_Be-Contained346))
+  (plays (_Container345))
+  (shape (_Shape-Value344))
+  (does-not-enclose (_Spatial-Entity343))
+  (is-between (_Tangible-Entity496
+               _Physical-Object494
+               _Spatial-Entity343))
+  (node-never-visible (f))
+  (edge-never-visible ((:seq shape _Shape-Value344 t)
+                       (:seq plays _Container345 t)
+                       (:seq is-between _Spatial-Entity343 t)
+                       (:seq is-between _Physical-Object494 t)
+                       (:seq is-between _Tangible-Entity496 t))))
+
+(_Be-Contained346 has 
+  (has-clones (_Be-Contained1166
+               _Be-Contained1598
+               _Block466
+               _Be-Contained793))
+  (prototype-participant-of (_Lysosome589))
+  (instrument (_Lysosome589))
+  (object (_Physical-Object494))
+  (in-event-of (_Container345))
+  (instance-of (Be-Contained
+                Block))
+  (node-visibility (f))
+  (edge-coordinate ((:seq instrument _Lysosome589 -465 583)
+                    (:seq object _Physical-Object494 -454 600)))
+  (edge-visibility ((:seq instrument _Lysosome589 f)
+                    (:seq object _Physical-Object494 f)))
+  (node-coordinate ((:pair -604 600)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq instrument _Lysosome589 t)
+                       (:seq object _Physical-Object494 t))))
+
+(_Container345 has 
+  (has-clones (_Container1168
+               _Container1600
+               _Container465
+               _Container792))
+  (prototype-participant-of (_Lysosome589))
+  (played-by (_Lysosome589))
+  (content (_Physical-Object494))
+  (instance-of (Container))
+  (in-event (_Be-Contained346))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-visibility ((:seq in-event _Be-Contained346 f)
+                    (:seq content _Physical-Object494 t)))
+  (edge-coordinate ((:seq in-event _Be-Contained346 -187 482)
+                    (:seq content _Physical-Object494 -324 549)))
+  (node-coordinate ((:pair -343 499)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq in-event _Be-Contained346 t)
+                       (:seq content _Physical-Object494 t))))
+
+(_Shape-Value344 has 
+  (has-clones (_Shape-Value1163
+               _Shape-Value1595
+               _Shape-Value464
+               _Shape-Value791))
+  (prototype-participant-of (_Lysosome589))
+  (shape-of (_Lysosome589))
+  (instance-of (Shape-Value))
+  (value (*hollow-volume))
+  (node-visibility (f))
+  (node-coordinate ((:pair 374 565)))
+  (edge-visibility ((:seq value *hollow-volume f)))
+  (node-never-visible (t)))
+
+(_Spatial-Entity343 has 
+  (has-clones (_Spatial-Entity1164
+               _Spatial-Entity1596
+               _Spatial-Entity467
+               _Spatial-Entity790))
+  (prototype-participant-of (_Lysosome589))
+  (is-outside (_Lysosome589))
+  (is-between-of (_Lysosome589))
+  (instance-of (Spatial-Entity))
+  (node-visibility (f))
+  (node-coordinate ((:pair 374 607)))
+  (edge-coordinate ((:seq is-outside _Lysosome589 540 613)))
+  (edge-visibility ((:seq is-outside _Lysosome589 f)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq is-outside _Lysosome589 t))))
+
+(_Physical-Object494 has 
+  (has-clones (_Digestive-enzyme1167
+               _Digestive-enzyme1599
+               _Physical-Object356
+               _Digestive-enzyme788))
+  (prototype-participant-of (_Lysosome589))
+  (is-inside (_Lysosome589))
+  (is-between-of (_Lysosome589))
+  (agent-of (_Take-Apart526))
+  (instance-of (Digestive-enzyme
+                Tangible-Entity
+                Spatial-Entity
+                Entity
+                Thing
+                Physical-Object
+                Enzyme))
+  (object-of (_Be-Contained346))
+  (content-of (_Container345))
+  (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container345))))))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 7 386)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq is-inside _Lysosome589 -100 606)))
+  (edge-visibility ((:seq is-inside _Lysosome589 t)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq is-inside _Lysosome589 t))))
+
+(_Living-Entity495 has 
+  (has-clones (_Animal-Cell215
+               _Human-cell568
+               _Animal-Cell295
+               _Living-Entity787))
+  (prototype-participant-of (_Lysosome589))
+  (has-part (_Lysosome589))
+  (instance-of (Living-Entity))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Lysosome589 -569 385)))
+  (edge-visibility ((:seq has-part _Lysosome589 f)))
+  (node-coordinate ((:pair -719 385)))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-part _Lysosome589 t))))
+
+(_Tangible-Entity496 has 
+  (has-clones (_Chemical-Entity1165
+               _Chemical-Entity1597
+               _Tangible-Entity347
+               _Tangible-Entity785))
+  (prototype-participant-of (_Lysosome589))
+  (is-inside (_Lysosome589))
+  (is-between-of (_Lysosome589))
+  (instance-of (Tangible-Entity
+                Chemical-Entity
+                Physical-Object
+                Spatial-Entity))
+  (edge-coordinate ((:seq pH _PH-Value479 598 410)
+                    (:seq pH _PH-Value784 644 300)
+                    (:seq is-inside _Lysosome589 540 683)))
+  (edge-visibility ((:seq pH _PH-Value479 t)
+                    (:seq pH _PH-Value784 t)
+                    (:seq is-inside _Lysosome589 t)))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 374 677)))
+  (node-visibility (t))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq is-inside _Lysosome589 t))))
+
+(_Carbohydrate518 has 
+  (has-clones (_Carbohydrate1169
+               _Carbohydrate1601
+               _Carbohydrate349
+               _Carbohydrate774))
+  (prototype-participant-of (_Lysosome589))
+  (is-basic-structural-unit-of (_Polysaccharide522))
+  (has-basic-structural-unit (_Atom521))
+  (instance-of (Carbohydrate))
+  (cloned-from (_Carbohydrate669
+                _Carbohydrate445))
+  (clone-built-from (_Carbohydrate669))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 557 511)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom521 743 517)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom521 f)))
+  (node-visibility (f))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-basic-structural-unit _Atom521 t))))
+
+(_Atom521 has 
+  (has-clones (_Atom1170
+               _Atom1602
+               _Atom350
+               _Atom772))
+  (prototype-participant-of (_Lysosome589))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Carbohydrate518))
+  (cloned-from (_Atom672
+                _Atom446))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 893 511)))
+  (node-visibility (f))
+  (node-never-visible (t)))
+
+(_Polysaccharide522 has 
+  (has-clones (_Polysaccharide1171
+               _Synthesis2468
+               _Polysaccharide1603
+               _Polysaccharide351
+               _Thing630))
+  (prototype-participant-of (_Lysosome589))
+  (object-of (_Take-Apart526))
+  (has-basic-structural-unit (_Atom523
+                              _Carbohydrate518))
+  (instance-of (Thing
+                Polysaccharide
+                Carbohydrate))
+  (cloned-from (_Carbohydrate669
+                _Polysaccharide435))
+  (clone-built-from (_Carbohydrate669
+                     _Polysaccharide435))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Carbohydrate518 407 535)
+                    (:seq has-basic-structural-unit _Atom523 407 535)))
+  (edge-visibility ((:seq has-basic-structural-unit _Carbohydrate518 f)
+                    (:seq has-basic-structural-unit _Atom523 f)))
+  (node-coordinate ((:pair 217 529)))
+  (node-visibility (t))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-basic-structural-unit _Carbohydrate518 t)
+                       (:seq has-basic-structural-unit _Atom523 t))))
+
+(_Atom523 has 
+  (has-clones (_Atom1172
+               _Atom1604
+               _Atom352
+               _Atom629))
+  (prototype-participant-of (_Lysosome589))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Polysaccharide522))
+  (cloned-from (_Atom672
+                _Atom447))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 557 546)))
+  (node-visibility (f))
+  (node-never-visible (t)))
+
+(_Lipid524 has 
+  (has-clones (_Lipid1173
+               _Mitochondrion-outer-membrane2433
+               _Atom2461
+               _Lipid1605
+               _Lipid353
+               _Thing612))
+  (prototype-participant-of (_Lysosome589))
+  (object-of (_Take-Apart526))
+  (has-basic-structural-unit (_Atom525))
+  (instance-of (Thing
+                Lipid))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 245 593)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom525 385 599)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom525 f)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq has-basic-structural-unit _Atom525 t))))
+
+(_Atom525 has 
+  (has-clones (_Atom1174
+               _Atom1606
+               _Atom354
+               _Atom611))
+  (prototype-participant-of (_Lysosome589))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Lipid524))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 535 593)))
+  (node-visibility (f))
+  (node-never-visible (t)))
+
+(_Take-Apart526 has 
+  (has-clones (_Take-Apart1175
+               _Take-Apart1607
+               _Take-Apart355
+               _Take-Apart175))
+  (prototype-participant-of (_Lysosome589))
+  (object (_Tangible-Entity528
+           _Polysaccharide522
+           _Lipid524
+           _Subcellular-Entity527))
+  (instance-of (Take-Apart))
+  (agent (_Physical-Object494))
+  (edge-coordinate ((:seq agent _Physical-Object494 -57 432)
+                    (:seq object _Subcellular-Entity527 141 458)
+                    (:seq object _Lipid524 141 458)
+                    (:seq object _Polysaccharide522 141 458)
+                    (:seq object _Tangible-Entity528 141 458)))
+  (edge-visibility ((:seq agent _Physical-Object494 t)
+                    (:seq object _Subcellular-Entity527 t)
+                    (:seq object _Lipid524 t)
+                    (:seq object _Polysaccharide522 t)
+                    (:seq object _Tangible-Entity528 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair -17 476)))
+  (node-visibility (t))
+  (edge-never-visible ((:seq agent _Physical-Object494 t)
+                       (:seq object _Subcellular-Entity527 t)
+                       (:seq object _Lipid524 t)
+                       (:seq object _Polysaccharide522 t)
+                       (:seq object _Tangible-Entity528 t)))
+  (node-never-visible (t)))
+
+(_Subcellular-Entity527 has 
+  (has-clones (_Subcellular-Entity1176
+               _Subcellular-Entity1608
+               _Subcellular-Entity357
+               _Subcellular-Entity174))
+  (prototype-participant-of (_Lysosome589))
+  (instance-of (Subcellular-Entity
+                Thing))
+  (object-of (_Take-Apart526))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 209 427)))
+  (node-visibility (t))
+  (node-never-visible (t)))
+
+(_Tangible-Entity528 has 
+  (has-clones (_Protein1177
+               _Protein1609
+               _Tangible-Entity358
+               _Tangible-Entity173))
+  (prototype-participant-of (_Lysosome589))
+  (instance-of (Tangible-Entity
+                Protein
+                Thing))
+  (object-of (_Take-Apart526))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 231 483)))
+  (node-visibility (t))
+  (node-never-visible (t)))
+
+(explanation (:triple _Lysosome589 instance-of Entity) ((a Entity with (abuts ((if (has-value (the agent of _Be-Contained346) (@ _Be-Contained346 Event (instrument must-be-a) Entity abuts)) then (the agent of _Be-Contained346 (@ _Be-Contained346 Event (instrument must-be-a) Entity abuts)) (@ _Be-Contained346 Event (instrument must-be-a) Entity abuts)))) (@ _Be-Contained346 Event (instrument must-be-a)))))
+(explanation (:triple _Lysosome589 instance-of Entity) ((a Entity (@ _Be-Contained346 Action (instrument must-be-a)))))
+(explanation (:triple _Lysosome589 instrument-of _Be-Contained346) ((the in-event of _Container345 (@ _Container345 Barrier played-by Tangible-Entity instrument-of))))
+(explanation (:triple _Lysosome589 shape _Shape-Value344) ((a Shape-Value with (value ((*hollow-volume (@ _Container345 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container345 Container played-by Tangible-Entity shape))))
+(explanation (:triple _Lysosome589 is-between _Physical-Object494) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container345)))))) (@ _Container345 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Lysosome589 is-between _Tangible-Entity496) ((a Spatial-Entity (@ _Container345 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Lysosome589 is-between _Spatial-Entity343) ((the does-not-enclose of (the played-by of _Container345) (@ _Container345 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Lysosome589 is-between _Physical-Object494) ((the encloses of (the played-by of _Container345) (@ _Container345 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Lysosome589 is-between _Tangible-Entity496) ((the encloses of (the played-by of _Container345) (@ _Container345 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Lysosome589 does-not-enclose _Spatial-Entity343) ((a Spatial-Entity with (is-outside ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container345 Container played-by Tangible-Entity does-not-enclose))))
+(explanation (:triple _Lysosome589 encloses _Tangible-Entity496) ((a Spatial-Entity with (is-inside ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container345 Container played-by Tangible-Entity encloses))))
+(explanation (:triple _Lysosome589 instance-of Tangible-Entity) ((a Tangible-Entity with (instrument-of ((the in-event of _Container345 (@ _Container345 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Container345 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container345)))))) (@ _Container345 Barrier played-by Tangible-Entity is-between)))) (@ _Container345 Barrier played-by))))
+(explanation (:triple _Lysosome589 instance-of Tangible-Entity) ((a Tangible-Entity with (encloses ((a Spatial-Entity with (is-inside ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container345 Container played-by Tangible-Entity encloses)))) (does-not-enclose ((a Spatial-Entity with (is-outside ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container345 Container played-by Tangible-Entity does-not-enclose)))) (is-between ((the encloses of (the played-by of _Container345) (@ _Container345 Container played-by Tangible-Entity is-between)) (the does-not-enclose of (the played-by of _Container345) (@ _Container345 Container played-by Tangible-Entity is-between)))) (shape ((a Shape-Value with (value ((*hollow-volume (@ _Container345 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container345 Container played-by Tangible-Entity shape)))) (@ _Container345 Container played-by))))
+(explanation (:triple _Lysosome589 plays _Container345) ((added-at Lysosome "User defined")))
+(explanation (:triple _Lysosome589 encloses _Tangible-Entity496) ((a Physical-Object (@ _Lysosome589 Membrane-Enclosure encloses))))
+(explanation (:triple _Lysosome589 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Physical-Object494 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Lysosome589 encloses _Tangible-Entity496) ((added-at Lysosome "User defined")))
+(explanation (:triple _Lysosome589 is-part-of _Living-Entity495) ((a Living-Entity (@ _Lysosome589 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Lysosome589 encloses _Physical-Object494) ((a Physical-Object (@ _Lysosome589 Membrane-Enclosure encloses))))
+(explanation (:triple _Lysosome589 instance-of Membrane-Enclosure) ((added-at Lysosome "User defined")))
+(explanation (:triple _Be-Contained346 instrument _Lysosome589) ((the played-by of _Container345 (@ _Container345 Container in-event Be-Contained instrument))))
+(explanation (:triple _Be-Contained346 object _Physical-Object494) ((a Entity (@ _Be-Contained346 Make-Inaccessible object))))
+(explanation (:triple _Be-Contained346 object _Physical-Object494) ((a Spatial-Entity (@ _Be-Contained346 Block object))))
+(explanation (:triple _Be-Contained346 object _Physical-Object494) ((a Tangible-Entity (@ _Be-Contained346 Be-Contained object))))
+(explanation (:triple _Be-Contained346 object _Physical-Object494) ((the content of _Container345 (@ _Container345 Container in-event Be-Contained object))))
+(explanation (:triple _Be-Contained346 instance-of Block) ((a Block with (object ((the location of _Container345 (@ _Container345 Barrier in-event Block object)))) (@ _Container345 Barrier in-event))))
+(explanation (:triple _Be-Contained346 instance-of Be-Contained) ((a Be-Contained with (object ((the content of _Container345 (@ _Container345 Container in-event Be-Contained object)))) (instrument ((the played-by of _Container345 (@ _Container345 Container in-event Be-Contained instrument)))) (@ _Container345 Container in-event))))
+(explanation (:triple _Container345 in-event _Be-Contained346) ((a Block with (object ((the location of _Container345 (@ _Container345 Barrier in-event Block object)))) (@ _Container345 Barrier in-event))))
+(explanation (:triple _Container345 in-event _Be-Contained346) ((a Be-Contained with (object ((the content of _Container345 (@ _Container345 Container in-event Be-Contained object)))) (instrument ((the played-by of _Container345 (@ _Container345 Container in-event Be-Contained instrument)))) (@ _Container345 Container in-event))))
+(explanation (:triple _Container345 content _Physical-Object494) ((added-at Lysosome "User defined")))
+(explanation (:triple _Container345 played-by _Lysosome589) ((a Tangible-Entity with (instrument-of ((the in-event of _Container345 (@ _Container345 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Container345 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container345)))))) (@ _Container345 Barrier played-by Tangible-Entity is-between)))) (@ _Container345 Barrier played-by))))
+(explanation (:triple _Container345 played-by _Lysosome589) ((a Tangible-Entity with (encloses ((a Spatial-Entity with (is-inside ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container345 Container played-by Tangible-Entity encloses)))) (does-not-enclose ((a Spatial-Entity with (is-outside ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container345 Container played-by Tangible-Entity does-not-enclose)))) (is-between ((the encloses of (the played-by of _Container345) (@ _Container345 Container played-by Tangible-Entity is-between)) (the does-not-enclose of (the played-by of _Container345) (@ _Container345 Container played-by Tangible-Entity is-between)))) (shape ((a Shape-Value with (value ((*hollow-volume (@ _Container345 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container345 Container played-by Tangible-Entity shape)))) (@ _Container345 Container played-by))))
+(explanation (:triple _Container345 instance-of Container) ((added-at Lysosome "User defined")))
+(explanation (:triple _Shape-Value344 instance-of Shape-Value) ((a Shape-Value with (value ((*hollow-volume (@ _Container345 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container345 Container played-by Tangible-Entity shape))))
+(explanation (:triple _Shape-Value344 property-slot shape) ((the range-of of (the instance-of of _Shape-Value344) (@ _Shape-Value344 Property-Value property-slot))))
+(explanation (:triple _Shape-Value344 value *hollow-volume) (((FUNCTION (LAMBDA NIL (COND ((FBOUNDP (QUOTE EQUATION-SOLVE)) (EQUATION-SOLVE (QUOTE _Shape-Value344)))))) (@ _Shape-Value344 Property-Value value))))
+(explanation (:triple _Shape-Value344 value *hollow-volume) ((*hollow-volume (@ _Container345 Container played-by Tangible-Entity shape Shape-Value value))))
+(explanation (:triple _Spatial-Entity343 is-outside _Lysosome589) ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside))))
+(explanation (:triple _Spatial-Entity343 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Lysosome589 Spatial-Entity (does-not-enclose must-be-a)))))
+(explanation (:triple _Spatial-Entity343 instance-of Spatial-Entity) ((a Spatial-Entity with (is-outside ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container345 Container played-by Tangible-Entity does-not-enclose))))
+(explanation (:triple _Physical-Object494 instance-of Entity) ((a Entity)))
+(explanation (:triple _Physical-Object494 instance-of Spatial-Entity) ((a Spatial-Entity)))
+(explanation (:triple _Physical-Object494 instance-of Physical-Object) ((a Physical-Object (@ _Lysosome589 Membrane-Enclosure encloses))))
+(explanation (:triple _Physical-Object494 instance-of Enzyme) ((added-at Lysosome "User defined")))
+(explanation (:triple _Physical-Object494 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Take-Apart526) (@ _Take-Apart526 Event (agent must-be-a) Entity abuts)) then (the instrument of _Take-Apart526 (@ _Take-Apart526 Event (agent must-be-a) Entity abuts)) (@ _Take-Apart526 Event (agent must-be-a) Entity abuts)))) (@ _Take-Apart526 Event (agent must-be-a)))))
+(explanation (:triple _Physical-Object494 instance-of Thing) ((a Thing (@ _Be-Contained346 Action (object must-be-a)))))
+(explanation (:triple _Physical-Object494 instance-of Entity) ((a Entity (@ _Be-Contained346 Make-Inaccessible object))))
+(explanation (:triple _Physical-Object494 instance-of Tangible-Entity) ((a Tangible-Entity)))
+(explanation (:triple _Physical-Object494 instance-of Spatial-Entity) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container345)))))) (@ _Container345 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Physical-Object494 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Lysosome589 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Physical-Object494 is-inside _Lysosome589) ((the played-by of _Container345 (@ _Container345 Container (content must-be-a) Tangible-Entity is-inside))))
+(explanation (:triple _Physical-Object494 instance-of Tangible-Entity) ((a Tangible-Entity with (is-inside ((the played-by of _Container345 (@ _Container345 Container (content must-be-a) Tangible-Entity is-inside)))) (@ _Container345 Container (content must-be-a)))))
+(explanation (:triple _Physical-Object494 instance-of Digestive-enzyme) ((added-at Lysosome "User defined")))
+(explanation (:triple _Living-Entity495 instance-of Living-Entity) ((a Living-Entity (@ _Lysosome589 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Tangible-Entity496 instance-of Physical-Object) ((a Physical-Object)))
+(explanation (:triple _Tangible-Entity496 is-inside _Lysosome589) ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity encloses Spatial-Entity is-inside))))
+(explanation (:triple _Tangible-Entity496 instance-of Spatial-Entity) ((a Spatial-Entity with (is-inside ((the played-by of _Container345 (@ _Container345 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container345 Container played-by Tangible-Entity encloses))))
+(explanation (:triple _Tangible-Entity496 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Lysosome589 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Tangible-Entity496 instance-of Physical-Object) ((a Physical-Object (@ _Lysosome589 Membrane-Enclosure encloses))))
+(explanation (:triple _Tangible-Entity496 pH _PH-Value479) ((added-at Lysosome "User defined")))
+(explanation (:triple _Tangible-Entity496 instance-of Chemical-Entity) ((added-at Lysosome "User defined")))
+(explanation (:triple _Tangible-Entity496 pH _PH-Value784) ((added-at Lysosome "User defined")))
+(explanation (:triple _Tangible-Entity496 instance-of Tangible-Entity) ((added-at Lysosome "User defined")))
+(explanation (:triple _Carbohydrate518 has-basic-structural-unit _Atom521) ((a Atom (@ _Carbohydrate518 Molecule has-basic-structural-unit))))
+(explanation (:triple _Carbohydrate518 has-basic-structural-unit _Atom521) ((cloned-from _Carbohydrate669 _Carbohydrate518)))
+(explanation (:triple _Carbohydrate518 instance-of Carbohydrate) ((added-at Polysaccharide "User defined")))
+(explanation (:triple _Carbohydrate518 is-basic-structural-unit-of _Polysaccharide522) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Carbohydrate518 instance-of Carbohydrate) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Carbohydrate518 has-basic-structural-unit _Atom521) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Atom521 instance-of Atom) ((a Atom (@ _Carbohydrate518 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom521 instance-of Atom) ((cloned-from _Carbohydrate669 _Carbohydrate518)))
+(explanation (:triple _Atom521 is-basic-structural-unit-of _Carbohydrate518) ((cloned-from _Carbohydrate669 _Carbohydrate518)))
+(explanation (:triple _Atom521 is-basic-structural-unit-of _Carbohydrate518) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Atom521 instance-of Atom) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Polysaccharide522 has-basic-structural-unit _Carbohydrate518) ((added-at Polysaccharide "User defined")))
+(explanation (:triple _Polysaccharide522 has-basic-structural-unit _Atom523) ((a Atom (@ _Polysaccharide522 Molecule has-basic-structural-unit))))
+(explanation (:triple _Polysaccharide522 has-basic-structural-unit _Atom523) ((cloned-from _Carbohydrate669 _Polysaccharide522)))
+(explanation (:triple _Polysaccharide522 has-basic-structural-unit _Carbohydrate518) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Polysaccharide522 has-basic-structural-unit _Atom523) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Polysaccharide522 instance-of Polysaccharide) ((added-at Lysosome "User defined")))
+(explanation (:triple _Polysaccharide522 instance-of Thing) ((a Thing (@ _Take-Apart526 Action (object must-be-a)))))
+(explanation (:triple _Atom523 instance-of Atom) ((a Atom (@ _Polysaccharide522 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom523 instance-of Atom) ((cloned-from _Carbohydrate669 _Polysaccharide522)))
+(explanation (:triple _Atom523 is-basic-structural-unit-of _Polysaccharide522) ((cloned-from _Carbohydrate669 _Polysaccharide522)))
+(explanation (:triple _Atom523 is-basic-structural-unit-of _Polysaccharide522) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Atom523 instance-of Atom) ((cloned-from _Polysaccharide435 _Polysaccharide522)))
+(explanation (:triple _Lipid524 has-basic-structural-unit _Atom525) ((a Atom (@ _Lipid524 Molecule has-basic-structural-unit))))
+(explanation (:triple _Lipid524 instance-of Lipid) ((added-at Lysosome "User defined")))
+(explanation (:triple _Lipid524 instance-of Thing) ((a Thing (@ _Take-Apart526 Action (object must-be-a)))))
+(explanation (:triple _Atom525 instance-of Atom) ((a Atom (@ _Lipid524 Molecule has-basic-structural-unit))))
+(explanation (:triple _Take-Apart526 object _Subcellular-Entity527) ((added-at Lysosome "User defined")))
+(explanation (:triple _Take-Apart526 object _Lipid524) ((added-at Lysosome "User defined")))
+(explanation (:triple _Take-Apart526 object _Polysaccharide522) ((added-at Lysosome "User defined")))
+(explanation (:triple _Take-Apart526 agent _Physical-Object494) ((added-at Lysosome "User defined")))
+(explanation (:triple _Take-Apart526 instance-of Take-Apart) ((added-at Lysosome "User defined")))
+(explanation (:triple _Take-Apart526 object _Tangible-Entity528) ((a Tangible-Entity (@ _Take-Apart526 Impair object))))
+(explanation (:triple _Take-Apart526 object _Tangible-Entity528) ((a Tangible-Entity (@ _Take-Apart526 Damage object))))
+(explanation (:triple _Take-Apart526 object _Tangible-Entity528) ((a Tangible-Entity (@ _Take-Apart526 Break object))))
+(explanation (:triple _Take-Apart526 object _Tangible-Entity528) ((a Tangible-Entity (@ _Take-Apart526 Take-Apart object))))
+(explanation (:triple _Subcellular-Entity527 instance-of Subcellular-Entity) ((added-at Lysosome "User defined")))
+(explanation (:triple _Subcellular-Entity527 instance-of Thing) ((a Thing (@ _Take-Apart526 Action (object must-be-a)))))
+(explanation (:triple _Tangible-Entity528 instance-of Protein) ((added-at Lysosome "User defined")))
+(explanation (:triple _Tangible-Entity528 instance-of Thing) ((a Thing (@ _Take-Apart526 Action (object must-be-a)))))
+(explanation (:triple _Tangible-Entity528 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Take-Apart526 Take-Apart object))))
+
+;;; ---------- end of prototype definition ----------
+
+(Lysosome now-has (user-description ("A membrane-bounded sac of hydrolytic enzymes that the cell uses to digest macromolecules")))
+(enable-classification)
+

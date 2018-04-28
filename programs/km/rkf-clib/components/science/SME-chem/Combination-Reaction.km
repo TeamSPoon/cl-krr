@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Combination-Reaction.km,v 1.3 2007/11/19 23:06:20 mrglass Exp $ 
+;; 
+
+
+(Combination-Reaction has
+   (superclasses (Reaction)))
+
+(Combination-Reaction now-has (user-description 
+      ("In combination reactions two or more substances react to form one product.")))
+
+;problematic, may over-eagerly classify
+(every Combination-Reaction has-definition
+   (instance-of (Reaction))
+   (raw-material (
+         (a Chemical)
+         (set-constraint 
+            ((Self isa Combination-Reaction)
+               or
+               (((forall (the raw-material of Self)
+                        (the term of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))
+               and 
+               (forall (the result of Self)
+                  (the term of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))
+               and
+               ((the number of TheValues) > (the number of (the result of Self))))))))
+   (result ((a Chemical) (at-most 1 Chemical))))
+

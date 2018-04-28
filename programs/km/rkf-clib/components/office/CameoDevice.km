@@ -1,0 +1,14 @@
+;; $Id: CameoDevice.km,v 1.13 2005/05/23 18:52:00 kbarker Exp $
+(CameoDevice has
+	(description ("A FrameDevice that has four Cameras."))
+	(superclasses (FrameDevice)))
+
+(every CameoDevice has
+	(has-functional-part ((a Camera)(a Camera)(a Camera)(a Camera)(exactly 4 Camera)))
+)
+
+
+(CameoDevice has
+  (feature-slot ((the feature-slot of FrameDevice)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = CameoDevice)))))
+

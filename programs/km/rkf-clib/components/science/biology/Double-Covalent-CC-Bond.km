@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Double-Covalent-CC-Bond.km,v 1.9 2001/11/20 19:59:59 kbarker Exp $ 
+;; 
+
+(Double-Covalent-CC-Bond has
+         (superclasses (Double-Covalent-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Double covalent bond between two carbons. Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Double-Covalent-CC-Bond has      
+       (purpose ((a Instrument-Role with
+		    (in-event ((a Be-Attached-To with
+				  (object ((a Carbon-Atom)
+					   (a Carbon-Atom)
+					   (exactly 2 Atom)))
+                                      )))
+                        )))
+       (intensity ((a Intensity-Value with 
+                      (value ((:pair 146 *kilocalorie/mole))))))
+;       (length ((a Length-Value with (value ((:pair ?? *nanometer))))))   
+       )
+
+

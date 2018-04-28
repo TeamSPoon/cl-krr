@@ -1,0 +1,93 @@
+<!--- $Id: Take-In.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<kml>
+
+<concept name=Take-In><system-documentation name=Take-In>
+<superconcept name=Move-Into>
+
+<definition>
+
+   Take-In is a special type of Move-Into in which a 
+   <conceptref name=Tangible-Entity>,
+   playing the role of a <conceptref name=Container>, 
+   takes something from the outside into oneself.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that is taken in
+  </slotdescription>
+
+  <slotdescription name=agent>
+     the Tangible-Entity, playing the role of a <conceptref name=Container>,
+     that takes in the <slot>object</slot>.  (Note: the <slot>agent</slot> 
+     is also the <slot>base</slot> of the Take-In.)
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=path>
+    the <conceptref name=Portal> through which the 
+    <slot>object</slot> is taken in
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the Take-In.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-outside</slot> the <slot>agent</slot>
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the Take-In.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-inside</slot> the <slot>agent</slot>
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves during 
+    the Take-In.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    place, but it may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from during 
+    the Take-In.  Unlike the
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    place, but it may
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John takes in oxygen through his nose.</text>
+    <slotdescription name=object>oxygen</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=path>John's nose</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Enter>
+     Enter is a special type of Move-Into in which the
+     <slot>object</slot> moves of its own volition, i.e. 
+     it locomotes
+  </neighbor>
+
+  <neighbor name=Load>
+     Load is a special type of Move-Into in which an
+     <slot>object</slot> is inserted into a container, thereby
+     activating it
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

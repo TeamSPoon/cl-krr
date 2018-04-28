@@ -1,0 +1,26 @@
+;; 
+;; $Id: Person.km,v 1.8 2004/11/08 22:14:18 gking Exp $
+;; 
+
+(Person has
+  (superclasses (Animal))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("human being; a sentient animal"))
+)
+
+(every Person has
+  (sentience ((a Sentience-Value with (value (*sentient)))))
+)
+
+(Person has (wn20-synset ((:set
+			   (:triple "person" 1 "n")
+			   (:triple "individual" 1 "n")
+			   (:triple "someone" 1 "n")
+			   (:triple "somebody" 1 "n")
+			   (:triple "mortal" 1 "n")
+			   (:triple "human" 1 "n")
+			   (:triple "soul" 2 "n")
+))))
+

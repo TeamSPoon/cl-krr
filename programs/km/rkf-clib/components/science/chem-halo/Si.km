@@ -1,0 +1,14 @@
+;;
+;; $Id: Si.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Si has (superclasses (Metalloid-Atom IVA-Element)))
+(every Si has
+       (atomic-symbol (Si))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 14 NIL))))))
+       (chemical-period (3)))
+(every Si has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("silicon"))
+)

@@ -1,0 +1,83 @@
+;; 
+;;    $Id: Slide.km,v 1.20 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Slide has
+       (superclasses   (Move))
+       (required-slot  (object path))
+       (primary-slot   (agent origin destination))
+       (secondary-slot ())
+       (cmap-correspondence (
+                                (:seq object "the thing slid")
+                                (:seq agent "the mover")
+                                (:seq origin "slid from")
+                                (:seq destination "slid to")
+                                (:seq path "slid along")
+                            ))
+     #|(sentence-type  (*punctual *conclusive))|#
+)
+
+; Slide is a specialization of the Move-Through component with the
+; condition that the object be touching the thing whose location is
+; the path
+
+(every Slide has
+  ; The object is inherited from Slide's superclasses.  
+  (path     ((a Tangible-Entity)))           ; force path to T-E for Slide
+  
+  (pcs-list ((forall (the object of Self)
+                     (:triple
+                       It
+                       object-of
+                       (a Be-Touching with
+                          (object ((the path of Self))))))))
+)
+
+(every Slide has
+  (text-active-verbseq-sg ("slides"))
+  (text-active-verbseq-pl ("slide"))
+  (text-passive-verbseq-sg ("slides"))
+  (text-passive-verbseq-pl ("slide"))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(Slide has
+  (test-case ( '(
+                 (*ice  has (instance-of (Tangible-Entity)))
+                 (*puck has (instance-of (Tangible-Entity)))
+                 (*Be-Touching-for-Slide has 
+                        (instance-of (Be-Touching))
+                        (object (*puck *ice)))
+                       
+                 ;; the puck slides along the ice
+                 (*Slide has
+                         (instance-of (Slide))
+                         (object (*puck))
+                         (path   (*ice)))
+                 (do-and-next *Slide)
+		 (the text-gen of (thelast Slide))
+                 ;; Test1: The path is the ice
+                 ((the path of *Slide) = *ice)
+
+                 ;; Test2: The puck and ice are still touching (i.e. the 
+                 ;;        object of *Be-Touching-for-Slide includes *ice 
+                 ;;        and *puck).
+                 ((the object of *Be-Touching-for-Slide) includes *ice)
+                 ((the object of *Be-Touching-for-Slide) includes *puck)
+                )))
+)
+
+
+;; automatically added WN synsets
+(Slide has (wn16-synset ((:set  
+                                    (:triple "slide" 3 "v")
+))))
+
+(Slide has (wn20-synset ((:set
+                                    (:triple "slide" 3 "v")
+))))
+
+(every Slide has (text-nominalization ("sliding")))

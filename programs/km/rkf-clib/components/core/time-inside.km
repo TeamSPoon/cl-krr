@@ -1,0 +1,19 @@
+;; 
+;;    $Id: time-inside.km,v 1.8 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(time-inside has
+	(description ("FRAME time-inside FILLER means that FRAME, a Time-Interval, temporally includes FILLER, a Time-Point.  Specifically, FILLER is (a) later than or simultaneous with the start of FRAME, and (b), earlier than or simultaneous with the end of FRAME."))
+       (instance-of (Temporal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Time-Interval))
+       (range (Time-Instant))
+       (inverse (time-is-inside))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+(time-is-inside has
+	(instance-of (Temporal-Relation)))
+

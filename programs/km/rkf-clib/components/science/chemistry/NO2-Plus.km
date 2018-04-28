@@ -1,0 +1,13 @@
+;;
+;; $Id: NO2-Plus.km,v 1.1 2003/02/07 17:23:20 porter Exp $
+;;
+
+(NO2-Plus has (superclasses (Anion)))
+
+(every NO2-Plus has
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 N)
+					  (:pair 2 O)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair 1 *electronic-charge)))))))

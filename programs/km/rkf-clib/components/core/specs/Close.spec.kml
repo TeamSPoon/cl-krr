@@ -1,0 +1,91 @@
+<!--- $Id: Close.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Close><system-documentation name=Close>
+<superconcept name=Block>
+
+<definition>
+
+  Close a <conceptref name=Portal> in a <conceptref name=Barrier> so
+  that things cannot <conceptref name=Move-Through> it.  
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The <conceptref name=Portal> that is closed.  This action
+     changes the state of the object,
+     from <conceptref name=Be-Open> to <conceptref name=Be-Closed>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes this action
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the entity that takes on the role of <conceptref name=Portal-Covering>
+    as a result of this action.
+  </slotdescription>
+
+</primaryslotlist>
+
+<comment>
+  The slots used to describe <conceptref name=Make-Inaccessible> actions
+  in general can be used here, too.  For example, 
+  <slot>destination</slot> and <slot>by-means-of</slot>.
+</comment>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John closed the door.</text>
+    <slotdescription name=object>the doorway</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=instrument>the door</slotdescription>
+  </examplesentence>
+  <comment>
+    The doorway ceases to be a Portal, and the door becomes a 
+    Portal-Covering.
+  </comment>
+
+  <examplesentence>
+    <text>John closed the window with a gentle nudge.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the space inside the window
+                                 frame</slotdescription>
+    <slotdescription name=by-means-of>a gentle nudge</slotdescription>
+  </examplesentence>
+  <comment>
+    The space inside the window frame ceases to be a Portal, and the window
+    (the glass itself) becomes a Portal-Covering.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Inaccessible> 
+     Make-Inaccessible is more general than Close, in that Close applies
+     only to portals.
+  </neighbor>
+
+  <neighbor name=Block>
+     Block makes a path inaccessible to 
+     things moving through it or along it.
+  </neighbor>
+
+  <neighbor name=Obstruct>
+     Obstruct prevents an object from moving.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

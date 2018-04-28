@@ -1,0 +1,20 @@
+;; 
+;;    $Id: AlCl3.km,v 1.1 2006/03/09 17:47:20 jfan Exp $
+;; 
+
+(AlCl3 has (superclasses (Ionic-Compound)))
+
+(every AlCl3 has	
+       (has-chemical-name ("aluminum chloride"))
+       (has-part 
+	((a Al-Plus-3) (a Cl-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+            (term ((:seq
+		    (:pair 1 Al-Plus-3)
+		    (:pair 3 Cl-Minus))))))))
+
+(every AlCl3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Al-Plus-3) (a Cl-Minus))))
+

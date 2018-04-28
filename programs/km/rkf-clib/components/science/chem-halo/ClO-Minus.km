@@ -1,0 +1,19 @@
+;; $Id: ClO-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(ClO-Minus has (superclasses (Anion)))
+(every ClO-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("hypochlorite"))
+	(has-acid-name ("hypochlorous"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cl)(:pair 1 O)))))))
+)
+
+
+(every ClO-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hypochlorite"))
+)
+
+(ClO-Minus has (wn20-synset ((:triple "ClO-" 0 "n"))))

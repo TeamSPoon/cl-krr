@@ -1,0 +1,51 @@
+<!--- $Id: temporally-overlaps.spec.kml,v 1.4 2002/08/28 20:25:42 tecuci Exp $ --->
+
+<kml>
+
+<relation-doc name=temporally-overlaps/temporally-overlapped-by>
+
+
+<from name=Time-Interval>
+<to name=Time-Interval>
+
+<description> 
+   asserts that one Time-Interval starts before another one, and 
+   that the first overlaps the second. 
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-from>(The time of) the Vietnam War</ex-from> overlaps <ex-to>the 1970's</ex-to>.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=before>
+   Asserts that one Time-Interval comes strictly before another.
+   Temporally-overlaps, on the other hand, means that the two
+   Time-Intervals overlap to some extent.
+ </neighbor>
+
+ <neighbor name=during>
+   Asserts that one Time-Interval is during (completely contained
+   within) another
+ </neighbor>
+
+ <neighbor name=temporally-meets>
+   Asserts that one Time-Interval meets (abuts) another
+ </neighbor>
+
+ <neighbor name=temporally-starts>
+   Asserts that two Time-Intervals begin together
+ </neighbor>
+
+ <neighbor name=temporally-finishes>
+   Asserts that two Time-Intervals end together
+ </neighbor>
+
+</neighborlist>
+
+
+</kml>

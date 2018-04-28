@@ -1,0 +1,16 @@
+;;
+;;    $Id: CaloChatTable.km,v 1.10 2005/02/22 21:18:23 jchaw Exp $
+;; 
+
+(CaloChatTable has
+ (superclasses (ChatElement))      
+ (required-slot           ()) 
+ (primary-slot     	  ())  
+ (secondary-slot          ())
+ )
+
+(hasTableHeader has  (instance-of (Interface-Slot))  (domain (CaloChatTable)) (range (CaloChatTableHeader))  (inverse (isTableHeaderOf)) (cardinality (N-to-N)))
+
+(hasTableParam has  (instance-of (Interface-Slot))  (domain (CaloChatTable)) (range (String))  (cardinality (N-to-N)))
+
+(hasTableRow has  (instance-of (Interface-Slot))  (domain (CaloChatTable)) (range (CaloChatTableRow)) (inverse (isTableRowOf)) (cardinality (N-to-N)))

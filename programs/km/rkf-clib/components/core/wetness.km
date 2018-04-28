@@ -1,0 +1,25 @@
+;; 
+;;    $Id: wetness.km,v 1.12 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(wetness has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Wetness-Value))
+   (scale-class (Wetness-Scale))
+   (scalar-constant-class (Wetness-Constant))
+   (inverse 	(wetness-of))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(wetness-of has
+	(instance-of (EntityProperty)))
+
+(wetness has (wn20-synset ((:set
+                               (:triple "wetness" 1 "n")
+))))
+

@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Be-Blocked.km,v 1.16 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Blocked has
+	    (superclasses   (Be-Inaccessible))
+	    (required-slot  (object))
+	    (primary-slot   (instrument))
+            (caused-by-class      (Block))
+            (defeated-by-class    (Unblock))
+	    (cmap-correspondence (
+				  (:seq object "the object blocked")
+				  (:seq instrument "the blockage")
+				  )))
+
+
+(every Be-Blocked has
+
+       (object   ((a Spatial-Entity)))
+
+       (resulting-state-of ((must-be-a Block with
+				       (object   ((the object of Self))))))
+
+       (defeated-by ((must-be-a Unblock with
+				(object   ((the object of Self)))))))
+
+
+(every Be-Blocked has
+   (text-particle ("blocked"))
+)
+
+(Be-Blocked has (wn20-synset ((:set (:triple "blocked" 1 "a")
+                                    (:triple "out_of_use" 1 "a")
+                                    (:triple "blocked" 2 "a")
+                                    (:triple "plugged" 2 "a")
+                                    (:triple "closed" 1 "a")
+))))
+

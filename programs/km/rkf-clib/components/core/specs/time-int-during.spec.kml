@@ -1,0 +1,30 @@
+<!--- $Id: time-int-during.spec.kml,v 1.1 2008/02/01 04:57:37 vaibhav Exp $ --->
+<kml>
+<relation-doc name=time-int-during>
+
+
+<from name=Time-Interval>
+<to name=Time-Interval>
+
+<description> 
+  A time interval occurs during another, bigger time interval.
+  More specifically,
+  (a) The start time of one interval is greater than or equal to the start time of another AND
+  (b) The end time of the first interval is lesser than or equal to the end time of the other. 
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>the half time break was taken from <ex-from>5pm to 5:30pm</ex-from> during the game, which was played from <ex-to>3pm to 7:30pm</ex-to></text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=time-during>
+   time-int-during is applicable when a time interval is contained by another. time-during is applicable when a time instant is contained by a time interval
+ </neighbor>
+</neighborlist>
+
+</kml>

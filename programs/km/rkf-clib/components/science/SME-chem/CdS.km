@@ -1,0 +1,12 @@
+(CdS has (superclasses (Ionic-Compound)))
+
+(every CdS has
+  (has-part ((a Cd-Plus-2) (a S-Minus-2)))
+  (solubility ((a Solubility-Value with
+         (value ((:pair *insoluble Chemical))))))
+  (atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 1 Cd) (:pair 1 S)))))))
+  (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Cd-Plus-2) (:pair 1 S-Minus-2)))))))
+)

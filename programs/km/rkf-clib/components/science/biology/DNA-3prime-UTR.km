@@ -1,0 +1,22 @@
+;;
+;;    $Id: DNA-3prime-UTR.km,v 1.5 2001/05/31 21:49:55 pnav Exp $
+;;
+    
+(DNA-3prime-UTR has
+		(superclasses (DNA-Noncoding-Sequence))
+		(required-slot ())
+		(primary-slot ())
+		(secondary-slot ())
+		(description ("The sequence at the end of the transcription 
+                               unit which is not translated. Souther."))
+		       (cmap-correspondence ()))
+
+(every DNA-3prime-UTR has
+       (is-part-of ((a Transcription-Unit)))
+       (location ((a 3-Prime-End with
+		     (is-region-of ((the Transcription-Unit is-part-of of Self)))
+		     )))
+       )
+
+
+

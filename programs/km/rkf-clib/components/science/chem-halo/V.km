@@ -1,0 +1,15 @@
+;;
+;; $Id: V.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(V has (superclasses (Metal-Atom VB-Element)))
+(every V has
+       (atomic-symbol (V))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 23 NIL))))))
+       (has-ion ((a V-Plus)))
+       (chemical-period (4)))
+(every V has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("vanadium"))
+)

@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Webpage.km,v 1.4 2005/04/25 02:46:46 gking Exp $
+;;
+
+; IRIS_class: WebPage
+
+(Webpage has (superclasses (Computer-Program)))
+
+(every Webpage has
+       (element-of ((a Website))))
+
+(Webpage has (wn20-synset ((:set (:triple "web_page" 1 "n"))))) 
+
+;; stubby
+
+
+(hasURL has (domain (Webpage))(range (String)))

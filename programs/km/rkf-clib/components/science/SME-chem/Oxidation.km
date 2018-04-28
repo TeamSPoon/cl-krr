@@ -1,0 +1,49 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Oxidation14706
+
+
+|#
+
+(disable-classification)
+
+(Oxidation has (superclasses (Lose)))
+
+(Oxidation now-has (user-description ("Gain of electrons by a substance is called reduction.")))
+
+(_Oxidation14710 has
+  (prototype-of (Oxidation))
+  (prototype-scope (Oxidation))
+  (prototype-participants (_Tangible-Entity14712 _Electron14711 _Oxidation14710)))
+
+(_Oxidation14710 has
+  (instance-of (Oxidation))
+  (donor (_Tangible-Entity14712 (must-be-a Tangible-Entity) (must-be-a Entity)))
+  (object (_Electron14711 (at-least 1 Electron) (must-be-a Thing))))
+
+(_Electron14711 has (instance-of (Electron)))
+
+(_Tangible-Entity14712 has (instance-of (Chemical)))
+
+(enable-classification)
+
+(explanation (:triple _Oxidation14710 object _Electron14711) (((@ SME entered)) (every Oxidation has (object ((a Electron))))))
+
+(explanation (:triple _Oxidation14710 instance-of Oxidation) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electron14711 instance-of Electron) (((@ SME entered)) NIL))
+
+(explanation (:triple _Tangible-Entity14712 instance-of Chemical) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Oxidation has (object ((a Electron))))
+
+|#
+
+|#
+

@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Nucleic-Acid-Region.km,v 1.9 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Nucleic-Acid-Region has
+         (superclasses (Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A has-region of a nucleic acid such as the 5' end or
+                        3' end.   Souther."))
+         (test-case ()))
+
+(every Nucleic-Acid-Region has
+       (is-region-of ((a Nucleic-Acid-Molecule)))
+       )
+
+(every Nucleic-Acid-Region has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

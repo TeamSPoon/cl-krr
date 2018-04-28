@@ -1,0 +1,42 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Acid-Role255
+
+
+|#
+
+(disable-classification)
+
+(Acid-Role has (superclasses (Role)))
+
+(every Acid-Role has (ka ((if ((the played-by of Self) and (the raw-material-of of (the played-by of Self)) and (((the raw-material-of of (the played-by of Self)) isa Hydrolysis) or ((the raw-material-of of (the played-by of Self)) isa Complete-Dissociation-Reaction)) and (the ka of (the raw-material-of of (the played-by of Self)))) then (the ka of (the raw-material-of of (the played-by of Self)))))) (pka ((if ((the played-by of Self) and (the raw-material-of of (the played-by of Self)) and (((the raw-material-of of (the played-by of Self)) isa Hydrolysis) or ((the raw-material-of of (the played-by of Self)) isa Complete-Dissociation-Reaction)) and (the pka of (the raw-material-of of (the played-by of Self)))) then (the pka of (the raw-material-of of (the played-by of Self)))))) (ka-expression ((if ((has-value (the played-by of Self)) and ((the raw-material-of of (the played-by of Self)) isa Hydrolysis) and (the ka-expression of (the raw-material-of of (the played-by of Self)))) then (the ka-expression of (the raw-material-of of (the played-by of Self)))))))
+
+(_Acid-Role259 has
+  (prototype-of (Acid-Role))
+  (prototype-scope (Acid-Role))
+  (prototype-participants (_Intensity-Value260 _Acid-Role259)))
+
+(_Acid-Role259 has (instance-of (Acid-Role)) (intensity (_Intensity-Value260)))
+
+(_Intensity-Value260 has (instance-of (Intensity-Value)))
+
+(enable-classification)
+
+(explanation (:triple _Acid-Role259 intensity _Intensity-Value260) (((@ SME entered)) (every Acid-Role has (intensity ((a Intensity-Value))))))
+
+(explanation (:triple _Acid-Role259 instance-of Acid-Role) (((@ SME entered)) NIL))
+
+(explanation (:triple _Intensity-Value260 instance-of Intensity-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Acid-Role has (intensity ((a Intensity-Value))))
+
+|#
+
+|#
+

@@ -1,0 +1,169 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Smooth-Endoplasmic-reticulum ----------
+
+(Smooth-Endoplasmic-reticulum has (superclasses (Endoplasmic-reticulum Spatial-Entity)))
+
+(_Smooth-Endoplasmic-reticulum17 has 
+  (instance-of (Smooth-Endoplasmic-reticulum))
+  (prototype-of (Smooth-Endoplasmic-reticulum))
+  (prototype-scope (Smooth-Endoplasmic-reticulum))
+  (prototype-participants (_Entity69
+                           _Synthesis68
+                           _Membrane63
+                           _Cell62
+                           _Nuclear-envelope56
+                           _Cisternae44
+                           _Smooth-Endoplasmic-reticulum17))
+  (prototype-participant-of (_Smooth-Endoplasmic-reticulum17))
+  (has-basic-structural-unit (_Membrane63))
+  (is-inside (_Cell62))
+  (abuts (_Nuclear-envelope56))
+  (has-region (_Cisternae44))
+  (cloned-from (_Endoplasmic-reticulum407))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq is-inside _Cell62 121 524)
+                    (:seq has-basic-structural-unit _Membrane63 281 568)
+                    (:seq abuts _Nuclear-envelope56 281 612)
+                    (:seq has-region _Cisternae44 281 656)))
+  (edge-visibility ((:seq is-inside _Cell62 t)
+                    (:seq has-basic-structural-unit _Membrane63 t)
+                    (:seq abuts _Nuclear-envelope56 t)
+                    (:seq has-region _Cisternae44 t)))
+  (edge-never-visible ((:seq is-inside _Cell62 f)
+                       (:seq has-basic-structural-unit _Membrane63 f)
+                       (:seq abuts _Nuclear-envelope56 f)
+                       (:seq has-region _Cisternae44 f)))
+  (node-coordinate ((:pair 50 600)))
+  (site-of (_Synthesis68)))
+
+(_Entity69 has 
+  (instance-of (Entity
+                Lipid))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (result-of (_Synthesis68))
+  (node-coordinate ((:pair 258 332)))
+  (prototype-participant-of (_Smooth-Endoplasmic-reticulum17)))
+
+(_Synthesis68 has 
+  (result (_Entity69))
+  (instance-of (Synthesis))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (site (_Smooth-Endoplasmic-reticulum17))
+  (internally-expanded (t))
+  (edge-visibility ((:seq site _Smooth-Endoplasmic-reticulum17 t)
+                    (:seq result _Entity69 t)))
+  (edge-coordinate ((:seq site _Smooth-Endoplasmic-reticulum17 42 509)
+                    (:seq result _Entity69 213 395)))
+  (edge-never-visible ((:seq site _Smooth-Endoplasmic-reticulum17 f)
+                       (:seq result _Entity69 f)))
+  (node-coordinate ((:pair 35 418)))
+  (prototype-participant-of (_Smooth-Endoplasmic-reticulum17)))
+
+(_Membrane63 has 
+  (instance-of (Membrane))
+  (cloned-from (_Membrane1092))
+  (is-basic-structural-unit-of (_Smooth-Endoplasmic-reticulum17))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 431 562)))
+  (prototype-participant-of (_Smooth-Endoplasmic-reticulum17)))
+
+(_Cell62 has 
+  (instance-of (Cell
+                Spatial-Entity))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (encloses (_Smooth-Endoplasmic-reticulum17))
+  (node-coordinate ((:pair 193 447)))
+  (prototype-participant-of (_Smooth-Endoplasmic-reticulum17)))
+
+(_Nuclear-envelope56 has 
+  (instance-of (Nuclear-envelope
+                Spatial-Entity))
+  (cloned-from (_Nuclear-envelope304
+                _Nuclear-envelope621))
+  (abuts (_Smooth-Endoplasmic-reticulum17))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq abuts _Smooth-Endoplasmic-reticulum17 634 567)
+                    (:seq is-outside _Nuclear-lamina59 634 618)
+                    (:seq has-part _Tangible-Entity54 634 662)))
+  (edge-visibility ((:seq abuts _Smooth-Endoplasmic-reticulum17 f)
+                    (:seq is-outside _Nuclear-lamina59 f)
+                    (:seq has-part _Tangible-Entity54 f)))
+  (edge-never-visible ((:seq abuts _Smooth-Endoplasmic-reticulum17 t)
+                       (:seq is-outside _Nuclear-lamina59 t)
+                       (:seq has-part _Tangible-Entity54 t)))
+  (node-coordinate ((:pair 431 606)))
+  (prototype-participant-of (_Smooth-Endoplasmic-reticulum17)))
+
+(_Cisternae44 has 
+  (instance-of (Cisternae))
+  (cloned-from (_Cisternae588
+                _Cisternae634))
+  (is-region-of (_Smooth-Endoplasmic-reticulum17))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (node-coordinate ((:pair 431 650)))
+  (prototype-participant-of (_Smooth-Endoplasmic-reticulum17)))
+
+(explanation (:triple _Smooth-Endoplasmic-reticulum17 instance-of Spatial-Entity)
+  ((a Spatial-Entity with (is-near ((if (has-value (the object of _Synthesis68) (@ _Synthesis68 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Synthesis68) (@ _Synthesis68 Event (site must-be-a) Spatial-Entity is-near)) (@ _Synthesis68 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Synthesis68 Event (site must-be-a)))))
+(explanation (:triple _Smooth-Endoplasmic-reticulum17 is-inside _Cell62)
+  ((added-at Smooth-Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Smooth-Endoplasmic-reticulum17 instance-of Placeholder-Class16)
+  ((added-at Placeholder-Class16 "User defined")))
+(explanation (:triple _Smooth-Endoplasmic-reticulum17 /== _Nuclear-envelope56)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Endoplasmic-reticulum407)))
+(explanation (:triple _Smooth-Endoplasmic-reticulum17 abuts _Nuclear-envelope56)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Endoplasmic-reticulum407)))
+(explanation (:triple _Smooth-Endoplasmic-reticulum17 has-region _Cisternae44)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Endoplasmic-reticulum407)))
+(explanation (:triple _Smooth-Endoplasmic-reticulum17 has-basic-structural-unit _Membrane63)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Endoplasmic-reticulum407)))
+(explanation (:triple _Entity69 instance-of Lipid)
+  ((added-at Smooth-Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Entity69 instance-of Entity)
+  ((a Entity (@ _Synthesis68 Create result))))
+(explanation (:triple _Synthesis68 result _Entity69)
+  ((a Entity (@ _Synthesis68 Create result))))
+(explanation (:triple _Synthesis68 site _Smooth-Endoplasmic-reticulum17)
+  ((added-at Smooth-Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Synthesis68 instance-of Synthesis)
+  ((added-at Smooth-Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Membrane63 instance-of Membrane)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Membrane1092)))
+(explanation (:triple _Membrane63 is-basic-structural-unit-of _Smooth-Endoplasmic-reticulum17)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Membrane1092)))
+(explanation (:triple _Cell62 instance-of Spatial-Entity)
+  ((a Spatial-Entity (@ _Smooth-Endoplasmic-reticulum17 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Cell62 instance-of Cell)
+  ((added-at Smooth-Endoplasmic-reticulum "User defined")))
+(explanation (:triple _Nuclear-envelope56 instance-of Spatial-Entity)
+  ((a Spatial-Entity (@ _Smooth-Endoplasmic-reticulum17 Spatial-Entity (abuts must-be-a)))))
+(explanation (:triple _Nuclear-envelope56 instance-of Nuclear-envelope)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-envelope56 /== _Smooth-Endoplasmic-reticulum17)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Nuclear-envelope621)))
+(explanation (:triple _Nuclear-envelope56 abuts _Smooth-Endoplasmic-reticulum17)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Nuclear-envelope621)))
+(explanation (:triple _Cisternae44 instance-of Cisternae)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Cisternae634)))
+(explanation (:triple _Cisternae44 is-region-of _Smooth-Endoplasmic-reticulum17)
+  ((cloned-from _Endoplasmic-reticulum407 _Smooth-Endoplasmic-reticulum17 _Cisternae634)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

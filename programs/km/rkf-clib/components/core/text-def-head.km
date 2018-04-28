@@ -1,0 +1,18 @@
+;; 
+;;    $Id: text-def-head.km,v 1.4 2006/09/27 16:18:16 jchaw Exp $
+;; 
+
+
+(text-def-head has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Thing))                      ; Entity or Role
+   #|(range (Thing))|#                       ; the Entity itself or a Role it plays
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+   (dont-cache-values (t))
+   (inherit-with-overrides (t))
+)
+
+(text-def-head-of has (instance-of (NL-Slot-Group)))

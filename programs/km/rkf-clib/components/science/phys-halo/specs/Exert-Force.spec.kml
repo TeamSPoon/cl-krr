@@ -1,0 +1,71 @@
+<!--- $Id: Exert-Force.spec.kml,v 1.1 2005/11/11 23:33:05 pzyeh Exp $ --->
+<kml>
+
+<concept name=Exert-Force>
+<system-documentation name=Exert-Force>
+<superconcept name=Action>
+
+<definition>
+  A force is exerted on a <conceptref name=Physical-Object>.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The entity that force is being exerted on.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=applied-force>
+    The amount of force applied to a Physical-Object. 
+    This amount is specified by a <conceptref name=Force-Value>.
+  </slotdescription>
+
+  <slotdescription name=friction-force>
+    The friction force exerted upon a Physical-Object
+    This amount is specified by a <conceptref name=Force-Value>.
+  </slotdescription>
+
+  <slotdescription name=net-force>
+    The net force exerted upon a Physical-Object
+    This amount is specified by a <conceptref name=Force-Value>.
+  </slotdescription>
+
+  <slotdescription name=normal-force>
+    The normal force exerted upon a Physical-Object
+    This amount is specified by a <conceptref name=Force-Value>.
+  </slotdescription>
+
+  <slotdescription name=tangential-force>
+    The tangential force exerted upon a Physical-Object
+    This amount is specified by a <conceptref name=Force-Value>.
+  </slotdescription>
+
+  <slotdescription name=total-force>
+    The total force exerted upon a Physical-Object
+    This amount is specified by a <conceptref name=Force-Value>.
+  </slotdescription>
+
+  <slotdescription name=weight-force>
+    The weight force exerted upon a Physical-Object
+    This amount is specified by a <conceptref name=Force-Value>.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>A net force of 120 newtons was exerted on the rocket.</text>
+    <slotdescription name=net-force>120 newton</slotdescription>
+    <slotdescription name=object>the rocket</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+
+</kml>
+

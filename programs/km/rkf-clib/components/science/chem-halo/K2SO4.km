@@ -1,0 +1,16 @@
+;;
+;; $Id: K2SO4.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(K2SO4 has (superclasses (Ionic-Compound)))
+
+(every K2SO4 has	
+       (has-chemical-name ("potassium sulfate"))
+       (has-part ((a K-Plus) (a SO4-Minus-2)))
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 2 K-Plus)
+					      (:pair 1 SO4-Minus-2))))))))
+(every K2SO4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a K-Plus) (a SO4-Minus-2))))
+

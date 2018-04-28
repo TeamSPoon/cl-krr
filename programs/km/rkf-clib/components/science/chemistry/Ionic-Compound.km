@@ -1,0 +1,129 @@
+;; 
+;;    $Id: Ionic-Compound.km,v 1.37 2005/08/25 16:22:58 jfan Exp $ 
+;; 
+
+(Ionic-Compound has
+	  (superclasses (Compound))
+	  (test-case ()))
+
+(every Ionic-Compound has-definition
+       (instance-of (Compound [Ionic-Compound-instance-of-1]))
+       (has-part ((a Anion) (a Cation))))
+
+(comment [Ionic-Compound-instance-of-1]
+  (:seq (the text-gen of Self)
+        "is made up of"
+        (the text-gen of (the Anion has-part of Self))
+        "and"
+        (the text-gen of (the Cation has-part of Self))
+  )
+  "A chemical is an ionic compound if it is made up of a cation and an anion"
+)
+
+(every Ionic-Compound has
+
+       ;; has-part <- has-chemical-formula
+       (has-part ((if ((the has-chemical-formula of Self)
+		       and 
+		       (allof (the has-part of Self)
+			      where (not (has-value 
+					  (the term of 
+					       (the has-chemical-formula of It))))))
+		      then
+		    (forall (the elements of (the term of (the has-chemical-formula of Self)))
+			    (an instance of (the2 of It))))))
+
+       (has-part ((if ((allof (the has-part of Self)
+			      where (not (has-value 
+					  (the term of 
+					       (the has-chemical-formula of It)))))
+		       and
+		       (has-value (the nested-atomic-chemical-formula of Self))
+		       #|and
+		       (;; it is not a weak base!
+			not
+			(
+			 ((the is-basic-structural-unit-of of Self) isa Base)
+			 and
+			 ((the1 of (the value of (the intensity of (the Base-Role plays of (the is-basic-structural-unit-of of Self))))) = *weak)
+			 ))|#
+		      )
+		      then
+		    (the output of 
+			 (a Compute-Ionic-Compound-Parts-from-Nested-Formula with
+			    (input ((the term of (the nested-atomic-chemical-formula of Self)))))))))
+       
+       (oxidation-state (
+          (a Oxidation-State-Value with
+             (value ((forall (the has-part of Self)
+                             (the value of
+                                  (the output of 
+                                       (a Compute-Oxidation-State with 
+                                          (input (It)))))
+             )))
+          [Ionic-Compound-oxidation-state-1]
+       )))
+
+       ;; has-chemical-formula <- has-part
+       (has-chemical-formula (
+	 (if (not (the has-chemical-formula of Self))
+	     then
+	     (the output of 
+		  (a Compute-Chemical-Formula-of-Ionic-Compound with
+		     (input ((the Cation has-part of Self)
+			     (the Anion has-part of Self)))))
+             [Ionic-Compound-has-chemical-formula-1])))
+
+       (nested-atomic-chemical-formula (
+           (if ((not (the nested-atomic-chemical-formula of Self))
+		and (the has-chemical-formula of Self))
+	       then
+	     (the output of (a Compute-Nested-Atomic-Formula-from-Formula with
+			       (input ((the has-chemical-formula of Self))))))))
+       )
+
+
+(comment [Ionic-Compound-oxidation-state-1]
+  (:seq "Therefore, the oxidation states for"
+        (the text-gen of Self)
+        "are"
+        (andify (forall (the value of (the oxidation-state of Self))
+                        (:seq (the text-gen of (an instance of (the2 of It)))
+                              "nospace" ":" "nospace"
+                              (the1 of It)
+                        )
+                )
+        )
+  )
+  (:seq "Computing the oxidation states for the ionic parts of" 
+        (the text-gen of Self)
+  )
+  (forall (the has-part of Self)
+          (:triple (a Compute-Oxidation-State with (input (It))) output *)
+  )
+)
+
+
+(comment [Ionic-Compound-has-chemical-formula-1]
+  (:seq "the chemical formula of the ionic compound consisting of" 
+        (the text-gen of (the Cation has-part of Self))
+        "and"
+        (the text-gen of (the Anion has-part of Self))
+        "is"
+        (the text-gen of Self)
+  )
+  "When an anion is combined with a cation to form an ionic compound, the subscript of each ion is equal to the charge magnitude of the other ion."
+)
+
+
+(Ionic-Compound has 
+		(test-case ( '((*Ionic-Na2CO3 has
+				       (instance-of (Ionic-Compound))
+				       (has-part ((a Na-Plus)
+						  (a CO3-Minus-2))))
+			       
+			       ((the term of (the has-chemical-formula of *Ionic-Na2CO3)) 
+				= 
+				((:seq (:pair 2 Na-Plus) (:pair 1 CO3-Minus-2))))))))
+			       
+			       

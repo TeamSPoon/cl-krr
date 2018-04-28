@@ -1,0 +1,39 @@
+;;
+;; $Id: Compute-Strong-Acid-and-Base.km,v 1.4 2003/09/26 21:55:14 jfan Exp $
+;;
+
+(Compute-Strong-Acid-and-Base has
+  (superclasses (Method))
+  (description ("given a reaction, returns the strong acid and base of the reaction")))
+
+(every Compute-Strong-Acid-and-Base has
+  (input  ((a Reaction)))
+  (output ((if ((the output of (a Compute-Equilibrium-Position with
+				  (input ((the input of Self)))))
+		= 
+		(the raw-material of (the input of Self)))
+	       then
+	       (the result of (the input of Self))
+	       else 
+	       (if ((the output of (a Compute-Equilibrium-Position with
+                                      (input ((the input of Self)))))
+                    =  
+                    (the result of (the input of Self)))
+		   then
+		   (the raw-material of (the input of Self)))
+	       [Compute-Strong-Acid-and-Base-output-1])
+	   )))
+
+(comment [Compute-Strong-Acid-and-Base-output-1]
+   (:seq "Therefore, the strongest acid and base are "
+	 (andify (the text-gen of 
+		      (the has-basic-structural-unit of 
+			   (the output of Self)))))
+
+   "In an acid-base reaction, the weakest acid and base are those on the side of the reaction where equilibrium lies, and thus the strongest acid and base lie on the opposite side of the equilibrium"
+
+   (:set (:triple (a Compute-Equilibrium-Position with 
+		     (input ((the input of Self))))
+		  output 
+		  *))
+)

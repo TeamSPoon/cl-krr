@@ -1,0 +1,84 @@
+<!--- $Id: Obtain.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+<kml>
+
+<concept name=Obtain>
+<system-documentation name=Obtain>
+<superconcept name=Receive>
+
+  <definition>
+        An entity intentionally receives (takes possession of) an object.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the thing obtained
+  </slotdescription>
+
+  <slotdescription name=recipient>
+       the entity that obtains the <slot>object</slot>, and then
+       <slot>possesses</slot> it
+  </slotdescription>
+  <comment>
+       The <slot>recipient</slot> is also the <slot>agent</slot>, 
+       i.e. the entity that's responsible for the action.
+  </comment>
+
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=donor>
+       the entity that <slot>possesses</slot> the <slot>object</slot> 
+       before it's obtained by the <slot>recipient</slot>
+  </slotdescription>
+
+  <slotdescription name=instrument>
+       the medium of transfer of the <slot>object</slot>
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The mother bird obtained food for her young.</text>
+    <slotdescription name=object>food</slotdescription>
+    <slotdescription name=recipient>the mother bird</slotdescription>
+    <comment>
+        The mother bird is both the <slot>recipient</slot> and the
+        <slot>agent</slot>.  
+
+        Obtain is often used in combination with other actions.  In this 
+        example, the mother bird first obtains food, and then 
+        <conceptref name=Feed>s it to her young.
+     </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Receive>
+        Obtain is a special type of Receive in which the 
+        <slot>recipient</slot> acts intentionally
+  </neighbor>
+
+  <neighbor name=Take>
+        Take is a special type of Obtain in which the <slot>donor</slot>
+        is required        
+  </neighbor>
+
+  <neighbor name=Withdraw>
+        Withdraw is a special type of Transfer in which the 
+        <slot>object</slot> is withdrawn from a <slot>base</slot>,
+        thereby removing it from a <conceptref name=Be-Stored> state
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

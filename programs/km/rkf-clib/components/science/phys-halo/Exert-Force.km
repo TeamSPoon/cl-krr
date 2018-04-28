@@ -1,0 +1,129 @@
+;
+;;    $Id: Exert-Force.km,v 1.12 2008/06/09 15:51:25 kbarker Exp $
+;;
+
+(Exert-Force has (superclasses (Action)))
+
+(every Exert-Force has
+  (applied-force ((must-be-a Force-Vector-Value with
+                     (force-magnitude   (((a Force-Magnitude-Value) & (the applied-force-magnitude   of Self))))
+                     (x-force-magnitude (((a Force-Magnitude-Value) & (the applied-x-force-magnitude of Self))))
+                     (y-force-magnitude (((a Force-Magnitude-Value) & (the applied-y-force-magnitude of Self))))
+                     (direction (( a Angle-Value with
+                                     ( value ;;((:default (:pair 0 *degree)))
+                                       )))))))
+  (applied-force-magnitude   ((if (has-value (the applied-force of Self))
+                               then ((a Force-Magnitude-Value) & (the force-magnitude of   (the applied-force of Self))))))
+  (applied-x-force-magnitude ((if (has-value (the applied-force of Self))
+                               then ((a Force-Magnitude-Value) & (the x-force-magnitude of (the applied-force of Self))))))
+  (applied-y-force-magnitude ((if (has-value (the applied-force of Self))
+                               then ((a Force-Magnitude-Value) & (the y-force-magnitude of (the applied-force of Self))))))
+  
+  (friction-force ((must-be-a Force-Vector-Value with
+                     (force-magnitude   (((a Force-Magnitude-Value) & (the friction-force-magnitude   of Self))))
+                     (x-force-magnitude (((a Force-Magnitude-Value) & (the friction-x-force-magnitude of Self))))
+                     (y-force-magnitude (((a Force-Magnitude-Value) & (the friction-y-force-magnitude of Self))))
+                      (direction (( a Angle-Value ;;with
+                                      ;;( value ((:default (:pair 180 *degree))))
+                                      ))))))
+  (friction-force-magnitude   ((if (has-value (the friction-force of Self))
+                               then ((a Force-Magnitude-Value) & (the force-magnitude of   (the friction-force of Self))))))
+  (friction-x-force-magnitude ((if (has-value (the friction-force of Self))
+                               then ((a Force-Magnitude-Value) & (the x-force-magnitude of (the friction-force of Self))))))
+  (friction-y-force-magnitude ((if (has-value (the friction-force of Self))
+                               then ((a Force-Magnitude-Value) & (the y-force-magnitude of (the friction-force of Self))))))
+
+  (net-force ((must-be-a Force-Vector-Value with
+                 (force-magnitude   (((a Force-Magnitude-Value) & (the net-force-magnitude   of Self))))
+                 (x-force-magnitude (((a Force-Magnitude-Value) & (the net-x-force-magnitude of Self))))
+                 (y-force-magnitude (((a Force-Magnitude-Value) & (the net-y-force-magnitude of Self)))))))
+  (net-force-magnitude   ((if (has-value (the net-force of Self))
+                               then ((a Force-Magnitude-Value) & (the force-magnitude of (the net-force of Self))))))
+  (net-x-force-magnitude ((if (has-value (the net-force of Self))
+                               then ((a Force-Magnitude-Value) & (the x-force-magnitude of (the net-force of Self))))))
+  (net-y-force-magnitude ((if (has-value (the net-force of Self))
+                               then ((a Force-Magnitude-Value) & (the y-force-magnitude of (the net-force of Self))))))
+
+  (weight-force ((must-be-a Force-Vector-Value with
+                     (force-magnitude   (((a Force-Magnitude-Value) & (the weight-force-magnitude   of Self))))
+                     (x-force-magnitude (((a Force-Magnitude-Value) & (the weight-x-force-magnitude of Self))))
+                     (y-force-magnitude (((a Force-Magnitude-Value) & (the weight-y-force-magnitude of Self))))
+                    (direction (( a Angle-Value ;;with
+                                    ;;( value ((:default (:pair 270 *degree))))
+                                    ))))))
+  (weight-force-magnitude   ((if (has-value (the weight-force of Self))
+                               then ((a Force-Magnitude-Value) & (the force-magnitude of (the weight-force of Self))))))
+  (weight-x-force-magnitude ((if (has-value (the weight-force of Self))
+                               then ((a Force-Magnitude-Value) & (the x-force-magnitude of (the weight-force of Self))))))
+  (weight-y-force-magnitude ((if (has-value (the weight-force of Self))
+                               then ((a Force-Magnitude-Value) & (the y-force-magnitude of (the weight-force of Self))))))
+
+  (normal-force ((must-be-a Force-Vector-Value with
+                     (force-magnitude   (((a Force-Magnitude-Value) & (the normal-force-magnitude   of Self))))
+                     (x-force-magnitude (((a Force-Magnitude-Value) & (the normal-x-force-magnitude of Self))))
+                     (y-force-magnitude (((a Force-Magnitude-Value) & (the normal-y-force-magnitude of Self))))
+                    (direction (( a Angle-Value ;;with
+                                    ;;( value ((:default (:pair 90 *degree))))
+                                    ))))))
+  (normal-force-magnitude   ((if (has-value (the normal-force of Self))
+                               then ((a Force-Magnitude-Value) & (the force-magnitude of (the normal-force of Self))))))
+  (normal-x-force-magnitude ((if (has-value (the normal-force of Self))
+                               then ((a Force-Magnitude-Value) & (the x-force-magnitude of (the normal-force of Self))))))
+  (normal-y-force-magnitude ((if (has-value (the normal-force of Self))
+                               then ((a Force-Magnitude-Value) & (the y-force-magnitude of (the normal-force of Self))))))
+
+;; For text gen.
+  (text-active-verbseq-sg  ("exerts force on"))
+  (text-active-verbseq-pl  ("exert force on"))
+  (text-passive-verbseq-sg ("has force exerted on it"))
+  (text-passive-verbseq-pl ("have force exerted on it"))
+)
+
+(Exert-Force has 
+  (test-case ( '(
+           (*BigBlock has 
+              (instance-of (Physical-Object))
+              (mass ((a Mass-Value with (value ((:pair 10 *kilogram))))))
+           )
+           (*RoughTable has 
+              (instance-of (Physical-Object))
+              (coefficient-of-kinetic-friction (
+                 (a Unitless-Value with (value ((:pair 0.5 NIL))))))
+           )
+           (*MoveTheBigBlock has 
+              (instance-of (Move))
+              (object (*BigBlock))
+              (path (*RoughTable))
+           )
+           (*Exert-Force-W has             ;; force due to gravity
+              (instance-of (Exert-Force))
+              (during (*MoveTheBigBlock))
+              (object (*BigBlock))
+              (weight-force (((the mass of (the object of Self))
+                              property-mult
+                              (a Acceleration-Magnitude-Value with 
+                                 (value ((:pair 9.8 *meter-per-second-squared)))
+                              )
+              )))
+           )
+           (*Exert-Force-N has             ;; normal force = weight (in this example)
+              (during (*MoveTheBigBlock))
+              (normal-force ((the weight-force of *Exert-Force-W)))
+           )
+           (*Exert-Force-Fr has            ;; friction force
+              (during (*MoveTheBigBlock))
+              (object (*BigBlock))
+              (friction-force (((the coefficient-of-kinetic-friction of
+                                     (the path of (the during of Self)))
+                                property-mult
+                                (the normal-force of *Exert-Force-N)
+              )))
+           )
+           (a Exert-Force with             ;; *BigBob is pushing against *BigBlock
+              (during (*MoveTheBigBlock))
+              (object (*BigBlock))
+              (applied-force ((a Force-Value with (value ((:pair 2 *newton))))))
+              (agent (*BigBob))
+           )
+
+))))

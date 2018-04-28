@@ -1,0 +1,33 @@
+<!--- $Id: content.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=content>
+
+
+<from name=Tangible-Entity>
+<to name=Entity>
+
+<description> 
+	an Entity contains another Entity.
+</description>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>This is my <ex-to>stout</ex-to> <ex-from>mug</ex-from>.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>That <ex-from>jar</ex-from> contained Tom's favourite <ex-to>candies</ex-to>.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>Many of the <ex-to>world's finest art</ex-to> is preserved in <ex-from>New York's museums</ex-from>.
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=has-part>
+   The parts of an object and the object itself form a integrated whole;
+   something contained inside an object is not necessarily considered part
+   of it
+ </neighbor>
+</neighborlist>
+
+</kml>

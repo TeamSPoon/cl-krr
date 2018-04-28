@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Fe_OH_3.km,v 1.6 2006/03/23 20:55:20 tecuci Exp $
+;; 
+
+(Fe_OH_3 has (superclasses (Ionic-Compound)))
+
+(every Fe_OH_3 has	
+       (has-chemical-name ("iron(III) hydroxide" "ferric hydroxide"))
+       (has-part 
+	((a Fe-Plus-3) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+            (term ((:seq
+		    (:pair 1 Fe-Plus-3)
+		    (:pair 3 OH-Minus))))))))
+(every Fe_OH_3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Fe-Plus-3) (a OH-Minus))))
+

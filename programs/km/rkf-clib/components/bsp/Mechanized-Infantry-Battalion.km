@@ -1,0 +1,32 @@
+
+;; 
+;;  $Id: Mechanized-Infantry-Battalion.km,v 1.5 2002/09/04 20:11:11 kbarker Exp $
+;; 
+
+(Mechanized-Infantry-Battalion has
+   (superclasses (Mechanized-Infantry-Unit Battalion)))
+
+(every Mechanized-Infantry-Battalion has-definition
+   (instance-of (Mechanized-Infantry-Unit Battalion)))
+
+(every Mechanized-Infantry-Battalion has
+   (possesses ((if ((the value of (the allegiance of Self)) = *Blue)
+                then
+                   (a M2)
+                else
+                   (if ((the value of (the allegiance of Self)) = *Red)
+                    then
+                       (if (has-value (the element-of of Self))
+                        then
+                           (if
+                              ((the element-of of Self) isa 
+                                    Mechanized-Infantry-Brigade)
+                            then
+                               (a BMP-2)
+                            else
+                               (a BTR-60))
+                        else
+                           (a BTR-60)))
+   )))
+)
+

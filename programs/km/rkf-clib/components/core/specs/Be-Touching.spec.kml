@@ -1,0 +1,54 @@
+<!--- $Id: Be-Touching.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Touching><system-documentation name=Be-Touching>
+
+<superconcept name=State>
+
+<definition>
+
+  A state in which two <slot>object</slot>s are touching each other.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      The (exactly) two <conceptref name=Tangible-Entity> that are touching
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+   <slotdescription name=site>
+       The place on the objects where they touch
+   </slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+
+   <examplesentence>
+     <text>The chair was touching the wall.</text>
+     <slotdescription name=object>the chair, the wall</slotdescription>
+   </examplesentence>
+
+   <examplesentence>
+     <text>John was touching his computer's space bar.</text>
+     <slotdescription name=object>John; his computer</slotdescription>
+     <slotdescription name=site>space bar</slotdescription>
+   </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Attached-To>
+      The Be-Attached-To state is a special kind of Be-Touching in which 
+      the objects are attached to each other, possibly with a connector.
+   </neighbor>
+
+</neighborlist>
+   
+</kml>
+
+

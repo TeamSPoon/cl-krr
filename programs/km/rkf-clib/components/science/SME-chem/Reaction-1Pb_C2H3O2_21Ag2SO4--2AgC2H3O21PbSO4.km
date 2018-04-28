@@ -1,0 +1,285 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 ----------
+
+(Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 has (superclasses (Reaction)))
+
+(_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 has 
+  (instance-of (Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4))
+  (prototype-of (Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4))
+  (prototype-scope (Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4))
+  (prototype-participants (_Property-Node3272
+                           _Property-Node3271
+                           _Property-Node3270
+                           _Property-Node3269
+                           _Chemical-Entity3268
+                           _Chemical3266
+                           _Coefficient-Value3265
+                           _Chemical-Entity3263
+                           _Chemical3262
+                           _Coefficient-Value3261
+                           _Chemical3259
+                           _Coefficient-Value3258
+                           _Chemical-Entity3257
+                           _Chemical-Entity3251
+                           _Chemical3250
+                           _Coefficient-Value3249
+                           _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (big-nodes (_Property-Node3269
+              _Property-Node3270
+              _Property-Node3271
+              _Property-Node3272))
+  (raw-material (_Chemical3262
+                 _Chemical3266))
+  (result (_Chemical3250
+           _Chemical3259))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3250 t)
+                    (:seq raw-material _Chemical3262 t)
+                    (:seq raw-material _Chemical3266 t)
+                    (:seq result _Chemical3259 t))))
+
+(_Property-Node3272 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3258))
+  (contains-edge ((:triple _Coefficient-Value3258 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Property-Node3271 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3249))
+  (contains-edge ((:triple _Coefficient-Value3249 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Property-Node3270 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3265))
+  (contains-edge ((:triple _Coefficient-Value3265 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Property-Node3269 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3261))
+  (contains-edge ((:triple _Coefficient-Value3261 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Chemical-Entity3268 has 
+  (instance-of (Chemical-Entity
+                Ag2SO4))
+  (is-basic-structural-unit-of (_Chemical3266))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Chemical3266 has 
+  (has-basic-structural-unit (_Chemical-Entity3268))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3265))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3265 t)))
+  (raw-material-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Coefficient-Value3265 has 
+  (contains-node-of (_Property-Node3270))
+  (coefficient-of (_Chemical3266))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Chemical-Entity3263 has 
+  (instance-of (Chemical-Entity
+                Pb_C2H3O2_2))
+  (is-basic-structural-unit-of (_Chemical3262))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Chemical3262 has 
+  (has-basic-structural-unit (_Chemical-Entity3263))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3261))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3261 t)))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Coefficient-Value3261 has 
+  (contains-node-of (_Property-Node3269))
+  (coefficient-of (_Chemical3262))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Chemical3259 has 
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity3257))
+  (coefficient (_Coefficient-Value3258))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3258 t)))
+  (result-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Coefficient-Value3258 has 
+  (contains-node-of (_Property-Node3272))
+  (coefficient-of (_Chemical3259))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Chemical-Entity3257 has 
+  (is-basic-structural-unit-of (_Chemical3259))
+  (instance-of (Chemical-Entity
+                PbSO4))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Chemical-Entity3251 has 
+  (instance-of (Chemical-Entity
+                AgC2H3O2))
+  (is-basic-structural-unit-of (_Chemical3250))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Chemical3250 has 
+  (has-basic-structural-unit (_Chemical-Entity3251))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3249))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3249 t)))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(_Coefficient-Value3249 has 
+  (contains-node-of (_Property-Node3271))
+  (coefficient-of (_Chemical3250))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193)))
+
+(explanation (:triple _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 result _Chemical3259)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 raw-material _Chemical3266)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 raw-material _Chemical3262)
+  ((a Chemical (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction raw-material))))
+(explanation (:triple _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 result _Chemical3250)
+  ((a Chemical (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction result))))
+(explanation (:triple _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 chemical-equation _Chemical-Equation-Expression3195)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193) (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 instance-of Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical-Entity3268 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3266 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3268 instance-of Ag2SO4)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical3266 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3266 coefficient _Coefficient-Value3265)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical3266 has-basic-structural-unit _Chemical-Entity3268)
+  ((a Chemical-Entity (@ _Chemical3266 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3266 instance-of Chemical)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Coefficient-Value3265 value (:pair 1 *unity))
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Coefficient-Value3265 instance-of Coefficient-Value)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical-Entity3263 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3262 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3263 instance-of Pb_C2H3O2_2)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical3262 has-basic-structural-unit _Chemical-Entity3263)
+  ((a Chemical-Entity (@ _Chemical3262 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3262 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3262 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction raw-material))))
+(explanation (:triple _Chemical3262 coefficient _Coefficient-Value3261)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical3262 instance-of Chemical)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Coefficient-Value3261 value (:pair 1 *unity))
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Coefficient-Value3261 instance-of Coefficient-Value)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical3259 instance-of Entity)
+  ((a Entity (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Event (result must-be-a)))))
+(explanation (:triple _Chemical3259 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3259 coefficient _Coefficient-Value3258)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical3259 has-basic-structural-unit _Chemical-Entity3257)
+  ((a Chemical-Entity (@ _Chemical3259 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3259 instance-of Chemical)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Coefficient-Value3258 value (:pair 1 *unity))
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Coefficient-Value3258 instance-of Coefficient-Value)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical-Entity3257 atomic-chemical-formula _Chemical-Formula3247)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3257)) or (the term of (the has-chemical-formula of _Chemical-Entity3257)) (@ _Chemical-Entity3257 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3257)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3257))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3257)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3257)))))))))) (@ _Chemical-Entity3257 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3257 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3257 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3257 nested-atomic-chemical-formula _Chemical-Formula3238)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity3257)) and (the has-chemical-formula of _Chemical-Entity3257) (@ _Chemical-Entity3257 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity3257)))) (@ _Chemical-Entity3257 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity3257 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3257 has-chemical-formula _Chemical-Formula3236)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Pb-Plus-2) (:pair 1 SO4-Minus-2)))) (@ _Chemical-Entity3257 PbSO4 has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3257 has-chemical-formula _Chemical-Formula3236)
+  ((if ((the has-part of _Chemical-Entity3257) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity3257)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity3257)))) (@ _Chemical-Entity3257 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity3257) (the Anion has-part of _Chemical-Entity3257)))) (@ _Chemical-Entity3257 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity3257) (@ _Chemical-Entity3257 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3257 instance-of PbSO4)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical-Entity3257 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3259 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3251 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3250 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3251 instance-of AgC2H3O2)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical3250 has-basic-structural-unit _Chemical-Entity3251)
+  ((a Chemical-Entity (@ _Chemical3250 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3250 instance-of Entity)
+  ((a Entity (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Event (result must-be-a)))))
+(explanation (:triple _Chemical3250 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3250 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO43193 Reaction result))))
+(explanation (:triple _Chemical3250 coefficient _Coefficient-Value3249)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Chemical3250 instance-of Chemical)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Coefficient-Value3249 value (:pair 2 *unity))
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+(explanation (:triple _Coefficient-Value3249 instance-of Coefficient-Value)
+  ((added-at Reaction-1Pb_C2H3O2_21Ag2SO4--2AgC2H3O21PbSO4 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,86 @@
+;; 
+;;    $Id: Activate.km,v 1.19 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Activate has
+  (superclasses  	(Make-Accessible))
+  (required-slot 	(object))
+  (primary-slot  	(agent instrument))
+  (secondary-slot       ())
+  (cmap-correspondence  (
+			 (:seq object "The thing activated")
+			 (:seq agent "The activator")
+			 (:seq instrument "instrument")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Activate has 
+  (preparatory-event ((:default
+		       (a Deactivate with
+			  (object ((the object of Self))))))))
+
+
+(every Activate has
+  ;; agent and object inherited from Make-Accessible.
+  (resulting-state ((a Be-Activated)))
+  
+  ;; The Pre and Post-Conditions of this Action.
+  
+  ;; The object must not already be activated
+  (pcs-list ((forall (the object of Self)
+		     (:triple 
+		       It
+		       object-of
+		       (mustnt-be-a Be-Activated) [Activate-pcs-1]))))
+
+  (add-list ((:triple
+	       (the resulting-state of Self)
+	       object
+	       (the object of Self) [Activate-add-1]))))
+
+(comment [Activate-pcs-1] (:seq (the object of Self) " must not yet be activated.")
+	 "Things can't be activated if they are already active.")
+
+(comment [Activate-add-1] (:seq (the object of Self) " becomes active.")
+	 "When something is activated, it becomes active.")
+
+(every Activate has
+  (text-active-verbseq-sg ("activates"))
+  (text-active-verbseq-pl ("activate"))
+  (text-passive-verbseq-sg ("gets activated"))
+  (text-passive-verbseq-pl ("get activated"))
+
+  (text-argslots ((:seq base instrument path result)))
+)
+
+
+
+
+;; automatically added WN synsets
+(Activate has (wn16-synset ((:set  
+                                       (:triple "activate" 2 "v")
+                                       (:triple "enable" 1 "v")
+                                       (:triple "flip" 2 "v")
+                                       (:triple "gear_up" 1 "v")
+                                       (:triple "prepare" 1 "v")
+                                       (:triple "reactivate" 1 "v")
+                                       (:triple "ready" 2 "v")
+                                       (:triple "set" 7 "v")
+                                       (:triple "set" 8 "v")
+                                       (:triple "set_up" 15 "v")
+                                       (:triple "switch" 5 "v")
+                                       (:triple "throw" 6 "v")
+))))
+
+(Activate has (wn20-synset ((:set
+                                       (:triple "activate" 2 "v")
+                                       (:triple "enable" 1 "v")
+;                                       (:triple "flip" 2 "v")
+                                       (:triple "reactivate" 1 "v")
+                                       (:triple "set" 8 "v")
+;                                       (:triple "switch" 5 "v")
+;                                       (:triple "throw" 6 "v")
+))))
+
+(every Activate has (text-nominalization ("activation")))

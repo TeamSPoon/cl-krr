@@ -1,0 +1,39 @@
+;; 
+;;    $Id: Procaryotic-MRNA.km,v 1.17 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Procaryotic-MRNA has
+		  (superclasses (MRNA))
+		  (required-slot ())
+		  (primary-slot ())
+		  (secondary-slot ())
+		  (description ("RNA molecule that specifies the amino acid sequence of a
+                     protein. Made by RNA polymerase as a
+                     complementary copy of DNA.  It is translated into protein
+                     in a process catalyzed by ribosomes. Alberts:ECB:G-11"))
+		  (cmap-correspondence ())
+		  (test-case ()))
+
+(every Procaryotic-MRNA has
+  (purpose ((a Vehicle with
+	       (in-event ((a Procaryotic-Gene-To-Protein-Expression with
+			     (object ((a Aggregate with
+
+					 (element-type (Cistron) )
+				      )))))))))
+
+; (lifespan ((pair: 3 *minute)))    ; this is an average
+  (has-part ((a RNA-5prime-UTR)
+	     (a RNA-Translated-Region with
+		(has-part ((a Gene-Transcript with   ; 1 or more genes
+			      (has-part ((a Protein-Initiator-Codon)
+;					 (a Chemical-Sequence with
+
+;					    (element-type (Gene)))
+                                         (a Protein-Stop-Codon)))))))
+             (a RNA-3prime-UTR))))
+
+				
+
+
+

@@ -1,0 +1,26 @@
+;; 
+;;    $Id: integrity.km,v 1.10 2007/04/11 21:23:39 jchaw Exp $
+;; 
+
+(integrity has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Integrity-Value))
+   (scale-class (Integrity-Scale))
+   (scalar-constant-class (Integrity-Constant))
+   (inverse 	(integrity-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(integrity has (wn20-synset ((:set
+                               (:triple "integrity" 1 "n")
+                               (:triple "unity" 1 "n")
+                               (:triple "wholeness" 1 "n")
+))))
+
+(integrity-of has
+	(instance-of (EntityProperty)))

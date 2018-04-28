@@ -1,0 +1,56 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Soluble-Substance7621
+
+
+|#
+
+(disable-classification)
+
+(Soluble-Substance has (superclasses (Chemical)))
+
+(every Soluble-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Soluble-Substance7630 has
+  (prototype-of (Soluble-Substance))
+  (prototype-scope (Soluble-Substance 
+        (the-class Chemical with (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+        ))
+  (prototype-participants (_Solubility-Value7633 _Chemical-Entity7632 _State-Value7631 _Soluble-Substance7630)))
+
+(_Soluble-Substance7630 has
+  (instance-of (Soluble-Substance))
+  (solubility (_Solubility-Value7633))
+  (has-basic-structural-unit (_Chemical-Entity7632))
+  (physical-state (_State-Value7631)))
+
+(_State-Value7631 has (instance-of (State-Value)))
+
+(_Chemical-Entity7632 has (instance-of (Chemical-Entity)))
+
+(_Solubility-Value7633 has (instance-of (Solubility-Value)))
+
+(enable-classification)
+
+(explanation (:triple _Soluble-Substance7630 solubility _Solubility-Value7633) (((@ SME entered)) (every Soluble-Substance has (solubility ((a Solubility-Value))))))
+
+(explanation (:triple _Soluble-Substance7630 instance-of Soluble-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value7631 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity7632 instance-of Chemical-Entity) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value7633 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Soluble-Substance has (solubility ((a Solubility-Value))))
+
+|#
+
+|#
+

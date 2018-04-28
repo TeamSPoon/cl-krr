@@ -1,0 +1,10 @@
+;; $Id: Reaction-Na_Cl2--NaCl.km,v 1.1 2007/12/21 20:19:57 mrglass Exp $ 
+(Reaction-Na_Cl2--NaCl has (superclasses (Combination-Reaction)))
+
+(every Reaction-Na_Cl2--NaCl has
+(raw-material (
+      (a Na-Substance)
+      (a Molecule-Substance with (has-basic-structural-unit ((a Cl2))))
+      ))
+(result (
+      (a NaCl-Substance))))

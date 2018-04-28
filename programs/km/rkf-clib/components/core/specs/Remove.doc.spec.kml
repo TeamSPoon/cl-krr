@@ -1,0 +1,36 @@
+<!--- $Id: Remove.doc.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Remove>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Remove>
+  <definition>remove a part of something</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>the part removed</restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <restriction>a Tangible-Entity</restriction>
+    <requiredslot name=has-part>
+      <restriction>the <slot>object</slot> of the Remove</restriction>
+    </requiredslot>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>removes the <slot>object</slot> part from the <slot>base</slot></restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>the thing used to remove the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>remove#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Amido-Group.km,v 1.5 2001/05/01 22:29:53 pnav Exp $ 
+;; 
+
+(Amido-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Molecule containing a carbonyl group linked to an
+                             amine.  Alberts:ECB:G-1.")) 
+	      (cmap-correspondence ()))
+
+(every Amido-Group has
+       (has-part ((a Oxygen-Atom)
+		  (a Amino-Group)
+                  (a Carbon-Atom with
+                     (object-of
+                        ((a Be-Attached-To with
+                           (object ((the Oxygen-Atom has-part of Self)))
+                           (instrument ((a Double-Covalent-CO-Bond)))
+			   )
+			 (a Be-Attached-To with  
+                           (object ((the Amino-Group has-part of Self)))
+                           (instrument ((a Covalent-CN-Bond)))
+                           )   
+			 )))
+		  )))
+
+
+

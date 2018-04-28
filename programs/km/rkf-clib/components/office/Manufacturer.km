@@ -1,0 +1,19 @@
+;;
+;; $Id: Manufacturer.km,v 1.2 2005/04/10 21:19:07 jchaw Exp $
+;;
+
+(Manufacturer has (superclasses (Organization-Role)))
+
+(every Manufacturer has 
+   (in-event ((a Produce with
+                 (agent ((the Organization played-by of Self))))))
+)
+
+(Manufacturer has (wn20-synset ((:set
+	 		     (:triple "manufacturer" 1 "n")
+	 		     (:triple "maker" 3 "n")
+	 		     (:triple "manufacturing_business" 1 "n")
+	 		     (:triple "manufacturer" 2 "n")
+	 		     (:triple "producer" 1 "n")
+))))
+

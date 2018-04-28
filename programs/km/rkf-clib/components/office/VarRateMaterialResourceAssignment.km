@@ -1,0 +1,11 @@
+;;    $Id: VarRateMaterialResourceAssignment.km,v 1.2 2004/11/06 18:11:33 jfan Exp $
+(VarRateMaterialResourceAssignment has
+				   (superclasses (MaterialResourceAssignment))
+				   (required-slot ())
+				   (primary-slot ())
+				   (secondary-slot ())
+				   (cmap-correspondence ())
+				   (test-case ()))
+
+(assignedConsumpAmount has (instance-of (Interface-Slot)) (domain (VarRateMaterialResourceAssignment)) (range (Thing)) (cardinality (N-to-1))) ;; range should be consumption, which is undefined, so use Thing for the time being.
+(timeBase has (instance-of (Interface-Slot)) (domain (VarRateMaterialResourceAssignment)) (range (Time-Interval)) (cardinality (N-to-1)))

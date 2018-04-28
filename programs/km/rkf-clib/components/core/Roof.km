@@ -1,0 +1,48 @@
+;; 
+;; $Id: Roof.km,v 1.5 2006/04/12 19:30:38 jchaw Exp $
+;; 
+
+(Roof has
+  (superclasses (Architectural-Structure))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("an architectural structure covering another architectural structure"))
+  (cmap-correspondence ())
+)
+
+(every Roof has
+  (is-part-of ((a Architectural-Structure)))
+
+  (plays ((a Cover)))
+
+  (is-above ((the is-part-of of Self)))
+  (is-above ((if (oneof (the plays of (the Architectural-Structure is-part-of of Self))
+                  where (It isa Container)
+                 )
+              then (the content of 
+                        (the Container plays of
+                             (the Architectural-Structure is-part-of of Self)))
+  )))
+)
+
+(Roof has
+  (test-case ('(
+                (*TheSnow has (instance-of (Substance)))
+                (*TheBench has (instance-of (Artifact)))
+                (*TheGazebo has (instance-of (Architectural-Structure))
+                                (has-part ((a Roof)))
+                                (plays ((a Container with
+                                           (content (*TheBench))))))
+                (*TheWinterSky has (instance-of (Place))
+                                   (is-above ((the Roof has-part of *TheGazebo))))
+                ((the is-above of (the Roof has-part of *TheGazebo))
+                 is-superset-of (:set *TheGazebo *TheBench))
+                (a Fall with (object (*TheSnow))
+                             (origin (*TheWinterSky))
+                             (destination (*TheBench)))
+                (not (try-do (thelast Fall)))
+))))
+
+(Roof has (wn20-synset ((:set
+			(:triple "roof" 1 "n")))))

@@ -1,0 +1,207 @@
+;; 
+;;    $Id: Compute-Salt-Solution-with-Highest-pH.km,v 1.7 2003/09/26 21:55:14 jfan Exp $
+;; 
+
+(Compute-Salt-Solution-with-Highest-pH has
+				       (superclasses (Method))
+				       (description ("given 2 salt solutions, finds the one with the higher PH")))
+
+
+(every Compute-Salt-Solution-with-Highest-pH has
+       (input ((a Salt-Solution called "first")
+	       (a Salt-Solution called "second")
+	       (exactly 2)))
+       
+       (output ( ;; numeric values known
+ 		((?first-salt == ((the input of Self) called "first")) and
+		 (?second-salt == ((the input of Self) called "second")) and
+		 (?pH-first == (the value of (the pH of ?first-salt))) and
+		 (?pH-second == (the value of (the pH of ?second-salt))) and
+		 (if ((numberp (the1 of ?pH-first))
+		      and
+		      (numberp (the1 of ?pH-second)))
+		     then
+		   (if ((the1 of ?pH-first) > (the1 of ?pH-second))
+		       then (?first-salt)
+		       else (?second-salt))))))
+       
+       (output (;; if both solutions' anions increase the pH 
+		;; the one with the greatest kb will increase pH the most 
+		((?first-salt == ((the input of Self) called "first")) and
+		 (?second-salt == ((the input of Self) called "second")) and
+		 (?first-anion == (the Anion-Substance has-part of ?first-salt)) and
+		 (?second-anion == (the Anion-Substance has-part of ?second-salt)) and
+		 (?pH-first == (the pH of ?first-salt)) and
+		 (?pH-second == (the pH of ?second-salt)) and
+		 
+		 (?first-kb == (the kb of (the Base-Role plays of ?first-anion))) and
+		 (?first-def-kb == (the default-kb of (the Base-Role plays of ?first-anion))) and
+		 (?second-kb == (the kb of (the Base-Role plays of ?second-anion))) and
+		 (?second-def-kb == (the default-kb of (the Base-Role plays of ?second-anion))) and
+		 
+		 (if ((has-value (the to-value-of of ?pH-first)) and 
+		      (has-value (the to-value-of of ?pH-second)))
+		     then
+		   (if ((the to-value-of of ?pH-first) isa Increase)
+		       then
+		     (if ((the to-value-of of ?pH-second) isa Increase)
+			 ;; both increase
+			 then
+		       (if ((has-value (the value of ?first-kb)) and
+			    (has-value (the value of ?second-kb))) 
+			    then (if ((the1 of (the value of ?first-kb))
+				      >
+				      (the1 of (the value of ?second-kb)))
+				     then (?first-salt)
+				     else (?second-salt))
+			    else (if ((has-value (the value of ?first-def-kb)) and
+				      (has-value (the value of ?second-def-kb)))
+				     then (if ((the1 of (the value of ?first-def-kb))
+					       >
+					       (the1 of (the value of ?second-def-kb)))
+					      then (?first-salt)
+					      else (?second-salt))))
+		       ;; just first pH is result of an Increase
+		       else (?first-salt))
+		     else 
+		     (if ((the to-value-of of ?pH-second) isa Increase)
+			 then (?second-salt)))))))
+
+           (output (
+                ;; if both solutions cations are metals that decrease pH, then 
+                ;; the one with the highest charge decreases pH the most
+		((?first-salt == ((the input of Self) called "first")) and
+                 (?second-salt == ((the input of Self) called "second")) and
+                 (?pH-first == (the pH of ?first-salt)) and
+		 (?pH-second == (the pH of ?second-salt)) and
+		 (?hbsu-first == (the has-chemical-formula of 
+				      (the has-basic-structural-unit of 
+					   (the Cation-Substance has-part of ?first-salt)))) and
+		 (?hbsu-second == (the has-chemical-formula of 
+				       (the has-basic-structural-unit of 
+					    (the Cation-Substance has-part of ?second-salt)))) and
+				    
+		 (if ((has-value (the to-value-of of ?pH-first)) and 
+		      (has-value (the to-value-of of ?pH-second)))
+		     then
+		   (if ((the to-value-of of ?pH-first) isa Decrease)
+		       then
+		     (if ((the to-value-of of ?pH-second) isa Decrease) 
+			 then
+		       ;; both decrease
+		       (if (((an instance of 
+				(the2 of (the1 of (the term of 
+						       (the has-chemical-formula of ?hbsu-first))))) 
+			     isa Metal-Atom) and
+			     ((an instance of
+			      (the2 of (the1 of (the term of 
+						     (the has-chemical-formula of ?hbsu-second)))))
+			      isa Metal-Atom))
+			   then 
+			 ;; one with highest charge decrease the most
+			 (if ((the1 (the value of (the charge of ?hbsu-first)))
+			      >
+			      (the1 (the value of (the charge of ?hbsu-second))))
+			     then (?second-salt)
+			     else (?first-salt)))
+		       ;; just first is a Decrease
+		       else (?second-salt))		     
+		     else 
+		     (if ((the to-value-of of ?pH-second) isa Decrease)
+			 then (?first-salt)))))))
+		     
+       (output (
+	  ;; if both solutions' cations are conj of weak bases, then 
+	  ;; the one with the greatest ka decreases pH the most
+	  ((?first-salt == ((the input of Self) called "first")) and
+	   (?second-salt == ((the input of Self) called "second")) and
+	   (?first-cation == (the Cation-Substance has-part of ?first-salt)) and
+	   (?second-cation == (the Cation-Substance has-part of ?second-salt)) and
+	   (?pH-first == (the pH of ?first-salt)) and
+	   (?pH-second == (the pH of ?second-salt)) and
+	   (?first-conj-base == (the output of 
+				     (a Compute-Conjugate-Base with 
+					(input (?first-salt))))) and
+	   (?second-conj-base == (the output of 
+				      (a Compute-Conjugate-Base with 
+					 (input (?second-salt))))) and		     
+	   (?first-ka == (the ka of (the Acid-Role plays of ?first-cation))) and
+	   (?first-def-ka == (the default-ka of (the Acid-Role plays of ?first-cation))) and
+	   (?second-ka == (the ka of (the Acid-Role plays of ?second-cation))) and
+	   (?second-def-ka == (the default-ka of (the Acid-Role plays of ?second-cation))) and
+	   (if ((has-value (the to-value-of of ?pH-first)) and 
+		(has-value (the to-value-of of ?pH-second)))
+	       then
+	     (if ((the to-value-of of ?pH-first) isa Decrease)
+		 then
+	       (if ((the to-value-of of ?pH-second) isa Decrease)
+		   then
+		 ;; both decrease
+		  (if ((has-value ?first-conj-base) and
+		       ((the1 of 
+			      (the value of 
+				   (the intensity of 
+				        (a Base-Role with
+					   (played-by ?first-conj-base))))) = *weak) and
+		      (has-value ?second-conj-base) and
+		      ((the1 of 
+			     (the value of 
+				  (the intensity of 
+				       (a Base-Role with
+					  (played-by ?second-conj-base))))) = *weak) and
+		      (has-value ?first-plays) and
+		      (has-value ?second-plays))
+		      then
+		    (if ((has-value (the value of ?first-ka)) and
+			 (has-value (the value of ?second-ka)))
+			then (if ((the1 of (the value of ?first-ka))
+				  <
+				  (the1 of (the value of ?second-ka)))
+				 then (?first-salt)
+				 else (?second-salt))
+			else (if ((has-value (the value of ?first-def-ka)) and
+				  (has-value (the value of ?second-def-ka)))
+				 then (if ((the1 of (the value of ?first-def-ka))
+					   <
+					   (the1 of (the value of ?second-def-ka)))
+					  then (?first-salt)
+					  else (?second-salt)))))
+		  ;; just first pH is result of an Decrease
+		  else (?second-salt))
+	       else 
+	       (if ((the to-value-of of ?pH-second) isa Decrease)
+		   then (?first-salt))))))))
+
+(Compute-Salt-Solution-with-Highest-pH has
+    (test-case ( '(
+		   ;; case 2
+		   (*S1 has
+			(instance-of (Salt-Solution))
+			(has-part ((a CO3-Minus-2-Substance) (a Cation-Substance)))
+			(pH ((a PH-Value with
+				(to-value-of ((a Increase with (property-slot (pH)))))))))
+		   (*S2 has
+			(instance-of (Salt-Solution))
+			(has-part ((a SO4-Minus-2-Substance) (a Cation-Substance)))
+			(pH ((a PH-Value with
+				(to-value-of ((a Increase with (property-slot (pH)))))))))
+		   ((the output of 
+			 (a Compute-Salt-Solution-with-Highest-pH with
+			    (input (*S1 *S2)))) = *S1)
+
+		   ;; case 1
+		   (*S3 has
+			(instance-of (Salt-Solution))
+			(pH ((a PH-Value with
+				(value ((:pair 5 nil)))))))
+		   (*S4 has
+			(instance-of (Salt-Solution))
+			(pH ((a PH-Value with
+				(value ((:pair 7 nil)))))))
+		   ((the output of 
+			 (a Compute-Salt-Solution-with-Highest-pH with
+			    (input (*S3 *S4)))) = *S4)
+
+		   
+		   ))))
+		    

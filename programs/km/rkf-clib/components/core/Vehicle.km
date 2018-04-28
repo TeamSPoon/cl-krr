@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Vehicle.km,v 1.4 2009/12/16 17:04:47 kbarker Exp $
+;; 
+
+(Vehicle has
+        (superclasses (Role))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (description ("The object or medium which transports the object moved during a move event."))
+        (cmap-correspondence ()))  
+
+(every Vehicle has
+       	(in-event ((a Carry)))
+       	(played-by ((a Tangible-Entity with
+                      (instrument-of ((the in-event of Self)))))))
+
+(Vehicle has 
+       (wn20-synset 
+	((:set (:triple "vehicle" 1 "n"))
+	 (:set (:triple "vehicle" 3 "n"))
+	 (:set (:triple "fomite" 1 "n")))))

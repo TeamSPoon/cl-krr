@@ -1,0 +1,121 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for HgI ----------
+
+(HgI has (superclasses (Ionic-Compound)))
+
+(_HgI9084 has 
+  (instance-of (HgI))
+  (prototype-of (HgI))
+  (prototype-scope (HgI))
+  (prototype-participants (_Property-Node9162
+                           _Cation9161
+                           _Charge-Value9160
+                           _Anion9159
+                           _Charge-Value9158
+                           _HgI9084))
+  (prototype-participant-of (_HgI9084))
+  (big-nodes (_Property-Node9162))
+  (has-part (_Anion9159
+             _Cation9161))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Cation9161 t)
+                    (:seq has-part _Anion9159 t)))
+  (internally-expanded (t)))
+
+(_Property-Node9162 has 
+  (instance-of (Property-Node))
+  (big-node-of (_HgI9084))
+  (node-visibility (t))
+  (contains-node (_Charge-Value9160))
+  (prototype-participant-of (_HgI9084)))
+
+(_Cation9161 has 
+  (instance-of (Cation
+                Hg-Plus-2))
+  (is-part-of (_HgI9084))
+  (charge (_Charge-Value9160))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_HgI9084)))
+
+(_Charge-Value9160 has 
+  (contains-node-of (_Property-Node9162))
+  (charge-of (_Cation9161))
+  (instance-of (Charge-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_HgI9084)))
+
+(_Anion9159 has 
+  (instance-of (Anion
+                I-Minus))
+  (is-part-of (_HgI9084))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (charge (_Charge-Value9158))
+  (prototype-participant-of (_HgI9084)))
+
+(_Charge-Value9158 has 
+  (charge-of (_Anion9159))
+  (instance-of (Charge-Value))
+  (value ((:pair -1 *unity)))
+  (prototype-participant-of (_HgI9084)))
+
+(explanation (:triple _HgI9084 nested-atomic-chemical-formula _Chemical-Formula9155)
+  ((_Chemical-Formula9155)))
+(explanation (:triple _HgI9084 atomic-chemical-formula _Chemical-Formula9156)
+  ((if ((the term of (the nested-atomic-chemical-formula of _HgI9084)) or (the term of (the has-chemical-formula of _HgI9084)) (@ _HgI9084 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _HgI9084)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _HgI9084))))))) else (if (the term of (the has-chemical-formula of _HgI9084)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _HgI9084)))))))))) (@ _HgI9084 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _HgI9084 Chemical-Entity atomic-chemical-formula)) (@ _HgI9084 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _HgI9084 nested-atomic-chemical-formula _Chemical-Formula9155)
+  ((if ((not (the nested-atomic-chemical-formula of _HgI9084)) and (the has-chemical-formula of _HgI9084) (@ _HgI9084 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _HgI9084)))) (@ _HgI9084 Ionic-Compound nested-atomic-chemical-formula)) (@ _HgI9084 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _HgI9084 has-chemical-formula _Chemical-Formula9157)
+  ((if ((the has-part of _HgI9084) and (has-value (the value of (the charge of (the Cation has-part of _HgI9084)))) and (has-value (the value of (the charge of (the Anion has-part of _HgI9084)))) (@ _HgI9084 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _HgI9084) (the Anion has-part of _HgI9084)))) (@ _HgI9084 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _HgI9084) (@ _HgI9084 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _HgI9084 has-chemical-name ("mercury(II) iodide"))
+  ((added-at HgI "User defined")))
+(explanation (:triple _HgI9084 has-chemical-name "mercury(II) iodide")
+  (("mercury(II) iodide")))
+(explanation (:triple _HgI9084 has-part _Cation9161)
+  ((a Cation (@ _HgI9084 Ionic-Compound has-part))))
+(explanation (:triple _HgI9084 has-part _Anion9159)
+  ((a Anion (@ _HgI9084 Ionic-Compound has-part))))
+(explanation (:triple _HgI9084 instance-of HgI)
+  ((added-at HgI "User defined")))
+(explanation (:triple _Cation9161 charge _Charge-Value9160)
+  ((a Charge-Value with (value ((:pair 2 *unity))) (@ _Cation9161 Hg-Plus-2 charge))))
+(explanation (:triple _Cation9161 has-chemical-formula _Chemical-Formula9119)
+  ((if ((not (the has-chemical-formula of _Cation9161)) and (the nested-atomic-chemical-formula of _Cation9161) (@ _Cation9161 Ion has-chemical-formula)) then (the nested-atomic-chemical-formula of _Cation9161 (@ _Cation9161 Ion has-chemical-formula)) (@ _Cation9161 Ion has-chemical-formula))))
+(explanation (:triple _Cation9161 nested-atomic-chemical-formula _Chemical-Formula9119)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Hg)))) (@ _Cation9161 Hg-Plus-2 nested-atomic-chemical-formula))))
+(explanation (:triple _Cation9161 instance-of Hg-Plus-2)
+  ((added-at HgI "User defined")))
+(explanation (:triple _Cation9161 charge _Charge-Value9160)
+  ((a Charge-Value (@ _Cation9161 Ion charge))))
+(explanation (:triple _Cation9161 instance-of Cation)
+  ((a Cation (@ _HgI9084 Ionic-Compound has-part))))
+(explanation (:triple _Charge-Value9160 instance-of Charge-Value)
+  ((a Charge-Value with (value ((:pair 2 *unity))) (@ _Cation9161 Hg-Plus-2 charge))))
+(explanation (:triple _Charge-Value9160 instance-of Charge-Value)
+  ((a Charge-Value (@ _Cation9161 Ion charge))))
+(explanation (:triple _Anion9159 charge _Charge-Value9158)
+  ((a Charge-Value (@ _Anion9159 Ion charge))))
+(explanation (:triple _Anion9159 charge _Charge-Value9158)
+  ((a Charge-Value with (value ((:pair -1 *unity))) (@ _Anion9159 I-Minus charge))))
+(explanation (:triple _Anion9159 has-chemical-formula _Chemical-Formula9117)
+  ((if ((not (the has-chemical-formula of _Anion9159)) and (the nested-atomic-chemical-formula of _Anion9159) (@ _Anion9159 Ion has-chemical-formula)) then (the nested-atomic-chemical-formula of _Anion9159 (@ _Anion9159 Ion has-chemical-formula)) (@ _Anion9159 Ion has-chemical-formula))))
+(explanation (:triple _Anion9159 nested-atomic-chemical-formula _Chemical-Formula9117)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 I)))) (@ _Anion9159 I-Minus nested-atomic-chemical-formula))))
+(explanation (:triple _Anion9159 instance-of I-Minus)
+  ((added-at HgI "User defined")))
+(explanation (:triple _Anion9159 instance-of Anion)
+  ((a Anion (@ _HgI9084 Ionic-Compound has-part))))
+(explanation (:triple _Charge-Value9158 instance-of Charge-Value)
+  ((a Charge-Value (@ _Anion9159 Ion charge))))
+(explanation (:triple _Charge-Value9158 instance-of Charge-Value)
+  ((a Charge-Value with (value ((:pair -1 *unity))) (@ _Anion9159 I-Minus charge))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

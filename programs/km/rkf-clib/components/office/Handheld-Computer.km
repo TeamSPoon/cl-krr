@@ -1,0 +1,18 @@
+;;
+;;    $Id: Handheld-Computer.km,v 1.4 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Handheld-Computer has 
+  (superclasses (Computer))
+  (feature-slot ((the feature-slot of Computer)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Handheld-Computer))
+  ))
+)
+
+
+(Handheld-Computer has
+		   (wn20-synset ((:set
+				  (:triple "hand-held_computer" 1 "n")
+				  (:triple "hand-held_microcomputer" 1 "n")
+))))

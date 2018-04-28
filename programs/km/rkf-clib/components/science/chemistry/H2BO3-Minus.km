@@ -1,0 +1,10 @@
+;; $Id: H2BO3-Minus.km,v 1.4 2003/02/22 16:24:37 jchaw Exp $ 
+(H2BO3-Minus has (superclasses (Anion)))
+(every H2BO3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("dihydrogen borate"))
+	(has-acid-name (""))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 B) (:pair 3 O)))))))
+)

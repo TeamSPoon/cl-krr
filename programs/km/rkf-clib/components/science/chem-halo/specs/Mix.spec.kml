@@ -1,0 +1,48 @@
+<!--- $Id: Mix.spec.kml,v 1.1 2005/09/09 14:08:38 jfan Exp $ --->
+
+<kml>
+<concept name=Mix>
+
+
+<superconcept name=Action>
+
+  <definition>
+    A Mix is the <conceptref name=Action> of mixing two Chemicals.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=raw-material>
+     The chemicals that are being mixed.
+   </slotdescription>
+   <slotdescription name=result>
+     The resulting mixture.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>NaCl and MgCl are mixed.</text>
+     <slotdescription name=raw-material> NaCl and MgCl</slotdescription>
+     <slotdescription name=result> a Chemical consists of NaCl and MgCl.</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+     <text>NaCl is mixed into water.</text>
+     <slotdescription name=raw-material> NaCl and Water</slotdescription>
+     <slotdescription name=result> a Chemical consists of Na+ and Cl+.</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Mixture>
+     A Mixture is the result of a mix action.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

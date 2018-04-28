@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Combination-Reaction.km,v 1.5 2007/10/25 21:49:38 mrglass Exp $ 
+;; 
+
+
+(Combination-Reaction has
+   (superclasses (Reaction)))
+
+;problematic, may over-eagerly classify
+(every Combination-Reaction has-definition
+   (instance-of (Reaction))
+   (raw-material (
+         (a Chemical)
+         (set-constraint 
+            ((Self isa Combination-Reaction)
+               or
+               (((forall (the raw-material of Self)
+                        (the term of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))
+               and 
+               (forall (the result of Self)
+                  (the term of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))
+               and
+               ((the number of TheValues) > (the number of (the result of Self))))))))
+   (result ((a Chemical) (at-most 1 Chemical))))
+

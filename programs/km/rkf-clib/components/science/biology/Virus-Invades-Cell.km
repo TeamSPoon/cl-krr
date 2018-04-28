@@ -1,0 +1,87 @@
+;; 
+;;    $Id: Virus-Invades-Cell.km,v 1.1 2005/11/07 20:18:51 kbarker Exp $ 
+;; 
+
+
+(Virus-Invades-Cell has (superclasses (Action)))
+
+(every Virus-Invades-Cell has 
+  (agent 	((a Virus)))
+  (object       ((a Cell)))
+
+  (first-subevent (
+    (a Attach called "AdhereToCell" with
+       (object ((the Virus agent of Self)))
+       (base ((the Cell object of Self)))
+       (next-event (((the Penetrate subevent of Self) called "PenetrateCell"))))
+  ))
+
+  (subevent (
+    (a Penetrate called "PenetrateCell" with
+       (agent ((the Virus agent of Self)))
+       (object ((the Plasma-Membrane has-part of (the Cell object of Self))))
+       (next-event (((the Release subevent of Self) called "Uncoat"))))
+    (a Release called "Uncoat" with 
+       (object ((the Viral-Nucleic-Acid has-part of 
+		     (the Virus agent of Self))))
+       (base ((the Protein-Coat has-part of 
+	           (the Virus agent of Self))))
+       (next-event (((the Move subevent of Self) called "MoveIntoCytoplasm"))))
+    (a Move called "MoveIntoCytoplasm" with 
+       (object ((the Viral-Nucleic-Acid has-part of 
+		     (the Virus agent of Self))))
+       (destination ((the Cytoplasm has-part of 
+			  (the Cell object of Self)))))
+  ))
+)
+
+
+(Virus-Invades-Cell has
+  (test-case ( '(
+                 (*cell has
+                   (instance-of (Cell))
+                   (has-part (*cytoplasm *plasma-membrane)))
+		 
+		 ;; implementing partial Role solution
+		 (*plasma-membrane has 
+                   (instance-of (Plasma-Membrane)))
+                 #|(*plasma-membrane has 
+                   (instance-of (Plasma-Membrane Container)))|#
+
+                 (*virus has
+                   (instance-of (Virus))
+                   (has-part (*protein-coat *viral-nucleic-acid)))
+
+                 (*cytoplasm has
+                   (instance-of (Cytoplasm)))
+
+                 (*protein-coat has 
+                   (instance-of (Protein-Coat)))
+
+                 (*viral-nucleic-acid has
+                   (instance-of (Viral-Nucleic-Acid)))
+
+                 (*invade-scenario has
+                   (instance-of (Virus-Invades-Cell))
+                   (agent (*virus))
+                   (object (*cell)))
+
+                 (do-script *invade-scenario)
+
+                 ; Test2: the membrane has been breached (has a portal)
+		 ;; implementing partial Role solution
+                 ;;((the Portal has-region of (the Barrier plays of *plasma-membrane)) isa Portal)
+		 ((the plays of (the has-region of *plasma-membrane)) isa Portal)
+
+                 ; Test3: that portal is the path of the Penetrate
+		 ;; implementing partial Role solution
+                 #|((the Portal has-region of (the Barrier with (played-by (*plasma-membrane)))) = 
+		  (the path of 
+		       ((the Penetrate subevent of *invade-scenario)
+			called "PenetrateCell")))|#
+		 ((the has-region of *plasma-membrane) =
+		  (the path of 
+		       ((the Penetrate subevent of *invade-scenario)
+			called "PenetrateCell")))
+		 ))))
+

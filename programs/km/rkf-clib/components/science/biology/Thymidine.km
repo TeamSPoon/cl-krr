@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Thymidine.km,v 1.15 2001/06/01 23:26:53 pnav Exp $ 
+;; 
+
+(Thymidine has
+	   (superclasses (Ribonucleoside))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+           (description ("A nucleoside containing thymine and ribose. 
+                          Souther."))
+	   (cmap-correspondence ()))
+
+(every Thymidine has
+        (has-part
+         ((a Thymine with
+             (object-of
+	      ((a Be-Attached-To with
+		  (object ((the Ribose has-part of Self)))
+		  (instrument ((a Covalent-CN-Bond)))
+		  (site
+		   (((the Carbon-Atom has-part of 
+			  (the Ribose has-part of Self))
+		     called "Carbon-1" )
+		    ((the Nitrogen-Atom has-part of
+			  (the Thymine has-part of Self))
+		     called "Nitrogen-1" )))
+		  ))))
+          (a Ribose))))
+
+
+
+

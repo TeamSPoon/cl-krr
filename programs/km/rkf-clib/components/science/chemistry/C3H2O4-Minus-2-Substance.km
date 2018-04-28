@@ -1,0 +1,12 @@
+;; $Id: C3H2O4-Minus-2-Substance.km,v 1.1 2003/02/23 05:58:02 tecuci Exp $
+(C3H2O4-Minus-2-Substance has (superclasses (Anion-Substance)))
+(every C3H2O4-Minus-2-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 5.0e-9 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a C3H2O4-Minus-2)))
+)

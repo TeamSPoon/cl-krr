@@ -1,0 +1,40 @@
+<!--- $Id: age.spec.kml,v 1.4 2006/03/01 20:20:46 kbarker Exp $ --->
+<kml>
+<property-doc name=age>
+<gpd-documentation name=Property>
+
+<from name=Entity>
+<to name=Duration-Value>
+
+<description> 
+  age is a property for describing how long an Entity has existed.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Duration>
+<p>
+    <examplesentence>
+      <text>12 year old Scotch</text>
+      <slotdescription name=number>12</slotdescription>
+      <slotdescription name=unit of measure>year</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative
+    value relative to?)<p>
+<scalars>young, adolescent, juvenile, teenage, middle-aged, old</scalars>
+<scale name=*young-old-scale>young..adolescent..juvenile..teenage..middle-aged..old</scale>
+    <p>
+    <examplesentence>
+      <text>She's a young woman, but she's old for a gymnast.</text>
+      <slotdescription name=value>young</slotdescription>
+      <slotdescription name=relative to>Woman</slotdescription><p>
+
+      <slotdescription name=value>old</slotdescription>
+      <slotdescription name=relative to>Gymnast</slotdescription>
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>

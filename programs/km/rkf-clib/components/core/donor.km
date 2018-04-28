@@ -1,0 +1,35 @@
+;; 
+;;    $Id: donor.km,v 1.20 2007/04/10 21:29:48 jchaw Exp $ 
+;; 
+
+(donor has
+   (instance-of (Participant-Relation Agentive-Relation))
+   (superslots ())
+   (subslots ())
+   (domain      (Event))
+   (range       (Entity))
+   (fluent-status (*Inertial-Fluent))
+   (inverse (donor-of))
+   (text-slot (text-donor))
+   (original-slot      (t))	
+   (cardinality (N-to-N)))
+
+(donor has (text-gloss ("is from")))
+
+(donor-of has
+	(instance-of (Participant-Relation Agentive-Relation)))
+
+(text-donor has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-donor-of has (instance-of (NL-Slot-Group)))
+
+(donor-of has (text-gloss ("is the donor of")))

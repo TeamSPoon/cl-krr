@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Protoplasm.km,v 1.16 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(Protoplasm has
+;	     (superclasses (Region Colloid))
+	     (superclasses (Colloid))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (description ("The organized colloidal complex of organic and 
+                            inorganic substances that constitutes the living
+                            cell or organelle.  WNCD:947."))
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+(every Protoplasm has
+  (has-part ((a Aggregate with 
+
+		(element-type (Organic-Molecule)))
+	     (a Aggregate with
+
+		(element-type (Inorganic-Molecule)) ))))

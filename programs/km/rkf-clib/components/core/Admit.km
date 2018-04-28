@@ -1,0 +1,126 @@
+;; 
+;;    $Id: Admit.km,v 1.27 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Admit has
+       (superclasses	    (Unobstruct))
+       (required-slot       (object base))
+       (primary-slot	    (agent))
+       (secondary-slot      ())
+       (cmap-correspondence (
+			     (:seq object "object")
+			     (:seq object "the enclosure")
+			     (:seq agent  "admitter")
+			    ))
+     #|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Admit has
+       (base   ((a Tangible-Entity
+		    with
+		    (plays ((a Container)))
+		    ;;(in-event (Self))
+		    )))
+       
+       (object ((a Tangible-Entity)))
+       
+       (defeats	((allof (the object-of of (the object of Self))  
+		 	where 
+			(((the base of It) = (the base of Self))
+			 and ((the classes of It) = Be-Shut-Out)))))
+       
+       (ncs-list ((forall (the object of Self)
+                          (:triple It is-inside (the base of Self) [Admit-ncs-1]))
+		  ))
+       
+       (pcs-list ((forall (the object of Self)
+			  (:triple  
+			   It
+			   object-of
+			   (a Be-Shut-Out with (base ((the base of Self)))) [Admit-pcs-1]))))
+       
+       (del-list ((forall (the defeats of Self)
+			  (:set
+			   (:triple It object (the object of Self) [Admit-del-1])
+			   (:triple It base (the base of Self) [Admit-del-2])))))
+       )
+
+(comment [Admit-ncs-1] (:seq (the object of Self) " cannot be already inside " (the base of Self))
+	 "Something must be outside something else to be admitted into it.")
+
+(comment [Admit-pcs-1] (:seq (the object of Self) " must be shut out of " (the base of Self))
+	 "Only something that is shut out of something else can be admitted to it.")
+
+(comment [Admit-del-1] (:seq (the object of Self) " is no longer shut out of " (the base of Self))
+	 "An admit stops something from being shut out of something else.")
+
+(comment [Admit-del-2] (:seq (the base of Self) " no longer shuts out " (the object of Self))
+	 "An admit stops something from being shut out of something else.")
+
+
+(every Admit has
+  (text-active-verbseq-sg ("admits"))
+  (text-active-verbseq-pl ("admit"))
+  (text-passive-verbseq-sg ("gets admitted"))
+  (text-passive-verbseq-pl ("get admitted"))
+)
+
+
+(every Admit has
+       (preparatory-event ((:default
+			    (a Shut-Out with
+			       (base ((the base of Self)))
+			       (object ((the object of Self)))))))
+)
+
+
+(Admit has 
+       (test-case       ('(
+			   (*child has 
+			    (instance-of (Physical-Object))
+                            (is-outside (*cinema)))
+
+			   (*cinema has (instance-of (Physical-Object)))
+			   
+			   (a Shut-Out with 
+			    (object (*child))
+			    (base (*cinema)))
+			    
+			   (do-and-next (thelast Shut-Out))
+			   (the text-gen of (thelast Shut-Out))
+			   (has-value (the Be-Shut-Out object-of of *child))
+			   
+			   (a Move-Into with 
+			    (object (*child))
+			    (base (*cinema)))
+			   (not (try-do (thelast Move-Into)))
+			   (the text-gen of (thelast Move-Into))
+			   (a Admit with 
+			    (object (*child))
+			    (base (*cinema)))
+			   
+			   (do-and-next (thelast Admit))
+			   (the text-gen of (thelast Admit))
+			   (not
+			    (has-value (the Be-Shut-Out object-of of *child)))
+			   
+			   (do-and-next (thelast Move-Into))
+			   (the text-gen of (thelast Move-Into))
+))))
+
+
+
+
+;; automatically added WN synsets
+(Admit has (wn16-synset ((:set  
+                                    (:triple "admit" 2 "v")
+                                    (:triple "allow_in" 1 "v")
+                                    (:triple "let_in" 2 "v")
+))))
+
+(Admit has (wn20-synset ((:set
+                                    (:triple "admit" 2 "v")
+                                    (:triple "allow_in" 1 "v")
+                                    (:triple "let_in" 2 "v")
+))))
+(every Admit has (text-nominalization ("admission")))

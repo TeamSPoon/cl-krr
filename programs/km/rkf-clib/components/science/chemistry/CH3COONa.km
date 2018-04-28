@@ -1,0 +1,15 @@
+;;
+;; $Id: CH3COONa.km,v 1.1 2003/04/22 17:05:03 jchaw Exp $
+;;
+
+(CH3COONa has (superclasses (Ionic-Compound)))
+
+(every CH3COONa has	
+       (has-part 
+	((a Na-Plus) (a CH3COO-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 Na-Plus)
+		    (:pair 1 CH3COO-Minus))))))))
+

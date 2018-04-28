@@ -1,0 +1,36 @@
+<!--- $Id: Encode.doc.spec.kml,v 1.2 2003/09/10 20:39:56 jchaw Exp $ --->
+<kml>
+
+<concept name=Encode::doc>
+<superconcept name=Create::doc>
+
+<sme-documentation name=Encode>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Encode>
+  <definition>encodes information into a message that can be conveyed</definition>
+  <requiredslot name=agent>
+    <inheritedfrom name=Create::doc>
+    <restriction>a <conceptref name=Tangible-Entity> which does the Encode
+    </restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>an <conceptref name=Information> that will be encoded
+    </restriction>
+  </requiredslot>
+  <requiredslot name=result>
+    <restriction>a <conceptref name=Message> which is the encoded information
+    </restriction>
+  </requiredslot>
+  <primaryslot name=instrument>
+    <restriction>a <conceptref name=Language> used to encode the message
+    </restriction>
+  </primaryslot>
+  <wnsynsets><verb>encode#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>code#2, encipher#1, cipher#1, cypher#1, encrypt#1, inscribe#6, write in code#1
+  </verb></wnsynsets>
+</component>
+
+</kml>

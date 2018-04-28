@@ -1,0 +1,25 @@
+;; 
+;;    $Id: circumference.km,v 1.5 2007/04/10 21:29:48 jchaw Exp $
+;; 
+
+(circumference has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Length-Value))
+   (scale-class (Circumference-Scale))
+   (scalar-constant-class (Circumference-Constant))
+   (cardinal-unit-class   (UoM-Length))
+   (inverse 	(circumference-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(circumference has (wn20-synset ((:set
+                               (:triple "circumference" 2 "n")
+))))
+
+(circumference-of has
+	(instance-of (EntityProperty)))

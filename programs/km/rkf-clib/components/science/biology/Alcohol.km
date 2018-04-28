@@ -1,0 +1,45 @@
+;; 
+;;    $Id: Alcohol.km,v 1.15 2001/06/04 20:58:19 pnav Exp $ 
+;; 
+
+(Alcohol has
+         (superclasses (Organic-Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Organic compound containing a hydroxyl group bound
+                        to a saturated carbon atom - for example ethyl
+                        alcohol. Alberts:ECB:G-1."))
+         (test-case ()))
+
+(every Alcohol has
+       (has-part 
+	((a Hydroxyl-Group uniquely-called "hydroxyl-group-1" )
+; with
+; 	    (object-of
+; 	     ((a Be-Attached-To with
+; 		 (object     ((the Carbon-Atom has-part of Self)))
+; 		 (instrument ((a Covalent-CO-Bond))) ))))
+	 (a Carbon-Atom uniquely-called "Carbon-1" with
+	    (object-of
+	     ((a Be-Attached-To with
+                 (object     (((the Hydrogen-Atom has-part of Self)
+			       uniquely-called "C1-Hydrogen-1")))
+                 (instrument ((a Covalent-CH-Bond))) )
+	      (a Be-Attached-To with
+                 (object     (((the Hydrogen-Atom has-part of Self)
+                               uniquely-called "C1-Hydrogen-2")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object     (((the Hydrogen-Atom has-part of Self)
+                               uniquely-called "C1-Hydrogen-3")))
+                 (instrument ((a Covalent-CH-Bond))) ) 
+	      )))
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-2")
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-3")
+	 (at-least 1 Carbon-Atom) 
+	 (at-least 1 Hydroxyl-Group)
+	 )))
+

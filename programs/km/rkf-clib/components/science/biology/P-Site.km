@@ -1,0 +1,31 @@
+;; 
+;;    $Id: P-Site.km,v 1.7 2005/06/30 22:38:48 pzyeh Exp $ 
+;; 
+
+(P-Site has
+         (superclasses (Binding-Site))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("The site on the ribosome where the the tRNA holding the
+                        growing polypeptide chain binds.  Alberts:ECB:230."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+
+(every P-Site has
+       (text-base-phrase ((if (anonymous-instancep Self) then
+                              (:seq (the text-def-determiner of Self)
+                                    (the text-premods of Self)
+                                    (the text-head of Self))
+                           else
+                              (:seq (the text-head of Self))
+       )))
+
+       (text-phrase ((if (anonymous-instancep Self) then
+                         (:seq (the text-base-phrase of Self)
+                                 (the elements of
+                                   (the text-postmods of Self)))
+                      else (the text-base-phrase of Self))))
+)
+

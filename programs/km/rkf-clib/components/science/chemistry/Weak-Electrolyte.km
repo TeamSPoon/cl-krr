@@ -1,0 +1,16 @@
+;;
+;;    $Id: Weak-Electrolyte.km,v 1.5 2003/01/08 21:07:48 wilder Exp $
+;;
+
+(Weak-Electrolyte has
+		  (superclasses (Electrolyte)))
+
+(every Weak-Electrolyte has-definition
+       (instance-of (Ionic-Compound-Substance))
+       (electrolyte-status ((a Electrolyte-Status-Value with (value
+							      ((:pair *weak nil)))))))
+
+(every Weak-Electrolyte has
+       (has-basic-structural-unit ((a Ionic-Compound with
+                                 (has-part ((a Cation) (a Anion)))))))
+				     

@@ -1,0 +1,10 @@
+;;    $Id: FileAttachmentRecord.km,v 1.15 2005/02/22 21:18:23 jchaw Exp $
+
+(FileAttachmentRecord has (superclasses (DataRecord)))
+
+(every FileAttachmentRecord has
+       (hasEncoding ((must-be-a String)))
+)
+
+(hasEncoding has  (instance-of (Interface-Slot)) (domain (FileAttachmentRecord)) (range (String)) (cardinality (N-to-N)))
+

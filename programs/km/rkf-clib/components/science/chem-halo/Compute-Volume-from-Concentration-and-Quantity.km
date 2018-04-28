@@ -1,0 +1,53 @@
+
+;;
+;; $Id: Compute-Volume-from-Concentration-and-Quantity.km,v 1.3 2005/11/01 22:13:11 jfan Exp $
+;;
+
+(Compute-Volume-from-Concentration-and-Quantity has 
+						(superclasses (Method))
+						(description ("given a solution base with a quantity and a concentration, returns its volume")))
+
+(every Compute-Volume-from-Concentration-and-Quantity has
+  (output (
+      (if ((has-value (the value of (the Quantity-Value input of Self)))
+           and
+           (has-value (the value of (the Concentration-Value input of Self)))
+          )
+       then
+         (a Volume-Value with
+            (value (
+               (:pair (
+                  (the1 of 
+                        (the value of (the Quantity-Value input of Self))
+                  )
+                   /
+                  (the1 of 
+                        (the value of
+                             (the output of 
+                                  (a Unit-Conversion with
+                                     (input ((the Concentration-Value input of Self)))
+                                     (target-unit (*molar))))))
+                  )
+                  *liter
+                  [Compute-Volume-from-Concentration-and-Quantity-output-1]
+            )))
+         )
+   )))
+)
+
+(comment [Compute-Volume-from-Concentration-and-Quantity-output-1]
+  (:seq (the1 of (the value of (the Quantity-Value input of Self)))
+        (the2 of (the value of (the Quantity-Value input of Self)))
+        "/"
+        (the1 of (the value of (the Concentration-Value input of Self)))
+        (the2 of (the value of (the Concentration-Value input of Self)))
+        "="
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  "Divide the quantity by the concentration:"
+  (:set (:triple (the Concentration-Value input of Self) value *)
+        (:triple (the Quantity-Value input of Self) value *)
+  )
+)
+

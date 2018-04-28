@@ -1,0 +1,218 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-1N23H2--2NH3 ----------
+
+(Reaction-1N23H2--2NH3 has (superclasses (Reaction)))
+
+(_Reaction-1N23H2--2NH33015 has 
+  (instance-of (Reaction-1N23H2--2NH3))
+  (prototype-of (Reaction-1N23H2--2NH3))
+  (prototype-scope (Reaction-1N23H2--2NH3))
+  (prototype-participants (_Property-Node3058
+                           _Property-Node3057
+                           _Property-Node3056
+                           _Chemical-Entity3055
+                           _Chemical3053
+                           _Coefficient-Value3052
+                           _Chemical-Entity3050
+                           _Chemical3049
+                           _Coefficient-Value3048
+                           _Chemical-Entity3046
+                           _Chemical3045
+                           _Coefficient-Value3044
+                           _Reaction-1N23H2--2NH33015))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015))
+  (big-nodes (_Property-Node3056
+              _Property-Node3057
+              _Property-Node3058))
+  (raw-material (_Chemical3049
+                 _Chemical3053))
+  (result (_Chemical3045))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3045 t)
+                    (:seq raw-material _Chemical3049 t)
+                    (:seq raw-material _Chemical3053 t))))
+
+(_Property-Node3058 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3044))
+  (contains-edge ((:triple _Coefficient-Value3044 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-1N23H2--2NH33015))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Property-Node3057 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3052))
+  (contains-edge ((:triple _Coefficient-Value3052 value (:pair 3 *unity))))
+  (big-node-of (_Reaction-1N23H2--2NH33015))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Property-Node3056 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3048))
+  (contains-edge ((:triple _Coefficient-Value3048 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-1N23H2--2NH33015))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Chemical-Entity3055 has 
+  (instance-of (Chemical-Entity
+                H2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3053))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Chemical3053 has 
+  (has-basic-structural-unit (_Chemical-Entity3055))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3052))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3052 t)))
+  (raw-material-of (_Reaction-1N23H2--2NH33015))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Coefficient-Value3052 has 
+  (contains-node-of (_Property-Node3057))
+  (coefficient-of (_Chemical3053))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 3 *unity)))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Chemical-Entity3050 has 
+  (instance-of (Chemical-Entity
+                N2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3049))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Chemical3049 has 
+  (has-basic-structural-unit (_Chemical-Entity3050))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-1N23H2--2NH33015))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3048))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3048 t)))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Coefficient-Value3048 has 
+  (contains-node-of (_Property-Node3056))
+  (coefficient-of (_Chemical3049))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Chemical-Entity3046 has 
+  (instance-of (Chemical-Entity
+                NH3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3045))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Chemical3045 has 
+  (has-basic-structural-unit (_Chemical-Entity3046))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-1N23H2--2NH33015))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3044))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3044 t)))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(_Coefficient-Value3044 has 
+  (contains-node-of (_Property-Node3058))
+  (coefficient-of (_Chemical3045))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-1N23H2--2NH33015)))
+
+(explanation (:triple _Reaction-1N23H2--2NH33015 raw-material _Chemical3053)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Reaction-1N23H2--2NH33015 raw-material _Chemical3049)
+  ((a Chemical (@ _Reaction-1N23H2--2NH33015 Reaction raw-material))))
+(explanation (:triple _Reaction-1N23H2--2NH33015 result _Chemical3045)
+  ((a Chemical (@ _Reaction-1N23H2--2NH33015 Reaction result))))
+(explanation (:triple _Reaction-1N23H2--2NH33015 chemical-equation _Chemical-Equation-Expression3017)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-1N23H2--2NH33015) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-1N23H2--2NH33015) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-1N23H2--2NH33015) (@ _Reaction-1N23H2--2NH33015 Reaction chemical-equation))))
+(explanation (:triple _Reaction-1N23H2--2NH33015 instance-of Reaction-1N23H2--2NH3)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical-Entity3055 atomic-chemical-formula _Chemical-Formula3037)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3055)) or (the term of (the has-chemical-formula of _Chemical-Entity3055)) (@ _Chemical-Entity3055 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3055)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3055))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3055)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3055)))))))))) (@ _Chemical-Entity3055 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3055 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3055 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3055 nested-atomic-chemical-formula _Chemical-Formula3035)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H)))) (@ _Chemical-Entity3055 H2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3055 instance-of H2)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical-Entity3055 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3053 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3053 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1N23H2--2NH33015 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1N23H2--2NH33015 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3053 coefficient _Coefficient-Value3052)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical3053 has-basic-structural-unit _Chemical-Entity3055)
+  ((a Chemical-Entity (@ _Chemical3053 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3053 instance-of Chemical)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Coefficient-Value3052 value (:pair 3 *unity))
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Coefficient-Value3052 instance-of Coefficient-Value)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical-Entity3050 instance-of N2)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical-Entity3050 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3049 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3049 has-basic-structural-unit _Chemical-Entity3050)
+  ((a Chemical-Entity (@ _Chemical3049 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3049 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-1N23H2--2NH33015 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-1N23H2--2NH33015 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3049 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1N23H2--2NH33015 Reaction raw-material))))
+(explanation (:triple _Chemical3049 coefficient _Coefficient-Value3048)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical3049 instance-of Chemical)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Coefficient-Value3048 value (:pair 1 *unity))
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Coefficient-Value3048 instance-of Coefficient-Value)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical-Entity3046 instance-of NH3)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical-Entity3046 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3045 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3045 has-basic-structural-unit _Chemical-Entity3046)
+  ((a Chemical-Entity (@ _Chemical3045 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3045 instance-of Entity)
+  ((a Entity (@ _Reaction-1N23H2--2NH33015 Event (result must-be-a)))))
+(explanation (:triple _Chemical3045 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-1N23H2--2NH33015 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-1N23H2--2NH33015 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3045 instance-of Chemical)
+  ((a Chemical (@ _Reaction-1N23H2--2NH33015 Reaction result))))
+(explanation (:triple _Chemical3045 coefficient _Coefficient-Value3044)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Chemical3045 instance-of Chemical)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Coefficient-Value3044 value (:pair 2 *unity))
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+(explanation (:triple _Coefficient-Value3044 instance-of Coefficient-Value)
+  ((added-at Reaction-1N23H2--2NH3 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

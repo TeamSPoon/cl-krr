@@ -1,0 +1,17 @@
+;;
+;; $Id: H3PO4-Substance.km,v 1.6 2008/11/03 03:11:26 tecuci Exp $ 
+;;
+
+(H3PO4-Substance has (superclasses (Bronsted-Lowry-Acid)))
+(every H3PO4-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 7.5e-3 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("phosphoric"))
+	(has-basic-structural-unit ((a H3PO4)))
+)
+(every H3PO4-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a H3PO4))))

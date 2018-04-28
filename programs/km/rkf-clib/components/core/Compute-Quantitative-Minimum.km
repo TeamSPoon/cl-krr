@@ -1,0 +1,22 @@
+;;
+;; $Id: Compute-Quantitative-Minimum.km,v 1.1 2003/11/18 15:07:55 jfan Exp $
+;;
+
+(Compute-Quantitative-Minimum has (superclasses (Method)))
+
+(every Compute-Quantitative-Minimum has
+       ;; input is a list of quantitative values of same context.
+       ;; Returns the maximum value of the set. 
+       ;; May return more than 1 value of the maximum appears
+       ;; in more than one value
+       (output
+	((allof
+	  (the input of Self)
+	  where
+	  ((the1 of (the value of It))
+	   includes
+	   (the min of
+		(allof2 (the1 of (the value of (the input of Self)))
+			where
+			(numberp It2))))))))
+

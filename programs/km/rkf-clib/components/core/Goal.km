@@ -1,0 +1,79 @@
+; 
+;;    $Id: Goal.km,v 1.6 2005/06/16 19:23:52 kbarker Exp $
+;; 
+
+(Goal has
+  (superclasses (Event))
+)
+
+;; Goal is a kind of dummy Event. Usually, a has-goal or objective will 
+;; be some specific kind of Event. But if the has-goal or objective is
+;; to prevent, cause, inhibit, enable, etc. some Event, then the filler
+;; of has-goal/objective will be a Goal
+
+;; Goals that cause or enable are straightforward. Goals that prevent or
+;; inhibit pose a problem. Normally when you say that the goal is to
+;; cause X, some instance of X will do. When you say that the goal is to
+;; prevent X, it means prevent all instances of X. For example:
+;;
+;; (has-goal ((a Goal with (causes ((a Ruckus))))))   ; a new instance of 
+;;                                                    ; Ruckus is just fine
+;;
+;; (has-goal ((a Goal with (prevents ((a Riot))))))   ; doesn't usually mean
+;;                                                    ; only a particular Riot
+;;
+;; For now, we'll have to settle for using instances here.
+
+
+(every Goal has
+   (text-gen ((make-sentence
+      (:seq "The goal" 
+            (if (has-value (the objective-of of Self)) then
+                (:seq "of" (the name of (the objective-of of Self)))
+             else (if (has-value (the is-goal-of of Self)) then
+                (:seq "of" (the text-def-head of (the is-goal-of of Self)))))
+            "is"
+            (if (has-value (the causes of Self)) then
+                (:seq "to cause:"
+                      (the text-sentence of (the causes of Self)))
+             else (if (has-value (the prevents of Self)) then
+                (:seq "to prevent:"
+                      (the text-sentence of (the prevents of Self)))
+             else (if (has-value (the enables of Self)) then
+                (:seq "to enable:"
+                      (the text-sentence of (the enables of Self)))
+             else (if (has-value (the inhibits of Self)) then
+                (:seq "to inhibit:"
+                      (the text-sentence of (the inhibits of Self)))
+             else (if (has-value (the supports of Self)) then
+                (:seq "to support:"
+                      (the text-sentence of (the supports of Self)))
+             else ("unknown"))))))
+   ))))
+   (text-description ((the text-gen of Self)))
+)
+
+
+(Goal has (test-case      
+   ('(
+      (new-situation)
+
+      (*yourMoney has (instance-of (Physical-Object))
+                      (is-possessed-by (*you)))
+      (*myThievery has (instance-of (Event))
+                       (objective ((a Obtain with
+                                         (object (*yourMoney))))))
+      (*you has (instance-of (Physical-Object))
+                (has-goal ((a Goal with
+                                (prevents (*myThievery))))))
+
+))))
+
+
+(Goal has (wn20-synset ((:set
+			 (:triple "goal" 1 "n")
+			 (:triple "end" 4 "n")
+			 (:triple "finish" 4 "n")
+			 (:triple "destination" 1 "n")
+			 (:triple "goal" 4 "n")
+))))

@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Internal-Membrane.km,v 1.9 2001/05/22 21:13:29 kbarker Exp $ 
+;; 
+
+(Internal-Membrane has
+	  (superclasses (Biological-Membrane))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+          (description ("Eucaryotic cell membrane other than the plasma
+                         membrane.  The membrane that surrounds an organelle
+                         is an example.  Alberts:ECB:G-10"))
+	  (cmap-correspondence ()))
+
+(every Internal-Membrane has
+       (is-part-of ((a Subcellular-Compartment)))
+       (encloses ((a Spatial-Entity with
+		     (is-inside ((the is-part-of of Self))))))
+       )
+
+
+
+

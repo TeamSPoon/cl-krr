@@ -1,0 +1,45 @@
+;; 
+;;    $Id: Diffuse.km,v 1.15 2004/07/20 22:27:06 gking Exp $ 
+;; 
+
+(Diffuse has
+  (superclasses        (Disperse))
+  (required-slot       (object origin))
+  (primary-slot        (agent subevent))
+  (description ("The spread of molecules and small particles from one location
+                 to another through random, thermally-driven movements.
+                 Alberts:ECB:G-6.")))
+
+
+(every Diffuse has
+       (origin ((a Spatial-Entity)))
+       (object         ((a Molecule)
+			(at-least 2 Molecule))))
+
+
+
+(every Diffuse has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))
+
+
+;; automatically added WN synsets
+(Diffuse has (wn16-synset ((:set  
+                                      (:triple "diffuse" 1 "v")
+                                      (:triple "diffuse" 2 "v")
+                                      (:triple "spread" 8 "v")
+                                      (:triple "spread_out" 1 "v")
+                                      (:triple "fan_out" 1 "v")
+                                      (:triple "permeate" 1 "v")
+                                      (:triple "pervade" 1 "v")
+                                      (:triple "imbue" 1 "v")
+))))
+
+(Diffuse has (wn20-synset ((:set
+                                      (:triple "diffuse" 1 "v")
+                                      (:triple "diffuse" 2 "v")
+                                      (:triple "spread" 8 "v")
+                                      (:triple "spread_out" 1 "v")
+                                      (:triple "fan_out" 1 "v")
+                                      (:triple "permeate" 1 "v")
+                                      (:triple "pervade" 1 "v")
+                                      (:triple "imbue" 1 "v")
+))))

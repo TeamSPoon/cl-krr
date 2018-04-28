@@ -1,0 +1,39 @@
+;;
+;; $Id: Mix.km,v 1.13 2002/12/24 16:51:05 kbarker Exp $
+;;
+
+(Mix has (superclasses (Action)))
+
+(every Mix has
+  (raw-material ((a Chemical)))
+  (result (
+     (a Mixture with
+        (volume ((the output of 
+                      (a Add-Volumes with
+                         (input ((the volume of (the raw-material of Self))))
+                      )
+        )))
+  )))
+)
+
+
+(comment [Mix-result-has-part-quantity-1]
+  (:seq "Therefore, the quantity of" 
+        (the has-part of (the result of Self))
+        "="
+        (the1 of 
+              (the value of 
+                   (the quantity of (the has-part of (the result of Self)))))
+        (the2 of 
+              (the value of 
+                   (the quantity of (the has-part of (the result of Self)))))
+  )
+  "By the Law of Conservation of Mass, the quantity of a chemical in a mixture is the sum of the quantities of that chemical in the parts of the mix."
+  (:set (:triple (the result of Self) has-part *)
+        (:triple (the quantity of (the has-part of (the result of Self)))
+                 value
+                 *
+        )
+  )
+)
+

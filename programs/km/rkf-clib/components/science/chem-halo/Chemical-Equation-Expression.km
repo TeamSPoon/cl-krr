@@ -1,0 +1,25 @@
+;;
+;;    $Id: Chemical-Equation-Expression.km,v 1.9 2008/10/16 21:38:39 kbarker Exp $
+;;
+
+(Chemical-Equation-Expression has 
+		  (superclasses (KM-Class)))
+
+(Chemical-Equation-Expression has (user-description ("When a chemical reaction occurs, it can be described by an equation. This shows the chemicals that react (called the reactants) on the left-hand side, and the chemicals that they produce (called the products) on the right-hand side.")))
+
+(every Chemical-Equation-Expression has
+       ;; what else could it be?
+       (term ((must-be-a Thing)))
+)
+
+(every Chemical-Equation-Expression has
+       (text-phrase ((the text-description of Self)))
+       (text-description ((if ((has-value  (the term of Self))
+				and
+				(has-value (the output of (a Format-Equation with (input ((the term of Self)))))))
+			      then 
+			      (make-phrase (the output of (a Format-Equation with (input ((the term of Self))))))))))
+
+(Chemical-Equation-Expression has (wn20-synset ((:set 
+						 (:triple "chemical equation" 0 "n")
+						 (:triple "balanced equation" 0 "n")))))

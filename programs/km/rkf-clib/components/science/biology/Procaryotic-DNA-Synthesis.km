@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Procaryotic-DNA-Synthesis.km,v 1.4 2001/05/11 06:41:37 souther Exp $ 
+;; 
+
+(Procaryotic-DNA-Synthesis has
+	       (superclasses        (DNA-Synthesis))
+	       (required-slot       (object result  instrument))
+	       (primary-slot        (raw-material destination))
+	       (description ("A process by which a copy of all or part of a 
+                              procaryotic DNA molecule is made. Souther."))
+	       (cmap-correspondence ()))
+
+(every Procaryotic-DNA-Synthesis has
+       (agent    ((a Procaryote)))
+       (instrument ((a Procaryotic-DNA-Polymerase)
+		    (at-least 1 Procaryotic-DNA-Polymerase)))
+       )
+       

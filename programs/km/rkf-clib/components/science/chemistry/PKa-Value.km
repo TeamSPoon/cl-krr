@@ -1,0 +1,12 @@
+;; 
+;;  $Id: PKa-Value.km,v 1.2 2005/02/14 22:39:43 kbarker Exp $
+;; 
+
+(PKa-Value has (superclasses (Property-Value)))
+
+(every PKa-Value has
+  (property-slot (pka))
+       (less-than    ((must-be-a PKa-Value)))
+       (greater-than ((must-be-a PKa-Value)))
+       (same-as      ((must-be-a PKa-Value)))
+)

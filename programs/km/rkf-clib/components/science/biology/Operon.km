@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Operon.km,v 1.15 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Operon has
+         (superclasses (DNA-Gene-Coding-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A set of contiguous prokaryotic structural genes that
+                        are transcribed as a unit, along with the adjacent 
+                        regulatory elements that control their expression. 
+                        Matthews:Biochemistry:1158."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Operon has
+       (purpose ((a Container with
+		    (in-event ((a Genetic-Information-Storage with
+				  (object ((a Aggregate with
+
+					      (element-type (Cistron))))))))))))
+
+;; rest of parts info inherited at moment.
+
+

@@ -1,0 +1,14 @@
+;;
+;;    $Id: Amphoteric-Anion-Substance.km,v 1.3 2006/04/05 22:50:00 pzyeh Exp $
+;;
+(Amphoteric-Anion-Substance has
+  (superclasses     (Amphoteric-Substance Anion-Substance))
+  (user-description ("A substance with a negative electrical charge and is capable of behaving as either an acid or a base.")))
+
+#|
+(Amphoteric-Anion-Substance has
+			    (test-case ('(
+					  ((a Anion-Substance with (has-basic-structural-unit ((a HCO3-Minus))))
+					   isa
+					   Amphoteric-Substance)))))
+|#

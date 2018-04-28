@@ -1,0 +1,41 @@
+<!--- $Id: temperature.spec.kml,v 1.3 2006/03/01 20:20:47 kbarker Exp $ --->
+<kml>
+<property-doc name=temperature>
+<gpd-documentation name=Property>
+
+<from name=Tangible-Entity>
+<to name=Temperature-Value>
+
+<description> 
+  the degree of hotness or coldness of a body or environment
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Temperature>
+<p>
+    <examplesentence>
+      <text>112.2 degrees celsius</text>
+      <slotdescription name=number>112.2</slotdescription>
+      <slotdescription name=unit of measure>*degrees-celsius</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+    a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>cold, cool, mild, warm, hot</scalars>
+<scale name=*cold-hot-scale>cold..cool..mild..warm..hot</scale>
+
+<scalars>freezing, boiling, normal, abnormal</scalars>
+<scale name=*freezing-boiling-scale>freezing..boiling..normal..abnormal</scale>
+    <p>
+    <examplesentence>
+      <text>my tea is hot relative to Sodas.</text>
+      <slotdescription name=value>hot</slotdescription>
+      <slotdescription name=relative to>Soda</slotdescription><p>
+
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+

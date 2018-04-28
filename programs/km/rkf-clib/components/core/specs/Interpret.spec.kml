@@ -1,0 +1,74 @@
+<!--- $Id: Interpret.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Interpret><system-documentation name=Interpret>
+<superconcept name=Action>
+
+<definition>
+
+  An <slot>agent</slot> interprets a message, gleaning 
+  <conceptref name=Information> from it.  The agent comes to know
+  that information as a result.
+
+</definition>
+
+  <comment>
+    Interpret is the third and final step of <conceptref name=Communicate>.
+    For perspective, here's the overall model of communication.
+    Information is first converted into a message by the 
+    <conceptref name=Express> subevent, then the message is moved 
+    to the recipient by the <conceptref name=Convey> subevent, 
+    and finally the message is converted back into information 
+    by this subevent.
+  </comment>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Tangible-Entity> that receives and interprets 
+     the message
+  </slotdescription>
+
+  <slotdescription name=object>
+     the <conceptref name=Message> that is interpreted
+  </slotdescription>
+	
+</requiredslotlist>
+
+<comment>
+   As a result of this action, the <slot>result</slot> becomes the
+   <conceptref name=Information> that was encoded in the message, and
+   the <slot>agent</slot> comes to know that information (i.e. the
+   information becomes the <slot>object</slot> of a 
+   <conceptref name=Be-Known> state in which the <slot>experiencer</slot>
+   is the <slot>agent</slot> of this interpret action.
+</comment>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Tom interpreted the message.</text>
+    <slotdescription name=agent>Tom</slotdescription>
+    <slotdescription name=object>the message</slotdescription>
+  </examplesentence>
+<comment>
+   Tom comes to know the information encoded in the message.
+</comment>
+
+<neighborlist>
+
+  <neighbor name=Learn>
+    Learn is a sub type of Interpret in which the information encoded 
+    in the message is new to the agent interpreting it
+  </neighbor>
+
+  <neighbor name=Forget>
+    Forget is the opposite of Interpret; it causes an entity to cease
+    knowing some information
+  </neighbor> 
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,19 @@
+
+;;
+;; $Id: Military-Equipment.km,v 1.2 2002/09/05 19:17:58 kbarker Exp $
+;;
+
+(Military-Equipment has
+  (superclasses (Tangible-Entity))
+)
+
+(every Military-Equipment has
+  (default-combat-power ((a Default-Combat-Power-Value with
+                            (value ((:pair 0 NIL)))  ; this is a default:
+  )))                                                ; unless a piece of
+)                                                    ; equipment has a 
+                                                     ; combat-power specified,
+                                                     ; it won't contribute to 
+                                                     ; the combat-power of the
+                                                     ; unit possessing it
+

@@ -1,0 +1,74 @@
+<!--- $Id: Delay.spec.kml,v 1.1 2005/08/01 20:56:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Delay>
+<superconcept name=Military-Task>
+
+<definition>
+
+   a task to slow enemy advance from reaching a friendly objective
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that delays the 
+     <slot>object</slot> from advancing
+  </slotdescription>
+
+  <slotdescription name=object>
+     the <conceptref name=Military-Unit> that becomes delayed 
+     from advancing.  This military unit is assumed to be the
+     <slot>agent</slot> of an <conceptref name=Advance> 
+     <slot>toward</slot> a friendly objective.
+  </slotdescription>
+  
+</requiredslotlist>
+
+<neighborlist>
+
+  <neighbor name=Attack> 
+
+     An Attack is an offensive operation that destroys or defeats
+     enemy forces, seizes and secures terrain, or both
+
+  </neighbor>
+
+  <neighbor name=Attack-by-Fire>
+
+     An Attack-by-Fire is an attack using direct fires, supported by
+     indirect fires, to engage an enemy without closing with him to
+     destroy, suppress, fix, or deceive him
+
+  </neighbor>
+
+  <neighbor name=Follow-and-Assume>
+
+     Follow-and-Assume is a tactical mission task to follow a force
+     conducting an offensive operation and to continue the mission if the
+     lead force is disabled
+
+  </neighbor>
+
+  <neighbor name=Follow-and-Support>
+
+     Follow-and-Support is a tactical mission task to follow and
+     support a lead force conducting an offensive operation
+
+  </neighbor>
+
+  <neighbor name=Support-by-Fire>
+
+     Support-by-Fire is a tactical mission task in which a maneuver
+     force moves to a position where it can engage the enemy by direct
+     fire in support of another maneuvering force
+
+  </neighbor>
+
+
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,51 @@
+;; 
+;;    $Id: causes.km,v 1.14 2007/12/04 17:35:03 tecuci Exp $ 
+;; 
+
+(causes has
+       (instance-of (Causal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Event))
+       (range (Event))
+       (inverse (caused-by))
+       (text-slot (text-causes))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+(caused-by has
+	(instance-of (Causal-Relation))
+       (text-slot (text-caused-by))
+)
+
+(causes has (text-gloss ("causes"))
+	(wn20-synset ((:set (:triple "cause" 1 "v")))))
+
+(caused-by has (text-gloss ("is caused by")))
+
+(text-causes has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-caused-by))
+)
+
+(text-caused-by has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+
+
+

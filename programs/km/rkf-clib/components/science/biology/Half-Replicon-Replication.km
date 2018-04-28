@@ -1,0 +1,154 @@
+;;
+;;    $Id: Half-Replicon-Replication.km,v 1.12 2003/12/24 15:58:36 jfan Exp $
+;;    
+
+(Half-Replicon-Replication has
+                 (superclasses        (DNA-Double-Strand-Replication))
+                 (required-slot       (object result ))
+                 (primary-slot        (origin destination instrument))
+                 (description ("A process by which a copy of one half of the
+                                replicon is copied by proceeding along one of
+                                the two replication forks originating at the
+                                replication origin. see Mathews:BC:1160"))
+                 (cmap-correspondence ()))
+
+(every Half-Replicon-Replication has     
+  (origin 	((a Replication-Origin)))
+  (destination 	((a Base-Pair with
+	    	    (has-part ((the 5-Prime-Deoxyribonucleotide has-part of
+				    ((the DNA-Sequence has-part of 
+				 	  (the DNA-Molecule-Segment object of Self))
+			       	     called "leading strand template"))
+		       	       (the 3-Prime-Deoxyribonucleotide has-part of
+                            	    ((the DNA-Sequence has-part of
+                                 	  (the DNA-Molecule-Segment object of Self))
+                             	     called "lagging strand template")))))))
+
+  (object ((a DNA-Molecule-Segment with
+	      (is-part-of ((the Replicon object of Self)))
+	      (has-part   ((a DNA-Sequence called "leading strand template" with
+			      (is-part-of ((the DNA-Sequence has-part of
+					        (the Replicon object of Self)))))
+			   (a DNA-Sequence called "lagging strand template" with
+			      (is-part-of ((the DNA-Sequence has-part of
+					        (the Replicon object of Self))))))))))
+
+  (result ((a DNA-Molecule-Segment called "leading strand segment" with
+	      (has-part (((the DNA-Sequence has-part of
+			       (the DNA-Molecule-Segment object of Self))
+		      	  called "leading strand template")
+		     	 (a DNA-Sequence 
+			    called "Daughter strand complement of leading strand"
+			    with
+			    (complement
+			      (((the DNA-Sequence has-part of
+                           	     (the DNA-Molecule-Segment object of Self))         
+			  	called "leading strand template"))) ))))
+	   (a DNA-Molecule-Segment called "lagging strand segment" with
+              (has-part (((the DNA-Sequence has-part of
+                               (the DNA-Molecule-Segment object of Self))
+                      	  called "lagging strand template")   
+                         (a DNA-Sequence
+                            called "Daughter strand complement of lagging strand"
+                            with
+                            (complement
+			      (((the DNA-Sequence has-part of
+			       	     (the DNA-Molecule-Segment object of Self))	
+			   	called "lagging strand template"))) ))))))
+
+  (first-subevent (((the Attach subevent of Self) called "clamp the lagging strand")))
+       
+  (subevent
+    ((a Attach called "clamp the lagging strand" with
+        (object ((a DNA-Helicase)))
+        (base 	(((the DNA-Sequence has-part of
+		       (the DNA-Molecule-Segment object of Self))
+		  called "lagging strand template")))
+	(next-event ((the Divide subevent of Self))))
+
+     (a Divide called "DNA strand separation" with
+	(object 	((the DNA-Molecule-Segment object of Self)))
+	(origin 	((the Replication-Origin origin of Self)))
+	(destination 	((the destination of Self)))
+	(result		(((the DNA-Sequence has-part of
+		      	       (the DNA-Molecule-Segment object of Self))
+		 	  called "leading strand template")
+			 ((the DNA-Sequence has-part of
+		      	       (the DNA-Molecule-Segment object of Self))
+		 	  called "lagging strand template") ))
+    	(next-event 	(((the Attach subevent of Self) 
+			  called "binding of SSBPs to leading strand")
+		     	 ((the Attach subevent of Self) 
+			  called "binding of SSBPs to lagging strand")))
+	(time-int-overlaps
+	  (((the Attach subevent of Self) called "binding of SSBPs to leading strand")
+	   ((the Attach subevent of Self) called "binding of SSBPs to lagging strand") ))) 
+	      
+     (a Attach called "binding of SSBPs to leading strand" with
+	(object ((a Sequence with
+
+		    (element-type (Single-Strand-Binding-Protein)))))
+	(base	(((the DNA-Sequence has-part of
+		       (the DNA-Molecule-Segment object of Self))
+               	  called "leading strand template")))
+	(next-event (((the DNA-Strand-Replication subevent of Self)
+		      called "leading strand replication")))
+	(time-int-overlaps
+	  (((the DNA-Strand-Replication subevent of Self)
+	    called "leading strand replication"))))
+
+     (a Attach called "binding of SSBP's to lagging strand" with
+        (object ((a Sequence with
+
+		    (element-type (Single-Strand-Binding-Protein)))))
+	(base	(((the DNA-Sequence has-part of
+		       (the DNA-Molecule-Segment object of Self))
+		  called "lagging strand template")))
+	(next-event (((the DNA-Strand-Replication subevent of Self)
+                      called "lagging strand replication")))
+	(time-int-overlaps
+	  (((the DNA-Strand-Replication subevent of Self)
+	    called "lagging strand replication"))))
+
+     (a DNA-Strand-Replication called "leading strand replication" with
+	(object (((the DNA-Sequence has-part of
+		       (the DNA-Molecule-Segment object of Self))
+	       	  called "leading strand template")))
+	(result (((the DNA-Molecule-Segment result of Self)
+		  called "leading strand segment")))
+	(subevent
+	  ((a DNA-Priming with
+	      (object ((a 3-Prime-End called "primer template" with
+			  (abuts ((a Replication-Fork with
+				     (is-at ((the Replication-Origin origin of Self)))))))))
+	      (next-event (((the DNA-Strand-Replication subevent of Self)
+			    called "lagging strand replication")))
+	      (time-int-overlaps
+		(((the DNA-Strand-Replication subevent of Self)
+	       	  called "lagging strand replication")))))))
+
+     (a DNA-Strand-Replication called "lagging strand replication"  with
+        (object (((the DNA-Sequence has-part of
+		       (the DNA-Molecule-Segment object of Self))
+               	  called "lagging strand template")))
+        (result (((the DNA-Molecule-Segment result of Self)
+		  called "lagging strand segment")))
+
+	(subevent ((a Okazaki-Fragment-Replication)))   
+; 	      with
+;             (frequency
+;              ((constraint
+;                (TheValue = ( 
+;			      ((the length of
+;                               (the DNA-Sequence has-part of
+;				    ((the DNA-Molecule-Segment object of Self)
+;				     called "lagging strand template")))
+;			      /
+;                             (150)
+;                                                 (the DNA-Priming subevent of
+;                                                      Self))))
+;                             )) )) )  
+
+	(time-int-overlapped-by
+          (((the DNA-Strand-Replication subevent of Self)
+	    called "leading strand replication")))) )))

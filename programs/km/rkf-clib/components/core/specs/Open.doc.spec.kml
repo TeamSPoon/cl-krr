@@ -1,0 +1,71 @@
+<!--- $Id: Open.doc.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Open::doc>
+<superconcept name=Make-Accessible::doc>
+
+<sme-documentation name=Open>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Open>
+  <definition>Causes an object to be opened, thereby allowing various actions</definition>
+  <requiredslot name=object>
+    <restriction>exactly 1 Portal-Covering</restriction>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is not the <slot>object</slot> of any
+      <conceptref name=Be-Open> state	
+    </restriction>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Closed> state
+    </restriction>
+    <restriction>the <slot>object</slot> <slot>is-part-of</slot> a
+      <conceptref name=Enclosure>
+    </restriction>
+    <restriction>the <conceptref name=Portal> of the <conceptref name=Enclosure>
+      which the <slot>object</slot> <slot>is-part-of</slot> is in a 
+      <conceptref name=Be-Blocked> state
+    </restriction>
+    <restriction>the <slot>location</slot> of the <slot>object</slot> is the
+      the <conceptref name=Portal> of the <conceptref name=Enclosure> that  
+      <slot>object</slot> <slot>is-part-of</slot>
+    </restriction>    
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a
+      <conceptref name=Be-Open> state
+    </restriction>
+    <restriction>the <conceptref name=Portal> of the <conceptref name=Enclosure>
+      which the <slot>object</slot> <slot>is-part-of</slot> is no longer
+      in a <conceptref name=Be-Blocked> state
+    </restriction>
+    <restriction>the <slot>location</slot> of the <slot>object</slot> is no longer
+      the <conceptref name=Portal> of the <conceptref name=Enclosure> that
+      <slot>object</slot> <slot>is-part-of</slot>
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be open</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>Thing used to accomplish the Open</restriction>
+  </primaryslot>
+  <wnsynsets><verb>open#6, open_up#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>afford#2, unfasten#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+The Open action puts an <slot>object</slot> into the 
+<conceptref name=Be-Opened> state while at the same time 
+taking the object out of the <conceptref name=Be-Closed> 
+state. The action <conceptref name=Close> does the exact 
+opposite.
+</musing>
+
+</kml>
+
+

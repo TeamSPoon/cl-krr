@@ -1,0 +1,15 @@
+;;
+;;  $Id: Charge-Value.km,v 1.3 2008/05/28 19:54:28 tecuci Exp $
+;;
+
+(Charge-Value has
+	      (superclasses (Unitless-Value)))
+
+(every Charge-Value has
+  (property-slot (charge))
+       (charge-of ((must-be-a Chemical-Entity)))
+       (less-than ((must-be-a Charge-Value)))
+       (greater-than ((must-be-a Charge-Value)))
+       (same-as ((must-be-a Charge-Value)))
+)
+(Charge-Value has (description ("Refers to charge of an ion. Specifically, the charge on an ion is equal to a constant charge e multiplied by an integer from 1 to 15.")))

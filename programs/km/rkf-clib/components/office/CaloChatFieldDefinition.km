@@ -1,0 +1,17 @@
+;;    $Id: CaloChatFieldDefinition.km,v 1.4 2005/02/22 21:18:22 jchaw Exp $
+(CaloChatFieldDefinition has
+			 (superclasses (ChatDataStructure))
+			 (required-slot ())
+			 (primary-slot ())
+			 (secondary-slot ())
+			 (cmap-correspondence ())
+			 (test-case ()))
+
+(every CaloChatFieldDefinition has
+       (hasFieldId ((a String)))
+       (hasFieldLabel ((a String)))
+       (hasFieldWidth ((a Integer))))
+
+(hasFieldId has (instance-of (Interface-Slot)) (domain (CaloChatFieldDefinition)) (range (String)) (cardinality (1-to-1)))
+(hasFieldLabel has (instance-of (Interface-Slot)) (domain (CaloChatFieldDefinition)) (range (String)) (cardinality (1-to-1)))
+(hasFieldWidth has (instance-of (Interface-Slot)) (domain (CaloChatFieldDefinition)) (range (Integer)) (cardinality (1-to-1)))

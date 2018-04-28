@@ -1,0 +1,51 @@
+<!--- $Id: Unobstruct.doc.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Unobstruct::doc>
+<superconcept name=Make-Accessible::doc>
+
+<sme-documentation name=Unobstruct>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Unobstruct>
+  <definition>uninhibit Movement</definition>
+  <requiredslot name=object>
+    <restriction>an Entity</restriction>
+    <comment>see <conceptref name=Obstruct></comment>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Obstructed> state
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is <i>not</i> the <slot>object</slot> of a 
+      <conceptref name=Be-Obstructed> state
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be Unobstructed</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>  
+    <inheritedfrom name=Event>
+    <restriction>the thing used to unobstruct the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>disengage#2, free#7
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Unobstruct is the top-level concept for actions that take <slot>object</slot>s 
+out of states that prevent various kinds of movement. Unobstruct itself
+takes an <slot>object</slot> in a <conceptref name=Be-Obstructed> state
+(the result of an <conceptref name=Obstruct> action) and removes it from 
+that state.
+</musing>
+
+</kml>
+
+

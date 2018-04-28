@@ -1,0 +1,23 @@
+;; 
+;; $Id: Write.km,v 1.6 2005/10/25 03:02:11 sdbaji Exp $
+;; 
+
+(Write has
+  (superclasses (Express))
+  (description ("encode information into a document in a language (to be embodied as symbols)"))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Write has
+  (result ((a Document)))
+)
+
+
+(Write has (wn20-synset ((:set
+			  (:triple "write" 2 "v")
+			  (:triple "write" 1 "v")
+			  (:triple "compose" 3 "v")
+			  (:triple "pen" 1 "v")
+			  (:triple "indite" 1 "v")
+))))
+(every Write has (text-nominalization ("writing")))

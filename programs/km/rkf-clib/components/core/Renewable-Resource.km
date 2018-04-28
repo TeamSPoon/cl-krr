@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Renewable-Resource.km,v 1.2 2005/04/25 00:59:23 gking Exp $
+;; 
+
+(Renewable-Resource has
+	    (superclasses (Resource))
+	    (required-slot ())
+	    (primary-slot ())
+	    (secondary-slot ())
+	    (cmap-correspondence ())
+	    (test-case ()))
+
+(every Renewable-Resource has-definition
+       (instance-of (Resource))
+       (base-of ((a Replenish))))
+
+(Renewable-Resource has (wn20-synset ((:set
+				       (:triple "renewable_resource" 1 "n")
+))))
+

@@ -1,0 +1,34 @@
+<!--- $Id: Be-Contained.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Contained>
+<superconcept name=State>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Contained>
+  <definition>an object is contained in a container</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <primaryslot name=base>
+    <restriction>the Entity that contains the <slot>object</slot></restriction>
+  </primaryslot>
+
+  <wnsynsets><verb>contain#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>bear#7, carry#7, hold#9
+  </verb></wnsynsets>
+
+</component>
+
+<musing>
+<conceptref name=Move-Into> puts an <slot>object</slot> into the
+Be-Contained state. <conceptref name=Move-Out-Of> takes an <slot>object</slot> 
+out of this state.
+</musing>
+
+</kml>
+
+

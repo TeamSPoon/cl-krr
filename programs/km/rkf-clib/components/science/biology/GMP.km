@@ -1,0 +1,41 @@
+;; 
+;;    $Id: GMP.km,v 1.17 2001/06/01 23:26:35 pnav Exp $ 
+;; 
+
+(GMP has
+     (superclasses (Ribonucleotide Nucleoside-Monophosphate))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (cmap-correspondence ())
+     (description ("Guanosine monophosphate. One of the four nucleotides
+                    in RNA.  Souther."))
+     (test-case ()))
+
+(every GMP has
+       (complement ((must-be-a CMP))) 
+       (has-part 
+	((a Monophosphate with
+	    (object-of
+	     ((a Be-Attached-To with
+		 (object 
+		  ((the Guanosine has-part of Self)))
+		 (site
+		  (((the Carbon-Atom has-part of
+			  (the Ribose has-part of
+			       (the Guanosine has-part of Self)))
+		    called "Carbon-5")
+		   ((the Oxygen-Atom has-part of
+			 (the Monophosphate has-part of Self))
+		    called "Oxygen-1")
+		   ))
+		 (instrument ((a Covalent-CO-Bond)))
+		 ))))
+	 (a Guanosine)
+	 )))
+
+
+;; Note: selection of oxygen-1 is arbitrary.  all four oxygens in monophosphate
+;; are equivalent.
+
+

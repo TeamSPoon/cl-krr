@@ -1,0 +1,76 @@
+<!--- $Id: Conceal.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Conceal>
+<system-documentation name=Conceal>
+<superconcept name=Make-Inaccessible>
+
+<definition>
+  Make an object concealed, possibly only with respect to some particular
+  Entity or Event. This action results in the <slot>object</slot> being in a
+  <conceptref name=Be-Concealed> state, which can be undone by performing
+  an <conceptref name=Expose> action on the <slot>object</slot>.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that's concealed; the object is put in a
+     <conceptref name=Be-Concealed> state by this action
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the concealment
+  </slotdescription>
+
+  <slotdescription name=base>
+     the entity or event from which the object is concealed
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Sheilagh concealed her hideous tattoo</text>
+    <slotdescription name=object>her hideous tattoo.</slotdescription>
+    <slotdescription name=agent>Sheilagh</slotdescription>
+  </examplesentence>
+  <examplesentence>
+    <text>Edwin concealed the engagement ring from his girlfriend.</text>
+    <slotdescription name=object>the engagement ring</slotdescription>
+    <slotdescription name=base>his girlfriend</slotdescription>
+    <slotdescription name=agent>Edwin</slotdescription>
+  </examplesentence>
+  <examplesentence>
+    <text>The scalper's wares were concealed from observation.</text>
+    <slotdescription name=object>The scalper's wares</slotdescription>
+    <slotdescription name=base>observation</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Obstruct>
+     Obstruct affects the movement of something, but does not conceal it.
+     Conceal doesn't necessarily prevent an object from being moved, or
+     having any other particular action done to it.
+  </neighbor>
+  
+  <neighbor name=Make-Inaccessible>
+     Conceal is more specific than Make-Inaccessible. Concealment is a 
+     particular kind of inaccessibility: inaccessible to view.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

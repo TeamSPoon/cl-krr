@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Arithmetic-Quotient.km,v 1.2 2008/08/26 15:03:54 kbarker Exp $ 
+;; 
+
+(Arithmetic-Quotient has (superclasses (Arithmetic-Method)))
+
+(every Arithmetic-Quotient has 
+     (output (#'(LAMBDA () 
+	         (PROPERTY-DIV 
+		    (KM-UNIQUE '(the input of Self))
+		    (KM-UNIQUE '(the input2 of Self)))))))
+
+(every Arithmetic-Quotient has
+  (text-premods  ((:seq (the text-phrase of (the input of Self))
+                        "divided by"
+                        (the text-phrase of (the input2 of Self))
+  )))
+)
+
+(Arithmetic-Quotient has (wn20-synset ((:triple "quotient" 0 "n"))))

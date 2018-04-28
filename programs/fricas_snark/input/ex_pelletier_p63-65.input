@@ -1,0 +1,45 @@
+-- Example
+-- Test the basic interface: assert, retract, facts, prove
+-- Problems 63,64,65 
+--
+-- Seventy-Five Problems for Testing
+-- Automatic Theorem Provers
+-- FRANCIS JEFFRY PELLETIER
+-- Department of Philosophy. University of Alberta, Edmonton, Canada T6G 2E5.
+-- Journal of Automated Reasoning 2 (1986) 191-216.
+-- http://www.sfu.ca/~jeffpell/papers/75ATPproblems86.pdf
+
+
+P==>PROP INT
+X==>EXPR INT
+
+f:=operator 'f
+
+a:=all([x,y,z], (f(f(x,y),z)=f(x,f(y,z)))$P)
+b:=all(x,(f('a,x)=x)$P)
+c:=all(x,ex(y, (f(y,x)='a)$P))
+
+abc:=[a,b,c]  -- collect premises
+
+
+-- Problem 63
+p63:=all([x,y,z], ((f(x,y)=f(z,y))$P >> (x=z)$P))
+
+prove(p63,abc)
+
+-- PROOF-FOUND
+
+--Problem 64
+p64:=all([x,y],(f(y,x)='a)$P >>(f(x,y)='a)$P)
+
+prove(p64,abc)
+
+-- PROOF-FOUND
+
+--Problem 65
+h1:=all(x, (f(x,x)='a)$P)
+h2:=all([x,y], (f(x,y)=f(y,x))$P)
+p65:=h1>>h2
+
+prove(p65,abc)
+

@@ -1,0 +1,20 @@
+;;
+;;    $Id: Shredder.km,v 1.6 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(Shredder has (superclasses (Office-Equipment)))
+
+(every Shredder has 
+       (purpose ((a Instrument-Role with
+       		    (in-event  ((must-be-a Shred)))
+       		    (played-by (Self))
+       )))
+)
+
+(Shredder has (wn20-synset ((:set
+			     (:triple "shredder" 1 "n")
+))))
+(Shredder has
+  (feature-slot ((the feature-slot of Office-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Shredder)))))
+

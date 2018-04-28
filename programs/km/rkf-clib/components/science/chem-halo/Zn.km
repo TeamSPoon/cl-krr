@@ -1,0 +1,16 @@
+;;
+;; $Id: Zn.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Zn has (superclasses (Metal-Atom IIB-Element)))
+(every Zn has
+       (atomic-symbol (Zn))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 30 NIL))))))
+       (has-ion ((a Zn-Plus-2)))
+       (chemical-period (4)))
+
+(every Zn has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("zinc"))
+)

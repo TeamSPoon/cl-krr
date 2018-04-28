@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Metal-Nonmetal-Combination-Reaction.km,v 1.1 2007/11/28 23:48:24 tecuci Exp $ 
+;; 
+
+
+(Metal-Nonmetal-Combination-Reaction has (superclasses (Combination-Reaction)))
+
+(Metal-Nonmetal-Combination-Reaction now-has (user-description ("When a combination reaction occurs between a metal and a nonmetal, the product is an ionic solid. ")))
+
+(every Metal-Nonmetal-Combination-Reaction has-definition
+   (instance-of (Combination-Reaction))
+   (raw-material ((a Metal) (a Non-Metal))))
+
+;(every Metal-Nonmetal-Combination-Reaction has
+;   (result ((a Salt-Substance))))
+
+;TODO: wish this worked, need has-ion for these compounds
+(every Metal-Nonmetal-Combination-Reaction has
+   (result ((a Salt-Substance with (has-basic-structural-unit (
+               (a Salt with (has-part (
+                        (the has-ion of 
+                           (the has-basic-structural-unit of (the Metal raw-material of Self)))
+                        (the has-ion of
+                           (the has-basic-structural-unit of (the Non-Metal raw-material of Self))))))))))))
+               
+         

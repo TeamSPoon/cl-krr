@@ -1,0 +1,16 @@
+;;
+;; $Id: Hg.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Hg has (superclasses (Metal-Atom IIB-Element)))
+(every Hg has
+       (atomic-symbol (Hg))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 80 NIL))))))
+       (has-ion ((a Hg-Plus-2)))
+       (chemical-period (6)))
+
+(every Hg has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("mercury"))
+)

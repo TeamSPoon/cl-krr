@@ -1,0 +1,14 @@
+;; 
+;; $Id: TD-Question.km,v 1.1 2005/01/21 19:28:51 billj Exp $
+;; 
+
+(TD-Question has
+  (superclasses (Information))
+)
+
+(every TD-Question has
+  (information-content ((must-be-a TD-Proposition)))
+)
+
+(hasQuestionParameter has (instance-of (Interface-Slot)) (domain (TD-Question)) (range (Information)) (inverse (isQuestionParameterOf)) (cardinality (N-to-N)))
+

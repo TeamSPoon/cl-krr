@@ -1,0 +1,68 @@
+;; 
+;;    $Id: G-C-Base-Pair.km,v 1.8 2001/06/01 23:26:35 pnav Exp $
+;; 
+
+(G-C-Base-Pair has
+  (superclasses 	(Base-Pair))
+  (required-slot 	())
+  (primary-slot 	())
+  (secondary-slot 	())
+  (cmap-correspondence 	())
+  (description 		("The base pair resulting from the hydrogen bonding of
+                          Guanine and Cytosine in RNA molecules.  Souther."))
+  (test-case 		()))
+
+(every G-C-Base-Pair has
+  (is-part-of ((a DNA-Molecule)))
+  (has-part   ((a D-CMP)
+	       (a D-GMP with
+		  (has-part (
+		    (a Guanine with
+		       (complement ((the Cytosine has-part of 
+					 (the D-CMP has-part of Self))))
+		       (object-of  (
+			 (a Be-Attached-To with
+			    (object 	((the Cytosine has-part of 
+					      (the D-CMP has-part of Self))))
+			    (instrument ((a Hydrogen-Bond)))
+			    (site	(((the Hydrogen-Atom has-part of
+					       (the Guanine has-part of Self))
+					  called "N1-Hydrogen")
+					 ((the Nitrogen-Atom has-part of
+					       (the Cytosine has-part of Self))
+					  called "Nitrogen-3"))))
+			 (a Be-Attached-To with
+			    (object 	((the Cytosine has-part of 
+					      (the D-CMP has-part of Self))))
+			    (instrument ((a Hydrogen-Bond)))
+			    (site	(((the Hydrogen-Atom has-part of
+					       (the Amino-Group has-part of
+						    (the Guanine has-part of Self)))
+					  called "Hydrogen-1")
+					 (the Oxygen-Atom has-part of
+					      (the Cytosine has-part of 
+						   (the D-CMP has-part of Self))))))
+			 (a Be-Attached-To with
+			    (object 	((the Cytosine has-part of 
+					      (the D-CMP has-part of Self))))
+			    (instrument ((a Hydrogen-Bond)))
+			    (site	(((the Hydrogen-Atom has-part of
+					       (the Amino-Group has-part of
+						    (the Cytosine has-part of 
+							 (the D-CMP has-part of Self))))
+					  called "Hydrogen-1")
+					 (the Oxygen-Atom has-part of
+					      (the Guanine has-part of Self))))) )))))))))
+
+
+
+
+
+
+
+
+
+
+
+
+

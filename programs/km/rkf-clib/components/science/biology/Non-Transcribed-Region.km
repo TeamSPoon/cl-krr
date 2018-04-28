@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Non-Transcribed-Region.km,v 1.7 2001/05/19 02:50:16 souther Exp $ 
+;; 
+
+(Non-Transcribed-Region has
+         (superclasses (DNA-Noncoding-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("Sequences of DNA which are not transcribed and do not
+                        play any role in regulation. The so-described 'junk'
+                        or 'spacer' DNA.  Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Non-Transcribed-Region has
+       (has-part ((mustnt-be-a Transcription-Unit))))
+

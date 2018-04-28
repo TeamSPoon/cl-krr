@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Leucine.km,v 1.11 2001/06/01 23:26:40 pnav Exp $ 
+;; 
+
+(Leucine has                
+         (superclasses (Essential-Amino-Acid Nonpolar-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A nonpolar amino acid with a isobutyl side chain.
+                        Souther"))
+         (test-case ()))
+
+(every Leucine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 (((the Carbon-Atom has-part of 
+			    (the Amino-Acid-Side-Chain has-part of Self))
+		   called "Carbon-1")))
+		))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part 
+	    (
+	     (a Isobutyl-Group))))
+	)))
+
+
+

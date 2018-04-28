@@ -1,0 +1,1196 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Projectile-Move ----------
+
+(Projectile-Move has (superclasses (Two-Dimensional-Move Event)))
+
+(_Projectile-Move379 has 
+  (instance-of (Projectile-Move))
+  (prototype-of (Projectile-Move))
+  (prototype-scope (Projectile-Move))
+  (prototype-participants (_Equation-Big-Node520
+                           _Equation-Big-Node519
+                           _Equation-Big-Node518
+                           _Equation-Big-Node517
+                           _Equation-Big-Node516
+                           _Equation-Big-Node515
+                           _Equation-Big-Node514
+                           _Equation-Big-Node513
+                           _Equation-Big-Node510
+                           _Property-Node508
+                           _Property-Node507
+                           _Property-Node506
+                           _Property-Node505
+                           _Property-Node504
+                           _Property-Node503
+                           _Property-Node502
+                           _Property-Node501
+                           _Property-Node500
+                           _Property-Node498
+                           _Property-Node496
+                           _Property-Node494
+                           _Property-Node492
+                           _Property-Node490
+                           _Tangible-Entity489
+                           _Acceleration-Magnitude-Value487
+                           _Length-Value485
+                           _Length-Value484
+                           _Length-Value483
+                           _Length-Value482
+                           _Speed-Value481
+                           _Length-Value480
+                           _Length-Value479
+                           _Duration-Value478
+                           _Equation-Set477
+                           _Equation-Set475
+                           _Equation-Set474
+                           _Equation-Set473
+                           _Equation-Set472
+                           _System471
+                           _Equation-Set470
+                           _Equation-Set469
+                           _Angle-Value468
+                           _Equation-Set467
+                           _Speed-Value466
+                           _Speed-Value465
+                           _Equation-Set464
+                           _Speed-Value463
+                           _Speed-Value462
+                           _Equation-Set461
+                           _Projectile-Move379))
+  (prototype-participant-of (_Projectile-Move379))
+  (has-clones (_Placeholder-Class378380
+               _Projectile-Move605
+               _Projectile-Move305))
+  (has-built-clones (_Placeholder-Class378380
+                     _Projectile-Move605
+                     _Projectile-Move305))
+  (big-nodes (_Equation-Big-Node520
+              _Equation-Big-Node519
+              _Equation-Big-Node518
+              _Equation-Big-Node517
+              _Equation-Big-Node516
+              _Equation-Big-Node515
+              _Equation-Big-Node514
+              _Equation-Big-Node513
+              _Equation-Big-Node510))
+  (object (_Tangible-Entity489))
+  (y-acceleration-magnitude (_Acceleration-Magnitude-Value487))
+  (y-distance (_Length-Value485))
+  (x-distance (_Length-Value484))
+  (initial-y-position (_Length-Value483))
+  (initial-x-position (_Length-Value482))
+  (final-y-speed (_Speed-Value481))
+  (final-y-position (_Length-Value480))
+  (final-x-position (_Length-Value479))
+  (duration (_Duration-Value478))
+  (component-of (_System471))
+  (direction (_Angle-Value468))
+  (initial-y-speed (_Speed-Value466))
+  (initial-speed (_Speed-Value465))
+  (initial-x-speed (_Speed-Value463))
+  (final-x-speed (_Speed-Value462))
+  (edge-coordinate ((:seq final-x-speed _Speed-Value462 232 570)
+                    (:seq direction _Angle-Value468 238 714)
+                    (:seq initial-speed _Speed-Value465 229 496)
+                    (:seq final-x-position _Length-Value479 234 597)
+                    (:seq x-distance _Length-Value484 225 372)
+                    (:seq initial-x-position _Length-Value482 228 469)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value487 148 96)
+                    (:seq final-y-speed _Speed-Value481 229 521)
+                    (:seq duration _Duration-Value478 236 683)
+                    (:seq final-y-position _Length-Value480 232 545)
+                    (:seq y-distance _Length-Value485 220 324)
+                    (:seq initial-y-position _Length-Value483 225 418)
+                    (:seq initial-y-speed _Speed-Value466 225 395)
+                    (:seq initial-x-speed _Speed-Value463 227 444)
+                    (:seq object _Tangible-Entity489 257 642)))
+  (edge-visibility ((:seq final-x-speed _Speed-Value462 t)
+                    (:seq direction _Angle-Value468 t)
+                    (:seq initial-speed _Speed-Value465 t)
+                    (:seq final-x-position _Length-Value479 t)
+                    (:seq x-distance _Length-Value484 t)
+                    (:seq initial-x-position _Length-Value482 t)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value487 t)
+                    (:seq final-y-speed _Speed-Value481 t)
+                    (:seq duration _Duration-Value478 t)
+                    (:seq final-y-position _Length-Value480 t)
+                    (:seq y-distance _Length-Value485 t)
+                    (:seq initial-y-position _Length-Value483 t)
+                    (:seq initial-y-speed _Speed-Value466 t)
+                    (:seq initial-x-speed _Speed-Value463 t)
+                    (:seq object _Tangible-Entity489 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Equation-Big-Node520 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_Equation-Set467
+                  _System471))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node458
+               _Equation-Big-Node528
+               _Equation-Big-Node376))
+  (node-visibility (t))
+  (contains-edge ((:triple _System471 component _Projectile-Move379)
+                  (:triple _System471 equation _Equation-Set467)
+                  (:triple _Equation-Set467 user-equation-expression '(= u_x (* u (cos (:op_paren theta)))))
+                  (:triple _Equation-Set467 equation-uses _Speed-Value463)
+                  (:triple _Equation-Set467 equation-symbol (:pair 'u_x _Speed-Value463))
+                  (:triple _Equation-Set467 equation-uses _Speed-Value465)
+                  (:triple _Equation-Set467 equation-symbol (:pair 'u _Speed-Value465))
+                  (:triple _Equation-Set467 equation-uses _Angle-Value468)
+                  (:triple _Equation-Set467 equation-expression '(= u_x (* u (cos theta))))
+                  (:triple _Equation-Set467 equation-symbol (:pair 'theta _Angle-Value468)))))
+
+(_Equation-Big-Node519 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_Equation-Set469
+                  _System471))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node456
+               _Equation-Big-Node529
+               _Equation-Big-Node375))
+  (node-visibility (t))
+  (contains-edge ((:triple _System471 component _Projectile-Move379)
+                  (:triple _System471 equation _Equation-Set469)
+                  (:triple _Equation-Set469 user-equation-expression '(= u_y (* u (sin (:op_paren theta)))))
+                  (:triple _Equation-Set469 equation-uses _Speed-Value466)
+                  (:triple _Equation-Set469 equation-symbol (:pair 'u_y _Speed-Value466))
+                  (:triple _Equation-Set469 equation-uses _Speed-Value465)
+                  (:triple _Equation-Set469 equation-symbol (:pair 'u _Speed-Value465))
+                  (:triple _Equation-Set469 equation-uses _Angle-Value468)
+                  (:triple _Equation-Set469 equation-expression '(= u_y (* u (sin theta))))
+                  (:triple _Equation-Set469 equation-symbol (:pair 'theta _Angle-Value468)))))
+
+(_Equation-Big-Node518 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_Equation-Set461
+                  _System471))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node454
+               _Equation-Big-Node530
+               _Equation-Big-Node374))
+  (node-visibility (t))
+  (contains-edge ((:triple _System471 component _Projectile-Move379)
+                  (:triple _System471 equation _Equation-Set461)
+                  (:triple _Equation-Set461 user-equation-expression '(= v_x u_x))
+                  (:triple _Equation-Set461 equation-uses _Speed-Value463)
+                  (:triple _Equation-Set461 equation-symbol (:pair 'u_x _Speed-Value463))
+                  (:triple _Equation-Set461 equation-uses _Speed-Value462)
+                  (:triple _Equation-Set461 equation-expression '(= v_x u_x))
+                  (:triple _Equation-Set461 equation-symbol (:pair 'v_x _Speed-Value462)))))
+
+(_Equation-Big-Node517 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_System471
+                  _Equation-Set472))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node452
+               _Equation-Big-Node531
+               _Equation-Big-Node373))
+  (node-visibility (t))
+  (contains-edge ((:triple _System471 component _Projectile-Move379)
+                  (:triple _System471 equation _Equation-Set472)
+                  (:triple _Equation-Set472 user-equation-expression '(= x (+ x_o (* v_x t))))
+                  (:triple _Equation-Set472 equation-uses _Length-Value482)
+                  (:triple _Equation-Set472 equation-symbol (:pair 'x_o _Length-Value482))
+                  (:triple _Equation-Set472 equation-uses _Speed-Value462)
+                  (:triple _Equation-Set472 equation-symbol (:pair 'v_x _Speed-Value462))
+                  (:triple _Equation-Set472 equation-uses _Length-Value479)
+                  (:triple _Equation-Set472 equation-symbol (:pair 'x _Length-Value479))
+                  (:triple _Equation-Set472 equation-uses _Duration-Value478)
+                  (:triple _Equation-Set472 equation-expression '(= x (+ x_o (* v_x t))))
+                  (:triple _Equation-Set472 equation-symbol (:pair 't _Duration-Value478)))))
+
+(_Equation-Big-Node516 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_System471
+                  _Equation-Set473))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node450
+               _Equation-Big-Node533
+               _Equation-Big-Node372))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set473 equation-expression '(= y (+ (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))))
+                  (:triple _System471 component _Projectile-Move379)
+                  (:triple _System471 equation _Equation-Set473)
+                  (:triple _Equation-Set473 equation-uses _Acceleration-Magnitude-Value487)
+                  (:triple _Equation-Set473 equation-symbol (:pair 'a_y _Acceleration-Magnitude-Value487))
+                  (:triple _Equation-Set473 equation-uses _Speed-Value466)
+                  (:triple _Equation-Set473 equation-symbol (:pair 'u_y _Speed-Value466))
+                  (:triple _Equation-Set473 equation-uses _Length-Value483)
+                  (:triple _Equation-Set473 equation-symbol (:pair 'y_o _Length-Value483))
+                  (:triple _Equation-Set473 equation-uses _Length-Value480)
+                  (:triple _Equation-Set473 equation-symbol (:pair 'y _Length-Value480))
+                  (:triple _Equation-Set473 equation-uses _Duration-Value478)
+                  (:triple _Equation-Set473 equation-symbol (:pair 't _Duration-Value478))
+                  (:triple _Equation-Set473 user-equation-expression '(= y (+ (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2))))))))
+
+(_Equation-Big-Node515 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_System471
+                  _Equation-Set474))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node448
+               _Equation-Big-Node534
+               _Equation-Big-Node371))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set474 equation-expression '(= v_y (+ u_y (* a_y t))))
+                  (:triple _Equation-Set474 equation-symbol (:pair 'a_y _Acceleration-Magnitude-Value487))
+                  (:triple _Equation-Set474 equation-uses _Acceleration-Magnitude-Value487)
+                  (:triple _Equation-Set474 equation-symbol (:pair 't _Duration-Value478))
+                  (:triple _Equation-Set474 equation-uses _Duration-Value478)
+                  (:triple _Equation-Set474 equation-symbol (:pair 'v_y _Speed-Value481))
+                  (:triple _Equation-Set474 equation-uses _Speed-Value481)
+                  (:triple _Equation-Set474 equation-symbol (:pair 'u_y _Speed-Value466))
+                  (:triple _Equation-Set474 equation-uses _Speed-Value466)
+                  (:triple _System471 equation _Equation-Set474)
+                  (:triple _System471 component _Projectile-Move379)
+                  (:triple _Equation-Set474 user-equation-expression '(= v_y (+ u_y (* a_y t)))))))
+
+(_Equation-Big-Node514 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_System471
+                  _Equation-Set475))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node446
+               _Equation-Big-Node535
+               _Equation-Big-Node370))
+  (node-visibility (t))
+  (contains-edge ((:triple _System471 component _Projectile-Move379)
+                  (:triple _System471 equation _Equation-Set475)
+                  (:triple _Equation-Set475 user-equation-expression '(= d_x (- x x_o)))
+                  (:triple _Equation-Set475 equation-uses _Length-Value484)
+                  (:triple _Equation-Set475 equation-symbol (:pair 'd_x _Length-Value484))
+                  (:triple _Equation-Set475 equation-uses _Length-Value482)
+                  (:triple _Equation-Set475 equation-symbol (:pair 'x_o _Length-Value482))
+                  (:triple _Equation-Set475 equation-uses _Length-Value479)
+                  (:triple _Equation-Set475 equation-expression '(= d_x (- x x_o)))
+                  (:triple _Equation-Set475 equation-symbol (:pair 'x _Length-Value479)))))
+
+(_Equation-Big-Node513 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_Equation-Set464
+                  _System471))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node444
+               _Equation-Big-Node536
+               _Equation-Big-Node369))
+  (node-visibility (t))
+  (contains-edge ((:triple _System471 component _Projectile-Move379)
+                  (:triple _System471 equation _Equation-Set464)
+                  (:triple _Equation-Set464 user-equation-expression '(= u (sqrt (:op_paren (+ (expt u_x 2) (expt u_y 2))))))
+                  (:triple _Equation-Set464 equation-uses _Speed-Value466)
+                  (:triple _Equation-Set464 equation-symbol (:pair 'u_y _Speed-Value466))
+                  (:triple _Equation-Set464 equation-uses _Speed-Value463)
+                  (:triple _Equation-Set464 equation-symbol (:pair 'u_x _Speed-Value463))
+                  (:triple _Equation-Set464 equation-uses _Speed-Value465)
+                  (:triple _Equation-Set464 equation-expression '(= u (sqrt (+ (expt u_x 2) (expt u_y 2)))))
+                  (:triple _Equation-Set464 equation-symbol (:pair 'u _Speed-Value465)))))
+
+(_Equation-Big-Node510 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Projectile-Move379
+                _Length-Value485))
+  (contains-node (_System471
+                  _Equation-Set477))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node440
+               _Equation-Big-Node542
+               _Equation-Big-Node367))
+  (node-visibility (t))
+  (contains-edge ((:triple _System471 component _Projectile-Move379)
+                  (:triple _System471 equation _Equation-Set477)
+                  (:triple _Equation-Set477 user-equation-expression '(= d_y (- y y_o)))
+                  (:triple _Equation-Set477 equation-uses _Length-Value485)
+                  (:triple _Equation-Set477 equation-symbol (:pair 'd_y _Length-Value485))
+                  (:triple _Equation-Set477 equation-uses _Length-Value483)
+                  (:triple _Equation-Set477 equation-symbol (:pair 'y_o _Length-Value483))
+                  (:triple _Equation-Set477 equation-uses _Length-Value480)
+                  (:triple _Equation-Set477 equation-expression '(= d_y (- y y_o)))
+                  (:triple _Equation-Set477 equation-symbol (:pair 'y _Length-Value480)))))
+
+(_Property-Node508 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Angle-Value468))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node437
+               _Property-Node556
+               _Property-Node366))
+  (node-visibility (t)))
+
+(_Property-Node507 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Duration-Value478))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node435
+               _Property-Node557
+               _Property-Node365))
+  (node-visibility (t)))
+
+(_Property-Node506 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Length-Value479))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node433
+               _Property-Node559
+               _Property-Node364))
+  (node-visibility (t)))
+
+(_Property-Node505 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Speed-Value462))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node431
+               _Property-Node560
+               _Property-Node363))
+  (node-visibility (t)))
+
+(_Property-Node504 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Length-Value480))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node429
+               _Property-Node562
+               _Property-Node362))
+  (node-visibility (t)))
+
+(_Property-Node503 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Speed-Value481))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node427
+               _Property-Node563
+               _Property-Node361))
+  (node-visibility (t)))
+
+(_Property-Node502 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Speed-Value465))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node425
+               _Property-Node564
+               _Property-Node360))
+  (node-visibility (t)))
+
+(_Property-Node501 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Length-Value482))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node423
+               _Property-Node565
+               _Property-Node359))
+  (node-visibility (t)))
+
+(_Property-Node500 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Speed-Value463))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node421
+               _Property-Node566
+               _Property-Node358))
+  (node-visibility (t)))
+
+(_Property-Node498 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Length-Value483))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node419
+               _Property-Node567
+               _Property-Node357))
+  (node-visibility (t)))
+
+(_Property-Node496 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Speed-Value466))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node417
+               _Property-Node568
+               _Property-Node355))
+  (node-visibility (t)))
+
+(_Property-Node494 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (contains-node (_Length-Value484))
+  (big-node-of (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node415
+               _Property-Node569
+               _Property-Node354))
+  (node-visibility (t)))
+
+(_Property-Node492 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Length-Value485))
+  (contains-node (_Acceleration-Magnitude-Value487))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node413
+               _Property-Node570
+               _Property-Node353))
+  (node-visibility (t))
+  (contains-edge ((:triple _Acceleration-Magnitude-Value487 value (:pair -9.8 *meter-per-second-squared)))))
+
+(_Property-Node490 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (big-node-of (_Length-Value485))
+  (contains-node (_Length-Value485))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node384
+               _Property-Node577
+               _Property-Node352))
+  (node-visibility (t)))
+
+(_Tangible-Entity489 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (object-of (_Projectile-Move379))
+  (instance-of (Tangible-Entity
+                Thing))
+  (has-clones (_Tangible-Entity381
+               _Tangible-Entity578
+               _Tangible-Entity347))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 415 703)))
+  (node-visibility (t)))
+
+(_Acceleration-Magnitude-Value487 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (y-acceleration-magnitude-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set473
+                     _Equation-Set474))
+  (instance-of (Acceleration-Magnitude-Value))
+  (contains-node-of (_Property-Node492))
+  (internally-expanded (t))
+  (value ((:pair -9.8 *meter-per-second-squared)))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 362 87)))
+  (node-visibility (t))
+  (has-clones (_Acceleration-Magnitude-Value579
+               _Acceleration-Magnitude-Value346))
+  (edge-visibility ((:seq value (:pair -9.8 *meter-per-second-squared) f))))
+
+(_Length-Value485 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (y-distance-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set477))
+  (instance-of (Length-Value))
+  (big-nodes (_Equation-Big-Node520
+              _Equation-Big-Node519
+              _Equation-Big-Node518
+              _Equation-Big-Node517
+              _Equation-Big-Node516
+              _Equation-Big-Node515
+              _Equation-Big-Node514
+              _Equation-Big-Node513
+              _Equation-Big-Node510
+              _Property-Node508
+              _Property-Node507
+              _Property-Node506
+              _Property-Node505
+              _Property-Node504
+              _Property-Node503
+              _Property-Node502
+              _Property-Node501
+              _Property-Node500
+              _Property-Node498
+              _Property-Node496
+              _Property-Node494
+              _Property-Node492
+              _Property-Node490))
+  (contains-node-of (_Property-Node490))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 391 48)))
+  (node-visibility (t))
+  (has-clones (_Length-Value580
+               _Length-Value345)))
+
+(_Length-Value484 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (x-distance-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set475))
+  (instance-of (Length-Value))
+  (contains-node-of (_Property-Node494))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 401 144)))
+  (node-visibility (t))
+  (has-clones (_Length-Value581
+               _Length-Value344)))
+
+(_Length-Value483 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (initial-y-position-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set473
+                     _Equation-Set477))
+  (instance-of (Length-Value))
+  (contains-node-of (_Property-Node498))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 401 235)))
+  (node-visibility (t))
+  (has-clones (_Length-Value582
+               _Length-Value343)))
+
+(_Length-Value482 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (initial-x-position-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set472
+                     _Equation-Set475))
+  (instance-of (Length-Value))
+  (contains-node-of (_Property-Node501))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 407 337)))
+  (node-visibility (t))
+  (has-clones (_Length-Value583
+               _Length-Value342)))
+
+(_Speed-Value481 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (final-y-speed-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set474))
+  (instance-of (Speed-Value))
+  (contains-node-of (_Property-Node503))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 409 441)))
+  (node-visibility (t))
+  (has-clones (_Speed-Value584
+               _Speed-Value341)))
+
+(_Length-Value480 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (final-y-position-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set473
+                     _Equation-Set477))
+  (instance-of (Length-Value))
+  (contains-node-of (_Property-Node504))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 414 489)))
+  (node-visibility (t))
+  (has-clones (_Length-Value585
+               _Length-Value340)))
+
+(_Length-Value479 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (final-x-position-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set472
+                     _Equation-Set475))
+  (instance-of (Length-Value))
+  (contains-node-of (_Property-Node506))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 418 594)))
+  (node-visibility (t))
+  (has-clones (_Length-Value586
+               _Length-Value339)))
+
+(_Duration-Value478 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (duration-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set472
+                     _Equation-Set473
+                     _Equation-Set474))
+  (instance-of (Duration-Value))
+  (contains-node-of (_Property-Node507))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 423 767)))
+  (node-visibility (t))
+  (has-clones (_Duration-Value587
+               _Duration-Value338)))
+
+(_Equation-Set477 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-of (_System471))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node510))
+  (equation-uses (_Length-Value485
+                  _Length-Value483
+                  _Length-Value480))
+  (user-equation-expression ('(= d_y (- y y_o))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'd_y _Length-Value485)
+                    (:pair 'y_o _Length-Value483)
+                    (:pair 'y _Length-Value480)))
+  (equation-expression ('(= d_y (- y y_o))))
+  (node-coordinate ((:pair 888 9)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set588
+               _Equation-Set336))
+  (edge-visibility ((:seq user-equation-expression '(= d_y (- y y_o)) t)
+                    (:seq equation-expression '(= d_y (- y y_o)) t)
+                    (:seq equation-symbol (:pair 'y _Length-Value480) t)
+                    (:seq equation-symbol (:pair 'y_o _Length-Value483) t)
+                    (:seq equation-symbol (:pair 'd_y _Length-Value485) t)
+                    (:seq equation-uses _Length-Value480 t)
+                    (:seq equation-uses _Length-Value483 t)
+                    (:seq equation-uses _Length-Value485 t))))
+
+(_Equation-Set475 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-of (_System471))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node514))
+  (equation-uses (_Length-Value484
+                  _Length-Value482
+                  _Length-Value479))
+  (user-equation-expression ('(= d_x (- x x_o))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'd_x _Length-Value484)
+                    (:pair 'x_o _Length-Value482)
+                    (:pair 'x _Length-Value479)))
+  (equation-expression ('(= d_x (- x x_o))))
+  (node-coordinate ((:pair 881 210)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set590
+               _Equation-Set332))
+  (edge-visibility ((:seq user-equation-expression '(= d_x (- x x_o)) t)
+                    (:seq equation-expression '(= d_x (- x x_o)) t)
+                    (:seq equation-symbol (:pair 'x _Length-Value479) t)
+                    (:seq equation-symbol (:pair 'x_o _Length-Value482) t)
+                    (:seq equation-symbol (:pair 'd_x _Length-Value484) t)
+                    (:seq equation-uses _Length-Value479 t)
+                    (:seq equation-uses _Length-Value482 t)
+                    (:seq equation-uses _Length-Value484 t))))
+
+(_Equation-Set474 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-uses (_Speed-Value466
+                  _Acceleration-Magnitude-Value487
+                  _Speed-Value481
+                  _Duration-Value478))
+  (equation-of (_System471))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node515))
+  (user-equation-expression ('(= v_y (+ u_y (* a_y t)))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'u_y _Speed-Value466)
+                    (:pair 'v_y _Speed-Value481)
+                    (:pair 't _Duration-Value478)
+                    (:pair 'a_y _Acceleration-Magnitude-Value487)))
+  (equation-expression ('(= v_y (+ u_y (* a_y t)))))
+  (node-coordinate ((:pair 884 275)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set591
+               _Equation-Set331))
+  (edge-visibility ((:seq user-equation-expression '(= v_y (- u_y (* a_y t))) t)
+                    (:seq equation-expression '(= v_y (- u_y (* a_y t))) t)
+                    (:seq user-equation-expression '(= v_y (+ u_y (* a_y t))) ())
+                    (:seq equation-expression '(= v_y (+ u_y (* a_y t))) ())
+                    (:seq equation-symbol (:pair 'a_y _Acceleration-Magnitude-Value487) t)
+                    (:seq equation-symbol (:pair 't _Duration-Value478) t)
+                    (:seq equation-symbol (:pair 'v_y _Speed-Value481) t)
+                    (:seq equation-symbol (:pair 'u_y _Speed-Value466) t)
+                    (:seq equation-uses _Duration-Value478 t)
+                    (:seq equation-uses _Speed-Value481 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value487 t)
+                    (:seq equation-uses _Speed-Value466 t))))
+
+(_Equation-Set473 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-uses (_Speed-Value466
+                  _Acceleration-Magnitude-Value487
+                  _Length-Value483
+                  _Length-Value480
+                  _Duration-Value478))
+  (equation-of (_System471))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node516))
+  (user-equation-expression ('(= y (+ (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2))))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'a_y _Acceleration-Magnitude-Value487)
+                    (:pair 'u_y _Speed-Value466)
+                    (:pair 'y_o _Length-Value483)
+                    (:pair 'y _Length-Value480)
+                    (:pair 't _Duration-Value478)))
+  (equation-expression ('(= y (+ (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2))))))
+  (node-coordinate ((:pair 882 349)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set592
+               _Equation-Set330))
+  (edge-visibility ((:seq user-equation-expression '(= y (- (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))) t)
+                    (:seq equation-expression '(= y (- (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))) t)
+                    (:seq user-equation-expression '(= y (+ (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))) ())
+                    (:seq equation-expression '(= y (+ (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))) ())
+                    (:seq equation-symbol (:pair 't _Duration-Value478) t)
+                    (:seq equation-symbol (:pair 'y _Length-Value480) t)
+                    (:seq equation-symbol (:pair 'y_o _Length-Value483) t)
+                    (:seq equation-symbol (:pair 'u_y _Speed-Value466) t)
+                    (:seq equation-symbol (:pair 'a_y _Acceleration-Magnitude-Value487) t)
+                    (:seq equation-uses _Duration-Value478 t)
+                    (:seq equation-uses _Length-Value480 t)
+                    (:seq equation-uses _Length-Value483 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value487 t)
+                    (:seq equation-uses _Speed-Value466 t))))
+
+(_Equation-Set472 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-uses (_Speed-Value462
+                  _Length-Value482
+                  _Length-Value479
+                  _Duration-Value478))
+  (equation-of (_System471))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node517))
+  (user-equation-expression ('(= x (+ x_o (* v_x t)))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'x_o _Length-Value482)
+                    (:pair 'v_x _Speed-Value462)
+                    (:pair 'x _Length-Value479)
+                    (:pair 't _Duration-Value478)))
+  (equation-expression ('(= x (+ x_o (* v_x t)))))
+  (node-coordinate ((:pair 878 444)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set593
+               _Equation-Set328))
+  (edge-visibility ((:seq user-equation-expression '(= x (+ x_o (* v_x t))) t)
+                    (:seq equation-expression '(= x (+ x_o (* v_x t))) t)
+                    (:seq equation-symbol (:pair 't _Duration-Value478) t)
+                    (:seq equation-symbol (:pair 'x _Length-Value479) t)
+                    (:seq equation-symbol (:pair 'v_x _Speed-Value462) t)
+                    (:seq equation-symbol (:pair 'x_o _Length-Value482) t)
+                    (:seq equation-uses _Duration-Value478 t)
+                    (:seq equation-uses _Length-Value479 t)
+                    (:seq equation-uses _Length-Value482 t)
+                    (:seq equation-uses _Speed-Value462 t))))
+
+(_System471 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (component (_Projectile-Move379))
+  (equation (_Equation-Set477
+             _Equation-Set464
+             _Equation-Set475
+             _Equation-Set474
+             _Equation-Set473
+             _Equation-Set472
+             _Equation-Set461
+             _Equation-Set469
+             _Equation-Set467
+             _Equation-Set470))
+  (instance-of (System))
+  (contains-node-of (_Equation-Big-Node520
+                     _Equation-Big-Node519
+                     _Equation-Big-Node518
+                     _Equation-Big-Node517
+                     _Equation-Big-Node516
+                     _Equation-Big-Node515
+                     _Equation-Big-Node514
+                     _Equation-Big-Node513
+                     _Equation-Big-Node510))
+  (edge-visibility ((:seq equation _Equation-Set476 t)
+                    (:seq equation _Equation-Set470 t)
+                    (:seq equation _Equation-Set467 t)
+                    (:seq equation _Equation-Set469 t)
+                    (:seq equation _Equation-Set461 t)
+                    (:seq equation _Equation-Set472 t)
+                    (:seq equation _Equation-Set473 t)
+                    (:seq equation _Equation-Set474 t)
+                    (:seq equation _Equation-Set475 t)
+                    (:seq equation _Equation-Set464 t)
+                    (:seq equation _Equation-Set477 t)
+                    (:seq component _Projectile-Move379 t)))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (has-clones (_System594
+               _System327)))
+
+(_Equation-Set470 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-uses (_Speed-Value463
+                  _Speed-Value466
+                  _Angle-Value468))
+  (instance-of (Equation-Set))
+  (equation-of (_System471))
+  (internally-expanded (t))
+  (user-equation-expression ('(= theta (atan (:op_paren (/ u_y u_x))))))
+  (equation-symbol ((:pair 'u_y _Speed-Value466)
+                    (:pair 'u_x _Speed-Value463)
+                    (:pair 'theta _Angle-Value468)))
+  (equation-expression ('(= theta (atan (/ u_y u_x)))))
+  (node-coordinate ((:pair 870 739)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set595
+               _Equation-Set326))
+  (edge-visibility ((:seq user-equation-expression '(= theta (atan (:op_paren (/ u_y u_x)))) t)
+                    (:seq equation-expression '(= theta (atan (/ u_y u_x))) t)
+                    (:seq equation-symbol (:pair 'theta _Angle-Value468) t)
+                    (:seq equation-symbol (:pair 'u_x _Speed-Value463) t)
+                    (:seq equation-symbol (:pair 'u_y _Speed-Value466) t)
+                    (:seq equation-uses _Angle-Value468 t)
+                    (:seq equation-uses _Speed-Value466 t)
+                    (:seq equation-uses _Speed-Value463 t))))
+
+(_Equation-Set469 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-uses (_Speed-Value465
+                  _Speed-Value466
+                  _Angle-Value468))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node519))
+  (equation-of (_System471))
+  (user-equation-expression ('(= u_y (* u (sin (:op_paren theta))))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'u_y _Speed-Value466)
+                    (:pair 'u _Speed-Value465)
+                    (:pair 'theta _Angle-Value468)))
+  (equation-expression ('(= u_y (* u (sin theta)))))
+  (node-coordinate ((:pair 872 592)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set596
+               _Equation-Set324))
+  (edge-visibility ((:seq user-equation-expression '(= u_y (* u (sin (:op_paren theta)))) t)
+                    (:seq equation-expression '(= u_y (* u (sin theta))) t)
+                    (:seq equation-symbol (:pair 'theta _Angle-Value468) t)
+                    (:seq equation-symbol (:pair 'u _Speed-Value465) t)
+                    (:seq equation-symbol (:pair 'u_y _Speed-Value466) t)
+                    (:seq equation-uses _Angle-Value468 t)
+                    (:seq equation-uses _Speed-Value466 t)
+                    (:seq equation-uses _Speed-Value465 t))))
+
+(_Angle-Value468 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (direction-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set470
+                     _Equation-Set467
+                     _Equation-Set469))
+  (instance-of (Angle-Value))
+  (contains-node-of (_Property-Node508))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 427 829)))
+  (node-visibility (t))
+  (has-clones (_Angle-Value597
+               _Angle-Value323)))
+
+(_Equation-Set467 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-uses (_Speed-Value463
+                  _Speed-Value465
+                  _Angle-Value468))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node520))
+  (equation-of (_System471))
+  (user-equation-expression ('(= u_x (* u (cos (:op_paren theta))))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'u_x _Speed-Value463)
+                    (:pair 'u _Speed-Value465)
+                    (:pair 'theta _Angle-Value468)))
+  (equation-expression ('(= u_x (* u (cos theta)))))
+  (node-coordinate ((:pair 876 666)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set598
+               _Equation-Set322))
+  (edge-visibility ((:seq user-equation-expression '(= u_x (* u (cos (:op_paren theta)))) t)
+                    (:seq equation-expression '(= u_x (* u (cos theta))) t)
+                    (:seq equation-symbol (:pair 'theta _Angle-Value468) t)
+                    (:seq equation-symbol (:pair 'u _Speed-Value465) t)
+                    (:seq equation-symbol (:pair 'u_x _Speed-Value463) t)
+                    (:seq equation-uses _Angle-Value468 t)
+                    (:seq equation-uses _Speed-Value465 t)
+                    (:seq equation-uses _Speed-Value463 t))))
+
+(_Speed-Value466 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (initial-y-speed-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set474
+                     _Equation-Set473
+                     _Equation-Set464
+                     _Equation-Set470
+                     _Equation-Set469))
+  (instance-of (Speed-Value))
+  (contains-node-of (_Property-Node496))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 400 190)))
+  (node-visibility (t))
+  (has-clones (_Speed-Value599
+               _Speed-Value321)))
+
+(_Speed-Value465 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (initial-speed-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set464
+                     _Equation-Set469
+                     _Equation-Set467))
+  (instance-of (Speed-Value))
+  (contains-node-of (_Property-Node502))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 409 392)))
+  (node-visibility (t))
+  (has-clones (_Speed-Value600
+               _Speed-Value320)))
+
+(_Equation-Set464 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (equation-uses (_Speed-Value463
+                  _Speed-Value466
+                  _Speed-Value465))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node513))
+  (equation-of (_System471))
+  (user-equation-expression ('(= u (sqrt (:op_paren (+ (expt u_x 2) (expt u_y 2)))))))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'u_y _Speed-Value466)
+                    (:pair 'u_x _Speed-Value463)
+                    (:pair 'u _Speed-Value465)))
+  (equation-expression ('(= u (sqrt (+ (expt u_x 2) (expt u_y 2))))))
+  (node-coordinate ((:pair 883 136)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set601
+               _Equation-Set319))
+  (edge-visibility ((:seq user-equation-expression '(= u (sqrt (:op_paren (+ (expt u_x 2) (expt u_y 2))))) t)
+                    (:seq equation-expression '(= u (sqrt (+ (expt u_x 2) (expt u_y 2)))) t)
+                    (:seq equation-symbol (:pair 'u _Speed-Value465) t)
+                    (:seq equation-symbol (:pair 'u_x _Speed-Value463) t)
+                    (:seq equation-symbol (:pair 'u_y _Speed-Value466) t)
+                    (:seq equation-uses _Speed-Value465 t)
+                    (:seq equation-uses _Speed-Value466 t)
+                    (:seq equation-uses _Speed-Value463 t))))
+
+(_Speed-Value463 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (initial-x-speed-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set461
+                     _Equation-Set470
+                     _Equation-Set464
+                     _Equation-Set467))
+  (instance-of (Speed-Value))
+  (contains-node-of (_Property-Node500))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 404 287)))
+  (node-visibility (t))
+  (has-clones (_Speed-Value602
+               _Speed-Value312)))
+
+(_Speed-Value462 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (final-x-speed-of (_Projectile-Move379))
+  (used-in-equation (_Equation-Set461
+                     _Equation-Set472))
+  (instance-of (Speed-Value))
+  (contains-node-of (_Property-Node505))
+  (internally-expanded (t))
+  (uniquely-called ("NIL"))
+  (node-coordinate ((:pair 414 539)))
+  (node-visibility (t))
+  (has-clones (_Speed-Value603
+               _Speed-Value311)))
+
+(_Equation-Set461 has 
+  (prototype-participant-of (_Projectile-Move379))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node518))
+  (equation-of (_System471))
+  (equation-uses (_Speed-Value463
+                  _Speed-Value462))
+  (user-equation-expression ('(= v_x u_x)))
+  (internally-expanded (t))
+  (equation-symbol ((:pair 'u_x _Speed-Value463)
+                    (:pair 'v_x _Speed-Value462)))
+  (equation-expression ('(= v_x u_x)))
+  (node-coordinate ((:pair 874 517)))
+  (node-visibility (t))
+  (has-clones (_Equation-Set604
+               _Equation-Set310))
+  (edge-visibility ((:seq user-equation-expression '(= v_x u_x) t)
+                    (:seq equation-expression '(= v_x u_x) t)
+                    (:seq equation-symbol (:pair 'v_x _Speed-Value462) t)
+                    (:seq equation-symbol (:pair 'u_x _Speed-Value463) t)
+                    (:seq equation-uses _Speed-Value462 t)
+                    (:seq equation-uses _Speed-Value463 t))))
+
+(explanation (:triple _Projectile-Move379 object _Tangible-Entity489) ((a Tangible-Entity (@ _Projectile-Move379 Move object))))
+(explanation (:triple _Projectile-Move379 instance-of Event) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 y-acceleration-magnitude _Acceleration-Magnitude-Value487) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 y-distance _Length-Value485) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 x-distance _Length-Value484) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 initial-y-speed _Speed-Value466) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 initial-y-position _Length-Value483) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 initial-x-speed _Speed-Value463) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 initial-x-position _Length-Value482) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 initial-speed _Speed-Value465) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 final-y-speed _Speed-Value481) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 final-y-position _Length-Value480) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 final-x-speed _Speed-Value462) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 final-x-position _Length-Value479) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 duration _Duration-Value478) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Projectile-Move379 direction _Angle-Value468) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Tangible-Entity489 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Projectile-Move379 Move object))))
+(explanation (:triple _Tangible-Entity489 instance-of Thing) ((a Thing (@ _Projectile-Move379 Action (object must-be-a)))))
+(explanation (:triple _Acceleration-Magnitude-Value487 instance-of Acceleration-Magnitude-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value487 cardinal-value _Cardinal377) ((forall (the value of _Acceleration-Magnitude-Value487 (@ _Acceleration-Magnitude-Value487 Property-Value cardinal-value)) where ((the1 of It) isa Number (@ _Acceleration-Magnitude-Value487 Property-Value cardinal-value)) (a Cardinal with (numeric-value ((the1 of It (@ _Acceleration-Magnitude-Value487 Property-Value cardinal-value Cardinal numeric-value)))) (unit ((the2 of It (@ _Acceleration-Magnitude-Value487 Property-Value cardinal-value Cardinal unit)))) (@ _Acceleration-Magnitude-Value487 Property-Value cardinal-value)) (@ _Acceleration-Magnitude-Value487 Property-Value cardinal-value))))
+(explanation (:triple _Acceleration-Magnitude-Value487 property-slot acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value487) (@ _Acceleration-Magnitude-Value487 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value487 property-slot average-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value487) (@ _Acceleration-Magnitude-Value487 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value487 property-slot average-x-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value487) (@ _Acceleration-Magnitude-Value487 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value487 property-slot average-y-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value487) (@ _Acceleration-Magnitude-Value487 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value487 property-slot x-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value487) (@ _Acceleration-Magnitude-Value487 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value487 property-slot y-acceleration-magnitude) ((the range-of of (the instance-of of _Acceleration-Magnitude-Value487) (@ _Acceleration-Magnitude-Value487 Property-Value property-slot))))
+(explanation (:triple _Acceleration-Magnitude-Value487 value (:pair -9.8 *meter-per-second-squared)) ((forall (the cardinal-value of _Acceleration-Magnitude-Value487 (@ _Acceleration-Magnitude-Value487 Property-Value value)) (:pair (the numeric-value of It) (the unit of It)) (@ _Acceleration-Magnitude-Value487 Property-Value value))))
+(explanation (:triple _Acceleration-Magnitude-Value487 value (:pair -9.8 *meter-per-second-squared)) (((FUNCTION (LAMBDA NIL (COND ((FBOUNDP (QUOTE EQUATION-SOLVE)) (EQUATION-SOLVE (QUOTE _Acceleration-Magnitude-Value487)))))) (@ _Acceleration-Magnitude-Value487 Property-Value value))))
+(explanation (:triple _Length-Value485 instance-of Length-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Length-Value484 instance-of Length-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Length-Value483 instance-of Length-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Length-Value482 instance-of Length-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Speed-Value481 instance-of Speed-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Length-Value480 instance-of Length-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Length-Value479 instance-of Length-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Duration-Value478 instance-of Duration-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Duration-Value478 instance-of Duration-Value) ((a Duration-Value (@ _Projectile-Move379 Move (duration must-be-a)))))
+(explanation (:triple _Equation-Set477 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set477 user-equation-expression (QUOTE (= d_y (- y y_o)))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set477 equation-uses _Length-Value485) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set477 equation-symbol (:pair (QUOTE d_y) _Length-Value485)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set477 equation-uses _Length-Value483) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set477 equation-symbol (:pair (QUOTE y_o) _Length-Value483)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set477 equation-uses _Length-Value480) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set477 equation-expression (QUOTE (= d_y (- y y_o)))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set477 equation-symbol (:pair (QUOTE y) _Length-Value480)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 user-equation-expression (QUOTE (= d_x (- x x_o)))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 equation-uses _Length-Value484) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 equation-symbol (:pair (QUOTE d_x) _Length-Value484)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 equation-uses _Length-Value482) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 equation-symbol (:pair (QUOTE x_o) _Length-Value482)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 equation-uses _Length-Value479) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 equation-expression (QUOTE (= d_x (- x x_o)))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set475 equation-symbol (:pair (QUOTE x) _Length-Value479)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 user-equation-expression (QUOTE (= v_y (- u_y (* a t))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-uses _Speed-Value466) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-symbol (:pair (QUOTE u_y) _Speed-Value466)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-uses _Speed-Value481) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-symbol (:pair (QUOTE v_y) _Speed-Value481)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-uses _Duration-Value478) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-symbol (:pair (QUOTE t) _Duration-Value478)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-uses _Acceleration-Magnitude-Value487) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-expression (QUOTE (= v_y (- u_y (* a_y t))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-symbol (:pair (QUOTE a_y) _Acceleration-Magnitude-Value487)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 user-equation-expression (QUOTE (= v_y (- u_y (* a_y t))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 equation-expression (QUOTE (= v_y (+ u_y (* a_y t))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set474 user-equation-expression (QUOTE (= v_y (+ u_y (* a_y t))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 user-equation-expression (QUOTE (= y (- (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-uses _Acceleration-Magnitude-Value487) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-symbol (:pair (QUOTE a_y) _Acceleration-Magnitude-Value487)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-uses _Speed-Value466) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-symbol (:pair (QUOTE u_y) _Speed-Value466)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-uses _Length-Value483) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-symbol (:pair (QUOTE y_o) _Length-Value483)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-uses _Length-Value480) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-symbol (:pair (QUOTE y) _Length-Value480)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-uses _Duration-Value478) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-expression (QUOTE (= y (- (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-symbol (:pair (QUOTE t) _Duration-Value478)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 equation-expression (QUOTE (= y (+ (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set473 user-equation-expression (QUOTE (= y (+ (+ y_o (* u_y t)) (* (* (/ 1 2) a_y) (expt t 2)))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 user-equation-expression (QUOTE (= x (+ x_o (* v_x t))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-uses _Length-Value482) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-symbol (:pair (QUOTE x_o) _Length-Value482)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-uses _Speed-Value462) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-symbol (:pair (QUOTE v_x) _Speed-Value462)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-uses _Length-Value479) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-symbol (:pair (QUOTE x) _Length-Value479)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-uses _Duration-Value478) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-expression (QUOTE (= x (+ x_o (* v_x t))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set472 equation-symbol (:pair (QUOTE t) _Duration-Value478)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 instance-of System) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 component _Projectile-Move379) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set477) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set476) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set464) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set475) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set474) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set473) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set472) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set461) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set469) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set467) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _System471 equation _Equation-Set470) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 user-equation-expression (QUOTE (= theta (atan (:op_paren (/ u_y u_x)))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 equation-uses _Speed-Value466) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 equation-symbol (:pair (QUOTE u_y) _Speed-Value466)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 equation-uses _Speed-Value463) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 equation-symbol (:pair (QUOTE u_x) _Speed-Value463)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 equation-uses _Angle-Value468) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 equation-expression (QUOTE (= theta (atan (/ u_y u_x))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set470 equation-symbol (:pair (QUOTE theta) _Angle-Value468)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 user-equation-expression (QUOTE (= u_y (* u (sin (:op_paren theta)))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 equation-uses _Speed-Value466) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 equation-symbol (:pair (QUOTE u_y) _Speed-Value466)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 equation-uses _Speed-Value465) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 equation-symbol (:pair (QUOTE u) _Speed-Value465)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 equation-uses _Angle-Value468) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 equation-expression (QUOTE (= u_y (* u (sin theta))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set469 equation-symbol (:pair (QUOTE theta) _Angle-Value468)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Angle-Value468 instance-of Angle-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 user-equation-expression (QUOTE (= u_x (* u (cos (:op_paren theta)))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 equation-uses _Speed-Value463) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 equation-symbol (:pair (QUOTE u_x) _Speed-Value463)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 equation-uses _Speed-Value465) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 equation-symbol (:pair (QUOTE u) _Speed-Value465)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 equation-uses _Angle-Value468) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 equation-expression (QUOTE (= u_x (* u (cos theta))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set467 equation-symbol (:pair (QUOTE theta) _Angle-Value468)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Speed-Value466 instance-of Speed-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Speed-Value465 instance-of Speed-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 user-equation-expression (QUOTE (= u (sqrt (:op_paren (+ (expt u_x 2) (expt u_y 2))))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 equation-uses _Speed-Value466) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 equation-symbol (:pair (QUOTE u_y) _Speed-Value466)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 equation-uses _Speed-Value463) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 equation-symbol (:pair (QUOTE u_x) _Speed-Value463)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 equation-uses _Speed-Value465) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 equation-expression (QUOTE (= u (sqrt (+ (expt u_x 2) (expt u_y 2)))))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set464 equation-symbol (:pair (QUOTE u) _Speed-Value465)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Speed-Value463 instance-of Speed-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Speed-Value462 instance-of Speed-Value) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set461 instance-of Equation-Set) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set461 user-equation-expression (QUOTE (= v_x u_x))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set461 equation-uses _Speed-Value463) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set461 equation-symbol (:pair (QUOTE u_x) _Speed-Value463)) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set461 equation-uses _Speed-Value462) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set461 equation-expression (QUOTE (= v_x u_x))) ((added-at Projectile-Move "User defined")))
+(explanation (:triple _Equation-Set461 equation-symbol (:pair (QUOTE v_x) _Speed-Value462)) ((added-at Projectile-Move "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

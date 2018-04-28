@@ -1,0 +1,49 @@
+;;
+;;   $Id: Brighten.km,v 1.13 2008/05/08 22:04:06 kbarker Exp $
+;;
+
+(Brighten has 
+  (superclasses  (Increase))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Brighten has-definition
+  (instance-of (Increase))
+  (from-value ((a Brightness-Value)))
+)
+
+(every Brighten has
+  (from-value ((a Brightness-Value with (brightness-of ((the base of Self))))))
+  (base ((a Tangible-Entity with (brightness ((the from-value of Self))))))
+)
+
+(Brighten has
+   (test-case ('(
+                 (*mylight has (instance-of (Physical-Object))
+                             (brightness (*mylightsbrightness)))
+                 (*mylightsbrightness has (instance-of (Brightness-Value))
+                                        (value ((:pair *blinding Physical-Object))))
+
+                 (a Increase with (from-value (*mylightsbrightness))
+                                  (base (*mylight))
+                 )
+
+                 ((thelast Increase) isa Brighten)
+
+                 (do-and-next (thelast Brighten))
+
+                 ((the greater-than of (the brightness of *mylight))
+                       includes *mylightsbrightness)
+
+))))
+
+
+(Brighten has (wn20-synset ((:set
+			     (:triple "brighten" 1 "v")
+			     (:triple "brighten" 3 "v")
+			     (:triple "brighten" 4 "v")
+			     (:triple "lighten_up" 1 "v")
+			     (:triple "lighten" 3 "v")
+			     (:triple "lighten" 4 "v")
+))))
+(every Brighten has (text-nominalization ("brightening")))

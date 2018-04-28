@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Amino-Group.km,v 1.10 2001/06/19 19:14:37 jfan Exp $ 
+;; 
+
+(Amino-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Weakly basic functional group, derived from
+                             ammonia (NH3).  In aqueous solution an amino
+                             group can accept a proton and carry a positive
+                             charge. Alberts:ECB:G-2"))
+	      (cmap-correspondence ()))
+
+(every Amino-Group has
+       (has-part 
+	((a Nitrogen-Atom with
+	    (object-of
+	     (
+	      (a Be-Attached-To with
+		 (object        (((the has-part of Self) uniquely-called
+				  "Hydrogen-1")))
+		 (instrument    ((a Covalent-NH-Bond))) )
+	      (a Be-Attached-To with
+		 (object        (((the has-part of Self) uniquely-called
+				  "Hydrogen-2")))
+                 (instrument    ((a Covalent-NH-Bond))) )
+	      )))
+
+	 (a Hydrogen-Atom uniquely-called "Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "Hydrogen-2")
+	 )))
+
+

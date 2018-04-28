@@ -1,0 +1,46 @@
+;; 
+;;    $Id: site.km,v 1.17 2007/04/11 21:42:43 jchaw Exp $ 
+;; 
+
+(site has
+      (instance-of (Spatial-Relation))
+      (superslots ()) 
+      (subslots ())
+      (domain (Event))
+      (range (Spatial-Entity))
+      (fluent-status (*Inertial-Fluent))
+      (inverse (site-of))
+      (text-slot (text-site))
+      (original-slot      (t))	
+      (cardinality (N-to-N)))
+
+(site-of has
+	(instance-of (Spatial-Relation))
+	(combine-values-by-appending (t))
+        (text-slot (text-site-of)))
+
+(text-site has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-site-of has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+
+
+

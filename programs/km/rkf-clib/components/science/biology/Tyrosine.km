@@ -1,0 +1,51 @@
+;; 
+;;    $Id: Tyrosine.km,v 1.10 2001/06/01 23:26:54 pnav Exp $ 
+;; 
+
+(Tyrosine has                
+         (superclasses (Nonpolar-Amino-Acid Nonessential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("An uncharged polar amino acid with a phenol side chain.
+                        Souther")) 
+         (test-case ()))
+
+(every Tyrosine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 ((the Carbon-Atom has-part of 
+		       (the Methyl-Group has-part of
+				 (the Amino-Acid-Side-Chain has-part of Self)))
+		  )))
+	     )))
+	(a Amino-Acid-Side-Chain with
+	   (has-part 
+	    ((a Methyl-Group with
+		(object-of
+		 ((a Be-Attached-To with
+		     (object 
+		      ((the Phenol has-part of 
+			    (the Amino-Acid-Side-Chain has-part of Self))))
+		     (instrument ((a Covalent-CC-Bond)))
+		     (site
+		      ((the Carbon-Atom has-part of
+			    (the Methyl-Group has-part of
+                                 (the Amino-Acid-Side-Chain has-part of Self)))
+		       ((the Carbon-Atom has-part of
+			     (the Phenol has-part of
+				 (the Amino-Acid-Side-Chain has-part of Self)))
+			called "Carbon-4")))
+		     )))))
+	    )))
+       ))
+ 
+
+
+

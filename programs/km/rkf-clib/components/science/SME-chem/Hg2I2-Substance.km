@@ -1,0 +1,11 @@
+;; $Id: Hg2I2-Substance.km,v 1.1 2007/12/02 05:38:51 vaibhav Exp $
+
+(Hg2I2-Substance has (superclasses (Ionic-Compound-Substance)))
+(every Hg2I2-Substance has
+        (has-chemical-name ("mercury(I) iodide"))
+        (has-basic-structural-unit ((a Hg2I2)))
+)
+(every Hg2I2-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Hg2I2))))
+

@@ -1,0 +1,16 @@
+
+;;
+;; $Id: Compute-Atomic-Formula-from-Nested-Formula.km,v 1.1 2005/09/01 15:53:22 jfan Exp $
+;;
+
+(Compute-Atomic-Formula-from-Nested-Formula has
+					    (superclasses (Method))
+					    (description ("compute the atomic formula based on nested formula")))
+
+(every Compute-Atomic-Formula-from-Nested-Formula has
+       (input ((a Chemical-Formula)))
+       (output
+	((a Chemical-Formula with
+	    (term ((#'(LAMBDA ()
+			(DENEST-ATOMIC-FORMULA
+			 (KM-UNIQUE0 '(the term of (the input of Self))))))))))))

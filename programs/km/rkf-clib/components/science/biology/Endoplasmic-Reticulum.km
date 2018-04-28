@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Endoplasmic-Reticulum.km,v 1.15 2001/06/03 06:16:40 souther Exp $ 
+;; 
+
+(Endoplasmic-Reticulum has
+         (superclasses (Organelle Subcellular-Compartment))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("Labyrinthine, membrane-bounded compartment in the
+                        cytoplasm of Eucaryotic-Cell, where lipids are
+                        secreted and membrane-bound proteins are made.
+                        Alberts:ECB:G-7"))
+         (test-case ()))
+
+(every Endoplasmic-Reticulum has
+       (has-part ((a Internal-Membrane with
+		     (encloses ((the Subcellular-Compartment has-part of Self))
+			       ))
+		  (a Subcellular-Compartment)))
+       )
+
+

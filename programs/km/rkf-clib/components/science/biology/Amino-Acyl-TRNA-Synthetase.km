@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Amino-Acyl-TRNA-Synthetase.km,v 1.11 2001/05/21 23:00:16 souther Exp $ 
+;; 
+
+(Amino-Acyl-TRNA-Synthetase has
+         (superclasses (Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("An enzyme that adds one of the amino acids to the 
+                        end of the appropriate tRNA molecule before the tRNA
+                        binds to the ribosome during mRNA translation.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Amino-Acyl-TRNA-Synthetase has 
+       (purpose ((a Catalyst with
+                    (in-event ((a TRNA-Charging))))))
+       )
+
+
+

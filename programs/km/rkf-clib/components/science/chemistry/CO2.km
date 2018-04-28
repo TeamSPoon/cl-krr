@@ -1,0 +1,12 @@
+;;
+;; $Id: CO2.km,v 1.2 2003/04/22 18:54:54 jchaw Exp $
+;;
+
+(CO2 has (superclasses (Molecular-Compound)))
+
+(every CO2 has	
+       (nested-atomic-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 C)
+		    (:pair 2 O))))))))

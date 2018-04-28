@@ -1,0 +1,56 @@
+<!--- $Id: Renewable-Resource.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+<concept name=Renewable-Resource>
+<system-documentation name=Renewable-Resource>
+
+<superconcept name=Resource>
+
+  <definition>
+    A resource that can be <conceptref name=Replenish>ed
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the <conceptref name=Entity> that's playing the role of the Resource
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Event> in which the entity is the Resource
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+   <slotdescription name=instrument>
+     frequently, this is the relationship between the event and the resource
+   </slotdescription>
+   
+   <slotdescription name=raw-material>
+     frequently, this is the relationship between the event and the resource
+   </slotdescription>
+
+</primaryslotlist>
+
+
+<neighborlist>
+
+  <neighbor name=Nonrenewable-Resource>
+     A resource that cannot be <conceptref name=Replenish>ed
+  </neighbor>
+
+  <neighbor name=Consume>
+     The act of consuming a resource
+  </neighbor>
+
+  <neighbor name=Replenish>
+     The act of replenishing a resource
+  </neighbor>
+
+
+</neighborlist>
+
+
+</kml>
+

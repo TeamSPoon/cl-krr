@@ -1,0 +1,16 @@
+;; $Id: Courier.km,v 1.3 2005/04/10 21:40:15 jchaw Exp $
+(Courier has (superclasses (Job-Role)))
+
+(every Courier has
+       (in-event  ((must-be-a Convey)))
+       (played-by ((a Person with 
+		      (agent-of ((the in-event of Self)))
+       )))
+)
+
+(Courier has (wn20-synset ((:set
+	 		     (:triple "messenger" 1 "n")
+	 		     (:triple "courier" 1 "n")
+))))
+
+

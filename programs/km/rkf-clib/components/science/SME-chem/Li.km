@@ -1,0 +1,42 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Li5165
+
+
+|#
+
+(disable-classification)
+
+(Li has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+
+(every Li has (atomic-symbol (Li)) (atomic-number ((a Atomic-Number-Value with (value ((:pair 3 NIL)))))) (chemical-period (2)))
+
+(_Li5176 has
+  (prototype-of (Li))
+  (prototype-scope (Li))
+  (prototype-participants (_Li-Plus5181 _Li5176)))
+
+(_Li5176 has (instance-of (Li)) (has-ion (_Li-Plus5181)))
+
+(_Li-Plus5181 has (instance-of (Li-Plus)))
+
+(enable-classification)
+
+(explanation (:triple _Li5176 has-ion _Li-Plus5181) (((@ SME entered)) (every Li has (has-ion ((a Li-Plus))))))
+
+(explanation (:triple _Li5176 instance-of Li) (((@ SME entered)) NIL))
+
+(explanation (:triple _Li-Plus5181 instance-of Li-Plus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Li has (has-ion ((a Li-Plus))))
+
+|#
+
+|#
+

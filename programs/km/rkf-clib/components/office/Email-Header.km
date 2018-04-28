@@ -1,0 +1,14 @@
+
+;;
+;; $Id: Email-Header.km,v 1.2 2003/08/30 13:33:25 kbarker Exp $
+;;
+
+(Email-Header has 
+  (superclasses (Form-Document))
+  (description ("the fielded information associated with the sending of an Email"))
+)
+
+(every Email-Header has
+  (has-part ((a Message-Field)))  ;; no commitment to which fields are necessary
+)
+

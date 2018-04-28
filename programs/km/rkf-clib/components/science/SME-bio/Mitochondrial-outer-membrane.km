@@ -1,0 +1,152 @@
+
+;;; ---------- Definition of prototype for Mitochondrion-outer-membrane ----------
+
+(Mitochondrion-outer-membrane has (superclasses (Membrane-Enclosure)))
+
+(_Mitochondrion-outer-membrane598 has 
+  (instance-of (Mitochondrion-outer-membrane))
+  (prototype-of (Mitochondrion-outer-membrane))
+  (prototype-scope (Mitochondrion-outer-membrane))
+  (prototype-participants (_Property-Node622
+                           _Property-Node618
+                           _Texture-Value617
+                           _Living-Entity616
+                           _Mitochondrion-matrix615
+                           _Mitochondrion-inner-membrane614
+                           _Living-Entity613
+                           _Texture-Value612
+                           _Mitochondrion-outer-membrane598))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598))
+  (has-clones (_Placeholder-Class597599))
+  (has-built-clones (_Placeholder-Class597599))
+  (big-nodes (_Property-Node618
+              _Property-Node622))
+  (texture (_Texture-Value617))
+  (is-part-of (_Living-Entity616))
+  (encloses (_Mitochondrion-inner-membrane614))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq texture _Texture-Value617 169 540)
+                    (:seq encloses _Mitochondrion-inner-membrane614 275 613)))
+  (edge-visibility ((:seq texture _Texture-Value617 t)
+                    (:seq encloses _Mitochondrion-inner-membrane614 t)))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Property-Node622 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node611))
+  (node-visibility (t))
+  (contains-node (_Texture-Value617))
+  (big-node-of (_Mitochondrion-outer-membrane598))
+  (contains-edge ((:triple _Texture-Value617 value *smooth)))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598)))
+
+(_Property-Node618 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node603))
+  (cloned-from (_Property-Node596))
+  (contains-node (_Texture-Value612))
+  (big-node-of (_Mitochondrion-outer-membrane598))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598)))
+
+(_Texture-Value617 has 
+  (contains-node-of (_Property-Node622))
+  (instance-of (Texture-Value))
+  (texture-of (_Mitochondrion-outer-membrane598))
+  (internally-expanded (t))
+  (value (*smooth))
+  (node-coordinate ((:pair 288 479)))
+  (node-visibility (t))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598)))
+
+(_Living-Entity616 has 
+  (instance-of (Living-Entity))
+  (has-clones (_Living-Entity601))
+  (has-part (_Mitochondrion-outer-membrane598))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Mitochondrion-outer-membrane598 -100 607)))
+  (edge-visibility ((:seq has-part _Mitochondrion-outer-membrane598 f)))
+  (node-coordinate ((:pair -250 607)))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598)))
+
+(_Mitochondrion-matrix615 has 
+  (instance-of (Mitochondrion-matrix
+                Physical-Object))
+  (has-clones (_Mitochondrion-matrix606))
+  (cloned-from (_Mitochondrion-matrix593))
+  (is-inside (_Mitochondrion-inner-membrane614))
+  (node-coordinate ((:pair 625 607)))
+  (edge-coordinate ((:seq is-inside _Mitochondrion-inner-membrane614 675 612)))
+  (edge-visibility ((:seq is-inside _Mitochondrion-inner-membrane614 f)))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598)))
+
+(_Mitochondrion-inner-membrane614 has 
+  (encloses (_Mitochondrion-matrix615))
+  (instance-of (Mitochondrion-inner-membrane
+                Physical-Object))
+  (cloned-from (_Mitochondrion-inner-membrane579))
+  (clone-built-from (_Mitochondrion-inner-membrane579))
+  (internally-expanded (f))
+  (texture (_Texture-Value612))
+  (is-part-of (_Living-Entity613))
+  (is-inside (_Mitochondrion-outer-membrane598))
+  (edge-coordinate ((:seq is-inside _Mitochondrion-outer-membrane598 475 592)
+                    (:seq encloses _Mitochondrion-matrix615 475 612)
+                    (:seq texture _Texture-Value612 475 632)))
+  (edge-visibility ((:seq is-inside _Mitochondrion-outer-membrane598 f)
+                    (:seq encloses _Mitochondrion-matrix615 f)
+                    (:seq texture _Texture-Value612 f)))
+  (node-coordinate ((:pair 425 607)))
+  (node-visibility (t))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598)))
+
+(_Living-Entity613 has 
+  (has-part (_Mitochondrion-inner-membrane614))
+  (instance-of (Living-Entity))
+  (cloned-from (_Living-Entity594))
+  (edge-coordinate ((:seq has-part _Mitochondrion-inner-membrane614 -150 607)))
+  (edge-visibility ((:seq has-part _Mitochondrion-inner-membrane614 f)))
+  (node-coordinate ((:pair 1850 50)))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598)))
+
+(_Texture-Value612 has 
+  (contains-node-of (_Property-Node618))
+  (texture-of (_Mitochondrion-inner-membrane614))
+  (instance-of (Texture-Value))
+  (cloned-from (_Texture-Value595))
+  (value (*rough))
+  (node-coordinate ((:pair 625 627)))
+  (prototype-participant-of (_Mitochondrion-outer-membrane598)))
+
+(explanation (:triple _Mitochondrion-outer-membrane598 encloses _Mitochondrion-inner-membrane614) ((a Physical-Object (@ _Mitochondrion-outer-membrane598 Membrane-Enclosure encloses))))
+(explanation (:triple _Mitochondrion-outer-membrane598 is-part-of _Living-Entity616) ((a Living-Entity (@ _Mitochondrion-outer-membrane598 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Mitochondrion-outer-membrane598 texture _Texture-Value617) ((added-at Mitochondrion-outer-membrane "User defined")))
+(explanation (:triple _Property-Node618 instance-of Property-Node) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Property-Node618 big-node-of _Mitochondrion-inner-membrane614) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Texture-Value617 instance-of Texture-Value) ((added-at Mitochondrion-outer-membrane "User defined")))
+(explanation (:triple _Living-Entity616 instance-of Living-Entity) ((a Living-Entity (@ _Mitochondrion-outer-membrane598 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Mitochondrion-matrix615 instance-of Mitochondrion-matrix) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Mitochondrion-matrix615 instance-of Physical-Object) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Mitochondrion-matrix615 is-inside _Mitochondrion-inner-membrane614) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Mitochondrion-matrix615 instance-of Mitochondrion-matrix) ((added-at Mitochondrion-inner-membrane "User defined")))
+(explanation (:triple _Mitochondrion-matrix615 instance-of Physical-Object) ((a Physical-Object (@ _Mitochondrion-inner-membrane614 Membrane-Enclosure encloses))))
+(explanation (:triple _Mitochondrion-inner-membrane614 instance-of Mitochondrion-inner-membrane) ((added-at Mitochondrion-outer-membrane "User defined")))
+(explanation (:triple _Mitochondrion-inner-membrane614 texture _Texture-Value612) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Mitochondrion-inner-membrane614 is-part-of _Living-Entity613) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Mitochondrion-inner-membrane614 encloses _Mitochondrion-matrix615) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Mitochondrion-inner-membrane614 encloses _Mitochondrion-matrix615) ((a Physical-Object (@ _Mitochondrion-inner-membrane614 Membrane-Enclosure encloses))))
+(explanation (:triple _Mitochondrion-inner-membrane614 is-part-of _Living-Entity613) ((a Living-Entity (@ _Mitochondrion-inner-membrane614 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Mitochondrion-inner-membrane614 shape _Shape-Value587) ((added-at Mitochondrion-inner-membrane "User defined")))
+(explanation (:triple _Mitochondrion-inner-membrane614 texture _Texture-Value612) ((added-at Mitochondrion-inner-membrane "User defined")))
+(explanation (:triple _Mitochondrion-inner-membrane614 instance-of Physical-Object) ((a Physical-Object (@ _Mitochondrion-outer-membrane598 Membrane-Enclosure encloses))))
+(explanation (:triple _Living-Entity613 instance-of Living-Entity) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Living-Entity613 has-part _Mitochondrion-inner-membrane614) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Living-Entity613 instance-of Living-Entity) ((a Living-Entity (@ _Mitochondrion-inner-membrane614 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Texture-Value612 contains-node-of _Property-Node618) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Texture-Value612 instance-of Texture-Value) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Texture-Value612 texture-of _Mitochondrion-inner-membrane614) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Texture-Value612 value *rough) ((cloned-from _Mitochondrion-inner-membrane579 _Mitochondrion-inner-membrane614)))
+(explanation (:triple _Texture-Value612 instance-of Texture-Value) ((added-at Mitochondrion-inner-membrane "User defined")))
+
+;;; ---------- end of prototype definition ----------
+

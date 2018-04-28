@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Chemical-Bond-Energy-Transfer.km,v 1.2 2001/05/01 22:30:16 pnav Exp $ 
+;; 
+
+(Chemical-Bond-Energy-Transfer has
+        (superclasses   (Chemical-Energy-Transfer))
+        (required-slot  (object donor recipient))
+        (primary-slot   (agent instrument))
+        (secondary-slot ())
+	(description	("The transfer of chemical energy from one molecule to
+                          another.  Souther. ")))
+
+(every Chemical-Bond-Energy-Transfer has
+       (donor        ((a Molecule)))
+       (recipient    ((a Molecule)))
+       (object       ((a Chemical-Bond-Energy)))
+       (instrument   ((a Chemical-Bond)))    ;; by means of test
+  )
+
+
+
+
+

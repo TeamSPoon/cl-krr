@@ -1,0 +1,87 @@
+;; 
+;;    $Id: DNA-Chain-Elongation.km,v 1.12 2004/01/30 22:02:42 kbarker Exp $
+;; 
+
+(DNA-Chain-Elongation has
+	       (superclasses        (Attach Enzyme-Catalysis))
+	       (required-slot        (object))
+	       (primary-slot         (instrument base agent))   
+	       (description ("The process of adding deoxyribonucleotides to 
+                              the end of a growing DNA sequence during 
+                              DNA-Synthesis.  Souther"))
+	       (cmap-correspondence ()))
+
+(every DNA-Chain-Elongation has
+       (object   ((a Deoxyribonucleotide)))
+       (substrate ((the DNA-Sequence base of Self)))
+       (base ((a DNA-Sequence)))
+       (instrument ((a DNA-Polymerase)))
+       
+       (first-subevent
+        (((the Move subevent of Self)
+          called "move of complementary nucleotide to template strand")))  
+       
+       (subevent
+        (
+         (a Move called "move of free nucleotide to template strand"
+            with
+            (location    ((a Replication-Fork)))
+            (object      ((a Deoxyribonucleoside-Triphosphate)))
+            (destination ((a Deoxyribonucleotide with
+                             (is-part-of ((the DNA-Sequence object of Self)))
+                             (complement
+                              ((the Deoxyribonucleotide object of
+                                    ((the Move subevent of Self)
+                                     called "move of free nucleotide
+                                             to template strand"))))
+			     )))
+
+            (next-event (((the Attach subevent of Self)
+                          called "hydrogen bonding of free nucleotide")))
+            )
+
+         (a Attach called "hydrogen bonding of free nucleotide" with
+            (object  
+	     ((the Deoxyribonucleotide object of
+		   ((the Move subevent of Self) 
+		    called "move of free nucleotide to template strand"))))
+            (base 
+	     ((the Deoxyribonucleotide destination of
+		   ((the Move subevent of Self) 
+		    called "move of free nucleotide to template strand"))))
+            (instrument  ((a Hydrogen-Bond)
+                          (at-least 2 Hydrogen-Bond)))
+
+            (next-event (((the Attach subevent of Self) 
+			  called "DNA-Chain-Elongation")))
+            )
+
+         (a Attach called "DNA-Chain-Elongation" with
+            (object   
+	     ((the Deoxyribonucleotide object of
+		   ((the Move subevent of Self) 
+		    called "move of free nucleotide to template strand"))))
+            (base ((the DNA-Sequence result of Self)))
+            (instrument ((a DNA-Polymerase)))
+
+            (next-event (((the Move subevent of Self)
+                          called "move toward 5 prime end")))
+            )
+
+         (a Move called "move toward 5 prime end" with
+            (object 
+	     ((the Replication-Fork location of
+		   ((the Move subevent of Self) 
+		    called "move of free nucleotide to template strand"))))
+           ;; (distance ((:pair 1 Nucleotide))) ;;odd usage              
+            (toward ((the 5-Prime-End has-region of
+                          (the DNA-Sequence object of Self))))
+	    )
+	 ))
+       )
+                        
+
+
+
+
+(every DNA-Chain-Elongation has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

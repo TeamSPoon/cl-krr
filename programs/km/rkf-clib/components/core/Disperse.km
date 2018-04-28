@@ -1,0 +1,114 @@
+;; 
+;;    $Id: Disperse.km,v 1.23 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Disperse has
+  (superclasses        (Action))
+  (required-slot       (object origin))
+  (primary-slot        (subevent))
+  (cmap-correspondence (
+			(:seq object "the things dispersing")
+			(:seq origin "dispersed from")
+			(:seq subevent "subevents")
+		       ))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Disperse has
+  (object 	  ((at-least 2 Tangible-Entity)
+		   (a Tangible-Entity)
+		   (a Tangible-Entity)))
+  (origin	  ((exactly 1 Spatial-Entity)
+		   (a Spatial-Entity)))
+
+  ;; The subevents of this scenario.
+  (first-subevent ((the subevent of Self)))
+  (subevent    	  ((forall (the object of Self)
+		     (a Leave with
+			(object (It))
+			(agent  (It))
+			(origin ((the origin of Self)))
+			(path ((if (has-value (the path of Self)) 
+				   then
+				   (the path of Self))))
+			(away-from ((if (has-value (the away-from of Self)) 
+					then
+					(the away-from of Self))))
+			(toward ((if (has-value (the toward of Self)) 
+				     then
+				     (the toward of Self))))
+			(destination ((if (has-value 
+					   (the destination of Self)) 
+					  then
+					  (the destination of Self))))
+			)))))
+
+
+
+(every Disperse has
+  (text-active-verbseq-sg ("disperses"))
+  (text-active-verbseq-pl ("disperse"))
+  (text-passive-verbseq-sg ("gets dispersed"))
+  (text-passive-verbseq-pl ("get dispersed"))
+)
+
+
+(Disperse has 
+  (test-case ( '(
+		 (*Tim has (instance-of (Living-Entity)))
+		 (*Ken has (instance-of (Living-Entity)))	
+		 (*Mall has (instance-of (Physical-Object)))
+		
+		 (*Tim has (is-at (*Mall)))
+		 (*Ken has (is-at (*Mall)))
+                            
+		 ;; Ken and Tim dispersed from the mall
+		 (a Disperse with
+			(object  (*Ken *Tim))
+			(origin  (*Mall)))
+		 (do-script (thelast Disperse))
+		 (the text-gen of (thelast Disperse))
+		 ;; Test1: Tim is not at the mall
+		 ((the location of *Tim) /= *Mall)
+                 (not ((the is-at of *Tim) includes *Mall))
+
+		 ;; Test2: Ken is not at the mall
+		 ((the location of *Ken) /= *Mall)
+                 (not ((the is-at of *Ken) includes *Mall))
+
+		 ;; Test3: Each subevent was a move from 
+		 ;;	   involing the object.
+		 (forall (the subevent of (thelast Disperse))
+		    ((It isa Leave) and
+		     ((:set *Tim *Ken) includes (the object of It))))
+		(forall (the subevent of (thelast Disperse)) (the text-gen of It)) 
+		)))
+)
+
+
+
+;; automatically added WN synsets
+(Disperse has (wn16-synset ((:set  
+                                       (:triple "disperse" 2 "v")
+                                       (:triple "disperse" 4 "v")
+                                       (:triple "break_up" 1 "v")
+                                       (:triple "dispel" 2 "v")
+                                       (:triple "dissipate" 1 "v")
+                                       (:triple "dissipate" 2 "v")
+                                       (:triple "scatter" 1 "v")
+                                       (:triple "scatter" 2 "v")
+                                       (:triple "spread_out" 6 "v")
+))))
+
+(Disperse has (wn20-synset ((:set
+                                       (:triple "disperse" 2 "v")
+                                       (:triple "disperse" 3 "v")
+                                       (:triple "break_up" 1 "v")
+                                       (:triple "dispel" 2 "v")
+                                       (:triple "dissipate" 1 "v")
+                                       (:triple "dissipate" 2 "v")
+                                       (:triple "scatter" 1 "v")
+                                       (:triple "scatter" 2 "v")
+                                       (:triple "spread_out" 6 "v")
+))))
+(every Disperse has (text-nominalization ("dispersion")))

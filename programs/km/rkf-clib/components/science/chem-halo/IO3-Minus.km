@@ -1,0 +1,19 @@
+;; $Id: IO3-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(IO3-Minus has (superclasses (Anion)))
+(every IO3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("iodate"))
+	(has-acid-name ("iodic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 I)(:pair 3 O)))))))
+)
+
+
+(every IO3-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("iodate"))
+)
+
+(IO3-Minus has (wn20-synset ((:triple "IO3-" 0 "n") (:triple "IO_3-" 0 "n"))))

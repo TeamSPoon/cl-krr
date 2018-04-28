@@ -1,0 +1,12 @@
+;;
+;; $Id: Image-Sensor.km,v 1.1 2004/10/07 19:44:49 kbarker Exp $
+;;
+
+(Image-Sensor has 
+  (superclasses (Computer-Component))
+  (feature-slot ((the feature-slot of Computer-Component)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Image-Sensor))
+  ))
+)
+

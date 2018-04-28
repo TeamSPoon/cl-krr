@@ -1,0 +1,27 @@
+;;
+;;    $Id: Scanner.km,v 1.10 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Scanner has 
+  (superclasses (Input-Device))
+  (feature-slot ((the feature-slot of Input-Device)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Scanner))
+  ))
+)
+
+(Scanner has (wn20-synset ((:set
+			    (:triple "scanner" 2 "n")
+			    (:triple "digital_scanner" 1 "n")
+			    (:triple "image_scanner" 1 "n")
+))))
+
+(hasHorizontalHardwareScanResolution has (instance-of (Interface-Slot)) (domain (Scanner)) (range (Optical-Resolution-Value)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isHorizontalHardwareScanResolutionOf)))
+(hasVerticalHardwareScanResolution has (instance-of (Interface-Slot)) (domain (Scanner)) (range (Optical-Resolution-Value)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isVerticalHardwareScanResolutionOf)))
+(hasHorizontalInterpolatedScanResolution has (instance-of (Interface-Slot)) (domain (Scanner)) (range (Optical-Resolution-Value)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isHorizontalInterpolatedScanResolutionOf)))
+(hasVerticalInterpolatedScanResolution has (instance-of (Interface-Slot)) (domain (Scanner)) (range (Optical-Resolution-Value)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isVerticalInterpolatedScanResolutionOf)))
+(hasHorizontalOpticalScanResolution has (instance-of (Interface-Slot)) (domain (Scanner)) (range (Optical-Resolution-Value)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isHorizontalOpticalScanResolutionOf)))
+(hasVerticalOpticalScanResolution has (instance-of (Interface-Slot)) (domain (Scanner)) (range (Optical-Resolution-Value)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isVerticalOpticalScanResolutionOf)))
+(hasHorizontalScanSize has (instance-of (Interface-Slot)) (domain (Scanner)) (range (Length-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isHorizontalScanSizeOf)))
+(hasVerticalScanSize has (instance-of (Interface-Slot)) (domain (Scanner)) (range (Length-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isVerticalScanSizeOf)))
+

@@ -1,0 +1,10 @@
+;; $Id: NO3-Minus.km,v 1.6 2003/02/22 16:25:17 jchaw Exp $ 
+(NO3-Minus has (superclasses (Anion)))
+(every NO3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("nitrate"))
+	(has-acid-name ("nitric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 N) (:pair 3 O)))))))
+)

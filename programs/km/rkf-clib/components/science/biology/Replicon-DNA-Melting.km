@@ -1,0 +1,40 @@
+;; 
+;;    $Id: Replicon-DNA-Melting.km,v 1.10 2002/06/21 19:17:02 tecuci Exp $
+;; 
+
+(Replicon-DNA-Melting has
+  (superclasses   (DNA-Melting))
+  (required-slot  (object))
+  (primary-slot   (agent result instrument))
+  (secondary-slot ())
+  (description    ("The separation of the two strands of a DNA molecule at a
+                    replication origin by initiator proteins.  Souther.")))
+
+(every Replicon-DNA-Melting has
+       (object ((a Replicon with
+	    	   (has-region ((a Replication-Origin)))
+	   	)))
+       (instrument ((a Initiator-Proteins with
+
+		       (element-type (Initiator-Protein)))))
+       (result ((a DNA-Sequence called "DNA-Sequence-1" with
+		   (is-part-of
+		     ((the Replication-Origin has-region of 
+			   (the Replicon object of Self))))
+		   (complement 
+                     (((the DNA-Sequence result of Self)
+		       called "DNA-Sequence-2")))
+		)
+		(a DNA-Sequence called "DNA-Sequence-2" with
+		   (is-part-of
+                     ((the Replication-Origin has-region of
+                           (the Replicon object of Self))))
+		   (complement
+		     (((the DNA-Sequence result of Self)
+		       called "DNA-Sequence-1"))) 
+		)))
+       )
+
+
+
+

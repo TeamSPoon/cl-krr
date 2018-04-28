@@ -1,0 +1,36 @@
+;; 
+;;    $Id: Oxygen-Atom.km,v 1.11 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Oxygen-Atom has
+         (superclasses (Atom))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("An element that is found free as a colorless tasteless
+                        odorless gas in the atmosphere of which it forms about
+                        21 percent or combined in water, in most rocks and
+                        minerals, and in numerous organic compounds, that is
+                        capable of combining with all elements except the inert
+                        gases, is active in physiological processes, and is
+                        involved especially in combustion processes.
+                        Websters 9th NCD:843."))
+         (test-case ()))
+
+(every Oxygen-Atom has
+       (has-part
+        (
+         (a Proton)
+         (exactly 8 Proton)
+         (a Neutron)
+         (exactly 8 Neutron)
+         (a Electron)
+         (exactly 8 Electron)
+         ))
+       (mass ((a Mass-Value with
+		(value ((:pair 16 *dalton))))))
+       )              
+                
+
+(every Oxygen-Atom has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

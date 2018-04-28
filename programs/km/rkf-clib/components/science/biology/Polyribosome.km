@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Polyribosome.km,v 1.13 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Polyribosome has
+	      (superclasses (Nucleoprotein-Complex))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+	      (description ("A mRNA-ribosome complex made up of several
+                             ribosomes spaced along a mRNA.  Alberts:ECB:232"))
+	      (cmap-correspondence ())
+	      (test-case ()))
+
+(every Polyribosome has
+       (has-part ((a MRNA)
+		  (a Chemical-Sequence with 
+
+		     (element-type (Ribosome))
+		     (object-of ((a Be-Attached-To with
+				    (object ((the MRNA has-part of Self))))))))))
+
+
+

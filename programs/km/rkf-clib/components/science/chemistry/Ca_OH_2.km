@@ -1,0 +1,14 @@
+;;
+;; $Id: Ca_OH_2.km,v 1.1 2003/04/22 05:11:14 jchaw Exp $
+;;
+
+(Ca_OH_2 has (superclasses (Ionic-Compound)))
+
+(every Ca_OH_2 has	
+       (has-part 
+	((a Ca-Plus-2) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Ca-Plus-2)
+			 (:pair 2 OH-Minus)))))))
+)

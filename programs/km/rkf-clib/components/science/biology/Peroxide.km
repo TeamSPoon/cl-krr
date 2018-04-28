@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Peroxide.km,v 1.3 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Peroxide has
+	  (superclasses (Molecule))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("Molecule containing two covalently bonded oxygen 
+                         atoms.  Souther."))
+	  (cmap-correspondence ())
+	  (test-case ()))
+
+(every Peroxide has
+       (has-part ((a Oxygen-Atom)
+		  (a Oxygen-Atom)
+		  (exactly 2 Oxygen-Atom))))
+
+
+(every Peroxide has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

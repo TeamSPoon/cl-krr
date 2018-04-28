@@ -1,0 +1,118 @@
+; 
+;;    $Id: Metal-Acid-Displacement-Reaction.km,v 1.8 2005/09/02 18:14:32 jfan Exp $ 
+;; 
+
+(Metal-Acid-Displacement-Reaction has (superclasses (Reaction)))
+
+(every Metal-Acid-Displacement-Reaction has-definition
+       (instance-of (Reaction
+		     [Metal-Acid-Displacement-Reaction-instance-of-1]))
+       (raw-material ((a Chemical with
+                         (has-basic-structural-unit ((a Metal-Atom))))
+		      (a Acid))))
+
+(every Metal-Acid-Displacement-Reaction has
+       (result 
+	(
+	 (if ((the output of
+		  ;; see if the metal is more active than H
+		  (a Compute-Activity-Series with
+		     (input ((the Metal-Atom has-basic-structural-unit of 
+				  (the raw-material of Self))
+			     (a H-Plus))))) 
+	      = "yes")
+	     then
+	   (:set
+	    (a H2-Substance with
+	       (physical-state ((a State-Value with
+			  (value (*gas))))))
+	    (a Salt-Substance with
+	       (has-basic-structural-unit
+		((a Ionic-Compound with
+		    (has-part
+		     (
+		      (forall (the all-subclasses of Cation)
+			      where
+			      ((the2 of
+				     (the elements of
+					  (the term of
+					       (the 
+						has-chemical-formula of 
+						(an instance of It)))))
+			       = 
+			       (allof2
+				(the instance-of
+				     of
+				     (the Atom
+					  has-basic-structural-unit 
+					  of
+					  (the raw-material of Self)))
+				where
+				(It2 /= Metal-Atom))
+			       )
+			      (an instance of It))
+		      
+		      (an instance of
+			  (the instance-of of
+			       (the Anion has-part of
+				    (the has-basic-structural-unit of
+					 (the Acid raw-material of Self)))))
+		      )))))))
+	   [Metal-Acid-Displacement-Reaction-result-1]
+	   ))))
+
+(comment [Metal-Acid-Displacement-Reaction-instance-of-1]
+   "Therefore, this reaction is a Metal-Acid displacement reaction"
+
+   "By definition, a reaction between a metal and an acid is a Metal-Acid displacement reaction"
+)
+
+
+(comment [Metal-Acid-Displacement-Reaction-result-1]
+	 (if ((the output of
+		   (a Compute-Activity-Series with
+		      (input ((the Metal-Atom has-basic-structural-unit of 
+				   (the raw-material of Self))
+			      (a H-Plus))))) 
+	      = "yes")
+	     then
+	     (:seq "Therefore, the reaction occurs, and it produces" 
+		   (andify (the text-gen of (the result of Self))))
+	     else
+	     (:seq "Therefore, no reaction occurs"))
+
+   "Whether a reaction occurs depends on the activity series of the reactants"
+
+   (:triple (a Compute-Activity-Series with
+	       (input ((the Metal-Atom has-basic-structural-unit of 
+			    (the raw-material of Self))
+		       (a H-Plus))))
+	     output
+	     *)
+)
+
+
+(Metal-Acid-Displacement-Reaction 
+ has
+ (test-case ( '(
+		((the number of
+		     (allof
+		      (the result of
+			   (a Reaction with
+			      (raw-material (
+					     (a Chemical with
+						(has-basic-structural-unit
+						 ((a Ca))))
+					     (a HCl-Substance)))))
+		      where
+		      ((It isa H2-Substance)
+		       or
+		       ((the elements of
+			     (the term of 
+			     (the has-chemical-formula of
+				  (the has-basic-structural-unit of
+				       It))))
+			= (:set (:pair 1 Ca-Plus-2) (:pair 2 Cl-Minus))))))
+		=
+		2)
+))))

@@ -1,0 +1,35 @@
+;; 
+;;    $Id: is-at.km,v 1.16 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(is-at has
+    (instance-of (Spatial-Relation))
+    (superslots ())
+    (subslots ())
+    (domain (Spatial-Entity))
+    (range (Spatial-Entity))
+    (inverse (is-at-of))
+    (text-slot (text-is-at))
+    (fluent-status (*Inertial-Fluent))
+    (original-slot      (t))	
+    (cardinality (N-to-N)))
+
+(is-at-of has
+   (combine-values-by-appending (t)))
+
+(text-is-at has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-is-at-of has (instance-of (NL-Slot-Group)))
+
+(is-at-of has 
+	(instance-of (Spatial-Relation))
+	(text-gloss ("is at")))

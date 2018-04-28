@@ -1,0 +1,17 @@
+;;
+;;    $Id: Projection-Screen.km,v 1.2 2005/04/14 17:50:15 jchaw Exp $
+;;
+(Projection-Screen has (superclasses (Artifact)))
+
+(every Projection-Screen has 
+       (purpose ((a Medium with
+       		    (in-event  ((must-be-a Display)))
+       		    (played-by (Self))
+       )))
+)
+
+(Projection-Screen has (wn20-synset ((:set
+  		       (:triple "screen" 1 "n")
+  		       (:triple "silver_screen" 2 "n")
+  		       (:triple "projection_screen" 1 "n")
+))))

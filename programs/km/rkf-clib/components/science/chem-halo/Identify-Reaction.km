@@ -1,0 +1,11 @@
+;; 
+;;    $Id: Identify-Reaction.km,v 1.1 2007/11/09 17:03:15 mrglass Exp $ 
+;;
+
+
+(Identify-Reaction has
+   (superclasses (Reaction)))
+
+(every Identify-Reaction has-definition
+   (instance-of (Reaction))
+   (identification-status (*identified)))

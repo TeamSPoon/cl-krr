@@ -1,0 +1,22 @@
+;;
+;;    $Id: Genetic-Code.km,v 1.5 2002/06/21 19:17:00 tecuci Exp $
+;; 
+
+(Genetic-Code has
+         (superclasses (Genetic-Information))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("The correspondence between codons in DNA or RNA and
+                        amino acids in proteins.  Alberts:ECB:G-8"))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Genetic-Code has
+       (has-basic-functional-unit ((a DNA-Codon)))	
+
+       (element-type (DNA-Codon)))
+
+
+
+              

@@ -1,0 +1,10 @@
+;;    $Id: Na-Substance.km,v 1.5 2008/11/03 03:11:27 tecuci Exp $
+;;; Liquid Bromine
+
+(Na-Substance has (superclasses (Metal)))
+	
+(every Na-Substance has
+  (has-basic-structural-unit ((a Na))))
+(every Na-Substance has-definition
+  (instance-of (Metal))
+  (has-basic-structural-unit ((a Na))))

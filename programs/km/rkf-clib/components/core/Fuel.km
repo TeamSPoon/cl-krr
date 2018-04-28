@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Fuel.km,v 1.2 2008/01/08 19:39:56 kbarker Exp $
+;; 
+
+(Fuel has
+      (superclasses (Resource))
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (description ("Any material which is burned to supply power or heat."))
+      (cmap-correspondence ()))
+
+(every Fuel has
+       	(in-event ((a Consume with          ;; was Burn (which doesn't exist)
+		      (object ((the played-by of Self)))
+		      (objective ((a Heat with
+				     (object ((a Tangible-Entity with 
+						 (is-near 
+						  ((the played-by of Self))))))
+				     )))
+       	(played-by ((a Tangible-Entity with
+                      (object-of ((the in-event of Self))))))))))
+
+(Fuel has 
+      (wn20-synset 
+       ((:set (:triple "fuel" 1 "n")))))
+

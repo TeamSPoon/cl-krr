@@ -1,0 +1,15 @@
+; 
+;;    $Id: Nonmetal-Nonmetal-Reaction.km,v 1.2 2005/12/01 15:15:45 jfan Exp $ 
+;; 
+
+(Nonmetal-Nonmetal-Reaction has (superclasses (Reaction)))
+
+#|
+(every Nonmetal-Nonmetal-Reaction has-definition
+       (instance-of (Reaction))
+       (raw-material ((a Molecule-Substance with
+			 (object-of ((a Heat))))
+		      (a Molecule-Substance with
+			 (object-of ((a Heat)))))))
+
+|#

@@ -1,0 +1,11 @@
+;;
+;; $Id: Review.km,v 1.4 2004/11/22 20:29:13 kbarker Exp $
+;;
+
+(Review has (superclasses (Document)))
+
+(every Review has
+  (information-content ((a String)))   ;; does this make Review a Text-Message?
+  (base ((a ReviewedObject)))          ;; what's being reviewed
+)
+

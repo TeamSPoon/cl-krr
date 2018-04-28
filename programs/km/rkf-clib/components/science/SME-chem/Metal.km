@@ -1,0 +1,85 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Metal5058
+
+
+|#
+
+(disable-classification)
+
+(Metal has (superclasses (Chemical)))
+
+(every Metal has (text-has-part ("made of")) (text-result-of ("product of")) (text-raw-material-of ("reactant in")) (text-premodslots ((:seq))) (text-postmodslots (NIL)) (text-gen ((make-phrase (the text-phrase of Self)))) (text-description ((the text-gen of Self))) (text-def-head ((:seq (the text-def-determiner of (the has-basic-structural-unit of Self)) (the text-head of Self)))) (text-head ((if (has-value (the has-chemical-name of (the has-basic-structural-unit of Self))) then (the text-head of (the has-basic-structural-unit of Self)) else Self))) (text-base-phrase ((if (has-value (the has-chemical-name of (the has-basic-structural-unit of Self))) then (the text-base-phrase of (the has-basic-structural-unit of Self)) else (the text-def-head of Self)))) (text-phrase ((if (has-value (the has-chemical-name of (the has-basic-structural-unit of Self))) then (the first of (the has-chemical-name of (the has-basic-structural-unit of Self))) else (the text-base-phrase of Self)))) (text-definition-sentence ((make-sentence (:seq (the text-indef-head of Self) "is" (andify ((forall (the superclasses of (the classes of (the has-basic-structural-unit of Self))) where (not ((the all-superclasses of Chemical) includes It)) (the text-indef-head of (an instance of It))) or "a chemical")))))))
+
+(_Metal5118 has
+  (prototype-of (Metal))
+  (prototype-scope (Metal))
+  (prototype-participants (_Ease-Of-Oxidation-Value5121 _Metal5118)))
+
+(_Metal5118 has (instance-of (Metal)) (ease-of-oxidation (_Ease-Of-Oxidation-Value5121)))
+
+(_Ease-Of-Oxidation-Value5121 has (instance-of (Ease-Of-Oxidation-Value)))
+
+(Li-Substance has (superclasses (Metal)))
+
+(K-Substance has (superclasses (Metal)))
+
+(Ba-Substance has (superclasses (Metal)))
+
+(Ca-Substance has (superclasses (Metal)))
+
+(Na-Substance has (superclasses (Metal)))
+
+(Mg-Substance has (superclasses (Metal)))
+
+(Al-Substance has (superclasses (Metal)))
+
+(Mn-Substance has (superclasses (Metal)))
+
+(Zn-Substance has (superclasses (Metal)))
+
+(Cr-Substance has (superclasses (Metal)))
+
+(Fe-Substance has (superclasses (Metal)))
+
+(Co-Substance has (superclasses (Metal)))
+
+(Ni-Substance has (superclasses (Metal)))
+
+(Sn-Substance has (superclasses (Metal)))
+
+(Pb-Substance has (superclasses (Metal)))
+
+(Cu-Substance has (superclasses (Metal)))
+
+(Ag-Substance has (superclasses (Metal)))
+
+(Hg-Substance has (superclasses (Metal)))
+
+(Au-Substance has (superclasses (Metal)))
+
+(_Property-Class-Order5124 has
+  (instance-of (Property-Class-Order))
+  (property-slot (ease-of-oxidation))
+  (element ((:seq Au-Substance Hg-Substance Ag-Substance Cu-Substance Pb-Substance Sn-Substance Ni-Substance Co-Substance Fe-Substance Cr-Substance Zn-Substance Mn-Substance Al-Substance Mg-Substance Na-Substance Ca-Substance Ba-Substance K-Substance Li-Substance))))
+
+(enable-classification)
+
+(explanation (:triple _Metal5118 ease-of-oxidation _Ease-Of-Oxidation-Value5121) (((@ SME entered)) (every Metal has (ease-of-oxidation ((a Ease-Of-Oxidation-Value))))))
+
+(explanation (:triple _Metal5118 instance-of Metal) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ease-Of-Oxidation-Value5121 instance-of Ease-Of-Oxidation-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Metal has (ease-of-oxidation ((a Ease-Of-Oxidation-Value))))
+
+|#
+
+|#
+

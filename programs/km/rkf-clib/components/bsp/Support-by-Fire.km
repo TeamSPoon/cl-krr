@@ -1,0 +1,53 @@
+;;
+;;  $Id: Support-by-Fire.km,v 1.12 2002/10/09 21:21:25 kbarker Exp $
+;;
+
+(Support-by-Fire has
+		 (superclasses (Engagement-Military-Task))
+		 (description ("a tactical mission task in which a maneuver force moves to a position where it can engage the enemy by direct fire in support of another maneuvering force")))
+
+(every Support-by-Fire has
+       (agent ((a Military-Unit)))
+       (supports ((a Military-Task with
+                     (agent ((the object of Self))))))
+       (object ((a Military-Unit with
+                   (supported-by-military-unit ((the agent of Self)))
+                   (allegiance ((the allegiance of (the agent of Self))))
+                   (agent-of ((the supports of Self)))
+       )))
+
+#| possible unification problems
+       (by-means-of 
+          ((a Fire with
+              (agent ((the agent of Self)))
+              (toward ((a Military-Unit with
+                          (allegiance 
+                             ((a Allegiance-Value with
+                                 (value
+                                    ((constraint
+                                        (TheValue
+                                         /=
+                                         (the value of 
+                                              (the allegiance of
+                                                   (the agent of Self))))))))))
+              )))
+       )))
+|#
+       (enemy ((the toward of (the by-means-of of Self))))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.9 NIL))))))
+
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.8 NIL))))))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 1 NIL))))))
+
+       (text-active-verbseq-sg ("supports"))
+       (text-active-verbseq-pl ("support"))
+
+       (text-particle ("by fire"))
+       (text-argslots ((:seq text-particle site path)))
+)

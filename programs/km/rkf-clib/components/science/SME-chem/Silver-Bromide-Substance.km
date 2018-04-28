@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Silver-Bromide-Substance8061
+
+
+|#
+
+(disable-classification)
+
+(Silver-Bromide-Substance has (superclasses (Bromide-Substance)))
+
+(every Silver-Bromide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Silver-Bromide-Substance8814 has
+  (prototype-of (Silver-Bromide-Substance Bromide-Substance))
+  (prototype-scope (Silver-Bromide-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Ag-Plus) (a Br-Minus)))))))))
+  (prototype-participants (_Ag-Plus8811 _Br-Minus8812 _Ionic-Compound8810 _Silver-Bromide-Substance8814)))
+
+(_Ionic-Compound8810 has (instance-of (Ionic-Compound)) (has-part (_Ag-Plus8811 _Br-Minus8812)))
+
+(_Ag-Plus8811 has (instance-of (Ag-Plus)))
+
+(_Br-Minus8812 has (instance-of (Br-Minus)))
+
+(_Silver-Bromide-Substance8814 has (instance-of (Silver-Bromide-Substance)) (has-basic-structural-unit (_Ionic-Compound8810)))
+
+(enable-classification)
+
+(explanation (:triple _Silver-Bromide-Substance8814 has-basic-structural-unit _Ionic-Compound8810) (((@ SME entered)) (every Silver-Bromide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Ionic-Compound8810 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ag-Plus8811 instance-of Ag-Plus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Br-Minus8812 instance-of Br-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Silver-Bromide-Substance8814 instance-of Silver-Bromide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Silver-Bromide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

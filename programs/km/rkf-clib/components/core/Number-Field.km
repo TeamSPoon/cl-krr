@@ -1,0 +1,19 @@
+
+;;
+;; $Id: Number-Field.km,v 1.1 2003/09/30 19:26:00 kbarker Exp $
+;;
+
+(Number-Field has
+  (superclasses (Message-Field))
+  (description ("a message field whose content is a numeric constant"))
+)
+
+(every Number-Field has-definition
+  (instance-of (Message-Field))
+  (information-content ((a Number)))
+)
+
+(every Number-Field has
+  (information-content ((a Number)))
+)
+

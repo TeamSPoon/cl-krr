@@ -1,0 +1,41 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Metaphase ----------
+
+(Metaphase has (superclasses (Grow)))
+
+(_Metaphase492 has 
+  (instance-of (Metaphase))
+  (prototype-of (Metaphase))
+  (prototype-scope (Metaphase))
+  (prototype-participants (_Move-Together495
+                           _Metaphase492))
+  (prototype-participant-of (_Metaphase492))
+  (has-clones (_Placeholder-Class491493))
+  (has-built-clones (_Placeholder-Class491493))
+  (subevent (_Move-Together495))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq subevent _Move-Together495 277 598)))
+  (edge-visibility ((:seq subevent _Move-Together495 t))))
+
+(_Move-Together495 has 
+  (instance-of (Move-Together))
+  (has-clones (_Event494))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (subevent-of (_Metaphase492))
+  (node-coordinate ((:pair 377 600)))
+  (prototype-participant-of (_Metaphase492)))
+
+(explanation (:triple _Metaphase492 subevent _Move-Together495) ((added-at Metaphase "User defined")))
+(explanation (:triple _Move-Together495 instance-of Event) ((added-at Metaphase "User defined")))
+(explanation (:triple _Move-Together495 instance-of Event) ((a Event (@ _Metaphase492 Event (subevent must-be-a)))))
+(explanation (:triple _Move-Together495 instance-of Move-Together) ((added-at Metaphase "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

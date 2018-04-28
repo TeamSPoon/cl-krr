@@ -1,0 +1,56 @@
+;; 
+;;    $Id: Oligoribonucleotide.km,v 1.5 2001/08/08 20:55:31 kbarker Exp $
+;; 
+
+(Oligoribonucleotide has
+     (superclasses (RNA-Sequence Oligonucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A short chain of ribonnucleotides, arbitrarily defined in 
+                    this KB to be between 3 and 49 nucleotides long.  Note: 
+                    the current lengths are arbitrary. see Oligonucleotide.
+                    Souther. "))
+     (cmap-correspondence ()))
+
+(every Oligoribonucleotide has
+       (has-region ((a 3-Prime-End)
+		(a 5-Prime-End)
+		))
+       (has-part ((a 5-Prime-Ribonucleotide with
+                     (object-of
+                      ((a Be-Attached-To with
+                          (object 
+			   (((the RNA-Sequence has-part of Self)
+				    called "RNA Sequence")))
+                          (site
+                           (((the Carbon-Atom has-part of
+                                  (the Pentose has-part of
+                                       (the 5-Prime-Ribonucleotide has-part of
+                                            Self)))
+                            called "Carbon-3")
+                           ))
+                          (instrument ((a Phosphodiester-Bond)))
+                          )
+                       )))
+                  (a 3-Prime-Ribonucleotide with
+                     (object-of
+                      ((a Be-Attached-To with
+                          (object 
+			   (((the RNA-Sequence has-part of Self)
+				    called "RNA Sequence")))
+                          (site
+                           (((the Carbon-Atom has-part of
+                                  (the Pentose has-part of
+                                       (the 3-Prime-Ribonucleotide has-part of
+                                            Self)))
+                            called "Carbon-5")
+                           ))
+                          (instrument ((a Phosphodiester-Bond)))
+                          ))))
+                  (a RNA-Sequence called "RNA Sequence")
+		  (at-least 3 Ribonucleotide)
+		  (at-most 49 Ribonucleotide)
+		  ))
+       )
+

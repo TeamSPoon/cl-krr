@@ -1,0 +1,61 @@
+
+;;
+;;  $Id: Military-Task.km,v 1.12 2005/11/11 16:34:25 kbarker Exp $
+;;
+
+(Military-Task has
+   (superclasses (Action))
+)
+
+(base has (domain (Military-Task)))
+
+;; Here's how the preconditions work:
+;; IF this Military-Task is also a Move
+;;       AND
+;;    the path of this Move/Military-Task has a trafficability defined
+;;       AND
+;;    at least one of the trafficability values applies to this kind of object
+;; THEN
+;;    the trafficability of the path for this kind of object must not be *SR
+;;       AND
+;;    it ideally should be *UR (soft precondition)
+
+(every Military-Task has
+   (agent ((set-constraint
+              ((the number of 
+                    (the value of (the allegiance of TheValues))) <= 1)
+   )))
+
+   (pcs-list ((if ((Self isa Move)
+                   and
+                   (has-value (the trafficability of (the path of Self)))
+                  )
+               then 
+                  (forall (the object of Self) 
+                     (forall2 (the value of (the trafficability of
+                                                 (the path of Self))) where
+                        (It isa (the2 of It2))
+                           (:triple (the1 of It2) /= *SR))) [Military-Task-pcs-1]
+   )))
+
+   (soft-pcs-list
+             ((if ((Self isa Move)
+                   and
+                   (has-value (the trafficability of (the path of Self)))
+                  )
+               then 
+                  (forall (the object of Self) 
+                     (forall2 (the value of (the trafficability of
+                                                 (the path of Self))) where
+                        (It isa (the2 of It2))
+                           (:triple (the1 of It2) = *UR)))
+   )))
+
+   (text-argslots ((:seq base path site)))
+   (text-base ("with respect to"))
+   (text-path ("along"))
+   (text-site ("at"))
+)
+
+
+(comment [Military-Task-pcs-1] (:seq (the path of Self) " must not be severely restricted to " (the object of Self)) "Objects cannot be moved through severely restricted paths.")

@@ -1,0 +1,22 @@
+;;
+;;    $Id: Combust.km,v 1.2 2007/06/05 19:55:46 porter Exp $
+;; 
+
+(Combust has (superclasses (Consume)))
+
+(every Combust has
+       (object ((a Tangible-Entity with 
+		   (plays ((a Fuel with
+			      (in-event (Self))))))))
+       (result ((a Tangible-Entity with
+		   (plays ((a Waste with
+			      (in-event (Self))))))))
+       (causes ((a Heat))))
+
+
+(Combust has 
+	 (wn20-synset 
+	  ((:set (:triple "combust" 1 "v")
+		 (:triple "combust" 2 "v")		 
+		 (:triple "ignite" 1 "v")		 
+))))

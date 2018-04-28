@@ -1,0 +1,99 @@
+;; 
+;;    $Id: Make-Accessible.km,v 1.27 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Make-Accessible has
+  (superclasses 	(Action))
+  (required-slot 	(object))
+  (primary-slot 	(agent base))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "the thing made accessible")
+			 (:seq agent "the entity that makes the object Accessable")
+			 (:seq base "what the object is made accessible to")
+			))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Make-Accessible has
+       (object 	    ((a Entity)))
+       (agent  	    ((must-be-a Entity)))
+       (base        ((must-be-a Thing)))
+       (soft-pcs-list ((forall (the object of Self)
+			       (:triple It object-of (a Be-Inaccessible)))))
+				
+       ;; no resulting-state since by default everything is accessible
+
+       ;; a Make-Accessible defeats all the Be-Inaccessible states 
+       ;; the object might be in
+       (defeats ((if (has-value (the base of Self))
+		     then
+		     (allof (the object-of of (the object of Self))
+			    where 
+			    (((the classes of It) = Be-Inaccessible) and
+			     ((the base of It) = (the base of Self))))
+		     else 
+		     (allof (the object-of of (the object of Self))
+			    where
+			    ((the classes of It) = Be-Inaccessible)))))
+	 
+       ;; The precondition is not needed since it is the same as the del-list.
+       ;; (pcs-list ())
+       (del-list ((forall (the defeats of Self)
+                          (:triple (It) object (the object of Self) [Make-Accessible-del-1])))))
+
+(comment [Make-Accessible-del-1] (:seq (the object of Self) " is now accessible.")
+	 "A make-accessible stops something from being inaccessible.")
+
+(every Make-Accessible has
+  (text-active-verbseq-sg ("makes"))
+  (text-active-verbseq-pl ("make"))
+  (text-passive-verbseq-sg ("gets made"))
+  (text-passive-verbseq-pl ("get made"))
+
+  (text-argslots ((:seq text-particle base instrument path result)))
+
+  (text-particle ("accessible"))
+)
+
+(every Make-Accessible has
+	(preparatory-event ((:default
+		(a Make-Inaccessible with
+		   (object ((the object of Self)))
+		   (agent  ((the agent of Self)))
+		   (base   ((the base of Self)))
+)))))
+
+
+(Make-Accessible has 
+		 (test-case ('(
+			       (*Document has (instance-of (Physical-Object)))
+			       
+			       (a Make-Inaccessible with 
+				  (object (*Document)))
+			       
+		(try-do-and-next (thelast Make-Inaccessible))			(the text-gen of (thelast Make-Inaccessible))
+			       
+                               (has-value (the Be-Inaccessible object-of of *Document))
+			       
+                               ; (a Copy with 
+; 				  (object (*Document)))
+
+;                                (not (try-do (thelast Copy)))
+			       
+                               (a Make-Accessible with 
+				  (object (*Document)))
+
+                               (try-do-and-next (thelast Make-Accessible))
+			       (the text-gen of (thelast Make-Accessible))
+                               (not
+                                (has-value (the Be-Inaccessible object-of of *Document)))
+			       
+;                               (try-do (thelast Copy))
+                               ))))
+
+
+;; Make-Accessible has no links to WordNet. It serves as a grouper for
+;; more specific and useful concepts.
+
+(every Make-Accessible has (text-nominalization ("making")))

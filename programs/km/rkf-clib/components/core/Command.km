@@ -1,0 +1,80 @@
+;;
+;;  $Id: Command.km,v 1.10 2005/11/07 20:44:37 kbarker Exp $
+;;
+
+(Command has
+	(superclasses (Express))
+	(required-slot (agent  object  recipient))
+	(primary-slot ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Command has
+	(object ((must-be-a Information with 
+		(plays ((a Instruction))))))
+	(recipient ((a Tangible-Entity)))
+	;;   The Information of the object of the command plays the role of an 
+	;;Instruction whose information-contents must be an action.
+	(objective ((the Action information-content of (the object of Self))))
+)
+
+; definition causing some problems with Deceive
+; (every Command has-definition
+; 	(instance-of (Express))
+; 	(objective ((the Action information-content of (the object of Self)))))
+
+
+
+(Command has
+	(test-case ('(
+		 (Blow-to-smithereens has (superclasses (Action)))
+		 (*Enemy has (instance-of (Tangible-Entity)))
+                 (*Commander has
+ 			(instance-of (Tangible-Entity)))
+                 (*Soldier has
+ 			(instance-of (Tangible-Entity)))
+ 		 (*Orders has
+ 			(instance-of (Information))
+			(information-content (
+                           (a Blow-to-smithereens with 
+                              (agent (*Soldier)) 
+                              (object (*Enemy)))))
+		 )
+                 (*Command has
+                        (instance-of (Command))
+                        (agent (*Commander))
+                        (recipient (*Soldier))
+                        (object (*Orders)))
+                 (do-and-next *Command)
+		 ;;possible tests:
+  		
+		 ;;Does the commander know he wanted the soldier to fire?
+		 ((the experiencer of (thelast Be-Known)) = *Commander)
+		 (do-and-next (the objective of *Command))
+		 ((the agent of (thelast Action)) = *Soldier)  
+		 ;;Does this entail the soldier firing?  
+))))
+
+
+;; automatically added WN synsets
+(Command has (wn16-synset ((:set  
+                                      (:triple "command" 2 "v")
+                                      (:triple "command" 3 "v")
+                                      (:triple "require" 3 "v")
+                                      (:triple "compel" 2 "v")
+                                      (:triple "order" 1 "v")
+                                      (:triple "tell" 4 "v")
+                                      (:triple "enjoin" 2 "v")
+))))
+
+
+(Command has (wn20-synset ((:set
+                                      (:triple "command" 2 "v")
+                                      (:triple "command" 3 "v")
+                                      (:triple "require" 3 "v")
+                                      (:triple "compel" 2 "v")
+                                      (:triple "order" 1 "v")
+                                      (:triple "tell" 4 "v")
+                                      (:triple "enjoin" 2 "v")
+))))
+(every Command has (text-nominalization ("commanding")))

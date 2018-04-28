@@ -1,0 +1,13 @@
+;; 
+;;    $Id: H2O-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $ 
+;; 
+
+(H2O-Substance has (superclasses (Amphoteric-Substance Ionic-Compound-Substance)))
+
+(every H2O-Substance has
+  (has-basic-structural-unit ((a H2O)))
+)
+
+(every H2O-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a H2O))))

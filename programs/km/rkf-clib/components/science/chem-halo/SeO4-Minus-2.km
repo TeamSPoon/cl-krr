@@ -1,0 +1,19 @@
+;; $Id: SeO4-Minus-2.km,v 1.6 2008/05/15 17:19:10 kunal Exp $ 
+(SeO4-Minus-2 has (superclasses (Anion)))
+(every SeO4-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("selenate"))
+	(has-acid-name ("selenic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Se)(:pair 4 O)))))))
+)
+
+
+(every SeO4-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("selenate"))
+)
+
+(SeO4-Minus-2 has (wn20-synset ((:triple "SeO4-2" 0 "n") (:triple "SeO_4-2" 0 "n"))))

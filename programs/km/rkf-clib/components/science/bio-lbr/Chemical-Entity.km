@@ -1,0 +1,527 @@
+;; 
+;;    $Id: Chemical-Entity.km,v 1.2 2010/05/18 15:06:25 kbarker Exp $ 
+;; 
+
+(Chemical-Entity has
+	     (superclasses (Physical-Object))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+(Chemical-Entity has
+  (user-description ("A chemical is a substance consisting of atoms or molecules of a single element or molecules of a single compound.")))
+
+;; now try to compute the atomic formula whenever needed:
+(every Chemical-Entity has
+       (atomic-chemical-formula 
+	(
+	  (if 
+		#| ;;Begin comment
+		   ;;Old conditional in CVS version 1.14. Removed by jfan. 
+		   ;;Causing propane test-case to fail
+		   ;;i.e.
+			(|_Chemical Equation7757_k60| has (instance-of (Chemical-Equation-Expression)))
+			(|_Raw Material7745| has (instance-of (Tangible-Entity)))
+			(_Propane7747_k60 has (instance-of (C3H8)))
+			(_Chemical776x1_k60 has (instance-of (C3H8-Substance)) (has-basic-structural-unit (_Propane7747_k60)))
+			(_Hydrocarbon-Combustion-In-Air869_k60 has (instance-of (Hydrocarbon-Combustion-In-Air))
+			  				          ;(chemical-equation (|_Chemical Equation7757_k60|)) 
+							           (raw-material (_Chemical776x1_k60))) 
+			(the term of (the chemical-equation of _Hydrocarbon-Combustion-In-Air869_k60))
+	           ;;Begin Old Conditional 
+		((not (the atomic-chemical-formula of Self))
+	       and
+	       ((the term of 
+		     (the nested-atomic-chemical-formula of Self))
+		or
+		(the term of (the has-chemical-formula of Self))))
+	           ;;End Old Conditional 
+		   ;;End comment
+		|#
+	      ((the term of 
+		    (the nested-atomic-chemical-formula of Self))
+	       or
+	       (the term of (the has-chemical-formula of Self)))
+	      then
+	    (a Chemical-Formula with
+	       (term (
+		      (:default
+		       (if (the term of 
+				(the nested-atomic-chemical-formula of Self))
+			   then
+			 #'(LAMBDA ()
+				   (DENEST-ATOMIC-FORMULA
+				    (KM-UNIQUE0 
+				     '(|the| |term| |of|
+					     (|the| |nested-atomic-chemical-formula| |of| |Self|)))))
+			 else 
+			 (if (the term of (the has-chemical-formula of Self))
+			     then
+			   #'(LAMBDA ()
+				     (LIST 
+				      (COMPUTE-ATOMIC-CHEMICAL-FORMULA
+				       (KM0 '(|the| |term| |of| 
+					      (|the| |has-chemical-formula| |of| |Self|))))))))))))
+	    )
+	  )
+	))
+       
+
+(every Chemical-Entity has
+       ;; the above computation could be erroneous as illustrated by the computation of Ag2SO4
+       ;; make sure the input of a Compute-Oxidation-State is not an Ionic-Compound
+)
+
+
+(every Chemical-Entity has
+  (text-has-part        ("made of"))
+  (text-result-of       ("product of"))
+  (text-raw-material-of ("reactant in"))
+  (text-premodslots     ((:seq)))
+;;  (text-postmodslots    ((:seq has-part result-of raw-material-of)))
+  (text-postmodslots    (NIL))
+
+  (text-gen ((make-phrase (the text-phrase of Self))))
+  (text-description ((the text-gen of Self)))
+
+;; these equivalences are unique to Chemical-Entities
+;; <-- Trimming for demo.
+;;  (text-base-phrase ((the text-head of Self)))
+;;  (text-phrase      ((the text-base-phrase of Self)))
+;;
+;;  (text-def-head ((the text-head of Self)))
+
+  (text-definition-sentence ((the text-definition-sentence of
+                                  (a Chemical with (has-basic-structural-unit (
+                                                     (an instance of (the instance-of of Self)))))
+  )))
+
+  (text-head   ((if ((the elements of (the term of (the has-chemical-formula of Self)))
+                     = (:set (:pair 1 H-Plus) (:pair 1 OH-Minus)))
+                 then (:seq "H2O" NIL)
+  )))
+
+  (text-def-determiner ((if ((has-value (the string-name of (the has-chemical-formula of Self)))
+                             or
+                             (has-value (the string-name of (the atomic-chemical-formula of Self)))
+                            )
+                         then (:seq "")
+                         else (:seq "the")
+  )))
+
+  (text-head   ((if ((the elements of (the term of (the has-chemical-formula of Self)))
+                     /= (:set (:pair 1 H-Plus) (:pair 1 OH-Minus))) then
+    (if (has-value (the string-name of (the has-chemical-formula of Self)))
+     then
+        (:seq (the string-name of (the has-chemical-formula of Self))
+              (if (has-value (the value of (the charge of Self)))
+               then
+                  (if ((the1 of (the value of (the charge of Self))) > 0)
+                   then
+                      (:seq
+                         (if ((the1 of (the value of (the charge of Self))) > 1)
+                          then (the1 of (the value of (the charge of Self)))
+                         )
+                         "nospace"
+                         "+"
+                      )
+                   else
+                      (if ((the1 of (the value of (the charge of Self))) < 0)
+                       then
+                          (:seq
+                             (if ((the1 of (the value of
+                                                (the charge of Self))) < -1)
+                              then (0 - (the1 of (the value of
+                                                      (the charge of Self))))
+                             )
+                             "nospace"
+                             "-"
+                          )
+                      )
+                  )
+              )
+        )
+     else (if (has-value (the string-name of 
+                              (the atomic-chemical-formula of Self)))
+           then
+              (:seq (the string-name of (the atomic-chemical-formula of Self))
+                    (if (has-value (the value of (the charge of Self)))
+                     then
+                        (if ((the1 of (the value of (the charge of Self))) > 0)
+                         then
+                            (:seq
+                               (if ((the1 of (the value of (the charge of Self))) > 1)
+                                then (the1 of (the value of (the charge of Self)))
+                               )
+                               "nospace"
+                               "+"
+                            )
+                         else
+                            (if ((the1 of (the value of (the charge of Self))) < 0)
+                             then
+                                (:seq
+                                   (if ((the1 of (the value of
+                                                      (the charge of Self))) < -1)
+                                    then (the1 of (the value of
+                                                       (the charge of Self)))
+                                   )
+                                   "nospace"
+                                   "-"
+                                )
+                            )
+                        )
+                    )
+              )
+           else (if (the called of Self)
+                 then (:seq (the called of Self))
+                 else (the name of Self)
+                )
+    ))
+  )))
+)
+
+(a Partition with
+  (members (
+Sr_OH_2
+Sn_NO3_2
+NH4NO3
+NH4Cl
+CH3NH3Cl
+RbOH
+Pb_OH_2
+Pb_NO3_2
+PbSO4
+PbS
+PbO
+NaOH
+NaOCl
+NaNO3
+NaI
+NaHCO3
+Na2SO4
+Na2S
+Na2CO3
+NH4_3_PO4
+NH3
+MgSO4
+MgO
+LiOH
+Li2CO3
+KOH
+KI-Compound
+K2SO4
+K2CrO4
+K2CO3
+HONH2
+HNO3
+HNO2
+HN3
+HIO3
+HIO
+HI
+HF-Compound
+HClO4
+HClO3
+HClO2
+HClO
+HCl
+HCNO
+HCN
+HCHO2
+HC2H2O2Cl
+HBrO
+HBr
+H5IO6
+H4P2O7
+H3PO4
+H3PO3
+H3C6H5O7
+H3BO3
+H3AsO4
+H3AsO3
+H2SiF6
+H2SeO3
+H2SO4
+H2SO3
+H2S
+H2O2
+H2O
+H2NNH2
+H2CO3
+H2C6H6O6
+H2C4H4O6
+H2C2O4
+Fe_OH_3
+Fe_OH_2
+Fe_Cl_2
+Fe2O3
+Cu_OH_2
+Cu_CH3COO_2
+CuSO4
+CuO
+CsOH
+Ca_OH_2
+Ca_OCl_2
+CaO
+CaCO3
+CH3_3_N
+CH3_2_NH
+CH3NH2
+CH3COONa
+CH3COOH
+CH3COOCH2CH3
+CH3CHOHCOOH
+CH3CH2COOH
+CH2_COOH_2
+C6H5OH
+C6H5NH2
+C6H5COOH
+C5H5N
+C2H5NH2
+Ba_OH_2
+Ba_NO3_2
+BaSO4
+BaCl2
+AlCl3
+Ag3PO4
+NH3CH3-Plus
+Zn-Plus-2
+V-Plus
+Sr-Plus-2
+Sn-Plus-2
+Rb-Plus
+Ra-Plus-2
+Pt-Plus-2
+Pb-Plus-2
+Ni-Plus-2
+Na-Plus
+NH4-Plus
+Mn-Plus-3
+Mn-Plus-2
+Mg-Plus-2
+Li-Plus
+K2-Plus-2
+K-Plus
+Hg2-Plus-2
+Hg-Plus-2
+Fr-Plus
+Fe-Plus-3
+Fe-Plus-2
+Cu-Plus
+Cu-Plus-2
+Cs-Plus
+Co-Plus-2
+Cd-Plus-2
+Ca-Plus-2
+CH3NH3-Plus
+Be-Plus-2
+Ba-Plus-2
+Au-Plus-2
+Al-Plus-3
+Ag-Plus
+HONH3-Plus
+H3O-Plus
+H3NOH-Plus
+H2NNH3-Plus
+H-Plus
+Fe_H2O_6-Plus-3
+Fe_H2O_5-OH-Plus-2
+Cr-Plus-3
+CH3_3_NH-Plus
+CH3_2_NH2-Plus
+CH3CH2NH3-Plus
+CH3-Plus
+C6H5NH3-Plus
+C5H5NH-Plus
+C2H5NH3-Plus
+As-Plus-3
+SiF6-Minus-2
+SeO4-Minus-2
+SeO3-Minus-2
+SO4-Minus-2
+SO3-Minus-2
+S-Minus-2
+PO4-Minus-3
+PO3-Minus-3
+P2O7-Minus-4
+OH-Minus
+OCl-Minus
+O2-Minus-2
+O-Minus-2
+NO3-Minus
+NO2-Plus
+NO2-Minus
+NH2-Minus
+N3-Minus
+N-Minus-3
+MnO4-Minus
+IO6-Minus-5
+IO3-Minus
+IO-Minus
+I-Minus
+HSeO4-Minus
+HSeO3-Minus
+HSO4-Minus
+HSO3-Minus
+HS-Minus
+HPO4-Minus-2
+HPO3-Minus-2
+HO2-Minus
+HCrO4-Minus
+HCO3-Minus
+HC6H6O6-Minus
+HC6H5O7-Minus-2
+HC4H4O6-Minus
+HC3H2O4-Minus
+HC2O4-Minus
+HBO3-Minus-2
+HAsO4-Minus-2
+H4IO6-Minus
+H3P2O7-Minus
+H3IO6-Minus-2
+H2PO4-Minus
+H2PO3-Minus
+H2P2O7-Minus-2
+H2C6H5O7-Minus
+H2BO3-Minus
+H2AsO4-Minus
+H2AsO3-Minus
+H-Minus
+F-Minus
+CrO4-Minus-2
+Cr2O7-Minus-2
+ClO4-Minus
+ClO3-Minus
+ClO2-Minus
+ClO-Minus
+Cl-Minus
+CO3-Minus-2
+CNO-Minus
+CN-Minus
+CHO2-Minus
+CH3COO-Minus
+CH3-Minus
+C7H5O2-Minus
+C7H5O-Minus
+C6H6O6-Minus-2
+C6H5O7-Minus-3
+C6H5O-Minus
+C4H7O2-Minus
+C4H4O6-Minus-2
+C3H5O3-Minus
+C3H5O2-Minus
+C3H2O4-Minus-2
+C2O4-Minus-2
+C2H5COO-Minus
+C2H3O2-Minus
+C2H2O2Cl-Minus
+BrO-Minus
+Br-Minus
+BO3-Minus-3
+AuCl4-Minus
+AsO4-Minus-3
+AsO3-Minus-3
+CH4
+CH3OH
+CH3CH2OH
+C3H8
+C2H4
+C12H22O11
+VOCl
+SO2
+O2
+N2
+I2
+H2
+F2
+Cl2
+Br2
+NO2
+NO
+CO2
+CO-Compound
+Xe
+Se
+S
+Rn
+P
+O
+Ne
+N
+Kr
+I
+He
+F
+Cl
+Br
+Ar
+Te
+Sb
+At
+As
+W
+V
+Tc
+Ta
+Sg
+Ru
+Rh
+Re
+Pt
+Po
+Pd
+Os
+Ni
+Nb
+Mt
+Mo
+Mn
+Ir
+Hs
+Fe
+Db
+Cr
+Co
+Bi
+Bh
+Zr
+Ti
+Rf
+Hf
+Sn
+Si
+Pb
+Ge
+C
+Y
+Sc
+Lu
+Lr
+Tl
+In
+Ga
+B
+Al
+Zn
+Hg
+Cd
+Sr
+Ra
+Mg
+Ca
+Be
+Ba
+Cu
+Au
+Ag
+Rb
+Na
+Li
+K
+H
+Fr
+Cs
+A
+)))

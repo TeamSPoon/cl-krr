@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Barium-Sulfide-Substance4452
+
+
+|#
+
+(disable-classification)
+
+(Barium-Sulfide-Substance has (superclasses (Sulfide-Substance)))
+
+(every Barium-Sulfide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Barium-Sulfide-Substance542 has
+  (prototype-of (Barium-Sulfide-Substance Sulfide-Substance))
+  (prototype-scope (Barium-Sulfide-Substance (the-class Sulfide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Ba-Plus-2) (a S-Minus-2)))))))))
+  (prototype-participants (_Ba-Plus-548 _S-Minus-549 _Chemical-Entity544 _Barium-Sulfide-Substance542)))
+
+(_Chemical-Entity544 has (instance-of (Ionic-Compound)) (has-part (_Ba-Plus-548 _S-Minus-549)))
+
+(_Ba-Plus-548 has (instance-of (Ba-Plus-2)))
+
+(_S-Minus-549 has (instance-of (S-Minus-2)))
+
+(_Barium-Sulfide-Substance542 has (instance-of (Barium-Sulfide-Substance)) (has-basic-structural-unit (_Chemical-Entity544)))
+
+(enable-classification)
+
+(explanation (:triple _Barium-Sulfide-Substance542 has-basic-structural-unit _Chemical-Entity544) (((@ SME entered)) (every Barium-Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity544 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ba-Plus-548 instance-of Ba-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _S-Minus-549 instance-of S-Minus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Barium-Sulfide-Substance542 instance-of Barium-Sulfide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Barium-Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

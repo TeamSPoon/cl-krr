@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Polar-Molecule.km,v 1.6 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Polar-Molecule has
+         (superclasses (Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A molecule in which the bonding electrons are attracted
+                        more strongly to some atoms than to others, thereby
+                        creating an uneven (or polarized) distribution of
+                        electric charge.  Alberts:ECB:G-14."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+
+
+(every Polar-Molecule has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,40 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Nucleic-acid ----------
+
+(Nucleic-acid has (superclasses (Polynucleotide)))
+
+(_Nucleic-acid1037 has 
+  (instance-of (Nucleic-acid))
+  (prototype-of (Nucleic-acid))
+  (prototype-scope (Nucleic-acid))
+  (prototype-participants (_Atom1040
+                           _Nucleic-acid1037))
+  (prototype-participant-of (_Nucleic-acid1037))
+  (has-clones (_Placeholder-Class10361038))
+  (has-built-clones (_Placeholder-Class10361038))
+  (has-basic-structural-unit (_Atom1040))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom1040 219 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom1040 t))))
+
+(_Atom1040 has 
+  (instance-of (Atom))
+  (has-clones (_Atom1039))
+  (is-basic-structural-unit-of (_Nucleic-acid1037))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 369 600)))
+  (prototype-participant-of (_Nucleic-acid1037)))
+
+(explanation (:triple _Nucleic-acid1037 has-basic-structural-unit _Atom1040) ((a Atom (@ _Nucleic-acid1037 Molecule has-basic-structural-unit))))
+(explanation (:triple _Nucleic-acid1037 instance-of Nucleic-acid) ((added-at Nucleic-acid "User defined")))
+(explanation (:triple _Atom1040 instance-of Atom) ((a Atom (@ _Nucleic-acid1037 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

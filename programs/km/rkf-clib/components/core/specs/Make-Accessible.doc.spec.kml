@@ -1,0 +1,56 @@
+<!--- $Id: Make-Accessible.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Make-Accessible::doc>
+<superconcept name=Action>
+
+<sme-documentation name=Make-Accessible>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Make-Accessible>
+  <definition>make an Entity Accessible (possibly to some thing)</definition>
+  <requiredslot name=object>
+    <restriction>any Entity</restriction>
+  </requiredslot>
+
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Inaccessible> state
+    </restriction>
+  </requiredslot>
+
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is no longer the <slot>object</slot> of a 
+      <conceptref name=Be-Inaccessible> state
+    </restriction>
+  </requiredslot>
+
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be Accessible</restriction>
+  </primaryslot>
+
+  <primaryslot name=base>  
+    <restriction>the thing that the <slot>object</slot> is accessible to</restriction>
+  </primaryslot>
+
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Make-Accessible is the top-level concept for actions that take <slot>object</slot>s 
+out of states that prevent their participation as <slot>object</slot>s or <slot>instrument</slot>s
+in <conceptref name=Action>s.
+It takes an <slot>object</slot> in a <conceptref name=Be-Inaccessible> state
+(the result of an <conceptref name=Make-Inaccessible::doc> action) and removes it from 
+that state.
+</musing>
+
+
+</kml>
+
+

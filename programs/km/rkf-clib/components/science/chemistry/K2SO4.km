@@ -1,0 +1,11 @@
+;;
+;; $Id: K2SO4.km,v 1.1 2003/03/30 23:02:35 jchaw Exp $
+;;
+
+(K2SO4 has (superclasses (Ionic-Compound)))
+
+(every K2SO4 has	
+       (has-part ((a K-Plus) (a SO4-Minus-2)))
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 2 K-Plus)
+					      (:pair 1 SO4-Minus-2))))))))

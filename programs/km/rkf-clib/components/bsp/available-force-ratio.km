@@ -1,0 +1,18 @@
+;; 
+;;    $Id: available-force-ratio.km,v 1.4 2002/09/03 20:51:17 kbarker Exp $
+;; 
+
+(available-force-ratio has
+   (instance-of (Property))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Military-Task))    
+   (range       (Available-Force-Ratio-Value))
+   (cardinal-unit-class   (UoM-Unitless))
+   (scalar-constant-class (Available-Force-Ratio-Constant))
+   (inverse 	(available-force-ratio-of))
+   (inherit-with-overrides (t))
+   (fluent-status (*Fluent))
+   (cardinality (N-to-1))
+)
+

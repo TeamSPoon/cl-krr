@@ -1,0 +1,82 @@
+
+;;
+;; $Id: Acid-can-be-Oxidized.km,v 1.1 2003/02/18 21:56:41 kbarker Exp $
+;;
+
+;; This is a stub around Oxidize-an-Acid for expl gen
+;; We should always call Acid-can-be-Oxidized instead of
+;; Oxidize-an-Acid
+
+(Acid-can-be-Oxidized has (superclasses (Method)))
+
+(every Acid-can-be-Oxidized has
+  (input ((a Acid)))
+
+;; here it is... the context slot being used as a cache again
+;; (I'm not proud of this)
+  (context ((the output of (a Oxidize-an-Acid with
+                              (input ((the input of Self))))
+  )))
+
+  (output ((if (has-value (the context of Self))
+            then (the context of Self)
+            [Acid-can-be-Oxidized-output-1]
+  )))
+
+  (output ((if (not (has-value (the context of Self)))
+            then "no"
+            [Acid-can-be-Oxidized-output-2]
+  )))
+)
+
+(comment [Acid-can-be-Oxidized-output-1]
+  (:seq (the text-gen of (the input of Self))
+        "contains the anion"
+        (the text-gen of
+             (the Anion has-part of  
+                  (the has-basic-structural-unit of
+                       (the input of Self)))   
+        )
+        "nospace"
+        "; there is a known anion,"
+        (the text-gen of
+             (the Anion has-part of
+                  (the has-basic-structural-unit of
+                       (the output of Self)))
+        )
+        "with more oxygen atoms than the anion"
+        (the text-gen of
+             (the Anion has-part of  
+                  (the has-basic-structural-unit of
+                       (the input of Self)))   
+        )
+        "nospace" "; therefore"
+        (the text-gen of (the input of Self))
+        "can be oxidized to"
+        (the text-gen of (the output of Self))
+  )
+  "An oxyacid of the form HxYOz can be oxidized if more oxygen atoms can be added to it; oxygen can only be added if there is a known anion YOw where w > z"
+)
+
+(comment [Acid-can-be-Oxidized-output-2]
+  (:seq (the text-gen of (the input of Self))
+        "contains the anion"
+        (the text-gen of
+             (the Anion has-part of  
+                  (the has-basic-structural-unit of
+                       (the input of Self)))   
+        )
+        "nospace"
+        "; there is no known anion with the same central atom as"
+        (the text-gen of
+             (the Anion has-part of  
+                  (the has-basic-structural-unit of
+                       (the input of Self)))   
+        )
+        "but with more oxygen atoms; therefore"
+        (the text-gen of (the input of Self))
+        "cannot be oxidized"
+  )
+  "An oxyacid of the form HxYOz can be oxidized if more oxygen atoms can be added to it; oxygen can only be added if there is a known anion YOw where w > z"
+)
+

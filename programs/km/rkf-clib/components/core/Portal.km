@@ -1,0 +1,20 @@
+;;
+;;    $Id: Portal.km,v 1.8 2004/09/08 06:33:31 jchaw Exp $
+;;
+
+(Portal has
+        (superclasses (Conduit))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (description ())
+        (cmap-correspondence ()))
+
+(every Portal has
+	(in-event ((a Move-Through)))
+	(played-by ((a Spatial-Entity with
+			(path-of ((the in-event of Self)))))))
+
+(Portal has 
+       (wn20-synset 
+	((:set (:triple "portal" 1 "n")))))

@@ -1,0 +1,39 @@
+<!--- $Id: Forget.doc.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Forget>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Forget>
+  <definition>Causes <conceptref name=Information> to know longer be know, which prevents <conceptref name=Express> actions</definition>
+  <requiredslot name=object>
+    <restriction>
+    <conceptref name=Information>
+    </restriction>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+     <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Known> state
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+     <restriction><slot>agent</slot> is no longer in a  <conceptref name=Be-Known> state with the <slot>object</slot>.  
+    </restriction>
+  </requiredslot>
+  <reuiredslot name=agent>
+    <restriction>must be the <slot> experiencer </slot> of the a <conceptref name=Be-Known> with 
+<slot> object </slot> the <slot> object </slot> of the <conceptref name=Forget>.</restriction>
+  </requiredslot>
+
+  <wnsynsets><verb>forget#1, forget#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>bury#1, block#13, draw-a-blank#1, blank-out#1
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

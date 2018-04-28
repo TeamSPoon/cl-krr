@@ -1,0 +1,77 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for CaI2 ----------
+
+(CaI2 has (superclasses (Ionic-Compound)))
+
+(_CaI23316 has 
+  (instance-of (CaI2))
+  (prototype-of (CaI2))
+  (prototype-scope (CaI2))
+  (prototype-participants (_Cation3393
+                           _Anion3391
+                           _CaI23316))
+  (prototype-participant-of (_CaI23316))
+  (has-part (_Anion3391
+             _Cation3393))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Cation3393 t)
+                    (:seq has-part _Anion3391 t)))
+  (internally-expanded (t)))
+
+(_Cation3393 has 
+  (instance-of (Cation
+                Ca-Plus-2))
+  (is-part-of (_CaI23316))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_CaI23316)))
+
+(_Anion3391 has 
+  (instance-of (Anion
+                I-Minus))
+  (is-part-of (_CaI23316))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_CaI23316)))
+
+(explanation (:triple _CaI23316 nested-atomic-chemical-formula _Chemical-Formula3387)
+  ((_Chemical-Formula3387)))
+(explanation (:triple _CaI23316 atomic-chemical-formula _Chemical-Formula3388)
+  ((if ((the term of (the nested-atomic-chemical-formula of _CaI23316)) or (the term of (the has-chemical-formula of _CaI23316)) (@ _CaI23316 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _CaI23316)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _CaI23316))))))) else (if (the term of (the has-chemical-formula of _CaI23316)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _CaI23316)))))))))) (@ _CaI23316 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _CaI23316 Chemical-Entity atomic-chemical-formula)) (@ _CaI23316 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _CaI23316 nested-atomic-chemical-formula _Chemical-Formula3387)
+  ((if ((not (the nested-atomic-chemical-formula of _CaI23316)) and (the has-chemical-formula of _CaI23316) (@ _CaI23316 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _CaI23316)))) (@ _CaI23316 Ionic-Compound nested-atomic-chemical-formula)) (@ _CaI23316 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _CaI23316 has-chemical-formula _Chemical-Formula3389)
+  ((if ((the has-part of _CaI23316) and (has-value (the value of (the charge of (the Cation has-part of _CaI23316)))) and (has-value (the value of (the charge of (the Anion has-part of _CaI23316)))) (@ _CaI23316 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _CaI23316) (the Anion has-part of _CaI23316)))) (@ _CaI23316 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _CaI23316) (@ _CaI23316 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _CaI23316 has-chemical-name ("calcium iodide"))
+  ((added-at CaI2 "User defined")))
+(explanation (:triple _CaI23316 has-chemical-name "calcium iodide")
+  (("calcium iodide")))
+(explanation (:triple _CaI23316 has-part _Cation3393)
+  ((a Cation (@ _CaI23316 Ionic-Compound has-part))))
+(explanation (:triple _CaI23316 has-part _Anion3391)
+  ((a Anion (@ _CaI23316 Ionic-Compound has-part))))
+(explanation (:triple _CaI23316 instance-of CaI2)
+  ((added-at CaI2 "User defined")))
+(explanation (:triple _Cation3393 has-chemical-formula _Chemical-Formula3351)
+  ((if ((not (the has-chemical-formula of _Cation3393)) and (the nested-atomic-chemical-formula of _Cation3393) (@ _Cation3393 Ion has-chemical-formula)) then (the nested-atomic-chemical-formula of _Cation3393 (@ _Cation3393 Ion has-chemical-formula)) (@ _Cation3393 Ion has-chemical-formula))))
+(explanation (:triple _Cation3393 nested-atomic-chemical-formula _Chemical-Formula3351)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Ca)))) (@ _Cation3393 Ca-Plus-2 nested-atomic-chemical-formula))))
+(explanation (:triple _Cation3393 instance-of Ca-Plus-2)
+  ((added-at CaI2 "User defined")))
+(explanation (:triple _Cation3393 instance-of Cation)
+  ((a Cation (@ _CaI23316 Ionic-Compound has-part))))
+(explanation (:triple _Anion3391 has-chemical-formula _Chemical-Formula3349)
+  ((if ((not (the has-chemical-formula of _Anion3391)) and (the nested-atomic-chemical-formula of _Anion3391) (@ _Anion3391 Ion has-chemical-formula)) then (the nested-atomic-chemical-formula of _Anion3391 (@ _Anion3391 Ion has-chemical-formula)) (@ _Anion3391 Ion has-chemical-formula))))
+(explanation (:triple _Anion3391 nested-atomic-chemical-formula _Chemical-Formula3349)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 I)))) (@ _Anion3391 I-Minus nested-atomic-chemical-formula))))
+(explanation (:triple _Anion3391 instance-of I-Minus)
+  ((added-at CaI2 "User defined")))
+(explanation (:triple _Anion3391 instance-of Anion)
+  ((a Anion (@ _CaI23316 Ionic-Compound has-part))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,142 @@
+;; 
+;;    $Id: Purine.km,v 1.14 2001/06/12 21:37:44 pnav Exp $ 
+;; 
+
+(Purine has
+         (superclasses (Heterocyclic-Compound Nitrogenous-Base))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A nitrogenous compound containing two fused 
+                        heterocyclic rings.  Two purines, adenine and guanine,
+                        commonly are found in DNA and RNA. Lodish:MCB:G-14."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Purine has
+       (complement ((must-be-a Pyrimidine)))
+       (has-part
+        (
+         (a Nitrogen-Atom uniquely-called "Nitrogen-1" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C2-N1" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C6-N1" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-6")))
+                 (instrument 	((a Conjugated-Double-Bond)))) )))
+
+         (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C2-N1" with                        
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-1")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C2-N3" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-3")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C2-H" with
+                 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))))))
+
+         (a Nitrogen-Atom uniquely-called "Nitrogen-3" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C2-N3" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C4-N3" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument 	((a Conjugated-Double-Bond))) ))))   
+
+         (a Carbon-Atom uniquely-called "Carbon-4" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C4-N3" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-3")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C4-C5" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C4-N9" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-9")))
+                 (instrument 	((a Covalent-CN-Bond))) ) )))
+
+         (a Carbon-Atom uniquely-called "Carbon-5" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C4-C5" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument 	((a Conjugated-Double-Bond))) )   
+              (a Be-Attached-To uniquely-called "C5-C6" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-6")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C5-N7" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-7")))
+                 (instrument 	((a Covalent-CN-Bond))) ) )))
+
+         (a Carbon-Atom uniquely-called "Carbon-6" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C5-C6" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C6-N1" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-1")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C6-H" with
+                 (object 	(((the has-part of Self) uniquely-called "C6-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond))) ) )))
+
+         (a Nitrogen-Atom uniquely-called "Nitrogen-7" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C5-N7" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Covalent-CN-Bond))) )
+              (a Be-Attached-To uniquely-called "C8-N7" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-8")))
+                 (instrument 	((a Conjugated-Double-Bond)))) )))
+
+         (a Carbon-Atom uniquely-called "Carbon-8" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C8-N7" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-7")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C8-N9" with
+                 (object 	(((the has-part of Self) uniquely-called "Nitrogen-9")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To uniquely-called "C8-H" with
+                 (object 	(((the has-part of Self) uniquely-called "C8-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond))) ) )))
+
+         (a Nitrogen-Atom uniquely-called "Nitrogen-9" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "N9-H" with
+                 (object 	(((the has-part of Self) uniquely-called "N9-Hydrogen")))
+                 (instrument 	((a Covalent-NH-Bond))) ) 
+              (a Be-Attached-To uniquely-called "C4-N9" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument 	((a Covalent-CN-Bond))) )
+              (a Be-Attached-To uniquely-called "C8-N9" with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-8")))
+                 (instrument 	((a Conjugated-Double-Bond)))) )))
+
+         (a Hydrogen-Atom uniquely-called "C2-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C6-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C8-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "N9-Hydrogen")
+ )))
+
+
+
+
+
+
+
+
+
+

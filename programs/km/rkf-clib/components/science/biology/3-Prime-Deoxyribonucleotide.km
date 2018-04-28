@@ -1,0 +1,25 @@
+;; 
+;;    $Id: 3-Prime-Deoxyribonucleotide.km,v 1.9 2001/07/13 02:00:46 souther Exp $ 
+;; 
+
+(3-Prime-Deoxyribonucleotide has
+     (superclasses (Deoxyribonucleotide 3-Prime-Nucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("Nucleotide at the end of a DNA sequence which is connected
+                    within the sequence only at the 5' OH. At the end of a
+                    molecule the 3'-OH is free.  Souther.")) 
+     (description ("Nucleotide at the 3-Prime-End of a DNA-Sequence which is
+                    connected within the sequence only at the 5' OH. At the 
+                    3-Prime-End of a DNA-Strand, the 3'-OH is free. 
+                    Souther."))
+     (cmap-correspondence ()))
+
+(every 3-Prime-Deoxyribonucleotide has
+       (is-part-of ((a DNA-Sequence)))
+       )
+
+
+
+

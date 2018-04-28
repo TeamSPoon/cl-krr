@@ -1,0 +1,28 @@
+<!--- $Id: LabRoom.spec.kml,v 1.1 2005/08/24 21:39:04 billj Exp $ --->
+<kml>
+
+<concept name=LabRoom>
+<system-documentation name=LabRoom>
+<superconcept name=Room>
+
+<definition>
+	 A Room for the conduct of scientific research.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the LabRoom is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Room>
+     A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

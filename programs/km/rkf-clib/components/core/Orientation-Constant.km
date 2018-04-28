@@ -1,0 +1,20 @@
+
+;;
+;; $Id: Orientation-Constant.km,v 1.3 2003/08/27 16:29:15 kbarker Exp $
+;;
+
+(Orientation-Constant has
+  (superclasses (Constant))
+)
+
+;; orientation is a little strange: it can be measured in degrees, etc.
+;; so it's definitely a cardinal; and the symbolic constants can be
+;; scaled (something could be "more horizontal" than something else.
+;; But in some ways they seem more categorical: it's not always easy
+;; to think of a reference class ("horizontal with respect to the
+;; class of ???")
+
+(*horizontal has (instance-of (Orientation-Constant)))
+(*vertical has (instance-of (Orientation-Constant)))
+(*upright has (instance-of (Orientation-Constant)))
+

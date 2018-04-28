@@ -1,0 +1,134 @@
+; 
+;;    $Id: Metal-Nonmetal-Reaction.km,v 1.14 2005/09/22 16:39:58 jfan Exp $ 
+;; 
+
+(Metal-Nonmetal-Reaction has (superclasses (Reaction)))
+
+(every Metal-Nonmetal-Reaction has-definition
+       (instance-of (Reaction [Metal-Nonmetal-Reaction-instance-of-1]))
+       (raw-material ((a Chemical with
+                         (has-basic-structural-unit ((a Metal-Atom))))
+                      (a Chemical with
+                         (has-basic-structural-unit ((a Molecular-Compound)))))))
+
+(comment [Metal-Nonmetal-Reaction-instance-of-1]
+  "Therefore, this reaction is a metal-nonmetal reaction"
+  "By definition, a reaction of a metal and a nonmetal is a metal-nonmetal reaction"
+)
+
+(every Metal-Nonmetal-Reaction has
+  (name ("metal-nonmetal reaction"))
+  (result (
+    (exactly 1 Chemical)
+    (if ((not ((the instance-of of (the has-basic-structural-unit of (the raw-material of Self))) 
+	       includes 
+	       Metal-Atom))
+     	 and
+	 (not ((the instance-of of (the has-basic-structural-unit of (the raw-material of Self))) 
+	       includes 
+	       Molecular-Compound)))
+        then
+     	(a Ionic-Compound-Substance with
+       	   (has-basic-structural-unit (
+	     (a Ionic-Compound with
+	     	(has-part (
+	          (the first of (forall (the all-subclasses of Cation)
+                                    	where
+				    	((the2 of 
+				      	  (the elements of
+                                    	   (the term of
+                                    	    (the has-chemical-formula of 
+				    	     (an instance of It)))))
+                                    	 = 
+                                     	 (allof2 (the instance-of of
+					      	  (the Atom has-basic-structural-unit of
+					       	   (the raw-material of Self)))
+                                   	     	 where
+                                   	     	 (It2 /= Metal-Atom)))
+                                  	(an instance of It)))
+		  (the first of (forall (the all-subclasses of Anion)
+					where
+					(((the1 of
+						(the elements of
+						     (the term of
+							  (the has-chemical-formula of 
+							       (an instance of It)))))
+					  = 1)
+					 and
+					 ((the2 of
+						(the elements of
+						     (the term of
+							  (the has-chemical-formula of 
+							       (an instance of It)))))
+					  = 
+					  (the2 of
+						(the elements of
+						     (the term of
+							  (the has-chemical-formula of
+							       (the Molecular-Compound has-basic-structural-unit of 
+								    (the raw-material of Self))))))))
+					 (an instance of It)))
+		  ))) 
+	     ))
+	   [Metal-Nonmetal-Reaction-result-1]
+	   )
+	)))
+  )
+
+(Metal-Nonmetal-Reaction 
+ has
+ (test-case (' (
+		((the elements of
+		     (the term of
+			  (the has-chemical-formula of 
+			       (the has-basic-structural-unit of
+				    (the result of 
+					 (a Reaction with
+					    (raw-material ((a Chemical with
+							      (has-basic-structural-unit
+							       ((a Ca))))
+							   (a O2-Substance)))))))))
+		= (:set (:pair 1 Ca-Plus-2) (:pair 1 O-Minus-2)))))))
+
+
+;; new automatable template
+(comment [Metal-Nonmetal-Reaction-result-1]
+   ""
+   (:seq "<ul>
+"
+         (forall ?x in (the raw-material of Self)                   ;; dependent slots to be hyperlinked
+                 (:seq "<li>" (the text-sentence of ?x) "</li>
+"))
+         "</ul>
+"
+         "<ul>
+"
+         (forall ?x in (the result of Self)
+                 (:seq "<li>" (the text-sentence of ?x) "</li>
+"))
+         "</ul>
+"
+   )
+)
+
+#| ;; old hand-built template
+(comment [Metal-Nonmetal-Reaction-result-1]
+  (:seq "The product of the reaction of"
+        (andify (the text-gen of (the raw-material of Self)))
+        "is thus"
+        (andify (the text-gen of (the result of Self)))
+        "(an ionic compound consisting of"
+        (the text-gen of (the Cation has-part of
+                              (the has-basic-structural-unit of
+                                   (the result of Self))))
+        "and"
+        (the text-gen of (the Anion has-part of
+                              (the has-basic-structural-unit of
+                                   (the result of Self))))
+        "nospace" ")"
+  )
+  "Metals and nonmetals react to form salts in which the cation is formed from the metal and the anion is formed from the nonmetal"
+)
+|#
+
+

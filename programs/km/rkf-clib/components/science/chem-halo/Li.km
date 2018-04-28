@@ -1,0 +1,17 @@
+
+;;
+;; $Id: Li.km,v 1.5 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Li has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+(every Li has
+       (atomic-symbol (Li))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 3 NIL))))))
+       (has-ion ((a Li-Plus)))
+       (chemical-period (2)))
+
+(every Li has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("lithium"))
+)

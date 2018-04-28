@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Chemical-Sequence.km,v 1.21 2005/07/07 18:27:53 pzyeh Exp $ 
+;; 
+
+(Chemical-Sequence has
+	      ;; (superclasses (Sequence Chemical-Entity))	<-- Trimming for demo.
+	      (superclasses (Chemical-Entity))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("A sequence of monomers that form a chain, e.g. 
+			     polymers. Souther:2001"))
+	      (cmap-correspondence ()))
+
+(every Chemical-Sequence has 
+
+       (element-type (Monomer)))
+
+
+;; (every Chemical-Sequence has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))
+(every Chemical-Sequence has
+  (text-postmodslots ((:seq is-part-of is-at)))
+)

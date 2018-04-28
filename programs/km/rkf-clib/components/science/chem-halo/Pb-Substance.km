@@ -1,0 +1,7 @@
+;; $Id: Pb-Substance.km,v 1.4 2008/11/03 03:11:27 tecuci Exp $
+(Pb-Substance has (superclasses (Metal)))
+(every Pb-Substance has
+  (has-basic-structural-unit ((a Pb))))
+(every Pb-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Pb))))

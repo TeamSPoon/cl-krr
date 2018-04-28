@@ -1,0 +1,64 @@
+;; 
+;;    $Id: Trespass.km,v 1.4 2005/10/25 03:02:11 sdbaji Exp $
+;; 
+
+(Trespass has
+  (superclasses         (Go-To Unauthorized))
+  (required-slot        (agent object destination))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+;; because it's Unauthorized, there is some Entity who has a
+;; has-goal Goal to prevent the Trespass; that Goal inhibits the Trespass;
+;; the Entity possesses the destination of the Trespass
+
+(every Trespass has
+  (destination ((a Spatial-Entity with
+                   (is-possessed-by 
+                      ((the is-goal-of of (the inhibited-by of Self)))))))
+)
+
+(every Trespass has
+  (text-active-verbseq-sg ("trespasses"))
+  (text-active-verbseq-pl ("trespass"))
+
+  (text-argslots ((:seq destination)))
+  (text-destination ("on"))
+)
+
+
+(Trespass has 
+    (test-case ('(
+                  (new-situation)
+
+                  (*Cletus has (instance-of (Entity)))
+                  (*CletusesProperty has (instance-of (Spatial-Entity))
+                                         (is-possessed-by (*Cletus)))
+                  (*Martian has (instance-of (Entity)))
+
+                  (a Trespass with (agent (*Martian))
+                                   (destination (*CletusesProperty)))
+
+                  ((the is-possessed-by of 
+                        (the destination of (thelast Trespass)))
+                   = *Cletus)
+
+                  ((the prevents of (the has-goal of *Cletus))
+                   includes
+                   (thelast Trespass))
+
+                  (do-and-next (thelast Trespass))
+
+                  ((the location of *Martian) = *CletusesProperty)
+
+))))
+
+
+(Trespass has (wn20-synset ((:set
+			     (:triple "trespass" 1 "v")
+			     (:triple "intrude" 2 "v")
+			     (:triple "transgress" 4 "v")
+			     (:triple "trespass" 5 "v")
+			     (:triple "overstep" 1 "v")
+))))
+(every Trespass has (text-nominalization ("trespassing")))

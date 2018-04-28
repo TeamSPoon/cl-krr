@@ -1,0 +1,20 @@
+
+;; 
+;;    $Id: atomic-chemical-formula.km,v 1.6 2008/09/10 16:11:08 tecuci Exp $ 
+;; 
+
+(atomic-chemical-formula has
+         (instance-of    (EntityProperty))
+         (superslots     ())
+         (subslots       ())
+         (domain         (Chemical-Entity))
+         (range          (Chemical-Formula))
+         (fluent-status  (*Inertial-Fluent))
+         (cardinality    (1-to-1))
+         (original-slot      (t))	
+	 (inherit-with-overrides (t))
+         (inverse        (atomic-chemical-formula-of)))
+
+(atomic-chemical-formula has (shaken-ui-hidden-slot (t)))
+
+(atomic-chemical-formula-of has (instance-of (EntityProperty)))

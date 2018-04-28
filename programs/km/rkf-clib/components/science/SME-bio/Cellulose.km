@@ -1,0 +1,100 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Cellulose ----------
+
+(Cellulose has (superclasses (Polysaccharide)))
+
+(_Cellulose277 has 
+  (instance-of (Cellulose))
+  (prototype-of (Cellulose))
+  (prototype-scope (Cellulose))
+  (prototype-participants (_Atom288
+                           _Atom287
+                           _Carbohydrate286
+                           _Cellulose277))
+  (prototype-participant-of (_Cellulose277))
+  (has-clones (_Placeholder-Class276278))
+  (has-built-clones (_Placeholder-Class276278))
+  (has-basic-structural-unit (_Atom288
+                              _Carbohydrate286))
+  (has-part (_Carbohydrate286))
+  (cloned-from (_Carbohydrate669
+                _Polysaccharide435))
+  (clone-built-from (_Carbohydrate669
+                     _Polysaccharide435))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Carbohydrate286 t)
+                    (:seq has-basic-structural-unit _Carbohydrate286 t)
+                    (:seq has-basic-structural-unit _Atom288 t)))
+  (edge-coordinate ((:seq has-part _Carbohydrate286 212 500)
+                    (:seq has-basic-structural-unit _Carbohydrate286 202 606)
+                    (:seq has-basic-structural-unit _Atom288 202 606)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Atom288 has 
+  (instance-of (Atom))
+  (has-clones (_Atom279))
+  (cloned-from (_Atom672
+                _Atom447))
+  (is-basic-structural-unit-of (_Cellulose277))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 352 617)))
+  (prototype-participant-of (_Cellulose277)))
+
+(_Atom287 has 
+  (instance-of (Atom))
+  (has-clones (_Atom280))
+  (cloned-from (_Atom672
+                _Atom446))
+  (is-basic-structural-unit-of (_Carbohydrate286))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 688 582)))
+  (prototype-participant-of (_Cellulose277)))
+
+(_Carbohydrate286 has 
+  (has-basic-structural-unit (_Atom287))
+  (instance-of (Carbohydrate))
+  (cloned-from (_Carbohydrate669
+                _Carbohydrate445))
+  (clone-built-from (_Carbohydrate669))
+  (is-basic-structural-unit-of (_Cellulose277))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (is-part-of (_Cellulose277))
+  (node-coordinate ((:pair 352 582)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom287 463 372)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom287 t)))
+  (prototype-participant-of (_Cellulose277)))
+
+(explanation (:triple _Cellulose277 has-basic-structural-unit _Atom288) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Cellulose277 has-basic-structural-unit _Carbohydrate286) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Cellulose277 has-basic-structural-unit _Atom288) ((cloned-from _Carbohydrate669 _Cellulose277)))
+(explanation (:triple _Cellulose277 has-basic-structural-unit _Atom288) ((a Atom (@ _Cellulose277 Molecule has-basic-structural-unit))))
+(explanation (:triple _Cellulose277 has-basic-structural-unit _Carbohydrate286) ((added-at Polysaccharide "User defined")))
+(explanation (:triple _Cellulose277 has-part _Carbohydrate286) ((added-at Cellulose "User defined")))
+(explanation (:triple _Atom288 is-basic-structural-unit-of _Cellulose277) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Atom288 instance-of Atom) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Atom288 is-basic-structural-unit-of _Cellulose277) ((cloned-from _Carbohydrate669 _Cellulose277)))
+(explanation (:triple _Atom288 instance-of Atom) ((cloned-from _Carbohydrate669 _Cellulose277)))
+(explanation (:triple _Atom288 instance-of Atom) ((a Atom (@ _Cellulose277 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom288 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom287 instance-of Atom) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Atom287 is-basic-structural-unit-of _Carbohydrate286) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Atom287 is-basic-structural-unit-of _Carbohydrate286) ((cloned-from _Carbohydrate669 _Carbohydrate286)))
+(explanation (:triple _Atom287 instance-of Atom) ((cloned-from _Carbohydrate669 _Carbohydrate286)))
+(explanation (:triple _Atom287 instance-of Atom) ((a Atom (@ _Carbohydrate286 Molecule has-basic-structural-unit))))
+(explanation (:triple _Carbohydrate286 is-basic-structural-unit-of _Cellulose277) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Carbohydrate286 has-basic-structural-unit _Atom287) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Carbohydrate286 instance-of Carbohydrate) ((cloned-from _Polysaccharide435 _Cellulose277)))
+(explanation (:triple _Carbohydrate286 instance-of Carbohydrate) ((added-at Polysaccharide "User defined")))
+(explanation (:triple _Carbohydrate286 has-basic-structural-unit _Atom287) ((cloned-from _Carbohydrate669 _Carbohydrate286)))
+(explanation (:triple _Carbohydrate286 has-basic-structural-unit _Atom287) ((a Atom (@ _Carbohydrate286 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,28 @@
+;;
+;; $Id: NH4Cl.km,v 1.5 2006/01/28 06:09:14 jfan Exp $
+;;
+
+(NH4Cl has (superclasses (Salt)))
+
+(every NH4Cl has
+       (has-chemical-name ("ammonium chloride"))
+       (has-part ((a NH4-Plus)
+		  (a Cl-Minus)))
+       
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 NH4-Plus)
+					      (:pair 1 Cl-Minus))))))
+			     )
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 N)
+					      (:pair 4 H)
+					      (:pair 1 Cl))))))
+			     )
+       )
+
+
+(every NH4Cl has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("ammonium chloride"))
+)

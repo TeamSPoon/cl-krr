@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Intron.km,v 1.12 2001/06/01 23:26:39 pnav Exp $ 
+;; 
+
+(Intron has
+	(superclasses (DNA-Noncoding-Sequence))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+        (description ("Region of a eucaryotic gene that does not code for
+                       protein but is transcribed into an RNA molecule and then
+                       excised by RNA splicing to produce mRNA.
+                       Alberts:ECB:G-10."))
+	(cmap-correspondence ())
+	(test-case ()))
+
+(every Intron has
+       (is-part-of ((a Eucaryotic-Gene)))
+       (has-part
+	((a Intron-Beginning-Sequence)
+         (a DNA-Noncoding-Sequence 
+	    called "Intron has-region between beginning and branch point")
+	 (a Intron-Branch-Sequence)
+         (a DNA-Noncoding-Sequence 
+	    called "Intron has-region between branch point and end of intron")   
+	 (a Intron-End-Sequence)
+	 )))
+
+

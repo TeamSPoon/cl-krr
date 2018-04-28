@@ -1,0 +1,86 @@
+<!--- $Id: Express.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+<kml>
+
+<concept name=Express>
+<system-documentation name=Express>
+<superconcept name=Action>
+
+  <definition>
+  An agent expresses <conceptref name=Information>. 
+  </definition>
+
+  <comment>
+    Express is the first step of <conceptref name=Communicate>.
+    For perspective, here's the overall model of communication.
+    Information is first converted into a message by the
+    <conceptref name=Express> subevent, then the message is sent
+    to the recipient by the <conceptref name=Convey> event, 
+    and finally the message is 
+    converted back into information by the <conceptref name=Interpret> 
+    subevent.
+  </comment>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+  	the entity expressing the information
+  </slotdescription>
+
+  <slotdescription name=object>
+       the information being expressed
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=result>
+  	the <conceptref name=Message> that expresses the information
+  </slotdescription>
+
+</primaryslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Larry told Sally how he felt.</text>
+    <slotdescription name=agent>Larry</slotdescription>
+    <slotdescription name=object>Larry's feelings</slotdescription>
+    <slotdescription name=recipient>Sally</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The client sent a request to the server.</text>
+    <slotdescription name=agent>the client</slotdescription>
+    <slotdescription name=object>the request</slotdescription>
+    <slotdescription name=recipient>the server</slotdescription>
+  </examplesentence>
+
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Command>
+        An express in which the information is an <conceptref name=Instruction>
+  </neighbor>  
+
+  <neighbor name=Inform>
+        An express in which the <slot>recipient</slot> is required
+  </neighbor>  
+
+  <neighbor name=Communicate>
+        Communicate is the transfer of information between agents, such that
+        the <slot>recipient</slot> knows the information
+        afterwards. Express is the first step of a Communicate, and it
+        is followed by <conceptref name=Convey> and 
+        <conceptref name=Interpret>.
+  </neighbor>
+
+</neighborlist>
+
+
+</kml>
+
+

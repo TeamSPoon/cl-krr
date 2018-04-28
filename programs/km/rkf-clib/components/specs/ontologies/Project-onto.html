@@ -1,0 +1,1810 @@
+<html>
+<head>
+
+<title>The Project Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Projects</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">Here goes the description
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>the <a href="https://calo.sri.com/cgi-bin/Zope.cgi/Plone/Development/Ontology/20041026-ProjectOntology.pdf">
+Project Ontology</a> from Jerry Hobbs at <a href="http://www.isi.edu">ISI</a>
+
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+<ul>
+<li>Thing
+    <ul>
+    <li>Event
+        <ul>
+        <li>Action
+            <ul>
+	    <li><a href=#Allocate-Resource><b>Allocate-Resource</b></a>
+            <li><a href=#Release-Resource><b>Release-Resource</b></a>
+            </ul>
+        <li>Activity
+            <ul>
+	    <li><a href=#Financing><b>Financing</b></a>
+            <li><a href=#Task><b>Task</b></a>
+	        <ul>
+		<li><a href=#FixedWorkTask><b>FixedWorkTask</b></a>
+		<li><a href=#FixedDurationTask><b>FixedDurationTask</b></a>
+		<li><a href=#FixedUnitTask><b>FixedUnitTask</b></a>
+		<li><a href=#RecurringTask><b>RecurringTask</b></a>
+		<li><a href=#Milestone><b>Milestone</b></a>
+		<li><a href=#Project><b>Project</b></a>
+		<li><a href=#Phase><b>Phase</b></a>
+		<li><a href=#ResourceAssignment><b>ResourceAssignment</b></a>
+		    <ul>
+		    <li><a href=#WorkResourceAssignment><b>WorkResourceAssignment</b></a>
+		    <li><a href=#MaterialResourceAssignment><b>MaterialResourceAssignment</b></a>
+		        <ul>
+			<li><a href=#FixedRateMaterialResourceAssignment><b>FixedRateMaterialResourceAssignment</b></a>
+			<li><a href=#VarRateMaterialResourceAssignment><b>VarRateMaterialResourceAssignment</b></a>
+			</ul>
+		    </ul>
+		</ul>
+	    <li><a href=#Financing><b>Financing</b></a>
+            </ul>
+        <li>State
+            <ul>
+            <li><a href=#Be-Available><b>Be-Available</b></a>
+            <li><a href=#Be-Unavailable><b>Be-Unavailable</b></a>
+            </ul>
+        </ul>
+    <li>Entity
+        <ul>
+        <li>Aggregate
+            <ul>
+            <li><a href=#WorkResourceSet><b>WorkResourceSet</b></a>
+	    <li>Organization
+		<ul>
+		<li>Group
+		    <ul>
+            	    <li><a href=#ProjectPersonGroup><b>ProjectPersonGroup</b></a>
+		    </ul>
+		</ul>
+            </ul>
+	<li>Intangible-Entity
+	    <ul>
+	    <li>Information
+	        <ul>
+		<li>InformationObject
+		    <ul>
+		    <li><a href=#Budget><b>Budget</b></a>
+		    <li><a href=#Cost><b>Cost</b></a>
+		        <ul>
+					<li><a href=#Fixedcost><b>Fixedcost</b></a></li>
+					<li><a href=#VariableCost><b>VariableCost</b></a></li>
+			</ul>
+		    </ul>
+		</ul>
+	    </ul>
+        </ul>
+     <li>Role
+        <ul>
+	<li>AgentRole
+	    <ul>
+            <li><a href=#ProjectRole><b>ProjectRole</b></a>
+	    </ul>
+        </ul>
+        <ul>
+        <li><a href=#Resource><b>Resource</b></a>
+            <ul>
+            <li><a href=#MaterialResource><b>MaterialResource</b></a>
+	    <li><a href=#WorkResource><b>WorkResource</b></a>
+            </ul>
+	</ul>
+     <li>Property-Group
+		      <ul>
+			<li>Constant
+			  <ul>
+			    <li>Cost-Rate-Constant</li>
+			  </ul></li>
+			<li>Property-Value
+			  <ul>
+			    <li>Cost-Rate-Value</li>
+			  </ul></li>
+			<li>Unit-of-Measurement
+			  <ul>
+			    <li><a href=#UoM-Cost-Rate><b>UoM-Cost-Rate</b></a></li>
+			  </ul></li>
+		      </ul></li>
+		  </ul>
+	      </ul>
+</div>
+</td></tr></table>
+</p>
+
+<p>
+<a name=Task>
+<table>
+<tr><td>
+
+<div class="boxtop">Task</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Most general kind of Task.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Task with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Task-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+		  <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+		  <tr><td><pre>identifier</pre></td><td align=center><pre>n</pre></td><td><pre>(a Text-Field)</pre></td></tr>
+		  <tr><td><pre>description</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+		  <tr><td><pre>has-participant</pre></td><td align=center><pre>n</pre></td><td><pre>(a ProjectRole)</pre></td></tr>
+		  <tr><td><pre>hasResourceAssignment</pre></td><td align=center><pre>n</pre></td><td><pre>(a ResourceAssignment)</pre></td></tr>
+		  <tr><td><pre>time-during</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Interval)</pre></td></tr>
+		  <tr><td><pre>hasDeadline</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+		  <tr><td><pre>hasMilestone</pre></td><td align=center><pre>n</pre></td><td><pre>(a Milestone)</pre></td></tr>
+		  <tr><td><pre>hasProcedure</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+		  <tr><td><pre>hasRequiredPrecedent</pre></td><td align=center><pre>n</pre></td><td><pre>(a Task)</pre></td></tr>
+		  <tr><td><pre>task-name</pre></td><td align=center><pre>n</pre></td><td><pre>(a Task)</pre></td></tr>
+		  <tr><td colspan=3><i>+ slots inherited from Activity</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=FixedWorkTask>
+<table>
+<tr><td>
+
+<div class="boxtop">FixedWorkTask</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Fixed-work task.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a FixedWorkTask with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;FixedWorkTask-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Task</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=FixedDurationTask>
+<table>
+<tr><td>
+
+<div class="boxtop">FixedDurationTask</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Fixed-duration task.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a FixedDurationTask with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;FixedDurationTask-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Task</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=FixedUnitTask>
+<table>
+<tr><td>
+
+<div class="boxtop">FixedUnitTask</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A task with fixed units.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a FixedUnitTask with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;FixedUnitTask-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Task</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=RecurringTask>
+<table>
+<tr><td>
+
+<div class="boxtop">RecurringTask</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A recurring task is a task that repeats at regular intervals.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a RecurringTask with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;RecurringTask-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>eachStart</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>eachEnd</pre></td><td align=center><pre>n</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Task</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Milestone>
+<table>
+<tr><td>
+
+<div class="boxtop">Milestone</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A significant task in ones life (or in a project).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Milestone with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Milestone-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Task</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Project>
+<table>
+<tr><td>
+
+<div class="boxtop">Project</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of Task.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Project with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Project-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasFundingSupport</pre></td><td align=center><pre>n</pre></td><td><pre>(a Financing)</pre></td></tr>
+    <tr><td><pre>hasBudget</pre></td><td align=center><pre>1</pre></td><td><pre>(a Budget)</pre></td></tr>
+    <tr><td><pre>hasProjectObjective</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasProjectOrganization</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasPriority</pre></td><td align=center><pre>1</pre></td><td><pre>(a Integer)</pre></td></tr>
+    <tr><td><pre>hasProjectProduct</pre></td><td align=center><pre>n</pre></td><td><pre>(a Entity)</pre></td></tr>
+    <tr><td><pre>hasProjectStatus</pre></td><td align=center><pre>1</pre></td><td><pre>(a State)</pre></td></tr>
+    
+    <tr><td colspan=3><i>+ slots inherited from Task</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Phase>
+<table>
+<tr><td>
+
+<div class="boxtop">Phase</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A phase (or summary task) is made up of subtasks and summarizes those subtasks.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Phase with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Phase-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasTask</pre></td><td align=center><pre>n</pre></td><td><pre>(a Task)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Task</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=WorkResourceSet>
+<table>
+<tr><td>
+
+<div class="boxtop">WorkResourceSet</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>An aggregate of resources.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a WorkResourceSet with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;WorkResourceSet-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Aggregate</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=ProjectPersonGroup>
+<table>
+<tr><td>
+
+<div class="boxtop">ProjectPersonGroup</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A group of people working on the same project.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ProjectPersonGroup with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ProjectPersonGroup-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Group</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Budget>
+<table>
+<tr><td>
+
+<div class="boxtop">Budget</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of InformationObject.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Budget with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Budget-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>expendedFunds</pre></td><td align=center><pre>1</pre></td><td><pre>(a Worth-Value)</pre></td></tr>
+    <tr><td><pre>remainingFunds</pre></td><td align=center><pre>1</pre></td><td><pre>(a Worth-Value)</pre></td></tr>
+    <tr><td><pre>requiredFunds</pre></td><td align=center><pre>1</pre></td><td><pre>(a Worth-Value)</pre></td></tr>
+    
+    <tr><td colspan=3><i>+ slots inherited from InformationObject</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Allocate-Resource>
+<table>
+<tr><td>
+
+<div class="boxtop">Allocate-Resource</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Allocate a resource. Making the resource available.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Allocate-Resource with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Allocate-Resource-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Action</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Release-Resource>
+<table>
+<tr><td>
+
+<div class="boxtop">Release-Resource</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Release a resource. Making the resource unavailable.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Release-Resource with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Release-Resource-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Action</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Financing>
+<table>
+<tr><td>
+
+<div class="boxtop">Financing</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of Activity.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Financing with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Financing-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>funder</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>fundingAmount</pre></td><td align=center><pre>1</pre></td><td><pre>(a Worth-Value)</pre></td></tr>
+    <tr><td><pre>fundingDuration</pre></td><td align=center><pre>1</pre></td><td><pre>(a Duration-Value)</pre></td></tr>
+    <tr><td><pre>fundingStartDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    <tr><td><pre>fundingEndDate</pre></td><td align=center><pre>1</pre></td><td><pre>(a Time-Instant)</pre></td></tr>
+    
+    <tr><td colspan=3><i>+ slots inherited from Activity</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Be-Available>
+<table>
+<tr><td>
+
+<div class="boxtop">Be-Available</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Available state
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Be-Available with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Be-Available-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from State</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Be-Unavailable>
+<table>
+<tr><td>
+
+<div class="boxtop">Be-Unavailable</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Unavailable state
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Be-Unavailable with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Be-Unavailable-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from State</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=ProjectRole>
+<table>
+<tr><td>
+
+<div class="boxtop">ProjectRole</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>This is a type of AgentRole
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ProjectRole with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ProjectRole-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+  slots inherited from AgentRole
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+
+
+<p>
+<a name=Resource>
+<table>
+<tr><td>
+
+<div class="boxtop">Resource</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A resource
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Resource with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Resource-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasCost</pre></td><td align=center><pre>1</pre></td><td><pre>(a Worth-Value)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Role</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=ResourceAssignment>
+<table>
+<tr><td>
+
+<div class="boxtop">ResourceAssignment</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>the assignment of Resource to a Task.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a ResourceAssignment with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;ResourceAssignment-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>assignedResource</pre></td><td align=center><pre>n</pre></td><td><pre>(a Resource)</pre></td></tr>
+    
+    <tr><td colspan=3><i>+ slots inherited from Task</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+<p>
+<a name=WorkResourceAssignment>
+<table>
+<tr><td>
+
+<div class="boxtop">WorkResourceAssignment</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of ResourceAssignment.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a WorkResourceAssignment with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;WorkResourceAssignment-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>assignedUnits</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td></tr>
+    
+    <tr><td colspan=3><i>+ slots inherited from ResourceAssignment</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+<p>
+<a name=MaterialResourceAssignment>
+<table>
+<tr><td>
+
+<div class="boxtop">MaterialResourceAssignment</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of ResourceAssignment.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a MaterialResourceAssignment with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;MaterialResourceAssignment-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from ResourceAssignment</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=FixedRateMaterialResourceAssignment>
+<table>
+<tr><td>
+
+<div class="boxtop">FixedRateMaterialResourceAssignment</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of ResourceAssignment.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a FixedRateMaterialResourceAssignment with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;FixedRateMaterialResourceAssignment-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><i><pre>assignedTotalConsumption</pre></i></td><td align=center><i><pre>1</pre></i></td><td><i><pre>(a Thing)</pre></i></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from MaterialResourceAssignment</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=VarRateMaterialResourceAssignment>
+<table>
+<tr><td>
+
+<div class="boxtop">VarRateMaterialResourceAssignment</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of ResourceAssignment.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a VarRateMaterialResourceAssignment with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;VarRateMaterialResourceAssignment-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><i><pre>assignedConsumptionAmount</pre></i></td><td align=center><i><pre>1</pre></i></td><td><i><pre>(a Thing)</pre></i></td></tr>    
+    <tr><td colspan=3><i>+ slots inherited from MaterialResourceAssignment</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Cost>
+<table>
+<tr><td>
+
+<div class="boxtop">Cost</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of ResourceAssignment.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Cost with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Cost-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><i><pre>standardRate</pre></i></td><td align=center><i><pre>1</pre></i></td><td><i><pre>(a Worth-Value)</pre></i></td></tr>
+    <tr><td><i><pre>overTimeRate</pre></i></td><td align=center><i><pre>1</pre></i></td><td><i><pre>(a Worth-Value)</pre></i></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from InformationObject</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Fixedcost>
+<table>
+<tr><td>
+
+<div class="boxtop">Fixedcost</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A kind of ResourceAssignment.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Fixedcost with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Fixedcost-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><i><pre>standardCost</pre></i></td><td align=center><i><pre>1</pre></i></td><td><i><pre>(a Worth-Value)</pre></i></td></tr>
+    <tr><td><i><pre>overTimeCost</pre></i></td><td align=center><i><pre>1</pre></i></td><td><i><pre>(a Worth-Value)</pre></i></td></tr>
+    
+    <tr><td colspan=3><i>+ slots inherited from Cost</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=VariableCost>
+<table>
+<tr><td>
+
+<div class="boxtop">VariableCost</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Cost that is variable.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a VariableCost with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;VariableCost-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><i><pre>standardRate</pre></i></td><td align=center><i><pre>1</pre></i></td><td><i><pre>(a Cost-Rate-Value)</pre></i></td></tr>
+    <tr><td><i><pre>overtimeRate</pre></i></td><td align=center><i><pre>1</pre></i></td><td><i><pre>(a Cost-Rate-Value)</pre></i></td></tr>
+    
+    <tr><td colspan=3><i>+ slots inherited from Cost</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=MaterialResource>
+<table>
+<tr><td>
+
+<div class="boxtop">MaterialResource</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Material Resource.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a MaterialResource with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;MaterialResource-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Resource</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=WorkResource>
+<table>
+<tr><td>
+
+<div class="boxtop">WorkResource</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Work Resource.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a WorkResource with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;WorkResource-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>maxUnits</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Resource</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre></pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+<p>
+<a name=UoM-Cost-Rate>
+<table>
+<tr><td>
+
+<div class="boxtop">UoM-Cost-Rate</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Named instances for legal units of measure within descriptions of
+        cost rate.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Instances</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>*usdollars-per-hour</pre></td></tr>
+    <tr><td><pre>*usdollars-per-day</pre></td></tr>
+    <tr><td><pre>*usdollars-per-week</pre></td></tr>
+    <tr><td><pre>*usdollars-per-month</pre></td></tr>
+    <tr><td><pre>*usdollars-per-year</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>

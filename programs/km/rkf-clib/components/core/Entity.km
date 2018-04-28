@@ -1,0 +1,372 @@
+;; 
+;;    $Id: Entity.km,v 1.58 2010/05/18 14:58:30 kbarker Exp $ 
+;; 
+
+(Entity has
+        (superclasses (Thing))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (cmap-correspondence ())
+        (test-case ()))
+
+;; see Event.km for partition:
+;;   (a Partition with (members (Event Entity)))
+
+(every Entity has
+
+        ;; this code for identifier is repeated in Event and Role
+        (identifier ((forall (the called of Self)
+                      (a Text-Field with (information-content (It))))))
+        (identifier ((forall (the uniquely-called of Self)
+                      (a Text-Field with (information-content (It))))))
+
+        ;; this is an approximation to finding the most specific of the
+        ;; instance's classes (it just finds one class that doesn't subsume
+        ;; any of the others)
+        (name ((if (anonymous-instancep Self) then
+                   (oneof ?c1 in (the classes of Self) where
+                          (not (oneof ?c2 in (the classes of Self) where 
+                               ((?c1 /= ?c2) and (?c1 subsumes ?c2))))))))
+
+        (text-gen ((make-phrase (the text-phrase of Self))))
+        (text-description ((the text-sentence of Self)))
+
+;; if a general kind of Entity plays a Role, use the Role as the head noun
+        (text-head (((?msc == (#'(LAMBDA () (CAR (SORT-CONCEPT-LIST (KM0 '(|the| |classes| |of| |Self|))))))
+                     )
+                     and
+                     (if (anonymous-instancep Self) then
+                         (:seq 
+                            (if ((:set Thing Entity Intangible-Entity Spatial-Entity Place Tangible-Entity)
+                                  is-superset-of
+                                  (the instance-of of Self)
+                                )
+                             then
+                                (if (has-value (the plays of Self))
+                                 then (oneof (the plays of Self) where t)
+                                 else (if (has-value (the location-of of Self))
+                                       then (:seq "location of" 
+                                                  (the text-gen of (oneof (the location-of of Self) where t)))
+                                       else ?msc
+                                      )
+                                )
+                             else ?msc
+                            )
+                            (if (has-value (the uniquely-called of Self))
+                              then (:seq "(called" 
+                                         (the uniquely-called of Self) ")"
+                                   )
+                              else (if (has-value (the called of Self))
+                                    then (:seq "(called" 
+                                               (the called of Self) ")"
+                                         )))
+                         )
+                      else
+                         (the name of Self)
+                     )
+                   ))
+        )
+ 
+;; text-gen of Events needs to have control over whether NPs in clauses
+;; are def or indef; but only the Entity knows how to form its NP
+        (text-def-determiner (
+           (if (anonymous-instancep Self) then
+; take out the possessor for now (not really useful in our domains,
+; and this expression is susceptible to infinite recursion)
+;               (if (has-value (the is-possessed-by of Self)) then
+;                   (:seq (the text-def-head of (the is-possessed-by of Self))
+;                         "'s")
+;               else
+                   (:seq "the")
+;               )
+        )))
+        (text-indef-determiner (   ;; may get some u words wrong (eg. "utility")
+          (if (anonymous-instancep Self)
+           then (if ((:set "A" "E" "I" "O" "U" "a" "e" "i" "o" "u")
+                     includes
+                     (#'(LAMBDA () (STRING (CHAR (KM-UNIQUE0 '(|make-phrase| (:|seq| (|the| |text-premods| |of| |Self|)
+                                                                                   (|the| |text-head| |of| |Self|)))) 0))))
+                    )
+                 then (:seq "an")
+                 else (:seq "a")
+                )
+          )
+        ))
+
+        (text-def-head ((:seq (the text-def-determiner of Self)
+                              (the text-head of Self))))
+        (text-indef-head ((:seq (the text-indef-determiner of Self)
+                                  (the text-head of Self))))
+
+        (text-is-above    ("above"))
+        (text-is-along    ("along"))
+        (text-is-between  ("between"))
+        (text-is-behind   ("behind"))
+        (text-is-opposite ("opposite"))
+        (text-is-outside  ("outside")) 
+        (text-is-over     ("over"))
+        (text-is-beside   ("beside"))
+        (text-is-near     ("near"))
+        (text-is-at       ("at"))
+        (text-is-on       ("on"))
+        (text-site-of     ("site of"))
+        (text-abuts       ("abutting"))
+        (text-is-inside   ("inside"))
+        (text-is-part-of  ("part of"))
+        (text-has-part    ("made up of"))
+        (text-material    ("made of"))
+        (text-content     ("containing"))
+        (text-result-of       ("result of"))
+        (text-raw-material-of ("raw material of"))
+        (text-agent-of    ("agent of"))
+
+        (text-is-north-of     ("north of"))
+        (text-is-northeast-of ("northeast of"))
+        (text-is-east-of      ("east of"))
+        (text-is-southeast-of ("southeast of"))
+        (text-is-south-of     ("south of"))
+        (text-is-southwest-of ("southwest of"))
+        (text-is-west-of      ("west of"))
+        (text-is-northwest-of ("northwest of"))
+
+       (text-premodslots ((:seq area length height thickness volume size 
+                                capacity depth mass density temperature 
+                                wetness brightness breakability consistency 
+                                shape smell taste texture trait
+                                age color physical-state sex)))
+;; I'm going to move content, material and is-part-of to postmods
+;;                                age color sex material content is-part-of)))
+
+       (text-premods (
+          (if (has-value (the text-premodslots of Self))
+           then
+             (forall-seq (the text-premodslots of Self)
+                   where (has-value (the It of Self))
+                         (if (It isa Property) 
+                          then
+                             (if (has-value (the value of (the It of Self)))
+                              then (the text-phrase of (the It of Self)))
+                          else
+                             (the text-head of (the It of Self)))
+       ))))
+
+;; moved is-possessed-by to a determiner position
+        (text-postmodslots ((:seq #|is-part-of|# material content #|result-of raw-material-of|#
+                                  is-above is-along ;; is-between is-behind is-opposite 
+                                  is-outside is-over is-beside 
+                                  #|is-near|# is-at is-on site-of abuts is-inside
+                                  is-north-of is-northeast-of is-east-of
+                                  is-southeast-of is-south-of is-southwest-of 
+                                  is-west-of is-northwest-of)))
+      
+       (text-postmods (
+          (if (has-value (the text-postmodslots of Self))
+           then
+           (forall-seq (the text-postmodslots of Self)
+                 where (has-value (the It of Self))
+              (:seq (the (the text-slot of It) of Self) 
+                    (if (Event subsumes (the range of It))
+                     then (andify (the text-indef-phrase of (the It of Self)))
+                     else (andify (the text-def-head of (the It of Self))))
+       )))))
+
+       (text-base-phrase ((if (anonymous-instancep Self) then
+                              (:seq (the text-def-determiner of Self)
+                                    (the text-premods of Self)
+                                    (the text-head of Self))
+                           else 
+                              (:seq (the text-head of Self))
+       )))
+
+       (text-indef-phrase ((:seq (the text-indef-determiner of Self)
+                                 (the text-premods of Self)
+                                 (the text-head of Self)
+       )))
+
+       (text-sentence 
+             ((make-sentence
+                      ((if (has-value (the elements of (the text-postmods of Self)))
+                           then
+                           (:seq (the text-base-phrase of Self)
+                                 "is"
+                                 (andify 
+                                   (the elements of
+                                     (the text-postmods of Self))))
+                        else (if (has-value (the elements of (the text-premods of Self)))
+                                 then
+				 (:seq (the text-def-head of Self)
+				       "is"
+				       (andify 
+                                         (the elements of
+                                           (the text-premods of Self))))
+                              else (if (has-value (the is-possessed-by of Self))
+                                    then
+                                    (:seq (the text-gen of (the is-possessed-by of Self))
+                                          "has"
+                                          (the text-indef-head of Self)
+                                    )
+                                    else (the text-existential-there of Self)
+       )))))))
+
+       (text-existential-there ((make-sentence 
+                                   (:seq "there is"
+                                         (if (anonymous-instancep Self)
+                                          then (the text-indef-head of Self)
+                                          else (:seq (the text-indef-head of
+                                                          (an instance of (oneof (the classes of Self) where t)))
+                                                     "called"
+                                                     (the text-head of Self)
+                                               )
+                                         )
+                                   )
+       )))
+
+       (text-definition-sentence ((
+         (?mods == (the elements of (:set (the text-postmods of Self)
+                                          (the text-premods of Self)))
+         )
+         and
+         (?sup == ((oneof (the superclasses of (the classes of Self))
+                    where (((the elements of (the text-postmods of (an instance of It))) /=
+                            (the elements of (the text-postmods of Self)))
+                           or
+                           ((the elements of (the text-premods of (an instance of It))) /=
+                            (the elements of (the text-premods of Self)))
+                          )
+                   )
+                   or
+                   Thing
+                  )
+         )
+         and
+         (?supmods == (the elements of (:set (the text-postmods of (an instance of ?sup))
+                                             (the text-premods of (an instance of ?sup))))
+         )
+         and
+         (make-sentence (:seq (the text-indef-head of Self) 
+                              "is a kind of"
+                              ((the elements of
+                                    (andify (the superclasses of (the classes of Self)))
+                               )
+                               or
+                               "something"
+                              )
+                              (if ((has-value ?mods)
+                                   and
+                                   (has-value ?sup)
+                                  )
+                               then
+                                  (:seq "that is"
+                                        (andify (allof ?m in ?mods
+                                                 where (not (?supmods includes ?m))))
+                                  )
+                              )
+         ))
+       )))
+
+       (text-phrase ((if (anonymous-instancep Self) then
+                         (:seq (the text-base-phrase of Self)
+                               (the elements of
+                                  (the text-postmods of Self)))
+                      else (the text-base-phrase of Self))))
+)
+
+(comment [Entity-instance-of]
+  ""
+  (the text-sentence of Self)
+)
+
+
+;;same-as constraint does a LISP string-compare when Self and TheValue have valid CLib text-description strings.
+;;returns null otherwise, i.e., they are not "same-as".
+;; (every Entity now-has
+;;        (same-as (
+;;                  (constraint 
+;;                   (#'(LAMBDA () (LET ((DEBUG T)
+;;                                       (SELF-STRING (KM-UNIQUE0 
+;;                                                     '(|the| |text-description| |of| |Self|)))
+;;                                       (THEVALUE-STRING 
+;;                                        (KM-UNIQUE0 
+;;                                         '(|the| |text-description| |of| |TheValue|))))
+;;                                      (IF DEBUG (FORMAT T "(doing same-as test between ~a(~s) and ~a(~s).~%"
+;;                                                        '|Self| 
+;;                                                        SELF-STRING
+;;                                                        '|TheValue| 
+;;                                                        THEVALUE-STRING))
+;;                                      (AND (STRINGP SELF-STRING)
+;;                                           (STRINGP THEVALUE-STRING)
+;;                                           (STRING= SELF-STRING THEVALUE-STRING)))))))))
+
+
+; why are these constraints hosing chemistry?
+; (every Entity has
+;   (abuts ((<> Self)))
+;   (is-above ((<> Self)))
+;   (is-below ((<> Self)))
+;   (is-along ((<> Self)))
+;   (is-at ((<> Self)))
+;   (is-at-of ((<> Self)))
+;   (is-behind ((<> Self)))
+;   (is-in-front-of ((<> Self)))
+;   (is-beside ((<> Self)))
+;   (is-between ((<> Self)))
+;   (is-facing ((<> Self)))
+;   (is-faced-by ((<> Self)))
+;   (is-inside ((<> Self)))
+;   (encloses ((<> Self)))
+;   (is-near ((<> Self)))
+;   (is-north-of ((<> Self)))
+;   (is-south-of ((<> Self)))
+;   (is-northwest-of ((<> Self)))
+;   (is-southeast-of ((<> Self)))
+;   (is-on ((<> Self)))
+;   (has-on-it ((<> Self)))
+;   (is-opposite ((<> Self)))
+;   (is-oriented-toward ((<> Self)))
+;   (is-oriented-toward-of ((<> Self)))
+;   (is-outside ((<> Self)))
+;   (does-not-enclose ((<> Self)))
+;   (is-over ((<> Self)))
+;   (is-under ((<> Self)))
+;   (is-southwest-of ((<> Self)))
+;   (is-northeast-of ((<> Self)))
+;   (is-west-of ((<> Self)))
+;   (is-east-of ((<> Self)))
+;   (location ((<> Self)))
+;   (location-of ((<> Self)))
+;   (space-int-contains ((<> Self)))
+;   (space-int-inside ((<> Self)))
+;   (space-int-covers ((<> Self)))
+;   (space-int-coveredby ((<> Self)))
+;   (space-int-disjoint ((<> Self)))
+;   (space-int-equal ((<> Self)))
+;   (space-int-meet ((<> Self)))
+;   (space-int-overlap ((<> Self)))
+;   (possesses ((<> Self)))
+;   (is-possessed-by ((<> Self)))
+;   (complement ((<> Self)))
+;   (has-basic-functional-unit ((<> Self)))
+;   (is-basic-functional-unit-of ((<> Self)))
+;   (has-basic-structural-unit ((<> Self)))
+;   (is-basic-structural-unit-of ((<> Self)))
+;   (has-functional-part ((<> Self)))
+;   (is-functional-part-of ((<> Self)))
+;   (has-part ((<> Self)))
+;   (is-part-of ((<> Self)))
+;   (has-region ((<> Self)))
+;   (is-region-of ((<> Self)))
+;   (has-structural-part ((<> Self)))
+;   (is-structural-part-of ((<> Self)))
+;   (material ((<> Self)))
+;   (material-of ((<> Self)))
+;   (element ((<> Self)))
+;   (element-of ((<> Self)))
+;   (first-element ((<> Self)))
+;   (first-element-of ((<> Self)))
+;   (next-element ((<> Self)))
+;   (previous-element ((<> Self)))
+;   (has-atom ((<> Self)))
+;   (is-atom-of ((<> Self)))
+; )
+

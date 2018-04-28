@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Catalyze.km,v 1.5 2004/01/30 22:02:41 kbarker Exp $
+;; 
+
+(Catalyze has
+	   (superclasses    (Action))
+	   (required-slot   (result substrate))
+	   (primary-slot    (agent instrument))
+	   (description     ("A chemical reaction whose rate is facilitated by
+                              the presence of a substance which is not altered
+                              by the reaction. Souther.")))
+
+
+(every Catalyze has
+       (substrate       ((a Chemical-Entity)))
+       (result       ((a Chemical-Entity)
+                      (at-least 1 Chemical-Entity))) 
+       (instrument   ((a Chemical-Entity)))   )
+
+
+(every Catalyze has
+  (text-active-verbseq-sg ("catalyzes"))
+  (text-active-verbseq-pl ("catalyze"))
+  (text-passive-verbseq-sg ("gets catalyzed"))
+  (text-passive-verbseq-pl ("get catalyzed"))
+)
+
+(every Catalyze has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

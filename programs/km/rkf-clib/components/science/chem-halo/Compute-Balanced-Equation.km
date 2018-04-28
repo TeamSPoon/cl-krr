@@ -1,0 +1,172 @@
+
+;;
+;; $Id: Compute-Balanced-Equation.km,v 1.1 2005/09/01 15:53:22 jfan Exp $
+;;
+
+(Compute-Balanced-Equation has (superclasses (Method)) (description ("balance the reaction equation")))
+
+(every Compute-Balanced-Equation has
+  (input ((a Reaction)))
+  (output (
+      (if ((forall (the raw-material of (the input of Self)) 
+                   (has-value (the atomic-chemical-formula of
+                                   (the has-basic-structural-unit of It))))
+           and
+           (forall (the result of (the input of Self))
+                   (has-value (the atomic-chemical-formula of
+                                   (the has-basic-structural-unit of It))))
+          )
+       then
+          (a Action with
+             (raw-material (
+                (forall (the raw-material of (the input of Self))
+                        (a Chemical with
+                           (has-basic-structural-unit (
+                              (the has-basic-structural-unit of It)))
+                           (coefficient (
+                              #'(LAMBDA ()
+                                        (BALANCED-EQUATION-COEFFICIENT
+                                ;; the reaction
+                                         (KM-UNIQUE0 '(the input of Self))
+                                ;; the chemical
+                                         'It))))
+                        )
+             )))
+             (result (
+                (forall (the result of (the input of Self))
+                        (a Chemical with
+                           (has-basic-structural-unit (
+                              (the has-basic-structural-unit of It)))
+                           (coefficient (
+                              #'(LAMBDA ()
+                                        (BALANCED-EQUATION-COEFFICIENT
+                                ;; the reaction
+                                         (KM-UNIQUE0 '(the input of Self))
+                                ;; the chemical
+                                         'It))))
+                        )
+             )))
+             [Compute-Balanced-Equation-output-1]
+          )
+  )))
+)
+
+
+(comment [Compute-Balanced-Equation-output-1]
+  (:seq "the balanced equation is:"
+        (if ((the1 of 
+                   (the value of 
+                        (the coefficient of 
+                             (the1 of 
+                                   (the seq of 
+                                        (the raw-material of 
+                                             (the output of Self)))))))
+             > 1)
+         then
+           (:seq
+              (the1 of 
+                    (the value of 
+                         (the coefficient of 
+                              (the1 of 
+                                    (the seq of 
+                                         (the raw-material of 
+                                              (the output of Self)))))))
+              "nospace"
+           )
+        )
+        (the text-gen of
+             (the1 of 
+                   (the seq of 
+                        (the raw-material of (the output of Self)))))
+        (forall-seq 
+           (the seq of 
+                (the raw-material of (the output of Self)))
+           where (It /= (the1 of 
+                              (the seq of 
+                                   (the raw-material of 
+                                        (the output of Self)))))
+           (:seq "+"
+                 (if ((the1 of (the value of (the coefficient of It))) > 1)
+                  then (:seq (the1 of (the value of (the coefficient of It)))
+                             "nospace"
+                       )
+                 )
+                 (the text-gen of It)
+           )
+        )
+        "->"
+        (if ((the1 of 
+                (the value of 
+                     (the coefficient of 
+                          (the1 of 
+                                (the seq of 
+                                     (the result of 
+                                          (the output of Self)))))))
+             > 1)
+         then
+           (:seq
+              (the1 of 
+                    (the value of 
+                         (the coefficient of 
+                              (the1 of 
+                                    (the seq of 
+                                         (the result of 
+                                              (the output of Self)))))))
+              "nospace"
+           )
+        )
+        (the text-gen of
+             (the1 of 
+                   (the seq of 
+                        (the result of (the output of Self)))))
+        (forall-seq 
+           (the seq of 
+                (the result of (the output of Self)))
+           where (It /= (the1 of 
+                              (the seq of 
+                                   (the result of (the output of Self)))))
+           (:seq "+"
+                 (if ((the1 of (the value of (the coefficient of It))) > 1)
+                  then (:seq (the1 of (the value of (the coefficient of It)))
+                             "nospace"
+                       )
+                 )
+                 (the text-gen of It)
+           )
+        )
+  )
+  (:seq "Given the unbalanced equation:"
+        (the text-gen of
+             (the1 of 
+                   (the seq of 
+                        (the raw-material of (the input of Self)))))
+        (forall-seq 
+           (the seq of 
+                (the raw-material of (the input of Self)))
+           where (It /= (the1 of 
+                              (the seq of 
+                                   (the raw-material of 
+                                        (the input of Self)))))
+           (:seq "+"
+                 (the text-gen of It)
+           )
+        )
+        "->"
+        (the text-gen of
+             (the1 of 
+                   (the seq of 
+                        (the result of (the input of Self)))))
+        (forall-seq 
+           (the seq of 
+                (the result of (the input of Self)))
+           where (It /= (the1 of 
+                              (the seq of 
+                                   (the result of (the input of Self)))))
+           (:seq "+"
+                 (the text-gen of It)
+           )
+        )
+  )
+)
+
+

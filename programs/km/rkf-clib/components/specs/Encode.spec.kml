@@ -1,0 +1,53 @@
+<!--- $Id: Encode.spec.kml,v 1.3 2003/09/10 20:39:56 jchaw Exp $ --->
+<kml>
+
+<concept name=Encode><system-documentation name=Encode>
+<superconcept name=Create>
+
+<definition>
+
+  The <slot>agent</slot> entity Encodes <conceptref name=Information> to a <conceptref name=Message> via an <conceptref name=Instrument>.  
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     <conceptref name=Information> being encoded.
+  </slotdescription>
+
+  <slotdescription name=agent>
+    The <conceptref name=Tangible-Entity> doing the encoding.
+  </slotdescription>
+
+  <slotdescription name=result>
+    The <conceptref name=Message> that <slot>results</slot> from the encoding of the <conceptref name=Information>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=instrument>
+    An instrument used to encode <conceptref name=Information> into a <conceptref name=Message>.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>The sysadmin sends out email that the phones are down. </text>
+    <slotdescription name=agent>sysadmin</slotdescription>
+    <slotdescription name=object>"the phones are down</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Create>
+    Create involves creation of a new entity, while Encode 
+    involves creation of new <conceptref name = Message> from <conceptref name=Information>.
+    </neighbor>
+</neighborlist>
+
+</kml>

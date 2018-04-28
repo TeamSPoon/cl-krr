@@ -1,0 +1,35 @@
+
+;;
+;; $Id: Breakability-Value.km,v 1.13 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(Breakability-Value has 
+       (superclasses (Property-Value)))
+
+(Breakability-Value has
+   (test-case ('(
+                 (Glass has (superclasses (Substance)))
+                 (Stone has (superclasses (Substance)))
+                 (*window has (instance-of (Glass))
+                                (breakability 
+				 ((a Breakability-Value with
+				     (value ((:pair *brittle Substance)))))
+				))
+                 (*granite has (instance-of (Stone))
+                                (breakability
+                                 ((a Breakability-Value with
+                                     (value ((:pair *fragile Substance)
+                                     ))
+                                     (less-than
+                                        ((the breakability of *window)))
+                              ))))
+
+                 (the value of (the breakability of *granite))
+
+                 ((the less-than of (the breakability of *granite))
+                       includes (the breakability of *window))
+                 ((the greater-than of (the breakability of *window))
+                       includes (the breakability of *granite))
+))))
+
+(Breakability-Value has (description ("the breakability of an Entity")))

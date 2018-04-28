@@ -1,0 +1,23 @@
+;; 
+;;    $Id: CH3_3_N.km,v 1.5 2006/01/23 23:33:41 jfan Exp $
+;; 
+
+(CH3_3_N has (superclasses (Ionic-Compound)))
+
+(every CH3_3_N has
+       (has-chemical-name ("trimethylammonium"))
+       (nested-atomic-chemical-formula (
+				 (a Chemical-Formula with
+				    (term ((:seq 
+					    (:pair 3
+						   (:seq
+						    (:pair 1 C)
+						    (:pair 3 H)))
+					    (:pair 1 N)
+					    ))))))
+       )
+#|
+(every CH3_3_N has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Anion) (a Cation))))
+|#

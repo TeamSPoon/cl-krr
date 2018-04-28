@@ -1,0 +1,39 @@
+;; 
+;;    $Id: Seize.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Seize 
+  superclass: Tactical-Mission-Task 
+  superclass: Capture (Wordnet senses 2,3,5) 
+  agent: Military-Unit <----> Actor 
+  object: Tangible-Entity <----> Acted on 
+  base: Military-Unit <----> Acted against 
+  manner: Forcefully 
+  rate: Rapidly 
+ 
+subevent:  Overcome 
+                              agent: MU called "friendly forces" agent of Self 
+                              object: MU called "enemy forces"  base of Self 
+ 
+  prevents: Attack-by-fire 
+                       agent: MU called "enemy forces" 
+ 
+  resulting-state: Be-Controlled 
+                               object: the Place object of Self 
+ 
+  cliché: Take-Control 
+  cliché: Unauthorized 
+ 
+Seize (A). 
+=====. 
+1. Seize is a tactical mission task that involves taking possession of a designated area by using overwhelming force. 
+2. An enemy force can no longer place direct fire on an objective that has been seized. 
+3. This task differs from secure because it requires offensive action to obtain control of the designated area or objective. 
+4. It differs from the task of occupy because it involves overcoming anticipated enemy opposition. 
+5. Once a force seizes a physical objective, it clears the terrain within that objective by killing, capturing, or forcing the withdrawal of all enemy forces. 
+ 
+ 
+ 
+ 
+ 
+ 

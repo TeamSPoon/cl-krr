@@ -1,0 +1,26 @@
+;; 
+;;    $Id: thickness.km,v 1.14 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(thickness has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Length-Value))
+   (scale-class (Thickness-Scale))
+   (scalar-constant-class (Thickness-Constant))
+   (cardinal-unit-class (UoM-Length))
+   (inverse 	(thickness-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(thickness has (wn20-synset ((:set
+                               (:triple "thickness" 1 "n")
+))))
+
+(thickness-of has
+	(instance-of (EntityProperty)))
+

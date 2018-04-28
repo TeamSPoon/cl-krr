@@ -1,0 +1,83 @@
+
+;;; ---------- Definition of prototype for Central-vacuole ----------
+
+(Central-vacuole has (superclasses (Organelle Physical-Object Vacuole)))
+
+(_Central-vacuole391 has 
+  (instance-of (Central-vacuole))
+  (prototype-of (Central-vacuole))
+  (prototype-scope (Central-vacuole))
+  (prototype-participants (_Tonoplast540
+                           _Living-Entity539
+                           _Central-vacuole391))
+  (prototype-participant-of (_Central-vacuole391))
+  (has-clones (_Placeholder-Class390392
+               _Central-vacuole401
+               _Central-vacuole402
+               _Central-vacuole409
+               _Central-vacuole410
+               _Central-vacuole448
+               _Central-vacuole449
+               _Central-vacuole446
+               _Central-vacuole451
+               _Central-vacuole535))
+  (has-built-clones (_Placeholder-Class390392
+                     _Central-vacuole401
+                     _Central-vacuole402
+                     _Central-vacuole409
+                     _Central-vacuole410
+                     _Central-vacuole448
+                     _Central-vacuole449
+                     _Central-vacuole446
+                     _Central-vacuole451
+                     _Central-vacuole535))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 494 410)))
+  (node-visibility (t))
+  (is-inside (_Tonoplast540))
+  (cloned-from (_Physical-Object398))
+  (edge-coordinate ((:seq is-inside _Tonoplast540 54 -43)))
+  (edge-visibility ((:seq is-inside _Tonoplast540 f))))
+
+(_Tonoplast540 has 
+  (instance-of (Tonoplast))
+  (has-clones (_Tonoplast533))
+  (cloned-from (_Tonoplast394))
+  (clone-built-from (_Tonoplast394))
+  (is-part-of (_Living-Entity539))
+  (encloses (_Central-vacuole391))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 195 410)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq encloses _Central-vacuole391 344 416)))
+  (edge-visibility ((:seq encloses _Central-vacuole391 t)))
+  (prototype-participant-of (_Central-vacuole391)))
+
+(_Living-Entity539 has 
+  (has-part (_Tonoplast540))
+  (instance-of (Living-Entity))
+  (cloned-from (_Living-Entity399))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Tonoplast540 -9 453)))
+  (edge-visibility ((:seq has-part _Tonoplast540 f)))
+  (node-coordinate ((:pair -159 453)))
+  (prototype-participant-of (_Central-vacuole391)))
+
+(explanation (:triple _Central-vacuole391 is-inside _Tonoplast540) ((cloned-from _Tonoplast394 _Tonoplast540)))
+(explanation (:triple _Central-vacuole391 instance-of Central-vacuole) ((cloned-from _Tonoplast394 _Tonoplast540)))
+(explanation (:triple _Central-vacuole391 instance-of Physical-Object) ((cloned-from _Tonoplast394 _Tonoplast540)))
+(explanation (:triple _Central-vacuole391 instance-of Central-vacuole) ((added-at Tonoplast "User defined")))
+(explanation (:triple _Central-vacuole391 instance-of Physical-Object) ((a Physical-Object (@ _Tonoplast540 Membrane-Enclosure encloses))))
+(explanation (:triple _Central-vacuole391 instance-of Vacuole) ((added-at Central-vacuole "User defined")))
+(explanation (:triple _Tonoplast540 instance-of Tonoplast) ((added-at Central-vacuole "User defined")))
+(explanation (:triple _Tonoplast540 is-part-of _Living-Entity539) ((cloned-from _Tonoplast394 _Tonoplast540)))
+(explanation (:triple _Tonoplast540 encloses _Central-vacuole391) ((cloned-from _Tonoplast394 _Tonoplast540)))
+(explanation (:triple _Tonoplast540 encloses _Central-vacuole391) ((a Physical-Object (@ _Tonoplast540 Membrane-Enclosure encloses))))
+(explanation (:triple _Tonoplast540 is-part-of _Living-Entity539) ((a Living-Entity (@ _Tonoplast540 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Living-Entity539 has-part _Tonoplast540) ((cloned-from _Tonoplast394 _Tonoplast540)))
+(explanation (:triple _Living-Entity539 instance-of Living-Entity) ((cloned-from _Tonoplast394 _Tonoplast540)))
+(explanation (:triple _Living-Entity539 instance-of Living-Entity) ((a Living-Entity (@ _Tonoplast540 Membrane-Enclosure is-part-of))))
+
+;;; ---------- end of prototype definition ----------
+
+(Central-vacuole now-has (user-description ("Mature plant cells contain a large central vacuole with contents that are slightly different than the cytoplasm.")))

@@ -1,0 +1,32 @@
+
+;;
+;; $Id: Unitless-Value.km,v 1.2 2005/09/30 16:12:19 kbarker Exp $
+;;
+
+
+(Unitless-Value has 
+  (superclasses (Property-Value)))
+
+(Unitless-Value has
+  (test-case ('(
+                (*GetAJob has (instance-of (Activity)))
+                (*LearnToJuggle has (instance-of (Activity)))
+                (Hobby has (superclasses (Activity)))
+
+                (*GetAJob has 
+                  (priority ((a Unitless-Value with
+                                (value ((:pair 9 NIL)
+                                        (:pair *urgent Activity)))))))
+                (*LearnToJuggle has 
+                  (priority ((a Unitless-Value with
+                                (value ((:pair 1 NIL)
+                                        (:pair *low Activity)
+                                        (:pair *medium Hobby)))
+                                (less-than ((the priority of *GetAJob)))))))
+
+                (the less-than of (the priority of *LearnToJuggle))
+
+                ((the greater-than of (the priority of *GetAJob))
+                 includes (the priority of *LearnToJuggle))
+))))
+

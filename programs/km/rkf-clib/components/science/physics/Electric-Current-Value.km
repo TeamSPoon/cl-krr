@@ -1,0 +1,14 @@
+;; 
+;;  $Id: Electric-Current-Value.km,v 1.2 2005/02/14 22:41:31 kbarker Exp $
+;; 
+
+(Electric-Current-Value has 
+		(superclasses (Property-Value)))
+
+(every Electric-Current-Value has
+  (property-slot (electric-current))
+       (electric-current-of ((must-be-a Entity)))
+       (less-than ((must-be-a Electric-Current-Value)))
+       (greater-than ((must-be-a Electric-Current-Value)))
+       (same-as ((must-be-a Electric-Current-Value)))
+)

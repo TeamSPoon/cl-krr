@@ -1,0 +1,21 @@
+;; 
+;; $Id: Piece-of-Wood.km,v 1.3 2005/06/17 18:41:56 kbarker Exp $
+;; 
+
+(Piece-of-Wood has
+  (superclasses (Piece-of-Substance))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (cmap-correspondence ())
+)
+
+(every Piece-of-Wood has
+  (material ((a Wood)))
+)
+
+#| give preference to wn links in the substance
+(Piece-of-Wood has (wn20-synset ((:set
+				  (:triple "wood" 1 "n")
+))))
+|#

@@ -1,0 +1,18 @@
+;; $Id: HC2O4-Minus.km,v 1.6 2008/05/15 22:45:41 vaibhav Exp $ 
+(HC2O4-Minus has (superclasses (Anion)))
+(every HC2O4-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("hydrogen oxalate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)(:pair 2 C)(:pair 4 O)))))))
+)
+
+
+(every HC2O4-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen oxalate"))
+)
+
+(HC2O4-Minus has (wn20-synset ((:triple "HC2O4-" 0 "n") (:triple "HC_2O_4-" 0 "n"))))

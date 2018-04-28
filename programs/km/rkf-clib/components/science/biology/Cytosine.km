@@ -1,0 +1,58 @@
+;; 
+;;    $Id: Cytosine.km,v 1.22 2001/06/16 22:38:03 souther Exp $ 
+;; 
+
+(Cytosine has
+         (superclasses (Pyrimidine))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A pyrimidine base which combines with a ribose base to
+                        form cytidine.  Cytidine triphosphates are one of the
+                        building block monomers for DNA and RNA.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Cytosine has
+       (complement ((a Guanine)))
+       (has-part 
+	(
+	 (a Nitrogen-Atom uniquely-called "Nitrogen-1" with 
+	    (object-of 
+	     ((a Be-Attached-To uniquely-called "N1-N1H" with
+		 (object 	(((the has-part of Self) uniquely-called "N1-Hydrogen")))
+		 (instrument 	((a Covalent-NH-Bond)))))))
+
+	 (a Carbon-Atom uniquely-called "Carbon-2" with 
+            (object-of
+             ((a Be-Attached-To uniquely-called "C2-N1" with
+		 (object 	(((the has-part of Self) uniquely-called "Nitrogen-1")))
+		 (instrument 	((a Covalent-CN-Bond))))
+	      (a Be-Attached-To uniquely-called "C2-N3" with
+		 (object 	(((the has-part of Self) uniquely-called "Nitrogen-3")))
+		 (instrument 	((a Double-Covalent-CN-Bond))))
+	      (a Be-Attached-To uniquely-called "C2-OA" with
+		 (object 	((the Oxygen-Atom has-part of Self)))
+		 (instrument 	((a Double-Covalent-CO-Bond)))))))
+
+         (a Nitrogen-Atom uniquely-called "Nitrogen-3")
+
+	 (a Carbon-Atom uniquely-called "Carbon-4" with 
+            (object-of
+             ((a Be-Attached-To uniquely-called "C4-N3" with
+		 (object 	(((the has-part of Self) uniquely-called "Nitrogen-3")))
+		 (instrument 	((a Double-Covalent-CN-Bond))))
+	      (a Be-Attached-To uniquely-called "C4-C5" with
+		 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+		 (instrument 	((a Covalent-CC-Bond))))
+	      (a Be-Attached-To uniquely-called "C4-AG" with
+		 (object 	((the Amino-Group has-part of Self)))
+		 (instrument 	((a Covalent-CN-Bond)))))))
+
+	(a Amino-Group)
+	(a Oxygen-Atom)
+	(a Hydrogen-Atom uniquely-called "N1-Hydrogen")
+	)))
+
+

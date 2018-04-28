@@ -1,0 +1,23 @@
+;; 
+;;    $Id: RNA-Anticodon.km,v 1.7 2001/05/01 22:32:37 pnav Exp $ 
+;; 
+
+(RNA-Anticodon has
+         (superclasses (Codon))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Sequence of three nucleotides in a transfer RNA
+                        molecule that is complementary to the three
+                        nucleotide codon on a messenger RNA molecule; the
+                        anti-codon is matched to a specific amino acid
+                        covalently attached to the transfer RNA molecule.
+                        Alberts:ECB:G-2."))
+         (test-case ()))
+
+(every RNA-Anticodon has
+	(has-part ((exactly 3 Nucleotide))))
+
+
+

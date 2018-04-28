@@ -1,0 +1,7 @@
+;; $Id: Ca-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $
+(Ca-Substance has (superclasses (Metal)))
+(every Ca-Substance has
+  (has-basic-structural-unit ((a Ca))))
+(every Ca-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Ca))))

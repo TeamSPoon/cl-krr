@@ -1,0 +1,21 @@
+;; 
+;;    $Id: DNA-Virus.km,v 1.8 2001/05/18 13:14:34 souther Exp $ 
+;; 
+
+(DNA-Virus has
+	  (superclasses (Virus))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (cmap-correspondence ())
+	  (description ("A virus which contains DNA (cf RNA viruses) whose 
+                         particles contain RNA.  Souther. "))
+	  (test-case ()))
+
+(every DNA-Virus has
+       (has-part ((a Protein-Coat) (a Viral-DNA))))
+
+
+
+
+

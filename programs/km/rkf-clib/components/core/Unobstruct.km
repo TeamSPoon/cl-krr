@@ -1,0 +1,103 @@
+;; 
+;;    $Id: Unobstruct.km,v 1.27 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Unobstruct has
+	    (superclasses	(Make-Accessible))
+	    (required-slot   	(object))
+	    (primary-slot 	(agent instrument))
+	    (secondary-slot      	())
+	    (cmap-correspondence 	(
+					 (:seq object "object")
+					 (:seq agent "unobstructor")
+					 (:seq instrument "instrument used")
+					 ))
+          #|(sentence-type      (*punctual *conclusive))|#
+)
+
+(every Unobstruct has
+       (object  ((a Entity)))
+       (agent   ((must-be-a Entity)))
+       (defeats ((allof (the object-of of (the object of Self))
+			where
+			((the classes of It) = Be-Obstructed))))
+
+       ;; The precondition is not needed since it is the 
+       ;; same as the del-list.
+       ;; (pcs-list ())
+
+       (del-list ((forall (the defeats of Self)
+			  (:triple (It) object (the object of Self) [Unobstruct-del-1])))))
+
+(comment [Unobstruct-del-1] (:seq (the object of Self) " is no longer obstructed.")
+	 "An unobstruct removes an obstruction from something.")
+
+(every Unobstruct has
+  (text-active-verbseq-sg ("unobstructs"))
+  (text-active-verbseq-pl ("unobstruct"))
+  (text-passive-verbseq-sg ("gets unobstructed"))
+  (text-passive-verbseq-pl ("get unobstructed"))
+
+  (text-argslots ((:seq base instrument path result)))
+)
+
+
+;; As with Obstruct, we must specify that the agent must 
+;; move to the location of the object as part of the
+;; prepatory step in an attempt to obstruct the object.
+(every Unobstruct has
+       (preparatory-event 
+	(((:default
+	     (if (has-value (the agent of Self))
+		 then
+		 (a Move with
+		    (object      ((the agent of Self)))
+		    (destination ((a Spatial-Entity with
+				     (is-at ((the object of Self))))))
+)))))))
+
+(Unobstruct has 
+	    (test-case      ('(
+			       (*pedestrian has (instance-of (Physical-Object)))
+                            
+			       (a Obstruct with 
+				(object (*pedestrian)))
+                            
+			       (do-and-next (thelast Obstruct))
+                            	(the text-gen of (thelast Obstruct))
+			       (has-value (the Be-Obstructed object-of of 
+					       *pedestrian))
+
+			       (a Move with (object (*car))(path (*path)))
+			       (try-do (thelast Move)) ; Obstruct doesn't
+					               ; *prevent* move's
+			       (the text-gen of (thelast Move))
+			       (a Unobstruct with 
+				(object (*pedestrian)))
+
+			       (do-and-next (thelast Unobstruct))
+			       (the text-gen of (thelast Unobstruct))
+			       (not
+				(has-value (the Be-Obstructed object-of of 
+						*pedestrian)))
+
+			       (try-do (thelast Move))
+			       ))))
+
+
+
+
+
+
+;; automatically added WN synsets
+(Unobstruct has (wn16-synset ((:set  
+                                         (:triple "disengage" 2 "v")
+                                         (:triple "free" 7 "v")
+))))
+
+(Unobstruct has (wn20-synset ((:set
+                                         (:triple "disengage" 2 "v")
+                                         (:triple "free" 7 "v")
+))))
+
+(every Unobstruct has (text-nominalization ("unobstructing")))

@@ -1,0 +1,21 @@
+;;
+;; $Id: PbS.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(PbS has (superclasses (Ionic-Compound)))
+
+(every PbS has	
+       (has-chemical-name ("lead sulfide"))
+       (has-part 
+	((a Pb-Plus-2) (a S-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 Pb-Plus-2)
+		    (:pair 1 S-Minus-2))))))))
+
+
+(every PbS has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Pb-Plus-2) (a S-Minus-2))))
+

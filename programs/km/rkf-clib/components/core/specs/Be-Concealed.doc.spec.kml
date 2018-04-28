@@ -1,0 +1,34 @@
+<!--- $Id: Be-Concealed.doc.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Concealed>
+<superconcept name=Be-Inaccessible>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Be-Concealed>
+  <definition>an object is physically or visibly hidden</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+
+  <primaryslot name=base>
+    <restriction>the Entity that the <slot>object</slot> is Concealed from</restriction>
+  </primaryslot>
+
+  <wnsynsets><adj>concealed#1, concealed#2
+  </adj></wnsynsets>
+  <wnsynsets><adj>hidden#1, out-of-sight#1
+  </adj></wnsynsets>
+</component>
+
+<musing>
+<conceptref name=Conceal> puts an <slot>object</slot> into the
+Be-Concealed state. <conceptref name=Expose> takes an <slot>object</slot> 
+out of this state.
+</musing>
+
+</kml>
+
+

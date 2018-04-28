@@ -1,0 +1,19 @@
+;;
+;; $Id: Vendor.km,v 1.4 2005/04/10 22:42:22 gking Exp $
+;;
+
+(Vendor has 
+	(superclasses (Organization-Role))
+	(description ("Vendor is a kind of Role played by Organizations during Sell events.  Use Company or Corporation (see also) for organizations that typically play the Vendor role.")))
+
+(every Vendor has 
+   (in-event ((a Sell with
+                 (agent ((the Organization played-by of Self))))))
+)
+
+(Vendor has (wn20-synset ((:set
+	 		     (:triple "seller" 1 "n")
+	 		     (:triple "marketer" 1 "n")
+	 		     (:triple "vender" 1 "n")
+	 		     (:triple "trafficker" 1 "n")
+))))

@@ -1,0 +1,22 @@
+;; 
+;;    $Id: 3-Prime-End.km,v 1.12 2001/06/04 01:05:19 pzyeh Exp $ 
+;; 
+
+(3-Prime-End has
+         (superclasses (Nucleic-Acid-Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("The has-region of a nucleotide sequence acid which includes
+                        the terminal nucleotide with a free 3' hydroxyl group.
+                        Souther. "))
+         (description ("The has-region of a Nucleotide-Sequence which has contents
+                        the terminal Nucleotide with a free 3' Hydroxyl-Group.
+                        Souther. "))   
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every 3-Prime-End has 
+       (is-at-of ((a 3-Prime-Nucleotide)))
+       )
+

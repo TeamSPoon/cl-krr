@@ -1,0 +1,13 @@
+;;
+;; $Id: Intel-Xeon-MP.km,v 1.2 2004/01/23 19:23:40 kbarker Exp $
+;;
+
+(Intel-Xeon-MP has 
+  (superclasses (Intel-Xeon-Processor))
+  (feature-slot ((the feature-slot of Intel-Xeon-Processor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Intel-Xeon-MP))
+  ))
+)
+
+

@@ -1,0 +1,28 @@
+
+;; $Id: total-force.km,v 1.9 2007/09/27 15:08:40 jchaw Exp $
+
+(total-force has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Exert-Force))
+  (range (Force-Vector-Value))
+  ;(scale-class (Force-Scale))
+  ;(scalar-constant-class (Force-Constant))
+  ;(cardinal-unit-class (UoM-Force))
+  (inverse (total-force-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(total-force has (wn20-synset ((:set
+                               (:triple "force" 3 "n")
+			       (:triple "total force" 0 "n")
+			       ))))
+
+(total-force-of has (instance-of (EventProperty)))
+
+
+
+(total-force has (name ("total force")))

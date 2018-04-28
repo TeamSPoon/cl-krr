@@ -1,0 +1,13 @@
+;;
+;; $Id: NH4-Plus-Substance.km,v 1.2 2003/04/30 19:58:40 wilder Exp $ 
+;;
+
+(NH4-Plus-Substance has (superclasses (Cation-Substance)))
+(every NH4-Plus-Substance has
+       (plays ((a Acid-Role with
+		  (default-ka ((a Equilibrium-Constant-Value with
+				  (value ((:pair 5.6e-10))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Acid)))))))))
+       (has-basic-structural-unit ((a NH4-Plus)))
+)

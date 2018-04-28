@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Pyrophosphate.km,v 1.1 2001/06/12 19:18:10 souther Exp $
+;; 
+
+(Pyrophosphate has
+	     (superclasses (Phosphoryl-Group)) 
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (description ("A compound with two phosphate groups in a chain, 
+                            linked by phosphoanhydride bonds.  Souther. ")) 
+	     (cmap-correspondence ()))
+
+(every Pyrophosphate has
+       (has-part
+        ((a Monophosphate called "Phosphate-1" with
+            (object-of (
+             (a Be-Attached-To with
+                (object (((the has-part of Self) called "Phosphate-2")))
+                (site   
+		 ((the Phosphorus-Atom has-part of
+		       ((the Monophosphate has-part of Self) called "Phosphate-1"))
+		  ((the Oxygen-Atom has-part of
+			((the Monophosphate has-part of Self) called "Phosphate-2"))
+		   called "Oxygen-1")))
+		(instrument ((a Phosphoanhydride-Bond))) ))))
+	 (a Monophosphate called "Phosphate-2") 
+	 )))
+
+

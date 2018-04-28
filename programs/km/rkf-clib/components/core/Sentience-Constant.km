@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Sentience-Constant.km,v 1.3 2008/05/29 14:54:57 kbarker Exp $
+;; 
+
+(Sentience-Constant has
+ (superclasses (Constant)))
+
+  (*sentient has
+        (instance-of (Sentience-Constant)))
+
+  (*not-sentient has
+        (instance-of (Sentience-Constant)))
+
+(a Constant-Exclusion-Set with
+  (exclusive-constants (*sentient *not-sentient))
+)
+

@@ -1,0 +1,41 @@
+;; 
+;;    $Id: ADP.km,v 1.11 2001/06/01 23:26:11 pnav Exp $ 
+;; 
+
+(ADP has
+         (superclasses (Ribonucleotide))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Nucleoside that is produced by hydrolysis of the 
+                        terminal phosphate of ATP. Alberts:ECB:G-1"))
+         (description ("Nucleoside that is produced by hydrolysis of the 
+                        terminal Phosphate of ATP. Alberts:ECB:G-1"))
+         (test-case ()))
+
+(every ADP has
+     (has-part
+      ((a Diphosphate with
+	  (object-of
+	   ((a Be-Attached-To with
+	       (object 
+		((the Adenosine has-part of Self)))
+	       (instrument ((a Covalent-CO-Bond)))
+	       (site
+		( ((the Oxygen-Atom has-part of 
+			((the Monophosphate has-part of
+			      (the Diphosphate has-part of Self))
+			 called "Phosphate-1"))
+		   called "Oxygen-1")
+		  ((the Carbon-Atom has-part of
+                           (the Ribose has-part of
+                                     (the Adenosine has-part of Self)))
+		   called "Carbon-5")
+		  )))
+	    )))
+       (a Adenosine)    
+       ))
+     )
+
+

@@ -1,0 +1,27 @@
+;; 
+;;    $Id: taste.km,v 1.11 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(taste has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Taste-Value))
+   (categorical-constant-class (Taste-Constant))
+   (inverse 	(taste-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(taste has (wn20-synset ((:set
+                               (:triple "taste" 1 "n")  ;; not quite right, but WN doesn't
+                                                        ;; seem to have a synset for how
+                                                        ;; something tastes (analogous to
+                                                        ;; smell#2) as opposed to the
+                                                        ;; faculty of taste or act of tasting
+))))
+
+(taste-of has
+	(instance-of (EntityProperty)))

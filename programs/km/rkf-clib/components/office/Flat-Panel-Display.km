@@ -1,0 +1,12 @@
+;;
+;;    $Id: Flat-Panel-Display.km,v 1.2 2004/01/23 19:23:39 kbarker Exp $
+;;
+
+(Flat-Panel-Display has 
+  (superclasses (Computer-Display))
+  (feature-slot ((the feature-slot of Computer-Display)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Flat-Panel-Display))
+  ))
+)
+

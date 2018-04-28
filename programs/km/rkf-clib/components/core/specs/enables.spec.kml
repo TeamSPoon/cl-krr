@@ -1,0 +1,31 @@
+<!--- $Id: enables.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=enables>
+
+
+<from name=Event>
+<to name=Event>
+
+<description> 
+	an Event facilitates another Event, but is not sufficient to cause it.
+</description>
+
+<examplesentencelist>
+ <examplesentence>
+<text><ex-from>Opening</ex-from> the door enables <ex-to>entry</ex-to> into the room.</text>
+  </examplesentence>
+ <examplesentence>
+	<text><ex-from>Building</ex-from> a new airport allowed larger planes <ex-to>to serve</ex-to> travelers.</text>
+  </examplesentence>
+ <examplesentence>
+	<text>The hardware <ex-from>upgrade</ex-from> on the server enabled better <ex-to>performance</ex-to>.</text>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=entails>
+	Entails is stronger: it asserts that if the first event occurs, the second event will necessarily occur.
+ </neighbor>
+</neighborlist>
+
+</kml>

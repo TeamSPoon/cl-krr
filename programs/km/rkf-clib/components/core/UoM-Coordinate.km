@@ -1,0 +1,22 @@
+;; 
+;; $Id: UoM-Coordinate.km,v 1.5 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Coordinate has
+  (superclasses (Unit-of-Measurement))
+  (base-unit (*degree))
+  (instances (*degree *arcminute *arcsecond))
+)
+
+(UoM-Coordinate has (wn20-synset ((:set
+			      (:triple "degree" 0 "n")
+			      (:triple "arcminute" 0 "n")
+			      (:triple "arcsecond" 0 "n")
+
+			      (:triple "degrees" 0 "n")
+			      (:triple "arcminutes" 0 "n")
+			      (:triple "arcseconds" 0 "n")
+))))
+(*degree has (conversion-multiplier (1.0)))
+(*arcminute has (conversion-multiplier (0.016666668)))
+(*arcsecond has (conversion-multiplier (2.7777778e-4)))

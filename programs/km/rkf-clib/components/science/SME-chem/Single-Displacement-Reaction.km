@@ -1,0 +1,40 @@
+;; 
+;;    $Id: Single-Displacement-Reaction.km,v 1.1 2007/12/13 21:21:46 mrglass Exp $ 
+;; 
+
+
+(Single-Displacement-Reaction has
+   (has-example (Reaction-1AuCl33Ag--1Au3AgCl))
+   (superclasses (Reaction)))
+
+(Single-Displacement-Reaction now-has (user-description ("Reactions in which one reactant replaces the ion in the other reactant.")))
+
+(every Single-Displacement-Reaction has-definition
+   (instance-of (Reaction))
+   ;
+   (result (
+         (a Ionic-Compound-Substance)
+         (a Ionic-Substance)
+         (set-constraint
+            ((Self isa Single-Displacement-Reaction)   
+            or
+            ;all participants must be specified
+            (((forall (the raw-material of Self)
+                        (the term of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))
+               and 
+               (forall (the result of Self)
+                  (the term of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))
+               and
+            ;the raw-materials cannot be the same as the results
+            ((the term of (the atomic-chemical-formula of 
+                        (the has-basic-structural-unit of (the raw-material of Self)))))
+            /=
+            (the term of (the atomic-chemical-formula of 
+                     (the has-basic-structural-unit of (the result of Self))))))))
+            )
+   
+   (raw-material (
+         (a Ionic-Compound-Substance)
+         (a Ionic-Substance)
+         )))
+

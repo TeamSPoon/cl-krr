@@ -1,0 +1,55 @@
+;;; ****************************************************************************
+;;; KMgen
+
+
+;; KM mode
+(load "~/KMgen/km-mode.el")
+(load "~/KMgen/km-frames.el")
+
+(global-font-lock-mode t)
+
+;; to use completion using:
+;; - vocabulary files generated from KMgen
+;; - the add-completions-from-file command
+(dynamic-completion-mode)
+;; forbid any save
+(setq enable-completion nil)
+
+;; to load some files to initialize completion, indentantion and fontification
+;; for KM keywords and ontology vocabulary.
+(km-init-from-files "~/KMgen/")
+
+;;***** emacs as a server - emacsclientw
+
+;; Remove the following if you use the patched version of EmacsW32.
+(server-start)
+
+;; key bindings in the KM mode
+;; bind server-edit to F3, to send a buffer back to KMgen
+;; bound by default to to C-x #
+(global-set-key [f3] 'server-edit)
+
+;;*****
+
+;; Indent each line of the list starting just after point.
+(define-key km-mode-map [f5] 'indent-sexp)
+(define-key km-mode-map [f6] 'indent-and-fontify-defun)
+(define-key km-mode-map [C-f6] 'indent-and-fontify-buffer)
+(define-key km-mode-map [f7] 'km-init-from-files)
+(define-key km-mode-map "\^M" 'newline-and-indent)
+
+;; tabs in Emacs and in SWT text control will not usually rendered the same:
+;; need to make all indentation with spaces only (Emacs normally uses both tabs 
+;; and spaces to indent lines).
+;; As indent-tabs-mode is a per-buffer variable, need to use setq-default
+;; NB pour des fichiers existants, pour convertir les tabs en espaces,
+;; faire Select all et ensuite appliquer la commande untabify
+(setq-default indent-tabs-mode nil)
+
+(add-hook
+ 'km-mode-hook
+ '(lambda ()
+    ;; To get case dependent completion. Affects all searches and matches.
+    (setq case-fold-search nil)))
+
+;;; ****************************************************************************

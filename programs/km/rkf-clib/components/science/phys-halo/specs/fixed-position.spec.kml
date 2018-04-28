@@ -1,0 +1,30 @@
+<!--- $Id: fixed-position.spec.kml,v 1.1 2006/03/22 02:54:58 kbarker Exp $ --->
+<kml>
+<property-doc name=fixed-position>
+<gpd-documentation name=Property>
+
+<from name=Entity>
+<to name=Length-Value>
+
+<description> 
+  fixed position of an unmoving object; fixed-position is a 
+  single number+unit representation, not specifically horizontal
+  or vertical;
+  note that fixed-position is a property of an Entity;
+  use <conceptref name=initial-position> or <conceptref name=final-position>
+  on a Move event for the changing position of a moving object.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Length>
+<p>
+    <examplesentence>
+      <text>The fixed position of the water tower is at -100 meters.</text>
+      <slotdescription name=number>-100</slotdescription>
+      <slotdescription name=unit of measure>meter</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+</value-description>
+</kml>

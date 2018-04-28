@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Precipitate.km,v 1.16 2003/03/30 07:15:41 jchaw Exp $ 
+;; 
+
+(Precipitate has 
+	     (superclasses (Chemical)))
+
+(every Precipitate has-definition
+       (instance-of (Chemical [Precipitate-instance-of-1]))
+       (result-of ((a Reaction)))
+       (solubility ((a Solubility-Value with
+                       (value ((:pair *insoluble H2O-Substance)))
+       )))
+)
+
+(Precipitate has
+     (test-case
+      ('(((the text-gen of 
+	       (oneof 
+		(the result of 
+		     (a Reaction with
+			(raw-material ((the base of
+					    (a Aqueous-Solution with 
+					       (base 
+						((a Sn_NO3_2-Substance)))))
+				       (the base of
+					    (a Aqueous-Solution with 
+					       (base 
+						((a NaOH-Substance)))))))))
+		where (It isa Precipitate)))
+	  = "Sn(OH)2")))))
+
+(comment [Precipitate-instance-of-1]
+  (:seq "Therefore," (the text-gen of Self) "is a precipitate")
+  "By definition, the result of a reaction is a precipitate if it is insoluble in water"
+  (:triple Self solubility *)
+)
+

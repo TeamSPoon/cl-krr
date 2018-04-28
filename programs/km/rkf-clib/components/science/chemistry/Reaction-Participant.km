@@ -1,0 +1,30 @@
+
+;;
+;; $Id: Reaction-Participant.km,v 1.3 2003/02/14 15:53:51 kbarker Exp $
+;;
+
+(Reaction-Participant has
+		      (superclasses (Role)))
+
+(every Reaction-Participant has
+       (in-event ((must-be-a Reaction)))
+       
+       ;; Reactant is either a raw-material or product of the Reaction
+       (played-by ((a Chemical)
+		   (constraint 
+		    (if (has-value (the in-event of Self))
+			then
+		      ((:set (the raw-material-of of TheValue) 
+			     (the result-of of TheValue))
+		       includes 
+		       (the in-event of Self))
+		      else (t)))))
+       (coefficient ((if (has-value (the in-event of Self))
+			 then
+		       #'(LAMBDA () 
+				 (BALANCED-EQUATION-COEFFICIENT 
+				  ;; the reaction
+				  (KM-UNIQUE0 '(the in-event of Self))
+				  ;; the chemical
+				  (KM-UNIQUE0 '(the played-by of Self))))))))
+       

@@ -1,0 +1,24 @@
+;; 
+;; $Id: energy.km,v 1.1 2010/01/29 16:47:39 kbarker Exp $
+;; 
+
+(energy has
+  (instance-of            (EntityProperty))
+  (domain                 (Spatial-Entity))    
+  (range                  (Energy-Value))
+  (scalar-constant-class  (Energy-Constant))
+  (cardinal-unit-class    (UoM-Energy))
+  (inverse                (energy-of))
+  (fluent-status          (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (cardinality            (N-to-1))
+  (original-slot      (t))	
+)
+
+(energy-of has
+	(instance-of (EntityProperty)))
+
+(energy has (wn20-synset ((:set
+                               (:triple "energy" 1 "n")
+))))
+

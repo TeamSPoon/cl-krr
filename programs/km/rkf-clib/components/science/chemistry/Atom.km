@@ -1,0 +1,93 @@
+;;    $Id: Atom.km,v 1.29 2003/02/21 15:19:41 wilder Exp $
+
+(Atom has
+      (superclasses (Chemical-Entity)))
+
+;; Atoms have some chemistry related properties
+;; such as atomic-number, chemical-group, chemical-period
+(every Atom has
+       ; new code to support translation from chemical formula to chemical name
+       (has-chemical-name
+        ((#'(LAMBDA ()
+              (GET-DB 'SYMBOL
+                      (STRING-CAPITALIZE (STRING 
+					  (KM-UNIQUE0
+					   '(the atomic-symbol of Self))))
+                      'NAME)))))
+
+       ; new code to support translation from chemical formula to chemical name
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with 
+	    (term ((:seq (:pair 1 (the atomic-symbol of Self))))))))
+
+       (atomic-chemical-formula ((the nested-atomic-chemical-formula of Self)))
+       (charge ((a Charge-Value with
+		   (value ((:pair 0 *electronic-charge))))))
+       #|(atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 
+			   (the atomic-symbol 
+				of
+				Self))))))))|#
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 
+			   (the atomic-symbol 
+				of
+				Self))))))))
+       (atomic-number 
+	((a Atomic-Number-Value with
+	    (value
+	     ((:pair
+	       (#'(LAMBDA () (LET ((RESULT (GET-DB 
+					    'SYMBOL 
+					    (STRING-CAPITALIZE (STRING (KM-UNIQUE0 '(the atomic-symbol of Self)))) 
+					    'ATOMIC_NUMBER)))
+				  (IF (NUMBERP RESULT)
+				      (LIST (ROUND RESULT))
+				      NIL))))
+	       nil))))))
+       (atomic-weight 
+	((a Atomic-Weight-Value with
+	    (value 
+	     ((:pair
+	       (#'(LAMBDA () (LET ((RESULT (GET-DB 
+					    'SYMBOL 
+					    (STRING-CAPITALIZE (STRING (KM-UNIQUE0 '(the atomic-symbol of Self)))) 
+					    'ATOMIC_WEIGHT)))
+				  (IF (NUMBERP RESULT)
+				      (LIST RESULT)
+				      NIL))))
+	      *dalton))))))
+;       (atomic-symbol 
+;	(#'(LAMBDA () (LIST (GET-DB 
+;			     'SYMBOL 
+;			     (STRING-CAPITALIZE (STRING (KM-UNIQUE0 '(the atomic-symbol of Self)))) 
+;			     'SYMBOL)))))
+       (electronegativity
+	((a Electronegativity-Value with
+	    (value
+	     ((:pair
+	       (#'(LAMBDA () (LET ((RESULT (LIST (GET-DB
+					      'SYMBOL
+					      (STRING-CAPITALIZE (STRING (KM-UNIQUE0 '(the atomic-symbol of Self))))
+					      'ELECTRONEGATIVITY))))
+				  (IF (NUMBERP RESULT)
+				      (LIST RESULT)
+				      NIL))))
+	       nil))))))
+       (chemical-period ((a Number)))
+)
+
+(every Atom has
+  (text-phrase ((if (has-value (the string-name of
+                                    (the atomic-chemical-formula of Self)))
+                 then (the string-name of
+                           (the atomic-chemical-formula of Self))
+                 else (the atomic-symbol of Self)))
+  )
+)
+
+

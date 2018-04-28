@@ -1,0 +1,9 @@
+;; $Id: HCO3-Minus.km,v 1.4 2003/02/22 16:24:52 jchaw Exp $ 
+(HCO3-Minus has (superclasses (Anion)))
+(every HCO3-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *electronic-charge))))))
+	(has-chemical-name ("hydrogen carbonate" "bicarbonate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 C) (:pair 3 O)))))))
+)

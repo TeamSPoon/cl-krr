@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Electron-Acceptor.km,v 1.9 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Electron-Acceptor has
+         (superclasses (Chemical-Entity))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Atom or molecule that takes up electrons readily.
+                        Upon gaining an electron, it is said to be reduced.
+                        Alberts:ECB:G-7"))
+         (test-case ()))
+
+(every Electron-Acceptor has 
+       (purpose ((a Recipient-Role with
+		    (in-event ((a Reduction))))
+		 ))
+       )
+
+(every Electron-Acceptor has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

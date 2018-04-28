@@ -1,0 +1,61 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Weak-Acid5358
+
+
+|#
+
+(disable-classification)
+
+(Weak-Acid has (superclasses (Acid))
+		(description ("A weak acid is an acid that does not ionize in solution to a significant extent.")))
+
+(_Weak-Acid5369 has
+  (prototype-of (Weak-Acid))
+ (prototype-scope (Weak-Acid 
+       (the-class Acid with (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak nil))))))) 
+       (the-class Chemical with (plays ((a Acid-Role with (intensity ((a Intensity-Value with (value ((:pair *weak Acid))))))))))))
+  (prototype-participants (_Ionic-Compound5374 _Anion-Substance5373 _Cation-Substance5372 _State-Value5371 _Solubility-Value5370 _Weak-Acid5369)))
+
+(_Weak-Acid5369 has
+  (instance-of (Weak-Acid))
+  (has-basic-structural-unit (_Ionic-Compound5374))
+  (has-part (_Cation-Substance5372 _Anion-Substance5373))
+  (physical-state (_State-Value5371))
+  (solubility (_Solubility-Value5370)))
+
+(_Solubility-Value5370 has (instance-of (Solubility-Value)))
+
+(_State-Value5371 has (instance-of (State-Value)))
+
+(_Cation-Substance5372 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance5373 has (instance-of (Anion-Substance)))
+
+(_Ionic-Compound5374 has (instance-of (Ionic-Compound)))
+
+(enable-classification)
+
+(explanation (:triple _Weak-Acid5369 instance-of Weak-Acid) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value5370 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value5371 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance5372 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance5373 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound5374 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+
+|#
+
+|#
+

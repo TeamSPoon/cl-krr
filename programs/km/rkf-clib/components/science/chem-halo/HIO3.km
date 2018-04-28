@@ -1,0 +1,14 @@
+;; $Id: HIO3.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HIO3 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HIO3 has
+	(has-chemical-name ("iodic acid"))
+	(has-part ((a H-Plus)(a IO3-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 IO3-Minus)))))))
+)
+(every HIO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a IO3-Minus))))
+

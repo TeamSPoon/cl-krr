@@ -1,0 +1,42 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Fr5255
+
+
+|#
+
+(disable-classification)
+
+(Fr has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+
+(every Fr has (atomic-symbol (Fr)) (atomic-number ((a Atomic-Number-Value with (value ((:pair 87 NIL)))))) (chemical-period (7)))
+
+(_Fr5266 has
+  (prototype-of (Fr))
+  (prototype-scope (Fr))
+  (prototype-participants (_Fr-Plus5271 _Fr5266)))
+
+(_Fr5266 has (instance-of (Fr)) (has-ion (_Fr-Plus5271)))
+
+(_Fr-Plus5271 has (instance-of (Fr-Plus)))
+
+(enable-classification)
+
+(explanation (:triple _Fr5266 has-ion _Fr-Plus5271) (((@ SME entered)) (every Fr has (has-ion ((a Fr-Plus))))))
+
+(explanation (:triple _Fr5266 instance-of Fr) (((@ SME entered)) NIL))
+
+(explanation (:triple _Fr-Plus5271 instance-of Fr-Plus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Fr has (has-ion ((a Fr-Plus))))
+
+|#
+
+|#
+

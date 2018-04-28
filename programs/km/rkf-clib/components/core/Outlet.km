@@ -1,0 +1,25 @@
+;;
+;;    $Id: Outlet.km,v 1.5 2006/02/16 16:40:30 jfan Exp $
+;;
+
+(Outlet  has
+        (superclasses (Portal))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (description ())
+        (cmap-correspondence ()))  
+
+(every Outlet has
+	(in-event ((a Move-Out-Of)))
+	(played-by ((a Spatial-Entity with
+			(path-of ((the in-event of Self))))))
+	(is-between ((the is-inside of Self)
+		     (the is-outside of Self))))
+
+(Outlet has 
+       (wn20-synset 
+	((:set (:triple "exit" 1 "n"))
+	 (:set (:triple "issue" 10 "n"))
+	 (:set (:triple "outlet" 3 "n"))
+	 (:set (:triple "way_out" 1 "n")))))

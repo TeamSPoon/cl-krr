@@ -1,0 +1,22 @@
+;; 
+;;    $Id: equation-uses.km,v 1.10 2008/07/15 20:39:31 kbarker Exp $
+;; 
+
+(equation-uses has
+   (instance-of (KM-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Equation-Set))
+   (inverse (used-in-equation))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))
+   (original-slot      (t))
+;   (dont-cache-values  (t))
+   ;(combine-values-by-appending (t))
+)
+
+(equation-uses now-has (shaken-ui-hidden-slot (f)))
+
+(used-in-equation has
+   (instance-of (KM-Slot-Group))
+   (combine-values-by-appending (t)))

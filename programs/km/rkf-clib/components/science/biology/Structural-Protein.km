@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Structural-Protein.km,v 1.8 2001/09/25 19:32:41 kbarker Exp $ 
+;; 
+
+(Structural-Protein has
+         (superclasses (Protein))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A protein that provides structure to the cell, such
+                        as the proteins forming the cytoskeleton or the
+                        nuclear lamina. Souther "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Structural-Protein has
+       (purpose ((a Instrument-Role with
+                    (in-event ((a Be-Supported))))
+                 ))
+       )
+               

@@ -1,0 +1,18 @@
+;; $Id: HC6H6O6-Minus.km,v 1.8 2008/05/15 22:45:41 vaibhav Exp $ 
+(HC6H6O6-Minus has (superclasses (Anion)))
+(every HC6H6O6-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("ascorbate" "vitamin C"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)(:pair 6 C)(:pair 6 H)(:pair 6 O)))))))
+)
+
+
+(every HC6H6O6-Minus has-definition
+  (instance-of (Chemical-Entity))
+  (charge ((a Charge-Value with (value ((:pair -1 *unity))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 6 C) (:pair 6 H) (:pair 6 O)))))))
+)
+
+(HC6H6O6-Minus has (wn20-synset ((:triple "HC6H6O6-" 0 "n") (:triple "HC_6H_6O_6-" 0 "n"))))

@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Destroy.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Destroy 
+  superclass: Tactical-Mission-Task 
+  superclass:  Action 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+  causes: Decrease with 
+                      property: Combat-Strength of M-U object of Self 
+                      new-value: zero 
+ 
+Note: The renders an enemy force combat-ineffective until it is reconstituted in 1 and 2 below should be a consequence of the Be-Destroyed resulting state? 
+ 
+Note: 3 below seems to be part of the formula for Combat-Strength. 
+ 
+Destroy (E). 
+=======. 
+1. Destroy is a tactical mission task that physically renders an enemy force combat-ineffective until it is reconstituted. 
+2. Alternatively, to destroy a combat system is to damage it so badly that it cannot perform any function or be restored to a usable condition without being entirely rebuilt. 
+3. The amount of damage needed to render a unit combat-ineffective depends on the unit's type, discipline, and morale. 

@@ -1,0 +1,34 @@
+;; 
+;;    $Id: intensity.km,v 1.14 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(intensity has
+   (instance-of   	(EntityProperty EventProperty))
+   (superslots    	())
+   (subslots 	  	())
+   (domain        	(Thing))    ;;could be both Event & Entity
+   (range         	(Intensity-Value))
+   (scale-class         (Intensity-Scale))
+   (scalar-constant-class (Intensity-Constant))
+   (cardinal-unit-class   (UoM-Intensity))
+   (inverse 	  	(intensity-of))
+   (fluent-status      	(*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality        	(N-to-1)))
+
+(intensity has (wn20-synset ((:set
+                               (:triple "intensity" 1 "n")
+                               (:triple "intensity" 3 "n")
+                               (:triple "intensity" 4 "n")
+                               (:triple "strength" 6 "n")
+                               (:triple "intensity level" 1 "n")
+                               (:triple "volume" 6 "n")
+                               (:triple "loudness" 1 "n")
+                               (:triple "saturation" 4 "n")
+                               (:triple "chroma" 1 "n")
+                               (:triple "vividness" 2 "n")
+))))
+
+(intensity-of has
+	(instance-of (EntityProperty EventProperty)))

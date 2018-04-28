@@ -1,0 +1,299 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-2HI1Ca_OH_2--1CaI22H2O ----------
+
+(Reaction-2HI1Ca_OH_2--1CaI22H2O has (superclasses (Reaction)))
+
+(_Reaction-2HI1Ca_OH_2--1CaI22H2O3662 has 
+  (instance-of (Reaction-2HI1Ca_OH_2--1CaI22H2O))
+  (prototype-of (Reaction-2HI1Ca_OH_2--1CaI22H2O))
+  (prototype-scope (Reaction-2HI1Ca_OH_2--1CaI22H2O))
+  (prototype-participants (_Property-Node3775
+                           _Property-Node3774
+                           _Property-Node3773
+                           _Property-Node3772
+                           _Chemical3770
+                           _Coefficient-Value3769
+                           _Chemical-Entity3768
+                           _Chemical3762
+                           _Coefficient-Value3761
+                           _Chemical-Entity3760
+                           _Chemical-Entity3755
+                           _Chemical3753
+                           _Coefficient-Value3752
+                           _Chemical-Entity3750
+                           _Chemical3749
+                           _Coefficient-Value3748
+                           _Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (big-nodes (_Property-Node3772
+              _Property-Node3773
+              _Property-Node3774
+              _Property-Node3775))
+  (raw-material (_Chemical3762
+                 _Chemical3770))
+  (result (_Chemical3749
+           _Chemical3753))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3749 t)
+                    (:seq raw-material _Chemical3762 t)
+                    (:seq raw-material _Chemical3770 t)
+                    (:seq result _Chemical3753 t))))
+
+(_Property-Node3775 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3752))
+  (contains-edge ((:triple _Coefficient-Value3752 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Property-Node3774 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3748))
+  (contains-edge ((:triple _Coefficient-Value3748 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Property-Node3773 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3769))
+  (contains-edge ((:triple _Coefficient-Value3769 value (:pair 1 *unity))))
+  (big-node-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Property-Node3772 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3761))
+  (contains-edge ((:triple _Coefficient-Value3761 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Chemical3770 has 
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (has-basic-structural-unit (_Chemical-Entity3768))
+  (coefficient (_Coefficient-Value3769))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3769 t)))
+  (raw-material-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Coefficient-Value3769 has 
+  (contains-node-of (_Property-Node3773))
+  (coefficient-of (_Chemical3770))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Chemical-Entity3768 has 
+  (is-basic-structural-unit-of (_Chemical3770))
+  (instance-of (Chemical-Entity
+                Ca_OH_2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Chemical3762 has 
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (has-basic-structural-unit (_Chemical-Entity3760))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3761))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3761 t)))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Coefficient-Value3761 has 
+  (contains-node-of (_Property-Node3772))
+  (coefficient-of (_Chemical3762))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Chemical-Entity3760 has 
+  (is-basic-structural-unit-of (_Chemical3762))
+  (instance-of (Chemical-Entity
+                HI))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Chemical-Entity3755 has 
+  (instance-of (Chemical-Entity
+                H2O))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3753))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Chemical3753 has 
+  (has-basic-structural-unit (_Chemical-Entity3755))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3752))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3752 t)))
+  (result-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Coefficient-Value3752 has 
+  (contains-node-of (_Property-Node3775))
+  (coefficient-of (_Chemical3753))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Chemical-Entity3750 has 
+  (instance-of (Chemical-Entity
+                CaI2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3749))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Chemical3749 has 
+  (has-basic-structural-unit (_Chemical-Entity3750))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3748))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3748 t)))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(_Coefficient-Value3748 has 
+  (contains-node-of (_Property-Node3774))
+  (coefficient-of (_Chemical3749))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (_Reaction-2HI1Ca_OH_2--1CaI22H2O3662)))
+
+(explanation (:triple _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 result _Chemical3753)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 raw-material _Chemical3770)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 raw-material _Chemical3762)
+  ((a Chemical (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction raw-material))))
+(explanation (:triple _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 result _Chemical3749)
+  ((a Chemical (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction result))))
+(explanation (:triple _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 chemical-equation _Chemical-Equation-Expression3664)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-2HI1Ca_OH_2--1CaI22H2O3662) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-2HI1Ca_OH_2--1CaI22H2O3662) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-2HI1Ca_OH_2--1CaI22H2O3662) (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction chemical-equation))))
+(explanation (:triple _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 instance-of Reaction-2HI1Ca_OH_2--1CaI22H2O)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical3770 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3770 coefficient _Coefficient-Value3769)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical3770 has-basic-structural-unit _Chemical-Entity3768)
+  ((a Chemical-Entity (@ _Chemical3770 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3770 instance-of Chemical)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Coefficient-Value3769 value (:pair 1 *unity))
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Coefficient-Value3769 instance-of Coefficient-Value)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical-Entity3768 atomic-chemical-formula _Chemical-Formula3704)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3768)) or (the term of (the has-chemical-formula of _Chemical-Entity3768)) (@ _Chemical-Entity3768 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3768)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3768))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3768)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3768)))))))))) (@ _Chemical-Entity3768 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3768 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3768 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3768 nested-atomic-chemical-formula _Chemical-Formula3695)
+  ((_Chemical-Formula3695)))
+(explanation (:triple _Chemical-Entity3768 nested-atomic-chemical-formula _Chemical-Formula3695)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity3768)) and (the has-chemical-formula of _Chemical-Entity3768) (@ _Chemical-Entity3768 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity3768)))) (@ _Chemical-Entity3768 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity3768 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3768 has-chemical-formula _Chemical-Formula3693)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 Ca-Plus-2) (:pair 2 OH-Minus)))) (@ _Chemical-Entity3768 Ca_OH_2 has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3768 has-chemical-formula _Chemical-Formula3693)
+  ((if ((the has-part of _Chemical-Entity3768) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity3768)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity3768)))) (@ _Chemical-Entity3768 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity3768) (the Anion has-part of _Chemical-Entity3768)))) (@ _Chemical-Entity3768 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity3768) (@ _Chemical-Entity3768 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3768 instance-of Ca_OH_2)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical-Entity3768 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3770 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3762 has-basic-structural-unit _Chemical-Entity3760)
+  ((a Chemical-Entity (@ _Chemical3762 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3762 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3762 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction raw-material))))
+(explanation (:triple _Chemical3762 coefficient _Coefficient-Value3761)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical3762 instance-of Chemical)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Coefficient-Value3761 value (:pair 2 *unity))
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Coefficient-Value3761 instance-of Coefficient-Value)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical-Entity3760 atomic-chemical-formula _Chemical-Formula3743)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3760)) or (the term of (the has-chemical-formula of _Chemical-Entity3760)) (@ _Chemical-Entity3760 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3760)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3760))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3760)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3760)))))))))) (@ _Chemical-Entity3760 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3760 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3760 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3760 nested-atomic-chemical-formula _Chemical-Formula3734)
+  ((if ((not (the nested-atomic-chemical-formula of _Chemical-Entity3760)) and (the has-chemical-formula of _Chemical-Entity3760) (@ _Chemical-Entity3760 Ionic-Compound nested-atomic-chemical-formula)) then (the output of (a Compute-Nested-Atomic-Formula-from-Formula with (input ((the has-chemical-formula of _Chemical-Entity3760)))) (@ _Chemical-Entity3760 Ionic-Compound nested-atomic-chemical-formula)) (@ _Chemical-Entity3760 Ionic-Compound nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3760 has-chemical-formula _Chemical-Formula3732)
+  ((a Chemical-Formula with (term ((:seq (:pair 1 H-Plus) (:pair 1 I-Minus)))) (@ _Chemical-Entity3760 HI has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3760 has-chemical-formula _Chemical-Formula3732)
+  ((if ((the has-part of _Chemical-Entity3760) and (has-value (the value of (the charge of (the Cation has-part of _Chemical-Entity3760)))) and (has-value (the value of (the charge of (the Anion has-part of _Chemical-Entity3760)))) (@ _Chemical-Entity3760 Ionic-Compound has-chemical-formula)) then (the output of (a Compute-Chemical-Formula-of-Ionic-Compound with (input ((the Cation has-part of _Chemical-Entity3760) (the Anion has-part of _Chemical-Entity3760)))) (@ _Chemical-Entity3760 Ionic-Compound has-chemical-formula)) (comm [Ionic-Compound-has-chemical-formula-1] _Chemical-Entity3760) (@ _Chemical-Entity3760 Ionic-Compound has-chemical-formula))))
+(explanation (:triple _Chemical-Entity3760 instance-of HI)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical-Entity3760 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3762 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical-Entity3755 atomic-chemical-formula _Chemical-Formula3719)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3755)) or (the term of (the has-chemical-formula of _Chemical-Entity3755)) (@ _Chemical-Entity3755 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3755)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3755))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3755)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3755)))))))))) (@ _Chemical-Entity3755 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3755 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3755 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3755 nested-atomic-chemical-formula _Chemical-Formula3717)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 O)))) (@ _Chemical-Entity3755 H2O nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3755 instance-of H2O)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical-Entity3755 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3753 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3753 instance-of Entity)
+  ((a Entity (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Event (result must-be-a)))))
+(explanation (:triple _Chemical3753 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3753 coefficient _Coefficient-Value3752)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical3753 has-basic-structural-unit _Chemical-Entity3755)
+  ((a Chemical-Entity (@ _Chemical3753 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3753 instance-of Chemical)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Coefficient-Value3752 value (:pair 2 *unity))
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Coefficient-Value3752 instance-of Coefficient-Value)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical-Entity3750 instance-of CaI2)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical-Entity3750 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3749 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3749 has-basic-structural-unit _Chemical-Entity3750)
+  ((a Chemical-Entity (@ _Chemical3749 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3749 instance-of Entity)
+  ((a Entity (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Event (result must-be-a)))))
+(explanation (:triple _Chemical3749 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3749 instance-of Chemical)
+  ((a Chemical (@ _Reaction-2HI1Ca_OH_2--1CaI22H2O3662 Reaction result))))
+(explanation (:triple _Chemical3749 coefficient _Coefficient-Value3748)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Chemical3749 instance-of Chemical)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Coefficient-Value3748 value (:pair 1 *unity))
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+(explanation (:triple _Coefficient-Value3748 instance-of Coefficient-Value)
+  ((added-at Reaction-2HI1Ca_OH_2--1CaI22H2O "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

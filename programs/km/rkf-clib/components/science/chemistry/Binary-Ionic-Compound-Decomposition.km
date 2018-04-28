@@ -1,0 +1,112 @@
+; 
+;;    $Id: Binary-Ionic-Compound-Decomposition.km,v 1.5 2003/08/21 20:53:56 tecuci Exp $ 
+;; 
+
+(Binary-Ionic-Compound-Decomposition has
+					(superclasses (Reaction)))
+
+(every Binary-Ionic-Compound-Decomposition has-definition
+       (instance-of (Reaction 
+		     [Binary-Ionic-Compound-Decomposition-instance-of-1]))
+       (raw-material ((a Ionic-Compound-Substance with
+			 (object-of ((a Heat))) ;; reaction only happen when heated
+			 (has-basic-structural-unit
+			  ((a Salt with
+			      (atomic-chemical-formula
+			       ((a Chemical-Formula)
+				(constraint
+				 ;; there are only 2 elements in the formula
+				 ((the number of
+				      (the elements of
+					       (the term of TheValue)))
+				  = 2)))))))))))
+
+(every Binary-Ionic-Compound-Decomposition has
+       (result (;; the metal
+		(a Chemical with
+		   (has-basic-structural-unit
+		    ((forall 
+		      (the2 of
+			    (the elements of
+				 (the term of
+				      (the atomic-chemical-formula of
+					   (the Cation has-part of
+						(the has-basic-structural-unit of
+						     (the raw-material of Self)))))))
+		      where
+		      ((oneof2 (the superclasses of It) where (It2 = Metal-Atom))
+		       or
+		       (It = Metal-Atom))
+		      (an instance of It))))
+		   [Binary-Ionic-Compound-Decomposition-result-1]
+		   )
+
+		;; it's one of the following elements
+		;; then
+		(forall (:set H N O F Cl Br I)
+			where
+			(It =
+			    (the2 of
+				  (the1 of
+					(the term of
+					     (the atomic-chemical-formula of
+						  (the Anion has-part of
+						       (the has-basic-structural-unit of
+							    (the raw-material of Self))))))))
+			(a Molecular-Compound-Substance with
+			   (has-basic-structural-unit
+			    (
+			     (a Molecular-Compound with
+				(atomic-chemical-formula 
+				 (
+				  (a Chemical-Formula with
+				     (term ((:seq
+					     (:pair 2 
+						    It)))))))
+				
+				(has-chemical-formula 
+				 (
+				  (a Chemical-Formula with
+				     (term ((:seq
+					     (:pair 2 It)))))))))))))))
+
+
+(comment [Binary-Ionic-Compound-Decomposition-instance-of-1]
+  "Therefore, this reaction is a Binary-Ionic Compound Decomposition reaction"
+
+  "By definition, a Binary Ionic-Compound Decomposition Reaction occurs when a binary ionic compound is heated"
+)
+
+(comment [Binary-Ionic-Compound-Decomposition-result-1]
+  (:seq "In this reaction," (the text-gen of (the raw-material of Self))
+        "reacts to produce"
+        (andify (the text-gen of (the result of Self))))
+
+  "In general, a Binary Ionic-Compound Decomposition Reaction converts a binary
+ionic-compound into basic elements"
+)
+
+
+
+(Binary-Ionic-Compound-Decomposition 
+ has
+ (test-case ( '(
+		((the number of
+		     (allof
+		      (the result of
+			   (a Reaction with
+			      (raw-material 
+			       ((a NaI-Substance with (object-of ((a Heat))))))))
+		      where
+		      (((the has-basic-structural-unit of It) isa Na)
+		       or
+		       ((the elements of
+			    (the term of 
+				 (the atomic-chemical-formula of 
+				      (the has-basic-structural-unit of It))))
+		       = (:set (:pair 2 I))))))
+		 =
+		 2)
+))))
+		     
+	       

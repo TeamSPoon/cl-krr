@@ -1,0 +1,16 @@
+;;
+;;    $Id: Projector.km,v 1.5 2005/04/10 21:19:07 jchaw Exp $
+;;
+
+(Projector has 
+  (superclasses (Computer-Display))
+  (feature-slot ((the feature-slot of Computer-Display)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) 
+                  where ((the domain of It) = Projector))
+  ))
+)
+
+(Projector has (wn20-synset ((:set
+			     (:triple "projector" 1 "n")	
+			     (:triple "projector" 2 "n")	
+))))

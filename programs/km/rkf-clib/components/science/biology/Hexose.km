@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Hexose.km,v 1.8 2001/05/01 22:31:20 pnav Exp $ 
+;; 
+
+(Hexose has
+	(superclasses (Monosaccharide))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+	(description ("A six-carbon monosaccharide. Lodish:MCB:G-8."))
+	(cmap-correspondence ()))
+
+(every Hexose has
+       (has-part 
+	(
+	 (exactly 6 Carbon-Atom))))
+
+

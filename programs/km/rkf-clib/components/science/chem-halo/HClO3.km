@@ -1,0 +1,19 @@
+;;
+;; $Id: HClO3.km,v 1.5 2006/01/24 20:27:29 jfan Exp $
+;;
+
+(HClO3 has (superclasses (Ionic-Compound)))
+
+(every HClO3 has	
+       (has-chemical-name ("hydrogen chlorate"))
+       (has-part 
+	((a H-Plus) (a ClO3-Minus)))
+       (has-chemical-formula 	
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 H-Plus)
+		    (:pair 1 ClO3-Minus))))))))
+(every HClO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a ClO3-Minus))))
+

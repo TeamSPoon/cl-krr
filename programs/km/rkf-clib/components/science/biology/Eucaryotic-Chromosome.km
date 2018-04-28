@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Eucaryotic-Chromosome.km,v 1.7 2002/06/21 19:16:59 tecuci Exp $ 
+;; 
+
+(Eucaryotic-Chromosome has
+         (superclasses (Chromosome))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Long, threadlike structure composed of DNA and 
+                        associated proteins that carries part or all of the
+                        genetic information of an organism.  Alberts:ECB:G-4.
+                        Note: Alberts definition for 'chromosome'. "))
+         (test-case ()))
+
+(every Eucaryotic-Chromosome has
+       (material ((a Chromatin)))
+       (has-part ((a Eucaryotic-DNA)
+		  (a Histone-Complex with
+
+		     (element-type (Histone))
+		     (object-of
+		      ((a Be-Attached-To with
+			  (object ((a DNA-Molecule))))))
+		     )
+		  ))
+       )
+
+
+
+

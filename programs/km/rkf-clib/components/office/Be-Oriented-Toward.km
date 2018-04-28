@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Be-Oriented-Toward.km,v 1.1 2005/01/24 23:00:44 billj Exp $
+;;
+
+(Be-Oriented-Toward has
+
+		(description ("A State in which the agent is oriented
+toward the object in at least one of several possible senses of
+`oriented toward'.  It could mean, for example, that agent is tilted
+toward object, or agent faces object (but see Be-In-Front-Of), or the
+maxor axis of agent points toward object, or agent has a rotational
+axis toward object, etc ."))
+
+		(superclasses (State)))
+
+
+; Be-Oriented-Toward is intended to express the same meaning as the
+; predicate is-oriented-toward.  However, unlike is-oriented-toward,
+; Be-Oriented-Toward does not require one to use KM's situation
+; mechanism (or, for translations of KM's Clib, its functional
+; equivalent) in order to deal with issues of temporal qualification.

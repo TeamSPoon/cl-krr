@@ -1,0 +1,16 @@
+;; 
+;; $Id: slot-gloss.km,v 1.4 2007/04/11 21:42:43 jchaw Exp $
+;; 
+
+(slot-gloss has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Slot))
+   (range (String))
+   (fluent-status (*Non-Fluent))
+   (original-slot      (t))	
+   (cardinality (N-to-1))        ;; go ahead and allow slots to have same gloss
+)
+
+(slot-gloss-of has (instance-of (NL-Slot-Group)))

@@ -1,0 +1,183 @@
+
+;;
+;; $Id: Count-Viewpoint.km,v 1.16 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(Count-Viewpoint has (superclasses (Viewpoint)))
+
+(every Count-Viewpoint now-has
+  (viewpoint-question (
+    (make-phrase (:seq "How many"
+                       (the viewpoint-filter of Self)
+                       (the2 of (the2 of (the elements of (the viewpoint-query of Self))))
+                       "does"
+                       (the text-def-head of (the1 of (the2 of (the elements of (the viewpoint-query of Self)))))
+                       "have?"
+                 )
+  )))
+
+  (viewpoint-answer ((
+    (?fr == (the1 of (the2 of (the elements of (the viewpoint-query of Self)))))
+    and
+    (?sl == (the2 of (the2 of (the elements of (the viewpoint-query of Self)))))
+    and
+    (?va == (the3 of (the2 of (the elements of (the viewpoint-query of Self)))))
+    and
+    (if (oneof (constraints-for (the ?sl of ?fr))
+         where ((?constr == (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|It|))))))
+                and
+                ((?constr = "at-least") or (?constr = "exactly") or (?constr = "at-most")))
+        )
+     then (make-sentence
+            (:seq (the text-def-head of ?fr)
+                  (if (has-value (the text-gloss of ?sl))
+                   then (the text-gloss of ?sl)
+                   else (if (has-value (the text-slot of ?sl))
+                         then (the (the text-slot of ?sl) of ?fr)
+                         else (:seq "--" (the name of ?sl) "--")
+                        )
+                  )
+                  (andify
+                    (forall ?c in (constraints-for (the ?sl of ?fr))
+                     where ((?constr == (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|?c|))))))
+                            and
+                            ((?constr = "at-least") or (?constr = "exactly") or (?constr = "at-most"))
+                            and
+                            (?filterclass == (#'(LAMBDA () (CDDADR (KM-UNIQUE0 '|?c|)))))
+                            and
+                            (if (has-value (the viewpoint-filter of Self))
+                             then (oneof (the viewpoint-filter of Self)
+                                   where (It subsumes ?filterclass))
+                             else t
+                            )
+                           )
+                      (:seq (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|?c|)))))
+                            (#'(LAMBDA () (CADADR (KM-UNIQUE0 '|?c|))))
+                            (#'(LAMBDA () (CDDADR (KM-UNIQUE0 '|?c|))))
+                      )
+                  ))
+            )
+          )
+     else (if (?va isa Number)
+           then (make-sentence
+                  (:seq (the text-def-head of ?fr)
+                        (if (has-value (the text-gloss of ?sl))
+                         then (the text-gloss of ?sl)
+                         else (if (has-value (the text-slot of ?sl))
+                               then (the (the text-slot of ?sl) of ?fr)
+                               else (:seq "--" (the name of ?sl) "--")
+                              )
+                        )
+
+                        ?va
+
+                        ;; use the viewpoint-filter if it exists
+                        (if (has-value (the viewpoint-filter of Self))
+                         then (oneof (the viewpoint-filter of Self) where t)
+                        ;; otherwise find a common subsumer (not Thing) of the slot fillers
+                         else (oneof ?sc in (the all-superclasses of (the classes of (the ?sl of ?fr))) 
+                               where ((not (oneof ?c in (the classes of (the has-part of _Heart)) 
+                                            where (not (?sc subsumes ?c)))) 
+                                      and (?sc /= Thing)
+                                     )
+                              )
+                        )
+                  )
+                )
+          )
+   )
+  )))
+
+  (viewpoint-detail ((
+    (?fr == (the1 of (the2 of (the elements of (the viewpoint-query of Self)))))
+    and
+    (?fr-orig == (#'(LAMBDA () (PS-UNCLONE '|?fr|))))
+    and
+    (?sl == (the2 of (the2 of (the elements of (the viewpoint-query of Self)))))
+    and
+    (?fs-index == (#'(LAMBDA () (INDEX-KB-FRAME-SLOT '|?fr| '|?sl|))))
+    and
+    (make-phrase
+      (:seq 
+            "<b>"
+            (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                            (CAR (KM0 '|?fr|))
+                            (CAR (KM0 '(|make-phrase| (|the| |text-head| |of| |?fr|))))))
+            )
+            "nospace" ":</b>"
+            (make-sentence (
+              (the user-description of (the instance-of of ?fr))
+              or
+              (the description of (the instance-of of ?fr))
+              or
+              (the text-definition-sentence of ?fr)
+            ))
+
+            (if (has-value (the user-assumption of (the instance-of of ?vq-frame)))  ;; assumptions for Frame class
+             then (:seq "<br /><br /><b>Assumptions:</b><br />
+"
+                        (forall ?as in (the user-assumption of
+                                            (the instance-of of ?fr))
+                          (:seq "
+<li>" ?as "</li>")
+                        )
+                  )
+            )
+
+            "<br /><br />
+"
+            (get-justification (:triple ?fr-orig instance-of *))
+            (get-justification (:triple ?fr ?sl *))
+
+            "<br /><br />
+"
+            (if (has-value ?fs-index)
+             then (:seq "<li>What is"
+                        "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                        "nospace"
+                        ?fs-index
+                        "nospace"
+                        "')\">"
+                        (if (has-value (the text-slot of ?sl))
+                         then (:seq (the text-indef-head of ?fr)
+                                    (the (the text-slot of ?sl) of ?fr)
+                              )
+                         else (:seq "the" (the name of ?sl) "of"
+                                    (the text-indef-head of ?fr)
+                              )
+                        )
+                        "nospace" "</A>?
+"
+                        "</li>
+"
+                  )
+            )
+
+    ))
+  )))
+)
+
+#|
+(every Plant-Cell has (has-part ((at-least 2 Chromosome))))
+(a Plant-Cell)
+(a Chromosome)
+(_Plant-Cell9538 has (has-part (_Chromosom9539)))
+(a Count-Viewpoint with  
+   (viewpoint-target (_Plant-Cell9538))
+   (viewpoint-filter (Chromosome))
+   (viewpoint-query ((:pair *slot-value (:triple _Plant-Cell9538 has-part *))))
+)
+
+(Combination-Reaction has (superclasses (Reaction)))
+(every Combination-Reaction has
+   (result ((exactly 1 Chemical)))
+)
+(a Combination-Reaction)
+(a Count-Viewpoint with  
+   (viewpoint-target (_Combination-Reaction9586))
+   (viewpoint-query ((:pair *slot-value (:triple _Combination-Reaction9586 result *))))
+)
+
+(the viewpoint-answer-page of _Count-Viewpoint9589)
+|#
+

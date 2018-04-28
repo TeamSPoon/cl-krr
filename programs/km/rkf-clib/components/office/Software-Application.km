@@ -1,0 +1,40 @@
+;;
+;;    $Id: Software-Application.km,v 1.15 2005/08/23 21:57:54 billj Exp $
+;;
+
+;; IRIS_class: SoftwareApplication
+;; iris lists Information-Object as super
+;; in clib Information is not a super!
+
+(Software-Application has
+		      (superclasses (Computer-Program InformationObject))
+		      (required-slot ())
+		      (primary-slot ())
+		      (secondary-slot ())
+		      (cmap-correspondence ())
+		      (test-case ()))
+
+
+(every Software-Application has
+       (hasMessage ((a Message)))
+       (hasRepresentative ((a Representative)))
+       (hasSoftwareApplicationPurpose ((a Thing)))
+       ;(isCreatorApplicationOf ((a Information)))
+)
+
+(hasMessage has(instance-of (Interface-Slot)) (domain (Software-Application)) (range (Message)) (cardinality (N-to-N)) (inverse (isMessageOf)))
+
+(hasRepresentative has (instance-of (Interface-Slot))  (domain (Software-Application))  (range (Representative))  (inverse (isRepresentativeFor)) (cardinality (N-to-N)))
+
+(hasSoftwareApplicationPurpose has (instance-of (Interface-Slot)) (domain (Software-Application)) #|(range (Thing))|#  (cardinality (N-to-N)) (inverse (isSoftwareApplicationPurposeOf)))
+
+#|
+;; iris range should be Information-Object
+;; but Information-Object not in clib yet 
+
+(isCreatorApplicationOf has (instance-of (Interface-Slot))  (domain (Software-Application))  (range (Information)) (cardinality (N-to-N)))
+|#
+
+
+
+

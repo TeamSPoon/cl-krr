@@ -1,0 +1,76 @@
+;; 
+;;    $Id: Go-To.km,v 1.23 2010/06/11 18:28:15 kbarker Exp $ 
+;; 
+
+(Go-To has
+  (superclasses         (Locomotion))
+  (required-slot        (agent object destination))
+  (primary-slot         (origin path))
+  (cmap-correspondence  (
+                         (:seq object "the thing moved")
+                         (:seq agent "the mover")
+                         (:seq origin "moved from")
+                         (:seq destination "moved to")
+                         (:seq path "moved through")
+                         (:seq toward "moved toward")
+                         (:seq away-from "moved away from")
+                        ))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Go-To has
+       (destination ((a Spatial-Entity))))
+
+(every Go-To has
+  (text-active-verbseq-sg ("goes"))
+  (text-active-verbseq-pl ("go"))
+
+  (text-argslots ((:seq destination)))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(every Go-To has
+   (preparatory-event ((:default
+	(a Go-To with
+	   (destination ((the origin of Self)))
+	   (object      ((the object of Self))))
+))))
+
+(Go-To has 
+         (test-case      ('(
+                            (new-situation)
+
+                            (*Gracie-Lou has (instance-of (Physical-Object)))
+                            (*Bass-Hall has (instance-of (Physical-Object)))
+
+                            (a Go-To with
+                               (agent       (*Gracie-Lou))
+                               (destination (*Bass-Hall)))
+                            (do-and-next (thelast Go-To))
+                            (the text-gen of (thelast Go-To))
+                            ((the location of *Gracie-Lou) =
+                             (the location of *Bass-Hall))
+))))
+
+
+
+;; automatically added WN synsets
+(Go-To has (wn16-synset ((:set  
+                                    (:triple "go" 1 "v")
+                                    (:triple "locomote" 1 "v")
+                                    (:triple "move" 1 "v")
+                                    (:triple "travel" 1 "v")
+                                    (:triple "reach" 1 "v")
+))))
+
+(Go-To has (wn20-synset ((:set
+                                    (:triple "go" 1 "v")
+                                    (:triple "locomote" 1 "v")
+                                    (:triple "move" 1 "v")
+                                    (:triple "travel" 1 "v")
+                                    (:triple "reach" 1 "v")
+))))
+(every Go-To has (text-nominalization ("going")))

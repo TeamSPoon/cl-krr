@@ -1,0 +1,40 @@
+;; 
+;;    $Id: Cytoskeleton.km,v 1.17 2002/06/21 19:16:58 tecuci Exp $ 
+;; 
+
+(Cytoskeleton has
+         (superclasses (Organic-Structure))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("System of protein filaments in the cytoplasm of a
+                        eucaryotic cell that gives the cell a polarized shape 
+                        and the capacity for directed movement.  Its most
+                        abundant components are actin filaments, microtubules,
+                        and intermediate filaments. Alberts:ECB:G-5."))
+         (test-case ()))
+
+(every Cytoskeleton has
+         (has-part ((a Aggregate with
+
+		       (element-type (Actin-Filament)))
+		    (a Aggregate with
+
+		       (element-type (Microtubule)))
+		    (a Aggregate with
+
+                       (element-type (Intermediate-Filament)))
+                    ))
+	 (purpose ((a Instrument-Role with
+		      (in-event ((a Be-Supported with
+				    (object ((a Cell)))
+				    ))))))
+	 )
+
+	  
+
+
+
+
+

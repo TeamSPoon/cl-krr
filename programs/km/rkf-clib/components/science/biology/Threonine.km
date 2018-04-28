@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Threonine.km,v 1.11 2001/06/01 23:26:52 pnav Exp $ 
+;; 
+
+(Threonine has                
+         (superclasses (Nonpolar-Amino-Acid Essential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("An uncharged polar amino acid with an ethanol side 
+                        chain.  Souther")) 
+         (test-case ()))
+
+(every Threonine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 (((the Carbon-Atom has-part of 
+		       (the Ethanol-Group has-part of
+			    (the Amino-Acid-Side-Chain has-part of Self)))
+		   called "Carbon-2"))
+		 )))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Ethanol-Group))))
+	)))
+ 
+
+
+

@@ -1,0 +1,12 @@
+;; $Id: AuCl3-Substance.km,v 1.1 2007/12/02 05:38:50 vaibhav Exp $
+
+(AuCl3-Substance has (superclasses (Ionic-Compound-Substance)))
+(every AuCl3-Substance has
+        (has-basic-structural-unit ((a AuCl3)))
+        (has-chemical-name ("gold chloride"))
+)
+(every AuCl3-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a AuCl3))))
+~
+

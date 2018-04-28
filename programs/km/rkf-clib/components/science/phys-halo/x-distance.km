@@ -1,0 +1,26 @@
+;;
+;; $Id: x-distance.km,v 1.10 2008/07/25 17:52:38 kbarker Exp $
+;;
+
+(x-distance has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Move Displacement-Vector-Value))    
+   (range       (Length-Value))
+   (scale-class (Distance-Scale))
+   (scalar-constant-class (Distance-Constant))
+   (cardinal-unit-class   (UoM-Length))
+   (inverse 	(x-distance-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(x-distance has (wn20-synset ((:set
+                               (:triple "x distance" 0 "n")
+;                               (:triple "translation" 7 "n")
+))))
+
+(x-distance-of has
+	(instance-of (EventProperty)))
+(x-distance has (name ("horizontal distance")))

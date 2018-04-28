@@ -1,0 +1,97 @@
+;; 
+;; $Id: UoM-Frequency.km,v 1.11 2010/01/29 18:33:14 kbarker Exp $ 
+;; 
+
+(UoM-Frequency has
+   (superclasses (Unit-of-Measurement))
+   (base-unit (*hertz))
+   (instances (*per-hour *per-minute *per-second 
+               *hertz *kilohertz *megahertz *gigahertz
+               *per-day *per-week *per-month *per-year
+               *hourly  *daily *weekly *monthly *yearly)
+   )
+)
+
+(*per-hour has (instance-of (UoM-Frequency))
+           (name ("per hour"))
+	   (wn20-synset ((:set (:triple "per hour" 0 "n")))))
+
+(*per-minute has (instance-of (UoM-Frequency))
+           (name ("per minute"))
+	   (wn20-synset ((:set  (:triple "per minute" 0 "n")))))
+
+(*per-second has (instance-of (UoM-Frequency))
+           (name ("per second"))
+	   (wn20-synset ((:set (:triple "per second" 0 "n")))))
+
+(*hertz has (instance-of (UoM-Frequency))
+           (name ("Hz"))
+	   (wn20-synset ((:set (:triple "hertz" 0 "n")
+			       (:triple "Hz" 0 "n")))))
+
+(*kilohertz has (instance-of (UoM-Frequency))
+           (name ("kHz"))
+	   (wn20-synset ((:set (:triple "kilohertz" 0 "n")
+			       (:triple "kHz" 0 "n")))))
+
+(*megahertz has (instance-of (UoM-Frequency))
+           (name ("MHz"))
+	   (wn20-synset ((:set (:triple "megahertz" 0 "n")
+			       (:triple "MHz" 0 "n")))))
+
+(*gigahertz has (instance-of (UoM-Frequency))
+           (name ("GHz"))
+	   (wn20-synset ((:set  (:triple "gigahertz" 0 "n")
+				(:triple "GHz" 0 "n")))))
+               
+(*per-day has (instance-of (UoM-Frequency))
+           (name ("per day"))
+	   (wn20-synset ((:set (:triple "per day" 0 "n")))))
+			       
+(*per-week has (instance-of (UoM-Frequency))
+           (name ("per week"))
+	   (wn20-synset ((:set (:triple "per week" 0 "n")))))
+
+(*per-month has (instance-of (UoM-Frequency))
+           (name ("per month"))
+	   (wn20-synset ((:set (:triple "per month" 0 "n")))))
+
+(*per-year has (instance-of (UoM-Frequency))
+           (name ("per year"))
+	   (wn20-synset ((:set (:triple "per year" 0 "n")))))
+               
+(*hourly   has (instance-of (UoM-Frequency))
+           (name ("hourly"))
+	   (wn20-synset ((:set (:triple "hourly" 0 "n")))))
+
+(*daily has (instance-of (UoM-Frequency))
+           (name ("daily"))
+	   (wn20-synset ((:set (:triple "daily" 0 "n")))))
+
+(*weekly has (instance-of (UoM-Frequency))
+           (name ("weekly"))
+	   (wn20-synset ((:set (:triple "weekly" 0 "n")))))
+
+(*monthly has (instance-of (UoM-Frequency))
+           (name ("monthly"))
+	   (wn20-synset ((:set (:triple "monthly" 0 "n")))))
+
+(*yearly has (instance-of (UoM-Frequency))
+           (name ("yearly"))
+	   (wn20-synset ((:set (:triple "yearly" 0 "n")))))
+(*per-hour has (conversion-multiplier (2.7777778e-4)))
+(*per-minute has (conversion-multiplier (0.016666668)))
+(*per-second has (conversion-multiplier (1.0)))
+(*hertz has (conversion-multiplier (1.0)))
+(*kilohertz has (conversion-multiplier (1000.0)))
+(*megahertz has (conversion-multiplier (1000000.0)))
+(*gigahertz has (conversion-multiplier (1.0e+9)))
+(*per-day has (conversion-multiplier (1.1574074e-5)))
+(*per-week has (conversion-multiplier (1.6534392e-6)))
+(*per-month has (conversion-multiplier (3.8026747e-7)))
+(*per-year has (conversion-multiplier (3.1688955e-8)))
+(*hourly has (conversion-multiplier (2.7777778e-4)))
+(*daily has (conversion-multiplier (1.1574074e-5)))
+(*weekly has (conversion-multiplier (1.6534392e-6)))
+(*monthly has (conversion-multiplier (3.8026747e-7)))
+(*yearly has (conversion-multiplier (3.1688955e-8)))

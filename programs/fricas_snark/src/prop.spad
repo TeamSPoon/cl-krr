@@ -1,0 +1,444 @@
+)abbrev domain PROP Proposition
+++ Author: Kurt Pagani
+++ Date Created: Mon Jan 18 17:32:02 CET 2016
+++ License: BSD
+++ References:
+++ Description:
+++
+Proposition(R) : Exports == Implementation where
+
+  R: Join(Ring, Comparable) 
+
+  X   ==> Expression R
+  IF  ==> InputForm
+  OF  ==> OutputForm
+  SY  ==> Symbol
+
+  SEX ==> SExpression
+  
+  
+  Exports == Join(CoercibleTo OF, ConvertibleTo IF) with 
+
+    _/_\  : (%,%) -> %
+    _\_/  : (%,%) -> %
+    _>_>  : (%,%) -> %
+    _~    :  %    -> %
+    _^    : (%,%) -> %
+    _<_<  : (%,%) -> %
+    
+    all   : (X,%) -> %
+    ex    : (X,%) -> %
+    
+    all   : (List X,%) -> %
+    ex    : (List X,%) -> %
+      
+    _=    : (X,X) -> %
+    _<    : (X,X) -> %
+    _>    : (X,X) -> %
+    _>_=  : (X,X) -> %
+    _<_=  : (X,X) -> %
+    
+    
+    pred  : (Symbol,List X) -> %
+    true  : () -> %
+    false : () -> %
+    
+    
+    assume  : % -> SEX
+    assert  : % -> SEX
+    prove   : % -> SEX
+    prove   : (%,List %) -> SEX
+    prove?  : (%,List %,%) -> SEX
+
+    convert : % -> SEX
+    kind    : % -> Symbol
+    fst     : % -> Union(%,List X)
+    snd     : % -> %
+    
+    infix   : % -> OF
+
+
+    runTimeLimit   : PositiveInteger -> PositiveInteger
+    runTimeLimit?  : () -> SEX
+
+    useResolution  : Boolean -> Boolean
+    useResolution? : () -> Boolean
+
+    useHyperResolution  : Boolean -> Boolean
+    useHyperResolution? : () -> Boolean
+    
+    useParaModulation  : Boolean -> Boolean
+    useParaModulation? : () -> Boolean
+    
+    setOption : (String,String) -> SEX
+    getOption :  String -> SEX
+    getDefaultOptions : () -> Table(String,String)
+    getCurrentOptions : () -> Table(String,String)
+    ppOptions : Table(String,String) -> Void
+    
+    
+    initialize : () -> SEX
+    reset      : () -> SEX
+    reset      : Table(String,String) -> SEX
+    
+
+    printRow     : PositiveInteger -> SEX
+    printRows    : () -> SEX
+    printTPTP    : () -> SEX
+    printSummary : () -> SEX
+    printAgenda  : () -> SEX
+    printOptions : () -> SEX
+
+
+  Implementation == SEX  add 
+  
+
+    Rep:=SEX
+
+
+    if X has ConvertibleTo(IF) then
+
+      x /\ y == CONJUNCTION(x,y)$Lisp
+      x \/ y == DISJUNCTION(x,y)$Lisp
+      x >> y == IMPLICATION(x,y)$Lisp
+      x ^  y == EQUIVALENCE(x,y)$Lisp
+      x << y == IMPLIED_BY(x,y)$Lisp
+      ~ x    == NEGATION(x)$Lisp
+
+
+      all(lx:List X, y:%):% ==
+        xx:IF:=convert(lx)@IF
+        ALLQUANT(cdr xx,y)$Lisp
+        
+        
+      ex(lx:List X, y:%):% ==
+        xx:IF:=convert(lx)@IF
+        EXQUANT(cdr xx,y)$Lisp
+        
+
+      all(x:X,y:%):% == all([x],y)
+       
+      ex (x:X,y:%):% == ex([x],y)
+        
+
+      pred(s:Symbol, lx:List X):% ==
+        xx:IF:=convert(lx)@IF
+        PREDICATE(s,cdr xx)$Lisp
+        
+      true()  == TRUESYM()$Lisp
+      false() == FALSESYM()$Lisp
+      
+ 
+      t = s ==
+        tt:IF:=convert(t)$X
+        ss:IF:=convert(s)$X 
+        EQLTERM(tt,ss)$Lisp
+        
+      t < s ==
+        tt:IF:=convert(t)$X
+        ss:IF:=convert(s)$X 
+        LTTERM(tt,ss)$Lisp        
+
+      t > s ==
+        tt:IF:=convert(t)$X
+        ss:IF:=convert(s)$X 
+        GTTERM(tt,ss)$Lisp
+        
+      t <= s ==
+        tt:IF:=convert(t)$X
+        ss:IF:=convert(s)$X 
+        LEQTERM(tt,ss)$Lisp
+
+      t >= s ==
+        tt:IF:=convert(t)$X
+        ss:IF:=convert(s)$X 
+        GEQTERM(tt,ss)$Lisp
+   
+
+    -- conversion & analysis
+
+    convert(x:%):SEX == x::Rep
+    
+    kind(x:%):Symbol ==
+      s:SEX:=convert(x)@SEX
+      t:SEX:=TRUEF()$Lisp
+      atom? s => 
+        TRUESYMP(s)$Lisp = t   => 'true_symbol
+        FALSESYMP(s)$Lisp = t  => 'false_symbol
+        'constant
+      s:=car s
+      ALLQUANTP(s)$Lisp = t    => 'universal
+      EXQUANTP(s)$Lisp = t     => 'existential
+      CONJUNCTIONP(s)$Lisp = t => 'conjunction
+      DISJUNCTIONP(s)$Lisp = t => 'disjunction
+      NEGATIONP(s)$Lisp = t    => 'negation
+      IMPLICATIONP(s)$Lisp = t => 'implication
+      EQUIVALENCEP(s)$Lisp = t => 'equivalence
+      IMPLIEDBYP(s)$Lisp = t   => 'reverse_implication
+      'predicate
+      
+    fst(x) ==
+      s:SY:=kind x
+      if s='universal or s='existential then
+        return [symbol(convert(y)@SEX)::X for y in destruct(x.2)]
+      s='predicate => x
+      return x.2
+
+    snd(x) ==
+      s:SY:=kind x
+      if s='universal or s='existential then
+        return x.3
+      s='predicate => FALSEF()$Lisp
+      s='negation => FALSEF()$Lisp
+      return x.3
+   
+    --
+    -- Options
+    --
+    
+    b2l(b:Boolean):Symbol == if b then "T"::Symbol else NIL::Symbol
+    
+
+    runTimeLimit(t) == RUN_-TIME_-LIMIT(t)$Lisp
+    runTimeLimit?() == RUN_-TIME_-LIMIT?()$Lisp
+    
+    useResolution(b) == USE_-RESOLUTION(b2l b)$Lisp
+    useResolution?() == USE_-RESOLUTION?()$Lisp
+    
+    useHyperResolution(b) == USE_-HYPERRESOLUTION(b2l b)$Lisp
+    useHyperResolution?() == USE_-HYPERRESOLUTION?()$Lisp
+    
+    useParaModulation(b) == USE_-PARAMODULATION(b2l b)$Lisp
+    useParaModulation?() == USE_-PARAMODULATION?()$Lisp
+      
+    setOption(opt,val) == SET_SNARK_OPTION(opt,val)$Lisp
+    getOption(opt) == GET_SNARK_OPTION(opt)$Lisp
+    
+    
+    snarkOption:Table(String,String):=table()
+    
+    snarkOption("variable-symbol-prefixes"):="(#\?)"
+    snarkOption("use-resolution"):="t"
+    snarkOption("use-hyperresolution"):="nil"
+    snarkOption("use-negative-hyperresolution"):="nil"
+    snarkOption("use-ur-resolution"):="nil"
+    snarkOption("use-ur-pttp"):="nil"
+    snarkOption("use-paramodulation"):="t"
+    snarkOption("use-factoring"):="nil"
+    snarkOption("use-equality-factoring"):="nil"
+    snarkOption("use-condensing"):="t"
+    snarkOption("use-resolve-code"):="nil"
+    snarkOption("use-unit-restriction"):="nil"
+    snarkOption("use-input-restriction"):="nil"
+    snarkOption("use-literal-ordering-with-resolution"):="nil"
+    snarkOption("use-literal-ordering-with-hyperresolution"):="nil"
+    snarkOption("use-literal-ordering-with-negative-hyperresolution"):="nil"
+    snarkOption("use-literal-ordering-with-ur-resolution"):="nil"
+    snarkOption("use-literal-ordering-with-paramodulation"):="nil"
+    snarkOption("use-subsumption"):="t"
+    snarkOption("use-subsumption-by-false"):="_":false_""
+    snarkOption("use-lookahead-in-dpll-for-subsumption"):="t"
+    snarkOption("use-simplification-by-units"):="t"
+    snarkOption("use-simplification-by-equalities"):="t"
+    snarkOption("use-term-ordering"):="_":rpo_""
+    snarkOption("use-term-ordering-cache"):="nil"
+    snarkOption("use-default-ordering"):="t"
+    snarkOption("1-ary-functions>2-ary-functions-in-default-ordering"):="nil"
+    snarkOption("ordering-functions>constants"):="nil"
+    snarkOption("rpo-status"):="_":multiset_""
+    snarkOption("kbo-status"):="_":left-to-right_""
+    snarkOption("kbo-variable-weight"):="1"
+    snarkOption("kbo-builtin-constant-weight"):="1"
+    snarkOption("use-indefinite-answers"):="nil"
+    snarkOption("use-conditional-answer-creation"):="nil"
+    snarkOption("use-constructive-answer-restriction"):="nil"
+    snarkOption("use-answers-during-subsumption"):="t"
+    snarkOption("use-constraint-solver-in-subsumption"):="nil"
+    snarkOption("allow-skolem-symbols-in-answers"):="t"
+    snarkOption("rewrite-answers"):="nil"
+    snarkOption("rewrite-constraints"):="t"
+    snarkOption("use-constraint-purification"):="nil"
+    snarkOption("use-embedded-rewrites"):="t"
+    snarkOption("use-function-creation"):="nil"
+    snarkOption("use-replacement-resolution-with-x=x"):="nil"
+    snarkOption("use-paramodulation-only-into-units"):="nil"
+    snarkOption("use-paramodulation-only-from-units"):="nil"
+    snarkOption("use-single-replacement-paramodulation"):="nil"
+    snarkOption("use-partitions"):="nil"
+    snarkOption("partition-communication-table"):="nil"
+    snarkOption("declare-root-sort"):="_":top-sort-a_""
+    snarkOption("declare-string-sort"):="string"
+    snarkOption("assert-context"):="_":root_""
+    snarkOption("assert-supported"):="t"
+    snarkOption("assume-supported"):="t"
+    snarkOption("prove-supported"):="t"
+    snarkOption("assert-sequential"):="nil"
+    snarkOption("assume-sequential"):="nil"
+    snarkOption("prove-sequential"):="nil"
+    snarkOption("prove-closure"):="t"
+    snarkOption("number-of-given-rows-limit"):="nil"
+    snarkOption("number-of-rows-limit"):="nil"
+    snarkOption("agenda-length-before-simplification-limit"):="10000"
+    snarkOption("agenda-length-limit"):="3000"
+    snarkOption("run-time-limit"):="60"  -- run time limit 60sec
+    snarkOption("row-argument-count-limit"):="nil"
+    snarkOption("row-weight-limit"):="nil"
+    snarkOption("row-weight-before-simplification-limit"):="nil"
+    snarkOption("level-pref-for-giving"):="nil"
+    snarkOption("variable-weight"):="1"
+    snarkOption("builtin-constant-weight"):="1"
+    snarkOption("bag-weight-factorial"):="nil"
+    snarkOption("agenda-ordering-function"):="_"snark:row-priority_""
+    snarkOption("row-priority-size-factor"):="0"
+    snarkOption("row-priority-weight-factor"):="1"
+    snarkOption("row-priority-depth-factor"):="1"
+    snarkOption("row-priority-level-factor"):="1"
+    snarkOption("use-clausification"):="t"
+    snarkOption("use-equality-elimination"):="nil"
+    snarkOption("use-magic-transformation"):="nil"
+    snarkOption("use-ac-connectives"):="t"
+    snarkOption("use-purity-test"):="nil"
+    snarkOption("use-relevance-test"):="nil"
+    snarkOption("use-assertion-analysis"):="t"
+    snarkOption("use-associative-unification"):="nil"
+    snarkOption("use-associative-identity"):="nil"
+    snarkOption("use-dp-subsumption"):="nil"
+    snarkOption("unify-bag-basis-size-limit"):="1000"
+    snarkOption("use-term-memory-deletion"):="t"
+    snarkOption("variable-sort-marker"):="#\."
+    snarkOption("use-variable-name-sorts"):="nil"
+    snarkOption("use-well-sorting"):="nil"
+    snarkOption("use-extended-implications"):="warn"
+    snarkOption("use-extended-quantifiers"):="warn"
+    snarkOption("use-sort-relativization"):="nil"
+    snarkOption("use-quantifier-preservation"):="nil"
+    snarkOption("input-floats-as-ratios"):="t"
+    snarkOption("use-closure-when-satisfiable"):="t"
+    snarkOption("listen-for-commands"):="nil"
+    snarkOption("use-to-lisp-code"):="t"
+    snarkOption("variable-to-lisp-code"):="nil"
+    snarkOption("print-rows-when-given"):="nil"
+    snarkOption("print-rows-when-derived"):="t"
+    snarkOption("print-rows-when-processed"):="nil"
+    snarkOption("print-final-rows"):="t"
+    snarkOption("print-unorientable-rows"):="t"
+    snarkOption("print-pure-rows"):="nil"
+    snarkOption("print-irrelevant-rows"):="nil"
+    snarkOption("print-rewrite-orientation"):="nil"
+    snarkOption("print-rows-test"):="nil"
+    snarkOption("print-rows-shortened"):="nil"
+    snarkOption("print-rows-prettily"):="t"
+    snarkOption("print-row-wffs-prettily"):="t"
+    snarkOption("print-row-answers"):="t"
+    snarkOption("print-row-constraints"):="t"
+    snarkOption("print-row-reasons"):="t"
+    snarkOption("print-row-goals"):="t"
+    snarkOption("print-row-partitions"):="t"
+    snarkOption("print-row-length-limit"):="nil"
+    snarkOption("print-given-row-lines-printing"):="2"
+    snarkOption("print-given-row-lines-signalling"):="1"
+    snarkOption("print-summary-when-finished"):="nil"
+    snarkOption("print-clocks-when-finished"):="nil"
+    snarkOption("print-term-memory-when-finished"):="nil"
+    snarkOption("print-agenda-when-finished"):="nil"
+    snarkOption("print-rows-when-finished"):="nil"
+    snarkOption("print-options-when-starting"):="nil"
+    snarkOption("print-assertion-analysis-notes"):="nil"
+    snarkOption("print-symbol-table-warnings"):="t"
+    snarkOption("print-time-used"):="nil"
+    snarkOption("trace-unify"):="nil"
+    snarkOption("meter-unify-bag"):="nil"
+    snarkOption("trace-unify-bag-basis"):="nil"
+    snarkOption("trace-unify-bag-bindings"):="nil"
+    snarkOption("trace-dp-refute"):="nil"
+    snarkOption("trace-rewrite"):="nil"
+    snarkOption("trace-optimize-sparse-vector-expression"):="nil"
+    snarkOption("trace-dpll-subsumption"):="nil"
+    snarkOption("time-interval-sort-name"):="_"snark:time-interval_""
+    snarkOption("time-point-sort-name"):="_"snark:time-point_""
+    snarkOption("eliminate-negations"):="nil"
+    snarkOption("flatten-connectives"):="t"
+    snarkOption("ex-join-negation"):="t"
+    snarkOption("use-subsume-bag"):="t"
+
+
+    initialize() == INITIALIZE_QUIET()$Lisp
+
+    reset() == 
+      initialize()
+      setOption("use-resolution","t")
+      setOption("use-paramodulation","t") -- equality axioms
+      setOption("print-rows-when-derived","nil")
+      setOption("print-final-rows","nil")
+      setOption("print-unorientable-rows","nil")
+      setOption("print-summary-when-finished","nil")
+      setOption("print-clocks-when-finished","nil")
+      setOption("print-term-memory-when-finished","nil")
+      setOption("print-agenda-when-finished","nil")
+      setOption("print-options-when-starting","nil")
+      setOption("print-assertion-analysis-notes","nil")
+      setOption("run-time-limit","60") -- run time limit 60s!      
+
+
+    reset(t:Table(String,String)):SEX ==
+      initialize()
+      for k in keys(t) repeat
+        setOption(k,t(k))
+        
+
+    getDefaultOptions() == snarkOption
+    
+ 
+    getCurrentOptions() ==
+      r:Table(String,String):=table()
+      x:SEX
+      for k in keys snarkOption repeat
+        x:=getOption(k)
+        if null? x then r(k):="nil"
+        if symbol?(x) or string?(x) then 
+          r(k):=lowerCase string(symbol(x))
+        if integer? x then 
+          r(k):=convert(integer(x))@String
+      r
+      
+      
+    ppOptions(t) == 
+      import from OutputPackage
+      for k in keys t repeat
+        v:String:=t.k
+        s:String:=concat[k," ..... ",v]
+        output(s)@Void
+      void()
+
+
+    --
+    -- Proving
+    --        
+
+    assume(x) == ASSUME(x)$Lisp
+    
+    assert(x) == ASSUME(x)$Lisp
+    
+    prove(x) == PROVE(x)$Lisp
+    
+    
+    prove(x,y) == 
+      initialize()
+      a:List(SEX):=[assert s for s in y]
+      prove x
+       
+       
+    prove?(x:%, y:List %, z:%):SEX ==
+      initialize()
+      a:List(SEX):=[assert s for s in y]
+      PROVE_WITH_ANSWER(x,z)$Lisp
+
+ 
+    -- Printing
+    printRow(j) == PRINT_-ROW(j)$Lisp
+    printRows() == PRINT_-ROWS()$Lisp
+    printTPTP() == PRINT_ROWS_TPTP()$Lisp
+    printSummary() == PRINT_-SUMMARY()$Lisp
+    printAgenda()  == PRINT_-AGENDA()$Lisp 
+    printOptions() == PRINT_-OPTIONS('T)$Lisp
+ 

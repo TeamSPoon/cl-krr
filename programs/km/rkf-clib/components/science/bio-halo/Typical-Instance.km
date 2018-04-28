@@ -1,0 +1,144 @@
+;;
+;;    $Id: Typical-Instance.km,v 1.3 2007/11/30 01:59:25 tecuci Exp $
+;;
+
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+;;;; Typical Instances for Top Level Concepts.
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+(disable-classification)
+
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+;;;; Typical instances for Biology.
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+
+;;--------------------------------------------------------------
+;; Typical Instance for Cell.
+;;--------------------------------------------------------------
+(Cell has (typical-instance (*Typical-Instance-of-Cell)))
+(*Typical-Instance-of-Cell has
+  (instance-of 	(Cell))
+  (has-part	((a Organelle) (a Membrane)))
+
+#|---------------------------------------------
+  Commented out because we haven't defined Chromosome, Ribosome, etc.
+
+  (has-region 	((a Cytoplasm)))
+  (has-part 	((a Cytosol) (a Chromosome) (a Ribosome)))
+  (has-part 	((a Plasma-Membrane with
+                    (encloses ((the Cytosol has-part of Self)
+			       (the Chromosome has-part of Self)
+			       (the Ribosome has-part of Self))))))
+---------------------------------------------|#
+)
+
+#|--------------------------------------------------------------
+The following are commented out because they are not defined 
+in the bio-halo ontology.
+
+;;--------------------------------------------------------------
+;; Typical Instance for Eukaryotic-Cell.
+;;--------------------------------------------------------------
+(Eukaryotic-Cell has (typical-instance (*Typical-Instance-of-Eukaryotic-Cell)))
+(*Typical-Instance-of-Eukaryotic-Cell has
+  (instance-of	(Eukaryotic-Cell))
+  (has-region 	((a Eukaryotic-Cytoplasm with
+   		    (is-outside ((the Nucleus has-part of Self))))))
+  (has-part   	((a Cytosol) (a Chromosome) (a Ribosome)))
+  (has-part   	((a Nucleus with
+		    (encloses ((the Chromosome has-part of Self))))))
+  (has-part   	((a Plasma-Membrane with
+                    (encloses ((the Cytosol has-part of Self)
+                               (the Chromosome has-part of Self)
+                               (the Ribosome has-part of Self)
+			       (the Nucleus has-part of Self)))))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Prokaryotic-Cell
+;;--------------------------------------------------------------
+(Prokaryotic-Cell has (typical-instance (*Typical-Instance-of-Cell)))	;; <-- *PZY*: Intentional!
+
+;;--------------------------------------------------------------
+;; Typical Instance for Cytosol.
+;;--------------------------------------------------------------
+(Cytosol has (typical-instance (*Typical-Instance-of-Cytosol)))
+(*Typical-Instance-of-Cytosol has 
+  (instance-of 	(Cytosol))
+  (location 	((a Place))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Chromosome.
+;;--------------------------------------------------------------
+(Chromosome has (typical-instance (*Typical-Instance-of-Chromosome)))
+(*Typical-Instance-of-Chromosome has
+  (instance-of 	(Chromosome))
+  (location 	((a Place))))
+--------------------------------------------------------------|#
+
+;;--------------------------------------------------------------
+;; Typical Instance for Prokaryote.
+;;--------------------------------------------------------------
+(Prokaryote has (typical-instance (*Typical-Instance-of-Prokaryote)))
+(*Typical-Instance-of-Prokaryote has
+  (instance-of 	(Prokaryote))
+  (has-part	((a Cell)))
+  ;; (has-part	((a Prokaryotic-Cell)))
+)
+
+;;--------------------------------------------------------------
+;; Typical Instance for Eukaryote.
+;;--------------------------------------------------------------
+(Eukaryote has (typical-instance (*Typical-Instance-of-Eukaryote)))
+(*Typical-Instance-of-Eukaryote has
+  (instance-of 	(Eukaryote))
+  (has-part	((a Cell)))
+  ;; (has-part	((a Eukaryotic-Cell)))
+)
+
+
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+;;;; Some of the actions in bio-halo. There's not much to say
+;;;; about these concepts for now.
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+
+;;--------------------------------------------------------------
+;; Typical Instance for synthesis.
+;;--------------------------------------------------------------
+(Synthesis has (typical-instance (*Typical-Instance-of-Synthesis)))
+(*Typical-Instance-of-Synthesis has 
+  (instance-of	(Synthesis))
+  (agent	((a Tangible-Entity)))
+  (object	((a Tangible-Entity)))
+  (raw-material ((a Tangible-Entity)))
+  (subevent	((a Action)))
+  (site         ((a Place))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for initiation.
+;;--------------------------------------------------------------
+(Initiation has (typical-instance (*Typical-Instance-of-Initiation)))
+(*Typical-Instance-of-Initiation has
+  (instance-of	(Initiation))
+  (agent 	((a Tangible-Entity)))
+  (object	((a Tangible-Entity)))
+  (subevent	((a Action)))
+  (site         ((a Place))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Elongation.
+;;--------------------------------------------------------------
+(Elongation has (typical-instance (*Typical-Instance-of-Elongation)))
+(*Typical-Instance-of-Elongation has 
+  (instance-of	(Elongation))
+  (raw-material	((a Tangible-Entity)))
+  (object 	((a Tangible-Entity))) 
+  (subevent 	((a Action)))
+  (site         ((a Place))))
+
+(enable-classification)
+

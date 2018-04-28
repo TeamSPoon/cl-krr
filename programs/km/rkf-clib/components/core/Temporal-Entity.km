@@ -1,0 +1,27 @@
+;; 
+;; $Id: Temporal-Entity.km,v 1.4 2010/05/18 14:58:30 kbarker Exp $
+;; 
+
+(Temporal-Entity has
+  (superclasses (Thing)))
+
+;;same-as constraint does a LISP string-compare when Self and TheValue have valid CLib text-description strings.
+;;returns null otherwise, i.e., they are not "same-as".
+;; (every Temporal-Entity has
+;;        (same-as (
+;;                  (constraint 
+;;                   (#'(LAMBDA () (LET ((DEBUG NIL)
+;;                                       (SELF-STRING (KM-UNIQUE0 
+;;                                                     '(|the| |text-description| |of| |Self|)))
+;;                                       (THEVALUE-STRING 
+;;                                        (KM-UNIQUE0 
+;;                                         '(|the| |text-description| |of| |TheValue|))))
+;;                                      (IF DEBUG (FORMAT T "(doing same-as test between ~a(~s) and ~a(~s).~%"
+;;                                                        '|Self| 
+;;                                                        SELF-STRING
+;;                                                        '|TheValue| 
+;;                                                        THEVALUE-STRING))
+;;                                      (AND (STRINGP SELF-STRING)
+;;                                           (STRINGP THEVALUE-STRING)
+;;                                           (STRING= SELF-STRING THEVALUE-STRING)))))))))
+

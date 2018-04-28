@@ -1,0 +1,20 @@
+;;
+;;    $Id: Stapler.km,v 1.7 2005/05/23 18:52:00 kbarker Exp $
+;;
+(Stapler has (superclasses (Office-Equipment)))
+
+(every Stapler has 
+       (purpose ((a Instrument-Role with
+       		    (in-event  ((must-be-a Staple)))
+       		    (played-by (Self))
+		    )))
+       )
+
+(Stapler has (wn20-synset ((:set
+			    (:triple "stapler" 1 "n")
+			    (:triple "stapling_machine" 1 "n")
+))))
+(Stapler has
+  (feature-slot ((the feature-slot of Office-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Stapler)))))
+

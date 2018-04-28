@@ -1,0 +1,14 @@
+;; 
+;;    $Id: C12H22O11-Substance.km,v 1.5 2008/11/03 03:11:25 tecuci Exp $ 
+;; 
+
+(C12H22O11-Substance has (superclasses (Organic-Molecule-Substance)))
+	
+(every C12H22O11-Substance has
+       (has-chemical-name ("sucrose" "sugar" "table sugar"))	
+       (has-basic-structural-unit ((a C12H22O11))))
+
+(every C12H22O11-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a C12H22O11))))
+

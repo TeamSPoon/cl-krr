@@ -1,0 +1,28 @@
+;; 
+;;    $Id: has-functional-part.km,v 1.14 2008/09/05 16:19:59 kbarker Exp $
+;; 
+
+(has-functional-part has
+    (instance-of	(Meronymic-Relation))
+    (superslots 	(has-part))
+    (subslots 		())
+    (domain 		(Entity))
+    (range 		(Entity))
+    (inverse 		(is-functional-part-of))
+    (fluent-status 	(*Inertial-Fluent))
+  (original-slot      (t))	
+    (cardinality 	(N-to-N)))
+
+(has-functional-part has (shaken-ui-hidden-slot (t)))
+
+(has-functional-part has (wn20-synset ((:set
+					(:triple "functional part" 0 "n")))))
+
+(has-functional-part has (text-gloss ("has as functional part")))
+
+(is-functional-part-of has 
+    (superslots  (is-part-of))
+    (instance-of (Meronymic-Relation))
+    (text-gloss  ("is a functional part of"))
+)
+

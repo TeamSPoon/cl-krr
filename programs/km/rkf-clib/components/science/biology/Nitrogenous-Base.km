@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Nitrogenous-Base.km,v 1.9 2001/09/25 18:18:53 kbarker Exp $ 
+;; 
+
+(Nitrogenous-Base has
+         (superclasses (Chemical-Base Nitrogen-Containing-Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A base containing nitrogen."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Nitrogenous-Base has
+       (has-part ((at-least 1 Nitrogen-Atom))))
+
+

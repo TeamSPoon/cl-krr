@@ -1,0 +1,33 @@
+
+;; 
+;; $Id: Signal.km,v 1.8 2004/07/20 22:29:24 gking Exp $
+;; 
+
+(Signal has
+        (superclasses (Role))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (description ())
+        (cmap-correspondence ()))  
+
+(every Signal has
+       	(in-event  ((a Transmit)))
+       	(played-by ((a Entity with
+                       (object-of ((the Transmit in-event of Self)))))
+	)
+)
+
+
+;; automatically added WN synsets
+(Signal has (wn16-synset ((:set  
+                                     (:triple "signal" 1 "n")
+                                     (:triple "signaling" 1 "n")
+                                     (:triple "sign" 3 "n")
+))))
+
+(Signal has (wn20-synset ((:set
+                                     (:triple "signal" 1 "n")
+                                     (:triple "signaling" 1 "n")
+                                     (:triple "sign" 3 "n")
+))))

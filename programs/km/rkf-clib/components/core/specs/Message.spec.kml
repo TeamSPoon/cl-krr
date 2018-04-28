@@ -1,0 +1,55 @@
+<!--- $Id: Message.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Message><system-documentation name=Message>
+<superconcept name=Intangible-Entity>
+
+<definition>
+
+  An encoding of information in a language
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=information-content>
+     knowledge being communicated
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=base>
+     The <conceptref name=Language> in which the <slot>information-content</slot> is encoded
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The message in English was about the outcome of the soccer match.</text>
+    <comment>
+    In this example, the Message is described by these properties:
+    </comment>
+    <slotdescription name=information-content>the outcome of the soccer match</slotdescription>
+    <slotdescription name=base>English</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Language>
+    The langauge in which the information is encoded
+  </neighbor>
+
+  <neighbor name=Information>
+    The content of a message
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

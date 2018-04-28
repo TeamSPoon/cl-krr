@@ -1,0 +1,22 @@
+;; 
+;;    $Id: inhibits.km,v 1.9 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(inhibits has
+       (instance-of (Causal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Event))
+       (range (Event))
+       (inverse (inhibited-by))
+       (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+
+
+
+(inhibits has (text-gloss ("inhibits")))
+(inhibited-by has 
+	(instance-of (Causal-Relation))
+	(text-gloss ("is inhibited by")))

@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Sulfur-Atom.km,v 1.8 2004/01/30 22:02:43 kbarker Exp $ 
+;; 
+
+(Sulfur-Atom has
+         (superclasses (Atom))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A nonmetallic element that occurs either free or 
+                        combined especially in sulfides and sulfates, and is a
+                        constituent of proteins. Websters 9th NCD:1180."))
+         (test-case ()))
+
+(every Sulfur-Atom has
+       (has-part
+        (
+         (a Proton)
+         (exactly 16 Proton)
+         (a Neutron)
+         (exactly 16 Neutron)
+         (a Electron)
+         (exactly 16 Electron)
+         ))
+       (mass ((a Mass-Value with
+		(value ((:pair 32 *dalton))))))
+       )
+
+                
+
+(every Sulfur-Atom has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

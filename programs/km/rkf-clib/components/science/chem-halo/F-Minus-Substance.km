@@ -1,0 +1,18 @@
+;; 
+;;    $Id: F-Minus-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $
+;; 
+
+(F-Minus-Substance has (superclasses (Anion-Substance)))
+(every F-Minus-Substance has
+       (plays ((a Base-Role with	
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 1.471e-12 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Base))))))))
+	      )
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a F-Minus)))
+)
+(every F-Minus-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a F-Minus))))

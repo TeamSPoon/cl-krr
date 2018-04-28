@@ -1,0 +1,77 @@
+;; 
+;;    $Id: Ruin.km,v 1.17 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Ruin has
+      (superclasses   (Break))
+      (required-slot  (object))
+      (primary-slot   (agent instrument by-means-of))
+      (secondary-slot ())
+      (cmap-correspondence (
+                 (:seq agent "the destroyer")
+		 (:seq object "the object ruined")
+		 (:seq by-means-of "an event necessary to ruining the object")
+			    ))
+    #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Ruin has
+       (object 		((a Tangible-Entity)))
+       (agent 		((must-be-a Tangible-Entity)))
+       (instrument 	((must-be-a Tangible-Entity)))
+       (by-means-of	((must-be-a Event)))
+       (resulting-state ((a Be-Ruined)))
+       (add-list 	((:triple
+		 	   (the resulting-state of Self)
+		   	   object
+		   	   (the object of Self) [Ruin-add-1]))))
+
+(comment [Ruin-add-1] (:seq (the object of Self) " is ruined.")
+	 "A ruin causes a Tangible-Entity to be ruined.")
+
+(every Ruin has
+  (text-active-verbseq-sg ("ruins"))
+  (text-active-verbseq-pl ("ruin"))
+  (text-passive-verbseq-sg ("gets ruined"))
+  (text-passive-verbseq-pl ("get ruined"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Ruin has
+      (test-case   ('(
+		      (*House has 
+			(instance-of (Tangible-Entity)))
+		      (a Ruin with 
+			 (object (*House)))
+
+		      ; Ruin *House
+		      (do-and-next (thelast Ruin))
+		      (the text-gen of (thelast Ruin))
+		      (forall (the resulting-state of (thelast Ruin)) (the text-gen of It))
+		      ; *House is in a Be-Ruined state
+		      (has-value (the Be-Ruined object-of of *House))
+
+		      ; *House cannot be repaired.
+		      (a Repair with
+			 (object (*House)))
+
+		      (not (try-do (thelast Repair)))
+		     (the text-gen of (thelast Repair))
+		     ))))
+   
+
+
+
+;; automatically added WN synsets
+(Ruin has (wn16-synset ((:set  
+                                   (:triple "ruin" 1 "v")
+                                   (:triple "destroy" 2 "v")
+))))
+
+(Ruin has (wn20-synset ((:set
+                                   (:triple "ruin" 1 "v")
+                                   (:triple "destroy" 2 "v")
+))))
+(every Ruin has (text-nominalization ("ruin")))

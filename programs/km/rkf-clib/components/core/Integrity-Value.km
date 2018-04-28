@@ -1,0 +1,32 @@
+
+;;
+;; $Id: Integrity-Value.km,v 1.13 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(Integrity-Value has 
+       (superclasses (Property-Value)))
+
+(Integrity-Value has
+   (test-case ('(
+                 (Cheese has (superclasses (Substance)))
+                 (*Romano has (instance-of (Cheese))
+                                (integrity ((a Integrity-Value))))
+                 (*Swiss has (instance-of (Cheese))
+                              (integrity
+                                 ((a Integrity-Value with
+                                     (value ((:pair *permeable Cheese)
+                                     ))
+                                     (less-than
+                                        ((the integrity of *Romano)))
+                              ))))
+
+                 (the value of (the integrity of *Swiss))
+
+                 ((the less-than of (the integrity of *Swiss))
+                       includes (the integrity of *Romano))
+                 ((the greater-than of (the integrity of *Romano))
+                       includes (the integrity of *Swiss))
+))))
+
+(Integrity-Value has (description ("an undivided or unbroken completeness or totality with nothing wanting")))

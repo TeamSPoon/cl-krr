@@ -1,0 +1,14 @@
+;; $Id: H3PO3.km,v 1.3 2008/06/04 22:41:49 tecuci Exp $ 
+(H3PO3 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H3PO3 has
+       (has-chemical-name ("phosphorous acid"))
+	(has-part ((a H-Plus)(a PO3-Minus-3)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 3 H-Plus)
+			(:pair 1 PO3-Minus-3)))))))
+)
+(every H3PO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a PO3-Minus-3))))
+

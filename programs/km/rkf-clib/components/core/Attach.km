@@ -1,0 +1,97 @@
+;; 
+;;    $Id: Attach.km,v 1.32 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Attach has
+  (superclasses		(Action))
+  (required-slot   	(object base))
+  (primary-slot  	(agent))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+		 	 (:seq base "the object being attached to")
+		 	 (:seq object "the object(s) being attached")
+			 ))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Attach has
+  (object       ((exactly 1 Tangible-Entity)
+		 (a Tangible-Entity)))
+
+  (base  	((exactly 1 Tangible-Entity)
+		 (a Tangible-Entity)))
+
+  ;; SOFT PCS:
+  (soft-pcs-list ((:triple (the base of Self) object-of (mustnt-be-a Be-Inaccessible))))
+	
+  (resulting-state   ((a Be-Attached-To)))
+
+  (add-list     ((:set (:triple (the resulting-state of Self) object (the object of Self) [Attach-add-1])
+		       (:triple (the resulting-state of Self) object (the base of Self) [Attach-add-2])))))
+
+(comment [Attach-add-1] (:seq (the object of Self) " is attached to " (the base of Self))
+	 "An attach causes two things to be attached to each other.")
+
+(comment [Attach-add-2] (:seq (the base of Self) " is attached to " (the object of Self))
+	 "An attach causes two things to be attached to each other.")
+
+
+
+(every Attach has
+  (text-active-verbseq-sg ("attaches"))
+  (text-active-verbseq-pl ("attach"))
+  (text-passive-verbseq-sg ("gets attached"))
+  (text-passive-verbseq-pl ("get attached"))
+)
+
+(every Attach has
+	(preparatory-event ((:default
+			     (a Make-Contact with
+				(object ((the object of Self)))
+				(base   ((the base of Self))))
+			     (a Detach with
+				(object ((the object of Self)))
+				(base   ((the base of Self))))
+
+))))
+
+(Attach has 
+  (test-case ( '(
+		 (*bumper has (instance-of (Physical-Object)))
+		 (*sticker has (instance-of (Physical-Object)))
+			    
+		 (a Attach with 
+		    (object (*sticker))
+		    (base   (*bumper)))
+		 (do-and-next (thelast Attach))
+			(the text-gen of (thelast Attach)) 
+
+		(forall (the resulting-state of (thelast Attach)) (the text-gen of It))   
+		 (oneof (the Be-Attached-To object-of of *sticker)
+		        where ((the object of It) includes *bumper))
+		))))
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Attach has (wn16-synset ((:set  
+                                     (:triple "attach" 1 "v")
+                                     (:triple "attach" 3 "v")
+                                     (:triple "connect" 1 "v")
+                                     (:triple "link" 2 "v")
+                                     (:triple "tie" 4 "v")
+))))
+
+
+(Attach has (wn20-synset ((:set
+                                     (:triple "attach" 1 "v")
+                                     (:triple "attach" 3 "v")
+                                     (:triple "connect" 1 "v")
+                                     (:triple "link" 2 "v")
+                                     (:triple "tie" 4 "v")
+))))
+(every Attach has (text-nominalization ("attachment")))

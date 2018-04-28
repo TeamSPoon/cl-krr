@@ -1,0 +1,16 @@
+;;
+;;    $Id: Genetic-Information-Storage.km,v 1.11 2004/01/30 22:02:42 kbarker Exp $
+;;
+        
+(Genetic-Information-Storage has
+     (superclasses (Information-Storage))
+     (description ("The storage of genetic informatin in the static sense,
+                    as for example the storing of hereditary material in the
+                    genes."))
+     )
+
+(every Genetic-Information-Storage has  
+     (object ((a Genetic-Information)))
+     (base   ((a Genetic-Information-Sequence)))
+    )
+(every Genetic-Information-Storage has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

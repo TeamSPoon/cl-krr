@@ -1,0 +1,37 @@
+;; 
+;;    $Id: D-TMP.km,v 1.11 2001/06/01 23:26:20 pnav Exp $ 
+;; 
+
+(D-TMP has
+       (superclasses (Deoxyribonucleotide Nucleoside-Monophosphate))
+       (required-slot ())
+       (primary-slot ())
+       (secondary-slot ())
+       (cmap-correspondence ())
+       (description ("Deoxythymidine monophosphate. One of the four nucleotides
+                      in DNA, containing deoxyribose and thymine. Souther."))
+       (test-case ()))
+
+(every D-TMP has
+       (complement ((must-be-a D-AMP))) 
+       (has-part
+	((a Monophosphate with
+          (object-of
+           ((a Be-Attached-To with
+               (object
+                ((the Deoxythymidine has-part of Self)))
+               (site
+                (((the Carbon-Atom has-part of
+                       (the Deoxyribose has-part of
+                            (the Deoxythymidine has-part of Self)))
+                  called "Carbon-5")
+                 ((the Oxygen-Atom has-part of
+                       (the Monophosphate has-part of Self))
+                  called "Oxygen-1") ))
+               (instrument ((a Covalent-CO-Bond)))
+               ))))
+       (a Deoxythymidine)
+     )))   
+
+
+

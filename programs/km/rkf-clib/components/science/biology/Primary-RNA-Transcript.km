@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Primary-RNA-Transcript.km,v 1.10 2001/05/19 02:50:26 souther Exp $ 
+;; 
+
+(Primary-RNA-Transcript has
+			(superclasses (Eucaryotic-RNA-Transcript))
+			(required-slot ())
+			(primary-slot ())
+			(secondary-slot ())
+			(description ("The newly transcribed RNA molecule 
+                                       before any modifications have been made
+                                       to it in the nucleus.   Souther."))
+			(cmap-correspondence ())
+			(test-case ()))
+
+(every Primary-RNA-Transcript has
+       (has-part
+	((a Cistron)
+	 (a RNA-3prime-UTR)
+	 (a RNA-5prime-UTR)
+	 ))
+       )
+
+
+
+

@@ -1,0 +1,20 @@
+
+;; 
+;;  $Id: Mechanized-Infantry-Brigade.km,v 1.5 2002/09/04 21:51:20 kbarker Exp $
+;; 
+
+(Mechanized-Infantry-Brigade has
+   (superclasses (Mechanized-Infantry-Unit Brigade)))
+
+(every Mechanized-Infantry-Brigade has-definition
+   (instance-of (Mechanized-Infantry-Unit Brigade)))
+
+(every Mechanized-Infantry-Brigade has
+   (element (
+             (a Mechanized-Infantry-Battalion)
+             (a Mechanized-Infantry-Battalion)
+             (a Direct-Support-Artillery-Battalion)
+             (a Armored-Battalion)
+   ))
+)
+

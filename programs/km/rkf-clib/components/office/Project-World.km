@@ -1,0 +1,667 @@
+;;
+;; $Id: Project-World.km,v 1.22 2005/06/30 00:57:31 billj Exp $
+;;
+
+(Project-World has 
+	       (superclasses (Activity));; just to keep it off the top level
+
+		(description ("Project-World and associated terms were
+created for a role playing scenario for the purpose of gathering
+sample data for CALO to learn from during CALO Y1 or Y2.  On
+2005-05-02 Bill Jarrold proposed to the calo-ontology mailing list
+that this class should be removed from CLib.  Although there were no
+objects, he decided that it was marginally better to retain it on the
+grounds that it may provide useful example code."
+
+	       )))
+
+
+					;Bob Feather (Finance Admin, RAIL) 
+
+(*Bob has
+      (instance-of (Person))
+      (person-family-name ("Feather"))
+      (person-given-name ("Bob"))
+      (person-nickname ("Bob"))
+      (called ("Bob Feather"))
+      (plays (*RAIL-FinanceAdmin))
+      (plays (*DLP-FinanceAdmin-1))
+
+      (agent-of ((a Proposal-Costing with
+		    (base ((the Proposal-Document result of *DLP)))))) 
+					;----------------------------------
+					; There's no Proposal-Costing event yet either, so 
+					; this is just a place holder until we figure out how
+					; Bob's project responsibilities will be delineated. 
+					;----------------------------------
+      )
+
+(*COGS-AdminAssist-1 has 
+		     (instance-of (AdministrativeAssistant))
+		     (job-employee-number  ("1115"))
+		     (job-phone-extension  ("2225"))
+		     (job-email-address  ("tuttle@cogs.lrc.com "))
+		     (in-organization (*COGS))
+		     (played-by (*Marie))
+		     (job-supervisor (*COGS-Group-Leader))
+		     )
+
+(*COGS-Group-Leader has 
+		    (instance-of (GroupLeader))
+		    (job-employee-number  ("1116"))
+		    (job-phone-extension  ("2226"))
+		    (job-email-address  ("louis@cogs.lrc.com "))
+		    (in-organization (*COGS))
+		    (played-by (*Jody))
+		    (job-supervisor (*RAIL-Lab-Director))
+		    (job-assistant (*COGS-AdminAssist-1))
+		    (job-director-of (*COGS))
+		    )
+
+(*COGS-Programmer-1 has 
+		    (instance-of (Programmer))
+		    (job-employee-number  ("1113"))
+		    (job-phone-extension  ("2223"))
+		    (job-email-address  ("morris@cogs.lrc.com "))
+		    (in-organization (*COGS))
+		    (played-by (*Charlie))
+		    (job-supervisor (*COGS-Group-Leader))
+		    (job-assistant (*COGS-AdminAssist-1))
+		    )
+
+(*COGS-Proj-Leader-1 has 
+		     (instance-of (ProjectLeader))
+		     (job-employee-number  ("1114"))
+		     (job-phone-extension  ("2224"))
+		     (job-email-address  ("reed@cogs.lrc.com "))
+		     (in-organization (*COGS)) 
+		     (played-by (*Helen))
+		     (job-supervisor (*COGS-Group-Leader))
+		     (job-assistant (*COGS-AdminAssist-1))
+		     )
+
+(*COGS-Researcher-1 has 
+		    (instance-of (Researcher))
+		    (job-employee-number  ("1111"))
+		    (job-phone-extension  ("2221"))
+		    (job-email-address  ("chan@cogs.lrc.com"))
+		    (in-organization (*COGS)) 
+		    (played-by (*Ed))
+		    (job-supervisor (*COGS-Group-Leader))
+		    (job-assistant (*COGS-AdminAssist-1))
+		    )
+
+(*COGS-Researcher-2 has 
+		    (instance-of (Researcher))
+		    (job-employee-number  ("1112"))
+		    (job-phone-extension  ("2222"))
+		    (job-email-address  ("kim@@cogs.lrc.com "))
+		    (in-organization (*COGS))
+		    (played-by (*Sherry))
+		    (job-supervisor (*COGS-Group-Leader))
+		    (job-assistant (*COGS-AdminAssist-1))
+		    )
+
+					;COGS
+
+(*COGS has
+       (called ("The COGS Group"))
+       (instance-of (Group))
+       (element (*COGS-Group-Leader *COGS-Researcher-1
+				    *COGS-Researcher-2 *COGS-Programmer-1 
+				    *COGS-AdminAssist-1 *COGS-Proj-Leader-1 ))
+					; these are just a few of the 
+					; elements in the COGS group
+       )
+
+(*CS-Dept-UCSD has
+	       (called ("The UCSD, Computer Science Department"))
+	       (instance-of (Department))
+	       )
+
+(*CS-Dept-UOA has
+	      (called ("The University of Arizona, Computer Science Department"))
+	      (instance-of (Department))
+	      )
+(*CS-Dept-UOW has
+	      (called ("The University of Wisconsin, Computer Science Department"))
+	      (instance-of (Department)) ;maybe will define Academic-Department
+	      )
+
+					;Charlie Morris (Programmer, HI-LITE, COGS group) 
+
+(*Charlie has
+	  (instance-of (Person))
+	  (person-family-name ("Morris"))
+	  (person-given-name ("Charlie"))
+	  (person-nickname ("Charlie"))
+	  (called ("Charlie Morris"))
+	  (plays (*COGS-Programmer-1))
+	  (plays (*HI-LITE-Programmer-1))
+	  )
+
+(*DLP-AdminAssist-1 has			; Editing-Assemply-Shipping 
+		    (played-by (*Marie))
+		    (instance-of (AdministrativeAssistant))
+		    (in-event (*DLP))
+		    (job-supervisor (*DLP-ProposalLeader-1))
+		    )
+
+(*DLP-Author-1 has
+	       (instance-of (Author))
+	       (played-by (*Sherry))
+	       (in-event (*DLP))
+	       (job-supervisor (*DLP-ProposalLeader-1))
+	       (job-assistant (*DLP-AdminAssist-1))
+	       )
+
+(*DLP-Author-2 has
+	       (played-by (*Ed))
+	       (instance-of (Author))
+	       (in-event (*DLP))
+	       (job-supervisor (*DLP-ProposalLeader-1))
+	       (job-assistant (*DLP-AdminAssist-1))
+	       )
+
+(*DLP-Consultant-1 has
+		   (played-by (*Jerry))
+		   (instance-of (Consultant))
+		   (in-event (*DLP))
+		   (job-supervisor (*DLP-ProposalLeader-1))
+		   (job-assistant (*DLP-AdminAssist-1))
+		   )
+
+(*DLP-Consultant-2 has
+		   (played-by (*Katherine))
+		   (instance-of (Consultant))
+		   (in-event (*DLP))
+		   (job-supervisor (*DLP-ProposalLeader-1))
+		   (job-assistant (*DLP-AdminAssist-1))
+		   )
+
+(*DLP-Consultant-3 has
+		   (played-by (*Tim))
+		   (instance-of (Consultant))
+		   (in-event (*DLP))
+		   (job-supervisor (*DLP-ProposalLeader-1))
+		   (job-assistant (*DLP-AdminAssist-1))
+		   )
+
+(*DLP-FinanceAdmin-1 has		;Proposal Costing
+		     (played-by (*Bob))
+		     (instance-of (Finance-Administrator))
+		     (in-event (*DLP))
+		     (job-supervisor (*DLP-ProposalLeader-1))
+		     (job-assistant (*DLP-AdminAssist-1))
+		     )
+
+(*DLP-ProposalLeader-1 has
+		       (played-by (*Helen))
+		       (instance-of (ProposalLeader))
+		       (in-event (*DLP))
+		       (job-supervisor (*DLP-PI))
+		       (job-assistant (*DLP-AdminAssist-1))
+		       )
+
+					;DLP
+
+(*DLP has 
+      (called ("The DLP Project"))
+      (instance-of (Project)) 
+      (in-event-of (*DLP-ProposalLeader-1))
+      (in-event-of (*DLP-Author-1)) 
+      (in-event-of (*DLP-Author-2)) 
+      (in-event-of (*DLP-FinanceAdmin-1)) 
+      (in-event-of (*DLP-AdminAssist-1)) 
+      (in-event-of (*DLP-Consultant-1))
+      (in-event-of (*DLP-Consultant-2)) 
+      (in-event-of (*DLP-Consultant-3))
+      (in-event-of (*DLP-PI))
+
+					; responsibility for DLP
+      (duration ((a Duration-Value with 
+		    (value ((:pair 13 *week)))
+					;(epi-status (*planned))        ; we haven't yet worked out a 
+                                        ; representation for information 
+                                        ; that's merely planned
+		    )))
+      )
+
+(*DLP-PI has
+	 (instance-of (PrincipalInvestigator))
+	 (job-principal-investigator-of (*DLP))
+)
+
+					;build in the proposal-costing sub-event
+					;writing
+
+					;probably interface slot project-participant
+					;today: in-event-of 
+
+
+					;Dave Sinclair (Lab Director, RAIL)
+
+(*Dave has
+       (instance-of (Person))
+       (person-family-name ("Sinclair"))
+       (person-given-name ("Dave"))
+       (person-nickname ("Dave"))
+       (called ("Dave Sinclair"))
+       (plays (*RAIL-Lab-Director))
+       )
+
+					;Ed Chan (Researcher, SKIPR, COGS group)
+
+(*Ed has
+     (instance-of (Person))
+     (person-family-name ("Chan"))
+     (person-given-name ("Ed"))
+     (person-nickname ("Ed"))
+     (called ("Ed Chan"))
+     (plays (*SKIPR-Researcher-1))
+     (plays (*DLP-Author-2)) 
+     (plays (*COGS-Researcher-1))
+     )
+					;Franklin CEO of Large Research Corp.
+
+(*Franklin has
+	   (instance-of (Person))
+	   (person-family-name ("Leon"))
+	   (person-given-name ("Franklin"))
+	   (person-nickname ("Franklin"))
+	   (called ("Franklin Leon"))
+	   (plays (*LRC-CEO)) 
+	   )
+
+(*HI-LITE-Programmer-1 has 
+		       (played-by (*Charlie))
+		       (instance-of (Programmer))
+		       (in-event (*HI-LITE))
+		       (job-supervisor (*HI-LITE-ProjectLeader-1))
+		       )
+
+(*HI-LITE-ProjectLeader-1 has 
+			  (played-by (*Jody))  
+			  (instance-of (ProjectLeader))
+			  (in-event (*HI-LITE))
+			  (job-supervisor (*HI-LITE-PI))
+			  )
+
+(*HI-LITE-Researcher-1 has 
+		       (played-by (*Sherry))
+		       (instance-of (Researcher))
+		       (in-event (*HI-LITE))
+		       (job-supervisor (*HI-LITE-ProjectLeader-1))
+		       )
+
+					;(*HI-LITE-Researcher-2 has
+					;       (played-by (*Sam))
+					;       (instance-of (Researcher))
+					;       (in-event (*HI-LITE))
+					;       (job-supervisor (*HI-LITE-ProjectLeader-1))
+					;)
+
+					;HI-LITE
+
+(*HI-LITE has 
+	  (called ("The HI-LITE Project"))
+	  (instance-of (Project)) 
+	  (in-event-of (*HI-LITE-ProjectLeader-1)) 
+	  (in-event-of (*HI-LITE-Researcher-1)) 
+	  (in-event-of (*HI-LITE-Programmer-1))
+	  (in-event-of (*HI-LITE-PI))
+
+					; Will join project later
+					; 
+					;(in-event-of (*HI-LITE-Researcher-2))
+	  )
+
+(*HI-LITE-PI has
+	     (instance-of (PrincipalInvestigator))
+	     (job-principal-investigator-of (*HI-LITE))
+)
+
+					;Helen Reed (Project Leader, SKIPR, COGS group)
+
+(*Helen has
+        (instance-of (Person))
+	(person-family-name ("Reed"))
+	(person-given-name ("Helen"))
+	(person-nickname ("Helen"))
+        (called ("Helen Reed"))
+        (plays (*SKIPR-ProjectLeader-1))
+        (plays (*DLP-ProposalLeader-1))
+
+					;org-role and proj-role -> plays
+					; with in-event and in-organization
+
+        (plays (*COGS-Proj-Leader-1))
+	)
+
+					;Jerry Iverson, U of Wisconsin
+
+(*Jerry has
+        (instance-of (Person))
+	(person-family-name ("Iverson"))
+	(person-given-name ("Jerry"))
+	(person-nickname ("Jerry"))
+        (called ("Jerry Iverson"))
+        (plays (*UOW-Professor))
+        (plays (*DLP-Consultant-1))
+	)
+					;Jody Louis  (Group Leader, COGS; Project Leader, HI-LITE)
+
+(*Jody has
+       (instance-of (Person))
+       (person-family-name ("Louis"))
+       (person-given-name ("Jody"))
+       (person-nickname ("Jody"))
+       (called ("Jody Louis"))
+					; Jody is listed as a "Group Leader" of COGS in the Project World doc
+					; but she is listed as a "Program Director" in the org chart.
+
+       (plays (*COGS-Group-Leader))
+       (plays (*HI-LITE-ProjectLeader-1))
+       )
+
+					;Katherine Huber, UCSD
+
+(*Katherine has
+	    (instance-of (Person))
+	    (person-family-name ("Huber"))
+	    (person-given-name ("Katherine"))
+	    (person-nickname ("Katherine"))
+	    (called ("Katherine Huber"))
+	    (plays (*UCSD-Professor))
+	    (plays (*DLP-Consultant-2))
+	    )
+
+(*LRC-CEO has 
+	  (instance-of (CEO))
+	  (job-employee-number  ("0001"))
+	  (job-phone-extension  ("9999"))
+	  (job-email-address  ("leon@lrc.com "))
+	  (in-organization (*LRC))
+	  (played-by (*Franklin))
+	  (job-director-of (*LRC))
+	  )
+
+					; Large Research Corp.
+ 
+(*LRC has
+      (called ("Large Research Corp"))
+      (instance-of (Corporation))
+      (has-part (*RAIL))
+
+					;(has-goal (*LRC-Mission-Statement))
+      (has-goal ((a Obtain with
+		    (object ((a Money)))
+		    (recipient (Self)))))
+
+      )
+
+					;Lori Noonan (Programmer, SANDS)
+
+(*Lori has
+       (instance-of (Person))
+       (person-family-name ("Noonan"))
+       (person-given-name ("Lori"))
+       (person-nickname ("Lori"))
+       (called ("Lori Noonan"))
+       (plays (*ROBS-Programmer-1))
+					;(plays (*SANDS-Programmer-1))
+       )
+
+					;Marie Tuttle (Administrative Assistant, COGS)
+
+(*Marie has
+        (instance-of (Person))
+	(person-family-name ("Tuttle"))
+	(person-given-name ("Marie"))
+	(person-nickname ("Marie"))
+        (called ("Marie Tuttle"))
+        (plays (*COGS-AdminAssist-1))
+        (plays (*DLP-AdminAssist-1))
+        (agent-of ((a Ship-Document with
+		      (object ((the Proposal-Document result of *DLP))))))
+					;link the plays and the agent
+
+	)
+
+
+					; This person is being added by me to fill out the data 
+					; Mayu Fujiwara Group Leader/Program Director ROBS (Robotics group)
+
+(*Mayu has
+       (instance-of (Person))
+       (person-family-name ("Fujiwara"))
+       (person-given-name ("Mayu"))
+       (person-nickname ("Mayu"))
+       (called ("Mayu Fujiwara"))
+       (plays (*ROBS-Group-Leader)) 
+       )
+
+(*RAIL-FinanceAdmin has 
+		    (instance-of (Finance-Administrator))
+		    (job-employee-number  ("1117"))
+		    (job-phone-extension  ("2227"))
+		    (job-email-address  ("feather@rail.lrc.com "))
+		    (in-organization (*RAIL))
+		    (played-by (*Bob))
+		    (job-supervisor (*RAIL-Lab-Director))
+		    )
+
+(*RAIL-Lab-Director has 
+		    (instance-of (LaboratoryDirector))
+		    (job-employee-number  ("1118"))
+		    (job-phone-extension  ("2228"))
+		    (job-email-address  ("sinclair@rail.lrc.com "))
+		    (in-organization (*RAIL))
+		    (played-by (*Dave))
+		    (job-supervisor (*LRC-CEO))
+		    (job-director-of (*RAIL))
+		    )
+
+					;RAIL
+
+(*RAIL has
+       (called ("The Research AI & Learning Lab"))
+       (instance-of (Research-Laboratory-Group))
+       (element (*RAIL-Lab-Director *RAIL-FinanceAdmin))
+					; these are just a few of the 
+					; elements in the RAIL lab
+       (has-part (*COGS))
+       (has-part (*ROBS))
+					;(has-goal (?))
+
+       )
+
+(*ROBS-Group-Leader has 
+		    (instance-of (GroupLeader))
+		    (job-employee-number  ("1119"))
+		    (job-phone-extension  ("2229"))
+		    (job-email-address  ("fujiwara@robs.lrc.com "))
+		    (in-organization (*ROBS))
+		    (played-by (*Mayu))
+		    (job-supervisor (*RAIL-Lab-Director))
+		    (job-director-of (*ROBS))
+		    )
+
+(*ROBS-Programmer-1 has 
+		    (instance-of (Programmer))
+		    (job-employee-number  ("1121"))
+		    (job-phone-extension  ("2231"))
+		    (job-email-address  ("noonan@robs.lrc.com "))
+		    (in-organization (*ROBS))
+		    (played-by (*Lori))
+		    (job-supervisor (*ROBS-Group-Leader)
+				))
+
+(*ROBS-Researcher-1 has 
+		    (instance-of (Researcher))
+		    (job-employee-number  ("1120"))
+		    (job-phone-extension  ("2230"))
+		    (job-email-address  ("kleiner@robs.lrc.com "))
+		    (in-organization (*ROBS))
+		    (played-by (*Sam))
+		    (job-supervisor (*ROBS-Group-Leader)
+				))
+
+					;ROBS
+
+(*ROBS has
+       (called ("The Robotics Group"))
+       (instance-of (Group))
+       (element (*ROBS-Group-Leader *ROBS-Researcher-1
+				    *ROBS-Programmer-1))
+					; these are just a few of the 
+					; elements in the ROBS group
+					; There could be more
+       )
+
+					;(*SANDS-Programmer-1 has 
+					;       (played-by (*Lori))
+					;       (instance-of (Programmer))
+					;       (in-event (*SANDS))
+					;       (job-supervisor (???))
+					;)
+
+					;SANDS
+					; I'm not sure if things regarding SANDS should be in our KB since it's not 
+					; starting knowledge.  But I thought I'd but it in here just in case.
+
+					;(*SANDS has 
+					;       (called ("The SANDS Project"))
+					;       (instance-of (Project)) 
+					;       (in-event-of (*SANDS-Programmer-1))
+					;
+					;)
+
+(*SKIPR-ProjectLeader-1 has 
+			(played-by (*Helen))
+			(instance-of (ProjectLeader))
+			(in-event (*SKIPR))
+			(job-supervisor (*SKIPR-PI))
+			)
+
+(*SKIPR-Researcher-1 has 
+		     (played-by (*Ed))
+		     (instance-of (Researcher))
+		     (in-event (*SKIPR))
+		     (job-supervisor (*SKIPR-ProjectLeader-1))
+		     )
+					;SKIPR
+
+(*SKIPR has 
+	(called ("The SKIPR Project"))
+	(instance-of (Project)) 
+	(in-event-of (*SKIPR-ProjectLeader-1)) 
+	(in-event-of (*SKIPR-Researcher-1)) 
+	(in-event-of (*SKIPR-PI))
+
+	)
+
+(*SKIPR-PI has
+	   (instance-of (PrincipalInvestigator))
+	   (job-principal-investigator-of (*SKIPR))
+)
+
+					;Sam Kleiner (Researcher, HI-LITE Project)
+
+(*Sam has
+      (instance-of (Person))
+      (person-family-name ("Kleiner"))
+      (person-given-name ("Sam"))
+      (person-nickname ("Sam"))
+      (called ("Sam Kleiner"))
+      (plays (*ROBS-Researcher-1))
+					;will add in joining stuff
+					;(plays (*HI-LITE-Researcher-2))
+      )
+
+					;Sherry Kim (Researcher, HI-LITE, COGS group)
+
+(*Sherry has
+	 (instance-of (Person))
+	 (person-family-name ("Kim"))
+	 (person-given-name ("Sherry"))
+	 (person-nickname ("Sherry"))
+	 (called ("Sherry Kim"))
+	 (plays (*HI-LITE-Researcher-1))
+	 (plays (*DLP-Author-1))
+	 (plays (*COGS-Researcher-2))
+	 )
+
+					;Tim Evers, U of Arizona
+
+(*Tim has
+      (instance-of (Person))
+      (person-family-name ("Evers"))
+      (person-given-name ("Tim"))
+      (person-nickname ("Tim"))
+      (called ("Tim Evers"))
+      (plays (*UOA-Professor))
+      (plays (*DLP-Consultant-3))
+      )
+
+(*UCSD-Professor has 
+		 (instance-of (Professor))
+		 (in-organization (*CS-Dept-UCSD))
+		 )
+
+					;UCSD
+
+(*UCSD has
+       (called ("The University of California San Diego"))
+       (instance-of (University)) 
+       (has-part (*CS-Dept-UCSD))
+       )
+
+(*UOA-Professor has 
+		(instance-of (Professor))
+		(in-organization (*CS-Dept-UOA))
+		)
+(*UOW-Professor has 
+		(instance-of (Professor))
+		(in-organization (*CS-Dept-UOW))
+		)
+
+
+					;UniversityOfArizona
+
+(*UniversityOfArizona has
+		      (called ("The University of Arizona"))
+		      (instance-of (University)) 
+		      (has-part (*CS-Dept-UOA))
+		      )
+
+					;UniversityOfWisconsin
+
+(*UniversityOfWisconsin has
+			(called ("The University of Wisconsin"))
+			(instance-of (University)) ;Institution or University
+			(has-part (*CS-Dept-UOW))
+			)
+
+(Project-World has
+	       (test-case ('(
+			     (the plays of (the instances of Person))
+
+					; who are the professors?
+			     ((the played-by of (the instances of Professor)) 
+			      is-superset-of (:set *Jerry *Katherine *Tim))
+
+					; what people are on the DLP project?
+			     ((the played-by of (the in-event-of of *DLP)) 
+			      is-superset-of
+			      (:set *Helen *Sherry *Ed *Bob *Marie *Jerry *Katherine *Tim))
+
+					; who plays a role in more than one project?
+			     ((allof (the instances of Person) 
+				     where ((the number of (the in-event of (the plays of It))) > 1))
+			      is-superset-of (:set *Ed *Helen *Sherry))
+
+					; how many departments at UCSD?
+			     ((the number of (the Department has-part of *UCSD)) = 1)
+			     ))))
+

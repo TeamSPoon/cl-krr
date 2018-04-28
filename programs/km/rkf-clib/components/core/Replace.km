@@ -1,0 +1,97 @@
+;;
+;;    $Id: Replace.km,v 1.24 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Replace has
+         (superclasses (Action))
+         (required-slot (object base))
+         (primary-slot ((instrument agent)))
+       #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Replace has
+       (agent ((must-be-a Tangible-Entity)))
+       (object ((a Tangible-Entity called "old entity")
+                (a Tangible-Entity called "new entity")))
+       (base ((a Tangible-Entity)))
+       (first-subevent (((the Detach subevent of Self) called "RemoveOld")))
+       (subevent ((a Detach called "RemoveOld" with
+                     (agent 	 ((the agent of Self)))
+                     (object 	 (((the object of Self) called "old entity")))
+		     (base  	 ((the base of Self)))
+                     (instrument ((the instrument of Self)))
+                     (next-event (((the Attach subevent of Self) called "AttachNew"))))
+                  (a Attach called "AttachNew" with
+                     (agent 	 ((the agent of Self)))
+                     (object 	 (((the object of Self) called "new entity")))
+                     (base 	 ((the base of Self)))
+                     (instrument ((the instrument of Self))))))
+)
+
+(every Replace has
+  (text-active-verbseq-sg ("replaces"))
+  (text-active-verbseq-pl ("replace"))
+  (text-passive-verbseq-sg ("gets replaced"))
+  (text-passive-verbseq-pl ("gets replaced"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("in"))))
+  (text-instrument ((if (has-value (the instrument of Self))
+                        then ("using"))))
+
+  (text-active-sentence (
+      (:seq (the text-subj-phrase of Self)
+            (the text-active-phrase of Self)
+            (the text-phrase of ((the object of Self) called "old entity"))
+            ("with")
+            (the text-phrase of ((the object of Self) called "new entity"))
+            (the text-arguments of Self)
+   )))
+   (text-passive-sentence (
+      (:seq 
+            (the text-phrase of ((the object of Self) called "old entity"))
+            (the text-passive-phrase of Self)
+            ("with")
+            (the text-phrase of ((the object of Self) called "new entity"))
+            (the text-arguments of Self)
+   )))
+
+)
+
+
+(Replace has
+   (test-case ('(
+                 (*blownfuse has (instance-of (Physical-Object)))
+                 (*newfuse has (instance-of (Physical-Object)))
+                 (*socket has (instance-of (Physical-Object)))
+
+                 (a Replace with (object (*blownfuse *newfuse))
+                                 (base (*socket)))
+
+                 (do-script (thelast Replace))
+
+                 ((the resulting-state of 
+                       (the Attach subevent of (thelast Replace)))
+                  isa Be-Attached-To)
+		 (the text-gen of (thelast Replace))
+		 (forall (the subevent of (thelast Replace)) (the text-gen of It))
+                 ((the object of (thelast Be-Attached-To)) includes *newfuse)
+                 ((the object of (thelast Be-Attached-To)) includes *socket)
+
+))))
+
+
+;; automatically added WN synsets
+(Replace has (wn16-synset ((:set  
+                                      (:triple "replace" 1 "v")
+                                      (:triple "replace" 4 "v")
+                                      (:triple "substitute" 1 "v")
+))))
+
+(Replace has (wn20-synset ((:set
+                                      (:triple "replace" 1 "v")
+                                      (:triple "replace" 3 "v")
+                                      (:triple "substitute" 1 "v")
+))))
+
+(every Replace has (text-nominalization ("replacement")))

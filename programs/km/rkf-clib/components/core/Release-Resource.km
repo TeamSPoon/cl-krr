@@ -1,0 +1,75 @@
+;; 
+;;    $Id: Release-Resource.km,v 1.6 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Release-Resource has
+  (superclasses 	(Action))
+  (required-slot 	(object))
+  (primary-slot  	(agent base))
+  (secondary-slot 	())
+  (cmap-correspondence 	(
+			 (:seq object "the resource made available")
+			 (:seq base "the thing the resource is made available to")
+			 (:seq agent "the agent")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Release-Resource has
+       (object 		((a Resource)))
+       (base 	((must-be-a Thing)))
+       (agent  		((must-be-a Entity)))
+       (resulting-state ((a Be-Available)))
+
+       (add-list ((if (has-value (the base of Self))
+		      then
+		    (:triple
+		     (the resulting-state of Self)
+		     base
+		     (the base of Self) [Release-Resource-add-1]))
+		  (:triple
+		   (the resulting-state of Self)
+		   object 
+		   (the object of Self) [Release-Resource-add-2])
+		  (if (has-value (the agent of Self))
+		      then
+		    (:triple
+		     (the resulting-state of Self)
+		     agent
+		     (the agent of Self) [Release-Resource-add-3])))))
+
+
+(comment [Release-Resource-add-1] (:seq (the base of Self) " now can access " (the object of Self))
+	 "Something that is made available can be accessed.")
+
+(comment [Release-Resource-add-2] (:seq (the object of Self) " is now available.")
+	 "Something that is released is available.")
+
+(comment [Release-Resource-add-3] (:seq (the agent of Self) " made " (the object of Self) " available.")
+	 "A thing can make something else available.")
+
+
+
+(every Release-Resource has
+  (text-active-verbseq-sg ("releases"))
+  (text-active-verbseq-pl ("release"))
+  (text-passive-verbseq-sg ("gets released"))
+  (text-passive-verbseq-pl ("get released"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("from"))))
+
+  (text-argslots ((:seq base instrument)))
+)
+
+(every Release-Resource has
+	(preparatory-event ((:default
+		(a Allocate-Resource with
+		   (object ((the object of Self)))
+		   (agent  ((the agent of Self)))
+		   (base   ((the base of Self)))
+)))))
+
+
+
+(every Release-Resource has (text-nominalization ("release")))

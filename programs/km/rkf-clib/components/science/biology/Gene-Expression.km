@@ -1,0 +1,32 @@
+;;
+;;    $Id: Gene-Expression.km,v 1.4 2001/05/30 23:31:03 souther Exp $
+;;
+     
+(Gene-Expression has
+        (superclasses   (Genetic-Information-Transfer))
+        (required-slot  (object donor recipient))
+        (primary-slot   (agent instrument))
+        (secondary-slot ())
+	(description	("The process by which a gene exerts its effect on a
+                          cell or an organism, usually by directing the 
+                          synthesis of an mRNA molecule that can be translated 
+                          into a protein with a characteristic activity.
+                          Alberts:ECB:G-8.  The product of gene expression may
+                          also be rRNA or tRNA.  Souther.")))
+
+(every Gene-Expression has
+  (agent        ((a Suborganismal-Entity)))
+  (donor        ((a Gene)))
+  (recipient    ((a Macromolecule with
+		    (instance-of ((possible-values
+				   RNA-Molecule
+				   Protein))))))
+  (object       ((a Genetic-Information)))
+  (first-subevent ((the DNA-Transcription subevent of Self)))
+  (subevent     ((a DNA-Transcription)))
+  )
+
+
+
+
+

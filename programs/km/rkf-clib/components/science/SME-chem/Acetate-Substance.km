@@ -1,0 +1,46 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Acetate-Substance2229
+
+
+|#
+
+(disable-classification)
+
+(Acetate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Acetate-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Acetate-Substance339 has
+  (prototype-of (Acetate-Substance Ionic-Compound-Substance))
+  (prototype-scope (Acetate-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a C2H3O2-Minus)))))))))
+  (prototype-participants (_Anion345 _Chemical-Entity341 _Acetate-Substance339)))
+
+(_Acetate-Substance339 has (instance-of (Acetate-Substance)) (has-basic-structural-unit (_Chemical-Entity341)))
+
+(_Chemical-Entity341 has (instance-of (Ionic-Compound)) (has-part (_Anion345)))
+
+(_Anion345 has (instance-of (C2H3O2-Minus)))
+
+(enable-classification)
+
+(explanation (:triple _Acetate-Substance339 has-basic-structural-unit _Chemical-Entity341) (((@ SME entered)) (every Acetate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Acetate-Substance339 instance-of Acetate-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity341 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion345 instance-of C2H3O2-Minus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Acetate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

@@ -1,0 +1,39 @@
+<!--- $Id: causes.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=causes>
+
+
+<from name=Event>
+<to name=Event>
+
+<description> 
+	an Event causes another Event.
+</description>
+
+<examplesentencelist>
+  <examplesentence>
+<text><ex-from>Splitting</ex-from> the atomic nucleus causes a <ex-to>release</ex-to> of energy.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>Timothy <ex-from>tipped</ex-from> the glass and it <ex-to>spilled</ex-to> all over the floor.</text>
+  </examplesentence>
+  <examplesentence>
+    <text>The <ex-from>rise</ex-from> in room temperature caused the air-conditioning system to <ex-to>increase</ex-to> the airflow.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=agent>
+    An agent is an active Entity; it is typically responsible for causing an Event. 
+ </neighbor>
+ <neighbor name=instrument>
+    An instrument is passive Entity; it is used by an Entity in an Event. 
+ </neighbor>
+ <neighbor name=by-means-of>
+    by-means-of is usually an Event that is instrumental in causing another Event, but is not the cause of the second Event.
+ </neighbor>
+
+</neighborlist>
+
+</kml>

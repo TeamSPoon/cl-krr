@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Carboxyl-Group.km,v 1.16 2001/06/16 22:38:03 souther Exp $ 
+;; 
+
+(Carboxyl-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Chemical group consisting of a carbon atom linked
+                             both to an oxygen atom by a double bond and to a
+                             hydroxyl group.  Molecules containing a carboxyl
+                             group are weak acids (carboxylic acids).
+                             Alberts:ECB:G-3."))
+	      (cmap-correspondence ()))
+
+(every Carboxyl-Group has
+       (has-part 
+	((a Carbon-Atom with
+	    (object-of    
+	     ((a Be-Attached-To with
+		 (object (((the Oxygen-Atom has-part of Self)
+			   called "one oxygen")))
+		 (instrument ((a Covalent-CO-Bond))))
+	      (a Be-Attached-To with
+		 (object (((the Oxygen-Atom has-part of Self)
+			   called "the other oxygen")))
+		 (instrument ((a Double-Covalent-CO-Bond))))
+	      )))
+	 (a Hydrogen-Atom)
+	 (a Oxygen-Atom called "one oxygen" with
+	    (object-of
+	     ((a Be-Attached-To with
+		 (object ((the Hydrogen-Atom has-part of Self)
+			  ))))))
+	 (a Oxygen-Atom called "the other oxygen")
+	 )))
+

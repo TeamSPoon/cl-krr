@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Fe_Cl_2.km,v 1.1 2006/02/23 22:54:38 jchaw Exp $
+;; 
+
+(Fe_Cl_2 has (superclasses (Ionic-Compound)))
+
+(every Fe_Cl_2 has	
+       (has-chemical-name ("iron(II) chloride" "ferrous chloride"))
+       (has-part 
+	((a Fe-Plus-2) (a Cl-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+            (term ((:seq
+		    (:pair 1 Fe-Plus-2)
+		    (:pair 2 Cl-Minus))))))))
+
+(every Fe_Cl_2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Fe-Plus-2) (a Cl-Minus))))
+

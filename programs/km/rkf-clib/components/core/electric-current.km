@@ -1,0 +1,26 @@
+;; 
+;;    $Id: electric-current.km,v 1.1 2010/01/29 16:35:18 kbarker Exp $ 
+;; 
+
+(electric-current has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Electric-Current-Value))
+   (scale-class (Electric-Current-Scale))
+   (scalar-constant-class   (Electric-Current-Constant))
+   (cardinal-unit-class     (UoM-Electric-Current))  
+   (inverse (electric-current-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(electric-current has (wn20-synset ((:set
+  (:triple "current" 1 "n")
+  (:triple "electric_current" 1 "n")
+))))
+
+(electric-current-of has
+	(instance-of (EntityProperty)))

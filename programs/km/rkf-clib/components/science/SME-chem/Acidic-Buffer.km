@@ -1,0 +1,34 @@
+;;
+;; $Id: Acidic-Buffer.km,v 1.1 2007/11/28 23:38:02 tecuci Exp $
+;;
+
+(Acidic-Buffer has 
+  (superclasses     (Buffer))
+  (user-description ("A buffer solution which has a pH less than 7.")))
+
+(every Acidic-Buffer has-definition
+       (instance-of (Solution))
+       (buffer-status ((a Buffer-Status-Value with
+			  (value ((:pair *acidic-buffer nil)))))))
+#|
+(Acidic-Buffer has
+	       (test-case
+		('(
+		   ((a Solution with 
+		       (has-solute 
+			((a HF-Compound-Substance with 
+			    (concentration 
+			     ((a Concentration-Value with 
+				 (value ((:pair 1 *molar))))))) 
+			 (a NaF-Substance with 
+			    (concentration 
+			     ((a Concentration-Value with 
+				 (value ((:pair 1 *molar))))))))))
+		    isa
+		    Acidic-Buffer)
+		   (a Solution with
+		    (has-solute
+		     ((a CH3COOH-Substance)
+		      (a CH3COONa-Substance)
+		      isa Acidic-Buffer)))))))
+|#

@@ -1,0 +1,19 @@
+
+;;
+;; $Id: Text-Field.km,v 1.1 2003/09/30 19:26:00 kbarker Exp $
+;;
+
+(Text-Field has
+  (superclasses (Message-Field))
+  (description ("a message field whose content is a text constant"))
+)
+
+(every Text-Field has-definition
+  (instance-of (Message-Field))
+  (information-content ((a String)))
+)
+
+(every Text-Field has
+  (information-content ((a String)))
+)
+

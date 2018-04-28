@@ -1,0 +1,41 @@
+;; 
+;;    $Id: Be-Unavailable.km,v 1.1 2004/11/05 19:50:07 jchaw Exp $
+;; 
+
+(Be-Unavailable has
+		 (superclasses   (State))
+		 (required-slot  (object))
+		 (primary-slot   (base))
+                 (caused-by-class      (Release-Resource))
+                 (defeated-by-class    (Allocate-Resource))
+		 (cmap-correspondence (
+				       (:seq object "the unavailable resource")
+				       (:seq base "the thing the resource is unavailable to")
+				       )))
+
+(every Be-Unavailable has
+       (object ((a Resource)))
+       (base ((must-be-a Thing)))
+       
+       (resulting-state-of ((if (has-value (the base of Self))
+				then
+			      (must-be-a Release-Resource with
+					 (object ((the object of Self)))
+					 (base ((the base of Self))))
+			      else
+			      (must-be-a Release-Resource with
+					 (object ((the object of Self)))))))
+       
+       (defeated-by ((if (has-value (the base of Self))
+			 then
+		       (must-be-a Allocate-Resource with
+				  (object ((the object of Self)))
+				  (base ((the base of Self))))
+		       else
+		       (must-be-a Allocate-Resource with
+				  (object ((the object of Self))))))))
+
+(every Be-Unavailable has
+   (text-particle ("unavailable"))
+)
+

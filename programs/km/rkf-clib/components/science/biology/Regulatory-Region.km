@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Regulatory-Region.km,v 1.8 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Regulatory-Region has
+     (superclasses (Region))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A has-region or site on DNA, RNA, or a Protein which regulates
+                    the processing or activity of the molecule.  Souther"))
+     (cmap-correspondence ()))
+
+
+
+
+
+
+
+
+(every Regulatory-Region has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

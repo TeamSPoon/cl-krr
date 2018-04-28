@@ -1,0 +1,10 @@
+;; $Id: CrO4-Minus-2.km,v 1.5 2003/02/22 18:28:27 jfan Exp $ 
+(CrO4-Minus-2 has (superclasses (Anion)))
+(every CrO4-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *electronic-charge))))))
+	(has-chemical-name ("chromate"))
+	(has-acid-name ("chromic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Cr) (:pair 4 O)))))))
+)

@@ -1,0 +1,12 @@
+;; 
+;;    $Id: C3H8-Substance.km,v 1.3 2008/11/03 03:11:25 tecuci Exp $ 
+;; 
+
+(C3H8-Substance has (superclasses (Hydrocarbon-Substance)))
+	
+(every C3H8-Substance has
+       (has-chemical-name ("propane"))	
+       (has-basic-structural-unit ((a C3H8))))
+(every C3H8-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a C3H8))))

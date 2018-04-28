@@ -1,0 +1,75 @@
+<!--- $Id: Let-Fall.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Let-Fall><system-documentation name=Let-Fall>
+<superconcept name=Unobstruct>
+
+<definition>
+
+  Remove support from some object, causing it to fall.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     Some tangible entity.
+     Before this action, the object is
+     assumed to be in a state of <conceptref name=Be-Supported>.
+     Afterwards it's no longer in that state.
+     
+     Note that Let-Fall causes the object to fall.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes this action
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) used to let the object fall
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that lets the object fall
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John yanked the table causing the dinnerware to fall.</text>
+    <slotdescription name=object>the dinnerware</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=by-means-of>yanking the table</slotdescription>
+  </examplesentence>
+  <comment>
+      Note that it's assumed that the table was supporting the dinnerware
+      before the action occurs.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Unobstruct> 
+     Unobstruct is more general than Let-Fall.
+     Unobstruct allows some object to move more freely, whereas
+     Let-Fall (more specifically) removes support from some object,
+     causing to to fall.
+  </neighbor>
+
+  <neighbor name=Fall>
+     Let-Fall <i>causes</i> an object to Fall.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,25 @@
+
+;;
+;; $Id: importance.km,v 1.6 2007/04/11 21:23:39 jchaw Exp $
+;;
+
+(importance has
+  (description ("The degree of prominence or noteworthiness possessed by a thing.  See also priority."))
+  (instance-of           (EntityProperty EventProperty))
+  (domain                (Thing))
+  (range                 (Unitless-Value))
+  (scale-class           (Importance-Scale))
+  (scalar-constant-class (Importance-Constant))
+  (cardinal-unit-class   (UoM-Unitless))
+  (inverse               (importance-of))
+  (fluent-status         (*Inertial-Fluent))
+  (original-slot      (t))	
+  (cardinality           (N-to-1))
+)
+
+(importance has (wn20-synset ((:set
+                               (:triple "importance" 1 "n")
+))))
+
+(importance-of has
+	(instance-of (EntityProperty EventProperty)))

@@ -1,0 +1,73 @@
+;; 
+;;    $Id: Be-Accessible.km,v 1.16 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Accessible has
+  (superclasses		(State))
+  (required-slot 	(object))
+  (primary-slot   	(base))
+  (caused-by-class      (Make-Accessible))
+  (defeated-by-class    (Make-Inaccessible))
+  (cmap-correspondence 	((:seq object "thing accessible")
+			 (:seq base "the thing the object is accessible to")
+			)))
+
+(every Be-Accessible has
+  (object ((a Entity)))
+  (base ((must-be-a Thing)))
+
+  (resulting-state-of ((if (has-value (the base of Self))
+			   then
+			 (must-be-a Make-Accessible with
+				    (object ((the object of Self)))
+				    (base ((the base of Self))))
+			 else
+			 (must-be-a Make-Accessible with
+				    (object ((the object of Self)))))))
+  
+  (defeated-by ((if (has-value (the base of Self))
+		    then
+		  (must-be-a Make-Inaccessible with
+			     (object ((the object of Self)))
+			     (base ((the base of Self))))
+		  else
+		  (must-be-a Make-Inaccessible with
+			     (object ((the object of Self))))))))
+
+(every Be-Accessible has
+   (text-particle ("accessible"))
+)
+
+
+(Be-Accessible has (test-case ('(
+				 (*Peak has (instance-of (Physical-Object)))
+				 
+				 (*Climber has (instance-of (Living-Entity)))
+				 
+				 (a Make-Inaccessible with 
+				    (object (*Peak))
+				    (base (*Climber)))
+				 
+				 (try-do-and-next (thelast Make-Inaccessible))
+				 (the text-gen of (thelast Make-Inaccessible))
+				
+				 ;; the *Peak is inaccessible to the climber
+				 
+				 (has-value (the Be-Inaccessible object-of of *Peak))
+				 
+				 (a Make-Accessible with 
+				    (object (*Peak))
+				    (base (*Climber)))
+				 
+				 (try-do-and-next (thelast Make-Accessible))
+				 (the text-gen of (thelast Make-Accessible))
+ 
+
+				 (not
+				  (has-value (the Be-Inaccessible object-of of *Peak)))
+				 
+				 ))))
+
+;; Be-Accessible has no links to WordNet. It serves as a grouper for
+;; more specific and useful concepts.
+

@@ -1,0 +1,27 @@
+
+;; 
+;;  $Id: Armored-Division.km,v 1.6 2002/10/12 16:04:02 kbarker Exp $
+;; 
+
+(Armored-Division has
+   (superclasses (Armor-Unit Division)))
+
+(every Armored-Division has-definition
+   (instance-of (Armor-Unit Division)))
+
+(every Armored-Division has
+   (element ((if ((the value of (the allegiance of Self)) = *Blue)
+              then
+                (:set
+                 (a Mechanized-Infantry-Brigade)
+                 (a Armored-Brigade)
+                 (a Armored-Brigade)
+                 (a Armored-Brigade)
+                 (a General-Support-Artillery-Battalion)
+                 (a Aviation-Battalion)
+                 (a Aviation-Battalion)
+                 (a Armored-Cavalry-Squadron)
+                )
+   )))
+)
+

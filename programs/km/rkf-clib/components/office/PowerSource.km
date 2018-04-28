@@ -1,0 +1,12 @@
+;;
+;; $Id: PowerSource.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(PowerSource has 
+  (superclasses (Machine)))
+
+(PowerSource has (wn20-synset ((:set (:triple "generator" 2 "n")
+				     (:triple "generator" 4 "n")))))(PowerSource has
+  (feature-slot ((the feature-slot of Machine)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = PowerSource)))))
+

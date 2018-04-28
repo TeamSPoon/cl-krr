@@ -1,0 +1,55 @@
+<kml>
+
+<concept name=Print>
+<superconcept name=Mark>
+
+<hr>
+<h3>Component Semantics:</h3>
+  <component tag=Print>
+<definition>
+to render a written <conceptref name=Message> in physical form; in particular, to take a <conceptref name=Document> (a kind of Message) and embody it as a <conceptref name=Physical-Document>.
+</definition>
+</component>
+<requiredslotlist>
+
+  <slotdescription name=object>
+
+The <conceptref name=Document> being embodied (in ink etc.).
+
+  </slotdescription>
+
+  <slotdescription name=result>
+
+The <conceptref name=Physical-Document> that is the result of the <conceptref name=Print>ing.
+
+  </slotdescription>
+
+</requiredslotlist>
+
+<neighborlist>
+
+<neighbor name=Mark>
+
+<conceptref name=Print> is a more specific type of 
+<conceptref name=Mark> in which the result is, by definition, a 
+<conceptref name=Physical-Document>.  With <conceptref name=Mark>, a 
+<conceptref name=Physical-Document> *may* be the result, or it may be something
+less document-like (e.g. spray paint on a subway car); with <conceptref name=Print> the result *must* be a <conceptref name=Physical-Document>.
+
+</neighbor>
+
+<neighbor name=Write>
+
+The object of (or input to) a <conceptref name=Write> is an instance
+of <conceptref name=Information> whereas the object of a <conceptref
+name=Print> is a <conceptref name=Document> (a kind of <conceptref name=Message>).  Also, a <conceptref
+name=Write> results in an intangible <conceptref name=Message>,
+specifically a <conceptref name=Document> whereas <conceptref
+name=Print> results in a <conceptref name=Physical-Document>.
+
+</neighbor>
+
+</neighborlist>
+
+</kml>
+

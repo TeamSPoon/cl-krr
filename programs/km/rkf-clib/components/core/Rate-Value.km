@@ -1,0 +1,32 @@
+
+;;
+;; $Id: Rate-Value.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(Rate-Value has 
+       (superclasses (Property-Value)))
+
+(Rate-Value has
+   (test-case ('(
+                 (Trip has (superclasses (Event)))
+                 (*fly-to-Utah has (instance-of (Trip))
+                                (rate ((a Rate-Value))))
+                 (*drive-to-Utah has (instance-of (Trip))
+                              (rate
+                                 ((a Rate-Value with
+                                     (value ((:pair *slow Trip)
+                                     ))
+                                     (less-than
+                                        ((the rate of *fly-to-Utah)))
+                              ))))
+
+                 (the value of (the rate of *drive-to-Utah))
+
+                 ((the less-than of (the rate of *drive-to-Utah))
+                       includes (the rate of *fly-to-Utah))
+                 ((the greater-than of (the rate of *fly-to-Utah))
+                       includes (the rate of *drive-to-Utah))
+))))
+
+(Rate-Value has (description ("the rate at which an Event is happening")))

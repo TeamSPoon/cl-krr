@@ -1,0 +1,1549 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Endocytosis ----------
+
+(Endocytosis has (superclasses (Take-In)))
+
+(_Endocytosis1229 has 
+  (instance-of (Endocytosis))
+  (prototype-of (Endocytosis))
+  (prototype-scope (Endocytosis))
+  (prototype-participants (_Storage1192
+                           _Amino-Acid7109
+                           _Amino-Acid7108
+                           _Spatial-Entity835
+                           _Vacuole-Membrane492
+                           _Tangible-Entity1742
+                           _Be-Contained1741
+                           _Shape-Value1740
+                           _Spatial-Entity1739
+                           _Spatial-Entity1738
+                           _Suborganismal-Entity1342
+                           _Spatial-Entity1341
+                           _Organism1340
+                           _Chromatid1339
+                           _Chromosome1338
+                           _Atom1337
+                           _Chromatid1336
+                           _Chromatid1335
+                           _DNA1334
+                           _Spatial-Entity1333
+                           _Centromere1332
+                           _Spatial-Entity1331
+                           _Polymer1330
+                           _Atom1329
+                           _Protein1328
+                           _Cytoplasm1327
+                           _Phospholipid1326
+                           _Carbohydrate1325
+                           _Polymer1324
+                           _Atom1323
+                           _Protein1322
+                           _Plasma-membrane1321
+                           _Living-Entity1320
+                           _RRNA1319
+                           _Protein1318
+                           _Protein1317
+                           _Ribosome1316
+                           _Synthesis1315
+                           _Atom1314
+                           _Amino-Acid1313
+                           _Tangible-Entity1312
+                           _Be-Contained1311
+                           _Container1310
+                           _Shape-Value1309
+                           _Cell1308
+                           _Vacuole1307
+                           _Length-Value1306
+                           _Length-Value1305
+                           _Vesicle1304
+                           _Move-Through1303
+                           _Portal1302
+                           _Endocytosis1229
+                           _Container1626
+                           _Physical-Object546
+                           _Living-Entity1408
+                           _Nucleotide1409
+                           _Phosphate1410
+                           _Atom1411
+                           _Thymine1412
+                           _Polymer1413
+                           _Guanine1414
+                           _Thymine1415
+                           _Cytosine1416
+                           _Deoxyribose1417
+                           _Nucleotide1418
+                           _Polymer1419))
+  (prototype-participant-of (_Endocytosis1229))
+  (has-clones (_Phagocytosis1346
+               _Endocytosis824
+               _Phagocytosis984))
+  (has-built-clones (_Phagocytosis1346
+                     _Endocytosis824
+                     _Phagocytosis984))
+  (object (_Suborganismal-Entity1342))
+  (origin (_Spatial-Entity1341))
+  (agent (_Cell1308))
+  (base (_Cell1308))
+  (destination (_Cell1308))
+  (path (_Vacuole1307))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq path _Vacuole1307 t)
+                    (:seq destination _Cell1308 t)
+                    (:seq base _Cell1308 t)
+                    (:seq agent _Cell1308 t)
+                    (:seq origin _Spatial-Entity1341 t)
+                    (:seq object _Suborganismal-Entity1342 t)))
+  (edge-coordinate ((:seq object _Suborganismal-Entity1342 232 511)
+                    (:seq origin _Spatial-Entity1341 232 555)
+                    (:seq path _Vacuole1307 232 599)
+                    (:seq base _Cell1308 206 711)
+                    (:seq destination _Cell1308 264 676)
+                    (:seq agent _Cell1308 155 732)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Storage1192 has 
+  (instance-of (Storage))
+  (has-clones (_Thing906))
+  (cloned-from (_Storage802))
+  (node-visibility (t))
+  (played-by (_Vacuole1307))
+  (prototype-participant-of (_Endocytosis1229)))
+
+(_Amino-Acid7109 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_Protein1322))
+  (instance-of (Amino-Acid))
+  (has-clones (_Amino-Acid905))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t)))
+
+(_Amino-Acid7108 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_Protein1328))
+  (instance-of (Amino-Acid))
+  (has-clones (_Amino-Acid904))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t)))
+
+(_Spatial-Entity835 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Living-Entity1408))
+  (encloses (_Vacuole1307))
+  (instance-of (Spatial-Entity
+                Vacuole-Membrane
+                Entity))
+  (has-clones (_Spatial-Entity903))
+  (cloned-from (_Entity700
+                _Vacuole-Membrane259))
+  (node-visibility (t))
+  (clone-built-from (_Vacuole-Membrane259)))
+
+(_Vacuole-Membrane492 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (encloses (_Physical-Object546))
+  (is-part-of (_Vacuole1307))
+  (instance-of (Vacuole-Membrane
+                Spatial-Entity))
+  (has-clones (_Vacuole-Membrane902))
+  (cloned-from (_Vacuole-Membrane293
+                _Vacuole-Membrane259))
+  (node-visibility (t))
+  (clone-built-from (_Vacuole-Membrane259)))
+
+(_Tangible-Entity1742 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (object-of (_Be-Contained1741))
+  (instance-of (Tangible-Entity
+                Spatial-Entity
+                Entity
+                Thing))
+  (has-clones (_Tangible-Entity900)))
+
+(_Be-Contained1741 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (in-event-of (_Container1626))
+  (instrument (_Vacuole1307))
+  (instance-of (Be-Contained
+                Block))
+  (object (_Tangible-Entity1742))
+  (edge-visibility ((:seq object _Tangible-Entity1742 f)
+                    (:seq instrument _Vacuole1307 f)))
+  (has-clones (_Be-Contained899)))
+
+(_Shape-Value1740 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (shape-of (_Vacuole1307))
+  (instance-of (Shape-Value))
+  (value (*hollow-volume))
+  (edge-visibility ((:seq value *hollow-volume f)))
+  (has-clones (_Shape-Value898)))
+
+(_Spatial-Entity1739 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (is-outside (_Vacuole1307))
+  (is-between-of (_Vacuole1307))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity897))
+  (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626))))))
+  (edge-visibility ((:seq abuts (excluded-values (the first of (the is-between of (the played-by of _Container1626)))) f)
+                    (:seq is-outside _Vacuole1307 f))))
+
+(_Spatial-Entity1738 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (is-between-of (_Vacuole1307))
+  (is-inside (_Vacuole1307))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity896))
+  (edge-visibility ((:seq abuts (excluded-values (the first of (the is-between of (the played-by of _Container1626)))) f)
+                    (:seq is-inside _Vacuole1307 f)))
+  (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626)))))))
+
+(_Suborganismal-Entity1342 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (object-of (_Endocytosis1229))
+  (instance-of (Suborganismal-Entity
+                Tangible-Entity
+                Thing))
+  (has-clones (_Suborganismal-Entity1446
+               _Suborganismal-Entity892
+               _Suborganismal-Entity1177))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 382 505))))
+
+(_Spatial-Entity1341 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (origin-of (_Endocytosis1229))
+  (is-outside (_Cell1308))
+  (is-between-of (_Cell1308))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity1404
+               _Spatial-Entity891
+               _Spatial-Entity988))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1310))))))
+  (node-coordinate ((:pair 382 549)))
+  (edge-coordinate ((:seq is-outside _Cell1308 741 543)))
+  (edge-visibility ((:seq is-outside _Cell1308 t))))
+
+(_Organism1340 has 
+  (cloned-from (_Organism185))
+  (prototype-participant-of (_Endocytosis1229))
+  (has-part (_Cell1308))
+  (instance-of (Organism))
+  (has-clones (_Organism1406
+               _Organism890
+               _Organism990))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Cell1308 -150 741)))
+  (edge-visibility ((:seq has-part _Cell1308 f)))
+  (node-coordinate ((:pair 4650 50))))
+
+(_Chromatid1339 has 
+  (cloned-from (_Chromatid1397
+                _Chromatid215))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Chromosome1338))
+  (instance-of (Chromatid))
+  (has-clones (_Chromatid1419
+               _Chromatid889
+               _Chromatid1050))
+  (node-visibility (f))
+  (node-coordinate ((:pair 816 691))))
+
+(_Chromosome1338 has 
+  (cloned-from (_Chromosome186
+                _Chromosome164
+                _Tangible-Entity172))
+  (clone-built-from (_Chromosome164))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Cell1308))
+  (has-part (_Protein1328
+             _Chromatid1339))
+  (has-region (_Centromere1332))
+  (has-basic-structural-unit (_DNA1334))
+  (instance-of (Chromosome
+                Tangible-Entity))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _DNA1334 666 656)
+                    (:seq has-region _Centromere1332 666 676)
+                    (:seq has-part _Chromatid1339 666 701)
+                    (:seq has-part _Protein1328 666 701)))
+  (edge-visibility ((:seq has-basic-structural-unit _DNA1334 f)
+                    (:seq has-region _Centromere1332 f)
+                    (:seq has-part _Chromatid1339 f)
+                    (:seq has-part _Protein1328 f)))
+  (node-coordinate ((:pair 616 676)))
+  (has-clones (_Chromosome1418
+               _Chromosome888
+               _Chromosome1047)))
+
+(_Atom1337 has 
+  (cloned-from (_Atom213
+                _Atom414
+                _Atom531))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_DNA1334))
+  (instance-of (Atom))
+  (has-clones (_Atom1417
+               _Atom887
+               _Atom1046))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1016 666))))
+
+(_Chromatid1336 has 
+  (cloned-from (_Chromatid380
+                _Chromatid530
+                _Chromatid203))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_DNA1334))
+  (instance-of (Chromatid))
+  (has-clones (_Chromatid1415
+               _Chromatid886
+               _Chromatid1001))
+  (clone-built-from (_Chromatid203))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1016 646))))
+
+(_Chromatid1335 has 
+  (cloned-from (_Chromatid379
+                _Chromatid529))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_DNA1334))
+  (instance-of (Chromatid))
+  (has-clones (_Chromatid1414
+               _Chromatid885
+               _Chromatid1000))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1016 636))))
+
+(_DNA1334 has 
+  (cloned-from (_DNA212
+                _DNA413
+                _DNA272))
+  (clone-built-from (_DNA272))
+  (prototype-participant-of (_Endocytosis1229))
+  (has-part (_Chromatid1336
+             _Chromatid1335
+             _Polymer1419
+             _Polymer1413
+             _Nucleotide1418
+             _Deoxyribose1417))
+  (instance-of (DNA
+                Nucleic-acid))
+  (is-basic-structural-unit-of (_Chromosome1338))
+  (has-basic-structural-unit (_Atom1337))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-part _Chromatid1335 866 646)
+                    (:seq has-part _Chromatid1336 866 646)
+                    (:seq has-basic-structural-unit _Atom1337 866 671)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom1337 f)
+                    (:seq has-part _Deoxyribose1417 t)
+                    (:seq has-part _Nucleotide1418 t)
+                    (:seq has-part _Polymer1413 t)
+                    (:seq has-part _Polymer1419 t)
+                    (:seq has-part _Chromatid1335 t)
+                    (:seq has-part _Chromatid1336 t)))
+  (node-coordinate ((:pair 816 651)))
+  (has-clones (_DNA1413
+               _DNA884
+               _DNA999)))
+
+(_Spatial-Entity1333 has 
+  (cloned-from (_Spatial-Entity1395
+                _Spatial-Entity213))
+  (prototype-participant-of (_Endocytosis1229))
+  (location (_Centromere1332))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity1410
+               _Spatial-Entity883
+               _Spatial-Entity996))
+  (node-visibility (f))
+  (edge-coordinate ((:seq location _Centromere1332 -150 676)))
+  (edge-visibility ((:seq location _Centromere1332 f)))
+  (node-coordinate ((:pair 4350 50))))
+
+(_Centromere1332 has 
+  (cloned-from (_Centromere1396
+                _Centromere214
+                _Centromere167))
+  (prototype-participant-of (_Endocytosis1229))
+  (location-of (_Spatial-Entity1331
+                _Spatial-Entity1333))
+  (instance-of (Centromere
+                Place))
+  (is-region-of (_Chromosome1338))
+  (clone-built-from (_Centromere167))
+  (node-visibility (f))
+  (node-coordinate ((:pair 816 671)))
+  (has-clones (_Centromere1411
+               _Centromere879
+               _Centromere997)))
+
+(_Spatial-Entity1331 has 
+  (cloned-from (_Spatial-Entity378
+                _Spatial-Entity171))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Spatial-Entity))
+  (location (_Centromere1332))
+  (node-visibility (f))
+  (edge-coordinate ((:seq location _Centromere1332 -150 666)))
+  (edge-visibility ((:seq location _Centromere1332 f)))
+  (node-coordinate ((:pair 4250 50)))
+  (has-clones (_Spatial-Entity1412
+               _Spatial-Entity878
+               _Spatial-Entity998)))
+
+(_Polymer1330 has 
+  (cloned-from (_Polymer1394
+                _Polymer308))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Protein1328))
+  (instance-of (Polymer))
+  (has-clones (_Polymer1409
+               _Polymer877
+               _Polymer995))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1016 711))))
+
+(_Atom1329 has 
+  (cloned-from (_Atom211
+                _Atom416
+                _Atom309))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_Protein1328))
+  (instance-of (Atom))
+  (has-clones (_Atom1408
+               _Atom876
+               _Atom994))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1016 691))))
+
+(_Protein1328 has 
+  (cloned-from (_Protein210
+                _Protein415
+                _Protein305))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Protein))
+  (has-basic-structural-unit (_Amino-Acid7108
+                              _Atom1329))
+  (is-part-of (_Chromosome1338))
+  (has-part (_Polymer1330))
+  (clone-built-from (_Protein305))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom1329 866 696)
+                    (:seq has-part _Polymer1330 866 716)))
+  (edge-visibility ((:seq has-part _Polymer1330 f)
+                    (:seq has-basic-structural-unit _Atom1329 f)
+                    (:seq has-basic-structural-unit _Amino-Acid7108 f)))
+  (node-coordinate ((:pair 816 701)))
+  (has-clones (_Protein1407
+               _Protein871
+               _Protein993)))
+
+(_Cytoplasm1327 has 
+  (cloned-from (_Cytoplasm193))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Cell1308))
+  (is-inside (_Plasma-membrane1321))
+  (instance-of (Cytoplasm
+                Spatial-Entity))
+  (has-clones (_Cytoplasm1428
+               _Cytoplasm869
+               _Cytoplasm1109))
+  (node-visibility (f))
+  (node-coordinate ((:pair 616 686)))
+  (edge-coordinate ((:seq is-inside _Plasma-membrane1321 666 691)))
+  (edge-visibility ((:seq is-inside _Plasma-membrane1321 f))))
+
+(_Phospholipid1326 has 
+  (cloned-from (_Phospholipid655
+                _Phospholipid531))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_Plasma-membrane1321))
+  (instance-of (Phospholipid))
+  (has-clones (_Phospholipid1435
+               _Phospholipid868
+               _Phospholipid1166))
+  (node-visibility (f))
+  (node-coordinate ((:pair 816 726))))
+
+(_Carbohydrate1325 has 
+  (cloned-from (_Carbohydrate800
+                _Carbohydrate677))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-outside (_Plasma-membrane1321))
+  (is-part-of (_Protein1322))
+  (instance-of (Carbohydrate
+                Spatial-Entity))
+  (has-clones (_Carbohydrate1430
+               _Carbohydrate867
+               _Carbohydrate1111))
+  (node-visibility (f))
+  (node-coordinate ((:pair -300 721)))
+  (edge-coordinate ((:seq is-outside _Plasma-membrane1321 -150 721)))
+  (edge-visibility ((:seq is-outside _Plasma-membrane1321 f))))
+
+(_Polymer1324 has 
+  (cloned-from (_Polymer1399
+                _Polymer308))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Protein1322))
+  (instance-of (Polymer))
+  (has-clones (_Polymer1433
+               _Polymer866
+               _Polymer1164))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1016 711))))
+
+(_Atom1323 has 
+  (cloned-from (_Atom1398
+                _Atom309))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_Protein1322))
+  (instance-of (Atom))
+  (has-clones (_Atom1432
+               _Atom863
+               _Atom1161))
+  (node-visibility (f))
+  (node-coordinate ((:pair 1016 691))))
+
+(_Protein1322 has 
+  (cloned-from (_Protein654
+                _Protein533
+                _Protein305))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Plasma-membrane1321))
+  (instance-of (Protein))
+  (has-basic-structural-unit (_Amino-Acid7109
+                              _Atom1323))
+  (has-part (_Carbohydrate1325
+             _Polymer1324))
+  (clone-built-from (_Protein305))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom1323 866 696)
+                    (:seq has-part _Polymer1324 866 721)
+                    (:seq has-part _Carbohydrate1325 866 721)))
+  (edge-visibility ((:seq has-part _Polymer1324 f)
+                    (:seq has-part _Carbohydrate1325 f)
+                    (:seq has-basic-structural-unit _Atom1323 f)
+                    (:seq has-basic-structural-unit _Amino-Acid7109 f)))
+  (node-coordinate ((:pair 816 706)))
+  (has-clones (_Protein1431
+               _Protein857
+               _Protein1123)))
+
+(_Plasma-membrane1321 has 
+  (cloned-from (_Plasma-membrane184
+                _Plasma-membrane168))
+  (prototype-participant-of (_Endocytosis1229))
+  (encloses (_Cell1308
+             _Cytoplasm1327))
+  (is-part-of (_Living-Entity1320))
+  (instance-of (Plasma-membrane
+                Spatial-Entity))
+  (has-basic-structural-unit (_Phospholipid1326))
+  (does-not-enclose (_Carbohydrate1325))
+  (has-part (_Protein1322))
+  (clone-built-from (_Plasma-membrane168))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Protein1322 666 711)
+                    (:seq has-basic-structural-unit _Phospholipid1326 666 731)))
+  (edge-visibility ((:seq has-part _Protein1322 f)
+                    (:seq has-basic-structural-unit _Phospholipid1326 f)))
+  (node-coordinate ((:pair 616 716)))
+  (has-clones (_Plasma-membrane1429
+               _Plasma-membrane855
+               _Plasma-membrane1110)))
+
+(_Living-Entity1320 has 
+  (cloned-from (_Living-Entity183
+                _Living-Entity174))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Living-Entity))
+  (has-part (_Plasma-membrane1321))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Plasma-membrane1321 -150 711)))
+  (edge-visibility ((:seq has-part _Plasma-membrane1321 f)))
+  (node-coordinate ((:pair 4450 50)))
+  (has-clones (_Living-Entity1434
+               _Living-Entity854
+               _Living-Entity1165)))
+
+(_RRNA1319 has 
+  (cloned-from (_RRNA209
+                _RRNA180))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_Ribosome1316))
+  (instance-of (RRNA))
+  (has-clones (_RRNA1427
+               _RRNA853
+               _RRNA1108))
+  (node-visibility (f))
+  (node-coordinate ((:pair 816 701))))
+
+(_Protein1318 has 
+  (cloned-from (_Protein208
+                _Protein182))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_Ribosome1316))
+  (instance-of (Protein))
+  (has-clones (_Protein1426
+               _Protein852
+               _Protein1103))
+  (node-visibility (f))
+  (node-coordinate ((:pair 816 691))))
+
+(_Protein1317 has 
+  (cloned-from (_Protein653
+                _Protein576))
+  (prototype-participant-of (_Endocytosis1229))
+  (result-of (_Synthesis1315))
+  (instance-of (Protein
+                Entity))
+  (has-clones (_Protein1425
+               _Protein851
+               _Protein1102))
+  (node-visibility (f))
+  (node-coordinate ((:pair 4750 70))))
+
+(_Ribosome1316 has 
+  (cloned-from (_Ribosome195
+                _Ribosome567))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Cell1308))
+  (agent-of (_Synthesis1315))
+  (instance-of (Ribosome
+                Entity))
+  (has-basic-structural-unit (_RRNA1319
+                              _Protein1318))
+  (clone-built-from (_Ribosome567))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _Protein1318 666 701)
+                    (:seq has-basic-structural-unit _RRNA1319 666 701)))
+  (edge-visibility ((:seq has-basic-structural-unit _Protein1318 f)
+                    (:seq has-basic-structural-unit _RRNA1319 f)))
+  (node-coordinate ((:pair 616 696)))
+  (has-clones (_Ribosome1424
+               _Ribosome848
+               _Ribosome1097)))
+
+(_Synthesis1315 has 
+  (cloned-from (_Synthesis652
+                _Synthesis575))
+  (prototype-participant-of (_Endocytosis1229))
+  (raw-material (_Amino-Acid1313))
+  (instance-of (Synthesis))
+  (result (_Protein1317))
+  (agent (_Ribosome1316))
+  (edge-coordinate ((:seq agent _Ribosome1316 -150 696)
+                    (:seq raw-material _Amino-Acid1313 4600 35)
+                    (:seq result _Protein1317 4600 75)))
+  (edge-visibility ((:seq agent _Ribosome1316 f)
+                    (:seq result _Protein1317 f)
+                    (:seq raw-material _Amino-Acid1313 f)))
+  (node-visibility (f))
+  (node-coordinate ((:pair 4550 50)))
+  (has-clones (_Synthesis1422
+               _Synthesis847
+               _Synthesis1095)))
+
+(_Atom1314 has 
+  (cloned-from (_Atom651
+                _Atom574))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-basic-structural-unit-of (_Amino-Acid1313))
+  (instance-of (Atom))
+  (has-clones (_Atom1421
+               _Atom844
+               _Atom1093))
+  (node-visibility (f))
+  (node-coordinate ((:pair 4950 30))))
+
+(_Amino-Acid1313 has 
+  (cloned-from (_Amino-Acid650
+                _Amino-Acid573))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Amino-Acid))
+  (raw-material-of (_Synthesis1315))
+  (has-basic-structural-unit (_Atom1314))
+  (node-visibility (f))
+  (node-coordinate ((:pair 4750 30)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom1314 4800 35)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom1314 f)))
+  (has-clones (_Amino-Acid1420
+               _Amino-Acid839
+               _Amino-Acid1052)))
+
+(_Tangible-Entity1312 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (object-of (_Be-Contained1311))
+  (instance-of (Tangible-Entity
+                Spatial-Entity
+                Entity
+                Thing))
+  (has-clones (_Tangible-Entity1437
+               _Tangible-Entity836
+               _Tangible-Entity1168))
+  (node-visibility (f))
+  (node-coordinate ((:pair -315 751))))
+
+(_Be-Contained1311 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (instrument (_Cell1308))
+  (in-event-of (_Container1310))
+  (instance-of (Be-Contained
+                Block))
+  (object (_Tangible-Entity1312))
+  (node-visibility (f))
+  (edge-coordinate ((:seq instrument _Cell1308 -365 741)
+                    (:seq object _Tangible-Entity1312 -465 756)))
+  (edge-visibility ((:seq object _Tangible-Entity1312 f)
+                    (:seq instrument _Cell1308 f)))
+  (node-coordinate ((:pair -515 741)))
+  (has-clones (_Be-Contained1436
+               _Be-Contained834
+               _Be-Contained1167)))
+
+(_Container1310 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (played-by (_Cell1308))
+  (instance-of (Container
+                Barrier))
+  (in-event (_Be-Contained1311))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 616 776)))
+  (edge-coordinate ((:seq in-event _Be-Contained1311 666 781)))
+  (edge-visibility ((:seq in-event _Be-Contained1311 f)))
+  (has-clones (_Container1438
+               _Container833
+               _Container1169)))
+
+(_Shape-Value1309 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (shape-of (_Cell1308))
+  (instance-of (Shape-Value))
+  (has-clones (_Shape-Value1439
+               _Shape-Value832
+               _Shape-Value1170))
+  (value (*hollow-volume))
+  (node-visibility (f))
+  (node-coordinate ((:pair 616 706)))
+  (edge-visibility ((:seq value *hollow-volume f))))
+
+(_Cell1308 has 
+  (cloned-from (_Cell161
+                _Cell173))
+  (clone-built-from (_Cell161))
+  (prototype-participant-of (_Endocytosis1229))
+  (agent-of (_Endocytosis1229))
+  (base-of (_Endocytosis1229
+            _Move-Through1303))
+  (destination-of (_Endocytosis1229))
+  (has-region (_Vacuole1307))
+  (instance-of (Cell
+                Tangible-Entity
+                Entity
+                Physical-Object
+                Spatial-Entity))
+  (does-not-enclose (_Spatial-Entity1341))
+  (is-between (_Cell1308
+               _Spatial-Entity1341))
+  (is-between-of (_Cell1308))
+  (is-part-of (_Organism1340))
+  (has-part (_Chromosome1338
+             _Cytoplasm1327
+             _Ribosome1316))
+  (is-inside (_Cell1308
+              _Plasma-membrane1321))
+  (encloses (_Cell1308))
+  (instrument-of (_Be-Contained1311))
+  (plays (_Container1310))
+  (shape (_Shape-Value1309))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-visibility ((:seq shape _Shape-Value1309 f)
+                    (:seq plays _Container1310 f)
+                    (:seq is-inside _Plasma-membrane1321 t)
+                    (:seq is-inside _Cell1308 t)
+                    (:seq has-part _Ribosome1316 f)
+                    (:seq has-part _Cytoplasm1327 f)
+                    (:seq has-part _Chromosome1338 f)
+                    (:seq is-between _Spatial-Entity1341 t)
+                    (:seq is-between _Cell1308 t)
+                    (:seq has-region _Vacuole1307 t)))
+  (edge-coordinate ((:seq has-part _Chromosome1338 466 691)
+                    (:seq has-part _Cytoplasm1327 466 691)
+                    (:seq has-part _Ribosome1316 466 691)
+                    (:seq is-inside _Plasma-membrane1321 466 726)
+                    (:seq is-inside _Cell1308 466 726)
+                    (:seq shape _Shape-Value1309 466 711)
+                    (:seq is-between _Spatial-Entity1341 466 736)
+                    (:seq is-between _Cell1308 466 736)
+                    (:seq has-region _Vacuole1307 466 761)
+                    (:seq plays _Container1310 466 781)))
+  (node-coordinate ((:pair 416 741)))
+  (has-clones (_Cell1405
+               _Cell831
+               _Cell989)))
+
+(_Vacuole1307 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (path-of (_Endocytosis1229
+            _Move-Through1303))
+  (plays (_Container1626
+          _Portal1302
+          _Storage1192))
+  (purpose (_Container1626))
+  (diameter (_Length-Value1306))
+  (instance-of (Vacuole
+                Spatial-Entity
+                Entity
+                Living-Entity
+                Tangible-Entity
+                Physical-Object))
+  (is-inside (_Spatial-Entity835))
+  (has-part (_Vacuole-Membrane492))
+  (instrument-of (_Be-Contained1741))
+  (shape (_Shape-Value1740))
+  (does-not-enclose (_Spatial-Entity1739))
+  (is-between (_Spatial-Entity1739
+               _Spatial-Entity1738))
+  (encloses (_Spatial-Entity1738))
+  (is-region-of (_Cell1308))
+  (cloned-from (_Vacuole542
+                _Living-Entity269
+                _Physical-Object264))
+  (clone-built-from (_Vacuole542))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq diameter _Length-Value1306 0 0)
+                    (:seq plays _Portal1302 554 602)))
+  (edge-visibility ((:seq is-between _Spatial-Entity1738 f)
+                    (:seq is-between _Spatial-Entity1739 f)
+                    (:seq shape _Shape-Value1740 f)
+                    (:seq has-part _Vacuole-Membrane492 t)
+                    (:seq is-inside _Spatial-Entity835 t)
+                    (:seq diameter _Length-Value1306 f)
+                    (:seq purpose _Container1626 t)
+                    (:seq plays _Storage1192 t)
+                    (:seq plays _Portal1302 t)
+                    (:seq plays _Container1626 t)))
+  (node-coordinate ((:pair 382 593)))
+  (has-clones (_Vacuole1440
+               _Vacuole830
+               _Tangible-Entity1171)))
+
+(_Length-Value1306 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (greater-than (_Length-Value1305))
+  (instance-of (Length-Value))
+  (diameter-of (_Vacuole1307))
+  (cloned-from (_Length-Value552))
+  (node-visibility (f))
+  (node-coordinate ((:pair 0 0)))
+  (edge-coordinate ((:seq greater-than _Length-Value1305 0 0)))
+  (edge-visibility ((:seq greater-than _Length-Value1305 f)))
+  (has-clones (_Length-Value1445
+               _Length-Value829
+               _Length-Value1176)))
+
+(_Length-Value1305 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (diameter-of (_Vesicle1304))
+  (instance-of (Length-Value))
+  (less-than (_Length-Value1306))
+  (cloned-from (_Length-Value551))
+  (node-visibility (f))
+  (node-coordinate ((:pair 0 0)))
+  (has-clones (_Length-Value1444
+               _Length-Value828
+               _Length-Value1175)))
+
+(_Vesicle1304 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Vesicle))
+  (diameter (_Length-Value1305))
+  (cloned-from (_Vesicle550))
+  (node-visibility (f))
+  (edge-coordinate ((:seq diameter _Length-Value1305 0 0)))
+  (edge-visibility ((:seq diameter _Length-Value1305 f)))
+  (node-coordinate ((:pair 0 0)))
+  (has-clones (_Vesicle1443
+               _Vesicle827
+               _Vesicle1174)))
+
+(_Move-Through1303 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (in-event-of (_Portal1302))
+  (instance-of (Move-Through
+                Move))
+  (base (_Cell1308))
+  (path (_Vacuole1307))
+  (node-visibility (f))
+  (edge-coordinate ((:seq base _Cell1308 -250 588)
+                    (:seq path _Vacuole1307 -150 593)))
+  (edge-visibility ((:seq path _Vacuole1307 f)
+                    (:seq base _Cell1308 f)))
+  (node-coordinate ((:pair -300 593)))
+  (has-clones (_Move-Through1442
+               _Move-Through826
+               _Move-Through1173)))
+
+(_Portal1302 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Portal))
+  (played-by (_Vacuole1307))
+  (in-event (_Move-Through1303))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 582 593)))
+  (edge-coordinate ((:seq in-event _Move-Through1303 632 598)))
+  (edge-visibility ((:seq in-event _Move-Through1303 f)))
+  (has-clones (_Portal1441
+               _Portal825
+               _Portal1172)))
+
+(_Container1626 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Container))
+  (in-event (_Be-Contained1741))
+  (played-by (_Vacuole1307))
+  (purpose-of (_Vacuole1307))
+  (has-clones (_Container823))
+  (cloned-from (_Container1525))
+  (node-visibility (t))
+  (edge-visibility ((:seq in-event _Be-Contained1741 f))))
+
+(_Physical-Object546 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Physical-Object
+                Spatial-Entity))
+  (is-inside (_Vacuole-Membrane492))
+  (has-clones (_Physical-Object821))
+  (cloned-from (_Physical-Object264))
+  (edge-visibility ((:seq is-inside _Vacuole-Membrane492 f))))
+
+(_Living-Entity1408 has 
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Living-Entity))
+  (has-part (_Spatial-Entity835))
+  (has-clones (_Living-Entity820))
+  (cloned-from (_Living-Entity269))
+  (edge-visibility ((:seq has-part _Spatial-Entity835 f))))
+
+(_Nucleotide1409 has 
+  (cloned-from (_Adenine328
+                _Nucleotide337
+                _Adenine378
+                _Organic-Molecule271))
+  (prototype-participant-of (_Endocytosis1229))
+  (is-part-of (_Polymer1413))
+  (complement (_Thymine1412))
+  (has-basic-structural-unit (_Atom1411))
+  (has-part (_Phosphate1410))
+  (instance-of (Nucleotide
+                Adenine
+                Organic-Molecule))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Phosphate1410 t)
+                    (:seq has-basic-structural-unit _Atom1411 t)
+                    (:seq complement _Thymine1412 t)))
+  (has-clones (_Nucleotide819))
+  (clone-built-from (_Nucleotide337
+                     _Adenine378)))
+
+(_Phosphate1410 has 
+  (cloned-from (_Phosphate329
+                _Phosphate346
+                _Phosphate391))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Phosphate))
+  (is-part-of (_Nucleotide1409))
+  (has-clones (_Phosphate818))
+  (node-visibility (t)))
+
+(_Atom1411 has 
+  (cloned-from (_Atom330
+                _Atom347
+                _Atom392))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Nucleotide1409))
+  (has-clones (_Atom817))
+  (node-visibility (t)))
+
+(_Thymine1412 has 
+  (cloned-from (_Thymine331
+                _Thymine400))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Thymine))
+  (complement-of (_Nucleotide1409))
+  (has-clones (_Thymine810))
+  (node-visibility (t)))
+
+(_Polymer1413 has 
+  (cloned-from (_Polymer332
+                _Polymer268))
+  (prototype-participant-of (_Endocytosis1229))
+  (has-part (_Nucleotide1409
+             _Cytosine1416
+             _Thymine1415
+             _Guanine1414))
+  (instance-of (Polymer))
+  (is-part-of (_DNA1334))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-part _Guanine1414 t)
+                    (:seq has-part _Thymine1415 t)
+                    (:seq has-part _Cytosine1416 t)
+                    (:seq has-part _Nucleotide1409 t)))
+  (has-clones (_Polymer809))
+  (clone-built-from (_Polymer268)))
+
+(_Guanine1414 has 
+  (cloned-from (_Guanine333))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Guanine))
+  (is-part-of (_Polymer1413))
+  (has-clones (_Guanine808))
+  (node-visibility (t)))
+
+(_Thymine1415 has 
+  (cloned-from (_Thymine334))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Thymine))
+  (is-part-of (_Polymer1413))
+  (has-clones (_Thymine807))
+  (node-visibility (t)))
+
+(_Cytosine1416 has 
+  (cloned-from (_Cytosine335))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Cytosine))
+  (is-part-of (_Polymer1413))
+  (has-clones (_Cytosine806))
+  (node-visibility (t)))
+
+(_Deoxyribose1417 has 
+  (cloned-from (_Deoxyribose337))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Deoxyribose))
+  (is-part-of (_DNA1334))
+  (has-clones (_Deoxyribose805))
+  (node-visibility (t)))
+
+(_Nucleotide1418 has 
+  (cloned-from (_Nucleotide338))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Nucleotide))
+  (is-part-of (_DNA1334))
+  (has-clones (_Nucleotide804))
+  (node-visibility (t)))
+
+(_Polymer1419 has 
+  (cloned-from (_Polymer326))
+  (prototype-participant-of (_Endocytosis1229))
+  (instance-of (Polymer))
+  (is-part-of (_DNA1334))
+  (has-clones (_Polymer803))
+  (node-visibility (t)))
+
+(explanation (:triple _Endocytosis1229 object _Suborganismal-Entity1342) ((a Tangible-Entity (@ _Endocytosis1229 Move object))))
+(explanation (:triple _Endocytosis1229 object _Suborganismal-Entity1342) ((a Tangible-Entity (@ _Endocytosis1229 Move-Through object))))
+(explanation (:triple _Endocytosis1229 object _Suborganismal-Entity1342) ((a Tangible-Entity (@ _Endocytosis1229 Move-Into object))))
+(explanation (:triple _Endocytosis1229 object _Suborganismal-Entity1342) ((a Tangible-Entity (@ _Endocytosis1229 Take-In object))))
+(explanation (:triple _Endocytosis1229 origin _Spatial-Entity1341) ((a Spatial-Entity with (is-outside ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into origin Spatial-Entity is-outside)))) (@ _Endocytosis1229 Move-Into origin))))
+(explanation (:triple _Endocytosis1229 path _Vacuole1307) ((the has-region of (the base of _Endocytosis1229) (@ _Endocytosis1229 Move-Through path))))
+(explanation (:triple _Endocytosis1229 base _Cell1308) ((a Tangible-Entity with (plays ((a Barrier (@ _Endocytosis1229 Move-Through base Tangible-Entity plays)))) (has-region ((a Spatial-Entity (@ _Endocytosis1229 Move-Through base Tangible-Entity has-region)))) (@ _Endocytosis1229 Move-Through base))))
+(explanation (:triple _Endocytosis1229 base _Cell1308) ((a Tangible-Entity with (plays ((a Container (@ _Endocytosis1229 Move-Into base Tangible-Entity plays)))) (encloses ((the destination of _Endocytosis1229 (@ _Endocytosis1229 Move-Into base Tangible-Entity encloses)))) (has-region ((a Spatial-Entity with (plays ((a Portal (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region Spatial-Entity plays)))) (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region)))) (@ _Endocytosis1229 Move-Into base))))
+(explanation (:triple _Endocytosis1229 destination _Cell1308) ((a Spatial-Entity with (is-inside ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into destination Spatial-Entity is-inside)))) (@ _Endocytosis1229 Move-Into destination))))
+(explanation (:triple _Endocytosis1229 base _Cell1308) ((the agent of _Endocytosis1229 (@ _Endocytosis1229 Take-In base))))
+(explanation (:triple _Endocytosis1229 agent _Cell1308) ((a Tangible-Entity with (plays ((a Container (@ _Endocytosis1229 Take-In agent Tangible-Entity plays)))) (@ _Endocytosis1229 Take-In agent))))
+(explanation (:triple _Endocytosis1229 path _Vacuole1307) ((a Spatial-Entity with (plays ((a Portal (@ _Endocytosis1229 Move-Into path Spatial-Entity plays)))) (is-region-of ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into path Spatial-Entity is-region-of)))) (@ _Endocytosis1229 Move-Into path))))
+(explanation (:triple _Storage1192 instance-of Storage) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Amino-Acid7109 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein1322)))
+(explanation (:triple _Amino-Acid7108 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein1328)))
+(explanation (:triple _Spatial-Entity835 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Vacuole1307 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Spatial-Entity835 instance-of Entity) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Spatial-Entity835 instance-of Vacuole-Membrane) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Spatial-Entity835 instance-of Spatial-Entity) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Spatial-Entity835 is-part-of _Living-Entity1408) ((a Living-Entity (@ _Spatial-Entity835 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Spatial-Entity835 encloses _Vacuole1307) ((a Physical-Object (@ _Spatial-Entity835 Membrane-Enclosure encloses))))
+(explanation (:triple _Spatial-Entity835 encloses _Vacuole1307) ((cloned-from _Vacuole-Membrane259 _Spatial-Entity835)))
+(explanation (:triple _Spatial-Entity835 is-part-of _Living-Entity1408) ((cloned-from _Vacuole-Membrane259 _Spatial-Entity835)))
+(explanation (:triple _Vacuole-Membrane492 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Physical-Object546 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Vacuole-Membrane492 is-part-of _Vacuole1307) ((a Living-Entity (@ _Vacuole-Membrane492 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Vacuole-Membrane492 encloses _Physical-Object546) ((a Physical-Object (@ _Vacuole-Membrane492 Membrane-Enclosure encloses))))
+(explanation (:triple _Vacuole-Membrane492 encloses _Physical-Object546) ((cloned-from _Vacuole-Membrane259 _Vacuole-Membrane492)))
+(explanation (:triple _Vacuole-Membrane492 is-part-of _Vacuole1307) ((cloned-from _Vacuole-Membrane259 _Vacuole-Membrane492)))
+(explanation (:triple _Vacuole-Membrane492 instance-of Vacuole-Membrane) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Tangible-Entity1742 instance-of Entity) ((a Entity)))
+(explanation (:triple _Tangible-Entity1742 instance-of Spatial-Entity) ((a Spatial-Entity)))
+(explanation (:triple _Tangible-Entity1742 instance-of Tangible-Entity) ((a Tangible-Entity)))
+(explanation (:triple _Tangible-Entity1742 instance-of Thing) ((a Thing (@ _Be-Contained1741 Action (object must-be-a)))))
+(explanation (:triple _Tangible-Entity1742 instance-of Entity) ((a Entity (@ _Be-Contained1741 Make-Inaccessible object))))
+(explanation (:triple _Tangible-Entity1742 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Be-Contained1741 Block object))))
+(explanation (:triple _Tangible-Entity1742 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Be-Contained1741 Be-Contained object))))
+(explanation (:triple _Be-Contained1741 instrument _Vacuole1307) ((the played-by of _Container1626 (@ _Container1626 Container in-event Be-Contained instrument))))
+(explanation (:triple _Be-Contained1741 object _Tangible-Entity1742) ((a Entity (@ _Be-Contained1741 Make-Inaccessible object))))
+(explanation (:triple _Be-Contained1741 object _Tangible-Entity1742) ((a Spatial-Entity (@ _Be-Contained1741 Block object))))
+(explanation (:triple _Be-Contained1741 object _Tangible-Entity1742) ((a Tangible-Entity (@ _Be-Contained1741 Be-Contained object))))
+(explanation (:triple _Be-Contained1741 instance-of Block) ((a Block with (object ((the location of _Container1626 (@ _Container1626 Barrier in-event Block object)))) (@ _Container1626 Barrier in-event))))
+(explanation (:triple _Be-Contained1741 instance-of Be-Contained) ((a Be-Contained with (object ((the content of _Container1626 (@ _Container1626 Container in-event Be-Contained object)))) (instrument ((the played-by of _Container1626 (@ _Container1626 Container in-event Be-Contained instrument)))) (@ _Container1626 Container in-event))))
+(explanation (:triple _Shape-Value1740 instance-of Shape-Value) ((a Shape-Value with (value ((*hollow-volume (@ _Container1626 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container1626 Container played-by Tangible-Entity shape))))
+(explanation (:triple _Shape-Value1740 property-slot shape) ((the range-of of (the instance-of of _Shape-Value1740) (@ _Shape-Value1740 Property-Value property-slot))))
+(explanation (:triple _Shape-Value1740 value *hollow-volume) (((FUNCTION (LAMBDA NIL (COND ((FBOUNDP (QUOTE EQUATION-SOLVE)) (EQUATION-SOLVE (QUOTE _Shape-Value1740)))))) (@ _Shape-Value1740 Property-Value value))))
+(explanation (:triple _Shape-Value1740 value *hollow-volume) ((*hollow-volume (@ _Container1626 Container played-by Tangible-Entity shape Shape-Value value))))
+(explanation (:triple _Spatial-Entity1739 is-outside _Vacuole1307) ((the played-by of _Container1626)))
+(explanation (:triple _Spatial-Entity1739 instance-of Spatial-Entity) ((a Spatial-Entity with (is-outside ((the played-by of _Container1626))))))
+(explanation (:triple _Spatial-Entity1739 is-outside _Vacuole1307) ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside))))
+(explanation (:triple _Spatial-Entity1739 instance-of Spatial-Entity) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626)))))) (@ _Container1626 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Spatial-Entity1739 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Vacuole1307 Spatial-Entity (does-not-enclose must-be-a)))))
+(explanation (:triple _Spatial-Entity1739 instance-of Spatial-Entity) ((a Spatial-Entity with (is-outside ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container1626 Container played-by Tangible-Entity does-not-enclose))))
+(explanation (:triple _Spatial-Entity1738 instance-of Spatial-Entity) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626)))))))))
+(explanation (:triple _Spatial-Entity1738 instance-of Spatial-Entity) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626)))))) (@ _Container1626 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Spatial-Entity1738 is-inside _Vacuole1307) ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity encloses Spatial-Entity is-inside))))
+(explanation (:triple _Spatial-Entity1738 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Vacuole1307 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Spatial-Entity1738 instance-of Spatial-Entity) ((a Spatial-Entity with (is-inside ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container1626 Container played-by Tangible-Entity encloses))))
+(explanation (:triple _Suborganismal-Entity1342 instance-of Thing) ((a Thing (@ _Endocytosis1229 Action (object must-be-a)))))
+(explanation (:triple _Suborganismal-Entity1342 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Endocytosis1229 Take-In object))))
+(explanation (:triple _Suborganismal-Entity1342 instance-of Suborganismal-Entity) ((added-at Endocytosis "User defined")))
+(explanation (:triple _Spatial-Entity1341 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cell1308 Spatial-Entity (does-not-enclose must-be-a)))))
+(explanation (:triple _Spatial-Entity1341 is-outside _Cell1308) ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside))))
+(explanation (:triple _Spatial-Entity1341 instance-of Spatial-Entity) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1310)))))) (@ _Container1310 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Spatial-Entity1341 instance-of Spatial-Entity) ((a Spatial-Entity with (is-outside ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container1310 Container played-by Tangible-Entity does-not-enclose))))
+(explanation (:triple _Spatial-Entity1341 is-outside _Cell1308) ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into origin Spatial-Entity is-outside))))
+(explanation (:triple _Spatial-Entity1341 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Endocytosis1229 Move (origin must-be-a)))))
+(explanation (:triple _Spatial-Entity1341 instance-of Spatial-Entity) ((a Spatial-Entity with (is-outside ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into origin Spatial-Entity is-outside)))) (@ _Endocytosis1229 Move-Into origin))))
+(explanation (:triple _Organism1340 instance-of Organism) ((a Organism)))
+(explanation (:triple _Organism1340 instance-of Organism) ((a Organism (@ _Cell1308 Suborganismal-Entity is-part-of))))
+(explanation (:triple _Organism1340 instance-of Organism) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Organism1340 has-part _Cell1308) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromatid1339 instance-of Chromatid) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Chromatid1339 is-part-of _Chromosome1338) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromatid1339 instance-of Chromatid) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromosome1338 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Centromere1332 Region is-region-of))))
+(explanation (:triple _Chromosome1338 instance-of Tangible-Entity) ((cloned-from _Centromere167 _Centromere1332)))
+(explanation (:triple _Chromosome1338 has-region _Centromere1332) ((cloned-from _Centromere167 _Centromere1332)))
+(explanation (:triple _Chromosome1338 instance-of Tangible-Entity) ((a Tangible-Entity)))
+(explanation (:triple _Chromosome1338 has-region _Centromere1332) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Chromosome1338 has-part _Chromatid1339) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Chromosome1338 has-part _Protein1328) ((added-at Chromosome "User defined")))
+(explanation (:triple _Chromosome1338 has-basic-structural-unit _DNA1334) ((added-at Chromosome "User defined")))
+(explanation (:triple _Chromosome1338 has-basic-structural-unit _DNA1334) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Chromosome1338 has-part _Protein1328) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Chromosome1338 instance-of Chromosome) ((added-at Cell "User defined")))
+(explanation (:triple _Chromosome1338 has-basic-structural-unit _DNA1334) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromosome1338 instance-of Tangible-Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromosome1338 instance-of Chromosome) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromosome1338 has-region _Centromere1332) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromosome1338 has-part _Chromatid1339) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromosome1338 has-part _Protein1328) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromosome1338 is-part-of _Cell1308) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Atom1337 instance-of Atom) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Atom1337 is-basic-structural-unit-of _DNA1334) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Atom1337 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom1337 instance-of Atom) ((a Atom (@ _DNA1334 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1337 is-basic-structural-unit-of _DNA1334) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Atom1337 instance-of Atom) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Atom1337 instance-of Atom) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Atom1337 is-basic-structural-unit-of _DNA1334) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromatid1336 instance-of Chromatid) ((added-at DNA "User defined")))
+(explanation (:triple _Chromatid1336 instance-of Chromatid) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Chromatid1336 is-part-of _DNA1334) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Chromatid1336 instance-of Chromatid) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromatid1336 is-part-of _DNA1334) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromatid1335 instance-of Chromatid) ((added-at DNA "User defined")))
+(explanation (:triple _Chromatid1335 instance-of Chromatid) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Chromatid1335 is-part-of _DNA1334) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Chromatid1335 instance-of Chromatid) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Chromatid1335 is-part-of _DNA1334) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _DNA1334 has-part _Deoxyribose1417) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _DNA1334 has-part _Nucleotide1418) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _DNA1334 has-part _Polymer1413) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _DNA1334 has-part _Polymer1419) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _DNA1334 has-part _Chromatid1335) ((added-at DNA "User defined")))
+(explanation (:triple _DNA1334 has-part _Chromatid1336) ((added-at DNA "User defined")))
+(explanation (:triple _DNA1334 instance-of DNA) ((a DNA)))
+(explanation (:triple _DNA1334 has-part _Chromatid1335) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _DNA1334 has-part _Chromatid1336) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _DNA1334 has-basic-structural-unit _Atom1337) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _DNA1334 has-basic-structural-unit _Atom1337) ((a Atom (@ _DNA1334 Molecule has-basic-structural-unit))))
+(explanation (:triple _DNA1334 instance-of DNA) ((added-at Chromosome "User defined")))
+(explanation (:triple _DNA1334 instance-of DNA) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _DNA1334 has-basic-structural-unit _Atom1337) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _DNA1334 is-basic-structural-unit-of _Chromosome1338) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _DNA1334 has-part _Chromatid1335) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _DNA1334 has-part _Chromatid1336) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _DNA1334 has-basic-structural-unit _Atom1337) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _DNA1334 instance-of DNA) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _DNA1334 is-basic-structural-unit-of _Chromosome1338) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _DNA1334 instance-of Nucleic-acid) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Spatial-Entity1333 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Centromere1332 Place location-of))))
+(explanation (:triple _Spatial-Entity1333 instance-of Spatial-Entity) ((a Spatial-Entity)))
+(explanation (:triple _Spatial-Entity1333 location _Centromere1332) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Spatial-Entity1333 instance-of Spatial-Entity) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Spatial-Entity1333 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Spatial-Entity1333 location _Centromere1332) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Centromere1332 instance-of Place) ((a Place (@ _Spatial-Entity1331 Spatial-Entity (location must-be-a)))))
+(explanation (:triple _Centromere1332 location-of _Spatial-Entity1333) ((a Spatial-Entity (@ _Centromere1332 Place location-of))))
+(explanation (:triple _Centromere1332 instance-of Place) ((a Place (@ _Spatial-Entity1333 Spatial-Entity (location must-be-a)))))
+(explanation (:triple _Centromere1332 instance-of Centromere) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Centromere1332 is-region-of _Chromosome1338) ((a Tangible-Entity (@ _Centromere1332 Region is-region-of))))
+(explanation (:triple _Centromere1332 location-of _Spatial-Entity1331) ((a Spatial-Entity (@ _Centromere1332 Place location-of))))
+(explanation (:triple _Centromere1332 location-of _Spatial-Entity1331) ((cloned-from _Centromere167 _Centromere1332)))
+(explanation (:triple _Centromere1332 is-region-of _Chromosome1338) ((cloned-from _Centromere167 _Centromere1332)))
+(explanation (:triple _Centromere1332 location-of _Spatial-Entity1333) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Centromere1332 location-of _Spatial-Entity1331) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Centromere1332 is-region-of _Chromosome1338) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Centromere1332 instance-of Place) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Centromere1332 instance-of Centromere) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Spatial-Entity1331 instance-of Spatial-Entity) ((a Spatial-Entity)))
+(explanation (:triple _Spatial-Entity1331 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Centromere1332 Place location-of))))
+(explanation (:triple _Spatial-Entity1331 instance-of Spatial-Entity) ((cloned-from _Centromere167 _Centromere1332)))
+(explanation (:triple _Spatial-Entity1331 location _Centromere1332) ((cloned-from _Centromere167 _Centromere1332)))
+(explanation (:triple _Spatial-Entity1331 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Spatial-Entity1331 location _Centromere1332) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Polymer1330 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer1330 instance-of Polymer) ((cloned-from _Protein305 _Protein1328)))
+(explanation (:triple _Polymer1330 is-part-of _Protein1328) ((cloned-from _Protein305 _Protein1328)))
+(explanation (:triple _Polymer1330 is-part-of _Protein1328) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Polymer1330 instance-of Polymer) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Atom1329 instance-of Atom) ((cloned-from _Protein305 _Protein1328)))
+(explanation (:triple _Atom1329 is-basic-structural-unit-of _Protein1328) ((cloned-from _Protein305 _Protein1328)))
+(explanation (:triple _Atom1329 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom1329 instance-of Atom) ((a Atom (@ _Protein1328 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1329 is-basic-structural-unit-of _Protein1328) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Atom1329 instance-of Atom) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Atom1329 instance-of Atom) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Atom1329 is-basic-structural-unit-of _Protein1328) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1328 has-basic-structural-unit _Amino-Acid7108) ((cloned-from _Protein305 _Protein1328)))
+(explanation (:triple _Protein1328 has-part _Polymer1330) ((added-at Protein "User defined")))
+(explanation (:triple _Protein1328 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein1328 has-part _Polymer1330) ((cloned-from _Protein305 _Protein1328)))
+(explanation (:triple _Protein1328 has-basic-structural-unit _Atom1329) ((cloned-from _Protein305 _Protein1328)))
+(explanation (:triple _Protein1328 has-basic-structural-unit _Atom1329) ((a Atom (@ _Protein1328 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein1328 instance-of Protein) ((added-at Chromosome "User defined")))
+(explanation (:triple _Protein1328 instance-of Protein) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Protein1328 has-basic-structural-unit _Atom1329) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Protein1328 is-part-of _Chromosome1338) ((cloned-from _Chromosome164 _Chromosome1338)))
+(explanation (:triple _Protein1328 has-basic-structural-unit _Atom1329) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1328 instance-of Protein) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1328 is-part-of _Chromosome1338) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1328 has-part _Polymer1330) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cytoplasm1327 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Plasma-membrane1321 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Cytoplasm1327 instance-of Cytoplasm) ((added-at Cell "User defined")))
+(explanation (:triple _Cytoplasm1327 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cytoplasm1327 instance-of Cytoplasm) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cytoplasm1327 is-inside _Plasma-membrane1321) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cytoplasm1327 is-part-of _Cell1308) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Phospholipid1326 instance-of Phospholipid) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Phospholipid1326 is-basic-structural-unit-of _Plasma-membrane1321) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Phospholipid1326 instance-of Phospholipid) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Carbohydrate1325 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Plasma-membrane1321 Spatial-Entity (does-not-enclose must-be-a)))))
+(explanation (:triple _Carbohydrate1325 is-outside _Plasma-membrane1321) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Carbohydrate1325 instance-of Carbohydrate) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Carbohydrate1325 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Carbohydrate1325 instance-of Carbohydrate) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Carbohydrate1325 is-outside _Plasma-membrane1321) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Carbohydrate1325 is-part-of _Protein1322) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Polymer1324 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer1324 instance-of Polymer) ((cloned-from _Protein305 _Protein1322)))
+(explanation (:triple _Polymer1324 is-part-of _Protein1322) ((cloned-from _Protein305 _Protein1322)))
+(explanation (:triple _Polymer1324 is-part-of _Protein1322) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Polymer1324 instance-of Polymer) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Atom1323 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom1323 instance-of Atom) ((a Atom (@ _Protein1322 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1323 instance-of Atom) ((cloned-from _Protein305 _Protein1322)))
+(explanation (:triple _Atom1323 is-basic-structural-unit-of _Protein1322) ((cloned-from _Protein305 _Protein1322)))
+(explanation (:triple _Atom1323 is-basic-structural-unit-of _Protein1322) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Atom1323 instance-of Atom) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1322 has-basic-structural-unit _Amino-Acid7109) ((cloned-from _Protein305 _Protein1322)))
+(explanation (:triple _Protein1322 has-part _Polymer1324) ((added-at Protein "User defined")))
+(explanation (:triple _Protein1322 has-basic-structural-unit _Atom1323) ((a Atom (@ _Protein1322 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein1322 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein1322 has-part _Polymer1324) ((cloned-from _Protein305 _Protein1322)))
+(explanation (:triple _Protein1322 has-basic-structural-unit _Atom1323) ((cloned-from _Protein305 _Protein1322)))
+(explanation (:triple _Protein1322 has-part _Carbohydrate1325) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Protein1322 instance-of Protein) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Protein1322 is-part-of _Plasma-membrane1321) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1322 instance-of Protein) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1322 has-basic-structural-unit _Atom1323) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1322 has-part _Polymer1324) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1322 has-part _Carbohydrate1325) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Plasma-membrane1321 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Cell1308 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Plasma-membrane1321 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Carbohydrate1325 Spatial-Entity (is-outside must-be-a)))))
+(explanation (:triple _Plasma-membrane1321 has-part _Protein1322) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Plasma-membrane1321 has-basic-structural-unit _Phospholipid1326) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Plasma-membrane1321 encloses _Cytoplasm1327) ((added-at Cell "User defined")))
+(explanation (:triple _Plasma-membrane1321 is-part-of _Living-Entity1320) ((a Living-Entity (@ _Plasma-membrane1321 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Plasma-membrane1321 encloses _Cell1308) ((a Physical-Object (@ _Plasma-membrane1321 Membrane-Enclosure encloses))))
+(explanation (:triple _Plasma-membrane1321 encloses _Cell1308) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Plasma-membrane1321 is-part-of _Living-Entity1320) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Plasma-membrane1321 instance-of Plasma-membrane) ((added-at Cell "User defined")))
+(explanation (:triple _Plasma-membrane1321 does-not-enclose _Carbohydrate1325) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Plasma-membrane1321 instance-of Spatial-Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Plasma-membrane1321 instance-of Plasma-membrane) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Plasma-membrane1321 is-part-of _Living-Entity1320) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Plasma-membrane1321 has-part _Protein1322) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Plasma-membrane1321 has-basic-structural-unit _Phospholipid1326) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Plasma-membrane1321 encloses _Cytoplasm1327) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Plasma-membrane1321 encloses _Cell1308) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Living-Entity1320 instance-of Living-Entity) ((a Living-Entity (@ _Plasma-membrane1321 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Living-Entity1320 has-part _Plasma-membrane1321) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Living-Entity1320 instance-of Living-Entity) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Living-Entity1320 has-part _Plasma-membrane1321) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Living-Entity1320 instance-of Living-Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _RRNA1319 instance-of RRNA) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _RRNA1319 instance-of RRNA) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _RRNA1319 is-basic-structural-unit-of _Ribosome1316) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1318 instance-of Protein) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Protein1318 instance-of Protein) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1318 is-basic-structural-unit-of _Ribosome1316) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1317 instance-of Entity) ((a Entity (@ _Synthesis1315 Create result))))
+(explanation (:triple _Protein1317 instance-of Protein) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein1317 result-of _Synthesis1315) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Protein1317 instance-of Entity) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Protein1317 instance-of Protein) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Protein1317 result-of _Synthesis1315) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1317 instance-of Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Protein1317 instance-of Protein) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Ribosome1316 has-basic-structural-unit _Protein1318) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Ribosome1316 has-basic-structural-unit _RRNA1319) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Ribosome1316 instance-of Ribosome) ((added-at Cell "User defined")))
+(explanation (:triple _Ribosome1316 instance-of Ribosome) ((a Ribosome)))
+(explanation (:triple _Ribosome1316 abuts (if (has-value (the instrument of _Synthesis1315) (@ _Synthesis1315 Event agent (must-be-a Entity) abuts)) then (the instrument of _Synthesis1315 (@ _Synthesis1315 Event agent (must-be-a Entity) abuts)) (@ _Synthesis1315 Event agent (must-be-a Entity) abuts))) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Ribosome1316 agent-of _Synthesis1315) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Ribosome1316 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Synthesis1315) (@ _Synthesis1315 Event (agent must-be-a) Entity abuts)) then (the instrument of _Synthesis1315 (@ _Synthesis1315 Event (agent must-be-a) Entity abuts)) (@ _Synthesis1315 Event (agent must-be-a) Entity abuts)))) (@ _Synthesis1315 Event (agent must-be-a)))))
+(explanation (:triple _Ribosome1316 instance-of Entity) ((a Entity (@ _Synthesis1315 Create (agent must-be-a)))))
+(explanation (:triple _Ribosome1316 has-basic-structural-unit _Protein1318) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Ribosome1316 has-basic-structural-unit _RRNA1319) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Ribosome1316 instance-of Entity) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Ribosome1316 instance-of Ribosome) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Ribosome1316 agent-of _Synthesis1315) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Ribosome1316 is-part-of _Cell1308) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Synthesis1315 agent _Ribosome1316) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis1315 raw-material _Amino-Acid1313) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis1315 result _Protein1317) ((a Entity (@ _Synthesis1315 Create result))))
+(explanation (:triple _Synthesis1315 instance-of Synthesis) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis1315 raw-material _Amino-Acid1313) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Synthesis1315 instance-of Synthesis) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Synthesis1315 result _Protein1317) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Synthesis1315 agent _Ribosome1316) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Synthesis1315 raw-material _Amino-Acid1313) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Synthesis1315 agent _Ribosome1316) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Synthesis1315 instance-of Synthesis) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Synthesis1315 result _Protein1317) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Atom1314 instance-of Atom) ((a Atom (@ _Amino-Acid1313 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1314 is-basic-structural-unit-of _Amino-Acid1313) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Atom1314 instance-of Atom) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Atom1314 is-basic-structural-unit-of _Amino-Acid1313) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Atom1314 instance-of Atom) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Amino-Acid1313 has-basic-structural-unit _Atom1314) ((a Atom (@ _Amino-Acid1313 Molecule has-basic-structural-unit))))
+(explanation (:triple _Amino-Acid1313 instance-of Amino-Acid) ((added-at Ribosome "User defined")))
+(explanation (:triple _Amino-Acid1313 instance-of Amino-Acid) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Amino-Acid1313 has-basic-structural-unit _Atom1314) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Amino-Acid1313 raw-material-of _Synthesis1315) ((cloned-from _Ribosome567 _Ribosome1316)))
+(explanation (:triple _Amino-Acid1313 instance-of Amino-Acid) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Amino-Acid1313 has-basic-structural-unit _Atom1314) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Amino-Acid1313 raw-material-of _Synthesis1315) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Tangible-Entity1312 instance-of Entity) ((a Entity)))
+(explanation (:triple _Tangible-Entity1312 instance-of Spatial-Entity) ((a Spatial-Entity)))
+(explanation (:triple _Tangible-Entity1312 instance-of Tangible-Entity) ((a Tangible-Entity)))
+(explanation (:triple _Tangible-Entity1312 instance-of Thing) ((a Thing (@ _Be-Contained1311 Action (object must-be-a)))))
+(explanation (:triple _Tangible-Entity1312 instance-of Entity) ((a Entity (@ _Be-Contained1311 Make-Inaccessible object))))
+(explanation (:triple _Tangible-Entity1312 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Be-Contained1311 Block object))))
+(explanation (:triple _Tangible-Entity1312 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Be-Contained1311 Be-Contained object))))
+(explanation (:triple _Be-Contained1311 instrument _Cell1308) ((the played-by of _Container1310 (@ _Container1310 Container in-event Be-Contained instrument))))
+(explanation (:triple _Be-Contained1311 object _Tangible-Entity1312) ((a Entity (@ _Be-Contained1311 Make-Inaccessible object))))
+(explanation (:triple _Be-Contained1311 object _Tangible-Entity1312) ((a Spatial-Entity (@ _Be-Contained1311 Block object))))
+(explanation (:triple _Be-Contained1311 object _Tangible-Entity1312) ((a Tangible-Entity (@ _Be-Contained1311 Be-Contained object))))
+(explanation (:triple _Be-Contained1311 instance-of Block) ((a Block with (object ((the location of _Container1310 (@ _Container1310 Barrier in-event Block object)))) (@ _Container1310 Barrier in-event))))
+(explanation (:triple _Be-Contained1311 instance-of Be-Contained) ((a Be-Contained with (object ((the content of _Container1310 (@ _Container1310 Container in-event Be-Contained object)))) (instrument ((the played-by of _Container1310 (@ _Container1310 Container in-event Be-Contained instrument)))) (@ _Container1310 Container in-event))))
+(explanation (:triple _Container1310 instance-of Barrier) ((a Barrier (@ _Move-Through1303 Move-Through base Tangible-Entity plays))))
+(explanation (:triple _Container1310 in-event _Be-Contained1311) ((a Block with (object ((the location of _Container1310 (@ _Container1310 Barrier in-event Block object)))) (@ _Container1310 Barrier in-event))))
+(explanation (:triple _Container1310 in-event _Be-Contained1311) ((a Be-Contained with (object ((the content of _Container1310 (@ _Container1310 Container in-event Be-Contained object)))) (instrument ((the played-by of _Container1310 (@ _Container1310 Container in-event Be-Contained instrument)))) (@ _Container1310 Container in-event))))
+(explanation (:triple _Container1310 played-by _Cell1308) ((a Tangible-Entity with (instrument-of ((the in-event of _Container1310 (@ _Container1310 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Container1310 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1310)))))) (@ _Container1310 Barrier played-by Tangible-Entity is-between)))) (@ _Container1310 Barrier played-by))))
+(explanation (:triple _Container1310 played-by _Cell1308) ((a Tangible-Entity with (encloses ((a Spatial-Entity with (is-inside ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container1310 Container played-by Tangible-Entity encloses)))) (does-not-enclose ((a Spatial-Entity with (is-outside ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container1310 Container played-by Tangible-Entity does-not-enclose)))) (is-between ((the encloses of (the played-by of _Container1310) (@ _Container1310 Container played-by Tangible-Entity is-between)) (the does-not-enclose of (the played-by of _Container1310) (@ _Container1310 Container played-by Tangible-Entity is-between)))) (shape ((a Shape-Value with (value ((*hollow-volume (@ _Container1310 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container1310 Container played-by Tangible-Entity shape)))) (@ _Container1310 Container played-by))))
+(explanation (:triple _Container1310 instance-of Barrier) ((a Barrier (@ _Endocytosis1229 Move-Through base Tangible-Entity plays))))
+(explanation (:triple _Container1310 instance-of Container) ((a Container (@ _Endocytosis1229 Take-In agent Tangible-Entity plays))))
+(explanation (:triple _Shape-Value1309 instance-of Shape-Value) ((a Shape-Value with (value ((*hollow-volume (@ _Container1310 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container1310 Container played-by Tangible-Entity shape))))
+(explanation (:triple _Shape-Value1309 property-slot shape) ((the range-of of (the instance-of of _Shape-Value1309) (@ _Shape-Value1309 Property-Value property-slot))))
+(explanation (:triple _Shape-Value1309 value *hollow-volume) (((FUNCTION (LAMBDA NIL (COND ((FBOUNDP (QUOTE EQUATION-SOLVE)) (EQUATION-SOLVE (QUOTE _Shape-Value1309)))))) (@ _Shape-Value1309 Property-Value value))))
+(explanation (:triple _Shape-Value1309 value *hollow-volume) ((*hollow-volume (@ _Container1310 Container played-by Tangible-Entity shape Shape-Value value))))
+(explanation (:triple _Cell1308 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Plasma-membrane1321 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Cell1308 has-part _Ribosome1316) ((added-at Cell "User defined")))
+(explanation (:triple _Cell1308 has-part _Cytoplasm1327) ((added-at Cell "User defined")))
+(explanation (:triple _Cell1308 has-part _Chromosome1338) ((added-at Cell "User defined")))
+(explanation (:triple _Cell1308 is-part-of _Organism1340) ((a Organism (@ _Cell1308 Suborganismal-Entity is-part-of))))
+(explanation (:triple _Cell1308 instance-of Cell) ((a Cell)))
+(explanation (:triple _Cell1308 instance-of Physical-Object) ((a Physical-Object (@ _Plasma-membrane1321 Membrane-Enclosure encloses))))
+(explanation (:triple _Cell1308 instance-of Cell) ((added-at Plasma-membrane "User defined")))
+(explanation (:triple _Cell1308 is-inside _Plasma-membrane1321) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Cell1308 instance-of Physical-Object) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Cell1308 instance-of Cell) ((cloned-from _Plasma-membrane168 _Plasma-membrane1321)))
+(explanation (:triple _Cell1308 is-inside _Plasma-membrane1321) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cell1308 is-part-of _Organism1340) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cell1308 has-part _Chromosome1338) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cell1308 has-part _Cytoplasm1327) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cell1308 has-part _Ribosome1316) ((cloned-from _Cell161 _Cell1308)))
+(explanation (:triple _Cell1308 plays _Container1310) ((a Barrier (@ _Move-Through1303 Move-Through base Tangible-Entity plays))))
+(explanation (:triple _Cell1308 has-region _Vacuole1307) ((a Spatial-Entity (@ _Move-Through1303 Move-Through base Tangible-Entity has-region))))
+(explanation (:triple _Cell1308 instance-of Tangible-Entity) ((a Tangible-Entity with (plays ((a Barrier (@ _Move-Through1303 Move-Through base Tangible-Entity plays)))) (has-region ((a Spatial-Entity (@ _Move-Through1303 Move-Through base Tangible-Entity has-region)))) (@ _Move-Through1303 Move-Through base))))
+(explanation (:triple _Cell1308 is-inside _Cell1308) ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity encloses Spatial-Entity is-inside))))
+(explanation (:triple _Cell1308 instance-of Spatial-Entity) ((a Spatial-Entity with (is-inside ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container1310 Container played-by Tangible-Entity encloses))))
+(explanation (:triple _Cell1308 is-inside _Cell1308) ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into destination Spatial-Entity is-inside))))
+(explanation (:triple _Cell1308 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Endocytosis1229 Move (destination must-be-a)))))
+(explanation (:triple _Cell1308 instance-of Spatial-Entity) ((a Spatial-Entity with (is-inside ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into destination Spatial-Entity is-inside)))) (@ _Endocytosis1229 Move-Into destination))))
+(explanation (:triple _Cell1308 instance-of Entity) ((a Entity with (abuts ((if (has-value (the agent of _Be-Contained1311) (@ _Be-Contained1311 Event (instrument must-be-a) Entity abuts)) then (the agent of _Be-Contained1311 (@ _Be-Contained1311 Event (instrument must-be-a) Entity abuts)) (@ _Be-Contained1311 Event (instrument must-be-a) Entity abuts)))) (@ _Be-Contained1311 Event (instrument must-be-a)))))
+(explanation (:triple _Cell1308 instance-of Entity) ((a Entity (@ _Be-Contained1311 Action (instrument must-be-a)))))
+(explanation (:triple _Cell1308 instrument-of _Be-Contained1311) ((the in-event of _Container1310 (@ _Container1310 Barrier played-by Tangible-Entity instrument-of))))
+(explanation (:triple _Cell1308 shape _Shape-Value1309) ((a Shape-Value with (value ((*hollow-volume (@ _Container1310 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container1310 Container played-by Tangible-Entity shape))))
+(explanation (:triple _Cell1308 is-between _Spatial-Entity1341) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1310)))))) (@ _Container1310 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Cell1308 is-between _Cell1308) ((a Spatial-Entity (@ _Container1310 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Cell1308 is-between _Spatial-Entity1341) ((the does-not-enclose of (the played-by of _Container1310) (@ _Container1310 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Cell1308 is-between _Cell1308) ((the encloses of (the played-by of _Container1310) (@ _Container1310 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Cell1308 does-not-enclose _Spatial-Entity1341) ((a Spatial-Entity with (is-outside ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container1310 Container played-by Tangible-Entity does-not-enclose))))
+(explanation (:triple _Cell1308 encloses _Cell1308) ((a Spatial-Entity with (is-inside ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container1310 Container played-by Tangible-Entity encloses))))
+(explanation (:triple _Cell1308 instance-of Tangible-Entity) ((a Tangible-Entity with (instrument-of ((the in-event of _Container1310 (@ _Container1310 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Container1310 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1310)))))) (@ _Container1310 Barrier played-by Tangible-Entity is-between)))) (@ _Container1310 Barrier played-by))))
+(explanation (:triple _Cell1308 instance-of Tangible-Entity) ((a Tangible-Entity with (encloses ((a Spatial-Entity with (is-inside ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container1310 Container played-by Tangible-Entity encloses)))) (does-not-enclose ((a Spatial-Entity with (is-outside ((the played-by of _Container1310 (@ _Container1310 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container1310 Container played-by Tangible-Entity does-not-enclose)))) (is-between ((the encloses of (the played-by of _Container1310) (@ _Container1310 Container played-by Tangible-Entity is-between)) (the does-not-enclose of (the played-by of _Container1310) (@ _Container1310 Container played-by Tangible-Entity is-between)))) (shape ((a Shape-Value with (value ((*hollow-volume (@ _Container1310 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container1310 Container played-by Tangible-Entity shape)))) (@ _Container1310 Container played-by))))
+(explanation (:triple _Cell1308 encloses _Cell1308) ((the destination of _Endocytosis1229 (@ _Endocytosis1229 Move-Into base Tangible-Entity encloses))))
+(explanation (:triple _Cell1308 plays _Container1310) ((a Barrier (@ _Endocytosis1229 Move-Through base Tangible-Entity plays))))
+(explanation (:triple _Cell1308 plays _Container1310) ((a Container (@ _Endocytosis1229 Move-Into base Tangible-Entity plays))))
+(explanation (:triple _Cell1308 plays _Container1310) ((a Container (@ _Endocytosis1229 Take-In agent Tangible-Entity plays))))
+(explanation (:triple _Cell1308 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Spatial-Entity1341 Spatial-Entity (is-outside must-be-a)))))
+(explanation (:triple _Cell1308 has-region _Vacuole1307) ((a Spatial-Entity (@ _Endocytosis1229 Move-Through base Tangible-Entity has-region))))
+(explanation (:triple _Cell1308 has-region _Vacuole1307) ((a Spatial-Entity with (plays ((a Portal (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region Spatial-Entity plays)))) (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region))))
+(explanation (:triple _Cell1308 instance-of Tangible-Entity) ((a Tangible-Entity with (plays ((a Barrier (@ _Endocytosis1229 Move-Through base Tangible-Entity plays)))) (has-region ((a Spatial-Entity (@ _Endocytosis1229 Move-Through base Tangible-Entity has-region)))) (@ _Endocytosis1229 Move-Through base))))
+(explanation (:triple _Cell1308 instance-of Tangible-Entity) ((a Tangible-Entity with (plays ((a Container (@ _Endocytosis1229 Move-Into base Tangible-Entity plays)))) (encloses ((the destination of _Endocytosis1229 (@ _Endocytosis1229 Move-Into base Tangible-Entity encloses)))) (has-region ((a Spatial-Entity with (plays ((a Portal (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region Spatial-Entity plays)))) (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region)))) (@ _Endocytosis1229 Move-Into base))))
+(explanation (:triple _Cell1308 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Endocytosis1229) (@ _Endocytosis1229 Event (agent must-be-a) Entity abuts)) then (the instrument of _Endocytosis1229 (@ _Endocytosis1229 Event (agent must-be-a) Entity abuts)) (@ _Endocytosis1229 Event (agent must-be-a) Entity abuts)))) (@ _Endocytosis1229 Event (agent must-be-a)))))
+(explanation (:triple _Cell1308 instance-of Tangible-Entity) ((a Tangible-Entity with (plays ((a Container (@ _Endocytosis1229 Take-In agent Tangible-Entity plays)))) (@ _Endocytosis1229 Take-In agent))))
+(explanation (:triple _Cell1308 instance-of Cell) ((added-at Endocytosis "User defined")))
+(explanation (:triple _Vacuole1307 plays _Storage1192) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Vacuole1307 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Spatial-Entity835 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Vacuole1307 instance-of Physical-Object) ((a Physical-Object (@ _Spatial-Entity835 Membrane-Enclosure encloses))))
+(explanation (:triple _Vacuole1307 instance-of Physical-Object) ((cloned-from _Vacuole-Membrane259 _Spatial-Entity835)))
+(explanation (:triple _Vacuole1307 is-inside _Spatial-Entity835) ((cloned-from _Vacuole-Membrane259 _Spatial-Entity835)))
+(explanation (:triple _Vacuole1307 instance-of Physical-Object) ((a Physical-Object)))
+(explanation (:triple _Vacuole1307 is-inside _Spatial-Entity835) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Vacuole1307 instance-of Living-Entity) ((a Living-Entity (@ _Vacuole-Membrane492 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Vacuole1307 instance-of Living-Entity) ((cloned-from _Vacuole-Membrane259 _Vacuole-Membrane492)))
+(explanation (:triple _Vacuole1307 has-part _Vacuole-Membrane492) ((cloned-from _Vacuole-Membrane259 _Vacuole-Membrane492)))
+(explanation (:triple _Vacuole1307 instance-of Living-Entity) ((a Living-Entity)))
+(explanation (:triple _Vacuole1307 has-part _Vacuole-Membrane492) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Vacuole1307 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Spatial-Entity1738 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Vacuole1307 is-between _Spatial-Entity1738) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626)))))) (@ _Container1626 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Vacuole1307 is-between _Spatial-Entity1739) ((a Spatial-Entity (@ _Container1626 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Vacuole1307 purpose _Container1626) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Vacuole1307 instance-of Entity) ((a Entity with (abuts ((if (has-value (the agent of _Be-Contained1741) (@ _Be-Contained1741 Event (instrument must-be-a) Entity abuts)) then (the agent of _Be-Contained1741 (@ _Be-Contained1741 Event (instrument must-be-a) Entity abuts)) (@ _Be-Contained1741 Event (instrument must-be-a) Entity abuts)))) (@ _Be-Contained1741 Event (instrument must-be-a)))))
+(explanation (:triple _Vacuole1307 instance-of Entity) ((a Entity (@ _Be-Contained1741 Action (instrument must-be-a)))))
+(explanation (:triple _Vacuole1307 instrument-of _Be-Contained1741) ((the in-event of _Container1626 (@ _Container1626 Barrier played-by Tangible-Entity instrument-of))))
+(explanation (:triple _Vacuole1307 shape _Shape-Value1740) ((a Shape-Value with (value ((*hollow-volume (@ _Container1626 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container1626 Container played-by Tangible-Entity shape))))
+(explanation (:triple _Vacuole1307 is-between _Spatial-Entity1739) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626)))))) (@ _Container1626 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Vacuole1307 is-between _Spatial-Entity1738) ((a Spatial-Entity (@ _Container1626 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Vacuole1307 is-between _Spatial-Entity1739) ((the does-not-enclose of (the played-by of _Container1626) (@ _Container1626 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Vacuole1307 is-between _Spatial-Entity1738) ((the encloses of (the played-by of _Container1626) (@ _Container1626 Container played-by Tangible-Entity is-between))))
+(explanation (:triple _Vacuole1307 does-not-enclose _Spatial-Entity1739) ((a Spatial-Entity with (is-outside ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container1626 Container played-by Tangible-Entity does-not-enclose))))
+(explanation (:triple _Vacuole1307 encloses _Spatial-Entity1738) ((a Spatial-Entity with (is-inside ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container1626 Container played-by Tangible-Entity encloses))))
+(explanation (:triple _Vacuole1307 instance-of Tangible-Entity) ((a Tangible-Entity with (instrument-of ((the in-event of _Container1626 (@ _Container1626 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Container1626 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626)))))) (@ _Container1626 Barrier played-by Tangible-Entity is-between)))) (@ _Container1626 Barrier played-by))))
+(explanation (:triple _Vacuole1307 instance-of Tangible-Entity) ((a Tangible-Entity with (encloses ((a Spatial-Entity with (is-inside ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container1626 Container played-by Tangible-Entity encloses)))) (does-not-enclose ((a Spatial-Entity with (is-outside ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container1626 Container played-by Tangible-Entity does-not-enclose)))) (is-between ((the encloses of (the played-by of _Container1626) (@ _Container1626 Container played-by Tangible-Entity is-between)) (the does-not-enclose of (the played-by of _Container1626) (@ _Container1626 Container played-by Tangible-Entity is-between)))) (shape ((a Shape-Value with (value ((*hollow-volume (@ _Container1626 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container1626 Container played-by Tangible-Entity shape)))) (@ _Container1626 Container played-by))))
+(explanation (:triple _Vacuole1307 plays _Container1626) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Vacuole1307 diameter _Length-Value1306) ((added-at Vacuole "User defined")))
+(explanation (:triple _Vacuole1307 diameter _Length-Value1306) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Vacuole1307 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move-Through1303 Move-Through base Tangible-Entity has-region))))
+(explanation (:triple _Vacuole1307 path-of _Move-Through1303) ((the in-event of _Portal1302 (@ _Portal1302 Portal played-by Spatial-Entity path-of))))
+(explanation (:triple _Vacuole1307 instance-of Spatial-Entity) ((a Spatial-Entity with (path-of ((the in-event of _Portal1302 (@ _Portal1302 Portal played-by Spatial-Entity path-of)))) (@ _Portal1302 Portal played-by))))
+(explanation (:triple _Vacuole1307 is-region-of _Cell1308) ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into path Spatial-Entity is-region-of))))
+(explanation (:triple _Vacuole1307 plays _Portal1302) ((a Portal (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region Spatial-Entity plays))))
+(explanation (:triple _Vacuole1307 plays _Portal1302) ((a Portal (@ _Endocytosis1229 Move-Into path Spatial-Entity plays))))
+(explanation (:triple _Vacuole1307 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Endocytosis1229 Move-Through base Tangible-Entity has-region))))
+(explanation (:triple _Vacuole1307 instance-of Spatial-Entity) ((a Spatial-Entity with (plays ((a Portal (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region Spatial-Entity plays)))) (@ _Endocytosis1229 Move-Into base Tangible-Entity has-region))))
+(explanation (:triple _Vacuole1307 instance-of Spatial-Entity) ((a Spatial-Entity with (plays ((a Portal (@ _Endocytosis1229 Move-Into path Spatial-Entity plays)))) (is-region-of ((the base of _Endocytosis1229 (@ _Endocytosis1229 Move-Into path Spatial-Entity is-region-of)))) (@ _Endocytosis1229 Move-Into path))))
+(explanation (:triple _Vacuole1307 instance-of Vacuole) ((added-at Endocytosis "User defined")))
+(explanation (:triple _Length-Value1306 greater-than _Length-Value1305) ((added-at Vacuole "User defined")))
+(explanation (:triple _Length-Value1306 instance-of Length-Value) ((added-at Vacuole "User defined")))
+(explanation (:triple _Length-Value1306 greater-than _Length-Value1305) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Length-Value1306 instance-of Length-Value) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Length-Value1306 contains-node-of _Property-Node1344) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Length-Value1306 diameter-of _Vacuole1307) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Length-Value1305 instance-of Length-Value) ((added-at Vacuole "User defined")))
+(explanation (:triple _Length-Value1305 diameter-of _Vesicle1304) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Length-Value1305 instance-of Length-Value) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Length-Value1305 less-than _Length-Value1306) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Length-Value1305 contains-node-of _Property-Node1343) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Vesicle1304 diameter _Length-Value1305) ((added-at Vacuole "User defined")))
+(explanation (:triple _Vesicle1304 instance-of Vesicle) ((added-at Vacuole "User defined")))
+(explanation (:triple _Vesicle1304 instance-of Vesicle) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Vesicle1304 diameter _Length-Value1305) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Move-Through1303 path _Vacuole1307) ((the has-region of (the base of _Move-Through1303) (@ _Move-Through1303 Move-Through path))))
+(explanation (:triple _Move-Through1303 base _Cell1308) ((a Tangible-Entity with (plays ((a Barrier (@ _Move-Through1303 Move-Through base Tangible-Entity plays)))) (has-region ((a Spatial-Entity (@ _Move-Through1303 Move-Through base Tangible-Entity has-region)))) (@ _Move-Through1303 Move-Through base))))
+(explanation (:triple _Move-Through1303 instance-of Move) ((a Move (@ _Portal1302 Conduit in-event))))
+(explanation (:triple _Move-Through1303 instance-of Move-Through) ((a Move-Through (@ _Portal1302 Portal in-event))))
+(explanation (:triple _Portal1302 in-event _Move-Through1303) ((a Move (@ _Portal1302 Conduit in-event))))
+(explanation (:triple _Portal1302 in-event _Move-Through1303) ((a Move-Through (@ _Portal1302 Portal in-event))))
+(explanation (:triple _Portal1302 played-by _Vacuole1307) ((a Spatial-Entity with (path-of ((the in-event of _Portal1302 (@ _Portal1302 Portal played-by Spatial-Entity path-of)))) (@ _Portal1302 Portal played-by))))
+(explanation (:triple _Portal1302 instance-of Portal) ((a Portal (@ _Endocytosis1229 Move-Into path Spatial-Entity plays))))
+(explanation (:triple _Container1626 in-event _Be-Contained1741) ((a Block with (object ((the location of _Container1626 (@ _Container1626 Barrier in-event Block object)))) (@ _Container1626 Barrier in-event))))
+(explanation (:triple _Container1626 in-event _Be-Contained1741) ((a Be-Contained with (object ((the content of _Container1626 (@ _Container1626 Container in-event Be-Contained object)))) (instrument ((the played-by of _Container1626 (@ _Container1626 Container in-event Be-Contained instrument)))) (@ _Container1626 Container in-event))))
+(explanation (:triple _Container1626 played-by _Vacuole1307) ((a Tangible-Entity with (instrument-of ((the in-event of _Container1626 (@ _Container1626 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Container1626 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Container1626)))))) (@ _Container1626 Barrier played-by Tangible-Entity is-between)))) (@ _Container1626 Barrier played-by))))
+(explanation (:triple _Container1626 played-by _Vacuole1307) ((a Tangible-Entity with (encloses ((a Spatial-Entity with (is-inside ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity encloses Spatial-Entity is-inside)))) (@ _Container1626 Container played-by Tangible-Entity encloses)))) (does-not-enclose ((a Spatial-Entity with (is-outside ((the played-by of _Container1626 (@ _Container1626 Container played-by Tangible-Entity does-not-enclose Spatial-Entity is-outside)))) (@ _Container1626 Container played-by Tangible-Entity does-not-enclose)))) (is-between ((the encloses of (the played-by of _Container1626) (@ _Container1626 Container played-by Tangible-Entity is-between)) (the does-not-enclose of (the played-by of _Container1626) (@ _Container1626 Container played-by Tangible-Entity is-between)))) (shape ((a Shape-Value with (value ((*hollow-volume (@ _Container1626 Container played-by Tangible-Entity shape Shape-Value value)))) (@ _Container1626 Container played-by Tangible-Entity shape)))) (@ _Container1626 Container played-by))))
+(explanation (:triple _Container1626 instance-of Container) ((cloned-from _Vacuole542 _Vacuole1307)))
+(explanation (:triple _Physical-Object546 instance-of Physical-Object) ((a Physical-Object)))
+(explanation (:triple _Physical-Object546 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Vacuole-Membrane492 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Physical-Object546 instance-of Physical-Object) ((a Physical-Object (@ _Vacuole-Membrane492 Membrane-Enclosure encloses))))
+(explanation (:triple _Physical-Object546 instance-of Physical-Object) ((cloned-from _Vacuole-Membrane259 _Vacuole-Membrane492)))
+(explanation (:triple _Physical-Object546 is-inside _Vacuole-Membrane492) ((cloned-from _Vacuole-Membrane259 _Vacuole-Membrane492)))
+(explanation (:triple _Living-Entity1408 instance-of Living-Entity) ((a Living-Entity)))
+(explanation (:triple _Living-Entity1408 instance-of Living-Entity) ((a Living-Entity (@ _Spatial-Entity835 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Living-Entity1408 instance-of Living-Entity) ((cloned-from _Vacuole-Membrane259 _Spatial-Entity835)))
+(explanation (:triple _Living-Entity1408 has-part _Spatial-Entity835) ((cloned-from _Vacuole-Membrane259 _Spatial-Entity835)))
+(explanation (:triple _Nucleotide1409 complement _Thymine1412) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Nucleotide1409 has-part _Phosphate1410) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Nucleotide1409 has-basic-structural-unit _Atom1411) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Nucleotide1409 has-basic-structural-unit _Atom1411) ((a Atom (@ _Nucleotide1409 Molecule has-basic-structural-unit))))
+(explanation (:triple _Nucleotide1409 has-part _Phosphate1410) ((cloned-from _Nucleotide337 _Nucleotide1409)))
+(explanation (:triple _Nucleotide1409 has-basic-structural-unit _Atom1411) ((cloned-from _Nucleotide337 _Nucleotide1409)))
+(explanation (:triple _Nucleotide1409 has-part _Phosphate1410) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Nucleotide1409 has-basic-structural-unit _Atom1411) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Nucleotide1409 complement _Thymine1412) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Nucleotide1409 instance-of Adenine) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Nucleotide1409 instance-of Nucleotide) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Nucleotide1409 instance-of Organic-Molecule) ((cloned-from _Polymer268 _Polymer1413)))
+(explanation (:triple _Nucleotide1409 is-part-of _Polymer1413) ((cloned-from _Polymer268 _Polymer1413)))
+(explanation (:triple _Phosphate1410 instance-of Phosphate) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Phosphate1410 instance-of Phosphate) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Phosphate1410 is-part-of _Nucleotide1409) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Phosphate1410 is-part-of _Nucleotide1409) ((cloned-from _Nucleotide337 _Nucleotide1409)))
+(explanation (:triple _Phosphate1410 instance-of Phosphate) ((cloned-from _Nucleotide337 _Nucleotide1409)))
+(explanation (:triple _Atom1411 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom1411 instance-of Atom) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Atom1411 instance-of Atom) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Atom1411 is-basic-structural-unit-of _Nucleotide1409) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Atom1411 instance-of Atom) ((a Atom (@ _Nucleotide1409 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1411 is-basic-structural-unit-of _Nucleotide1409) ((cloned-from _Nucleotide337 _Nucleotide1409)))
+(explanation (:triple _Atom1411 instance-of Atom) ((cloned-from _Nucleotide337 _Nucleotide1409)))
+(explanation (:triple _Thymine1412 instance-of Thymine) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Thymine1412 instance-of Thymine) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Thymine1412 complement-of _Nucleotide1409) ((cloned-from _Adenine378 _Nucleotide1409)))
+(explanation (:triple _Polymer1413 has-part _Guanine1414) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Polymer1413 has-part _Thymine1415) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Polymer1413 has-part _Cytosine1416) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Polymer1413 has-part _Nucleotide1409) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Polymer1413 instance-of Polymer) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Polymer1413 has-part _Nucleotide1409) ((cloned-from _Polymer268 _Polymer1413)))
+(explanation (:triple _Guanine1414 instance-of Guanine) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Thymine1415 instance-of Thymine) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Cytosine1416 instance-of Cytosine) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Deoxyribose1417 instance-of Deoxyribose) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Nucleotide1418 instance-of Nucleotide) ((cloned-from _DNA272 _DNA1334)))
+(explanation (:triple _Polymer1419 instance-of Polymer) ((cloned-from _DNA272 _DNA1334)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

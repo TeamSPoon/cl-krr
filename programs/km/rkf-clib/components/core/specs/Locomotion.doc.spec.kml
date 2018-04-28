@@ -1,0 +1,52 @@
+<!--- $Id: Locomotion.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Locomotion>
+<superconcept name=Move>
+<mixin name=Reflexive>
+
+<sme-documentation name=Locomotion>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Locomotion>
+  <definition>cause self to change location</definition>
+  <requiredslot name=agent>
+    <restriction>causes self's <slot>location</slot> to change</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>an Tangible-Entity</restriction>
+    <restriction>= <slot>agent</slot></restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=destination>
+    <inheritedfrom name=Move>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=origin>
+    <inheritedfrom name=Move>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <inheritedfrom name=Move>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>locomote#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>travel#1, go#1, move#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Locomotion is a specialization of the <conceptref name=Move>
+component with a required <slot>agent</slot> = <slot>object</slot> (as
+per the <conceptref name=Reflexive> mixin).
+</musing>
+
+</kml>
+
+

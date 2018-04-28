@@ -1,0 +1,16 @@
+;;
+;; $Id: ComputerBattery.km,v 1.7 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(ComputerBattery has 
+  (superclasses (ElectricalBattery ComputerPeripheral)))
+
+;; more general but the closes thing in WN
+(ComputerBattery has (wn20-synset ((:set
+				    (:triple "storage_battery" 1 "n")
+				    (:triple "accumulator" 2 "n")
+))))
+(ComputerBattery has
+  (feature-slot ((the feature-slot of ElectricalBattery) (the feature-slot of ComputerPeripheral)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = ComputerBattery)))))
+

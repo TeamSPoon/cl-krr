@@ -1,0 +1,14 @@
+;; 
+;; $Id: Strong-Electrolyte-Solute-Species.km,v 1.3 2005/08/19 22:00:06 porter Exp $
+;; 
+
+(Strong-Electrolyte-Solute-Species has 
+		(superclasses (Solute-Species-Entity)))
+
+(every Strong-Electrolyte-Solute-Species has-definition
+       (instance-of (Solute-Species-Entity))
+       (is-part-of ((a Strong-Electrolyte-Entity))))
+
+(every Strong-Electrolyte-Solute-Species has
+       (concentration ((the concentration of (the Strong-Electrolyte base of (the solute-species-of of Self)))))
+       (quantity ((the quantity of (the Strong-Electrolyte base of (the solute-species-of of Self))))))

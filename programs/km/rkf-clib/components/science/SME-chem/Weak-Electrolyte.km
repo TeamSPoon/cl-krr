@@ -1,0 +1,39 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Weak-Electrolyte8093
+
+
+|#
+
+(disable-classification)
+
+(Weak-Electrolyte has (superclasses (Electrolyte)))
+
+(Weak-Electrolyte now-has (user-description ("Weak electrolytes are those solutes that exist in solution mostly in the form of molecules with only a small fraction in the form of ions.")))
+
+(_Weak-Electrolyte8107 has
+  (prototype-of (Weak-Electrolyte Electrolyte))
+  (prototype-scope (Weak-Electrolyte (the-class Electrolyte with (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak nil)))))))))
+  (prototype-participants (_Electrolyte-Status-Value8109 _Weak-Electrolyte8107)))
+
+(_Weak-Electrolyte8107 has (instance-of (Weak-Electrolyte)) (electrolyte-status (_Electrolyte-Status-Value8109)))
+
+(_Electrolyte-Status-Value8109 has (instance-of (Electrolyte-Status-Value)))
+
+(enable-classification)
+
+(explanation (:triple _Weak-Electrolyte8107 instance-of Weak-Electrolyte) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value8109 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+
+|#
+
+|#
+

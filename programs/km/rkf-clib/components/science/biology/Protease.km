@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Protease.km,v 1.13 2001/05/17 20:23:01 jfan Exp $ 
+;; 
+
+(Protease has
+         (superclasses (Catabolic-Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Enzyme such as trypsin that degrades proteins by
+                        hydrolyzing some of their peptide bonds.
+                        Alberts:ECB:G-15."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Protease has 
+       (purpose ((a Catalyst with
+		    (in-event ((a Proteolysis))))))
+       )
+
+
+
+

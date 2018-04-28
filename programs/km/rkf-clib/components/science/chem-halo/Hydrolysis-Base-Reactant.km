@@ -1,0 +1,24 @@
+; 
+;;    $Id: Hydrolysis-Base-Reactant.km,v 1.4 2008/09/03 19:09:44 tecuci Exp $ 
+;; 
+
+(Hydrolysis-Base-Reactant has (superclasses (Chemical)))
+
+(Hydrolysis-Base-Reactant has (user-description ("The Base reactant of a Hydrolysis.")))
+
+(every Hydrolysis-Base-Reactant has-definition
+       (instance-of (Chemical))
+       (raw-material-of ((a Hydrolysis)))
+       (kb ((a Equilibrium-Constant-Value))))
+
+(every Hydrolysis-Base-Reactant has
+       (called ("Reactant"))
+       (raw-material-of ((if (not (the raw-material-of of Self))
+			     then
+			   (a Hydrolysis with
+			      (raw-material (Self))
+			      (kb ((the kb of Self)))))))
+       (plays ((a Base-Role with
+		  (kb ((the kb of Self))))))
+       )
+

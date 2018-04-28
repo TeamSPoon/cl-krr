@@ -1,0 +1,9 @@
+;; $Id: Ca-Plus-2.km,v 1.5 2003/03/26 19:45:23 wilder Exp $ 
+(Ca-Plus-2 has (superclasses (Metal-Cation)))
+(every Ca-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *electronic-charge))))))
+	(has-chemical-name ("calcium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Ca)))))))
+)

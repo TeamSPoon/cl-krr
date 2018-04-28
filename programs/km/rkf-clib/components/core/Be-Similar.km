@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Be-Similar.km,v 1.1 2006/01/25 20:19:32 kbarker Exp $ 
+;; 
+
+(Be-Similar has (superclasses (State)))
+
+; This state (and Be-Different) are used primarily for the CPL
+; handling of questions in the Aura system. Peter Yeh's matcher
+; is used to enumerate the ways in which instances are similar,
+; instantiating the results in an instance of Viewpoint.
+; 
+; In general use, you could instantiate Be-Similar to assert
+; that two things are similar. But this definition of Be-Similar
+; makes no suggestions of how to record the similarities.
+;
+; Note that there are no actions whose simulation results in
+; object being put in a Be-Similar state or taken out of one.
+
+(every Be-Similar has
+  (object ((exactly 2 Thing)))
+)
+
+(every Be-Similar has
+   (text-particle ("similar"))
+)
+
+(Be-Similar has (wn20-synset ((:set
+                                      (:triple "similarity" 1 "n")
+                                      (:triple "similar" 1 "a")
+                                      (:triple "similar" 2 "a")
+                                      (:triple "similar" 3 "a")
+                                      (:triple "alike" 1 "a")
+                                      (:triple "like" 1 "a")
+                                      (:triple "like" 3 "a")
+                                      (:triple "same" 2 "a")
+))))
+

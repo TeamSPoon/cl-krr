@@ -1,0 +1,62 @@
+;; 
+;;    $Id: Guard.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Guard 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit  <----> Actor 
+  object: Military-Unit  <----> Acted on 
+  site: Place with 
+             distance: less-than "range of main forces support artillery" 
+                                                    
+  base: MU called "enemy forces" <----> none 
+ 
+  subevent:  
+                  Attack-by-Fire 
+                              agent: MU called "guarding friendly forces" 
+                              object: MU called "enemy forces" 
+ 
+  objective: Action with 
+                    prevent: Attack-by-Fire 
+                                       object: MU called "main body friendly forces" 
+                                       base: MU called "enemy forces" 
+                                  Observe 
+                                       agent: MU called "main body friendly forces" 
+                                       object: MU called "enemy forces" 
+                    by-means-of: 
+                          Fix 
+                              agent: MU called "guarding friendly forces" 
+                              object: MU called "enemy forces" 
+                          Defeat 
+                              agent: MU called "guarding friendly forces" 
+                              object: MU called "enemy forces" 
+                          Attack  with 
+                              agent: MU called "guarding friendly forces" 
+                              causes: Retreat with 
+                                                object: MU called "enemy forces" 
+ 
+Note: Need specializations of Rear-Guard, Front-Guard and Flank-Guard. 
+ 
+ 
+Guard (S). 
+=====. 
+1. A guard differs from a screen in that a guard force contains sufficient combat power to defeat, cause the withdrawal of, or fix the lead elements of an enemy ground force before it can engage the main body with direct fire. 
+2. A guard force routinely engages enemy forces with direct and indirect fires. 
+A screening force, however, primarily uses indirect fires or close air support to destroy enemy reconnaissance elements and slow the movement of other enemy forces. 
+3. A guard force uses all means at its disposal, including decisive engagement, to prevent the enemy from penetrating to a position were it could observe and engage the main body. 
+4. It operates within the range of the main body's fire support weapons, deploying over a narrower front than a comparable-size screening force to permit concentrating combat power. 
+ 
+5. The three types of guard operations are advance, flank, and rear guard. 
+A commander can assign a guard mission to protect either a stationary or a moving force. 
+ 
+Guard tasks: 
+- Destroy the enemy advance guard. 
+- Maintain contact with enemy forces and report activity in the AO. 
+- Maintain continuous surveillance of avenues of approach into the AO under all visibility conditions. 
+- Impede and harass the enemy within its capabilities while displacing. 
+- Cause the enemy main body to deploy, and then report its direction of travel. 
+- Allow no enemy ground element to pass through the security area undetected and unreported. 
+- Destroy or cause the withdrawal of all enemy reconnaissance patrols. 
+- Maintain contact with its main body and any other security forces operating on its flanks. 
+-  
+ 

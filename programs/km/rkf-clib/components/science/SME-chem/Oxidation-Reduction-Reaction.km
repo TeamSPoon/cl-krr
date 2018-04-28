@@ -1,0 +1,82 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Oxidation-Reduction-Reaction1008
+
+
+|#
+
+(disable-classification)
+
+(Oxidation-Reduction-Reaction has (superclasses (Reaction)))
+
+(Oxidation-Reduction-Reaction now-has (user-description ("An oxidation-reduction or redox reaction is one in which electrons are transferred between reactants. When one reactant loses electrons, another reactant must gain them; the oxidation of one substance is always accompanied by the reduction of another as electrons are transferred between them. ")))
+
+(_Oxidation-Reduction-Reaction14748 has
+  (prototype-of (Oxidation-Reduction-Reaction))
+  (prototype-scope (Oxidation-Reduction-Reaction))
+  (prototype-participants (_Electron15050 _Oxidation14754 _Reduction14753 _Tangible-Entity14751 _Chemical14750 _Chemical14749 _Oxidation-Reduction-Reaction14748)))
+
+(_Oxidation-Reduction-Reaction14748 has
+  (instance-of (Oxidation-Reduction-Reaction))
+  (result (_Chemical14749 _Chemical14749 (must-be-a Chemical) (must-be-a Entity)))
+  (subevent (_Reduction14753 _Oxidation14754 (must-be-a Event)))
+  (raw-material (_Chemical14750 _Tangible-Entity14751 (must-be-a Chemical))))
+
+(_Chemical14749 has (instance-of (Chemical)))
+
+(_Chemical14750 has (instance-of (Chemical)))
+
+(_Tangible-Entity14751 has (instance-of (Chemical)))
+
+(_Reduction14753 has
+  (instance-of (Reduction))
+  (object (_Electron15050 (must-be-a Thing) (at-least 1 Electron)))
+  (recipient (_Tangible-Entity14751 (must-be-a Entity))))
+
+(_Oxidation14754 has
+  (instance-of (Oxidation))
+  (donor (_Chemical14750 (must-be-a Tangible-Entity) (must-be-a Entity)))
+  (object (_Electron15050 (must-be-a Thing) (at-least 1 Electron))))
+
+(_Electron15050 has (instance-of (Electron)))
+
+(enable-classification)
+
+(explanation (:triple _Oxidation-Reduction-Reaction14748 result _Chemical14749) (((@ SME entered)) (every Oxidation-Reduction-Reaction has (result ((the first of (the result of Self)))))))
+
+(explanation (:triple _Oxidation-Reduction-Reaction14748 raw-material _Tangible-Entity14751) (((@ SME entered)) (every Oxidation-Reduction-Reaction has (raw-material ((a Chemical) (the first of (the recipient of (the first of (the subevent of Self)))))))))
+
+(explanation (:triple _Oxidation-Reduction-Reaction14748 subevent _Reduction14753) (((@ SME entered)) (every Oxidation-Reduction-Reaction has (subevent ((the first of (the recipient-of of (the second of (the raw-material of Self)))) (a Oxidation))))))
+
+(explanation (:triple _Oxidation-Reduction-Reaction14748 subevent _Oxidation14754) (((@ SME entered)) (every Oxidation-Reduction-Reaction has (subevent ((a Reduction) (the first of (the donor-of of (the first of (the raw-material of Self)))))))))
+
+(explanation (:triple _Oxidation-Reduction-Reaction14748 instance-of Oxidation-Reduction-Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical14749 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical14750 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Tangible-Entity14751 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reduction14753 instance-of Reduction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Oxidation14754 instance-of Oxidation) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electron15050 instance-of Electron) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Oxidation-Reduction-Reaction has (result ((the first of (the result of Self)))))
+(every Oxidation-Reduction-Reaction has (raw-material ((the first of (the donor of (the second of (the subevent of Self)))) (a Chemical))))
+(every Oxidation-Reduction-Reaction has (raw-material ((a Chemical) (the first of (the recipient of (the first of (the subevent of Self)))))))
+(every Oxidation-Reduction-Reaction has (subevent ((the first of (the recipient-of of (the second of (the raw-material of Self)))) (a Oxidation))))
+(every Oxidation-Reduction-Reaction has (subevent ((a Reduction) (the first of (the donor-of of (the first of (the raw-material of Self)))))))
+
+|#
+
+|#
+

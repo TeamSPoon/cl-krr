@@ -1,0 +1,18 @@
+;; 
+;;    $Id: CH3_2_NH.km,v 1.2 2003/02/23 20:08:58 jchaw Exp $
+;; 
+
+(CH3_2_NH has (superclasses (Ionic-Compound)))
+
+(every CH3_2_NH has
+       (nested-atomic-chemical-formula (
+				 (a Chemical-Formula with
+				    (term ((:seq 
+					    (:pair 2
+						   (:seq
+						    (:pair 1 C)
+						    (:pair 3 H)))
+					    (:pair 1 N)
+					    (:pair 1 H)
+					    ))))))
+       )

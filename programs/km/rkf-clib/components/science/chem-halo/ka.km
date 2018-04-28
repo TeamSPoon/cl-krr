@@ -1,0 +1,20 @@
+;; 
+;;  $Id: ka.km,v 1.6 2008/01/25 20:55:11 mrglass Exp $
+;; 
+
+(ka has
+  (instance-of 		  (Property))
+  (domain      		  (Hydrolysis Acid-Dissociation-Reaction Acid-Role Chemical))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (inverse     		  (ka-of))
+  (cardinality 		  (N-to-1))
+  (scale-class         (KI-Scale))
+  (scalar-constant-class (KI-Constant))
+)
+
+(ka has (user-description ("Ka is a quantitative descriptor for describing the strength of acids.")))
+
+(ka-of has (instance-of (Property)))

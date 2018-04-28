@@ -1,0 +1,28 @@
+;;
+;;    $Id: Impair.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;;
+(Impair has 
+  (superclasses        (Action))
+  (required-slot       (object))
+  (primary-slot        (agent instrument by-means-of))
+  (secondary-slot      ())
+  (cmap-correspondence ((:seq agent  "the impairer")
+			(:seq object "the thing impaired")
+  ))
+)
+
+;; Axioms about impair. The object (i.e. thing being impaired) is not
+;; put into a be impaired state.
+(every Impair has
+  (object ((a Tangible-Entity)))
+)
+
+;; For text gen.
+(every Impair has
+  (text-active-verbseq-sg  ("impairs"))
+  (text-active-verbseq-pl  ("impair"))
+  (text-passive-verbseq-sg ("gets impaired"))
+  (text-passive-verbseq-pl ("get impaired"))
+)
+
+(every Impair has (text-nominalization ("impairment")))

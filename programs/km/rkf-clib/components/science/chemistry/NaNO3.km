@@ -1,0 +1,15 @@
+;;
+;; $Id: NaNO3.km,v 1.2 2003/02/21 16:06:30 tecuci Exp $
+;;
+
+(NaNO3 has (superclasses (Ionic-Compound)))
+
+(every NaNO3 has
+       (has-part ((a Na-Plus)
+		  (a NO3-Minus)))
+
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 Na-Plus)
+					      (:pair 1 NO3-Minus))))))
+			     )
+       )

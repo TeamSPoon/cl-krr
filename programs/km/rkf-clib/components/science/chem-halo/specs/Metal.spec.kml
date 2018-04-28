@@ -1,0 +1,30 @@
+<!--- $Id: Metal.spec.kml,v 1.2 2005/11/11 21:20:48 jfan Exp $ --->
+
+<kml>
+<concept name=Metal>
+
+<superconcept name=Chemical>
+
+  <definition>
+    A Metal is defined to be a Chemical with a
+    <conceptref name=Metal-Atom> as its basic structural unit
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=has-basic-structural-unit>
+    must be a Metal-Atom
+  </slotdescription>
+
+</requiredslotlist>
+
+<neighborlist>
+
+   <neighbor name=Anion-Substance>
+    A Chemical with a <conceptref name=Anion> as its basic structural unit
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

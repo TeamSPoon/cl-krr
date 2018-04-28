@@ -1,0 +1,24 @@
+;;    $Id: fixed-y-position.km,v 1.4 2007/06/29 15:13:11 kbarker Exp $
+
+(fixed-y-position has
+  (instance-of (EntityProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Entity))
+  (range (Length-Value))
+  (scalar-constant-class (Position-Constant))
+  (cardinal-unit-class (UoM-Length))
+  (inverse (fixed-y-position-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(fixed-y-position has (wn20-synset ((:set 
+				       (:triple "fixed y position" 0 "n")
+				       (:triple "fixed vertical position" 0 "n")
+))))
+
+(fixed-y-position-of has (instance-of (EntityProperty)))
+
+(fixed-y-position has (name ("fixed vertical position")))

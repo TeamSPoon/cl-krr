@@ -1,0 +1,83 @@
+;; 
+;;    $Id: Butylamine.km,v 1.7 2001/05/31 22:47:07 pnav Exp $ 
+;; 
+
+(Butylamine has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Amine derived from butane. CH3-CH2-CH2-CH2-NH3.
+                             Souther."))
+	      (cmap-correspondence ()))
+
+(every Butylamine has
+       (has-part
+	((a Carbon-Atom uniquely-called "Carbon-1" with 
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C1-Hydrogen-1")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C1-Hydrogen-2")))
+                 (instrument ((a Covalent-CH-Bond))) )   
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument ((a Covalent-CC-Bond)))) 
+              (a Be-Attached-To with
+                 (object ((the Amino-Group has-part of Self)))
+                 (instrument ((a Covalent-CN-Bond))) ) 
+	      )))
+	 (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C2-Hydrogen-1")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C2-Hydrogen-2")))
+                 (instrument ((a Covalent-CH-Bond))) )   
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-3")))
+                 (instrument ((a Covalent-CC-Bond))))
+	      )))
+
+
+         (a Carbon-Atom uniquely-called "Carbon-3" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C3-Hydrogen-1")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C3-Hydrogen-2")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument ((a Covalent-CC-Bond))) )
+              )))                       
+         (a Carbon-Atom uniquely-called "Carbon-4" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C4-Hydrogen-1")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C4-Hydrogen-2")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the Amino-Group has-part of Self))))
+                 (instrument ((a Covalent-CN-Bond))) )
+              )))
+
+	 (a Amino-Group)
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-2")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen-2")
+         (a Hydrogen-Atom uniquely-called "C3-Hydrogen-1")
+         (a Hydrogen-Atom uniquely-called "C3-Hydrogen-2") 
+         (a Hydrogen-Atom uniquely-called "C4-Hydrogen-1")
+         (a Hydrogen-Atom uniquely-called "C4-Hydrogen-2")
+	 )))

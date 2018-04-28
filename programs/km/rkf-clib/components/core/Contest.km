@@ -1,0 +1,49 @@
+;; 
+;; $Id: Contest.km,v 1.8 2009/10/15 19:55:45 kbarker Exp $
+;;
+
+;; an Activity in which two or more Entities act toward the same goal
+;; one entity is the winner and the others are losers 
+
+(Contest has (superclasses (Activity)))
+
+(every Contest has
+  (objective ((a Be-Victorious with
+                 (agent ((a Entity with
+                            (plays ((a Winner with (in-event (Self))))))
+                         (at-most 1 Entity)
+                         (possible-values (the agent of Self))
+                 ))
+                 (base (Self))
+  )))
+  (agent ((allof ?e in (the all-instances of Entity)
+           where ((the in-event of (the plays of ?e)) includes Self)
+  )))
+  (resulting-state ((the Be-Victorious objective of Self)
+                    (a Be-Defeated with 
+                       (object ((possible-values (the agent of Self))
+                                (excluded-values
+                                  (the object of (the Be-Victorious next-event of Self)))
+                                (allof ?a in (the agent of Self)
+                                 where (?a /= (the object of (the Be-Victorious objective of Self)))
+                                )
+                       ))
+                       (base (Self))
+                    )
+  ))
+)
+
+(Contest has (wn20-synset (
+  (:triple "contest" 1 "n")
+  (:triple "competition" 2 "n")
+  (:triple "game" 2 "n")
+  (:triple "conflict" 1 "n")
+  (:triple "struggle" 2 "n")
+  (:triple "battle" 3 "n")
+  (:triple "battle" 1 "n")
+  (:triple "conflict" 3 "n")
+  (:triple "fight" 4 "n")
+  (:triple "engagement" 1 "n")
+)))
+
+(every Contest has (text-nominalization ("contest")))

@@ -1,0 +1,169 @@
+;;
+;;    $Id: Typical-Instance.km,v 1.10 2008/04/15 18:02:22 jchaw Exp $
+;;
+
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+;;;; Typical Instances for the domain of Chemistry.
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+(disable-classification)
+
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+;;;; The Mix, Reaction, and Dissolve Hierarchy.
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+
+;;--------------------------------------------------------------
+;; Typical Instance for Mix.
+;;--------------------------------------------------------------
+(Mix has (typical-instance (*Typical-Instance-of-Mix)))
+(*Typical-Instance-of-Mix has
+  (instance-of	     (Mix))
+  ;; (agent	     ((a Tangible-Entity)))	;; <-- *PZY*: 06/20/06 -- Causing problems for Bonnie.
+  (instrument        ((a Artifact)))
+  (raw-material	     ((a Chemical) 
+		      (a Chemical)))
+  (causes	     ((a Event)))
+  (caused-by	     ((a Event)))
+  (subevent-of 	     ((a Action)))	;; <-- *PZY*: 06/15/06
+  (site              ((a Place)))
+  (chemical-equation ((a Chemical-Equation-Expression))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Reaction.
+;;--------------------------------------------------------------
+(Reaction has (typical-instance (*Typical-Instance-of-Reaction)))
+(*Typical-Instance-of-Reaction has
+  (instance-of	     (Reaction))
+  (raw-material	     ((a Chemical) 
+		      (a Chemical)))
+  (instrument        ((a Tangible-Entity)))
+  (causes	     ((a Event)))
+  (caused-by	     ((a Event)))
+  (subevent-of 	     ((a Action)))	;; <-- *PZY*: 06/15/06
+  (site              ((a Place)))
+  (chemical-equation ((a Chemical-Equation-Expression))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Dissolve.
+;;--------------------------------------------------------------
+(Dissolve has (typical-instance (*Typical-Instance-of-Dissolve)))
+(*Typical-Instance-of-Dissolve has
+  (instance-of	     (Dissolve))
+  (agent	     ((a Living-Entity)))
+  (object 	     ((a Chemical)))
+  (base 	     ((a Chemical)))
+  (instrument	     ((a Entity)))
+  (result 	     ((a Solution with
+                         (has-solute ((the object of Self))))))
+  (subevent-of 	     ((a Action)))	;; <-- *PZY*: 06/15/06
+  (site		     ((a Place)))
+  (chemical-equation ((a Chemical-Equation-Expression))))
+
+
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+;;;; Chemical Entities.
+;;;;------------------------------------------------------------
+;;;;------------------------------------------------------------
+
+;;--------------------------------------------------------------
+;; Typical Instance for Acid
+;;--------------------------------------------------------------
+(Acid has (typical-instance (*Typical-Instance-of-Acid)))
+(*Typical-Instance-of-Acid has
+  (instance-of		     (Acid))
+  (has-basic-structural-unit ((a Ionic-Compound with
+				 (has-part ((a H-Plus with (has-part ((a Subatomic-Particle)))))))))
+  (has-part		     ((the has-basic-structural-unit of Self)
+		 	      (a Molecule))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Base
+;;--------------------------------------------------------------
+(Base has (typical-instance (*Typical-Instance-of-Base)))
+(*Typical-Instance-of-Base has
+  (instance-of		     (Base))
+  (has-basic-structural-unit ((a Chemical-Entity)))
+  (has-part		     ((the has-basic-structural-unit of Self)
+			      (a Molecule))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Ionic-Compound
+;;--------------------------------------------------------------
+(Ionic-Compound has (typical-instance (*Typical-Instance-of-Ionic-Compound)))
+(*Typical-Instance-of-Ionic-Compound has
+  (instance-of 	(Ionic-Compound))
+  (has-part 	((a Anion  with (has-part ((a Subatomic-Particle))))
+	     	 (a Cation with (has-part ((a Subatomic-Particle)))))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Molecule
+;;--------------------------------------------------------------
+(Molecule has (typical-instance (*Typical-Instance-of-Molecule)))
+(*Typical-Instance-of-Molecule has
+  (instance-of	(Molecule))
+  ;;
+  ;; OLD:
+  ;; (has-basic-structural-unit ((a Atom with (has-part ((a Subatomic-Particle))))))
+  ;; (has-part			((the has-basic-structural-unit of Self)
+  ;;				 (the Subatomic-Particle has-part of
+  ;;				      (the Atom has-basic-structural-unit of Self))))
+  ;;
+  (has-part ((a Atom with 
+                (has-part ((a Subatomic-Particle))))
+	     (the Subatomic-Particle has-part of (the Atom  has-part of Self)))))
+
+
+;;--------------------------------------------------------------
+;; Typical Instance for Atom
+;;--------------------------------------------------------------
+(Atom has (typical-instance (*Typical-Instance-of-Atom)))
+(*Typical-Instance-of-Atom has
+  (instance-of	(Atom))
+  (has-part	((a Subatomic-Particle))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Ion
+;;--------------------------------------------------------------
+(Ion has (typical-instance (*Typical-Instance-of-Ion)))
+(*Typical-Instance-of-Ion has 
+  (instance-of	(Ion))
+  (has-part	((a Atom with (has-part ((a Subatomic-Particle))))
+		 (the Subatomic-Particle has-part of 
+		      (the Atom has-part of Self))))
+)
+
+;;--------------------------------------------------------------
+;; Typical Instance for Mixture
+;;--------------------------------------------------------------
+(Mixture has (typical-instance (*Typical-Instance-of-Mixture)))
+(*Typical-Instance-of-Mixture has
+  (instance-of	(Mixture))
+  (has-part	((a Chemical with (has-basic-structural-unit ((a Chemical-Entity))))))
+  (material	((the has-part of Self))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Solution
+;;--------------------------------------------------------------
+(Solution has (typical-instance (*Typical-Instance-of-Solution)))
+(*Typical-Instance-of-Solution has
+  (instance-of	(Solution))
+  (has-part	((a Chemical with (has-basic-structural-unit ((a Chemical-Entity))))))
+  (has-solute	((the has-part of Self)))	;; <-- 03/29/06
+  (material	((the has-part of Self))))
+
+;;--------------------------------------------------------------
+;; Typical Instance for Solution -- 03/29/06
+;;--------------------------------------------------------------
+(Aqueous-Solution has (typical-instance (*Typical-Instance-of-Aqueous-Solution)))
+(*Typical-Instance-of-Aqueous-Solution has
+  (instance-of  (Aqueous-Solution))
+  (has-part     ((a Chemical with (has-basic-structural-unit ((a Chemical-Entity))))))
+  (has-solute   ((the has-part of Self)))
+  (material     ((the has-part of Self))))
+
+(enable-classification)
+

@@ -1,0 +1,54 @@
+<!--- $Id: Be-Concealed.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Concealed><system-documentation name=Be-Concealed>
+
+<superconcept name=Be-Inaccessible>
+
+<definition>
+
+  An <slot>object</slot> becomes physically or visibly hidden.  This can describe
+  the effects of numerous actions, as exemplified by the sentences
+  below.
+
+  An object is put in this state by <conceptref name=Conceal>.
+
+  An object is taken out of this state by <conceptref name=Expose>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the thing that becomes hidden
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=base>
+    the entity that the <slot>object</slot> is concealed from.
+  </slotdescription>
+
+</primaryslotlist>
+<examplesentencelist>
+
+   <examplesentence>
+     <text>Sally hides the jar of peanut butter.</text>
+     <slotdescription name=object>jar of peanut butter</slotdescription>
+   </examplesentence>
+   
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Blocked>
+     When a <conceptref name=Place> is blocked, it is inaccessible.
+   </neighbor>
+
+</neighborlist>
+   
+</kml>
+
+

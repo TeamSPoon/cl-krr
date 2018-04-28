@@ -1,0 +1,18 @@
+;; 
+;;    $Id: plays.km,v 1.13 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(plays has
+       (instance-of (Participant-Relation))
+       (subslots ())
+       (domain (Entity))
+       (range (Role))
+       (inverse (played-by))
+       (cardinality (1-to-N))
+       (original-slot      (t))	
+       (fluent-status (*Inertial-Fluent)))
+
+(plays has (text-gloss ("plays the role of")))
+(played-by has 
+	(instance-of (Participant-Relation))
+	(text-gloss ("is the role played by")))

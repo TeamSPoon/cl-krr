@@ -1,0 +1,25 @@
+;; 
+;; $Id: angle.km,v 1.6 2007/04/10 21:29:47 jchaw Exp $
+;; 
+
+(angle has
+   (instance-of (EntityProperty))
+   (superslots  ())
+   (subslots    ())
+   (domain      (Spatial-Entity))
+   (range       (Angle-Value))
+   (scalar-constant-class (Angle-Constant))
+   (cardinal-unit-class   (UoM-Angle))
+   (inverse     (angle-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))
+   (cardinality (N-to-1))
+)
+
+(angle has (wn20-synset ((:set
+                               (:triple "angle" 1 "n")
+))))
+
+(angle-of has
+	(instance-of (EntityProperty)))

@@ -1,0 +1,33 @@
+<!--- $Id: Divide.doc.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Divide::doc>
+<superconcept name=Destroy::doc>
+
+<sme-documentation name=Divide>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Divide>
+  <definition>Destroy an object by splitting it into two parts</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>ceases to exist</restriction>
+  </requiredslot>
+  <required name=result>
+    <restriction>two Tangible-Entities</restriction>
+    <comment>properties of the <slot>object</slot> may be present on the resulting entities</comment>
+  </requiredslot>
+
+  <wnsynsets><verb>divide#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>carve-up#1, dissever#1, separate#4, split#1, split-up#2
+  </verb></wnsynsets>
+
+</component>
+
+</kml>
+
+
+

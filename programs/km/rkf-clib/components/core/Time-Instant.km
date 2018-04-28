@@ -1,0 +1,337 @@
+;; 
+;; $Id: Time-Instant.km,v 1.17 2006/09/26 20:48:25 jchaw Exp $
+;; 
+
+
+(Time-Instant has
+  (superclasses (Temporal-Entity))
+)
+
+
+(every Time-Instant has
+  (time-begins (Self))
+  (time-ends   (Self))
+
+; accessors into the time-value structure
+  (time-year        ((the1 of (oneof (the time-value of Self) where ((the2 of It) = *year)))))
+  (time-month       ((the1 of (oneof (the time-value of Self) where ((the2 of It) = *month)))))
+  (time-day         ((the1 of (oneof (the time-value of Self) where ((the2 of It) = *day)))))
+  (time-day-of-week ((oneof (the time-value of Self) where (It isa Day-Constant))))
+  (time-hour        ((the1 of (oneof (the time-value of Self) where ((the2 of It) = *hour)))))
+  (time-minute      ((the1 of (oneof (the time-value of Self) where ((the2 of It) = *minute)))))
+  (time-second      ((the1 of (oneof (the time-value of Self) where ((the2 of It) = *second)))))
+  (time-zone        ((oneof (the time-value of Self) where (It isa Time-Zone-Constant))))
+; and the other way 'round
+  (time-value ((if (has-value (the time-year of Self))
+                then ((:pair (the time-year of Self) *year)))))
+  (time-value ((if (has-value (the time-month of Self))
+                then ((:pair (the time-month of Self) *month)))))
+  (time-value ((if (has-value (the time-day of Self))
+                then ((:pair (the time-day of Self) *day)))))
+  (time-value ((if (has-value (the time-day-of-week of Self))
+                then (the time-day-of-week of Self))))
+  (time-value ((if (has-value (the time-hour of Self))
+                then ((:pair (the time-hour of Self) *hour)))))
+  (time-value ((if (has-value (the time-minute of Self))
+                then ((:pair (the time-minute of Self) *minute)))))
+  (time-value ((if (has-value (the time-second of Self))
+                then ((:pair (the time-second of Self) *second)))))
+  (time-value ((if (has-value (the time-zone of Self))
+                then (the time-zone of Self))))
+
+; constrain all time-values to reasonable, single values
+  (time-value ((constraint (
+                  (((the1 of TheValue) isa Number)
+                   and
+                   ((the2 of TheValue) isa UoM-Time)
+                  )
+                  or
+                  (TheValue isa Day-Constant)
+                  or
+                  (TheValue isa Time-Zone-Constant)
+                 )
+  )))
+
+  (time-value ((constraint (
+                  (if (has-value (oneof (the time-value of Self) where ((the2 of It) = *year)))
+                   then ((the number of
+                              (allof (the time-value of Self)
+                               where ((the2 of It) = *year))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (time-value ((constraint (
+                  (if (has-value (oneof (the time-value of Self) where ((the2 of It) = *month)))
+                   then ((the number of
+                              (allof (the time-value of Self)
+                               where ((the2 of It) = *month))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (time-value ((constraint (
+                  (if (has-value (oneof (the time-value of Self) where ((the2 of It) = *day)))
+                   then ((the number of
+                              (allof (the time-value of Self)
+                               where ((the2 of It) = *day))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (time-value ((constraint (
+                  (if (has-value (oneof (the time-value of Self) where ((the2 of It) = *hour)))
+                   then ((the number of
+                              (allof (the time-value of Self)
+                               where ((the2 of It) = *hour))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (time-value ((constraint (
+                  (if (has-value (oneof (the time-value of Self) where ((the2 of It) = *minute)))
+                   then ((the number of
+                              (allof (the time-value of Self)
+                               where ((the2 of It) = *minute))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (time-value ((constraint (
+                  (if (has-value (oneof (the time-value of Self) where ((the2 of It) = *second)))
+                   then ((the number of
+                              (allof (the time-value of Self)
+                               where ((the2 of It) = *second))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (time-value ((constraint (
+                  (if (has-value (oneof (the time-value of Self) where (It isa Day-Constant)))
+                   then ((the number of
+                              (allof (the time-value of Self)
+                               where (It isa Day-Constant))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (time-value ((constraint (
+                  (if (has-value (oneof (the time-value of Self) where (It isa Time-Zone-Constant)))
+                   then ((the number of
+                              (allof (the time-value of Self)
+                               where (It isa Time-Zone-Constant))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+
+  (time-value ((constraint (
+                  (if ((not (TheValue isa Day-Constant))
+                       and
+                       (not (TheValue isa Time-Zone-Constant))
+                      )
+                   then (if ((the2 of TheValue) = *year)
+                         then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) >= 1000) and ((the1 of TheValue) <= 9999))
+                         else (if ((the2 of TheValue) = *month)
+                               then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) <= 12))
+                               else (if ((the2 of TheValue) = *day)
+                                     then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) <= 31))
+                                     else (if ((the2 of TheValue) = *hour)
+                                           then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) < 24))
+                                           else (if ((the2 of TheValue) = *minute)
+                                                 then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) < 60))
+                                                 else (if ((the2 of TheValue) = *second)
+                                                       then ((the1 of TheValue) < 60)
+                                                       else t
+                        ))))))
+                   else t
+                  )
+                 )
+  )))
+
+
+  ;; (time-is-inside ?inside-pt ?interval) 
+  ;; <- 
+  ;; (and (time-begins ?interval ?interval-begin-pt)
+  ;;     (time-ends ?interval ?interval-end-pt)
+  ;;     (time-lte ?interval-begin-pt ?inside-pt)
+  ;;     (time-gte ?interval-end-pt ?inside-pt))
+  ;;
+  ;; [Note: this is the "hidden inverse" version of this axiom
+  ;; in Time-Interval.km]
+  ;;
+   (time-is-inside
+    ((allof (the all-instances of Time-Interval) 
+	    where
+	    (((the time-begins of It) time-lte Self)
+	     and
+	     ((the time-ends of It) time-gte Self)))))
+
+)
+
+
+(every Time-Instant has
+  (text-gen ((
+    (?dow == (the name of (oneof (the time-value of Self) where (It isa Day-Constant))))
+    and
+    (?tz == (oneof (the time-value of Self) where (It isa Time-Zone-Constant)))
+    and
+    (?day == (the1 of (oneof (the time-value of Self) where ((the2 of It) = *day))))
+    and
+    (?month == (the1 of (oneof (the time-value of Self) where ((the2 of It) = *month))))
+    and
+    (?year == (the1 of (oneof (the time-value of Self) where ((the2 of It) = *year))))
+    and
+    (?hour == (the1 of (oneof (the time-value of Self) where ((the2 of It) = *hour))))
+    and
+    (?minute == (the1 of (oneof (the time-value of Self) where ((the2 of It) = *minute))))
+    and
+    (?second == (the1 of (oneof (the time-value of Self) where ((the2 of It) = *second))))
+    and
+    (make-phrase
+             (:seq ?dow
+                   (if ((has-value ?dow) and (has-value (oneof (the time-value of Self)
+                                                         where (the2 of It))))
+                    then (:seq "nospace" ",")
+                   )
+
+                   (if (has-value ?month)
+                    then (theN ?month of (:seq "January" "February" "March" "April" 
+                                               "May" "June" "July" "August" "September" 
+                                               "October" "November" "December")
+                         )
+                   )
+
+                   (if (has-value ?month)
+                    then ?day
+                    else (if (has-value ?day)        ;; day, but no month
+                          then (:seq "the"
+                                     (theN ?day of (:seq "1st" "2nd" "3rd" "4th" "5th"
+                                                   "6th" "7th" "8th" "9th" "10th" "11th"
+                                                   "12th" "13th" "14th" "15th" "16th"
+                                                   "17th" "18th" "19th" "20th" "21st"
+                                                   "22nd" "23rd" "24th" "25th" "26th"
+                                                   "27th" "28th" "29th" "30th" "31st"))
+                               )
+                         )
+                   )
+
+                   (if ((has-value (:set ?month ?day))
+                        and
+                        (has-value (:set ?year ?hour ?minute ?second))
+                       )
+                    then (:seq "nospace" ",")
+                   )
+
+                   ?year
+
+                   (if ((has-value ?year)
+                        and
+                        (has-value (:set ?hour ?minute ?second))
+                       )
+                    then (:seq "nospace" ",")
+                   )
+
+                   ?hour
+                   (if (has-value ?hour)
+                    then (:seq "nospace" ":" "nospace")
+                   )
+
+                   (if (has-value ?minute)
+                    then (if (has-value ?hour)
+                          then (:seq (if (?minute < 10)
+                                      then (:seq "0" "nospace")
+                                     )
+                                     ?minute
+                               )
+                          else (:seq ?minute "nospace" "m")   ;; minutes, but no hour
+                         )
+                    else (if (has-value ?hour)
+                          then "00")
+                   )
+
+                   (if (has-value ?second)
+                    then (if (has-value ?minute)
+                          then (if (has-value ?hour)
+                                then (:seq "nospace" ":" "nospace"
+                                           (if (?second < 10)
+                                            then (:seq "0" "nospace")
+                                           )
+                                           ?second
+                                     )                         ;; minutes, but no hour
+                                else (:seq "nospace" ?second "nospace" "s")
+                               )
+                          else (:seq ?second "nospace" "s")    ;; seconds, but no minute
+                         )
+                   )
+
+                   ?tz
+  )))))
+)
+
+
+(time-year has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(time-month has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(time-day has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(time-day-of-week has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (Day-Constant)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(time-hour has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(time-minute has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(time-second has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(time-zone has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (Time-Zone-Constant)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+
+(time-year-of has (instance-of (Interface-Slot)))
+(time-month-of has (instance-of (Interface-Slot)))
+(time-day-of has (instance-of (Interface-Slot)))
+(time-day-of-week-of has (instance-of (Interface-Slot)))
+(time-hour-of has (instance-of (Interface-Slot))) 
+(time-minute-of has (instance-of (Interface-Slot)))
+(time-second-of has (instance-of (Interface-Slot))) 
+(time-zone-of has (instance-of (Interface-Slot))) 
+
+
+(Time-Instant 
+ has
+ (test-case ('(
+	       (*rightthisminute 
+		has 
+		(instance-of (Time-Instant))
+		(time-value ((:pair 15 *hour) 
+			     (:pair 27 *minute)
+			     (:pair 0 *second)
+			     (:pair 16 *day)
+			     (:pair 12 *month)
+			     (:pair 2003 *year)
+			     *Tuesday
+			     *CST
+			     )
+			    ))
+
+	       (*the-month-of-Dec-2003 
+		has
+		(instance-of (Time-Interval))
+		(time-begins 
+		 ((a Time-Instant with (time-value 
+					((:pair 2003 *year)
+					 (:pair 12 *month)
+					 (:pair 1 *day))))))
+		(time-ends 
+		 ((a Time-Instant with (time-value 
+					((:pair 2003 *year)
+					 (:pair 12 *month)
+					 (:pair 31 *day)))))))
+
+	       ((the time-is-inside of *rightthisminute ) includes *the-month-of-Dec-2003)
+
+	       ))))
+
+(Time-Instant has (wn20-synset ((:set
+				 (:triple "point_in_time" 1 "n")
+				 (:triple "point" 6 "n")
+))))
+
+
+
+
+
+
+

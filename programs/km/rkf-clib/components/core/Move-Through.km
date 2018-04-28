@@ -1,0 +1,81 @@
+;; 
+;;    $Id: Move-Through.km,v 1.23 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Move-Through has
+	      (superclasses   (Move))
+	      (required-slot  (object path base))
+	      (primary-slot   (agent origin destination))
+	      (secondary-slot ())
+	      (cmap-correspondence (
+				    (:seq object "the thing moved")
+                                    (:seq agent "the mover")
+                                    (:seq origin "moved from")
+                                    (:seq destination "moved to")
+                                    (:seq path "moved through")
+                                   ))
+            #|(sentence-type  (*punctual *conclusive))|#
+)
+
+
+; Move-Through is a specialization of the Move component with a required 
+; path through a Barrier
+
+(every Move-Through has
+       (object ((a Tangible-Entity)))
+       (base   ((a Tangible-Entity with
+		   (plays ((a Barrier)))
+		   (has-region ((a Spatial-Entity))))))
+       (path   ((the has-region of (the base of Self))))
+       (soft-pcs-list ((:triple (the base of Self)
+                                object-of
+                                (mustnt-be-a Be-Inaccessible))))
+       )
+
+(every Move-Through has
+  (text-active-verbseq-sg ("moves"))
+  (text-active-verbseq-pl ("move"))
+  (text-passive-verbseq-sg ("moves"))
+  (text-passive-verbseq-pl ("move"))
+
+  (text-argslots ((:seq path base)))
+  (text-path ("through"))
+  (text-base ("in"))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(Move-Through has
+  (test-case ( '(
+		 (*Fence    has (instance-of (Tangible-Entity)))
+		 (*David    has (instance-of (Tangible-Entity)))
+                       
+		 ;; David moved-through the fence
+		 (*Move-Through  has
+			(instance-of (Move-Through))
+			(object (*David))
+                        (base   (*Fence)))
+		 (do-and-next *Move-Through)
+		 (the text-gen of (thelast Move-Through))
+
+		 ;; Test1: The path was Indiana
+		 ((the is-region-of of (the path of *Move-Through)) = *Fence)
+
+))))
+
+
+
+
+;; automatically added WN synsets
+(Move-Through has (wn16-synset ((:set  
+                                           (:triple "follow" 4 "v")
+                                           (:triple "travel_along" 1 "v")
+))))
+
+(Move-Through has (wn20-synset ((:set
+                                           (:triple "follow" 4 "v")
+                                           (:triple "travel_along" 1 "v")
+))))
+(every Move-Through has (text-nominalization ("moving")))

@@ -1,0 +1,15 @@
+;;
+;; $Id: NH4Cl-Substance.km,v 1.4 2008/11/03 03:11:27 tecuci Exp $
+;;
+
+(NH4Cl-Substance has 
+  (superclasses (Salt-Substance)))
+
+(every NH4Cl-Substance has
+  (has-basic-structural-unit (
+    (a NH4Cl)))
+)
+
+(every NH4Cl-Substance has-definition
+  (instance-of (Salt-Substance))
+  (has-basic-structural-unit ((a NH4Cl))))

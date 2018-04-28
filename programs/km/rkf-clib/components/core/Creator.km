@@ -1,0 +1,26 @@
+;;
+;;    $Id: Creator.km,v 1.4 2004/10/20 19:24:38 pzyeh Exp $
+;;
+
+;;
+;; To align this concept with the IRIS ontology, we changed the
+;; superclass to Participant. Furthermore, we are ignoring the 
+;; declaration in IRIS which says that a Creator is a kind of
+;; Provider.
+;;
+(Creator has
+        (superclasses 		(Participant))
+        (required-slot 		())
+        (primary-slot 		())
+        (secondary-slot 	())
+        (description 		())
+        (cmap-correspondence 	()))  
+
+(every Creator has
+       	(in-event ((a Create)))
+       	(played-by ((a Tangible-Entity with
+                      (agent-of ((the in-event of Self)))))))
+
+(Creator has 
+       (wn20-synset 
+	((:set (:triple "creator" 2 "n")))))

@@ -1,0 +1,35 @@
+
+;;
+;; $Id: Mass-Value.km,v 1.15 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+
+(Mass-Value has 
+       (superclasses (Property-Value)))
+
+(Mass-Value has
+   (test-case ('(
+                 (Stick has (superclasses (Physical-Object)))
+                 (Tree has (superclasses (Physical-Object)))
+                 (*mybigstick has (instance-of (Stick))
+                                (mass ((a Mass-Value))))
+                 (*myshortstick has (instance-of (Stick))
+                              (mass
+                                 ((a Mass-Value with
+                                     (value ((:pair 43 *gram)
+                                             (:pair *hefty Stick)
+                                             (:pair *light Tree)
+                                     ))
+                                     (less-than
+                                        ((the mass of *mybigstick)))
+                              ))))
+
+                 (the value of (the mass of *myshortstick))
+
+                 ((the less-than of (the mass of *myshortstick))
+                       includes (the mass of *mybigstick))
+                 ((the greater-than of (the mass of *mybigstick))
+                       includes (the mass of *myshortstick))
+))))
+(Mass-Value has (description ("the property of a body that causes it to have weight in a gravitational field")))

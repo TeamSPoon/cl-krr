@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Relation.km,v 1.6 2010/05/18 14:58:30 kbarker Exp $ 
+;; 
+
+(Relation has 
+	  (superclasses (Slot)))
+
+(every Relation has
+  (shaken-ui-hidden-slot ((if (anonymous-instancep Self) then t)))
+)
+
+(every Relation now-has
+  (name ((#'(LAMBDA () (IF (STRING= (STRING (KM-UNIQUE0 '|Self|))
+                                    "has-"
+                                    :END1 4
+                           )
+                           (SUBSEQ (STRING (KM-UNIQUE0 '|Self|)) 4)
+                           (STRING (KM-UNIQUE0 '|Self|))
+                       )
+  ))))
+)
+

@@ -1,0 +1,40 @@
+;;    $Id: Molecule.km,v 1.8 2006/06/08 20:03:09 jfan Exp $
+
+;; TODO: remove an replace with Molecule
+;; right now assume is similar to Molecule
+;; molecule exists in biology dir too.
+(Molecule has
+	  (superclasses (Chemical-Entity))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (cmap-correspondence ())
+)
+
+(Molecule has
+  (user-description ("A molecule is a chemical combination of two or more atoms.")))
+
+(every Molecule has
+       (has-part ((mustnt-be-a Ion)))
+       (has-chemical-formula ((if (not (the term of (the has-chemical-formula of Self)))
+				  then
+				(a Chemical-Formula with
+				   (term ((the term of 
+					       (the nested-atomic-chemical-formula of Self))))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair 0 *unity))))))
+       (has-chemical-formula ((must-be-a Chemical-Formula)))
+)       
+       ;; (electrical-charge ((must-be-a Thing)))
+       ;; charge can be expressed as (possesses ((a Electric-Charge with (polarity ...))))
+       ;; see biology/Cation.km for an example
+
+       ;; Chemical-Object can be either Atom or a group of Atoms, such as a Hydroxide (OH)
+       ;; (has-part ((a Chemical-Object))) 
+
+       ;; hbsu seems to be old and unwarranted; Chemicals have hbsu, Molecules have parts
+       ;; (has-basic-structural-unit ((a Atom))))
+
+(Molecule has (wn20-synset ((:set
+				 (:triple "molecular compound" 0 "n")))))
+

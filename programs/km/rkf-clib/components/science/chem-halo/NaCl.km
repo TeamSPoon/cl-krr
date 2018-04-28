@@ -1,0 +1,17 @@
+
+;;
+;; $Id: NaCl.km,v 1.1 2008/07/25 21:10:18 tecuci Exp $
+;;
+
+(NaCl has (superclasses (Salt)))
+
+(every NaCl has
+       (has-part ((a Na-Plus) (a Cl-Minus)))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+					   (term ((:seq (:pair 1 Na) (:pair 1 Cl)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with
+				    (term ((:seq (:pair 1 Na) (:pair 1 Cl)))))))
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 Na-Plus) (:pair 1 Cl-Minus)))))))
+       )
+

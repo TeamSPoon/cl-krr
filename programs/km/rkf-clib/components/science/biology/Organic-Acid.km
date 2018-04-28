@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Organic-Acid.km,v 1.12 2005/07/06 22:39:30 pzyeh Exp $ 
+;; 
+
+(Organic-Acid has
+	   (superclasses (Acid))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (description ("An organic molecule or substance which acts as an 
+                          acid (a hydrogen donor).  Souther. "))
+	   (cmap-correspondence ())
+	   (test-case ()))
+
+(every Organic-Acid has
+       (has-part (
+		  (at-least 1 Carbon-Atom))))
+
+
+
+
+(every Organic-Acid has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

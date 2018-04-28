@@ -1,0 +1,92 @@
+;; 
+;;    $Id: Arginine.km,v 1.13 2001/08/08 15:58:54 kbarker Exp $ 
+;; 
+
+(Arginine has                
+         (superclasses ( Basic-Amino-Acid Essential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A basic amino acid with a di-amido propylamine side
+                        chain CH2CH2CH2NHCH(NH2)2    Souther")) 
+         (test-case ()))
+
+(every Arginine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 (((the Carbon-Atom has-part of
+			(the Propylamine has-part of 
+			    (the Amino-Acid-Side-Chain has-part of Self)))
+		   uniquely-called "Carbon-3")))
+		 ))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Propylamine)
+		      (a Methyl-Group with
+			 (object-of
+			  ((a Be-Attached-To with
+			      (object 
+			       ((the Amino-Group has-part of
+				     (the Propylamine has-part of
+					  (the Amino-Acid-Side-Chain 
+                                               has-part of Self)))))
+			      (instrument ((a Covalent-CN-Bond)))
+			      (site  
+                               ((the Nitrogen-Atom has-part of
+                                     (the Amino-Group has-part of
+                                           (the Propylamine has-part of
+                                                (the Amino-Acid-Side-Chain
+                                                     has-part of Self))))
+				(the Carbon-Atom has-part of
+				     (the Methyl-Group has-part of
+					  (the Amino-Acid-Side-Chain
+                                                     has-part of Self)))
+				))
+			      )
+			   (a Be-Attached-To with
+			      (object        
+			       (((the Amino-Group has-part of
+				     (the Amino-Acid-Side-Chain
+					  has-part of Self))
+				uniquely-called "Amino group 1")))
+			      (instrument ((a Conjugated-Double-Bond)))
+			      (site
+			       ((the Nitrogen-Atom has-part of
+				     ((the Amino-Group has-part of
+					   (the Amino-Acid-Side-Chain
+						has-part of Self))
+				      uniquely-called "Amino group 1"))
+				(the Carbon-Atom has-part of
+				     (the Methyl-Group has-part of
+					  (the Amino-Acid-Side-Chain 
+					       has-part of Self)))))
+			      )
+                           (a Be-Attached-To with
+                              (object
+                               (((the Amino-Group has-part of
+                                     (the Amino-Acid-Side-Chain
+                                          has-part of Self))
+                                uniquely-called "Amino group 1")))
+                              (instrument ((a Conjugated-Double-Bond)))
+                              (site
+                               ((the Nitrogen-Atom has-part of
+                                     ((the Amino-Group has-part of
+                                           (the Amino-Acid-Side-Chain
+                                                has-part of Self))
+                                      uniquely-called "Amino group 2"))
+                                (the Carbon-Atom has-part of
+                                     (the Methyl-Group has-part of
+                                          (the Amino-Acid-Side-Chain
+                                               has-part of Self)))))
+			      ))))
+		      (a Amino-Group uniquely-called "Amino group 1")
+		      (a Amino-Group uniquely-called "Amino group 2")
+		      )))
+	)))
+
+

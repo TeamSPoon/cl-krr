@@ -1,0 +1,15 @@
+;; $Id: FrameDevice.km,v 1.12 2005/05/23 18:52:00 kbarker Exp $
+(FrameDevice has (description ("A device that has multiple cameras and microphones.")))
+
+(FrameDevice has (superclasses (Sensor)))
+
+(every FrameDevice has
+	(has-functional-part ((a Camera)(a Camera)(at-least 2 Camera)))
+	(has-functional-part ((a Microphone)(a Microphone)(at-least 2 Microphone)))
+)
+
+
+(FrameDevice has
+  (feature-slot ((the feature-slot of Sensor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = FrameDevice)))))
+

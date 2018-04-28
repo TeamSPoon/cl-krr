@@ -1,0 +1,16 @@
+;; 
+;;    $Id: UoM-Brightness.km,v 1.6 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Brightness has
+  (superclasses (Unit-of-Measurement))
+  (base-unit (*candela))
+  (instances (*candela)))
+
+
+(*candela has (instance-of (UoM-Brightness))
+          (name ("cd"))
+	  (wn20-synset ((:set (:triple "candela" 0 "n")
+			      (:triple "candelas" 0 "n")
+			      (:triple "cd" 0 "n")))))
+(*candela has (conversion-multiplier (1.0)))

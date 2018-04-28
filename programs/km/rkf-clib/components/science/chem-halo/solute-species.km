@@ -1,0 +1,18 @@
+;;
+;;  $Id: solute-species.km,v 1.6 2006/09/29 18:57:37 jchaw Exp $
+;;
+
+(solute-species has
+	     (instance-of (Participant-Relation))
+	     (user-description ("the molecule or the ions of a solute that is dissolved in a solution"))
+	     (superslots  ())
+	     (subslots    ())
+	     (domain      (Solution))
+	     (range       (Chemical))
+	     (fluent-status (*Inertial-Fluent))
+	     ; (inherit-with-overrides (t))
+	     (inverse     (solute-species-of))
+	     (cardinality (N-to-N))
+	     )
+
+(solute-species-of has (instance-of (Participant-Relation)))

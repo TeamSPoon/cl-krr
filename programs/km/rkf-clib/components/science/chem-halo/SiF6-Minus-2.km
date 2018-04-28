@@ -1,0 +1,23 @@
+;; 
+;;    $Id: SiF6-Minus-2.km,v 1.8 2008/05/15 17:19:10 kunal Exp $
+;; 
+
+(SiF6-Minus-2 has (superclasses (Anion)))
+
+(every SiF6-Minus-2 has
+       (has-chemical-name ("silver hexafluoride"))
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with 
+		    (term ((:seq (:pair 1 Si) 
+				 (:pair 6 F)))))))
+)
+
+(every SiF6-Minus-2 has-definition
+  (instance-of (Chemical-Entity))
+  (charge ((a Charge-Value with (value ((:pair -2 *unity))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Si) (:pair 6 F)))))))
+)
+
+(SiF6-Minus-2 has (wn20-synset ((:triple "SiF6-2" 0 "n") (:triple "SiF_6-2" 0 "n"))))

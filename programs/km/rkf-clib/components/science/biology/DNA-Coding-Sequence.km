@@ -1,0 +1,21 @@
+;; 
+;;    $Id: DNA-Coding-Sequence.km,v 1.15 2001/06/12 20:26:25 jfan Exp $ 
+;; 
+
+(DNA-Coding-Sequence has
+          (superclasses (DNA-Sequence Coding-Sequence))
+          (required-slot ())
+          (primary-slot ())
+          (description ("A has-region of the DNA which codes for all or part of a
+                         protein or RNA. It may include noncoding regions,
+                         as for example in eucaryotic genes which include
+                         regulatory sequences.  Souther. "))
+          (secondary-slot ()) )
+
+(every DNA-Coding-Sequence has 
+       (has-basic-functional-unit ((a DNA-Codon)))
+)
+;       (has-part ((a 5-Prime-Deoxyribonucleotide)
+;		  (a Internal-DNA-Sequence)
+;                  (a 3-Prime-Deoxyribonucleotide) )))        
+

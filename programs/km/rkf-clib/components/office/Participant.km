@@ -1,0 +1,49 @@
+;; $Id: Participant.km,v 1.1 2005/06/27 19:20:11 billj Exp $
+
+(every Participant has
+       (participant-dtstamp ((a Time-Instant)))
+       (participant-uid ((a String)))
+       (participant-url ((a String)))
+       (participant-x-prop ((a String)))
+
+       ;; what is the value of this?
+       ;; (participant-hasDelegatedTo ())
+       ;;(participant-hasParticipationStatus ())
+       ;;(participant-isDelegatedFrom ())
+       ;;(participant-isRequestedToRSVP ())
+       ;;(participant-isSentToParticipateBy ())
+       (participant-isTypeOfCalendarUser ((a String)))
+       (participant-ParticipatesIn ((a Activity)))
+       )
+		       
+	
+
+(participant-dtstamp has (instance-of (Interface-Slot)) (domain (Participant)) (range (Time-Instant)) (cardinality (N-to-1)))
+
+(participant-uid has (instance-of (Interface-Slot)) (domain (Participant)) (range (String)) (cardinality (1-to-1)))
+
+;; for now url's represented as strings
+(participant-url has (instance-of (Interface-Slot)) (domain (Participant)) (range (String)) (cardinality (N-to-N)))
+
+(participant-x-prop has (instance-of (Interface-Slot)) (domain (Participant)) (range (String)) (cardinality (N-to-N)))
+
+;; check this to make sure it makes sense
+(participant-hasDelegatedTo has (instance-of (Interface-Slot)) (domain (Participant)) (range (Person Organization Participant)) (cardinality (N-to-N)))
+
+;; EventParticipationStatusFlag ?!
+;;(participant-hasParticipationStatus has (instance-of (Interface-Slot)) (domain (Participant)) (range (EventParticipationStatusFlag)))
+
+;; check this to make sure it makes sense
+(participant-isDelegatedFrom has (instance-of (Interface-Slot)) (domain (Participant)) (range (Person Organization Participant)) (cardinality (N-to-N)))
+
+;; how to treat Boolean
+;;(participant-isRequestedToRSVP has (instance-of (Interface-Slot)) (domain (Participant)) (range (Boolean)) (cardinality (N-to-1)))
+
+(participant-isSentToParticipateBy has (instance-of (Interface-Slot)) (domain (Participant)) (range (Person Organization)) (cardinality (N-to-N)))
+(participant-isTypeOfCalendarUser has (instance-of (Interface-Slot)) (domain (Participant)) (range (String)) (cardinality (N-to-1)))
+
+;; although IRIS lists Event and Process as range, this probably corresp to our Activity
+(participant-ParticipatesIn has (instance-of (Interface-Slot)) (domain (Participant)) (range (Activity)) (cardinality (N-to-N)))
+
+
+

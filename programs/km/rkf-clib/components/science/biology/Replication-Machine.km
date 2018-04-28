@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Replication-Machine.km,v 1.11 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(Replication-Machine has
+         (superclasses (Protein-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("The multiprotein complex that promotes DNA synthesis
+                        at the replication fork.  Lehninger:PBC:G-12. ")))
+
+(every Replication-Machine has
+        (purpose ((a Catalyst with
+                        (in-event ((a DNA-Double-Strand-Replication))))))
+        (has-part ((a DNA-Helicase)
+		   (a DNA-Gyrase)
+		   (a Aggregate with
+
+		      (element-type (Single-Strand-Binding-Protein)))
+		   (a Protein-Sliding-Clamp)
+		   (a Protein-Sliding-Clamp)		
+		   (a Primase)
+		   (a DNA-Polymerase-Replication-Enzyme)
+		   (a DNA-Polymerase-Replication-Enzyme)
+		   (exactly 2 DNA-Polymerase-Replication-Enzyme)  
+		   )))
+

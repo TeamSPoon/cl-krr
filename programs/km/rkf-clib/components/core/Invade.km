@@ -1,0 +1,65 @@
+;;
+;;    $Id: Invade.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(Invade has
+  (superclasses         (Trespass Intentional))
+  (required-slot        (agent object destination))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+;; Invade is merely (for now) an Intentional Trespass
+
+(every Invade has
+  (text-active-verbseq-sg ("invades"))
+  (text-active-verbseq-pl ("invade"))
+
+  (text-argslots ((:seq destination)))
+  (text-destination (""))
+)
+
+
+(Invade has 
+    (test-case ('(
+                  (new-situation)
+
+                  (*Dwayne has (instance-of (Entity)))
+                  (*DwaynesProperty has (instance-of (Spatial-Entity))
+                                         (is-possessed-by (*Dwayne)))
+                  (*Venutian has (instance-of (Entity)))
+
+                  (a Invade with (agent (*Venutian))
+                                   (destination (*DwaynesProperty)))
+
+                  ((the is-possessed-by of 
+                        (the destination of (thelast Invade)))
+                   = *Dwayne)
+
+                  ((the prevents of (the has-goal of *Dwayne))
+                   includes
+                   (thelast Invade))
+
+                  ((the is-goal-of of (the objective of (thelast Invade)))
+                   = *Venutian)
+
+                  ((the has-goal of *Venutian) 
+                   includes
+                   (the objective of (thelast Invade)))
+
+                  (do-and-next (thelast Invade))
+
+                  ((the location of *Venutian) = *DwaynesProperty)
+
+))))
+
+
+;;; the axioms currently encoded here do not reflect the semantics
+;;; of these WN concepts. However, we plan to expand the description
+;;; of Invade to match these concepts.  
+(Invade has (wn20-synset ((:set
+			   (:triple "invade" 1 "v")
+			   (:triple "occupy" 7 "v")
+			   (:triple "penetrate" 1 "v")
+			   (:triple "perforate" 2 "v")
+))))
+(every Invade has (text-nominalization ("invasion")))

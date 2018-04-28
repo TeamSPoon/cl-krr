@@ -1,0 +1,30 @@
+<!--- $Id: Line.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Line>
+<superconcept name=Geometric-Object>
+
+<definition>
+	A <conceptref name=Geometric-Object> with no area, volume, height, width, depth,
+	diameter, radius, circumference, or thickness. A line can have a length.
+</definition>
+
+<primaryslotlist>
+  <slotdescription name=length>
+	The length of a line specified by a <conceptref name=Length-Value>.
+  </slotdescription>
+</primaryslotlist>
+
+<neighborlist>
+  <neighbor name=Geometric-Object>
+	A <conceptref name=Spatial-Entity> describing objects in 2D geometry.
+  </neighbor>
+  <neighbor name=Line-Segment>
+	A line with two <conceptref name=Point>s, one on each end.
+  </neighbor>
+  <neighbor name=Ray>
+	A line with a <conceptref name=Point> on one end only.
+  </neighbor>
+</neighborlist>
+
+</kml>

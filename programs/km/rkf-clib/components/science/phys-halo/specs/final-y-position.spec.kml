@@ -1,0 +1,28 @@
+<!--- $Id: final-y-position.spec.kml,v 1.2 2006/03/01 20:12:16 kbarker Exp $ --->
+<kml>
+<property-doc name=final-y-position>
+<gpd-documentation name=Property>
+
+<from name=Event>
+<to name=Length-Value>
+
+<description> 
+  final vertical position of a moving object;
+  note that final-y-position is a property of a Move event; 
+  use <conceptref name=fixed-y-position> for the fixed vertical position 
+  of an object that is not moving.
+</description>
+
+<value-description>
+  <cardinal-value-description>
+    a number along with any of the units of measurement for <conceptref name=UoM-Length>
+<p>
+    <examplesentence>
+      <text>The final vertical position of the falling rock is 0 feet.</text>
+      <slotdescription name=number>0</slotdescription>
+      <slotdescription name=unit of measure>foot</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+</value-description>
+</kml>

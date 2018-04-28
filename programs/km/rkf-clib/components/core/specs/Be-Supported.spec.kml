@@ -1,0 +1,79 @@
+<!--- $Id: Be-Supported.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Supported>
+<system-documentation name=Be-Supported>
+
+<superconcept name=Be-Obstructed>
+
+<definition>
+	The <slot>object</slot> of a <conceptref name=Be-Supported> is
+	prevented from <conceptref name=Fall>ing. 
+
+  An object is put in this state by <conceptref name=Obstruct>.
+
+  An object is taken out of this state by <conceptref name=Unobstruct>.
+
+</definition>
+
+<requiredslotlist>
+  <slotdescription name=object>
+    	the thing that is prevented from <conceptref name=Fall>ing. 
+  </slotdescription>
+</requiredslotlist>
+
+
+<primaryslotlist>
+  <slotdescription name=instrument>
+	the thing being used to support the <slot>object</slot>
+  </slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The beam holds up the roof.</text>
+    <slotdescription name=object>the roof</slotdescription>
+    <slotdescription name=instrument>the beam</slotdescription>
+    <comment> The roof cannot fall down because it is supported by the beam.</comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Be-Obstructed>
+	<conceptref name=Be-Obstructed> is more general, preventing all movements.
+  </neighbor>
+  <neighbor name=Be-Confined>
+	<conceptref name=Be-Confined> restricts the movement of the 
+	<slot>object</slot> out of a certain enclosure.
+  </neighbor>
+  <neighbor name=Be-Contained>
+	An <slot>object</slot> is contained in a container.
+	It can <conceptref name=Move-Out> of it at any time.
+  </neighbor>
+  <neighbor name=Be-Restrained>
+	The <slot>object</slot> of a <conceptref name=Be-Restrained>
+	state is unable to <conceptref name=Move>.
+  </neighbor>
+  <neighbor name=Be-Shut-Out>
+	The <slot>object</slot> of a <conceptref name=Be-Shut-Out>
+	is unable to <conceptref name=Move-Into> an enclosure.
+  </neighbor>
+  <neighbor name=Be-Held>
+	<conceprref name=Be-Held> has an <slot>agent</slot> that is allowed to 
+	<conceptref name=Move> the <slot>object</slot>.
+  </neighbor>
+</neighborlist>
+
+<comment>
+An <slot>object</slot> can be put in a <conceptref name=Be-Supported>
+state by <conceptref name=Support> action, and can be taken out of
+such a state by a <conceptref name=Let-Fall>.
+While in a <conceptref name=Be-Supported> state, the <slot>object</slot>
+cannot <conceptref name=Fall>.
+</comment>
+
+</kml>

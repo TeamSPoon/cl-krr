@@ -1,0 +1,113 @@
+;; 
+;;    $Id: Replicon-Replication.km,v 1.20 2001/06/20 21:50:03 pzyeh Exp $
+;; 
+
+(Replicon-Replication has
+		      (superclasses     (DNA-Double-Strand-Replication))
+		      (required-slot    (object result ))
+		      (primary-slot     (instrument))
+		      (description 	("A process by which a copy of a replicon within
+                               		  a DNA molecule is made. Souther. see 
+                               		  Mathews:BC:1160"))
+		      (cmap-correspondence ()))
+
+(every Replicon-Replication has
+       (object	((a Replicon)))
+       (result
+	((a DNA-Molecule-Segment called "DNA-Molecule-Segment-1" with
+	    (has-part 
+	     (((the DNA-Sequence has-part of 
+		    (the Replicon object of Self))
+	       called "DNA-Strand-1-segment")
+	      (a DNA-Sequence called 
+		 "Daughter-Strand-Complement of Strand 1 segment" with
+		 (complement (((the DNA-Sequence has-part of
+				    (the Replicon object of Self))
+			       called "DNA-Strand-1-segment")))
+		 )
+	      )))
+	 
+	 (a DNA-Molecule-Segment called "DNA-Molecule-Segment-2" with
+	    (has-part
+	     (((the DNA-Sequence has-part of
+		    (the Replicon object of Self))
+	       called "DNA-Strand-2-segment")
+              (a DNA-Sequence called 
+                 "Daughter-Strand-Complement of Strand 1 segment" with
+                 (complement (((the DNA-Sequence has-part of
+                     	            (the Replicon object of Self))
+			       called "DNA-Strand-2-segment")))))))
+	 (exactly 2 DNA-Molecule-Segment)))
+       
+       (first-subevent (((the Attach subevent of Self)
+			 called "binding of initiator proteins")))
+       
+       (subevent 
+	 (
+	  (a Attach called "binding of initiator proteins" with 
+	     (object ((the Initiator-Proteins instrument of
+			   (the Replicon-DNA-Melting subevent of Self))))
+	     (base ((the Replicon object of Self)))
+	     (site ((the Replication-Origin has-region of
+			 (the Replicon object of Self))))
+	     (next-event ((the Replicon-DNA-Melting subevent of Self)))
+	     )
+
+	  (a Replicon-DNA-Melting with
+	     (next-event
+	      (((the Half-Replicon-Replication subevent of Self)
+		called "replication of replicon half with strand 2 as leading
+                        strand")
+	       ((the Half-Replicon-Replication subevent of Self)
+                called "replication of replicon half with strand 1 as leading
+                        strand"))))
+	  
+	  (a Half-Replicon-Replication called "replication of replicon half
+             with strand 1 as leading strand" with
+	     (object
+	      ((a DNA-Molecule-Segment
+		  with
+		  (is-part-of ((the Replicon object of Self)))
+		  (has-part   
+		   ((a DNA-Sequence called "leading strand template" with
+		       (is-part-of (((the DNA-Sequence has-part of
+					 (the Replicon object of Self))
+				     called "DNA-Strand-1")
+				    )))
+		    (a DNA-Sequence called "lagging strand template" with
+		       (is-part-of (((the DNA-Sequence has-part of
+					  (the Replicon object of Self))
+				     called "DNA-Strand-2") 
+                                        )))
+                        )))))
+	     )
+
+          (a Half-Replicon-Replication called "replication of replicon half
+             with strand 2 as leading strand" with 
+	     (object
+              ((a DNA-Molecule-Segment
+                  with
+                  (is-part-of ((the Replicon object of Self)))
+                  (has-part
+                   ((a DNA-Sequence called "leading strand template" with
+                       (is-part-of (((the DNA-Sequence has-part of
+                                         (the Replicon object of Self))
+				    called "DNA-Strand-2")
+				   )))
+		   (a DNA-Sequence called "lagging strand template" with
+		      (is-part-of (((the DNA-Sequence has-part of
+					 (the Replicon object of Self))
+				    called "DNA-Strand-1")
+				   )))
+		   )))))) 
+	 (exactly 2 Half-Replicon-Replication)
+	 ))
+       )
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+;; 
+;;    $Id: DNA-Ligase.km,v 1.13 2001/05/17 20:22:36 jfan Exp $ 
+;; 
+
+(DNA-Ligase has
+         (superclasses (Ligase))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("An enzyme that appends nucleotides onto the growing
+                        DNA chain during chain elongation or joins two 
+                        nucleotide sequences together during repair of strand
+                        breaks.  Souther.  see Alberts:ECB:G-10."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every DNA-Ligase has
+       (purpose ((a Catalyst with
+                    (in-event 
+		     ((a DNA-Ligation))))
+		 )))
+
+
+

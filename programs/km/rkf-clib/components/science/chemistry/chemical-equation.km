@@ -1,0 +1,14 @@
+;; 
+;;  $Id: chemical-equation.km,v 1.1 2005/08/24 21:28:27 jchaw Exp $
+;; 
+
+(chemical-equation has
+	  (instance-of (Property))
+	  (domain      (Reaction))
+	  (range       (Thing))
+	  (fluent-status (*Inertial-Fluent))
+	  (inherit-with-overrides (t))
+	  (inverse     (chemical-equation-of))
+	  (cardinality (N-to-1))
+	  )
+

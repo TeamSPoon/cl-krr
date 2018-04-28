@@ -1,0 +1,19 @@
+;;
+;; $Id: CuO.km,v 1.1 2006/01/30 23:02:25 jfan Exp $
+;;
+
+(CuO has (superclasses (Ionic-Compound)))
+
+(every CuO has	
+       (has-chemical-name ("copper oxide"))
+       (has-part 
+	((a Cu-Plus-2) (a O-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Cu-Plus-2)
+			 (:pair 1 O-Minus-2)))))))
+)
+(every CuO has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Cu-Plus-2) (a O-Minus-2))))
+

@@ -1,0 +1,16 @@
+;;
+;; $Id: Br2.km,v 1.3 2005/06/17 02:37:33 jfan Exp $
+;;
+
+(Br2 has (superclasses (Molecular-Compound)))
+
+(every Br2 has	
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 Br)))))))
+       (has-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 Br)))))))
+       )

@@ -1,0 +1,40 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Hydrogen-peroxide ----------
+
+(Hydrogen-peroxide has (superclasses (Inorganic-Molecule)))
+
+(_Hydrogen-peroxide164 has 
+  (instance-of (Hydrogen-peroxide))
+  (prototype-of (Hydrogen-peroxide))
+  (prototype-scope (Hydrogen-peroxide))
+  (prototype-participants (_Atom168
+                           _Hydrogen-peroxide164))
+  (prototype-participant-of (_Hydrogen-peroxide164))
+  (has-clones (_Placeholder-Class163166))
+  (has-built-clones (_Placeholder-Class163166))
+  (has-basic-structural-unit (_Atom168))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom168 246 574)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom168 t))))
+
+(_Atom168 has 
+  (instance-of (Atom))
+  (has-clones (_Atom167))
+  (is-basic-structural-unit-of (_Hydrogen-peroxide164))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 412 600)))
+  (node-visibility (t))
+  (prototype-participant-of (_Hydrogen-peroxide164)))
+
+(explanation (:triple _Hydrogen-peroxide164 has-basic-structural-unit _Atom168) ((a Atom (@ _Hydrogen-peroxide164 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom168 instance-of Atom) ((a Atom (@ _Hydrogen-peroxide164 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(Hydrogen-peroxide now-has (user-description ("The molecule H2O2, which is toxic to living cells.")))
+(enable-classification)
+

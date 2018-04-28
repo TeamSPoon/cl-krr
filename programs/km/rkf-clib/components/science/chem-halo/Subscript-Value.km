@@ -1,0 +1,15 @@
+;; 
+;;  $Id: Subscript-Value.km,v 1.2 2007/05/21 04:43:14 mrglass Exp $
+;; 
+
+(Subscript-Value has 
+		(superclasses (Property-Value)))
+
+(every Subscript-Value has
+  (property-slot (subscript))
+       (quantity-of  ((must-be-a Thing)))		;; ((must-be-a Chemical)))
+       (less-than    ((must-be-a Subscript-Value)))
+       (greater-than ((must-be-a Subscript-Value)))
+       (same-as      ((must-be-a Subscript-Value)))
+)
+(Subscript-Value has (description ("a number that indicates the mole proportion of the preceeding element")))

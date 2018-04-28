@@ -1,0 +1,17 @@
+;;
+;; $Id: Default-Combat-Power-Value.km,v 1.3 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+(Default-Combat-Power-Value has
+  (superclasses (Property-Value))
+)
+
+(every Default-Combat-Power-Value has
+  (property-slot (default-combat-power))
+  (less-than    ((constraint ((TheValue isa Default-Combat-Power-Value) or
+                              (TheValue isa Relative-Combat-Power-Value)))))
+  (greater-than ((constraint ((TheValue isa Default-Combat-Power-Value) or
+                              (TheValue isa Relative-Combat-Power-Value)))))
+  (same-as      ((constraint ((TheValue isa Default-Combat-Power-Value) or
+                              (TheValue isa Relative-Combat-Power-Value)))))
+)

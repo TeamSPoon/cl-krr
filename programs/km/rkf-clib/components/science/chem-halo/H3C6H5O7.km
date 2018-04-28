@@ -1,0 +1,14 @@
+;; $Id: H3C6H5O7.km,v 1.7 2008/06/04 22:41:49 tecuci Exp $ 
+(H3C6H5O7 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H3C6H5O7 has
+	(has-chemical-name ("citric acid"))
+	(has-part ((a H-Plus)(a C6H5O7-Minus-3)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 3 H-Plus)
+			(:pair 1 C6H5O7-Minus-3)))))))
+)
+(every H3C6H5O7 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C6H5O7-Minus-3))))
+

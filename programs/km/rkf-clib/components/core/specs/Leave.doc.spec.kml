@@ -1,0 +1,50 @@
+<!--- $Id: Leave.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Leave>
+<superconcept name=Locomotion>
+<mixin name=Reflexive>
+
+<sme-documentation name=Leave>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Leave>
+  <definition>cause self to change location from a Place</definition>
+  <requiredslot name=agent>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+    <restriction>= <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>an Tangible-Entity</restriction>
+    <restriction>= <slot>agent</slot></restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <primaryslot name=path>
+    <inheritedfrom name=Locomotion>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=destination>
+    <inheritedfrom name=Locomotion>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>leave#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>go_away#2, go_forth#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Leave is a specialization of the <conceptref name=Locomotion> component.<p>
+</musing>
+
+</kml>
+
+

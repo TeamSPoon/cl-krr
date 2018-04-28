@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Mercury-Sulfate-Substance1299
+
+
+|#
+
+(disable-classification)
+
+(Mercury-Sulfate-Substance has (superclasses (Sulfate-Substance)))
+
+(every Mercury-Sulfate-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Mercury-Sulfate-Substance332 has
+  (prototype-of (Mercury-Sulfate-Substance Sulfate-Substance))
+  (prototype-scope (Mercury-Sulfate-Substance (the-class Sulfate-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Hg2-Plus-2) (a SO3-Minus-2)))))))))
+  (prototype-participants (_Hg2-Plus-338 _SO3-Minus-339 _Chemical-Entity334 _Mercury-Sulfate-Substance332)))
+
+(_Mercury-Sulfate-Substance332 has (instance-of (Mercury-Sulfate-Substance)) (has-basic-structural-unit (_Chemical-Entity334)))
+
+(_Chemical-Entity334 has (instance-of (Ionic-Compound)) (has-part (_SO3-Minus-339 _Hg2-Plus-338)))
+
+(_SO3-Minus-339 has (instance-of (SO3-Minus-2)))
+
+(_Hg2-Plus-338 has (instance-of (Hg2-Plus-2)))
+
+(enable-classification)
+
+(explanation (:triple _Mercury-Sulfate-Substance332 has-basic-structural-unit _Chemical-Entity334) (((@ SME entered)) (every Mercury-Sulfate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Mercury-Sulfate-Substance332 instance-of Mercury-Sulfate-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity334 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _SO3-Minus-339 instance-of SO3-Minus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Hg2-Plus-338 instance-of Hg2-Plus-2) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Mercury-Sulfate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

@@ -1,0 +1,17 @@
+;;
+;;  $Id: buffer-status.km,v 1.1 2003/02/11 21:45:21 wilder Exp $
+;;
+
+(buffer-status has
+		    (instance-of (Property))
+		    (superslots  ())
+		    (subslots    ())
+		    (domain      (Solution))
+		    (range       (Buffer-Status-Value))
+		    (cardinal-unit-class (UoM-Unitless))
+		    (scalar-constant-class (Buffer-Status-Constant))
+		    (fluent-status (*Inertial-Fluent))
+		    (inherit-with-overrides (t))
+		    (inverse     (buffer-status-of))
+		    (cardinality (N-to-1))
+		    )

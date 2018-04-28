@@ -1,0 +1,31 @@
+
+;;
+;;    $Id: Electronic-Message.km,v 1.12 2005/02/22 21:18:23 jchaw Exp $
+;;
+
+(Electronic-Message has
+ (superclasses (Form-Document))
+ (required-slot ())
+ (primary-slot ())
+ (secondary-slot ())
+ (cmap-correspondence ())
+ (test-case ()))
+
+(every Electronic-Message has
+       (hasMessageBody ((a Thing)));;Fixme! MessageBody component not available
+       (hasMessageHeader ((a MessageHeader)))
+       (hasMethodOfDelivery ((a Thing)));;Fixme! TypeOfDeliveryMethod component not available
+       (isMessageOf ((a Thing)))
+       (isMessageTypeOf ((a Thing))));;Fixme! TypeOfMessage component not available
+
+(hasMessageHeader has  (instance-of (Interface-Slot)) (domain (Electronic-Message)) (range (MessageHeader)) (inverse (isMessageHeaderOf)) (cardinality (N-to-N)))
+
+;;Fixme! TypeOfDeliveryMethod component not available
+(hasMethodOfDelivery has  (instance-of (Interface-Slot)) (domain (Electronic-Message)) #|(range (Thing))|# (cardinality (N-to-N))(inverse (isMethodOfDeliveryOf)))
+
+;;IRIS component Process maps to CLIB component Activity
+;;IRIS component Procedure maps to CLIB component Action
+(isMessageOf has  (instance-of (Interface-Slot)) (domain (Electronic-Message)) (range (Person Activity Action Organization Event Software-Application)) (cardinality (N-to-N)) (inverse  (hasMessage)))
+
+;;Fixme! TypeOfMessage component not available
+(hasMessageType has  (instance-of (Interface-Slot)) (domain (Electronic-Message)) #|(range (Thing))|# (inverse  (isMessageTypeOf)) (cardinality (N-to-N)))

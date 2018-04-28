@@ -1,0 +1,12 @@
+
+;;
+;; $Id: Office-Work.km,v 1.2 2003/09/09 15:17:48 porter Exp $
+;;
+
+(Office-Work has
+	     (superclasses (Activity))
+)
+
+(every Office-Work has
+       (agent ((must-be-a Person)))
+       (site ((a Office-Room))))

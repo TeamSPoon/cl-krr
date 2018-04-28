@@ -1,0 +1,54 @@
+<!--- $Id: Ensemble.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+
+<kml>
+<concept name=Ensemble>
+<system-documentation name=Ensemble>
+<gpd-documentation name=Aggregate>
+
+
+<superconcept name=Aggregate>
+
+  <definition>A collection of distinct structures which function 
+	together to carry out some task, as the respiratory
+ 	enzyme complex on mitochondrial membranes. Souther.
+  </definition>
+
+<requiredslotlist>
+   There are no slots that are required for an ensemble.
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=element>
+    the individual entities that comprise the ensemble.
+  </slotdescription>
+
+  <slotdescription name=number-of-elements>
+    the number of elements in the ensemble
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>the emsemble of 3 musicians playing or singing together</text>
+     <slotdescription name=number-of-elements>three</slotdescription>
+  <comment>
+     It is not necessary to specify a <slot>number-of-elements</slot> or to list the 
+     <slot>element</slot> of an ensemble. If you do, the system will try 
+     to maintain consistency by requiring that the number of <slot>element
+     </slot> is at least as large as the specified <slot>number-of-elements</slot>
+  </comment>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Sequence>
+     A Sequence is a linearly ordered  collection of individuals.
+  </neighbor>
+
+</neighborlist>
+
+
+</kml>

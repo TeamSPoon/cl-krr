@@ -1,0 +1,31 @@
+;; 
+;;    $Id: has-basic-structural-unit.km,v 1.15 2009/10/29 21:29:07 kbarker Exp $
+;; 
+
+(has-basic-structural-unit has
+    (instance-of 	(Meronymic-Relation))
+    (superslots 	())
+    (subslots 		())
+    (domain 		(Tangible-Entity))
+    (range 		(Tangible-Entity))
+    (inverse 		(is-basic-structural-unit-of))
+    (fluent-status 	(*Inertial-Fluent))
+    (original-slot      (t))	
+    (cardinality 	(N-to-N)))
+
+(is-basic-structural-unit-of has
+    (combine-values-by-appending (t))
+)
+
+(has-basic-structural-unit has (wn20-synset ((:set
+					      (:triple "basic structural unit" 0 "n")))))
+
+
+
+
+
+
+(has-basic-structural-unit has (text-gloss ("has as basic structural unit")))
+(is-basic-structural-unit-of has 
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("is a basic structural unit of")))

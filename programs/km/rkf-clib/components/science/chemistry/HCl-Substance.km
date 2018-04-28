@@ -1,0 +1,9 @@
+;; $Id: HCl-Substance.km,v 1.8 2003/02/22 16:27:07 jchaw Exp $ 
+(HCl-Substance has (superclasses (Acid)))
+(every HCl-Substance has
+	(plays ((a Acid-Role with
+		(intensity ((a Intensity-Value with
+			(value ((:pair *strong Acid)))))))))
+	(has-chemical-name ("Hydrochloric"))
+	(has-basic-structural-unit ((a HCl)))
+)

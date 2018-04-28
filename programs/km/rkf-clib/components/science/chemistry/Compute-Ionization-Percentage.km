@@ -1,0 +1,144 @@
+;;
+;;    $Id: Compute-Ionization-Percentage.km,v 1.6 2003/09/26 21:55:14 jfan Exp $
+;;
+(Compute-Ionization-Percentage has
+  (superclasses (Method))
+  (description ("given a chemical, compute the percentage of the chemical being ionized")))
+
+;;
+;; This method encodes L.59.
+;;
+(every Compute-Ionization-Percentage has
+  (input  ((a Chemical)))
+
+  ;; Strong acids and bases dissociates completely.
+  (output ((if (((the1 of 
+		   (the value of 
+		     (the intensity of 
+		       (the Acid-Role plays of 
+			 (the input of Self)))))
+		 = *strong)
+		or
+		((the1 of 
+		   (the value of 
+		     (the intensity of 
+		       (the Base-Role plays of 
+			 (the input of Self)))))
+		 = *strong))
+	       then
+	       100
+            [Compute-Ionization-Percentage-output-1]
+  )))
+
+  ;; The chemical is not a strong acid or base.
+  (output ((if ((oneof (the raw-material-of of (the input of Self))
+		       where
+		       (It isa Hydrolysis))
+		and
+		((the1 of 
+		   (the value of 
+		     (the intensity of 
+		       (the Acid-Role plays of 
+			 (the input of Self)))))
+		 /= *strong)
+		and
+		((the1 of 
+		   (the value of 
+		     (the intensity of 
+		       (the Base-Role plays of 
+			 (the input of Self)))))
+		 /= *strong))
+	       then
+	       (((the output of 
+		      (a Compute-Concentration-Change-Constant with
+		     	 (input ((the raw-material-of of (the input of Self))))))
+	     	 /
+	     	 (the1 of (the value of (the concentration of (the input of Self)))))
+	    	*
+	    	100)
+            [Compute-Ionization-Percentage-output-2]
+  )))
+)
+
+(comment [Compute-Ionization-Percentage-output-1]
+  (if (the Acid-Role plays of (the input of Self))
+   then (:seq (the text-gen of (the input of Self))
+              "is a strong acid and therefore dissociates completely (100%)"
+        )
+   else (if (the Base-Role plays of (the input of Self))
+         then (:seq (the text-gen of (the input of Self))
+                    "is a strong base and therefore ionizes completely (100%)"
+              )
+        )
+  )
+  (if (the Acid-Role plays of (the input of Self))
+   then "Strong acids dissociate completely"
+   else (if (the Base-Role plays of (the input of Self))
+         then "Strong bases ionize completely"
+        )
+  )
+)
+
+
+(comment [Compute-Ionization-Percentage-output-2]
+  (if (the Acid-Role plays of (the input of Self))
+   then (:seq "The percent dissociation of the weak acid"
+              (the text-gen of (the input of Self))
+              "is thus (" "nospace"
+              (the output of (
+                   (a Compute-Concentration-Change-Constant with
+                      (input ((the raw-material-of of 
+                                   (the input of Self)))))))
+              "nospace" "/" "nospace"
+              (the1 of 
+                    (the value of (the concentration of (the input of Self))))
+              "nospace" ") x 100 ="
+              (the output of Self)
+              "nospace" "%"
+        )
+   else (if (the Base-Role plays of (the input of Self))
+         then (:seq "The percent ionization of the weak base"
+                    (the text-gen of (the input of Self))
+                    "is thus (" "nospace"
+                    (the output of (
+                         (a Compute-Concentration-Change-Constant with
+                            (input ((the raw-material-of of 
+                                         (the input of Self)))))))
+                    "nospace" "/" "nospace"
+                    (the1 of 
+                          (the value of 
+                               (the concentration of (the input of Self))))
+                    "nospace" ") x 100 ="
+                    (the output of Self)
+                    "nospace" "%"
+              )
+        )
+  )
+  (if (the Acid-Role plays of (the input of Self))
+   then (:seq "For a weak acid whose concentration and dissociation constant Ka are known, the percent dissociation is ([H+]/["
+              "nospace"
+              (the text-gen of (the input of Self))
+              "nospace"
+              "]) x 100"
+        )
+   else (if (the Base-Role plays of (the input of Self))
+         then (:seq "For a weak base whose concentration and ionization constant Kb are known, the percent dissociation is ([OH-]/["
+                    "nospace"
+                    (the text-gen of (the input of Self))
+                    "nospace"
+                    "]) x 100"
+              )
+        )
+  )
+  (:set (:triple (the input of Self)
+                 concentration
+                 *
+        )
+        (:triple (a Compute-Concentration-Change-Constant with
+                     (input ((the raw-material-of of (the input of Self)))))
+                 output
+                 *
+        )
+  )
+)
+

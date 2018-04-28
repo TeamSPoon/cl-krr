@@ -1,0 +1,82 @@
+<!--- $Id: Collide.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Collide><system-documentation name=Collide>
+<superconcept name=Make-Contact>
+
+<definition>
+
+  One <slot>object</slot> collides with another.  The objects 
+  <conceptref name=Make-Contact> with high <slot>intensity</slot>.
+
+  There are two types of collision:<ul>
+    <li>symmetric collision, such as occurs between 2 billiard balls.
+    <li>asymmetric collision, such as occurs when a baseball bat hits
+      a baseball or a car hits a lamp-post
+</ul>
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    for a symmetric collision, give two <slot>object</slot>s.  For an
+    asymmetric collision, give one <slot>object</slot> and one
+    <slot>base</slot>.  See examples below.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+  <slotdescription name=agent>
+    the entity that caused the collision
+  </slotdescription>
+
+  <slotdescription name=base>
+    the thing that is hit by the <slot>object</slot>.  Used only for
+    asymmetric collisions
+  </slotdescription>
+
+  <slotdescription name=location>
+    the Place where the collision occurred
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The cars collided in the intersection. (symmetric collision)</text>
+    <slotdescription name=object>the cars</slotdescription>
+    <slotdescription name=location>in the intersection</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The car hit the tree. (asymmetric collision)</text>
+    <slotdescription name=object>the car</slotdescription>
+    <slotdescription name=base>the tree</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>John hit the nail with a hammer. (asymmetric collision)</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the hammer</slotdescription>
+    <slotdescription name=base>the nail</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Contact>
+    Collide is a type of Make-Contact with one extra property: it occurs 
+    with high <slot>intensity</slot>
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

@@ -1,0 +1,44 @@
+;; 
+;;    $Id: Defeat.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Defeat 
+  superclass: Overcome  (Wordnet  sense 1) 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+  causes: Decrease with 
+                         property: Combat-Strength of L-E object of Self 
+                         new-value: less-than value of Combat-Strength necessary-for Combat 
+  by-means-of: Attack (Appendix) 
+                               agent: Military-Unit called "friendly forces" 
+                               object:  Military-Unit called "enemy forces" 
+                               instrument: Weapon 
+                               manner: Forcefully 
+                               cliché: Intentional-Act 
+                               cliché: Unauthorized-Act 
+                        Threat-of-Attack (Appendix) 
+                             agent: MU called "protagonist force" 
+                               object: MU called "antagonist force" 
+ 
+  resulting-state: 
+        Be-Defeated 
+                  object: MU called "enemy forces"       
+ 
+Note: Be-Defeated state should encode 2 below. 
+Note: The Morrison document breaks this action into "Manuever" and "Attack" 
+ 
+ 
+Defeat (E). 
+======. 
+1. Defeat is a tactical mission task that occurs when an enemy force has temporarily or permanently lost the physical means or the will to fight. 
+2. The defeated force's commander is unwilling or unable to pursue his adopted course of action, thereby yielding to the friendly commander's will and can no longer interfere to a significant degree with the actions of friendly forces. 
+3. Defeat can result from the use of force or the threat of its use. 
+ 
+4. A commander can generate different effects against an enemy to defeat him: 
+     a. Physical.  The enemy loses the physical means to continue fighting. 
+                  He no longer has the personnel, weapon systems, equipment, or supplies to                    
+                  carry out his assigned mission. 
+b. Psychological.  The enemy loses the will to fight.  He becomes mentally exhausted,  
+    and his morale is so low that he can no longer continue to carry out his assigned   
+    mission. 

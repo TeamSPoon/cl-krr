@@ -1,0 +1,15 @@
+;; 
+;;  $Id: ka.km,v 1.5 2003/02/21 06:49:38 pzyeh Exp $
+;; 
+
+(ka has
+  (instance-of 		  (Property))
+  (domain      		  (Hydrolysis Complete-Dissociation-Reaction Acid-Role Chemical))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     		  (ka-of))
+  (cardinality 		  (N-to-1))
+)
+

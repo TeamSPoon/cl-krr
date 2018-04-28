@@ -1,0 +1,13 @@
+;;
+;; $Id: CH3NH3-Plus-Substance.km,v 1.2 2003/04/30 19:58:30 wilder Exp $
+;;
+
+(CH3NH3-Plus-Substance has (superclasses (Cation-Substance)))
+(every CH3NH3-Plus-Substance has
+       (plays ((a Acid-Role with
+		  (default-ka ((a Equilibrium-Constant-Value with
+				  (value ((:pair 2.3e-11 nil))))))
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *weak Acid)))))))))
+       (has-basic-structural-unit ((a CH3NH3-Plus)))
+)

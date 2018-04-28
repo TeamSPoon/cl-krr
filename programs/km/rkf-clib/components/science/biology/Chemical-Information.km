@@ -1,0 +1,21 @@
+;;
+;;    $Id: Chemical-Information.km,v 1.3 2004/01/30 22:02:41 kbarker Exp $
+;;
+        
+(Chemical-Information has
+          (superclasses (Information))
+          (required-slot ())
+          (primary-slot ())
+          (description ("Information in the form of chemical structures, such
+                         as the sequence of amino acids in a protein.
+                         Souther."))
+          (secondary-slot ()) )
+
+;(every Chemical-Information has 
+;       (object-of ((a Chemical-Information-Storage)))
+;       )
+
+
+
+
+(every Chemical-Information has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

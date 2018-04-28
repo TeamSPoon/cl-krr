@@ -1,0 +1,28 @@
+;; 
+;; $Id: Architectural-Structure.km,v 1.1 2006/04/12 19:28:42 jchaw Exp $
+;; 
+
+(Architectural-Structure has
+  (superclasses (Artifact))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (description ("a stable, supported artifact"))
+  (cmap-correspondence ())
+)
+
+;; since there are so many kinds of structures, it's hard to say much more
+;; than they're supported (resist falling) -- self-supported or otherwise --
+;; and they're stable
+;;
+;; specific kinds of structures will be richer: walls play barriers; rooms
+;; and buildings play containers; bridges play conduits, etc.
+
+(every Architectural-Structure has
+  (object-of ((a Be-Supported)))
+  (object-of ((a Be-Stable)))
+)
+
+(Architectural-Structure has (wn20-synset ((:set
+			      (:triple "structure" 1 "n")
+			      (:triple "construction" 3 "n")))))

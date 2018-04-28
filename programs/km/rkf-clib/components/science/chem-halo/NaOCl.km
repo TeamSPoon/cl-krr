@@ -1,0 +1,18 @@
+;;
+;; $Id: NaOCl.km,v 1.6 2008/09/04 20:33:41 jchaw Exp $
+;;
+
+(NaOCl has (superclasses (Ionic-Compound)))
+
+(every NaOCl has	
+       (has-chemical-name ("sodium hypochlorite"))
+       (has-part 
+	((a Na-Plus) (a OCl-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Na-Plus)
+			 (:pair 1 OCl-Minus)))))))
+       )(every NaOCl has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a OCl-Minus))))
+

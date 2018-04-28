@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Serine.km,v 1.9 2001/05/01 22:32:56 pnav Exp $ 
+;; 
+
+(Serine has                
+         (superclasses (Uncharged-Polar-Amino-Acid Nonessential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("An uncharged polar amino acid with a methanol side 
+                        chain.  Souther")) 
+         (test-case ()))
+
+(every Serine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 ((the Carbon-Atom has-part of 
+		       (the Methanol-Group has-part of
+			    (the Amino-Acid-Side-Chain has-part of Self)))) 
+		 )))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Methanol-Group))))
+	)))
+ 
+
+
+

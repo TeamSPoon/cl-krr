@@ -1,0 +1,51 @@
+<!--- $Id: has-region.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+
+<kml>
+<relation-doc name=has-region>
+
+
+<from name=Tangible-Entity>
+<to name=Spatial-Entity>
+
+<description> 
+  Tangible-Entity has the Spatial-Entity as its subregion.
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    The <ex-to>lumbar area</ex-to> of <ex-from>my back</ex-from>.
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-to>Tallahassee</ex-to> is in <ex-from>Florida</ex-from>, 
+	and <ex-to>Florida</ex-to> is in <ex-from>North America<ex-from>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-to>The bottom</ex-to> of <ex-from>my cup</ex-from> is scalding hot.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text><ex-to>The tip</ex-to> of <ex-from>John's nose</ex-from> is sunburned.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=location>
+    region refers to an area of the tangible-entity, location refers to the location of the whole tangible-entity.
+  </neighbor>
+
+ <neighbor name=has-part>
+   A <slot>has-region</slot> references a place, whereas <slot>has-part</slot> 
+   references an object.  For example, the tip of my umbrella is 
+   a region; however, if the tip was a discrete object that was
+   attached to my umbrella, then it would be a part.   
+ </neighbor>
+</neighborlist>
+
+</kml>
+
+

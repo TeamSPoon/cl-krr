@@ -1,0 +1,37 @@
+<!--- $Id: Line-Segment.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Line-Segment>
+<superconcept name=Line>
+
+<definition>
+ 	A <conceptref name=Line> with two <conceptref name=Point>s, one on each end.
+</definition>
+
+<requiredslotlist>
+   <slotdescription name=has-part>
+	The <conceptref name=Point>s of the line segment.
+   </slotdescription>
+</requiredslotlist>
+
+<primaryslotlist>
+  <slotdescription name=length>
+	The length of the line segment specified by a <conceptref name=Length-Value>
+  </slotdescription>
+</primaryslotlist>
+
+<neighborlist>
+  <neighbor name=Point>
+        A <conceptref name=Geometric-Object> with no geometric properties such as area, volume,
+        height, etc. It is simply an indefinitely small space.	
+  </neighbor>
+  <neighbor name=Line> 
+        A <conceptref name=Geometric-Object> with no geometric properties (i.e. area, volume, etc.)
+        except for length.
+  </neighbor>
+  <neighbor name=Ray> 
+	A <conceptref name=Line> with a <conceptref name=Point> on one end only.  
+  </neighbor>
+</neighborlist>
+
+</kml>

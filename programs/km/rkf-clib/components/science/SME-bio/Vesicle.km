@@ -1,0 +1,85 @@
+
+;;; ---------- Definition of prototype for Vesicle ----------
+
+(Vesicle has (superclasses (Membrane-Enclosure)))
+
+(_Vesicle1846 has 
+  (instance-of (Vesicle))
+  (prototype-of (Vesicle))
+  (prototype-scope (Vesicle))
+  (prototype-participants (_Atom1857
+                           _Phospholipid1856
+                           _Living-Entity1855
+                           _Physical-Object1854
+                           _Vesicle1846))
+  (prototype-participant-of (_Vesicle1846))
+  (has-clones (_Placeholder-Class18451847))
+  (has-built-clones (_Placeholder-Class18451847))
+  (has-basic-structural-unit (_Phospholipid1856))
+  (is-part-of (_Living-Entity1855))
+  (encloses (_Physical-Object1854))
+  (edge-coordinate ((:seq has-basic-structural-unit _Phospholipid1856 112 559)
+                    (:seq encloses _Physical-Object1854 191 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Phospholipid1856 t)
+                    (:seq encloses _Physical-Object1854 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Atom1857 has 
+  (instance-of (Atom))
+  (has-clones (_Atom1851))
+  (cloned-from (_Atom520))
+  (is-basic-structural-unit-of (_Phospholipid1856))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 503 518)))
+  (prototype-participant-of (_Vesicle1846)))
+
+(_Phospholipid1856 has 
+  (has-basic-structural-unit (_Atom1857))
+  (instance-of (Phospholipid))
+  (cloned-from (_Phospholipid517))
+  (clone-built-from (_Phospholipid517))
+  (internally-expanded (t))
+  (is-basic-structural-unit-of (_Vesicle1846))
+  (node-coordinate ((:pair 175 518)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom1857 353 524)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom1857 f)))
+  (prototype-participant-of (_Vesicle1846)))
+
+(_Living-Entity1855 has 
+  (instance-of (Living-Entity))
+  (has-clones (_Living-Entity1849))
+  (has-part (_Vesicle1846))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Vesicle1846 -100 600)))
+  (edge-visibility ((:seq has-part _Vesicle1846 f)))
+  (node-coordinate ((:pair -250 600)))
+  (prototype-participant-of (_Vesicle1846)))
+
+(_Physical-Object1854 has 
+  (instance-of (Physical-Object))
+  (has-clones (_Physical-Object1848))
+  (is-inside (_Vesicle1846))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 341 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq is-inside _Vesicle1846 534 606)))
+  (edge-visibility ((:seq is-inside _Vesicle1846 f)))
+  (prototype-participant-of (_Vesicle1846)))
+
+(explanation (:triple _Vesicle1846 encloses _Physical-Object1854) ((a Physical-Object (@ _Vesicle1846 Membrane-Enclosure encloses))))
+(explanation (:triple _Vesicle1846 is-part-of _Living-Entity1855) ((a Living-Entity (@ _Vesicle1846 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Vesicle1846 has-basic-structural-unit _Phospholipid1856) ((added-at Vesicle "User defined")))
+(explanation (:triple _Atom1857 is-basic-structural-unit-of _Phospholipid1856) ((cloned-from _Phospholipid517 _Phospholipid1856)))
+(explanation (:triple _Atom1857 instance-of Atom) ((cloned-from _Phospholipid517 _Phospholipid1856)))
+(explanation (:triple _Atom1857 instance-of Atom) ((a Atom (@ _Phospholipid1856 Molecule has-basic-structural-unit))))
+(explanation (:triple _Phospholipid1856 instance-of Phospholipid) ((added-at Vesicle "User defined")))
+(explanation (:triple _Phospholipid1856 has-basic-structural-unit _Atom1857) ((cloned-from _Phospholipid517 _Phospholipid1856)))
+(explanation (:triple _Phospholipid1856 has-basic-structural-unit _Atom1857) ((a Atom (@ _Phospholipid1856 Molecule has-basic-structural-unit))))
+(explanation (:triple _Living-Entity1855 instance-of Living-Entity) ((a Living-Entity (@ _Vesicle1846 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Physical-Object1854 instance-of Physical-Object) ((a Physical-Object (@ _Vesicle1846 Membrane-Enclosure encloses))))
+
+;;; ---------- end of prototype definition ----------
+

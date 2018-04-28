@@ -1,0 +1,26 @@
+;; 
+;;    $Id: diameter.km,v 1.9 2007/04/10 21:29:48 jchaw Exp $
+;; 
+
+(diameter has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Length-Value))
+   (scale-class (Diameter-Scale))
+   (scalar-constant-class (Diameter-Constant))
+   (cardinal-unit-class   (UoM-Length))
+   (inverse 	(diameter-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(diameter has (wn20-synset ((:set
+                               (:triple "diameter" 1 "n")
+                               (:triple "diam" 1 "n")
+))))
+
+(diameter-of has
+	(instance-of (EntityProperty)))

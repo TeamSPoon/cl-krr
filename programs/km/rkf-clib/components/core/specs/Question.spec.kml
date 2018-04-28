@@ -1,0 +1,44 @@
+<!--- $Id: Question.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+<kml>
+<concept name=Question>
+<system-documentation name=Question>
+
+<superconcept name=Role>
+
+  <definition>
+    Question is the <conceptref name=Role> played by <conceptref name=Information> 
+    which is the <slot>object</slot> of a <conceptref name=Inquire>.
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the Information that's playing the role of Question during the <conceptref name=Inquire>.
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Inquire> event that the Question is expressed during
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+
+     <text>The Philosophy major asked, "Do you want fries with that?"</text>
+     <comment>
+     In this example, the role of Question is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Inquire>=ask with
+         object= "Do you want fries with that?"   
+     <slotdescription name=played-by>"Do you want fries with that?"</slotdescription>
+     </comment>
+
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+
+
+

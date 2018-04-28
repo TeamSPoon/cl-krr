@@ -1,0 +1,27 @@
+;; 
+;;    $Id: shape.km,v 1.11 2007/04/11 21:42:43 jchaw Exp $ 
+;; 
+
+(shape has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Shape-Value))
+   (categorical-constant-class (Shape-Constant))
+   (inverse 	(shape-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(shape has (wn20-synset ((:set
+                               (:triple "shape" 1 "n")
+                               (:triple "form" 4 "n")
+                               (:triple "configuration" 2 "n")
+                               (:triple "contour" 2 "n")
+                               (:triple "conformation" 2 "n")
+))))
+
+(shape-of has
+	(instance-of (EntityProperty)))

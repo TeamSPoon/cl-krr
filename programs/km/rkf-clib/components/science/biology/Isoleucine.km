@@ -1,0 +1,52 @@
+;; 
+;;    $Id: Isoleucine.km,v 1.13 2001/06/01 23:26:39 pnav Exp $ 
+;; 
+
+(Isoleucine has                
+	       (superclasses (Essential-Amino-Acid Nonpolar-Amino-Acid))
+	       (required-slot ())
+	       (primary-slot ())
+	       (secondary-slot ())
+	       (cmap-correspondence ())
+	       (description ("A nonpolar amino acid with a 1-methyl-isopropyl side 
+                        chain. Souther."))
+	       (test-case ()))
+
+(every Isoleucine has
+       (has-part 
+	((a Alpha-Carbon with
+	    (object-of
+	     ((a Be-Attached-To with
+		 (object ((the Amino-Acid-Side-Chain has-part of Self)))
+		 (instrument ((a Covalent-CC-Bond)))
+		 (site 
+		  (((the Carbon-Atom has-part of 
+			 (the Isopropyl-Group has-part of
+			      (the Amino-Acid-Side-Chain has-part of Self)))
+		    called "Carbon-2")))
+		 ))))
+	 (a Amino-Acid-Side-Chain with
+	    (has-part ((a Isopropyl-Group with
+			  (object-of
+			   ((a Be-Attached-To with
+			       (object ((the Methyl-Group has-part of 
+					     (the Amino-Acid-Side-Chain 
+						  has-part of Self))))
+			       (instrument ((a Covalent-CC-Bond)))
+			       (site
+				(((the Carbon-Atom has-part of
+				       (the Isopropyl-Group has-part of
+					    (the Amino-Acid-Side-Chain has-part 
+						 of Self)))
+				  called "Carbon-1")
+				 (the Carbon-Atom has-part of 
+				      (the Methyl-Group has-part of
+					   (the Amino-Acid-Side-Chain
+						has-part of Self)))))
+			       ))))
+		       (a Methyl-Group)) ))
+	 )))
+
+
+
+

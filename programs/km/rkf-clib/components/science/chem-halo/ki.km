@@ -1,0 +1,19 @@
+;; 
+;;  $Id: ki.km,v 1.6 2008/07/04 18:08:51 jchaw Exp $
+;; 
+
+(ki has
+  (instance-of 		  (Property))
+  (user-description       ("the equilibrium constants of each individual equilibrium reaction that is combined to form an overall equilibrium reaction."))
+  (domain      		  (Equilibrium-Reaction))
+  (range       		  (Equilibrium-Constant-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     		  (ki-of))
+  (cardinality 		  (N-to-N))
+  (scale-class         (KI-Scale))
+  (scalar-constant-class (KI-Constant))
+)
+
+(ki-of has (instance-of (Property)))

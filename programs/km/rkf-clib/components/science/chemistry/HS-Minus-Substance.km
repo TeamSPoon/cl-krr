@@ -1,0 +1,18 @@
+;; $Id: HS-Minus-Substance.km,v 1.4 2003/09/10 16:59:50 jchaw Exp $ 
+
+(HS-Minus-Substance has (superclasses (Anion-Substance)))
+(every HS-Minus-Substance has
+	(plays (((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 1.3e-13 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid))))))))
+	       ((a Base-Role with		
+		   (default-kb ((a Equilibrium-Constant-Value with
+				   (value ((:pair 1.05e-7 nil))))))
+		   (intensity ((a Intensity-Value with
+				  (value ((:pair *weak Base))))))))
+	))
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a HS-Minus)))
+)

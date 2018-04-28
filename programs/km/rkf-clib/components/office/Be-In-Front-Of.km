@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Be-In-Front-Of.km,v 1.2 2005/01/24 23:07:51 billj Exp $
+;;
+
+(Be-In-Front-Of has
+		(description ("A State in which the agent is in front of the object.  Equivalently, object is faced by agent."))
+		(superclasses (State)))
+
+; See also the KM class Orient.  Eventually some subclass of Orient
+; e.g. "Turn-To-Face" and "Turn-Away-From" will allow us to specify a
+; filler for caused-by-class as well as defeated-by-class.  Currently
+; (2005-01-24) no such subclasses exist.
+
+; Be-In-Front-Of is intended to express the same meaning as the
+; predicates is-facing/is-faced-by..  However, unlike the predicates,
+; Be-In-Front-Of does not require one to use KM's situation mechanism
+; (or, for translations of KM's Clib, its functional equivalent) in
+; order to deal with issues of temporal qualification.  See also
+; is-facing/is-faced-by.
+

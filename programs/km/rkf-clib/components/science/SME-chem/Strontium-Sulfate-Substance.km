@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Strontium-Sulfate-Substance2050
+
+
+|#
+
+(disable-classification)
+
+(Strontium-Sulfate-Substance has (superclasses (Sulfate-Substance)))
+
+(every Strontium-Sulfate-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Strontium-Sulfate-Substance2800 has
+  (prototype-of (Strontium-Sulfate-Substance Sulfate-Substance))
+  (prototype-scope (Strontium-Sulfate-Substance (the-class Sulfate-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Sr-Plus-2) (a SO3-Minus-2)))))))))
+  (prototype-participants (_Sr-Plus-2807 _SO3-Minus-2806 _Ionic-Compound2805 _Strontium-Sulfate-Substance2800)))
+
+(_Strontium-Sulfate-Substance2800 has (instance-of (Strontium-Sulfate-Substance)) (has-basic-structural-unit (_Ionic-Compound2805)))
+
+(_Ionic-Compound2805 has (instance-of (Ionic-Compound)) (has-part (_SO3-Minus-2806 _Sr-Plus-2807)))
+
+(_SO3-Minus-2806 has (instance-of (SO3-Minus-2)))
+
+(_Sr-Plus-2807 has (instance-of (Sr-Plus-2)))
+
+(enable-classification)
+
+(explanation (:triple _Strontium-Sulfate-Substance2800 has-basic-structural-unit _Ionic-Compound2805) (((@ SME entered)) (every Strontium-Sulfate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Strontium-Sulfate-Substance2800 instance-of Strontium-Sulfate-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ionic-Compound2805 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _SO3-Minus-2806 instance-of SO3-Minus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Sr-Plus-2807 instance-of Sr-Plus-2) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Strontium-Sulfate-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

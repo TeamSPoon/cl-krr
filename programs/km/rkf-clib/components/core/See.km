@@ -1,0 +1,19 @@
+;;
+;;   $Id: See.km,v 1.4 2005/10/25 03:02:10 sdbaji Exp $
+;;
+
+(See has
+  (superclasses (Sense))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every See has
+	(object ((a Light)(must-be-a Light))))
+
+
+(See has (wn20-synset ((:set
+			   (:triple "see" 1 "v")
+))))
+
+
+(every See has (text-nominalization ("seeing")))

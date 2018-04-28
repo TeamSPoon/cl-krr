@@ -1,0 +1,52 @@
+;; 
+;;    $Id: Acid-Base-Complete-Neutralization.km,v 1.5 2003/02/21 17:39:02 kbarker Exp $ 
+;; 
+
+(Acid-Base-Complete-Neutralization has
+				   (superclasses (Reaction)))
+
+(every Acid-Base-Complete-Neutralization has-definition
+       (instance-of (Reaction))
+       ;; assume complete neutralization
+       (raw-material ((a Acid)
+		      (a Base)))
+)
+
+(every Acid-Base-Complete-Neutralization has
+       (result ((if (not (has-value (the result of Self)))
+                 then
+		    (:set
+		     (a H2O-Substance)
+		     (a Ionic-Compound-Substance with
+		        (has-basic-structural-unit
+		         ((a Ionic-Compound with
+			     (has-part ((
+				         an instance of
+				            (the instance-of
+					         of
+					         (the Cation has-part of
+						      (the has-basic-structural-unit
+						           of
+						           (the Base raw-material of Self)))))
+				        (an instance of
+				            (the instance-of
+					         of
+					         (the Anion has-part of
+						      (the has-basic-structural-unit
+						           of
+						           (the Acid raw-material of Self))))))))))))
+                 [Acid-Base-Complete-Neutralization-result-1]
+       )))
+)
+
+(comment [Acid-Base-Complete-Neutralization-result-1]
+  (:seq "The result of the reaction of"
+        (the text-gen of (the Acid raw-material of Self))
+        "and"
+        (the text-gen of (the Base raw-material of Self))
+        "is thus"
+        (andify (the text-gen of (the result of Self)))
+  )
+  "In a complete acid-base neutralization, the result is water and a salt consisting of the cation of the base reactant and the anion of the acid reactant"
+)
+

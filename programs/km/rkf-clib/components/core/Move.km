@@ -1,0 +1,487 @@
+;; 
+;;    $Id: Move.km,v 1.42 2006/06/20 16:21:01 pzyeh Exp $ 
+;; 
+
+(Move has
+      (superclasses   (Action))
+      (required-slot  (object))
+      (primary-slot   (agent origin destination path))
+      (secondary-slot (toward away-from))
+      (cmap-correspondence (
+                            (:seq object "the thing moved")
+                            (:seq agent "the mover")
+                            (:seq origin "moved from")
+                            (:seq destination "moved to")
+                            (:seq path "moved through")
+                            (:seq toward "moved toward")
+                            (:seq away-from "moved away from")
+                           ))
+    #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Move has
+  (object       ((a Tangible-Entity) 
+                 (excluded-values (the origin of Self)
+                                  (the destination of Self)
+                                  (the away-from of Self)
+                                  (the toward of Self)
+                                  (the path of Self))))
+  (origin       ((must-be-a Spatial-Entity)))
+  (destination  ((must-be-a Spatial-Entity)))
+  (away-from    ((must-be-a Spatial-Entity)))
+  (toward       ((must-be-a Spatial-Entity)))
+  (path         ((must-be-a Spatial-Entity)))
+
+  ;; SOFT PCS: 
+  (soft-pcs-list ((if (has-value (the destination of Self))
+		      then
+		      (:triple (the destination of Self)
+			       object-of 
+			       (mustnt-be-a Be-Blocked)))
+		  (if ((has-value (the destination of Self))
+		       and 
+		       (has-value (the origin of Self)))
+		      then
+		    (:triple (the origin of Self)
+			     object-of 
+			     (mustnt-be-a Be-Blocked)))))
+
+  (pcs-list     (
+                 ; if origin is specified, then the object(s) are at 
+                 ; that location
+                 (if (has-value (the origin of Self))
+                     then 
+                     (forall (the object of Self)
+                       (:triple
+                         It
+                         location
+                         (if ((the origin of Self) isa Place)
+                          then (the origin of Self)
+                          else (the location of (the origin of Self))))))
+
+                 ; if an object of the move is also an object of a 
+                 ; Be-Held, then the agent of the move must be the 
+                 ; agent of that Be-Held 
+                 (forall (the object of Self)
+                   (forall2 (the object-of of It)
+                     (if (It2 isa Be-Held)
+                         then   
+                         (:triple It2 agent (the agent of Self)))))
+
+                 ; the object(s) must not be restrained
+                 (forall (the object of Self)
+                   (:triple
+                     It
+                     object-of
+                     (mustnt-be-a Be-Restrained)))
+                       
+                 ; *NEW* if the object is held, then it cannot move or 
+                 ;       be moved unless the move is caused by the agent 
+                 ;       holding it.
+                 (if (has-value (the Be-Held object-of of (the object of Self)))
+                     then
+                     (forall (the agent of Self)
+                       (:triple 
+                         It
+                         agent-of
+                         (a Be-Held with 
+                            (object ((the object of Self)))
+                            (agent  ((the agent of Self)))))))
+
+                 ; the path must not be blocked
+                 (if (has-value (the path of Self))
+                     then
+                     (forall (the path of Self)
+                       (:triple 
+                          (the path of Self)
+                          object-of
+                          (mustnt-be-a Be-Blocked))))))
+       
+  ; ncs: if the destination of the move is below X (where X plays a Cover)
+  ;      then the origin cannot be above X
+  (ncs-list ((forall (the is-below of (the destination of Self))
+              where (oneof2 (the plays of It) where (It2 isa Cover))
+              (:triple (the origin of Self) is-above It)
+  )))
+
+  ; Post-Condition:
+  ;  1) if destination is specified, then the object is at that location
+  ;     and inherits _most_ of the spatial properties of the destination
+  ;     (the spatial properties not inherited are marked ;; odni
+  ;  2) if origin is specified, then the object is NOT at that
+  ;     location.
+  (add-list     ((if (has-value (the destination of Self))
+                     then
+                     (forall (the object of Self)
+                       (:set
+                         (:triple 
+                            It 
+                            is-near 
+                            (the is-near of (the destination of Self)))
+;; odni                   (:triple 
+;; odni                      It 
+;; odni                      abuts 
+;; odni                      (the abuts of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-above 
+                            (the is-above of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-below 
+                            (the is-below of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-along 
+                            (the is-along of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-at 
+                            (the is-at of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-at-of 
+                            (the is-at-of of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-beside 
+                            (the is-beside of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-between 
+                            (the is-between of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-behind 
+                            (the is-behind of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-in-front-of 
+                            (the is-in-front-of of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-inside 
+                            (the is-inside of (the destination of Self)))
+;; odni                   (:triple 
+;; odni                      It 
+;; odni                      encloses 
+;; odni                      (the encloses of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-on 
+                            (the is-on of (the destination of Self)))
+;; odni                   (:triple 
+;; odni                      It 
+;; odni                      has-on-it 
+;; odni                      (the has-on-it of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-opposite 
+                            (the is-opposite of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-outside 
+                            (the is-outside of (the destination of Self)))
+                         (:triple 
+                            It 
+                            does-not-enclose 
+                            (the does-not-enclose of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-over 
+                            (the is-over of (the destination of Self)))
+                         (:triple 
+                            It 
+                            is-under 
+                            (the is-under of (the destination of Self)))
+
+;                           If the destination is specified, it will either
+;                           be a Place or a Tangible-Entity, not the more
+;                           general Spatial-Entity. If it is specified to
+;                           be a Place, that's the new location of the
+;                           objects. If it is specified to be a Tangible,
+;                           the objects' new location is the location of
+;                           that Tangible. If no destination is specified,
+;                           the destination will be a Spatial-Entity. Here
+;                           we force it to be a Place arbitrarily.
+                         (:triple 
+                            It 
+                            location 
+                            (if ((the destination of Self) isa Place)
+                             then (the destination of Self)
+                             else ((if ((the destination of Self) isa
+                                        Tangible-Entity)
+                                    then (the location of 
+                                              (the destination of Self))
+                                    else (the destination of Self)))))
+  )))))
+  
+  (del-list     ((forall (the object of Self) 
+                   (:set
+                     (:triple It location (the location of It))
+                     (forall2 (the is-near of It)
+                       (if (not ((the is-near of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-near It2)))
+                     (forall2 (the abuts of It)
+                       (if (not ((the abuts of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It abuts It2)))
+                     (forall2 (the is-above of It)
+                       (if (not ((the is-above of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-above It2)))
+                     (forall2 (the is-below of It)
+                       (if (not ((the is-below of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-below It2)))
+                     (forall2 (the is-along of It)
+                       (if (not ((the is-along of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-along It2)))
+                     (forall2 (the is-at of It)
+                       (if (not ((the is-at of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-at It2)))
+                     (forall2 (the is-at-of of It)
+                       (if (not ((the is-at-of of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-at-of It2)))
+                     (forall2 (the is-beside of It)
+                       (if (not ((the is-beside of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-beside It2)))
+                     (forall2 (the is-between of It)
+                       (if (not ((the is-between of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-between It2)))
+                     (forall2 (the is-behind of It)
+                       (if (not ((the is-behind of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-behind It2)))
+                     (forall2 (the is-in-front-of of It)
+                       (if (not ((the is-in-front-of of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-in-front-of It2)))
+                     (forall2 (the is-inside of It)
+                       (if (not ((the is-inside of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-inside It2)))
+                     (forall2 (the encloses of It)
+                       (if (not ((the encloses of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It encloses It2)))
+                     (forall2 (the is-on of It)
+                       (if (not ((the is-on of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-on It2)))
+                     (forall2 (the has-on-it of It)
+                       (if (not ((the has-on-it of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It has-on-it It2)))
+                     (forall2 (the is-opposite of It)
+                       (if (not ((the is-opposite of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-opposite It2)))
+                     (forall2 (the is-outside of It)
+                       (if (not ((the is-outside of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-outside It2)))
+                     (forall2 (the does-not-enclose of It)
+                       (if (not ((the does-not-enclose of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It does-not-enclose It2)))
+                     (forall2 (the is-over of It)
+                       (if (not ((the is-over of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-over It2)))
+                     (forall2 (the is-under of It)
+                       (if (not ((the is-under of (the destination of Self))
+                                  includes It2))
+                        then
+                           (:triple It is-under It2)))
+  ))))
+)
+
+
+;; here's the extended version with contextual information
+(every Move has
+       ; During-Condition:
+       ;   if path is specified, then the object is at that Place
+       (dcs-list ((if (has-value (the path of Self))
+                   then
+                   ((forall (the object of Self)
+                            (:triple
+                               It
+                               location
+                               (if ((the path of Self) isa Place)
+                                then (the path of Self)
+                                else (the location of (the path of Self)))))))))
+
+       (preparatory-event ((:default
+                          ;; if origin specified, then Move to origin
+                          ;; notice the recursive use of Move here.
+			    
+			    (if (has-value (the origin of Self))
+				then
+			      (a Move with
+				 (object ((the object of Self)))
+				 (destination ((the origin of Self)))))
+			    ;; mustn't be restrained 
+			    (forall (the object of Self)
+				    ((a Release with 
+					(object (It)))))
+			    ;; path mustn't be blocked
+			    (if (has-value (the path of Self))
+				then
+			      ((a Unblock with
+				  (object ((the path of Self))))))
+			    ;;needs to be held, so hold it
+			    (if (has-value (the Be-Held object-of of (the object of Self)))
+				then
+			      ((a Hold with
+				  (object ((the object of Self)))
+				  (agent  ((the agent of Self))))))
+			    )))
+			  
+			  (interrupted-by ((must-be-a Block with 
+						      (object ((the path of Self)))))))
+       
+
+(every Move has
+  (text-active-verbseq-sg ("moves"))
+  (text-active-verbseq-pl ("move"))
+  (text-passive-verbseq-sg ("moves"))
+  (text-passive-verbseq-pl ("move"))
+
+  (text-argslots ((:seq origin path destination base instrument)))
+
+)
+
+; many more test cases should be added now that Move deals explicitly
+; with all of the spatial relations
+
+(Move has 
+      (test-case         ('(
+                            (new-situation)
+                            (*Boston has (instance-of (Place)))
+                            (*Austin has (instance-of (Place)))
+                            (*John has (instance-of (Tangible-Entity)))
+                            (*John has (location (*Boston)))
+                            
+                                ; *John moves from Boston to Austin
+                            (a Move with
+                               (object (*John))
+                               (origin (*Boston))
+                               (destination   (*Austin)))
+                            (do-and-next (thelast Move))
+                            (the text-gen of (thelast Move))
+                                ; Test1: *John is now in Austin
+                            ((the location of *John) = *Austin)
+                            
+                                ; Test2: *John was in Boston in the previous
+                                ; situation, but is no longer
+                            ((in-situation 
+                              (the1 of (the prev-situation of 
+                                            (curr-situation)))
+                              (the location of *John)) = *Boston)
+                            ((the location of *John) /= *Boston)
+                            
+                                ; Test3: *Boston cannot be the same as *Austin
+                            (not (*Boston &? *Austin))
+
+                            (new-situation)
+
+                            (*book has (instance-of (Physical-Object))
+                                       (is-on (*table))
+                                       (is-beside (*mug)))
+                            (*table has (instance-of (Physical-Object)))
+                            (*mug has (instance-of (Physical-Object)))
+                            (*phone has (instance-of (Physical-Object))
+                                        (is-on (*table)))
+
+                            (a Move with (object (*book))
+                                         (destination (*phone)))
+
+                            (do-and-next (thelast Move))
+
+                            ((the is-on of *book) = *table)
+                            ((the is-beside of *book) /= *mug)
+                            ((the location of *book) = (the location of *phone))
+
+                            (*TheRoof has (instance-of (Architectural-Structure))
+                                          (plays ((a Cover))))
+                            (*TheSky has (instance-of (Place))
+                                         (is-above (*TheRoof)))
+                            (*TheBBQ has (instance-of (Device))
+                                         (is-below (*TheRoof)))
+                            (*TheRain has (instance-of (Substance)))
+                            (a Move with (object (*TheRain))
+                                         (origin (*TheSky))
+                                         (destination (*TheBBQ)))
+                            (not (try-do (thelast Move)))
+                            ))))
+
+
+
+;; automatically added WN synsets
+(Move has (wn16-synset ((:set  
+                                   (:triple "move" 1 "v")
+                                   (:triple "move" 2 "v")
+                                   (:triple "move" 3 "v")
+                                   (:triple "move" 4 "v")
+                                   (:triple "move" 7 "v")
+                                   (:triple "move" 12 "v")
+                                   (:triple "move" 14 "v")
+                                   (:triple "move" 15 "v")
+                                   (:triple "displace" 4 "v")
+                                   (:triple "go" 1 "v")
+                                   (:triple "go" 21 "v")
+                                   (:triple "locomote" 1 "v")
+                                   (:triple "travel" 1 "v")
+))))
+
+(Move has (wn20-synset ((:set
+                                   (:triple "move" 1 "v")
+                                   (:triple "move" 2 "v")
+                                   (:triple "move" 3 "v")
+                                   (:triple "move" 4 "v")
+                                   (:triple "move" 7 "v")
+                                   (:triple "move" 12 "v")
+                                   (:triple "move" 14 "v")
+                                   (:triple "move" 15 "v")
+                                   (:triple "displace" 4 "v")
+                                   (:triple "go" 1 "v")
+                                   (:triple "go" 21 "v")
+                                   (:triple "locomote" 1 "v")
+                                   (:triple "travel" 1 "v")
+                                   (:triple "motion" 6 "n")
+                                   (:triple "movement" 3 "n")
+                                   (:triple "move" 4 "n")
+				   (:triple "drive" 1 "v")	;; <-- I.O.U. Included to ensure that Move shows up as the
+								;; most frequent sense of "drive". But it really should
+								;; not be included.
+				   (:triple "drive" 2 "v")
+				   (:triple "drive" 3 "v")
+))))
+
+(every Move has (text-nominalization ("move")))

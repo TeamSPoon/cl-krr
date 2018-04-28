@@ -1,0 +1,12 @@
+;;
+;; $Id: has-acid-name.km,v 1.1 2003/02/12 22:17:01 porter Exp $
+;;
+
+(has-acid-name has
+	       (instance-of (Property))
+	       (domain      (Atom))
+	       (range       (String))
+	       (inherit-with-overrides (t))
+	       (inverse (has-acid-name-of))
+	       (cardinality (1-to-N))
+	       )

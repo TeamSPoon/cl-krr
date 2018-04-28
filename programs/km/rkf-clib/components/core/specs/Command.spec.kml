@@ -1,0 +1,59 @@
+<!--- $Id: Command.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Command>
+<system-documentation name=Command>
+<superconcept name=Express>
+
+  <definition>
+  An object (an <conceptref name=Instruction>) is expressed, making it available for interpretation by another entity.
+  An instruction can be interpreted and acted upon in many ways.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+        the entity expressing the instruction
+    </slotdescription>
+  
+  <slotdescription name=object>
+       the instruction being expressed
+  </slotdescription>
+  
+  <slotdescription name=recipient>
+  	the entity the instruction is being expressed to
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The officer commanded the soldier to fire</text>
+    <slotdescription name=agent>The officer</slotdescription>
+    <slotdescription name=object>to fire</slotdescription>
+    <slotdescription name=recipient>the soldier</slotdescription>
+  </examplesentence>
+
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Inform>
+  In the case of an Inform action, the information is not necessarily an instruction and is not previously known to the recipient.  In the case of a Command action, the information is necessarily an instruction.
+  </neighbor>  
+
+  <neighbor name=Request>
+  A request is a command expressed politely
+  </neighbor>
+
+</neighborlist>
+
+
+</kml>
+
+

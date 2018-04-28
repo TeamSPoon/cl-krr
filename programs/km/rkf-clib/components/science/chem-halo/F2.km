@@ -1,0 +1,25 @@
+;;
+;; $Id: F2.km,v 1.1 2006/03/07 21:52:19 jfan Exp $
+;;
+
+(F2 has (superclasses (Non-Metal-Molecule)))
+
+(every F2 has	
+       (has-part ((a F)))
+       (has-chemical-name ("fluorine gas"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 F)))))))
+       (has-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 F)))))))
+       )
+
+
+(every F2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("fluorine gas"))
+)

@@ -1,0 +1,37 @@
+<!--- $Id: Authorize.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+<kml>
+<concept name=Authorize>
+<superconcept name=Action>
+<component tag=Authorize>
+  <definition>The Action of granting authorization</definition>
+
+<requiredslotlist>
+	<slotdescription name=agent>the Entity who authorizes.</slotdescription>
+	<slotdescription name=is-goal-of>the Entity whose goal is the authorization.</slotdescription>
+</requiredslotlist>
+
+<primaryslotlist>
+	<slotdescription name=enables>the State that is enabled as a result.</slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>John authorized Jane to sell the car.</text>
+	<comment> This is represented as a Authorize with the following properties:
+	    <slotdescription name=agent>John</slotdescription>
+    	    <slotdescription name=is-goal-of>John</slotdescription>
+	    <slotdescription name=enables>jane to sell the car</slotdescription>
+  	</comment>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Unauthorized>
+	without authorization
+  </neighbor>
+  <neighbor name=Authorized>
+ 	 authorization
+  </neighbor>
+</neighborlist>
+
+</kml>

@@ -1,0 +1,19 @@
+;; $Id: H-Minus.km,v 1.5 2008/05/15 17:55:38 kunal Exp $ 
+(H-Minus has (superclasses (Anion)))
+(every H-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("hydride"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H)))))))
+        (is-ion-of ((a H)))
+)
+
+(every H-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydride"))
+)
+
+
+(H-Minus has (wn20-synset ((:triple "H-" 0 "n"))))

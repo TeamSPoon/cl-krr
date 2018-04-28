@@ -1,0 +1,40 @@
+;; 
+;;    $Id: UMP.km,v 1.14 2001/06/01 23:26:55 pnav Exp $ 
+;; 
+
+(UMP has
+         (superclasses (Ribonucleotide Nucleoside-Monophosphate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("Uridine monophosphate. One of the four nucleotides
+                       in RNA.  Souther. ")) 
+         (test-case ()))
+
+(every UMP has
+       (complement ((must-be-a AMP))) 
+       (has-part 
+	((a Monophosphate with
+	  (object-of
+	   ((a Be-Attached-To with
+	       (object 
+		((the Uridine has-part of Self)))
+	       (site
+		(((the Carbon-Atom has-part of
+		       (the Ribose has-part of
+			    (the Uridine has-part of Self)))
+		  called "Carbon-5")
+		 ((the Oxygen-Atom has-part of
+		       (the Monophosphate has-part of Self))
+		  called "Oxygen-1") ))
+	       (instrument ((a Covalent-CO-Bond)))
+	       ))))
+       (a Uridine)
+       )))
+	    
+
+;; Note: selection of oxygen-1 is arbitrary.  all four oxygens in monophosphate
+;; are equivalent.
+
+

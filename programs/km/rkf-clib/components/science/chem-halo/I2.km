@@ -1,0 +1,25 @@
+;;
+;; $Id: I2.km,v 1.1 2006/03/07 21:52:19 jfan Exp $
+;;
+
+(I2 has (superclasses (Non-Metal-Molecule)))
+
+(every I2 has	
+       (has-part ((a I)))
+       (has-chemical-name ("iodine gas"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 I)))))))
+       (has-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 2 I)))))))
+       )
+
+
+(every I2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("iodine gas"))
+)

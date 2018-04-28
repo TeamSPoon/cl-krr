@@ -1,0 +1,107 @@
+;; 
+;;    $Id: Detach.km,v 1.25 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Detach has 
+  (superclasses         (Action))
+  (required-slot   	(object base))
+  (primary-slot 	(agent instrument))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+		 	 (:seq object "the object(s) being detached")
+		 	 (:seq base "the object being detached from")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Detach has
+  (object   ((exactly 1 Tangible-Entity)
+	     (a Tangible-Entity)))
+
+  (base     ((exactly 1 Tangible-Entity)
+	     (a Tangible-Entity)))
+  
+  (soft-pcs-list ((forall (the object of Self) where t
+			  (:triple It object-of (a Be-Attached-To)))))
+  
+  (defeats  ((allof (the object-of of (the base of Self))
+		    where
+		    (((the classes of It) = Be-Attached-To) and
+		     ((the object of It) includes (the object of Self))))))
+
+  (del-list ((forall (the defeats of Self)
+		     (:set 
+                       (forall2 (the object of It)
+                         (:triple It2 object-of It))
+		       (:triple It object (the object of It)))))))
+
+(every Detach has
+  (text-base ((if (has-value (the base of Self))
+                     then ("from"))))
+
+  (text-active-verbseq-sg ("detaches"))
+  (text-active-verbseq-pl ("detach"))
+  (text-passive-verbseq-sg ("gets detached"))
+  (text-passive-verbseq-pl ("get detached"))
+)
+
+(every Detach has
+	(preparatory-event ((:default
+		(a Attach with
+		   (object ((the object of Self)))
+		   (base   ((the base of Self))))
+
+))))
+
+
+;; nothing extra to say about contextual info
+
+(Detach has 
+  (test-case ('(
+		(*bumper has (instance-of (Physical-Object)))
+		(*sticker has (instance-of (Physical-Object)))
+			    
+		(a Attach with 
+		   (object (*sticker))
+		   (base   (*bumper)))
+
+		(not ((the object of 
+			   (the Be-Attached-To object-of of *sticker))
+		      includes *bumper))
+
+		(do-and-next (thelast Attach))
+		(the text-gen of (thelast Attach))	    
+		((the object of 
+		      (the Be-Attached-To object-of of *sticker))
+		 includes *bumper)
+			    
+		(a Detach with 
+		   (object (*sticker))
+		   (base   (*bumper)))
+		(do-and-next (thelast Detach))
+		(the text-gen of (thelast Detach))
+		((the defeats of (thelast Detach)) includes
+		 ((thelast Be-Attached-To)))
+			    
+		(not ((the object of 
+			   (the Be-Attached-To object-of of *sticker))
+		      includes *bumper))
+	       ))))
+
+
+
+;; automatically added WN synsets
+(Detach has (wn16-synset ((:set  
+                                     (:triple "detach" 1 "v")
+                                     (:triple "detach" 3 "v")
+                                     (:triple "come_off" 1 "v")
+                                     (:triple "come_away" 1 "v")
+))))
+
+(Detach has (wn20-synset ((:set
+                                     (:triple "detach" 1 "v")
+                                     (:triple "detach" 3 "v")
+                                     (:triple "come_off" 1 "v")
+                                     (:triple "come_away" 1 "v")
+))))
+(every Detach has (text-nominalization ("detachment")))

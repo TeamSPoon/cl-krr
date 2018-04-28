@@ -1,0 +1,134 @@
+;; $Id: shaken-ui-hidden-non-standard-inverse-slot.km,v 1.15 2007/10/01 19:43:10 tecuci Exp $
+
+;; USAGE: put the (shaken-ui-hidden-non-standard-inverse-slot (t)) on the
+;;        inverse of the slot, not the slot itself; for example, we have
+;;        the slot possesses.km:
+;;        (possesses has
+;;            (instance-of (Participant-Relation))
+;;            (inverse     (is-possessed-by)))
+;;        put the (shaken-ui-hidden-non-standard-inverse-slot (t)) on
+;;        is-possessed-by, not on possesses
+
+(shaken-ui-hidden-non-standard-inverse-slot
+ has 
+ (description ("The purpose of this slot is similar to but slightly different from shaken-ui-hidden-slot.  I.e. '(FRAME has (shaken-ui-hidden-non-standard-inverse-slot (t)))' means that if certain other runtime dependent states of the Shaken application (see slot-menu.lisp) hold, then the slot FRAME should be filtered from view by the Shaken user interface.  This is because the slot is an 'inverse' slot that has a non-standard inverse name (i.e. the name does not end in -by or -of).  See also shaken-ui-hidden-slot."))
+ (instance-of (Shaken-Slot-Group))
+ (domain (Slot))
+ (range (Thing))
+ (fluent-status (*Non-Fluent))
+ (cardinality (N-to-1))
+)
+
+(shaken-ui-hidden-non-standard-inverse-slot-of has (instance-of (Shaken-Slot-Group)))
+
+; has-example
+;;(is-example-of has (shaken-ui-hidden-non-standard-inverse-slot (t)));;Exposed in AURA for users to tag on examples.
+; related-to
+(related-to has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; equation-uses
+(used-in-equation has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-solvent
+(is-solvent-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-solute
+(is-solute-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; by-means-of
+(means-by-which has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; causes
+(caused-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; defeats
+(defeated-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; enables
+(enabled-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; greater-than-or-equal-to
+(less-than-or-equal-to has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; greater-than
+(less-than has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-basic-functional-unit
+(is-basic-functional-unit-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-basic-structural-unit
+(is-basic-structural-unit-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-functional-part
+(is-functional-part-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-goal
+(is-goal-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-part
+(is-part-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-region
+(is-region-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; has-structural-part
+(is-structural-part-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; inhibits
+(inhibited-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; interrupted-by
+(interrupts has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-above
+(is-below has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-behind
+(is-in-front-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-facing
+(is-faced-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-inside
+(encloses has (shaken-ui-hidden-non-standard-inverse-slot (t))) ;;As requested by SRI SME.
+; is-near
+(is-near has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-north-of
+(is-south-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-northwest-of
+(is-southeast-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-on
+(has-on-it has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-outside
+(does-not-enclose has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-over
+(is-under has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; is-west-of
+(is-east-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; next-element
+(previous-element has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; next-event
+(prev-event has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; plays
+(played-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; possesses
+(is-possessed-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; prevents
+(prevented-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; space-int-contains
+(space-int-inside has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; space-int-covers
+(space-int-coveredby has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; supports
+(supported-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-at
+(time-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-before
+(time-after has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-begins-or-in
+(time-is-beginning-or-inside has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-begins
+(time-beginning-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-during
+(time-contains has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-ends
+(time-end-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-inside
+(time-is-inside has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-int-before
+(time-int-after has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-int-during
+(time-int-contains has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-int-finishes
+(time-int-finished-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-int-meets
+(time-int-met-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-int-overlaps
+(time-int-overlapped-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; time-int-starts
+(time-int-started-by has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; viewed-as
+(view-of has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+; viewpoint-parent
+(viewpoint-child has (shaken-ui-hidden-non-standard-inverse-slot (t)))
+
+
+

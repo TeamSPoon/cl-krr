@@ -1,0 +1,46 @@
+;; 
+;;    $Id: A-U-Base-Pair.km,v 1.11 2001/08/08 20:58:52 kbarker Exp $
+;; 
+
+(A-U-Base-Pair has
+         (superclasses (Base-Pair))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("The Base Pair resulting from Hydrogen-Bond formation
+                        between adenine and uracil in RNA molecules.  
+                        Souther."))
+         (test-case ()))
+
+(every A-U-Base-Pair has
+       (is-part-of ((must-be-a RNA-Molecule)))
+       (has-part ((a Adenine with
+		     (complement ((the Uracil has-part of Self)))
+		     (object-of
+		      ((a Be-Attached-To with
+			  (object ((the Uracil has-part of Self)))
+			  (instrument ((a Hydrogen-Bond)))
+			  (site
+			   (((the Hydrogen-Atom has-part of
+				  (the Uracil has-part of Self))
+			     called "N3-Hydrogen" )
+			    ((the Nitrogen-Atom has-part of
+				  (the Adenine has-part of Self))
+			     called "Nitrogen-1" ))))
+                      (a Be-Attached-To with
+                          (object ((the Uracil has-part of Self)))
+                          (instrument ((a Hydrogen-Bond)))
+                          (site
+                           (((the Hydrogen-Atom has-part of
+				  (the Amino-Group has-part of
+                                  (the Adenine has-part of Self)))
+                             called "Hydrogen-1" )
+                            ((the Oxygen-Atom has-part of
+                                  (the Uracil has-part of Self))
+                             called "C4-Oxygen" ))))
+			  )))
+		  (a Uracil)
+		  ))
+       )
+

@@ -1,0 +1,25 @@
+
+;;
+;; $Id: Compute-Nested-Atomic-Formula-from-Formula.km,v 1.1 2005/09/01 15:53:23 jfan Exp $
+;;
+
+(Compute-Nested-Atomic-Formula-from-Formula has
+					    (superclasses (Method)))
+
+(every Compute-Nested-Atomic-Formula-from-Formula has
+       (input ((a Chemical-Formula)))
+       (output
+	((a Chemical-Formula with
+	    (term ((#'(LAMBDA ()
+			      (LET* ((TERMS (KM-UNIQUE0 '(the term of (the input of Self))))
+				     (C1 (IF TERMS (KM-UNIQUE0 `(the1 of (the1 of ,TERMS)))))
+				     (F1 (IF TERMS (KM-UNIQUE0 `(the term of
+								     (the nested-atomic-chemical-formula of 
+									  (an instance of (the2 of (the1 of ,TERMS))))))))
+				     (C2 (IF TERMS (KM-UNIQUE0 `(the1 of (the2 of ,TERMS)))))
+				     (F2 (IF TERMS (KM-UNIQUE0 `(the term of
+								     (the nested-atomic-chemical-formula of
+									  (an instance of
+									      (the2 of (the2 of ,TERMS)))))))))
+				    (IF (AND C1 F1 C2 F2)
+					(COMPOSE-COMPONENT-STRUCTURES C1 F1 C2 F2)))))))))))

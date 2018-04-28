@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>A Simple Demonstration of the Basic Problem Solver Debugger</title>
+</head>
+<body>
+<h1 style="font-weight: bold; text-align: center;"><small>A Simple
+Demonstration of the
+Basic
+Problem Solver Debugger</small></h1>
+<h2><small>Introduction</small></h2>
+<div style="text-align: justify;">The Basic Problem Solver is
+acccompanied by a tool to support debugging the problem solving
+process. The debugging tool is an interactive command loop allowing a
+user to interact with the problem solver to better understand the
+problem solving process.<br>
+</div>
+<br>
+The debugger is invoked in the LISP context.<br>
+<pre><span style="font-weight: bold;"><br>KM: (ps-debug)<br></span>      ---------------------------------------------<br>      A debugger for the Basic Problem Solver v0.01<br>      ---------------------------------------------<br><span
+ style="font-weight: bold;">(ps-debug)<br><br></span></pre>
+<div style="text-align: justify;">This note demonstrates the
+debugger&nbsp; using the CPL output for the following 15July05 Physics
+demo question. <br>
+</div>
+<pre>An object is thrown from the top of a cliff.<br>The initial horizontal velocity of the object is 20 m/s.<br>The initial vertical velocity of the object is 0 m/s.<br>The height of the cliff is 125 m.<br>The object falls from the top of the cliff to the level ground.<br>What is the duration of the fall?<br></pre>
+The CPL output for version 1.33b is
+available in <a href="question.triples">question.triples</a> .<br>
+<div style="text-align: justify;"><br>
+The following two snippets demonstrate the basic features of
+the debugger. <br>
+<ul>
+  <li>Snippet #1 demonstrates an interaction capability allowing the
+user to crank the problem solver in a stepwise manner. <br>
+  </li>
+  <li>Snippet #2 demonstrates the adhoc mode which allows fine-grained
+interaction between the user and the problem solver.</li>
+</ul>
+A section briefly describing other commands supported
+by the debugger tool is also included.<br>
+</div>
+<span style="font-weight: bold;"></span>
+<hr style="width: 100%; height: 2px;">
+<h2><small><small>Snippet #1<br>
+</small></small></h2>
+<div style="text-align: justify;">Demonstrates the interaction
+capability allowing the
+user to crank the problem solver in a stepwise manner. <br>
+</div>
+<br>
+Commands used in demo.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">Command<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Remarks<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">begin
+&lt;scenario&gt; &lt;question&gt; <br>
+      </td>
+      <td style="vertical-align: top;">Initializes the problem solver
+context and loads up the
+necessary CPL outputs for the question.<br>
+The &lt;scenario&gt; and &lt;question&gt; arguments refer to the LISP
+objects created by CPL.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">next<br>
+      </td>
+      <td style="vertical-align: top;">Attempts problem solving on next
+Viewpoint and reverts control back
+to user.</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">continue<br>
+      </td>
+      <td style="vertical-align: top;">Revert control to problem solver
+to investigate all Viewpoints
+without further interaction from user.</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">ls<br>
+      </td>
+      <td style="vertical-align: top;">Returns a listing of the
+Viewpoints investigated by the problem solver.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+The following trace demonstrates the use of the above commands.
+<hr style="width: 100%; height: 2px;">
+<pre><span style="font-weight: bold;">KM(9): (load "question.triples")<br></span>T<span
+ style="font-weight: bold;"><br>KM(10): (ps-debug)<br></span>      ---------------------------------------------<br>      A debugger for the Basic Problem Solver v0.01<br>      ---------------------------------------------<br><span
+ style="font-weight: bold;">(ps-debug) begin *scenario* *compute-questions*</span><br>Basic Problem Solver is reset.<br>---------------------------------------------------------<br>The following triples were contributed by the rule-engine<br>---------------------------------------------------------<br><br>(|_Velocity-Value189| |instance-of| |Velocity-Value|) <br>(|_Velocity-Value189| |value| (:|pair| 0 |*meter-per-second|))<br>(|_Fall2331_c184| |velocity| |_Velocity-Value189|)<br><br>T<br><span
+ style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span
+ style="font-weight: bold;">(ps-debug) next<br></span>Trying _Viewpoint191  =&gt; NIL<br>T<br><span
+ style="font-weight: bold;"></span><span style="font-weight: bold;">(ps-debug) continue<br></span>Unifying _Object2305_c274 with _Physical-Object240_c281.<br>Unifying _Fall2331_c270 with _Fall235_c283.<br>Unifying _Velocity-Value189_c267 with _Velocity-Value237_c286.<br>Unifying _Top2306_c277 with _Spatial-Entity239_c285.<br>Unifying _Ground2335_c269 with _Spatial-Entity238_c280.<br>Unifying _Duration2339_c268 with _Duration-Value241_c282.<br>Unifying NIL with NIL.<br>Unifying _Height2328_c271 with _Height-Value242_c284.<br>Trying _Viewpoint274  =&gt; (_Viewpoint274)<br>_Viewpoint274<br><span
+ style="font-weight: bold;">(ps-debug) ls<br></span>-------------------<br>Viewpoint hierarchy<br>-------------------<br>_Viewpoint191<br>    _Viewpoint274<br>    _Viewpoint275 ...<br>    _Viewpoint276 ...<br>    _Viewpoint277 ...<br><br>--------------------------------------------------<br>Viewpoints were examined in the following sequence<br>--------------------------------------------------<br>(_Viewpoint191 _Viewpoint274)<br><br>T<span
+ style="font-weight: bold;"><br>(ps-debug) </span><br></pre>
+<hr style="width: 100%; height: 2px;">
+<h2><small><small>Snippet #2</small></small></h2>
+<div style="text-align: justify;">Demonstrates the adhoc mode which
+allows fine-grained
+interaction between the user and the problem solver.<br>
+</div>
+<br>
+Commands use in demo.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">Command<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Remarks<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">begin
+&lt;scenario&gt; &lt;question&gt;<br>
+      </td>
+      <td style="vertical-align: top;">Initializes the problem solver
+context and loads up the
+necessary CPL outputs for the question.<br>
+The &lt;scenario&gt; and &lt;question&gt; arguments refer to the LISP
+objects created by CPL.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">adhoc<br>
+      </td>
+      <td style="vertical-align: top;">For entering and exiting adhoc
+mode.</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">try
+&lt;concept1&gt; &lt;concept2&gt; ...<br>
+      </td>
+      <td style="vertical-align: top;">Query problem solver if given
+concepts can be used as potential Viewpoints.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">try all<br>
+      </td>
+      <td style="vertical-align: top;">Queries problem solver for all
+potential Viewpoints.</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">pick<br>
+      </td>
+      <td style="vertical-align: top;">User selects a potential
+Viewpoint to attempt problem solving.</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">unpick<br>
+      </td>
+      <td style="vertical-align: top;">User unselects current Viewpoint
+and returns to previous
+Viewpoint to&nbsp;attempt problem solving.</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">why<br>
+      </td>
+      <td style="vertical-align: top;">Queries problem solver on
+circumstances for current Viewpoint.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+The following trace demonstrates the use of the above commands.
+<hr style="width: 100%; height: 2px;">
+<pre><span style="font-weight: bold;">KM(37): (load "question.triples")<br></span>T<br><span
+ style="font-weight: bold;">KM(38): (ps-debug)</span><br
+ style="font-weight: bold;">      ---------------------------------------------<br>      A debugger for the Basic Problem Solver v0.01<br>      ---------------------------------------------<br><span
+ style="font-weight: bold;">(ps-debug) begin *scenario* *compute-questions*</span><br
+ style="font-weight: bold;">Basic Problem Solver is reset.<br>---------------------------------------------------------<br>The following triples were contributed by the rule-engine<br>---------------------------------------------------------<br>(|_Velocity-Value1363| |instance-of| |Velocity-Value|)<br>(|_Velocity-Value1363| |value| (:|pair| 0 |*meter-per-second|))<br>(|_Fall2331_c2415| |velocity| |_Velocity-Value1363|)<br><br>T<br><span
+ style="font-weight: bold;">(ps-debug) adhoc</span><br
+ style="font-weight: bold;">Entering adhoc mode<br><span
+ style="font-weight: bold;">(ps-debug) try Metal-Nonmetal-Reaction</span><br
+ style="font-weight: bold;">NIL<br><span style="font-weight: bold;">(ps-debug) try all</span><br
+ style="font-weight: bold;">_Viewpoint1449 is mapped to Fall-From-Rest-System<br>_Viewpoint1450 is mapped to Uniform-Acceleration-System<br>_Viewpoint1451 is mapped to Uniform-Motion-System<br>_Viewpoint1452 is mapped to Cell<br>T<br><span
+ style="font-weight: bold;">(ps-debug) pick _Viewpoint1451</span><br
+ style="font-weight: bold;">Unifying _Object2305_c2482 with _Physical-Object1398_c2488.<br>Unifying _Fall2331_c2478 with _Move1400_c2491.<br>Unifying _Velocity-Value1363_c2475 with _Velocity-Value1401_c2489.<br>Unifying _Duration2339_c2476 with _Duration-Value1402_c2490.<br>Picking _Viewpoint1451 as the next Viewpoint<br>_Viewpoint1451 has viewpoint-answer =&gt; (There is a duration.)<br>The current Viewpoint is _Viewpoint1451<br><br><span
+ style="font-weight: bold;">(ps-debug) why</span><br
+ style="font-weight: bold;">(<br>Equation-Set used          : Uniform-Motion-Equation-Set<br>Known variable bindings    : |v| = (0 (/ |*meter| |*second|))<br>Solved variable bindings   : Not appliable<br>Unsolved variable bindings : (|d| |t|)<br>Equation expressions       : (= |d| (* |v| |t|))<br><br>)<br><span
+ style="font-weight: bold;">(ps-debug) unpick</span><br
+ style="font-weight: bold;">The current Viewpoint is _Viewpoint1365.<br><br><span
+ style="font-weight: bold;">(ps-debug) try all</span><br
+ style="font-weight: bold;">_Viewpoint1541 is mapped to Fall-From-Rest-System<br>_Viewpoint1542 is mapped to Uniform-Acceleration-System<br>_Viewpoint1543 is mapped to Uniform-Motion-System<br>_Viewpoint1544 is mapped to Cell<br>T<br><span
+ style="font-weight: bold;">(ps-debug) pick _Viewpoint1541</span><br
+ style="font-weight: bold;">Unifying _Object2305_c2677 with _Physical-Object1507_c2684.<br>Unifying _Fall2331_c2673 with _Fall1502_c2686.<br>Unifying _Velocity-Value1363_c2670 with _Velocity-Value1504_c2689.<br>Unifying _Top2306_c2680 with _Spatial-Entity1506_c2688.<br>Unifying _Ground2335_c2672 with _Spatial-Entity1505_c2683.<br>Unifying _Duration2339_c2671 with _Duration-Value1508_c2685.<br>Unifying NIL with NIL.<br>Unifying _Height2328_c2674 with _Height-Value1509_c2687.<br>Picking _Viewpoint1541 as the next Viewpoint<br>_Viewpoint1541 has viewpoint-answer =&gt; (The duration of the fall = 5.05 second.)<br>The current Viewpoint is _Viewpoint1541<br><br><span
+ style="font-weight: bold;">(ps-debug) why</span><br
+ style="font-weight: bold;">(<br>Equation-Set used          : Fall-From-Rest-Equation-Set<br>Known variable bindings    : |g| = (9.8 (/ |*meter| (* |*second| |*second|)))<br>                           : |y| = (125 |*meter|)<br>Solved variable bindings   : |t| = (5.0507627 |*second|)<br>Unsolved variable bindings : (|v| |v0|)<br>Equation expressions       : (= |v| (+ |v0| (* |g| |t|)))<br>                           : (= |y| (* (* 0.5 |g|) (|expt| |t| 2)))<br>                           : (= |v| (|sqrt| (+ (|expt| |v0| 2) (* (* 2 |g|) |y|))))<br><br>)<br><span
+ style="font-weight: bold;">(ps-debug) adhoc<br></span>Exiting adhoc mode<br
+ style="font-weight: bold;"></pre>
+<hr style="width: 100%; height: 2px; font-weight: bold;">
+<h2><small><small>Other interesting commands</small></small></h2>
+The following table lists other commands supported by the basic problem
+solver debugger.<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;"><small>Command<br>
+      </small></td>
+      <td style="vertical-align: top; font-weight: bold;"><small>Remarks<br>
+      </small></td>
+      <td style="vertical-align: top; font-weight: bold;"><small>Examples<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>see
+&lt;km
+object&gt;<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Inspect KM objects <br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>see
+_Viewpoint1234<br>
+see Metal-Nonmetal-Reaction<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>see
+&lt;state-variable&gt;<br>
+see all<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Inspect the state of the
+problem solver<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>see
+openlist<br>
+see closedlist<br>
+see current-node<br>
+see current-vp-inst<br>
+see current-step<br>
+see pruning-condition<br>
+see queue_fn<br>
+see clock<br>
+see heuristic<br>
+see user viewpoint-query<br>
+see user viewpoint-result-query<br>
+see all<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>watch
+&lt;state-variable&gt;<br>
+watch all<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Watches certain or all
+states of the
+problem solver. Whenever a state mutates, it will be reported.<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>watch
+openlist<br>
+watch closedlist<br>
+watch current-node<br>
+watch current-vp-inst<br>
+watch current-step<br>
+watch pruning-condition<br>
+watch queue_fn<br>
+watch clock<br>
+watch all<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>step<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Finer-grained version of
+the <span style="font-style: italic; font-weight: bold;">next</span>
+command.<br>
+Each <span style="font-weight: bold; font-style: italic;">next</span>
+command moving from a Viewpoint to the next involves 4 steps.<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>step<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">sieve &lt;pruning-condition&gt;<br>
+      </td>
+      <td style="vertical-align: top;"><small>Applies pruning condition
+to all Viewpoint instances known to problem solver and returns a
+listing depicting instances satisfying pruning condition</small><br>
+      </td>
+      <td style="vertical-align: top;">sieve physics-solvep<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>query
+viewpoint model &lt;viewpoint&gt;<br>
+query viewpoint model all<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Returns the model used<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>query
+viewpoint model _Viewpoint1234<br>
+query viewpoint model all<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>query
+viewpoint answer &lt;viewpoint&gt;<br>
+query viewpoint answer all<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Returns the
+viewpoint-answer<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>query
+viewpoint answer _Viewpoint1234<br>
+query viewpoint answer all<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>query
+viewpoint answer detail &lt;viewpoint&gt;<br>
+query viewpoint answer detail all<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Returns the
+viewpoint-answer-detail<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>query
+viewpoint answer detail _Viewpoint1234 <br>
+query viewpoint answer detail all<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><small> query
+viewpoint answer page &lt;viewpoint&gt;<br>
+query viewpoint answer page all</small></td>
+      <td style="vertical-align: top;"><small>Returns the
+viewpoint-answer-page<br>
+      </small></td>
+      <td style="vertical-align: top;"><small> query
+viewpoint answer page _Viewpoint1234<br>
+query viewpoint answer page all</small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><small>query
+viewpoint answer &lt;viewpoint&gt;<br>
+query viewpoint answer all</small></td>
+      <td style="vertical-align: top;"><small>Returns the
+viewpoint-answer <br>
+      </small></td>
+      <td style="vertical-align: top;"><small>query
+viewpoint answer _Viewpoint1234<br>
+query viewpoint answer all</small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><small> query
+result &lt;viewpoint&gt;<br>
+query result all</small></td>
+      <td style="vertical-align: top;"><small>Returns answer value of
+Viewpoint<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>query
+result _Viewpoint1234<br>
+query result all</small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><small> query result type
+&lt;viewpoint&gt;<br>
+query result type all</small></td>
+      <td style="vertical-align: top;"><small>Returns the KM type for
+answer value of Viewpoint<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>query
+result type _Viewpoint1234<br>
+query result type all</small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>push
+user viewpoint query &lt;prefix&gt;<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Constructs a query by
+including another outer-most query.<br>
+The query will be applied on Viewpoint instances.<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>push
+user viewpoint query (the instance-of of)<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>push
+user viewpoint-result query &lt;prefix&gt;</small></td>
+      <td style="vertical-align: top;"><small>Constructs a query by
+including another outer-most query.<br>
+The query will be applied on the result slot of Viewpoint instances.</small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>push
+user viewpoint-result query (the value of)</small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>pop
+user viewpoint query<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Deconstructs query by
+removing outer-most query.<br>
+This query will be applied on Viewpoint instances.<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>pop
+user viewpoint query<br>
+      </small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><small>pop user viewpoint-result
+query</small></td>
+      <td style="vertical-align: top;"><small>Deconstructs query by
+removing outer-most query.<br>
+This query will be applied on the result slot of Viewpoint instances.</small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>pop
+user viewpoint-result query</small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>apply
+user viewpoint query &lt;viewpoint&gt;<br>
+apply user viewpoint query all<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Applies user query on
+Viewpoint instances<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>apply
+user viewpoint query _Viewpoint1234<br>
+apply user viewpoint query all</small></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;"><small>apply
+user viewpoint-result query &lt;viewpoint&gt;<br>
+apply user viewpoint-result query all<br>
+      </small></td>
+      <td style="vertical-align: top;"><small>Applies user query on the
+result slot of Viewpoint instances<br>
+      </small></td>
+      <td style="vertical-align: top; white-space: nowrap;"><small>apply
+user viewpoint-result query _Viewpoint1234<br>
+apply user viewpoint-result query all</small></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-style: italic;"><br>
+</span>
+<hr style="width: 100%; height: 2px;"><span style="font-style: italic;">Last
+Updated by <a href="mailto:jchaw@cs.utexas.edu">Jason Chaw</a> on
+30Sept05</span><br>
+</body>
+</html>

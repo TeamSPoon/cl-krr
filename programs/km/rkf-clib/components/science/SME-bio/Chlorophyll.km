@@ -1,0 +1,36 @@
+
+;;; ---------- Definition of prototype for Chlorophyll ----------
+
+(Chlorophyll has (superclasses (Organic-Molecule)))
+
+(_Chlorophyll1147 has 
+  (instance-of (Chlorophyll))
+  (prototype-of (Chlorophyll))
+  (prototype-scope (Chlorophyll))
+  (prototype-participants (_Atom1150
+                           _Chlorophyll1147))
+  (prototype-participant-of (_Chlorophyll1147))
+  (has-clones (_Placeholder-Class11461148))
+  (has-built-clones (_Placeholder-Class11461148))
+  (has-basic-structural-unit (_Atom1150))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom1150 215 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom1150 t))))
+
+(_Atom1150 has 
+  (instance-of (Atom))
+  (has-clones (_Atom1149))
+  (is-basic-structural-unit-of (_Chlorophyll1147))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 365 600)))
+  (node-visibility (t))
+  (prototype-participant-of (_Chlorophyll1147)))
+
+(explanation (:triple _Chlorophyll1147 has-basic-structural-unit _Atom1150) ((a Atom (@ _Chlorophyll1147 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom1150 instance-of Atom) ((a Atom (@ _Chlorophyll1147 Molecule has-basic-structural-unit))))
+
+;;; ---------- end of prototype definition ----------
+
+(Chlorophyll now-has (user-description ("The green pigment found in chloroplasts that absorbs energy from sunlight.")))

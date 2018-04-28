@@ -1,0 +1,85 @@
+<!--- $Id: Shut-Out.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Shut-Out>
+<system-documentation name=Shut-Out>
+<superconcept name=Obstruct>
+
+<definition>
+  Prevent an object from moving into an enclosure.
+  This action results in the <slot>object</slot> being in a
+  <conceptref name=Be-Shut-Out> state, which can be undone by
+  <conceptref name=Admit>ting the <slot>object</slot> 
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's Shut-Out.  The object is put in a
+     <conceptref name=Be-Shut-Out> state by this action. 
+  </slotdescription>
+
+  <slotdescription name=base>
+     The Tangible-Entity, playing the role of <conceptref name=Container>,
+     from which the object is Shut-Out
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the object to be shut out
+  </slotdescription>
+
+  <slotdescription name=location>
+    the place inside the enclosure where the object is prevented from going
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>After losing his key, Tom couldn't get into his house.</text>
+    <slotdescription name=object>Tom</slotdescription>
+    <slotdescription name=base>house</slotdescription>
+    <slotdescription name=caused-by>losing key</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Block>
+     Prevent things from moving through some place, or along some
+     object, by blocking such movements.
+  </neighbor>
+  
+  <neighbor name=Confine>
+     Confine is more specific than Obstruct.  It prevents the object
+     from moving out of its enclosure.
+  </neighbor>
+
+  <neighbor name=Hold>
+     Hold is more specific than Obstruct.  The object that's held can 
+     only be moved by the thing holding it.
+  </neighbor>
+
+  <neighbor name=Restrain>
+     Restrain is more specific than Obstruct.  It prevents the 
+     object from moving at all.
+  </neighbor>
+
+  <neighbor name=Support>
+     Support is more specific than Obstruct.  It prevents
+     the object from falling.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

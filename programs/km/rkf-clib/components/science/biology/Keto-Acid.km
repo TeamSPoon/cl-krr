@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Keto-Acid.km,v 1.4 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Keto-Acid has
+	   (superclasses (Organic-Molecule Acid))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+	   (description ("Organic compounds containing the carboxy group
+                          (-COOH) attached to a carbonyl group (C=O).  
+                          Souther."))
+	   (cmap-correspondence ())
+	   (test-case ()))
+
+(every Keto-Acid has
+       (has-part ((a Carbonyl-Group with
+		     (object-of
+		      ((a Be-Attached-To with
+			  (object ((the Carboxyl-Group has-part of Self)))
+			  (instrument ((a Covalent-CC-Bond)))
+			  (site
+			   ((the Carbon-Atom has-part of
+				 (the Carbonyl-Group has-part of Self))
+			    (the Carbon-Atom has-part of
+                                 (the Carboxyl-Group has-part of Self))
+			    )))
+		       )))
+		  (a Carboxyl-Group)
+       )))
+
+
+
+
+
+
+(every Keto-Acid has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

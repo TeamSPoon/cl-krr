@@ -1,0 +1,131 @@
+;; 
+;;    $Id: Support.km,v 1.23 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Support has
+  (superclasses	(Obstruct))
+  (required-slot (object))
+  (primary-slot (instrument))
+  (secondary-slot ())
+  (cmap-correspondence (
+			(:seq object "the thing supported")
+			(:seq instrument "instrument")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Support has
+  (object     	   ((a Tangible-Entity)))
+  (resulting-state ((a Be-Supported)))
+  (instrument 	   ((must-be-a Tangible-Entity)))       
+
+  ;; SOFT PCS:
+  (soft-pcs-list ((forall (the instrument of Self)
+		    (forall2 (the object of Self)
+		      (:triple It 
+			       object-of 
+			       (a Be-Touching with
+				  (object (It2))))))))
+
+  ;; object is the object of a Be-Supported 
+  (add-list ((:triple
+	       (the resulting-state of Self)
+	       object		
+	       (the object of Self) [Support-add-1])
+
+	     (if (has-value (the instrument of Self))
+		 then
+		 (:triple
+		   (the resulting-state of Self)
+		   instrument
+		   (the instrument of Self) [Support-add-2]))))
+)
+
+(comment [Support-add-1] (:seq (the object of Self) " is now supported.")
+	 "A support causes the object to be supported.")
+
+(comment [Support-add-2] (:seq (the instrument of Self) " is now used to support " (the object of Self))
+	 "A Tangible-Entity can be used to support the object.")
+
+
+(every Support has
+  (text-active-verbseq-sg ("supports"))
+  (text-active-verbseq-pl ("support"))
+  (text-passive-verbseq-sg ("gets supported"))
+  (text-passive-verbseq-pl ("get supported"))
+)
+
+
+;; Additional contextual information about Support.
+(every Support has
+  (preparatory-event (
+                   ; The agent must first move to where the
+                   ; object is.
+		   (if (has-value (the agent of Self))
+		       then
+                       ((:default
+                         (a Move with
+                            (object      ((the agent of Self)))
+                            (destination ((a Spatial-Entity with
+                                             (is-at ((the object of Self))))))
+                         ))))))
+  (interrupted-by ((must-be-a Break with
+                     (object ((the instrument of Self))))))
+)
+
+
+;; Test cases for Support/Let-Fall quad
+(Support has
+  (test-case ('(
+
+		(*dumb-bell has
+		  (instance-of (Tangible-Entity)))
+
+		(*body-builder has
+		  (instance-of (Living-Entity)))
+
+		(a Support with
+		   (object (*dumb-bell))
+		   (agent  (*body-builder)))
+
+		(not (has-value (the Be-Supported object-of of *dumb-bell)))
+
+		(do-and-next (thelast Support))
+		(the text-gen of (thelast Support))
+		(forall (the resulting-state of (thelast Support)) (the text-gen of It))
+		(has-value (the Be-Supported object-of of *dumb-bell))
+
+		(a Fall with 
+		   (object (*dumb-bell)))
+		
+		(not (try-do (thelast Fall)))
+		(the text-gen of (thelast Fall))
+		(a Let-Fall with
+		   (object (*dumb-bell))
+		   (agent  (*body-builder)))
+
+		(do-and-next (thelast Let-Fall))
+		(the text-gen of (thelast Let-Fall))
+		(not (has-value (the Be-Supported object-of of *dumb-bell)))
+
+		(try-do (thelast Fall))
+	      )))
+)
+
+
+;; automatically added WN synsets
+(Support has (wn16-synset ((:set  
+                                      (:triple "support" 4 "v")
+                                      (:triple "hold" 16 "v")
+                                      (:triple "hold_up" 1 "v")
+                                      (:triple "sustain" 5 "v")
+))))
+
+(Support has (wn20-synset ((:set
+                                      (:triple "support" 4 "v")
+                                      (:triple "hold" 15 "v")
+                                      (:triple "hold_up" 1 "v")
+                                      (:triple "sustain" 5 "v")
+))))
+
+(every Support has (text-nominalization ("support")))

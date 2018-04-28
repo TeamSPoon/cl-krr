@@ -1,0 +1,28 @@
+;; 
+;;    $Id: height.km,v 1.15 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(height has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Length-Value))
+   (scale-class (Height-Scale))
+   (scalar-constant-class (Height-Constant))
+   (cardinal-unit-class   (UoM-Length))
+   (inverse 	(height-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+  (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(height has (wn20-synset ((:set
+                               (:triple "height" 1 "n")
+                               (:triple "height" 4 "n")
+                               (:triple "tallness" 1 "n")
+                               (:triple "altitude" 1 "n")
+))))
+
+(height-of has
+	(instance-of (EntityProperty)))

@@ -1,0 +1,89 @@
+<!--- $Id: Absorb.spec.kml,v 1.1 2005/08/01 20:57:30 jchaw Exp $ --->
+<kml>
+
+<concept name=Absorb><system-documentation name=Absorb>
+<superconcept name=Take-In>
+
+<definition>
+
+   Take-In a fluid into oneself.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the fluid that is taken in
+  </slotdescription>
+
+  <slotdescription name=agent>
+     the Tangible-Entity, playing the role of a <conceptref name=Container>,
+     that takes in the <slot>object</slot>.  (Note: the <slot>agent</slot> 
+     is also the <slot>base</slot> of the Absorb.)
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=path>
+    the <conceptref name=Portal> through which the 
+    <slot>object</slot> is taken in
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the Absorb.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-outside</slot> the <slot>agent</slot>
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the Absorb.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-inside</slot> the <slot>agent</slot>
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves during 
+    the Absorb.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    place, but it may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from during 
+    the Absorb.  Unlike the
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    place, but it may
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The living sponge absorbs water full of nutrients.</text>
+    <slotdescription name=object>water full of nutrients</slotdescription>
+    <slotdescription name=agent>living sponge</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Enter>
+     Enter is a special type of Move-Into in which the
+     <slot>object</slot> moves of its own volition, i.e. 
+     it locomotes
+  </neighbor>
+
+  <neighbor name=Load>
+     Load is a special type of Move-Into in which an
+     <slot>object</slot> is inserted into a container, thereby
+     activating it
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

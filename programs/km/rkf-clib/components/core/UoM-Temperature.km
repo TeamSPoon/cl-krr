@@ -1,0 +1,21 @@
+;; 
+;;    $Id: UoM-Temperature.km,v 1.10 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(UoM-Temperature has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*kelvin))
+ (instances (*fahrenheit *celsius *kelvin)))
+
+(*fahrenheit has (instance-of (UoM-Temperature))
+             (name ("F"))
+	     (wn20-synset ((:set (:triple "fahrenheit" 0 "n")))))
+
+(*celsius  has (instance-of (UoM-Temperature))
+             (name ("C"))
+	     (wn20-synset ((:set (:triple "celsius" 0 "n")))))
+
+(*kelvin  has (instance-of (UoM-Temperature))
+             (name ("K"))
+	     (wn20-synset ((:set (:triple "kelvin" 0 "n")))))
+(*kelvin has (conversion-multiplier (1.0)))

@@ -1,0 +1,49 @@
+
+;;
+;;  $Id: Non-Engagement-Military-Task.km,v 1.2 2002/09/17 18:08:53 kbarker Exp $
+;;
+
+(Non-Engagement-Military-Task has
+   (superclasses (Military-Task))
+)
+
+(every Non-Engagement-Military-Task has
+   (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                             (value ((:pair 1 NIL)))             ; default
+   )))
+
+   (del-list
+      ((forall (the agent of Self)
+           (:triple
+               It
+               remaining-strength
+               (the remaining-strength of It)))
+   ))
+
+   (add-list
+      ((forall (the agent of Self)
+           (:triple
+               It
+               remaining-strength
+               (if (has-value (the remaining-strength of It))
+                then
+                   (a Remaining-Strength-Value with
+                      (value ((:pair ((the1 of
+                                            (the value of
+                                                 (the agent-attrition-rate of
+                                                      Self)))
+                                        *
+                                      (the1 of
+                                            (the value of
+                                                 (the remaining-strength of It))))
+                                     NIL))))
+                else
+                   (a Remaining-Strength-Value with
+                      (value ((:pair ((the1 of
+                                            (the value of
+                                                 (the agent-attrition-rate of
+                                                      Self))))
+                                     NIL))))))
+   )))
+)
+

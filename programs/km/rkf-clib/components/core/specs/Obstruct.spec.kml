@@ -1,0 +1,85 @@
+<!--- $Id: Obstruct.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Obstruct>
+<system-documentation name=Obstruct>
+<superconcept name=Make-Inaccessible>
+
+<definition>
+  Inhibit an object's movement in some way.
+  This action results in the <slot>object</slot> being in a
+  <conceptref name=Be-Obstructed> state, which can be undone by the
+  <conceptref name=Unobstruct> action.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's Obstructed.  The object is put in a
+     <conceptref name=Be-Obstructed> state by this action. 
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the Obstruct action
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing used by the agent to obstruct the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The taxi was obstructed by the police barricade.</text>
+    <slotdescription name=object>the taxi</slotdescription>
+    <slotdescription name=agent>police</slotdescription>
+    <slotdescription name=instrument>barricade</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Block>
+     Prevent things from moving through some place, or along some
+     object, by blocking such movements.
+  </neighbor>
+  
+  <neighbor name=Confine>
+     Confine is more specific than Obstruct.  It prevents the 
+     object from moving out of its enclosure.
+  </neighbor>
+
+  <neighbor name=Hold>
+     Hold is more specific than Obstruct.  The object that's held can 
+     only be moved by the thing holding it.
+  </neighbor>
+
+  <neighbor name=Restrain>
+     Restrain is more specific than Obstruct.  It prevents the 
+     object from moving at all.
+  </neighbor>
+
+  <neighbor name=Shut-Out>
+     Shut-Out is more specific than Obstruct.  It prevents
+     the object from moving into an enclosure.
+  </neighbor>
+
+  <neighbor name=Support>
+     Support is more specific than Obstruct.  It prevents
+     the object from falling.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+
+

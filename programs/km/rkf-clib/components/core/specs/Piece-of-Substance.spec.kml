@@ -1,0 +1,39 @@
+<!--- $Id: Piece-of-Substance.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+<kml>
+
+<concept name=Piece-of-Substance><system-documentation name=Piece-of-Substance>
+<superconcept name=Inanimate-Object>
+
+<definition>
+	An Inanimate-Object without any macro parts, made out of only one material
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=material>
+	The Substance the object is made of 
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+<examplesentence>
+    <text>A batholith is an underground rock formation uncovered by erosion.</text>
+	<comment>In this example, the batholith is described with the following properties:
+	     <slotdescription name=instance-of><conceptref name=Piece-of-Substance> with
+         	<slot>material</slot>stone</slotdescription>
+     </comment>
+
+  </examplesentence>
+
+<neighborlist>
+
+  <neighbor name=Artifact>
+	A man-made object
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

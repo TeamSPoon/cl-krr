@@ -1,0 +1,13 @@
+;;
+;; $Id: NaI.km,v 1.6 2003/04/22 18:27:06 jchaw Exp $
+;;
+
+(NaI has (superclasses (Ionic-Compound)))
+
+(every NaI has	
+       (has-part 
+	((a Na-Plus) (a I-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Na-Plus) (:pair 1 I-Minus))))))))
+

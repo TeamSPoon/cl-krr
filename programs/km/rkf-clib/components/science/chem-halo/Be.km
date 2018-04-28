@@ -1,0 +1,19 @@
+;;
+;; $Id: Be.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Be has (superclasses (Metal-Atom IIA-Alkaline-Earth-Metal-Element)))
+(every Be has
+       (atomic-symbol (Be))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 4 NIL))))))
+       (atomic-weight ((a Atomic-Weight-Value with 
+			  (value 
+			   ((:pair 9.01 *dalton))))))
+       (has-ion ((a Be-Plus-2)))
+       (chemical-period (2)))
+
+(every Be has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("beryllium"))
+)

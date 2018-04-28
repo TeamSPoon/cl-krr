@@ -1,0 +1,88 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Cell-cycle ----------
+
+(Cell-cycle has (superclasses (Event)))
+
+(_Cell-cycle2249 has 
+  (instance-of (Cell-cycle))
+  (prototype-of (Cell-cycle))
+  (prototype-scope (Cell-cycle))
+  (prototype-participants (_Interphase2256
+                           _Mitosis2255
+                           _Cell-cycle2249))
+  (prototype-participant-of (_Cell-cycle2249))
+  (first-subevent (_Interphase2256))
+  (subevent (_Interphase2256
+             _Mitosis2255))
+  (node-visibility (t))
+  (node-never-visible (f))
+  (edge-coordinate ((:seq subevent _Event2253 142 196)
+                    (:seq subevent _Mitosis2255 288 188)
+                    (:seq subevent _Interphase2256 288 188)
+                    (:seq first-subevent _Interphase2256 261 93)))
+  (edge-visibility ((:seq subevent _Event2253 t)
+                    (:seq subevent _Mitosis2255 t)
+                    (:seq subevent _Interphase2256 t)
+                    (:seq first-subevent _Interphase2256 t)))
+  (edge-never-visible ((:seq subevent _Event2253 f)
+                       (:seq subevent _Mitosis2255 f)
+                       (:seq subevent _Interphase2256 f)
+                       (:seq first-subevent _Interphase2256 f)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 45 190))))
+
+(_Interphase2256 has 
+  (instance-of (Interphase
+                Event))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (first-subevent-of (_Cell-cycle2249))
+  (subevent-of (_Cell-cycle2249))
+  (prev-event (_Mitosis2255))
+  (node-coordinate ((:pair 480 94)))
+  (prototype-participant-of (_Cell-cycle2249)))
+
+(_Mitosis2255 has 
+  (next-event (_Interphase2256))
+  (instance-of (Mitosis
+                Event))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (f))
+  (subevent-of (_Cell-cycle2249))
+  (node-coordinate ((:pair 491 281)))
+  (edge-coordinate ((:seq next-event _Interphase2256 526 188)))
+  (edge-visibility ((:seq next-event _Interphase2256 t)))
+  (edge-never-visible ((:seq next-event _Interphase2256 f)))
+  (prototype-participant-of (_Cell-cycle2249)))
+
+(explanation (:triple _Cell-cycle2249 subevent _Mitosis2255)
+  ((added-at Cell-cycle "User defined")))
+(explanation (:triple _Cell-cycle2249 subevent _Interphase2256)
+  ((the first-subevent of _Cell-cycle2249 (@ _Cell-cycle2249 Event subevent))))
+(explanation (:triple _Cell-cycle2249 subevent _Interphase2256)
+  ((the first-subevent of _Cell-cycle2249)))
+(explanation (:triple _Cell-cycle2249 first-subevent _Interphase2256)
+  ((added-at Cell-cycle "User defined")))
+(explanation (:triple _Cell-cycle2249 instance-of Cell-cycle)
+  ((added-at Cell-cycle "User defined")))
+(explanation (:triple _Interphase2256 instance-of Event)
+  ((a Event with (time-during ((a Time-Interval with (time-after ((the time-during of _Mitosis2255 (@ _Mitosis2255 Event (next-event must-be-a) Event time-during Time-Interval time-after)))) (@ _Mitosis2255 Event (next-event must-be-a) Event time-during)))) (@ _Mitosis2255 Event (next-event must-be-a)))))
+(explanation (:triple _Interphase2256 instance-of Event)
+  ((a Event (@ _Cell-cycle2249 Event (subevent must-be-a)))))
+(explanation (:triple _Interphase2256 instance-of Interphase)
+  ((added-at Cell-cycle "User defined")))
+(explanation (:triple _Mitosis2255 next-event _Interphase2256)
+  ((added-at Cell-cycle "User defined")))
+(explanation (:triple _Mitosis2255 instance-of Event)
+  ((a Event (@ _Cell-cycle2249 Event (subevent must-be-a)))))
+(explanation (:triple _Mitosis2255 instance-of Mitosis)
+  ((added-at Cell-cycle "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

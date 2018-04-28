@@ -1,0 +1,19 @@
+;;
+;; $Id: time-value.km,v 1.7 2007/04/11 21:42:44 jchaw Exp $
+;;
+
+(time-value has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Time-Instant))
+  #|(range (Thing))|#           ;    (:pair (a Number) (a UoM-Time))
+                            ; or (a Day-Constant)
+                            ; or (a Time-Zone-Constant)
+  (inverse (time-value-of))
+  (cardinality (N-to-N))
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (original-slot      (t))	
+)
+
+(time-value-of has
+   (instance-of (CLIB-Slot-Group)))

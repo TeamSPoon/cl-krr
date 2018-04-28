@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Reduction.km,v 1.7 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Reduction has
+        (superclasses   (Receive))
+        (required-slot  (object recipient))
+        (primary-slot   (agent donor instrument))
+	(description	("The gain of electrons by an atom or molecule as
+                          occurs when hydrogen is added from a molecule or
+                          oxygen is removed.  Lodish:MCB:G-15")))
+
+(every Reduction has
+       (donor ((a Chemical-Entity)))
+       (recipient ((a Chemical-Entity)))
+       (object ((a Electron)))
+       )       
+
+(every Reduction has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

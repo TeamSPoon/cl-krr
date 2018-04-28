@@ -1,0 +1,242 @@
+
+;;
+;;  $Id: Engagement-Military-Task.km,v 1.17 2002/10/01 14:41:43 kbarker Exp $
+;;
+
+(Engagement-Military-Task has
+   (superclasses (Military-Task))
+)
+
+(every Engagement-Military-Task has
+   (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                             (value ((:pair 1 NIL)))             ; default
+   )))
+
+   (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                             (value ((:pair 1 NIL)))             ; default
+   )))
+
+   (available-force-ratio 
+      ((a Available-Force-Ratio-Value with
+          (value 
+             ((:pair (
+                      ((the sum of
+                            (forall-bag 
+                               (the bag of 
+                                    (the relative-combat-power of 
+                                         (the agent of Self)))
+                               (the1 of (the value of It))))
+                       +
+                       (the sum of
+                            (forall-bag 
+                               (the bag of 
+                                    (the relative-combat-power of 
+                                         (the supported-by-military-unit of 
+                                              (the agent of Self))))
+                               (the1 of (the value of It))))
+                      )
+                      /
+                      ((the sum of
+                            (forall-bag 
+                               (the bag of 
+                                    (the relative-combat-power of 
+                                         (the enemy of Self)))
+                               (the1 of (the value of It))))
+                       +
+                       (the sum of
+                            (forall-bag 
+                               (the bag of 
+                                    (the relative-combat-power of 
+                                         (the supported-by-military-unit of 
+                                              (the enemy of Self))))
+                               (the1 of (the value of It))))
+                      )
+                     )
+                     NIL)))
+   )))
+
+   (soft-pcs-list
+      ((if (has-value (the required-force-ratio of Self))
+        then
+          ((if ((the1 of (the value of 
+                              (the required-force-ratio of Self))) /= 0)
+            then
+               (:triple (the1 of (the value of 
+                                      (the available-force-ratio of Self)))
+                        >=
+                        (the1 of (the value of 
+                                      (the required-force-ratio of Self)))) [Engagement-Military-Task-pcs-1]
+          ))
+   ))) 
+
+   (del-list
+      ((forall (the agent of Self)
+           (:triple
+               It
+               remaining-strength
+               (the remaining-strength of It)))
+   ))
+
+   (del-list
+      ((forall (the enemy of Self)
+           (:triple
+               It
+               remaining-strength
+               (the remaining-strength of It)))
+   ))
+
+   (add-list (
+      (forall (the agent of Self)
+          (if (has-value (the remaining-strength of It))
+           then
+              (:triple
+                  It
+                  remaining-strength
+                  (a Remaining-Strength-Value with
+                     (value ((:pair 
+                                 (
+                                  (the1 of
+                                        (the value of
+                                             (the agent-attrition-rate of
+                                                  Self)))
+                                    *
+                                  (the1 of
+                                        (the value of
+                                             (the remaining-strength of It)))
+                                 )
+                                 NIL))))
+              )
+           else
+              (:triple
+                  It
+                  remaining-strength
+                  (a Remaining-Strength-Value with
+                     (value ((:pair 
+                                 (
+                                  (the1 of
+                                        (the value of
+                                             (the agent-attrition-rate of
+                                                  Self)))
+                                 )
+                                 NIL))))
+              )
+          )
+      )
+      (forall (the enemy of Self)
+          (if (has-value (the remaining-strength of It))
+           then
+              (:triple 
+                  It 
+                  remaining-strength
+                  (a Remaining-Strength-Value with
+                     (value ((:pair 
+                                 (
+                                  (the1 of
+                                        (the value of
+                                             (the enemy-attrition-rate of 
+                                                  Self)))
+                                    * 
+                                  (the1 of
+                                        (the value of
+                                             (the remaining-strength of It)))
+                                 )
+                                 NIL))))
+              )
+           else
+              (:triple
+                  It
+                  remaining-strength
+                  (a Remaining-Strength-Value with
+                     (value ((:pair 
+                                 (
+                                  (the1 of
+                                        (the value of
+                                             (the enemy-attrition-rate of 
+                                                  Self)))
+                                 )
+                                 NIL))))
+              )
+          )
+      )
+   ))
+
+)
+
+(every Engagement-Military-Task has
+   (test-case ('(
+                 (new-situation)
+
+                 (*TheGoodGuys has 
+                    (instance-of (Military-Unit))
+                    (allegiance ((a Allegiance-Value with (value (*Blue)))))
+                    (possesses ((a Military-Equipment with
+                                   (default-combat-power
+                                      ((a Default-Combat-Power-Value with
+                                          (value ((:pair 3.1 NIL)))))))))
+                 )
+                 (*TheBadGuys has
+                    (instance-of (Military-Unit))
+                    (allegiance ((a Allegiance-Value with (value (*Red)))))
+                    (possesses ((a Military-Equipment with
+                                   (default-combat-power
+                                      ((a Default-Combat-Power-Value with
+                                          (value ((:pair 2 NIL)))))))))
+                 )
+                 (*TheOtherBadGuys has
+                    (instance-of (Military-Unit))
+                    (allegiance ((a Allegiance-Value with (value (*Red)))))
+                    (possesses ((a Military-Equipment with
+                                   (default-combat-power
+                                      ((a Default-Combat-Power-Value with
+                                          (value ((:pair 2 NIL)))))))))
+                 )
+                 (*SomeEngagement has 
+                    (instance-of (Engagement-Military-Task))
+                    (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                              (value ((:pair 0.9 NIL))))))
+                    (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                               (value ((:pair 0.5 NIL))))))
+                    (required-force-ratio
+                       ((a Required-Force-Ratio-Value with
+                           (value ((:pair 1.5 NIL))))))
+                    (agent (*TheGoodGuys))
+                    (enemy (*TheBadGuys))
+                 )
+
+                 ((the1 of 
+                     (the value of 
+                         (the available-force-ratio of *SomeEngagement)))
+                  = 1.55)
+
+                 (do-and-next *SomeEngagement)
+
+                 ((the1 of 
+                     (the value of (the remaining-strength of *TheGoodGuys)))
+                  = 0.9)
+                 ((the1 of 
+                     (the value of (the remaining-strength of *TheBadGuys)))
+                  = 0.5)
+
+                 (*SomeOtherEngagement has 
+                    (instance-of (Engagement-Military-Task))
+                    (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                              (value ((:pair 0.9 NIL))))))
+                    (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                               (value ((:pair 0.5 NIL))))))
+                    (required-force-ratio
+                       ((a Required-Force-Ratio-Value with
+                           (value ((:pair 1.5 NIL))))))
+                    (agent (*TheGoodGuys))
+                    (enemy (*TheOtherBadGuys))
+                 )
+
+                 ((the1 of 
+                     (the value of 
+                         (the available-force-ratio of *SomeOtherEngagement)))
+                  < 1.5)
+
+                 (not (try-do *SomeOtherEngagement))
+
+))))
+
+(comment [Engagement-Military-Task-pcs-1] (:seq "The available force ratio of " Self " must be greater or equal to the required force ratio.") "Required force ratio cannot be less than available ratio.")

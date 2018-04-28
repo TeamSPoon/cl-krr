@@ -1,0 +1,81 @@
+;;
+;;    $Id: Aggregate.km,v 1.32 2005/07/15 18:11:13 kbarker Exp $
+;;
+
+(Aggregate has 
+        (superclasses (Entity))
+        (required-slot ())
+;        (primary-slot (element-type element number-of-elements))
+        (secondary-slot ())
+        (description ("top level component for collections"))
+        (cmap-correspondence ()))
+
+(every Aggregate has
+       ;; some type/class
+;       (element-type ((a Class)))
+
+       ;; Each value must be an instance of one of the element-types...
+;       (element ((constraint ((oneof (the element-type of Self) 
+;                                     where (TheValue isa It))))))
+;       (element ((constraint
+;                    (if (has-value (the element-type of Self))
+;                     then ((oneof (the element-type of Self) 
+;                                  where (TheValue isa It)))
+;                     else (t))
+;       )))
+       (number-of-elements ((a Number)
+			    (if ((has-value (the element of Self)) and
+				 (not (has-value (the number-of-elements of Self))))
+				then ((the number of (the element of Self))))
+			    (constraint
+			     (if (has-value (the element of Self))
+				 then (TheValue >= (the number of (the element of Self)))
+				 else (t)))))
+       )
+
+(Aggregate has
+           (test-case ('(
+                         (E has (superclasses (Entity)))
+                         (F has (superclasses (Entity)))
+                         
+                         (*a1 has 
+                              (instance-of (Aggregate))
+
+
+                              (element-type (E F))
+                              (element ((a E) (a E) (a F)))
+                              (number-of-elements (10)))
+                         
+                         (the element of *a1)
+                         (the number-of-elements of *a1)
+                         
+                         (*a2 has 
+                              (instance-of (Aggregate))
+
+
+                              (element-type (E F))
+                              (element ((a E) (a E) (a F))))
+                         
+                        ((the number-of-elements of *a2) = 3)
+                  ))))
+
+
+;; there seem to be three different synsets in WN 2.0 that correspond to our Aggregate:
+;; - aggregate#2 - a sum total of many heterogenous things taken together
+;; - whole#2 - an assemblage of parts that is regarded as a single entity
+;; - group#1 -  any number of entities (members) considered as a unit
+(Aggregate has (wn20-synset ((:set 
+			      ;; whole#2
+			      (:triple "whole" 2 "n")
+			      (:triple "whole_thing" 1 "n")
+			      (:triple "unit" 6 "n")
+			  
+			      ;; aggregate#1
+			      (:triple "aggregate" 1 "n")
+			      (:triple "congeries" 1 "n")
+			      (:triple "conglomeration" 2 "n")
+
+			      ;; group#1
+			      (:triple "group" 1 "n")
+			      (:triple "grouping" 1 "n")
+))))

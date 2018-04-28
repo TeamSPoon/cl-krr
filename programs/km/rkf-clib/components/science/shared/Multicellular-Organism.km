@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Multicellular-Organism.km,v 1.1 2006/06/14 14:16:08 porter Exp $ 
+;; 
+
+(Multicellular-Organism has
+	  (superclasses (Organism))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (cmap-correspondence ())
+	  (description ("An organism composed of more than one cell. 
+                         Souther."))
+	  (test-case ()))
+
+(every Multicellular-Organism has
+          (has-part ((at-least 2 Cell))))
+
+
+
+
+

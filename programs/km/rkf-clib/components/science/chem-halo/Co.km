@@ -1,0 +1,17 @@
+;;
+;; $Id: Co.km,v 1.4 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Co has (superclasses (Metal-Atom VIIIB-Element)))
+(every Co has
+       (atomic-symbol (Co))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 27 NIL))))))
+       (has-ion ((a Co-Plus-2)))
+       (chemical-period (4)))
+
+
+(every Co has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("cobalt"))
+)

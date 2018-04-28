@@ -1,0 +1,14 @@
+;;
+;; $Id: At.km,v 1.5 2008/10/14 19:16:12 tecuci Exp $
+;;
+
+(At has (superclasses (Metalloid-Atom VIIA-Halogen-Element)))
+(every At has
+       (atomic-symbol (At))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 85 NIL))))))
+       (chemical-period (6)))
+(every At has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("astatine"))
+)

@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Secure.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Secure 
+  superclass: Tactical-Mission-Task  
+  superclass: Protect  (Wordnet sense 3 for adjective!) 
+  agent: Military-Unit <----> Actor 
+  object: Tangible-Entity <----> Acted on 
+  base: Military-Unit <----> Acted against 
+ 
+  prevents:  
+              Damage 
+                     agent: MU called "enemy forces" 
+                     object: Tangible-Entity object of Self  
+                     by-means-of: Attack-by-fire 
+              Destroy 
+                     agent: MU called "enemy forces" 
+                     object: Tangible-Entity object of Self 
+                     by-means-of: Attack-by-fire 
+              Occupy 
+                     object: MU called "friendly forces" 
+                     destination: Place object of Self 
+ 
+Secure (A). 
+======. 
+1. Secure is a tactical mission task that involves preventing a unit, facility, or geographical location from being damaged or destroyed as a result of enemy action. 
+2. This task normally involves conducting area security operations. 
+A force given the mission of securing a unit, facility, or geographical location not only prevents enemy forces from over-running or occupying the secured location, but also prevents enemy direct fires and observed indirect fires from impacting the secured location. 
+3. This is the primary difference between control and secure. 
+The control tactical mission task allows enemy direct and indirect fires to affect the location being controlled. 
+4.A unit does not have to physically occupy the area immediately around the unit, facility, or geographical location it is securing if it can prevent the enemy from occupying or firing at that location by other means. 
+5. The commander states the mission duration in terms of time or event when assigning a mission to secure a given unit, facility, or geographical location. 
+ 
+ 

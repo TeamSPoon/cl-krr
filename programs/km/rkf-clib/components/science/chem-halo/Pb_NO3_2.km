@@ -1,0 +1,19 @@
+;;
+;; $Id: Pb_NO3_2.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(Pb_NO3_2 has (superclasses (Ionic-Compound)))
+
+(every Pb_NO3_2 has	
+       (has-chemical-name ("lead nitrate"))
+       (has-part 
+	((a Pb-Plus-2) (a NO3-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Pb-Plus-2)
+			 (:pair 2 NO3-Minus)))))))
+)
+(every Pb_NO3_2 has-definition
+       (instance-of (Chemical-Entity))
+       (has-part ((a Pb-Plus-2) (a NO3-Minus))))
+

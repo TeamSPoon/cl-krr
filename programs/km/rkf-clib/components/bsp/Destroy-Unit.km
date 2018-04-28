@@ -1,0 +1,82 @@
+;;
+;;    $Id: Destroy-Unit.km,v 1.12 2004/01/30 22:40:14 kbarker Exp $
+;; 
+
+(Destroy-Unit has 
+	 (superclasses (Engagement-Military-Task))
+	 (description ("An action in which one military unit destroys another")))
+
+(every Destroy-Unit has
+       (agent ((a Military-Unit)))
+       (object ((a Military-Unit)))
+       (object ((set-constraint
+                   (((the number of 
+                          (the value of (the allegiance of TheValues))) <= 1)
+                    and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+        )))
+       (enemy ((the object of Self)))
+
+       (first-subevent ((if (
+                             (has-value (the site of Self))
+                             and
+                             (not (oneof (the agent of Self) 
+                                          where (It isa Artillery-Unit)))
+                            )
+                         then
+                            (if (((the location of (the agent of Self))
+                                  /= (the site of Self))
+                                 and
+                                 ((the location of (the agent of Self))
+                                  /= (the location of (the site of Self)))
+                                 and
+                                 ((the is-at of (the location of (the agent of Self)))
+                                   /= (the is-at of (the site of Self))))
+                             then
+                                (a Move-Military-Unit with
+                                   (object ((the agent of Self)))
+                                   (destination ((the site of Self)))))
+       )))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 5 NIL))))))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.88 NIL))))))
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.3 NIL))))))
+
+       (del-list ((forall (the object of Self)
+                          (:triple It
+                                   combat-strength
+                                   (the combat-strength of It))
+       )))
+
+       (add-list ((forall (the object of Self)
+                          (:triple It
+                                   combat-strength
+                                   (a Combat-Strength-Value with
+                                      (value
+                                         ((:pair *destroyed Military-Unit)))))
+       )))
+
+       (text-active-verbseq-sg ("destroys"))
+       (text-active-verbseq-pl ("destroy"))
+)
+
+;; See also Neutralize-Unit, Defeat-Unit, Annihilate-Unit and
+;; Reconstitute-Unit; these are all Actions that set the combat-strength
+;; property of a Military-Unit.
+
+;; Ideally, Actions that set scalar values would be arranged taxonomically
+;; to match the scale (Make-Very-Bad would be a subclass of Make-Bad, e.g.).
+;; That would require some kind of subsumption mechanism for scale values.
+

@@ -1,0 +1,59 @@
+;; 
+;;  $Id: Delay.km,v 1.11 2002/10/04 21:14:46 kbarker Exp $
+;;
+
+(Delay has
+       (superclasses (Engagement-Military-Task))
+       (description ("a task to slow enemy advance from reaching a friendly objective")))
+
+(every Delay has
+       (agent ((a Military-Unit)))
+       (object 
+          ((a Military-Unit with
+              (agent-of 
+                 ((a Advance with
+                     (toward ((must-be-a Entity with
+                                         (allegiance 
+                                            ((the allegiance of
+                                                  (the agent of Self)))))))))))))
+       (object ((set-constraint
+                    (((the number of 
+                           (the value of (the allegiance of TheValues))) <= 1)
+                     and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                        and
+                        (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else
+                   (t)))
+   )))
+       (enemy ((the object of Self)))
+       
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.95 NIL))))))
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.9 NIL))))))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 0.3 NIL))))))
+
+;; needs to be updated for multiple objects
+;       (del-list ((forall (the Advance agent-of of (the object of Self))
+;                          (:triple It rate (the rate of It))
+;                          )))
+;       
+;       (add-list ((forall (the Advance agent-of of (the object of Self))
+;                          (:triple It rate (a Rate-Value with
+;                                              (value ((:pair *slow Advance)))))
+;                          )))
+       
+       (text-active-verbseq-sg ("delays"))
+       (text-active-verbseq-pl ("delay"))
+       
+       (text-argslots ((:seq path)))
+       )
+ 

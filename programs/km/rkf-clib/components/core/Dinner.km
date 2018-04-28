@@ -1,0 +1,16 @@
+;; 
+;; $Id: Dinner.km,v 1.3 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(Dinner has
+  (superclasses (Meal))
+)
+
+;; stubby
+
+(Dinner has 
+       (wn20-synset 
+	((:set (:triple "dinner" 1 "n"))
+	 (:set (:triple "dinner" 2 "n"))	
+	 (:set (:triple "dinner_party" 1 "n")))))
+(every Dinner has (text-nominalization ("dinner")))

@@ -1,0 +1,23 @@
+;; 
+;;  $Id: equilibrium-concentration.km,v 1.5 2008/07/04 18:08:51 jchaw Exp $
+;; 
+
+(equilibrium-concentration has
+  (instance-of (Property))
+  (domain      (Chemical))
+  (range       (Concentration-Value))
+  (scalar-constant-class (Concentration-Constant))   
+  (cardinal-unit-class   (UoM-Concentration))   
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     (equilibrium-concentration-of))
+  (cardinality (N-to-1))
+)
+
+(equilibrium-concentration-of has
+  (instance-of (Property))
+  (combine-values-by-appending (t))
+)
+
+(equilibrium-concentration has (user-description ("The thermodynamic state when the fugacity between two phases is equal, or when the free energy of the system is zero; the condition when the concentration in one phase is at the same chemical activity as that in the surrounding phases.")))
+

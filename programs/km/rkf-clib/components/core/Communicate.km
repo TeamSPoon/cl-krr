@@ -1,0 +1,127 @@
+;; 
+;;    $Id: Communicate.km,v 1.16 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(Communicate has
+	(superclasses   (Action))
+	(required-slot  (object))
+        (primary-slot   (agent recipient))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every Communicate has
+	(object ((a Information)))
+        (base ((a Message)))
+	(donor (((the agent of Self))
+		((must-be-a Tangible-Entity))))
+	(agent ((the donor of Self)))
+	(recipient ((a Tangible-Entity)))
+	(resulting-state ((a Be-Known)))	
+	(first-subevent ((the Express subevent of Self)))
+	(subevent (
+		(a Express with (object ((the object of Self)))
+				(agent ((the agent of Self)))
+                                (result ((the base of Self)))
+			 	(next-event ((the Convey subevent of Self))))
+		(a Convey with (object ((the base of Self)))
+				(agent ((the agent of Self))) 
+				(recipient ((the recipient of Self))) 
+				(next-event ((the Interpret subevent of Self))))
+		(a Interpret with (agent ((the recipient of Self)))
+				(object ((the base of Self)))
+				(result ((the object of Self))))))
+
+;;Added:  two triples with the effect that the recipient knows the object
+; this is now handled by Interpret
+;	(add-list (
+;		(:triple (the resulting-state of Self) 
+;			object 
+;			(the object of Self)[Communicate-add-1])
+;		(:triple (the resulting-state of Self) 
+;			experiencer 
+;			(the recipient of Self) [Communicate-add-2])))
+
+	;;Preconditions:  The agent must know the object
+	;;the agent must be experiencer of a Be-Knows with object the information
+	(pcs-list (    
+		 (:triple 
+	          (the object of Self)
+	          object-of
+	          ((a Be-Known with (experiencer ((the agent of Self))))[Communicate-pcs-1]))))
+)
+
+(every Communicate has
+  (text-active-verbseq-sg ("communicates"))
+  (text-active-verbseq-pl ("communicate"))
+  (text-passive-verbseq-sg ("gets communicated"))
+  (text-passive-verbseq-pl ("get communicated"))
+
+  (text-recipient ("to"))
+  (text-argslots ((:seq recipient)))
+)
+
+
+(comment [Communicate-add-1] (:seq (the object of Self) " is the object of the state of " (the resulting-state of Self))
+	 "The Information become known.")			
+
+(comment [Communicate-add-2] (:seq (the recipient of Self) " experiences the state of " (the resulting-state of Self))
+	 "The Information becomes known to the recipient of the Communication.")			
+
+(comment [Communicate-pcs-1] (:seq (the object of Self) " must be known by " (the agent of Self))
+	 "The agent must know Information before it can be Communicated.")			
+
+
+(Communicate has
+  (test-case ('( 
+		(*John has (instance-of (Tangible-Entity)))
+	        (*Paul has (instance-of (Tangible-Entity)))
+		(*Guitar has (instance-of (Tangible-Entity)))
+		(*Story has (instance-of (Information))
+		 (information-content ((a Break with (agent (*John))
+					 (object (*Guitar))))))
+		((a Be-Known with (experiencer (*John))
+				  (object (*Story))))
+
+
+		; John communicates his story to Paul
+		(a Communicate with
+		 (donor (*John))
+		 (recipient (*Paul))
+		 (object (*Story)))
+
+		(do-script (thelast Communicate))
+
+                ((the information-content of 
+                      (the object of 
+                           (oneof (the instances of Be-Known)
+                            where ((the experiencer of It) includes *Paul))))
+                 isa Break)
+))))
+
+
+;; automatically added WN synsets
+(Communicate has (wn16-synset ((:set  
+                                          (:triple "communicate" 1 "v")
+                                          (:triple "communicate" 2 "v")
+                                          (:triple "communicate" 3 "v")
+                                          (:triple "pass_on" 7 "v")
+                                          (:triple "pass" 12 "v")
+                                          (:triple "put_across" 1 "v")
+                                          (:triple "intercommunicate" 2 "v")
+                                          (:triple "convey" 3 "v")
+                                          (:triple "transmit" 1 "v")
+))))
+
+(Communicate has (wn20-synset ((:set
+                                          (:triple "communicate" 1 "v")
+                                          (:triple "communicate" 2 "v")
+                                          (:triple "communicate" 3 "v")
+                                          (:triple "pass_on" 7 "v")
+                                          (:triple "pass" 12 "v")
+                                          (:triple "put_across" 1 "v")
+                                          (:triple "intercommunicate" 2 "v")
+                                          (:triple "convey" 3 "v")
+                                          (:triple "transmit" 1 "v")
+))))
+
+(every Communicate has (text-nominalization ("communication")))

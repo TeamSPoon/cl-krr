@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Intermediate-Filament.km,v 1.18 2005/10/04 23:17:10 kbarker Exp $ 
+;; 
+
+(Intermediate-Filament has
+         (superclasses (Protein-Filament))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Fibrous protein filament (10 nm in diameter) that
+                        forms ropelike bundles in animal cells.  Often 
+                        provides tensile strength to withstand tension applied
+                        to the cell from outside. Alberts:ECB:G-10."))
+         (test-case ()))
+
+(every Intermediate-Filament has
+       (purpose ((a Instrument-Role with
+                    (in-event ((a Be-Supported with
+				  (object ((a Cell)))))))))	
+
+       (element-type (Protein))
+       (width ((a Length-Value with 
+			(value ((:pair 10 *nanometer)))))))	
+
+

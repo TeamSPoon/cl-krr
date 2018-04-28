@@ -1,0 +1,27 @@
+	<!--- $Id: Lie.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Lie>
+<superconcept name=Express>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Lie>
+  <definition>The expression of <conceptref name=Information> which has a <conceptref name=Truth-Value> of false</definition>
+  <requiredslot name=agent>
+    <inheritedfrom name=Express>
+    <restriction>The <slot> agent </slot> must know the <slot> object </slot> of the Lie</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Express>
+  </requiredslot>
+
+  <wnsynsets><verb>lie#5
+  </verb></wnsynsets>
+  <wnsynsets><verb>misinform#1, mislead#2
+  </verb></wnsynsets>
+</component>
+</kml>
+
+

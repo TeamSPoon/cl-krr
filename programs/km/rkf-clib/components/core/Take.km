@@ -1,0 +1,80 @@
+;; 
+;;    $Id: Take.km,v 1.15 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Take has
+         (superclasses 	 (Obtain))
+         (required-slot  (donor recipient object))
+         (primary-slot 	 (instrument))
+         (secondary-slot ())
+         (cmap-correspondence (
+			       (:seq object "the thing taken")      
+                               (:seq agent "taker")
+                               (:seq donor "donor")
+                               (:seq recipient "recipient")
+                               (:seq instrument "instrument")
+			      ))
+       #|(sentence-type  (*punctual *conclusive))|#
+)
+
+;; nothing extra to say about contextual info
+
+(every Take has 
+  (donor ((a Tangible-Entity)))
+)
+
+(every Take has
+  (text-active-verbseq-sg ("takes"))
+  (text-active-verbseq-pl ("take"))
+  (text-passive-verbseq-sg ("is taken"))
+  (text-passive-verbseq-pl ("are taken"))
+)
+
+
+(Take has 
+  (test-case ('( 
+		 (*Book-Taken has
+			(instance-of (Tangible-Entity)))
+		 (*John-In-Take has
+			(instance-of (Tangible-Entity))
+			(possesses   (*Book-Taken)))
+		 (*Fred-In-Take has
+			(instance-of (Tangible-Entity)))
+
+		 ;; *Fred-In-Book took *Book-Taken from *John-In-Take
+		 (a Take with
+			(agent  (*Fred-In-Take))
+			(donor  (*John-In-Take))
+			(object (*Book-Taken)))
+		 (do-and-next (thelast Take))
+		 (the text-gen of (thelast Take))
+
+		 ;; Test 1:  *Fred-In-Take now has *Book-Taken
+		 ((the possesses of *Fred-In-Take) = *Book-Taken)
+
+		 ;; Test 2: *John-In-Take lost *Book-Taken
+		 ((the possesses of *John-In-Take) = nil)
+
+		 ;; Test 3: *Book-Taken is now possessed-by *Fred-In-Take
+		 ((the is-possessed-by of *Book-Taken) = *Fred-In-Take)
+
+		 ;; Test 4: The agent and the recipient are the same.
+		 ((the agent of (thelast Take)) = (the recipient of (thelast Take)))
+	       )))
+)
+
+
+
+
+
+
+
+;; automatically added WN synsets
+(Take has (wn16-synset ((:set  
+                                   (:triple "take" 8 "v")
+))))
+
+(Take has (wn20-synset ((:set
+                                   (:triple "take" 8 "v")
+))))
+(every Take has (text-nominalization ("taking")))

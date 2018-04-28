@@ -1,0 +1,23 @@
+;; 
+;;    $Id: sentience.km,v 1.12 2008/07/04 18:10:54 jchaw Exp $ 
+;; 
+
+(sentience has
+   (instance-of (EntityProperty))
+   (superslots ())
+   (subslots ())
+   (domain      (Living-Entity))    
+   (range       (Sentience-Value))
+   (categorical-constant-class (Sentience-Constant))
+   (inverse (sentience-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(sentience has (wn20-synset ((:set
+                               (:triple "sentience" 3 "n")
+))))
+
+(sentience-of has
+	(instance-of (EntityProperty)))

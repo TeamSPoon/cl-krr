@@ -1,0 +1,23 @@
+
+;;
+;; $Id: Calendar.km,v 1.2 2005/05/04 20:26:07 billj Exp $
+;;
+
+(Calendar has
+  (superclasses (Document))
+  (description ("a collection of event, todo, journal and free/busy calendar components"))
+)
+
+(every Calendar has
+  (has-part ((must-be-a Calendar-Entry)))     ;; like the chapters of a book
+
+  (is-possessed-by ((the calendar-user of Self)))
+)
+
+(calendar-user has (instance-of (Interface-Slot)) (domain (Calendar)) (range (Entity)) (fluent-status (*Inertial-Fluent))(description ("FRAME calendar-user FILLER means that FRAME, a Calendar, is 'for' FILLER.  This slot is aligned with the iCal standard (RFC 2445).  As per this standard, types of calendar users include groups, individuals, rooms, physical resource, and more.  For example, a calendar for a room could specify who had reserved the room when.")))
+
+
+(Calendar has
+  (test-case ('(
+))))
+

@@ -1,0 +1,56 @@
+;; 
+;;    $Id: Ethanol-Group.km,v 1.10 2001/06/04 20:58:20 pnav Exp $ 
+;; 
+
+(Ethanol-Group has
+	      (superclasses (Alcohol Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Alcohol derived from ethane. Souther."))
+	      (cmap-correspondence ()))
+
+(every Ethanol-Group has
+       (has-part
+	((a Carbon-Atom uniquely-called "Carbon-1" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C1-H1" with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen-1")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To uniquely-called "C1-H2" with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen-2")))
+                 (instrument 	((a Covalent-CH-Bond))))   
+              (a Be-Attached-To uniquely-called "C1-H3" with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen-3")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To uniquely-called "C1-C2" with
+                 (object 	(((the Carbon-Atom has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument 	((a Covalent-CC-Bond))))
+             )))
+		
+	 (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To uniquely-called "C2-H1" with
+                 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen-1")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To uniquely-called "C2-H2" with
+                 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen-2")))
+                 (instrument 	((a Covalent-CH-Bond))))
+              (a Be-Attached-To uniquely-called "C2-OH1" with
+                 (object 	((the Hydroxyl-Group has-part of Self)))
+                 (instrument 	((a Covalent-CO-Bond)))
+                 (site		((the Oxygen-Atom has-part of
+                        	      (the Hydroxyl-Group has-part of
+					   (the Amino-Acid-Side-Chain has-part of Self))))))
+	     )))
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-2") 
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-3") 
+         (a Hydrogen-Atom uniquely-called "C2-Hydrogen-1")
+         (a Hydrogen-Atom uniquely-called "C2-Hydrogen-2") 
+	 (a Hydroxyl-Group)
+	)))
+
+

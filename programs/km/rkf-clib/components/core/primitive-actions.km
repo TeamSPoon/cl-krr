@@ -1,0 +1,15 @@
+;; 
+;;    $Id: primitive-actions.km,v 1.9 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(primitive-actions has
+  (instance-of 	 (CLIB-Slot-Group))
+  (domain 	 (Event))
+  (range 	 (Event))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+  (cardinality 	 (N-to-N)))
+
+(primitive-actions-of has
+   (instance-of (CLIB-Slot-Group)))
+

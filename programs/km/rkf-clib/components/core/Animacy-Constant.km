@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Animacy-Constant.km,v 1.4 2008/05/29 14:54:57 kbarker Exp $
+;; 
+
+(Animacy-Constant has
+ (superclasses (Constant)))
+
+(*animate has
+	(instance-of (Animacy-Constant)))
+
+(*not-animate has
+	(instance-of (Animacy-Constant)))
+
+(a Constant-Exclusion-Set with
+  (exclusive-constants (*animate *not-animate))
+)
+

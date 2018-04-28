@@ -1,0 +1,21 @@
+;; 
+;;    $Id: first-subevent.km,v 1.15 2008/09/05 16:19:59 kbarker Exp $ 
+;; 
+
+(first-subevent has
+  (instance-of 	 (Meronymic-Relation))
+  (superslots    (subevent))
+  (domain 	 (Event))
+  (range 	 (Event))
+  (fluent-status (*Inertial-Fluent))
+  (cardinality 	 (N-to-N))
+)
+
+(first-subevent has (text-gloss ("has as first subevent")))
+
+(first-subevent-of has 
+  (superslots  (subevent-of))
+  (instance-of (Meronymic-Relation))
+  (text-gloss  ("is the first subevent of"))
+)
+

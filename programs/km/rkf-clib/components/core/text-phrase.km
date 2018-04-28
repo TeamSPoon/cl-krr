@@ -1,0 +1,17 @@
+;; 
+;;    $Id: text-phrase.km,v 1.6 2006/09/27 16:18:16 jchaw Exp $
+;; 
+
+(text-phrase has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Thing))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (dont-cache-values (t))
+)
+
+(text-phrase-of has (instance-of (NL-Slot-Group)))

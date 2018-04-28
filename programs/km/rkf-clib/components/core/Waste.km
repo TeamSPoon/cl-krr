@@ -1,0 +1,21 @@
+;;
+;;    $Id: Waste.km,v 1.4 2007/06/06 15:16:28 porter Exp $
+;; 
+
+(Waste has
+       (superclasses (Role))
+       (required-slot ())
+       (primary-slot ())
+       (secondary-slot ())
+       (description ("A waste product of a Consume action."))
+       (cmap-correspondence ()))
+
+(every Waste has
+       	(in-event ((a Consume)))
+       	(played-by ((a Tangible-Entity with
+                      (result-of ((the in-event of Self)))))))
+
+(Waste has 
+       (wn20-synset 
+	((:set (:triple "waste" 1 "n")))))
+

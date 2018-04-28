@@ -1,0 +1,248 @@
+;;
+;;    $Id: Compute-Concentration-H-Plus.km,v 1.14 2003/02/20 00:12:24 pzyeh Exp $
+;;
+(Compute-Concentration-H-Plus has
+  (superclasses (Method))) 
+
+;;
+;; This method encodes L.56 and L.44. The fourth method as per the document 
+;; applies only to the concentration of OH-. 
+;;
+(every Compute-Concentration-H-Plus has
+  (input  ((a Equilibrium-Reaction)))
+  
+  ;; First way of computing [H+], if [OH-] is known.
+  (output ((if (oneof (:set (the raw-material of (the input of Self))
+			    (the result of (the input of Self)))
+		  where
+		  (((the has-basic-structural-unit of It) isa OH-Minus)
+		   and
+		   (the1 of (the value of (the equilibrium-concentration of It)))))
+	       then
+	       (a Concentration-Value with
+		  (value (
+		    (:pair
+		      (1e-14
+		       /
+		       (the1 of 
+			(the value of 
+			 (the equilibrium-concentration of
+			  (oneof (:set (the raw-material of (the input of Self))
+                            	       (the result of (the input of Self)))
+                  		 where
+                  		 (((the has-basic-structural-unit of It) isa OH-Minus)
+                   		  and
+                   		  (the1 of (the value of (the equilibrium-concentration of It)))))))))
+		      *molar))))
+	       [Compute-Concentration-H-Plus-output-1]
+  )))
+
+  ;; Second way of calculating the concentration.
+  (output ((if ((not (oneof (:set (the raw-material of (the input of Self))
+                            	  (the result of (the input of Self)))
+                  	where
+                  	(((the has-basic-structural-unit of It) isa OH-Minus)
+                   	 and
+                   	 (the1 of (the value of (the equilibrium-concentration of It))))))
+		and
+		(not (oneof (the input-of of 
+				 (the Solution base-of of 
+				      ((the raw-material of
+				       	    (the input of Self))
+				       called "Reactant")))
+                            where
+                            (It isa Compute-pH-for-Solution)))
+                and
+		(oneof (the value of
+                         (the pH of
+                           (the Solution base-of of
+                             ((the raw-material of
+                                (the input of Self))
+                              called "Reactant"))))
+                  where
+                  (numberp (the1 of It))))
+               then
+               (a Concentration-Value with
+                  (value ((:pair 
+                            #'(LAMBDA ()
+                                (EXPT 
+                                  10
+                                  (- 0
+                                     (FIRST 
+                                       (KM0 `(|the1| |of|
+					       (|oneof| (|the| |value| |of|
+							  (|the| |pH| |of|
+							    (|the| |Solution| |base-of| |of|
+							      ((|the| |raw-material| |of|
+							         (|the| |input| |of| |Self|))
+                              				       |called| "Reactant"))))
+                  				  |where|
+						  (|numberp| (|the1| |of| |It|))))))
+				  )))
+                            *molar)))
+               )
+               [Compute-Concentration-H-Plus-output-2]
+  )))
+
+  ;; The third way of computing [H+]. If it's a strong acid,
+  ;; then [H+] = [Acid]. 
+  (output ((if ((not (oneof (:set (the raw-material of (the input of Self))
+                            	  (the result of (the input of Self)))
+                  	where
+                  	(((the has-basic-structural-unit of It) isa OH-Minus)
+                   	 and
+                   	 (the1 of (the value of (the equilibrium-concentration of It))))))
+		and
+		((oneof (the input-of of 
+			     (the Solution base-of of 
+				  ((the raw-material of
+				       	(the input of Self))
+				   called "Reactant")))
+                        where
+                        (It isa Compute-pH-for-Solution))
+                 or
+		 (not (oneof (the value of
+                               (the pH of
+                           	 (the Solution base-of of
+                             	   ((the raw-material of
+                                      (the input of Self))
+                              	    called "Reactant"))))
+                  	where
+                  	(numberp (the1 of It))))
+                )
+		and
+		((the1 of (the value of 
+		       (the intensity of	
+		    	    (the Acid-Role plays of
+		     		 ((the raw-material of (the input of Self))
+		      		  called "Reactant")))))
+		 =
+		 *strong)
+		and
+		(the1 of (the value of 
+		      (the concentration of 
+			   ((the raw-material of (the input of Self))
+			    called "Reactant")))))
+		then
+		(a Concentration-Value with
+		   (value ((the value of 
+				(the concentration of 
+				     ((the raw-material of
+					   (the input of Self))
+				      called "Reactant")))
+			  )))
+		[Compute-Concentration-H-Plus-output-3]
+  )))
+
+  ;; Encodes rule 5, 6.1, and 6.2 for calculating [H+].
+  (output ((if ((not (oneof (:set (the raw-material of (the input of Self))
+                            	  (the result of (the input of Self)))
+                  	where
+                  	(((the has-basic-structural-unit of It) isa OH-Minus)
+                   	 and
+                   	 (the1 of (the value of (the equilibrium-concentration of It))))))
+		and
+		((oneof (the input-of of 
+			     (the Solution base-of of 
+				  ((the raw-material of
+				       	(the input of Self))
+				   called "Reactant")))
+                        where
+                        (It isa Compute-pH-for-Solution))
+                 or
+		 (not (oneof (the value of
+                               (the pH of
+                           	 (the Solution base-of of
+                             	   ((the raw-material of
+                                      (the input of Self))
+                              	    called "Reactant"))))
+                  	where
+                  	(numberp (the1 of It))))
+                )
+		and
+		(((((the raw-material of (the input of Self)) called "Reactant") isa Monoprotic-Acid)
+		  and
+		  ((the1 of 
+		    (the value of 
+		     (the intensity of
+		      (the Acid-Role plays of 
+		       ((the raw-material of (the input of Self)) called "Reactant")))))
+		   /= *strong))
+		 or
+		 (((the raw-material of (the input of Self)) called "Reactant") isa Polyprotic-Acid)))
+	       then
+	       (a Concentration-Value with
+                  (value ((:pair (the output of 
+                                      (a Compute-Concentration-Change-Constant with
+                                         (input ((the input of Self)))))
+                                 *molar))))
+            [Compute-Concentration-H-Plus-output-5]
+  )))
+
+)
+
+(comment [Compute-Concentration-H-Plus-output-1]
+  (:seq "Therefore, [H+] = (10^-14)/" "nospace"
+        (the1 of
+              (the value of
+                   (the equilibrium-concentration of
+                        (oneof (:set (the raw-material of (the input of Self))
+                                     (the result of (the input of Self)))
+                               where
+                                 (((the has-basic-structural-unit of It) isa OH-Minus)
+                                  and
+                                  (the1 of (the value of (the equilibrium-concentration of It)))))))
+        )
+        "="
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  "Since [OH-] is known, [H+] = (10^-14)/[OH-]"
+)
+
+(comment [Compute-Concentration-H-Plus-output-2]
+  (:seq "Therefore, [H+] = 10^(" "nospace"
+        (0 - (the1 of 
+	       (oneof (the value of
+                        (the pH of
+                          (the Solution base-of of
+                            ((the raw-material of
+                               (the input of Self))
+                             called "Reactant"))))
+                 where
+                 (numberp (the1 of It))))
+        )
+        "nospace" ") =" 
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  "Since the pH is known, [H+] = 10^(-pH)"
+)
+
+(comment [Compute-Concentration-H-Plus-output-3]
+  (:seq (the text-gen of ((the raw-material of (the input of Self)) called "Reactant"))
+        "is a strong acid, so [H+] ="
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  "For strong acids, the concentration of H+ is equal to the concentration of acid"
+  (:triple ((the raw-material of (the input of Self)) called "Reactant")
+           equilibrium-concentration
+           *
+  )
+)
+
+(comment [Compute-Concentration-H-Plus-output-5]
+  (:seq "Therefore, [H+] ="
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  "[H+] must be computed"
+  (:triple (a Compute-Concentration-Change-Constant with
+              (input ((the input of Self)))
+           )
+           output
+           *
+  )
+)
+

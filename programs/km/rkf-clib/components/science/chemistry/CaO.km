@@ -1,0 +1,14 @@
+;;
+;; $Id: CaO.km,v 1.1 2003/04/22 05:21:58 jchaw Exp $
+;;
+
+(CaO has (superclasses (Ionic-Compound)))
+
+(every CaO has	
+       (has-part 
+	((a Ca-Plus-2) (a O-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Ca-Plus-2)
+			 (:pair 1 O-Minus-2)))))))
+)

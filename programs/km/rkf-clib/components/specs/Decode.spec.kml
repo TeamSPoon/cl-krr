@@ -1,0 +1,44 @@
+<!--- $Id: Decode.spec.kml,v 1.3 2003/09/10 20:39:55 jchaw Exp $ --->
+<kml>
+
+<concept name=Decode><system-documentation name=Decode>
+<superconcept name=Create>
+
+<definition>
+
+  The <slot>agent</slot> entity decodes a <conceptref name=Message> to <conceptref name=Information>.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     <conceptref name=Message> being decoded.
+  </slotdescription>
+
+  <slotdescription name=agent>
+    The <conceptref name=Entity> that does the Decoding.
+  </slotdescription>
+
+</requiredslotlist>
+
+<comment>
+   The Information results in a Be-Known State to the agent doing the interpreting.
+</comment>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>The sysadmin reads an email stating that the phones are down. </text>
+    <slotdescription name=agent>sysadmin</slotdescription>
+    <slotdescription name=object>email</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+  <neighbor name=Create>
+    Create involves the creation of a new entity, while Decode involves the creation
+    of <conceptref name=Information> from a <conceptref name=Message>.
+  </neighbor>
+</neighborlist>
+
+</kml>

@@ -1,0 +1,13 @@
+;;
+;; $Id: H3O-Plus-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $
+;;
+
+(H3O-Plus-Substance has (superclasses (Cation-Substance)))
+
+(every H3O-Plus-Substance has
+   (has-basic-structural-unit ((a H3O-Plus)))
+   )
+
+(every H3O-Plus-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a H3O-Plus))))

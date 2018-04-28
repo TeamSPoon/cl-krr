@@ -1,0 +1,63 @@
+;; 
+;;    $Id: Remove.km,v 1.22 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Remove has
+  	(superclasses        (Action))
+        (required-slot 	     (object base))
+	(primary-slot        (agent instrument))
+	(secondary-slot      ())
+	(cmap-correspondence (
+                 	      (:seq agent "the remover")
+			      (:seq object "the part removed.")	
+			      (:seq base "the thing from which the part is being removed")
+                 	      (:seq instrument "instrument of the remove")
+                 	     ))
+      #|(sentence-type      (*punctual *conclusive))|#
+)
+
+
+(every Remove has
+  ;; The agent and the instrument are inheritted from Action.
+  (object 	((a Tangible-Entity)))
+  (base		((a Tangible-Entity)))
+
+  ; SOFT PCS: Both the object and base should be accessible.
+  (soft-pcs-list ((:triple (the base of Self)
+			   object-of
+			   (mustnt-be-a Be-Inaccessible))))
+
+  (pcs-list 	((forall (the object of Self)
+		   (:triple It is-part-of (the base of Self) [Remove-pcs-1]))))
+
+  (del-list 	((forall (the object of Self)
+		   (:triple It is-part-of (the base of Self) [Remove-del-1]))))
+)
+
+(comment [Remove-pcs-1] (:seq (the object of Self) " must be part of " (the base of Self))
+	 "Only parts of something can be removed from it.")
+
+(comment [Remove-del-1] (:seq (the object of Self) " is no longer part of " (the base of Self))
+	 "A remove stops something from being a part of something else.")
+
+(every Remove has
+  (text-active-verbseq-sg ("removes"))
+  (text-active-verbseq-pl ("remove"))
+  (text-passive-verbseq-sg ("gets removed"))
+  (text-passive-verbseq-pl ("get removed"))
+
+  (text-base ("from"))
+)
+
+
+
+
+;; automatically added WN synsets
+(Remove has (wn16-synset ((:set  
+                                     (:triple "remove" 1 "v")
+))))
+
+(Remove has (wn20-synset ((:set
+                                     (:triple "remove" 1 "v")
+))))
+(every Remove has (text-nominalization ("removal")))

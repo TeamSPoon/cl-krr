@@ -1,0 +1,71 @@
+;; 
+;;    $Id: Inquire.km,v 1.9 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(Inquire has	
+	(superclasses (Express))	
+	(required-slot (agent object recipient))
+	(primary-slot ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Inquire has	
+	(object ((must-be-a Information with 
+		(plays ((a Question))))))
+	(recipient ((a Tangible-Entity)))
+)
+
+(every Inquire has-definition
+	(instance-of (Express))
+	(object ((a Information with (plays ((a Question)))))))
+
+;;The text gen is not so pretty right now
+;;(every Inquire has  
+;;  (text-active-verbseq-sg ("Inquires"))
+;;  (text-active-verbseq-pl ("Inquire"))
+;;  (text-recipient ((if (has-value (the recipient of Self))
+;;                    then ("to"))))
+;;  (text-argslots ((:seq agent recipient object)))
+;;)
+	
+
+(Inquire has
+	(test-case ('(
+                 (*santa has
+ 			(instance-of (Tangible-Entity)))
+                 (*little-timmy has
+ 			(instance-of (Tangible-Entity)))
+ 		 (*question has
+ 			(instance-of (Information))
+			(information-content ("Why does god kill puppies and grandmas?"))
+		 )
+                 (*inquires has
+                        (instance-of (Inquire))
+                        (agent (*little-timmy))
+                        (recipient (*santa))
+                        (object (*question)))
+                 (do-and-next *inquires)
+		 (the text-gen of (thelast Inquire))
+		 ((the plays of (the object of (thelast Inquire))) isa Question)
+		((the experiencer of (thelast Be-Known)) = *little-timmy)
+))))
+
+
+
+;; automatically added WN synsets
+(Inquire has (wn16-synset ((:set  
+                                      (:triple "inquire" 1 "v")
+                                      (:triple "ask" 1 "v")
+                                      (:triple "ask" 3 "v")
+                                      (:triple "ask" 7 "v")
+                                      (:triple "enquire" 1 "v")
+))))
+
+(Inquire has (wn20-synset ((:set
+                                      (:triple "inquire" 1 "v")
+                                      (:triple "ask" 1 "v")
+                                      (:triple "ask" 3 "v")
+                                      (:triple "ask" 6 "v")
+                                      (:triple "enquire" 1 "v")
+))))
+(every Inquire has (text-nominalization ("inquiry")))

@@ -1,0 +1,14 @@
+;;
+;; $Id: BaSO4.km,v 1.1 2003/03/30 23:36:13 jchaw Exp $
+;;
+
+(BaSO4 has (superclasses (Ionic-Compound)))
+
+(every BaSO4 has	
+       (has-part 
+	((a Ba-Plus-2) (a SO4-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Ba-Plus-2)
+			 (:pair 1 SO4-Minus-2)))))))
+       )

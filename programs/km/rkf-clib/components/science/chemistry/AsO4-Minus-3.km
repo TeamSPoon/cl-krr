@@ -1,0 +1,10 @@
+;; $Id: AsO4-Minus-3.km,v 1.2 2003/02/22 16:23:53 jchaw Exp $ 
+(AsO4-Minus-3 has (superclasses (Anion)))
+(every AsO4-Minus-3 has
+	(charge ((a Charge-Value with
+		(value ((:pair -3 *electronic-charge))))))
+	(has-chemical-name ("Arsenate"))
+	(has-acid-name ("Arsenic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 As)(:pair 4 O)))))))
+)

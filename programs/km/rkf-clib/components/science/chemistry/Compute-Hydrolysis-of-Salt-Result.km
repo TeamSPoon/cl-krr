@@ -1,0 +1,118 @@
+;;
+;; $Id: Compute-Hydrolysis-of-Salt-Result.km,v 1.4 2005/09/03 13:56:28 jfan Exp $
+;;
+
+(Compute-Hydrolysis-of-Salt-Result has (superclasses (Method)))
+
+;;
+;; NOTE: Changed encoding again. Only special cases are handled separately.
+;;
+(every Compute-Hydrolysis-of-Salt-Result has
+  (input  ((a Salt-Substance)))
+
+  ;; determine which ion hydrolyzes
+  (output (((?cation-subst == (the Cation-Substance has-part of (the input of Self))) and
+	    (?anion-subst == (the Anion-Substance has-part of (the input of Self))) and
+	    ;; if the input is not in a solution, add it to one
+	    (?salt-solution == (the+ Salt-Solution base-of of (the input of Self))) and
+	    (?pH == (the pH of ?salt-solution)) and
+	    (?cation-hbsu == (the has-basic-structural-unit of ?cation-subst)) and
+	    (?cation-hbsu-chf ==  (the has-chemical-formula of ?cation-hbsu)) and
+	    (if ((the input of (the output-of of ?pH)) includes ?cation-subst)
+		then
+	      ;; Cation hydrolyses
+	      (if (((has-value ?cation-hbsu-chf) and
+		    (?cation-elem == (an instance of 
+					 (the2 of (the1 of (the term of ?cation-hbsu-chf))))) and 
+                   ((the number of (the elements of (the term of ?cation-hbsu-chf))) = 1) and 
+		   (?cation-elem isa Metal-Atom)))
+		  
+		  ;; - metal cation
+		  ;; Cy+ + Ax- + H2O <=> C(OH)y + Ax- + H+
+		  then (:set (a Ionic-Substance with
+				(has-part (?cation-subst (a Chemical with (has-basic-structural-unit ((a Chemical with (has-basic-structural-unit ((a OH-Minus))))))))))
+			     ?anion-subst
+			     (a Chemical with
+				(has-basic-structural-unit ((a H-Plus)))))
+		  ;; - polyatomic cation conataining H+
+		  ;; CH+ + Ax- + H2O <=> CH + Ax- + H3O+
+		  else (if (((the number of (the elements of (the term of ?cation-hbsu-chf))) > 1) and
+			    ;; contains protons 
+			    (oneof (the elements of (the term of ?cation-hbsu-chf))
+				   where
+				   (((the2 of It) = H) and (the1 of It) >= 1)))
+			   then (:set 
+				 ;; CH+ -> CH 
+				 (the complement of 
+				      (a Conjugate-Acid-Base-Pair with
+					 (element (?cation-subst))))
+				 ?anion-subst
+				 (a Cation-Substance with
+				    (has-basic-structural-unit ((a H3O-Plus)))))))
+	    
+	      else (if ((the input of (the output-of of ?pH)) includes ?anion-subst)
+		       ;; Anion hydrolyzes
+		       then (:set ?cation-substance
+				  (a Acid with
+				     (has-basic-structural-unit 
+				      ((a Ionic-Compound with
+					  (has-part ((a H-Plus) 
+						     (the has-basic-structural-unit of
+							  ?anion-subst)))))))
+				  (a Chemical with
+				     (has-basic-structural-unit ((a OH-Minus)))))
+		       ))))))
+
+(Compute-Hydrolysis-of-Salt-Result has
+    (test-case ( '(
+		   ;; Anion hydrolyzes
+		   ;; NaClO + H2O <=> Na+ + HClO + OH-
+		   (*H1 has 
+			 (instance-of (Compute-Hydrolysis-of-Salt-Result))
+			 (input ((a Chemical with
+				    (has-basic-structural-unit 
+				     ((a Salt with
+					 (nested-atomic-chemical-formula
+					  ((a Chemical-Formula with
+					      (term ((:seq (:pair 1 Na) (:pair 1 Cl) (:pair 1 O))))))))))))))
+
+		   (oneof (the output of *H1)
+			   where ((the has-basic-structural-unit of It) isa OH-Minus))
+		   (oneof (the output of *H1)
+			   where ((the has-basic-structural-unit of It) isa Na-Plus))
+		   (oneof (the output of *H1)
+			  where (It isa Acid))
+
+		   ;; polyatomic cation hydrolyzes
+		   ;; CH3NH3Cl + H2O <=> CH3NH2 + Cl- + H3O+
+		   (*H2 has 
+			 (instance-of (Compute-Hydrolysis-of-Salt-Result))
+			 (input ((a Chemical with
+				    (has-basic-structural-unit 
+				     ((a Salt with
+					 (nested-atomic-chemical-formula
+					  ((a Chemical-Formula with
+					(term ((:seq (:pair 1 C) (:pair 3 H) (:pair 1 N) 
+						     (:pair 3 H) (:pair 1 Cl))))))))))))))
+		   (oneof (the output of *H2)
+			   where ((the has-basic-structural-unit of It) isa H3O-Plus))
+		   (oneof (the output of *H2)
+			   where ((the has-basic-structural-unit of It) isa Cl-Minus))
+		   (oneof (the output of *H2)
+			  where (It isa CH3NH2-Substance))
+
+		   ;; monoatomic metalic cation hydrolyzes
+		   ;; TODO - find example of metallic cation that hydrolyzes
+		   (*H3 has
+			(instance-of (Compute-Hydrolysis-of-Salt-Result))
+			(input ((a Chemical with
+				   (has-basic-structural-unit 
+				    ((a Ionic-Compound with
+					(nested-atomic-chemical-formula 
+					 ((a Chemical-Formula with
+					     (term ((:seq
+						     (:pair 1 Fe) (:pair 3 (:seq (:pair 1 N) (:pair 3 O)))
+						     )))))))))))))
+
+		   ))))
+		   

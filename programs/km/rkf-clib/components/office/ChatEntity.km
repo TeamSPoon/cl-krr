@@ -1,0 +1,43 @@
+ ;;
+;;    $Id: ChatEntity.km,v 1.7 2005/02/22 21:18:23 jchaw Exp $
+;;
+
+(ChatEntity has
+	    (superclasses (Participant))
+	    (required-slot ())
+	    (primary-slot ())
+	    (secondary-slot ())
+	    (cmap-correspondence ())
+	    (test-case ()))
+
+(every ChatEntity has
+       (hasNickname  ((a String)))
+       (hasRealName ((a String)))
+       (isChatEntityOf ((a Thing)))
+       ;(isChatPathOf ((a ChatElement)))
+       ;(isFromChatEntityOf ((a ChatElement)))
+       ;(isOnBehalfOf ((a ChatElement)))
+       ;(isThemOf ((a ChatSession)))
+       ;(isToChatEntityOf ((a ChatElement)))
+       ;(isUsOf ((a ChatSession)))
+       )
+
+(hasNickname has (instance-of (Interface-Slot)) (domain (ChatEntity)) (range (String)) (cardinality (N-to-N)))
+(hasRealName has (instance-of (Interface-Slot)) (domain (ChatEntity)) (range (String)) (cardinality (N-to-N)))
+(isChatEntityOf has (instance-of (Interface-Slot)) (domain (ChatEntity)) #|(range (Thing))|# (cardinality (N-to-N)) (inverse (hasChatEntity)))
+
+(isToChatEntityOf has (instance-of (Interface-Slot)) (domain (ChatEntity)) (range (ChatElement)) (cardinality (N-to-N))(inverse (hasToChatEntity)))
+
+#|
+
+(isUsOf has (instance-of (Interface-Slot)) (domain (ChatEntity)) (range (ChatSession)) (cardinality (N-to-N)))
+
+(isThemOf has (instance-of (Interface-Slot)) (domain (ChatEntity)) (range (ChatSession)) (cardinality (N-to-N)))
+
+(isOnBehalfOf has  (instance-of (Interface-Slot))  (domain (ChatEntity)) (range (ChatElement)) (cardinality (N-to-N)))
+
+(isFromChatEntityOf has  (instance-of (Interface-Slot))  (domain (ChatEntity))  (range (ChatElement))  (cardinality (N-to-N)))
+
+(isChatPathOf has  (instance-of (Interface-Slot))  (domain (ChatEntity))   (range (ChatElement))  (cardinality (N-to-N)))
+|#
+

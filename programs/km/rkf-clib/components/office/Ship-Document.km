@@ -1,0 +1,30 @@
+;;
+;; $Id: Ship-Document.km,v 1.2 2003/09/12 14:31:09 kbarker Exp $
+;;
+
+(Ship-Document has
+  (superclasses (Action))
+  (description ("To edit, print and send a document"))
+)
+
+(every Ship-Document has
+  (object ((a Document)))
+
+  (first-subevent ((the Edit subevent of Self)))
+
+  (subevent ((a Edit with
+                (object ((the object of Self)))
+                (next-event ((the Print subevent of Self)))
+             )
+             (a Print with
+                (object ((the object of Self)))
+                (instrument ((a Printer)))
+                (next-event ((the Send subevent of Self)))
+             )
+             (a Send with
+                (object ((the result of (the Print subevent of Self))))
+                (recipient ((the recipient of Self)))
+             )
+  ))
+)
+

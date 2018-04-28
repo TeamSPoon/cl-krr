@@ -1,0 +1,13 @@
+;; 
+;; $Id: Communicate.km,v 1.2 2005/01/21 19:41:53 billj Exp $
+;; 
+
+;; NB: Basic information about the Communicate class is defined in
+;; NB: the core directory. This file contains only office-specific
+;; NB: "interface" info
+
+
+(hasAntecedent has (instance-of (Interface-Slot)) (domain (Communicate)) (range (Communicate)) (inverse (isAntecedentOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasInformationState has (instance-of (Interface-Slot)) (domain (Communicate)) (range (TD-InformationState)) (inverse (isInformationStateOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+
+

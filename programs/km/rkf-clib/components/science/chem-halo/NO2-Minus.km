@@ -1,0 +1,19 @@
+;; $Id: NO2-Minus.km,v 1.7 2008/05/15 17:55:38 kunal Exp $ 
+(NO2-Minus has (superclasses (Anion)))
+(every NO2-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("nitrite"))
+	(has-acid-name ("nitrous"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 N)(:pair 2 O)))))))
+)
+
+
+
+(every NO2-Minus has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("nitrite"))
+)
+
+(NO2-Minus has (wn20-synset ((:triple "NO2-" 0 "n") (:triple "NO_2-" 0 "n"))))

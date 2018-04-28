@@ -1,0 +1,89 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Ionic-Compound-Substance951
+
+
+|#
+
+(disable-classification)
+
+(Ionic-Compound-Substance has (superclasses (Chemical)))
+
+(every Ionic-Compound-Substance has (has-part ((a Cation-Substance with (has-basic-structural-unit ((the Cation has-part of (the has-basic-structural-unit of Self))))) (a Anion-Substance with (has-basic-structural-unit ((the Anion has-part of (the has-basic-structural-unit of Self))))))))
+
+(_Ionic-Compound-Substance1183 has
+  (prototype-of (Ionic-Compound-Substance))
+  (prototype-scope (Ionic-Compound-Substance))
+  (prototype-participants (_Chemical-Entity975 _Solubility-Value1184 _Ionic-Compound-Substance1183)))
+
+(_Ionic-Compound-Substance1183 has
+  (instance-of (Ionic-Compound-Substance))
+  (has-basic-structural-unit (_Chemical-Entity975))
+  (solubility (_Solubility-Value1184)))
+
+(_Solubility-Value1184 has (instance-of (Solubility-Value)))
+
+(_Chemical-Entity975 has (instance-of (Ionic-Compound)))
+
+(Nitrate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Acetate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Chloride-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Bromide-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Iodide-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Sulfate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Sulfide-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Carbonate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Phosphate-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(Hydroxide-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Nitrate-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(every Acetate-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(every Chloride-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(every Bromide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(every Iodide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(every Sulfate-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(every Sulfide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(every Carbonate-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(every Phosphate-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(every Hydroxide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(enable-classification)
+
+(explanation (:triple _Ionic-Compound-Substance1183 has-basic-structural-unit _Chemical-Entity975) (((@ SME entered)) (every Ionic-Compound-Substance has (has-basic-structural-unit ((the first of (the is-part-of of (the first of (the has-basic-structural-unit of (the first of (the has-part of Self)))))))))))
+
+(explanation (:triple _Ionic-Compound-Substance1183 instance-of Ionic-Compound-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value1184 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity975 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Ionic-Compound-Substance has (has-basic-structural-unit ((the first of (the is-part-of of (the first of (the has-basic-structural-unit of (the first of (the has-part of Self)))))))))
+
+|#
+
+|#
+

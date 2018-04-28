@@ -1,0 +1,288 @@
+;; 
+;;    $Id: Role.km,v 1.18 2010/05/18 14:58:30 kbarker Exp $ 
+;; 
+
+;; partial role implementation
+(Role has (superclasses (Thing)))
+;;(Role has (superclasses (Tangible-Entity)))
+#|(a Partition with
+   (members (Role Entity)))
+|#
+
+
+(every Role has
+        ;; this code for identifier is repeated in Event and Entity
+        (identifier ((forall (the called of Self)
+                      (a Text-Field with (information-content (It))))))
+        (identifier ((forall (the uniquely-called of Self)
+                      (a Text-Field with (information-content (It))))))
+
+       ;; this is an approximation to finding the most specific of the
+       ;; instance's classes (it just finds one class that doesn't subsume
+       ;; any of the others)
+        (name ((if (anonymous-instancep Self) then
+                   (oneof ?c1 in (the classes of Self) where
+                          (not (oneof ?c2 in (the classes of Self) where 
+                               ((?c1 /= ?c2) and (?c1 subsumes ?c2))))))))
+
+;=================================
+
+        (text-gen ((make-phrase (the text-phrase of Self))))
+        (text-description ((the text-sentence of Self)))
+
+        (text-head ((if (anonymous-instancep Self) then
+                        (:seq Self
+                              (if (has-value (the uniquely-called of Self))
+                               then (:seq "(called" 
+                                          (the uniquely-called of Self) ")"
+                                    )
+                               else (if (has-value (the called of Self))
+                                     then (:seq "(called" 
+                                                (the called of Self) ")"
+                                          )
+                                    )
+                              )
+                        )
+                     else
+                        (the name of Self)
+        )))
+
+;; text-gen of Events needs to have control over whether NPs in clauses
+;; are def or indef; but only the Role knows how to form its NP
+        (text-def-determiner (
+           (if (anonymous-instancep Self) then
+;               (if (has-value (the is-possessed-by of Self)) then
+;                   (:seq (the text-def-head of (the is-possessed-by of Self))
+;                         "'s")
+;                else
+                   (:seq "the")
+;                )
+        )))
+        (text-indef-determiner (   ;; may get some u words wrong (eg. "utility")
+          (if (anonymous-instancep Self)
+           then (if ((:set "A" "E" "I" "O" "U" "a" "e" "i" "o" "u")
+                     includes
+                     (#'(LAMBDA () (STRING (CHAR (KM-UNIQUE0 '(|make-phrase| (:|seq| (|the| |text-premods| |of| |Self|)
+                                                                                   (|the| |text-head| |of| |Self|)))) 0))))
+                    )
+                 then (:seq "an")
+                 else (:seq "a")
+                )
+          )
+        ))
+
+        (text-def-head ((:seq (the text-def-determiner of Self)
+                              (the text-head of Self))))
+        (text-indef-head ((:seq (the text-indef-determiner of Self)
+                                  (the text-head of Self))))
+
+        (text-is-above    ("above"))
+        (text-is-along    ("along"))
+        (text-is-between  ("between"))
+        (text-is-behind   ("behind"))
+        (text-is-opposite ("opposite"))
+        (text-is-outside  ("outside")) 
+        (text-is-over     ("over"))
+        (text-is-beside   ("beside"))
+        (text-is-near     ("near"))
+        (text-is-at       ("at"))
+        (text-is-on       ("on"))
+        (text-site-of     ("site of"))
+        (text-abuts       ("abutting"))
+        (text-is-inside   ("inside"))
+        (text-is-part-of  ("part of"))
+        (text-has-part    ("made up of"))
+        (text-material    ("made of"))
+        (text-content     ("containing"))
+        (text-result-of       ("result of"))
+        (text-raw-material-of ("raw material of"))
+        (text-agent-of    ("agent of"))
+
+        (text-is-north-of     ("north of"))
+        (text-is-northeast-of ("northeast of"))
+        (text-is-east-of      ("east of"))
+        (text-is-southeast-of ("southeast of"))
+        (text-is-south-of     ("south of"))
+        (text-is-southwest-of ("southwest of"))
+        (text-is-west-of      ("west of"))
+        (text-is-northwest-of ("northwest of"))
+
+        (text-premodslots ((:seq area length height thickness volume size 
+                                 capacity depth mass density temperature 
+                                 wetness brightness breakability consistency 
+                                 shape smell taste texture trait
+                                 age color physical-state sex))
+        )
+
+        (text-premods (
+           (if (has-value (the text-premodslots of Self))
+            then
+              (forall-seq (the text-premodslots of Self)
+                    where (has-value (the It of Self))
+                          (if (It isa Property) 
+                           then
+                              (if (has-value (the value of (the It of Self)))
+                               then (the text-phrase of (the It of Self)))
+                           else
+                              (the text-head of (the It of Self)))
+        ))))
+ 
+        (text-postmodslots ((:seq material content 
+                                  is-above is-along is-between is-behind is-opposite 
+                                  is-outside is-over is-beside 
+                                  is-at is-on site-of abuts is-inside
+                                  is-north-of is-northeast-of is-east-of
+                                  is-southeast-of is-south-of is-southwest-of 
+                                  is-west-of is-northwest-of)))
+      
+        (text-postmods (
+           (if (has-value (the text-postmodslots of Self))
+            then
+            (forall-seq (the text-postmodslots of Self)
+                  where (has-value (the It of Self))
+               (:seq (the (the text-slot of It) of Self) 
+                     (andify (the text-def-head of (the It of Self))))
+        ))))
+
+        (text-base-phrase ((if (anonymous-instancep Self) then
+                               (:seq (the text-def-determiner of Self)
+                                     (the text-premods of Self)
+                                     (the text-head of Self))
+                            else 
+                               (:seq (the text-head of Self))
+        )))
+
+        (text-indef-phrase ((:seq (the text-indef-determiner of Self)
+                                  (the text-premods of Self)
+                                  (the text-head of Self)
+        )))
+
+        (text-sentence 
+              ((make-sentence
+                       ((if (has-value (the elements of (the text-postmods of Self)))
+                            then
+                            (:seq (the text-base-phrase of Self)
+                                  "is"
+                                  (andify 
+                                    (the elements of
+                                      (the text-postmods of Self))))
+                         else (if (has-value (the elements of (the text-premods of Self)))
+                                  then
+				  (:seq (the text-def-head of Self)
+				        "is"
+				        (andify 
+                                          (the elements of
+                                            (the text-premods of Self))))
+                               else (if (has-value (the is-possessed-by of Self))
+                                     then
+                                     (:seq (the text-gen of (the is-possessed-by of Self))
+                                           "has"
+                                           (the text-indef-head of Self)
+                                     )
+                                     else (the text-existential-there of Self)
+        )))))))
+
+        (text-existential-there ((make-sentence 
+                                    (:seq "there is"
+                                          (if (anonymous-instancep Self)
+                                           then (the text-indef-head of Self)
+                                           else (:seq (the text-indef-head of
+                                                           (an instance of (oneof (the classes of Self) where t)))
+                                                      "called"
+                                                      (the text-head of Self)
+                                                )
+                                          )
+                                    )
+        )))
+
+        (text-definition-sentence (
+          (make-sentence (:seq (the text-indef-head of Self) 
+                               "is"
+                               ((the elements of
+                                     (andify (forall (the superclasses of (the classes of Self))
+                                                     (the text-indef-head of (an instance of It))))
+                                )
+                                or
+                                "something"
+                               )
+                               (if ((has-value (the elements of (the text-postmods of Self)))
+                                    and
+                                    (oneof (the superclasses of (the classes of Self))
+                                     where ((the elements of (the text-postmods of (an instance of It))) /=
+                                           (the elements of (the text-postmods of Self)))
+                                    )
+                                   )
+                                then
+                                   ((?sup == (oneof (the superclasses of (the classes of Self))
+                                              where ((the elements of (the text-postmods of (an instance of It))) /=
+                                                     (the elements of (the text-postmods of Self))))
+                                    )
+                                    and
+                                    (:seq "that is"
+                                          (andify (allof (the elements of (the text-postmods of Self))
+                                                   where (not ((the elements of 
+                                                                    (the text-postmods of 
+                                                                         (an instance of ?sup))) includes It))))
+                                    )
+                                   )
+                               )
+          ))
+       ))
+
+       (text-phrase ((if (anonymous-instancep Self) then
+                         (:seq (the text-base-phrase of Self)
+                               (the elements of
+                                  (the text-postmods of Self)))
+                      else (the text-base-phrase of Self))))
+)
+
+;=================================
+#|
+        (text-gen ((the text-description of Self)))
+        (text-description ((make-phrase (the text-def-head of Self))))
+
+        (text-head ((the name of Self)))
+
+;; text-gen of Events needs to have control over whether NPs in clauses
+;; are def or indef; but only the Role knows how to form its NP
+        (text-def-head ((if (anonymous-instancep Self) then
+                            (:seq (:seq "the")    ;; to match Entity dets
+                                  (:seq (the text-head of Self) NIL))
+                         else
+                            (the text-head of Self))))
+        (text-indef-head ((if (anonymous-instancep Self) then
+                              (:seq (the text-indef-determiner of Self)
+                                    (:seq (the text-head of Self) NIL))
+                           else
+                              (the text-head of Self))))
+        (text-indef-determiner (
+          (if ((:set "A" "E" "I" "O" "U" "a" "e" "i" "o" "u")
+               includes
+               (#'(LAMBDA () (STRING (CHAR (KM-UNIQUE0 '(|make-phrase| (|the| |text-head| |of| |Self|))) 0))))
+              )
+           then (:seq "an")
+           else (:seq "a")
+        )))
+
+)
+|#
+
+;;same-as constraint does a LISP string-compare when Self and TheValue have valid CLib text-description strings.
+;;returns null otherwise, i.e., they are not "same-as".
+;; (every Role has
+;;        (same-as (
+;;                  (constraint 
+;;                   (#'(LAMBDA () (LET ((DEBUG NIL)
+;;                                       (SELF-STRING (KM-UNIQUE0 
+;;                                                     '(|the| |text-description| |of| |Self|)))
+;;                                       (THEVALUE-STRING 
+;;                                        (KM-UNIQUE0 
+;;                                         '(|the| |text-description| |of| |TheValue|))))
+;;                                      (IF DEBUG (FORMAT T "(doing same-as test between ~a(~s) and ~a(~s).~%"
+;;                                                        '|Self| 
+;;                                                        SELF-STRING
+;;                                                        '|TheValue| 
+;;                                                        THEVALUE-STRING))
+;;                                      (AND (STRINGP SELF-STRING)
+;;                                           (STRINGP THEVALUE-STRING)
+;;                                           (STRING= SELF-STRING THEVALUE-STRING)))))))))

@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Calcium-Sulfide-Substance5213
+
+
+|#
+
+(disable-classification)
+
+(Calcium-Sulfide-Substance has (superclasses (Sulfide-Substance)))
+
+(every Calcium-Sulfide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Calcium-Sulfide-Substance480 has
+  (prototype-of (Calcium-Sulfide-Substance Sulfide-Substance))
+  (prototype-scope (Calcium-Sulfide-Substance (the-class Sulfide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Ca-Plus-2) (a S-Minus-2)))))))))
+  (prototype-participants (_Ca-Plus-486 _S-Minus-487 _Chemical-Entity482 _Calcium-Sulfide-Substance480)))
+
+(_Chemical-Entity482 has (instance-of (Ionic-Compound)) (has-part (_Ca-Plus-486 _S-Minus-487)))
+
+(_Ca-Plus-486 has (instance-of (Ca-Plus-2)))
+
+(_S-Minus-487 has (instance-of (S-Minus-2)))
+
+(_Calcium-Sulfide-Substance480 has (instance-of (Calcium-Sulfide-Substance)) (has-basic-structural-unit (_Chemical-Entity482)))
+
+(enable-classification)
+
+(explanation (:triple _Calcium-Sulfide-Substance480 has-basic-structural-unit _Chemical-Entity482) (((@ SME entered)) (every Calcium-Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity482 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ca-Plus-486 instance-of Ca-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _S-Minus-487 instance-of S-Minus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Calcium-Sulfide-Substance480 instance-of Calcium-Sulfide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Calcium-Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

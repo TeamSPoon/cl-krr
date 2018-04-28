@@ -1,0 +1,17 @@
+;;
+;; $Id: categorical-value.km,v 1.7 2007/04/10 21:29:48 jchaw Exp $
+;;
+
+(categorical-value has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Property-Value))
+  (range (Categorical))
+  (inverse (categorical-value-of))
+  (cardinality (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Inertial-Fluent))
+)
+
+(categorical-value-of has
+   (instance-of (CLIB-Slot-Group)))
+

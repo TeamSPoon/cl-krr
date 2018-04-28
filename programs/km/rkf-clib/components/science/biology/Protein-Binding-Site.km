@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Protein-Binding-Site.km,v 1.3 2001/06/03 06:16:46 souther Exp $ 
+;; 
+
+(Protein-Binding-Site has
+         (superclasses (Binding-Site))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Region on the surface of a protein - typically a
+                        cavity or groove - that is complementary in shape to 
+                        another molecule (the ligand) and therefore can bind it
+                        through the formation of multiple weak (noncovalent)
+                        bonds. Alberts:ECB:G-3."))
+         (test-case ()))
+
+(every Protein-Binding-Site has
+       (location-of ((must-be-a Attach)))
+       ) 
+
+
+

@@ -1,0 +1,47 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Combustion-Reaction8175
+
+
+|#
+
+(disable-classification)
+
+(Combustion-Reaction has (superclasses (Reaction)))
+
+(Combustion-Reaction now-has (user-description ("Combustion reactions are rapid reactions that produce a flame. They usually involve the oxygen from air as a rectant.")))
+
+(_Combustion-Reaction8211 has
+  (prototype-of (Combustion-Reaction Reaction))
+  (prototype-scope (Combustion-Reaction (the-class Reaction with (raw-material ((a O2-Substance) (must-be-a Chemical))))))
+  (prototype-participants (_Tangible-Entity8214 _Chemical8213 _Combustion-Reaction8211)))
+
+(_Combustion-Reaction8211 has (instance-of (Combustion-Reaction)) (raw-material (_Chemical8213 _Tangible-Entity8214 (must-be-a Chemical))))
+
+(_Chemical8213 has (instance-of (O2-Substance)))
+
+(_Tangible-Entity8214 has (instance-of (Chemical)))
+
+(enable-classification)
+
+(explanation (:triple _Combustion-Reaction8211 raw-material _Tangible-Entity8214) (((@ SME entered)) (every Combustion-Reaction has (raw-material ((a O2-Substance) (a Chemical))))))
+
+(explanation (:triple _Combustion-Reaction8211 instance-of Combustion-Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical8213 instance-of O2-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Tangible-Entity8214 instance-of Chemical) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Combustion-Reaction has (raw-material ((a O2-Substance) (a Chemical))))
+(every Combustion-Reaction has (raw-material ((a O2-Substance) (a Chemical))))
+
+|#
+
+|#
+

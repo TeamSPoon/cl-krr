@@ -1,0 +1,61 @@
+;; 
+;;    $Id: Spatial-Entity.km,v 1.6 2009/08/14 01:58:41 jchaw Exp $
+;; 
+
+(Spatial-Entity has
+  (superclasses (Entity))
+  (required-slot ())
+  (primary-slot ())
+  (secondary-slot ())
+  (cmap-correspondence ())
+  (test-case ())
+)
+
+
+(a Partition with (members (Tangible-Entity Place)))
+
+
+(every Spatial-Entity has
+  (location ((must-be-a Place)))
+
+  (is-outside ((must-be-a Spatial-Entity)))
+  (does-not-enclose ((must-be-a Spatial-Entity)))
+  (is-inside ((must-be-a Spatial-Entity)))
+  (encloses ((must-be-a Spatial-Entity)))
+  (abuts ((must-be-a Spatial-Entity) 
+          (excluded-values (Self))))
+  (is-above ((must-be-a Spatial-Entity)))
+  (is-below ((must-be-a Spatial-Entity)))
+  (is-along ((must-be-a Spatial-Entity)))
+  (is-at ((must-be-a Spatial-Entity)))
+  (is-behind ((must-be-a Spatial-Entity)))
+  (is-in-front-of ((must-be-a Spatial-Entity)))
+  (is-on ((must-be-a Spatial-Entity)))
+  (has-on-it ((must-be-a Spatial-Entity)))
+  (is-opposite ((must-be-a Spatial-Entity)))
+  (is-over ((must-be-a Spatial-Entity)))
+  (is-under ((must-be-a Spatial-Entity)))
+
+  (is-near ((must-be-a Spatial-Entity)))
+#|  (is-between ((exactly 2 Spatial-Entity))) |# ;; allergic reaction to biology demo kb. 13Aug09 (req'd for SRI demo) 
+
+
+;; This is how we'd like to encode is-near, but it's causing 
+;; interference. To be revisited.
+#| 
+  (is-near ((:set (the is-near of Self)
+                  (the abuts of Self)
+                  (the is-above of Self) (the is-below of Self)
+                  (the is-along of Self)
+                  (the is-at of Self) (the is-at-of of Self)
+                  (the is-beside of Self)
+                  (the is-between of Self)
+                  (the is-behind of Self) (the is-in-front-of of Self)
+                  (the is-inside of Self) (the encloses of Self)
+                  (the is-on of Self) (the has-on-it of Self)
+                  (the is-opposite of Self)
+                  (the is-outside of Self) (the does-not-enclose of Self)
+                  (the is-over of Self) (the is-under of Self))))
+|#
+)
+

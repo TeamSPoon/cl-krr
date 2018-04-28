@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Ribonuclease.km,v 1.8 2001/05/15 21:20:05 jfan Exp $ 
+;; 
+
+(Ribonuclease has
+         (superclasses (Nuclease))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Enzyme that cleaves RNA.  Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Ribonuclease has
+       (purpose ((a Catalyst with
+                    (in-event ((a Ribonucleic-Acid-Degradation))))))
+       )
+
+
+
+

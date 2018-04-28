@@ -1,0 +1,78 @@
+;; 
+;;    $Id: Make-Request.km,v 1.4 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Make-Request has
+  (superclasses  (Communicate))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Make-Request has
+       (object ((a Request)))
+       (manner ((a Manner-Value with 
+		   (value (*politely)))))
+)
+
+(every Make-Request has-definition
+	(instance-of (Communicate))
+        (object      ((a Request)))
+	(manner      ((a Manner-Value with 
+		    	 (value (*politely))))))
+
+
+(Make-Request has                   
+  (test-case ('( 
+	     	 
+                 (*Ed has 
+			(instance-of (Tangible-Entity)))
+                 (*Lucretia has 
+			(instance-of (Tangible-Entity)))
+		 (*Beer has
+		 	(instance-of (Tangible-Entity)))
+		 	
+		 (*Get-Me-A-Beer has 
+		   	(instance-of (Request))
+		 	(information-content ((a Deliver with
+		 				 (agent (*Lucretia))
+		 				 (object (*Beer))
+		 				 (recipient (*Ed))
+		 ))))
+		
+
+		 ;; Ed asked Lucretia to get him a beer
+                 (*Make-Request has
+                        (instance-of (Make-Request))
+                        (agent (*Ed))
+                        (recipient (*Lucretia))
+                        (object (*Get-Me-A-Beer)))
+                 (do-and-next *Make-Request)
+		 (the text-gen of *Make-Request)
+
+;; there doesn't seem to be any reason to expect the Request to play Instruction Role
+;;		 ((the plays of *Get-Me-A-Beer) isa Instruction)
+
+		 ((the value of (the manner of *Make-Request)) = *politely)
+		 ((the experiencer of (thelast Be-Known)) = *Ed)
+))))
+
+
+;; automatically added WN synsets
+(Make-Request has (wn16-synset ((:set  
+                                      (:triple "request" 1 "v")
+                                      (:triple "request" 2 "v")
+                                      (:triple "request" 3 "v")
+                                      (:triple "bespeak" 2 "v")
+                                      (:triple "call_for" 1 "v")
+                                      (:triple "quest" 5 "v")
+))))
+
+(Make-Request has (wn20-synset ((:set
+                                      (:triple "request" 1 "v")
+                                      (:triple "request" 2 "v")
+                                      (:triple "request" 3 "v")
+                                      (:triple "bespeak" 2 "v")
+                                      (:triple "call_for" 1 "v")
+                                      (:triple "quest" 5 "v")
+))))
+
+(every Make-Request has (text-nominalization ("making")))

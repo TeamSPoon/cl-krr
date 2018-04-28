@@ -1,0 +1,78 @@
+<!--- $Id: Repair.doc.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Repair>
+<superconcept name=Action>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Repair>
+  <definition>return a Broken Tangible-Entity to a condition such that it can serve its function</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>must already exist</restriction>
+    <restriction>is broken</restriction>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Broken> <conceptref name=State></restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is <i>not</i> the <slot>object</slot> of a 
+      <conceptref name=Be-Broken> <conceptref name=State></restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be not Broken</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>used in Repairing the <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=by-means-of>
+    <restriction>an Event necessary to the Repairing of the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>repair#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>bushel#1, doctor#3, furbish_up#1, mend#1, restore#4, touch_on#3
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Strictly, to Repair is to remove the <slot>object</slot> as 
+<slot>object-of</slot> a <conceptref name=Be-Broken> state.
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=repair2>
+  <sense-definition>go to</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNbreak#1><equiv tag=break1></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

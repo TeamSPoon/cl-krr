@@ -1,0 +1,23 @@
+;; 
+;; $Id: identifier.km,v 1.7 2007/04/11 21:23:39 jchaw Exp $
+;; 
+
+;; This slot provides a simple (maybe overly simple) way of associating
+;; any Thing (Entity, Event, Role, etc.) with an identification string
+;; or identification number. The id string/number is not assumed unique.
+ 
+(identifier has
+;  (instance-of (Meronymic-Relation))   ;; change to CLIB-Slot-Group for now
+  (instance-of (CLIB-Slot-Group))       ;; to prevent it showing up in AURA
+  (superslots ())
+  (subslots ())
+  (domain (Thing))
+  (range (Message-Field))
+  (inverse (identifier-of))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+  (cardinality (N-to-N))
+)
+
+(identifier-of has
+   (instance-of (CLIB-Slot-Group)))

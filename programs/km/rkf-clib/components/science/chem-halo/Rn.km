@@ -1,0 +1,14 @@
+;;
+;; $Id: Rn.km,v 1.4 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Rn has (superclasses (Non-Metal-Atom VIIIA-Noble-Gas-Element)))
+(every Rn has
+       (atomic-symbol (Rn))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 86 NIL))))))
+       (chemical-period (6)))
+(every Rn has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("radon"))
+)

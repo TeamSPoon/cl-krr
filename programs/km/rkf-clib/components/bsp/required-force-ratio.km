@@ -1,0 +1,18 @@
+;; 
+;;    $Id: required-force-ratio.km,v 1.5 2002/10/02 13:42:30 kbarker Exp $
+;; 
+
+(required-force-ratio has
+   (instance-of (Property))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Military-Task))    
+   (range       (Required-Force-Ratio-Value))
+   (cardinal-unit-class   (UoM-Unitless))
+   (scalar-constant-class (Required-Force-Ratio-Constant))
+   (inverse 	(required-force-ratio-of))
+   (inherit-with-overrides (t))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+)
+

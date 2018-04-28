@@ -1,0 +1,87 @@
+<!--- $Id: Be-Held.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Be-Held>
+<system-documentation name=Be-Held>
+
+<superconcept name=Be-Obstructed>
+
+<definition>
+	An <slot>object</slot> in a <conceptref name=Be-Held> state
+	can only be <conceptref name=Move>d by the <slot>agent</slot> 
+	of this state.
+  An object is put in this state by <conceptref name=Hold>.
+
+  An object is taken out of this state by <conceptref name=Let-Go-Of>.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+    	the thing that is held. It cannot be <conceptref name=Move>d unless
+	done by the <slot>agent</slot>  
+  </slotdescription>
+
+  <slotdescription name=agent>
+     	the thing that is <concepref name=Hold>ing the <slot>object</slot>. 
+	Only it can move the <slot>object</slot>
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John is holding the book.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the book</slotdescription>
+  </examplesentence>
+  <comment>
+     Here the book is in a Be-Held state, since no one else can move it, but John.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Be-Obstructed>
+	<conceptref name=Be-Obstructed> is more general, preventing all movements.
+  </neighbor>
+  <neighbor name=Be-Confined>
+	<conceptref name=Be-Confined> restricts the movement of the 
+	<slot>object</slot> out of a certain enclosure.
+  </neighbor>
+  <neighbor name=Be-Contained>
+	An <slot>object</slot> is contained in a container.
+	It can <conceptref name=Move-Out> of it at any time.
+  </neighbor>
+  <neighbor name=Be-Restrained>
+	The <slot>object</slot> of a <conceptref name=Be-Restrained>
+	state is unable to <conceptref name=Move>.
+  </neighbor>
+  <neighbor name=Be-Shut-Out>
+	The <slot>object</slot> of a <conceptref name=Be-Shut-Out>
+	is unable to <conceptref name=Move-Into> an enclosure.
+  </neighbor>
+  <neighbor name=Be-Supported>
+	The <slot>object</slot> of a <conceptref name=Be-Supported>
+	is prevented from <conceptref name=Fall>ing.
+  </neighbor>
+</neighborlist>
+
+<comment>
+Unlike the other <conceptref name=Be-Obstructed> states, Be-Held has
+an <slot>agent</slot>. Any <conceptref name=Move> of an <slot>object</slot>
+in a Be-Held state must be done by the <slot>agent</slot> of the
+Be-Held and only this <slot>agent</slot> can <conceptref name=Let-Go-Of> 
+the <slot>object</slot>.<p>
+
+<conceptref name=Let-Go-Of> takes an <slot>object</slot> out of a Be-Held
+state. <conceptref name=Hold> puts the <slot>object</slot> into the
+Be-Held state. 
+</comment>
+
+</kml>
+
+

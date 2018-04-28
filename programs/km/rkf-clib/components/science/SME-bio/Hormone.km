@@ -1,0 +1,83 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Hormone ----------
+
+(Hormone has (superclasses (Protein)))
+
+(_Hormone161 has 
+  (instance-of (Hormone))
+  (prototype-of (Hormone))
+  (prototype-scope (Hormone))
+  (prototype-participants (_Amino-Acid7235
+                           _Hormone161
+                           _Polymer186
+                           _Atom188))
+  (prototype-participant-of (_Hormone161))
+  (has-clones (_Placeholder-Class160166
+               _Hormone3612))
+  (has-built-clones (_Placeholder-Class160166
+                     _Hormone3612))
+  (has-basic-structural-unit (_Atom188
+                              _Amino-Acid7235))
+  (has-part (_Polymer186))
+  (cloned-from (_Protein305))
+  (clone-built-from (_Protein305))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom188 t)
+                    (:seq has-part _Polymer186 t)
+                    (:seq has-basic-structural-unit _Amino-Acid7235 t)))
+  (edge-coordinate ((:seq has-part _Polymer186 204 583)
+                    (:seq has-basic-structural-unit _Atom188 204 627)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Amino-Acid7235 has 
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing3613))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Hormone161))
+  (prototype-participant-of (_Hormone161)))
+
+(_Polymer186 has 
+  (prototype-participant-of (_Hormone161))
+  (is-part-of (_Hormone161))
+  (instance-of (Polymer))
+  (has-clones (_Polymer178
+               _Polymer3611))
+  (cloned-from (_Polymer308))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 354 577))))
+
+(_Atom188 has 
+  (prototype-participant-of (_Hormone161))
+  (is-basic-structural-unit-of (_Hormone161))
+  (instance-of (Atom))
+  (has-clones (_Atom177
+               _Atom3610))
+  (cloned-from (_Atom309))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 354 621))))
+
+(explanation (:triple _Hormone161 has-basic-structural-unit _Amino-Acid7235) ((cloned-from _Protein305 _Hormone161)))
+(explanation (:triple _Hormone161 has-part _Polymer186) ((added-at Protein "User defined")))
+(explanation (:triple _Hormone161 has-basic-structural-unit _Atom188) ((a Atom (@ _Hormone161 Molecule has-basic-structural-unit))))
+(explanation (:triple _Hormone161 instance-of Protein) ((a Protein)))
+(explanation (:triple _Hormone161 has-part _Polymer186) ((cloned-from _Protein305 _Hormone161)))
+(explanation (:triple _Hormone161 has-basic-structural-unit _Atom188) ((cloned-from _Protein305 _Hormone161)))
+(explanation (:triple _Amino-Acid7235 instance-of Amino-Acid) ((cloned-from _Protein305 _Hormone161)))
+(explanation (:triple _Polymer186 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer186 instance-of Polymer) ((cloned-from _Protein305 _Hormone161)))
+(explanation (:triple _Polymer186 is-part-of _Hormone161) ((cloned-from _Protein305 _Hormone161)))
+(explanation (:triple _Atom188 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom188 instance-of Atom) ((a Atom (@ _Hormone161 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom188 instance-of Atom) ((cloned-from _Protein305 _Hormone161)))
+(explanation (:triple _Atom188 is-basic-structural-unit-of _Hormone161) ((cloned-from _Protein305 _Hormone161)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

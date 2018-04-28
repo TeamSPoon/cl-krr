@@ -1,0 +1,18 @@
+;;
+;; $Id: Cu_OH_2.km,v 1.1 2006/01/30 23:02:25 jfan Exp $
+;;
+
+(Cu_OH_2 has (superclasses (Ionic-Compound)))
+
+(every Cu_OH_2 has	
+       (has-chemical-name ("copper hydroxide"))
+       (has-part 
+	((a Cu-Plus-2) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Cu-Plus-2)
+			 (:pair 2 OH-Minus)))))))
+)(every Cu_OH_2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Cu-Plus-2) (a OH-Minus))))
+

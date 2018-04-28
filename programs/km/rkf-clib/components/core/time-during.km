@@ -1,0 +1,19 @@
+;; 
+;;    $Id: time-during.km,v 1.8 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(time-during has
+       (instance-of (Temporal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Event Situation))
+       (range (Time-Interval))
+       (inverse (time-contains))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (cardinality (N-to-1)))
+
+(time-during has (text-gloss ("occurs during")))
+
+(time-contains has
+	(instance-of (Temporal-Relation)))

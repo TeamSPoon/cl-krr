@@ -1,0 +1,15 @@
+;; 
+;;  $Id: pkb.km,v 1.1 2003/02/21 06:49:08 pzyeh Exp $
+;; 
+
+(pkb has
+  (instance-of 		  (Property))
+  (domain      		  (Hydrolysis Base-Role Chemical))
+  (range       		  (PKb-Value))
+  (cardinal-unit-class    (UoM-Unitless))
+  (fluent-status 	  (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (inverse     		  (pkb-of))
+  (cardinality 		  (N-to-1))
+)
+

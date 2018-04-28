@@ -1,0 +1,28 @@
+;;
+;; $Id: final-x-speed.km,v 1.4 2008/07/25 17:52:38 kbarker Exp $
+;;
+
+(final-x-speed has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Move))
+  (range (Speed-Value))
+  (scale-class (Velocity-Scale))
+  (scalar-constant-class (Velocity-Constant))
+  (cardinal-unit-class (UoM-Speed))
+  (inverse (final-x-speed-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(final-x-speed has (wn20-synset ((:set 
+				     (:triple "final x speed" 0 "n")
+;				     (:triple "final x velocity" 0 "n")
+				     (:triple "final horizontal speed" 0 "n")
+;				     (:triple "final horizontal velocity" 0 "n")
+))))
+
+(final-x-speed-of has (instance-of (EventProperty)))
+(final-x-speed has (name ("final horizontal speed")))

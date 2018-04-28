@@ -1,0 +1,389 @@
+<html>
+
+<!--=======================================================================-->
+
+<head>
+  <title>A Brief Introduction to Dynamic Logic Programming</title>
+</head>
+
+<!--=======================================================================-->
+
+<body>
+  <center>
+    <table width='640'>
+      <tr>
+        <td>
+
+<!--=======================================================================-->
+
+  <center>
+    <br/>
+    <table width='100%' height='60' cellspacing='1' cellpadding='0'>
+      <tr>
+        <td style='font-size:24pt;text-align:center'>
+          A Brief Introduction to<br/>
+          <span style='font-size:28pt'>Dynamic Logic Programming</span><br/><br/>
+        </td>
+      </tr>
+      <tr>
+        <td style='font-size:16pt;text-align:center'>
+          Michael Genesereth<br/>
+          Computer Science Department</br>
+          Stanford University
+        </td>
+      </tr>
+    </table>
+    <br/>
+  </center>
+
+<!--=======================================================================-->
+
+<h3>1. Introduction</h3>
+
+<p><i>Logic Programming</i> is a style of programming based on Symbolic Logic, and programs written in this style are called <i>logic programs</i>.  A logic program is a set of logical sentences that describe an application environment and, where appropriate, the desired behavior of a system operating in that environment.</p>
+
+<p>Logic Programming is often said to be <i>declarative</i> or <i>descriptive</i> and contrasts with the <i>imperative</i> or <i>prescriptive</i> approach to programming associated with traditional programming languages.
+
+<p>In imperative / prescriptive programming, the programmer provides a detailed operational program for a system in terms of internal processing details (such as data declarations, variable assignments, explicit loops, and so forth).  In traditional programming, programmers typically take into account information about the intended environment and desired behavior of their programs but that information is rarely recorded explicitly in the resulting programs.</p>
+
+<p>In declarative / descriptive programming, programmers explicitly encode information about the environment and the desired behavior, but they do not specify details of internal operation, leaving it to the systems that execute those programs to decide on those details on their own.</p>
+
+<p>In this regard, a logic program is more of a <i>specification</i> than an <i>implementation</i>.  This has various benefits.  Logic programs are usually easier to understand than traditional programs.  Moreover, they are easier to produce and to modify.  In writing or modifying logic programs, programmers can get by with little or no knowledge of the capabilities and limitations of the systems executing those programs.</p>
+
+<p>Over the years, numerous variations of Logic Programming have been explored (e.g. Abductive Logic Programming, Inductive Logic Programming, and Answer Set Programming), and a variety of different Logic Programming languages have been developed (e.g. Datalog and Prolog and Golog).  In this paper, we focus on a particular form of Logic Programming, called <i>Dynamic Logic Programming</i>, and we describe a corresponding language, called <i>Epilog</i>.</p>
+
+<p>In Dynamic Logic Programming, the states of the application environment are modeled  as instances of a database, and logic programs take the form of <i>rules</i> that can be applied to these instances.  The program's rules define <i>views</i> of these instances, <i>static constraints</i> that specify which instances are possible, and <i>dynamic constraints</i> that specify how the database changes over time or in response to external inputs.</p>
+
+<p>This paper is a brief introduction to Dynamic Logic Programming.  In the first section, we talk about sentential databases, i.e. sets of simple facts.  After that, we introduce logic programs, i.e. definitions of relations in terms of other relations.  We then show how to combine datasets and view definitions to form deductive databases.  Finally, we introduce transition rules and dynamic logic programs.</p>
+
+<!--=======================================================================-->
+
+<h3>2. Sentential Databases</h3>
+
+<p>When we think about the world, we usually think in terms of objects and relationships among these objects.  Objects include things like people and offices and buildings.  Relationships include things like the parenthood, ancestry, office assignments, office locations, and so forth.</p>
+
+<p>In sentential databases, we encode each instance of a relationship in the form of a <i>simple sentence</i> consisting of a <i>relation constant</i> (representing the relationship) and some <i>object constants</i> (representing the objects involved in the instance).  For example, we can use the relation constant <tt>parent</tt> to represent the relationship between a parent and his or her child; we can use the  <i>object constants</i> <tt>art</tt> and <tt>bob</tt> to refer to two people; and, as we shall see shortly, we can ue this vocabulary to write a sentence stating that <tt>art</tt> is the <tt>parent</tt> of <tt>bob</tt>.</p>
+
+<p>The <i>vocabulary</i> of a database is a collection of object constants and relation constants.  Each relation constant has an associated arity, i.e. the number of objects involved in any instance of the corresponding relation.</p>
+
+<p>A <i>simple sentence</i>, or <i>datum</i>, is an expression formed from an <i>n</i>-ary relation constant and <i>n</i> object constants.  We write data in mathematical notation.  For example, we can write <tt>parent(art,bob)</tt> to express the fact that Art is the parent of Bob.</p>
+
+<p>A <i>database instance</i>, or <i>dataset</i>, is any set of data that can be formed from the vocabulary of a database.  Intuitively, we can think of the data in a database instance as the facts that we believe to be true in the world; data that are not in the instance are assumed to be false.</p>
+
+<p>As an example of these concepts, consider a small interpersonal database.  The terms in this case represent people.  The relation constants name properties of these people and their relationships with each other.</p>
+
+<p>In our example, we use the binary relation constant <tt>parent</tt> to specify that one person is a parent of another.  The sentences below constitute a database describing six instances of the <tt>parent</tt> relation.  The person named <tt>art</tt> is a parent of the person named <tt>bob</tt>; <tt>art</tt> is also a parent of <tt>bea</tt>, and so forth.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>parent(art,bob)</td></tr>
+<tr><td>parent(art,bea)</td></tr>
+<tr><td>parent(bob,carl)</td></tr>
+<tr><td>parent(bea,coe)</td></tr>
+<tr><td>parent(carl,daisy)</td></tr>
+<tr><td>parent(carl,daniel)</td></tr>
+  </table>
+</center>
+
+<p>The <tt>adult</tt> relation is unary relation, i.e. a simple property of a person, not a relationship other people.  Everyone in our database is an adult except for <tt>daisy</tt> and <tt>daniel</tt>.
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>adult(art)</td></tr>
+<tr><td>adult(bob)</td></tr>
+<tr><td>adult(bea)</td></tr>
+<tr><td>adult(carl)</td></tr>
+<tr><td>adult(coe)</td></tr>
+  </table>
+</center>
+
+<p>We can express gender with two unary relation constants <tt>male</tt> and <tt>female</tt>.  The following sentences expresses the genders of all of the people in our database.  Note that, in principle, we need only one relation here, since one gender is the complement of the other.  However, representing both allows us to enumerate instances of both genders equally efficiently, which can be useful in certain applications.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>male(art)</td><td width='50'></td><td>female(bea)</td></tr>
+<tr><td>male(bob)</td><td width='50'></td><td>female(coe)</td></tr>
+<tr><td>male(cal)</td><td width='50'></td><td>female(daisy)</td></tr>
+<tr><td>male(daniel)</td><td width='50'></td><td></td></tr>
+  </table>
+</center>
+
+<p>As an example of a ternary relation, consider the data shown below.  Here, we use <tt>prefers</tt> to represent the fact that the first person likes the second person more than the third person.  For example, the first sentence says that Art prefers <tt>bea</tt> to <tt>bob</tt>; the second sentence says that <tt>carl</tt> prefers <tt>daisy</tt> to <tt>daniel</tt>.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>prefers(art,bea,bob)</td></tr>
+<tr><td>prefers(carl,daisy,daniel)</td></tr>
+  </table>
+</center>
+
+<p>Note that the order of arguments in such sentences is important.  Given the meaning of the <tt>prefers</tt> relation in our example, the first argument denotes the subject, the second argument is the person who is preferred, and the third argument denotes the person who is less preferred.  Of course, we could equally well have interpreted the arguments in other orders.  The important thing is consistency - once we choose to interpret the arguments in one way, we must stick to that interpretation everywhere.</p>
+
+<!--=======================================================================-->
+
+<h3>3. Basic Logic Programs</h3>
+
+<p>The language of logic programs includes the language of sentential databases but provides some additional features that make it more expressive.</p>
+
+<p>One key difference is the inclusion of a new type of symbol, called a <i>variable</i>.  Variables allow us to state relationships among objects without explicitly naming those objects.  In what follows, we use individual capital letters as variables, e.g. <tt>X</tt>, <tt>Y</tt>, <tt>Z</tt>.</p>
+
+<p>An <i>atom</i> in a logic program is analogous to a simple sentence in a database except that it may include variables.  For example, <tt>p(a,b)</tt> is an atom but so is <tt>p(a,X)</tt> and <tt>p(X,b)</tt> and <tt>p(X,X)</tt> and <tt>p(X,Y)</tt>.</p>
+
+<p>A <i>literal</i> is either an atom or a negation of an atom (i.e. an expression stating that the atom is false).  A simple atom is called a <i>positive</i> literal, The negation of an atom is called a <i>negative</i> literal.  In what follows, we write negative literals using the negation sign <tt>~</tt>.  For example, if <tt>p(a,b)</tt> is an atom, then <tt>~p(a,b)</tt> denotes the negation of this atom.</p>
+
+<p>A <i>rule</i> is an expression consisting of a distinguished atom, called the <i>head</i>, and a conjunction of zero or more literals, called the <i>body</i>.  The literals in the body are called <i>subgoals</i>.  In what follows, we write rules as in the example shown below.  Here, <tt>r(a,b)</tt> is the head, <tt>p(a,b) & ~q(b)</tt> is the body; and <tt>p(a,b)</tt> and <tt>~q(b)</tt> are subgoals.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+    <tr><td>r(a,b) :- p(a,b) & ~q(b)</td></tr>
+  </table>
+</center>
+
+<p>Semantically, a rule is something like a reverse implication.  It is a statement that the head of the rule is true whenever the subgoals are true.  For example, the rule above states that <tt>r(a,b)</tt> is true <i>if</i> <tt>p(a,b)</tt> is true <i>and</i> <tt>q(b)</tt> is <i>not</i> true.</p>
+
+<p>The expressive power of rules is greatly enhanced through the use of variables.  Consider, for example, the rule shown below.  This is a more general version of the rule shown above.  Instead of applying to just the specific objects <tt>a</tt> and <tt>b</tt> it applies to <i>all</i> objects.  In this case, the rule states that <tt>r</tt> is true of <i>any</i> object <tt>X</tt> and <i>any</i> object <tt>Y</tt> if <tt>p</tt> is true of <tt>X</tt> and <tt>Y</tt> and <tt>q</tt> is not true of <tt>Y</tt>.
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+    <tr><td>r(X,Y) :- p(X,Y) & ~q(Y)</td></tr>
+  </table>
+</center>
+
+<p>A <i>static logic program</i> is a set of facts and rules of the form just described.  Note that, for the purposes or analysis, it is sometimes useful to <i>think</i> about infinite sets of rules.  However, we cannot write down such sets; so, in what follows, we restrict our attention to finite logic programs.</p>
+
+<!--<p>In practical logic programming languages, it is common to "build in" commonly used relations.  These typically include arithmetic functions (such as &plus; and &times;), string functions (such as concatenation), comparison operators (such as &lt; and &gt;), and equality (&equal;).</p>
+
+<p>In order to conform to the simple syntax we have just seen, functions like &plus; and &times; are often represented as relations.  For example, the the binary addition operator &plus; is often represented by the the ternary relation constant <tt>plus</tt>.  In this notation, we would write the equation 2&plus;3=5 as <tt>plus(2,3,5)</tt>.</p>
+
+<p>Note that we can include such built-in relations in rules.  For example, the following rule defines the combined age of two people.  The combined age of <tt>X</tt> and <tt>Y</tt> is <tt>S</tt> if the age of <tt>X</tt> is <tt>M</tt> and the age of <tt>Y</tt> is <tt>N</tt> and <tt>S</tt> is the result of adding <tt>M</tt> and <tt>N</tt>.</p>
+
+<center>
+<table style='font-family:courier;font-size:14px'>
+<tr><td>combinedage(X,Y,S) :- age(X,M) & age(Y,N) & plus(M,N,S)</td></tr></table>
+</center>
+
+<p>Aggregate operators are typically represented as relations with special syntax.  For example the following rule defines the number of a person's grandchildren using the <tt>countofall</tt> relation in this way.  <tt>N</tt> is the number of grandchildren of <tt>X</tt> if <tt>N</tt> is the count of all <tt>Z</tt> such that <tt>X</tt> is the grandparent of <tt>Z</tt>.</p>
+
+<center>
+<table style='font-family:courier;font-size:14px'>
+<tr><td>grandchildren(X,N) :- person(X) & countofall(Z,grandparent(X,Z),N)</td></tr></table>
+</center>-->
+
+<!--=======================================================================-->
+
+<!--<h3>4. View Definitions</h3>-->
+
+<p>The principal use of rules is to define new relations in terms of existing relations.  The new relations defined in this way are often called <i>view relations</i> (or simply views) to distinguish them from <i>base relations</i>, which are defined by explicit enumeration of instances.</p>
+
+<p>To illustrate the use of rules in defining views, consider once again the world of interpersonal relations.  Starting with the base relations, we can define various interesting view relations.</p>
+
+<p>As an example, consider the sentences shown below.  The first sentence defines the <tt>father</tt> relation in terms of <tt>parent</tt> and <tt>male</tt>.  The second sentence defines <tt>mother</tt> in terms of <tt>parent</tt> and <tt>female</tt>.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>father(X,Y) :- parent(X,Y) & male(X)</td></tr>
+<tr><td>mother(X,Y) :- parent(X,Y) & female(X)</td></tr>
+  </table>
+</center>
+
+<p>The rule below defines the grandparent relation in terms of the parent relation.  A person <tt>X</tt> is the grandparent of a person <tt>Z</tt> if <tt>X</tt> is the parent of a person <tt>Y</tt> and <tt>Y</tt> is the parent of <tt>Z</tt>.  The variable <tt>Y</tt> here is a <i>thread variable</i> that connects the first subgoal to the second but does not itself appear in the head of the rule.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>grandparent(X,Z) :- parent(X,Y) & parent(Y,Z)</td></tr>
+  </table>
+</center>
+
+<p>Note that the same relation can appear in the head of more than one rule.  For example, the <tt>person</tt> relation is true of a person <tt>Y</tt> if there is an <tt>X</tt> such that <tt>X</tt> is the parent of <tt>Y</tt> <i>or</i> if <tt>Y</tt> is the parent of some person <tt>Z</tt>.  Note that in this case the conditions are disjunctive (at least one must be true), whereas the conditions in the grandfather case are conjunctive (both must be true).</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>person(X) :- parent(X,Y)</td></tr>
+<tr><td>person(Y) :- parent(X,Y)</td></tr>
+  </table>
+</center>
+
+<p>A person <tt>X</tt> is an ancestor of a person <tt>Z</tt> if <tt>X</tt> is the parent of <tt>Z</tt> or if there is a person <tt>Y</tt> such that <tt>X</tt> is an ancestor of and <tt>Y</tt> is an ancestor of <tt>Z</tt>.  This example shows that is possible for a relation to appear in its own definition.  (But recall our discussion of stratification for a restriction on this capability.)</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>ancestor(X,Y) :- parent(X,Y)</td></tr>
+<tr><td>ancestor(X,Z) :- ancestor(X,Y) & ancestor(Y,Z)</td></tr>
+  </table>
+</center>
+
+<p>A childless person is one who has no children.  We can define the property of being childless with the rules shown below.  The first rule states that a person <tt>X</tt> is childless if <tt>X</tt> is a person and it is not the case that <tt>X</tt> is a parent.  The second rule says that <tt>isparent</tt> is true of <tt>X</tt> if <tt>X</tt> is the parent of some person <tt>Y</tt>.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>childless(X) :- person(X) & ~isparent(X,Y)</td></tr>
+<tr><td>isparent(X) :- parent(X,Y)</td></tr>
+  </table>
+</center>
+
+<p>Note the use of the helper relation <tt>isparent</tt> here.  It is tempting to write the childless rule as <tt>childless(X) :- person(X) & ~parent(X,Y)</tt>.  However, this would be wrong.  This would define <tt>X</tt> to be childless if <tt>X</tt> is a person and there is <i>some</i> <tt>Y</tt> such that <tt>X</tt> is <tt>~parent(X,Y)</tt> is true.  But we really want to say that <tt>~parent(X,Y)</tt> holds for <i>all</i> <tt>Y</tt>.  Defining <tt>isparent</tt> and using its negation in the definition of <tt>childless</tt> allows us to express this <i>universal quantification</i>.</p>
+
+<p>In addition to writing definitions of common relations, rules are frequently used to write one-off queries on databases, including cases where the queries do not correspond to common relations.</p>
+
+<p>As a simple example, suppose we wanted to know all people who are grandparents of adults.  We could ask this question by writing the query shown below.</p>
+
+<center>
+<table style='font-family:courier;font-size:14px'>
+<tr><td>query(Z) :- grandparent(art,Z) & adult(Z)</td></tr>
+</table>
+</center>
+
+<p>Another use of rules is encoding constraints on databases.  Such constraints often limit the set of possible databases.  For example, a person cannot be his own parent.  In some cases, constraints involve multiple relations.  For example, all parents are adults; in other words, if a person appears as the first argument of a <tt>parent</tt> fact, it must also appear as an argument in the <tt>adult</tt> relation.</p>
+
+<p>In many database texts, constraints are written in direct form - by writing rules that say, in effect, that if certain things are true in an extension, then other things must also be true.  The <i>inclusion dependency</i> mentioned above is an example - if an entity appears in the first column of the <tt>parent</tt> relation, it must also appear as an entry in the <tt>adult</tt> relation.</p>
+
+<p>In what follows, we use a slightly less direct approach - we encode limitations by writing rules that say when a database is <i>not</i> well-formed.  We simply invent a new 0-ary relation, here called <tt>illegal</tt>, and define it to be true in any extension that does not satisfy our constraints.</p>
+
+<p>This approach works particularly well for consistency constraints like the one stating that a person cannot be his own parent.</p>
+
+<center>
+<span style='font-family:courier;font-size:14px'>
+illegal :- parent(X,X)
+</span>
+</center>
+
+<p>It also works well for <i>mutual exclusion</i> constraints like the one below, which states that a person cannot be in both the <tt>male</tt> and the <tt>female</tt> relations.</p>
+
+<center>
+<span style='font-family:courier;font-size:14px'>
+illegal :- male(X) & female(X)
+</span>
+</center>
+
+<p>Using this technique, we can also write the <i>inclusion dependency</i> mentioned earlier.  There is an error if an entity is in the first column of the <tt>parent</tt> relation and it does not occur in the <tt>adult</tt> relation.</p>
+
+<center>
+<table style='font-family:courier;font-size:14px'>
+<tr><td>illegal :- parent(X,Y) & ~adult(X)</td></tr>
+</table>
+</center>
+
+<p>Database management systems can use such constraints in a variety of ways.  They can be used to optimize the processing of queries.  They can also be used to check that updates do not lead to unacceptable extensions.</p>
+
+<!--=======================================================================-->
+
+<h3>6. Dynamic Logic Programs</h3>
+
+<p>In our discussion thus far, we have been talking about the use of datasets and static logic programs to describe individual states of the world.   In many application areas, it is necessary to describe not just individual states but also transitions between states.  Transition rules and dynamic logic programs provide the means for us to describe such changes.</p>
+
+<p>The language of dynamic logic programming is a superset of the language of ordinary logic programing.  Every ordinary logic program is also a dynamic logic program.  As in ordinary logic programming, we can write ground atoms and view definitions.  However, in dynamic logic programming, we can also write "transition rules", which encode information about how the state of the world changes (over time or in response to external stimuli).</p>
+
+<p>A transition rule is an expression of the form shown below.  Each rule consists of (1) a literal (an atom or a negation of an atom) or a conjunction of literals, (2) a double shafted forward arrow, and (3) a literal or a conjunction of literals.  The literals on the left are called <i>conditions</i>, and the literals on the right are called <i>effects</i>.</p>
+
+<center>
+  <table>
+<tr><td>[~]&phi;<sub>1</sub> &amp; ... &amp; [~]&phi;<sub><i>m</i></sub> <span  style='font-family:courier;font-size:14px'>==></span> [~]&psi;<sub>1</sub> &amp; ... &amp; [~]&psi;<sub><i>n</i></sub></td></tr>
+  </table>
+</center>
+
+<p>Intuitively, the meaning of a transition rule is simple.  If the conditions of a rule are true in any state, then the effects must be true in the <i>next</i> state.  (Remember that, for a literal to be true, the atom inside the negation must be false.)</p>
+
+<p>For example, the following rule expresses the fact that, when p(a) is true and q(a) is false, then p(a) becomes false and q(a) becomes true in the next state.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>p(a) & ~q(a) ==> ~p(a) & q(a)</td></tr>
+  </table>
+</center>
+
+<p>As with view definitions, the conditions and effects of rules may contain variables to express dynamic information in a compact form.  For example, we can write the following rule to express the fact that the preceding transition rule holds for all objects.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>p(X) & ~q(X) ==> ~p(X) & q(X)</td></tr>
+  </table>
+</center>
+
+<p>As with view definitions, transition rules are required to be <i>safe</i>.  In this case, this means that every variable among the effects of a rule or in negative conditions must appear in the positive conditions of that rule.</p>
+
+<p>The transition rule rules shown above are all safe.  However, the rules shown below are not.  The effect of the first rule contains a variable that does not appear in any condition.  In the second rule, there is a variable that appears in a negative condition that does not appear in any positive condition.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+<tr><td>p(X) & ~q(X) ==> ~p(X) & q(Y)</td></tr>
+<tr><td>p(X) & ~q(Y) ==> ~p(X) & q(X)</td></tr>
+  </table>
+</center>
+
+<p>If we were to allow the first of these rules, the resulting dataset might contain infinitely many effects (all the instances of the rule's effect).  If we were to allow the second rule, we might have to check infinitely many conditions (all of the instances of the negated condition).</p>
+
+<p>A dynamic logic program (DLP) is simply a collection of view definitions and transition rules.  As with ordinary logic programs, we are interested primarily in dynamic logic programs that are finite.  However, in analyzing dynamic logic programs, we occasionally talk about infinite DLPs, e.g. the set of all ground instances of the rules.</p>
+
+<p>A deterministic closed dynamic system is one that operates without external input, changing from one state to the next in a deterministic fashion.  These are sometimes called closed systems or Markov systems.</p>
+
+<p>Note that, in addition to deterministic closed dynamic systems, there are also <i>non-deterministic closed dynamic systems</i> (systems in which there are multiple successor states for each state); and there are <i>probabilistic closed dynamic systems</i> (systems in which the transitions between states have different probabilities of occurring).  However, in this book, we concentrate exclusively on deterministic closed dynamic systems.</p>
+
+<!--<p>One way to describe a closed system is to write one transition rule for each state, with the facts true in the starting state as conditions and the facts true in the resulting state as effects.</p>
+
+<p>As an example, consider a simple dynamic system like the one shown below  There are 
+
+<p>One downside of this approach is that the transition rules can be very large when there are many things true in each state.  A second downside is that there can be a lot of transition rules in situations where there are many states.  The good news is that we can often -->
+
+<p>Transition rules are an effective way of describing the behavior of closed systems.  As an example, consider a simple dynamic system like the one shown below  There are three conditions that can hold in a state - p, q, and r - meaning that the system has a total of eight possible states.
+
+<p>The <i>state transition diagram</i> (or <i>state graph</i>) shown here illustrates the behavior of the system.  Note that each state has a unique successor state.  Note that, once the system enters some states, it never returns to those states.  At the same time, the system loops among some states over and over again.</p>
+
+<p>The following transition rules express the behavior of this system.  Given any state in which p is true, p becomes false in the next state; and vice versa.  If p is true in a state, then q becomes true in the next state.  If p and q are true in a state, then r becomes true in the next state; otherwise it becomes false.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+    <tr><td>p ==> ~p</td></tr>
+    <tr><td>~p ==> p</td></tr>
+    <tr><td>p ==> q</td></tr>
+    <tr><td>p & q ==> r</td></tr>
+    <tr><td>~p ==> ~r</td></tr>
+    <tr><td>~q ==> ~r</td></tr>
+  </table>
+</center>
+
+<p>This, of course, is a very simple closed system.  There are many examples of closed systems in the real world.  In fact, the universe as a whole can be viewed as a closed system (though there are some who would argue that it is really a non-deterministic closed system).</p>
+
+<p>An open dynamic system is one in which state changes depend not only on the current state of the system but also on inputs from the system's external environment.</p>
+
+<p>The most common example of such inputs are actions performed by one or more agents operating on the system.  As an example, consider a variation on the closed system describe in Section 2.  Again, the state of the system is based on three conditions p, q, and r.  However, in this variation, the behavior of the system is determined not just by the current state but also by the actions on an external agent.  In the version shown here, the agent has three possible actions - a, b, and c.  Doing action a toggles p; doing action b interchanges p and q; and doing action r interchanges q and r.</p>
+
+<p>We can described the behavior of this simple system with the transition rules shown below.</p>
+
+<center>
+  <table style='font-family:courier;font-size:14px'>
+    <tr><td>a & p ==> ~p</td></tr>
+    <tr><td>a & ~p ==> p</td></tr>
+    <tr><td>b & p ==> q</td></tr>
+    <tr><td>b & ~p ==> ~q</td></tr>
+    <tr><td>c & q ==> r</td></tr>
+    <tr><td>c & ~q ==> ~r</td></tr>
+  </table>
+</center>
+
+<p>Note that, if the system started in a state in which all three conditions were false, it could achieve a state in which they are true by executing the action sequence a, b, c, a, b, a.  Can you think of a different sequence of actions that would do the trick?  How many sequences are there that produce the desired state?</p>
+
+<!--=======================================================================-->
+
+<!--<h3>5. Conclusion</h3>-->
+
+
+<!--=======================================================================-->
+
+<h3>Readings</h3>
+
+<p>Michael Genesereth, Matt Ginsberg: <a href='http://dl.acm.org/citation.cfm?id=4287'>Logic Programmming</a>, <i>Communications of the Association for Computing Machinery</i>, Volume 28 Issue 9, September 1985, pages 933-941.</p>
+
+<p>Doug DeGroot, Gary Lindstrom: <i>Logic Programming - Functions, Relations, and Equations</i>, Prentice-Hall, 1986.</p>
+
+<!--=======================================================================-->
+
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+
+<!--=======================================================================-->
+
+</html>
+

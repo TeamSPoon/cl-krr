@@ -1,0 +1,16 @@
+;;
+;; $Id: P.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(P has (superclasses (Non-Metal-Atom VA-Element)))
+(every P has
+       (has-molecular-name ("phosphide"))
+       (atomic-symbol (P))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 15 NIL))))))
+       (chemical-period (3)))
+
+(every P has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("phosphorus"))
+)

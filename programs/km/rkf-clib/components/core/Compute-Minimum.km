@@ -1,0 +1,72 @@
+;;
+;; $Id: Compute-Minimum.km,v 1.3 2005/09/20 04:42:46 jfan Exp $
+;;
+
+(Compute-Minimum has (superclasses (Method))
+		 (description ("given a list of values, return the minimum value")))
+
+(every Compute-Minimum has
+       ;; input is a list of Values
+       ;; either all of these values have a cardinal value, 
+       ;; or all of them have scalar values that are on the same scale
+       ;; they are assumed to be of the same units
+       (output
+	((#'(LAMBDA() (FIND-MIN-VALUE (KM0 '(the input of Self)))))
+	 )))
+#|
+(Compute-Minimum 
+ has
+ (test-case ('(
+	       ((the1 of 
+		      (the value of
+			   (the output of
+				(a Compute-Minimum with
+				   (input ((a Temperature-Value with
+					      (value ((:pair 75 *Fahrenheit)
+						      (:pair *warm Thing))))
+					   (a Temperature-Value with
+					      (value ((:pair 50 *Fahrenheit))))
+					   (a Temperature-Value with
+					      (value ((:pair 99 *Fahrenheit)
+						      (:pair *hot Thing))))
+					   (a Temperature-Value with
+					     (value ((:pair 32 *Fahrenheit)
+						     (:pair *freezing Thing))))))))))
+	       includes 32)
+	       (
+		(the value of 
+		     (the output of 
+			  (a Compute-Minimum with 
+			     (input 
+			      ((a Temperature-Value with
+				  (value ((:pair *warm Thing))))
+			       (a Temperature-Value with
+				  (value ((:pair 28 *Fahrenheit)
+					  (:pair *freezing Thing))))
+			       (a Temperature-Value with
+				  (value ((:pair 32 *Fahrenheit)
+					  (:pair *cold Thing))))
+			       (a Temperature-Value with
+				  (value ((:pair *freezing Thing)))))))))
+		includes (:pair 28 *Fahrenheit))
+		(	      
+		(the value of
+		     (the output of
+			  (a Compute-Minimum with
+			     (input ((a Temperature-Value with
+					(value ((:pair 75 *Fahrenheit)
+						(:pair *warm Weather)
+						(:pair *hot Drink))))
+				     (a Temperature-Value with
+					(value ((:pair 50 *Fahrenheit)
+						(:pair *warm Drink))))
+				     (a Temperature-Value with
+					(value ((:pair *boiling Drink)
+						(:pair *hot Thing))))
+				     (a Temperature-Value with
+					(value ((:pair 32 *Fahrenheit)
+						(:pair *cold Drink)
+						(:pair *freezing Thing)))))))))
+		includes (:pair *cold Drink))
+
+	       ))))|#

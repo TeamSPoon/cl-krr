@@ -1,0 +1,22 @@
+
+;;
+;; $Id: Compute-Compound-from-Chemical-Name.km,v 1.2 2003/02/14 15:53:50 kbarker Exp $
+;;
+
+(Compute-Compound-from-Chemical-Name has
+				     (superclasses (Method)))
+
+(every Compute-Compound-from-Chemical-Name has
+       ;;(input ((a Thing)))
+       (output (((the output of
+		      (a Compute-Compound-from-Common-Name with
+			 (input ((the input of Self)))))
+		 or
+		 (the output of
+		      (an instance of
+			  (the output of
+			       (a Compute-Compound-Computing-Method-from-Name with
+				  (input ((#'(LAMBDA ()
+					       (SPLIT-COMPOUND-NAME-COMPONENTS
+						(KM-UNIQUE0 '(the input of Self)))))))))
+			  with (input ((the input of Self)))))))))

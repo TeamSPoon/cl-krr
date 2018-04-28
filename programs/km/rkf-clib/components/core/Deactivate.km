@@ -1,0 +1,80 @@
+;;
+;;   $Id: Deactivate.km,v 1.16 2005/10/25 03:02:08 sdbaji Exp $
+;;
+
+(Deactivate has
+  (superclasses         (Make-Inaccessible))
+  (required-slot        (object))
+  (primary-slot         (agent instrument))
+  (secondary-slot       ())
+  (cmap-correspondence  (
+                         (:seq object "The thing deactivated")
+                         (:seq agent "The deactivator")
+                         (:seq instrument "instrument")
+                        ))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Deactivate has 
+  (preparatory-event ((:default
+		       (a Activate with
+			  (object ((the object of Self))))))))
+
+
+(every Deactivate has
+  ;; agent and object inherited from Make-Inaccessible.
+  (defeats  ((allof (the object-of of (the object of Self))
+                    where
+                    ((the classes of It) = Be-Activated))))
+
+  ;; The Pre and Post-Conditions of this Action.
+
+  ;; The object should already be activated
+  (pcs-list ((forall (the object of Self)
+                     (:triple
+                       It
+                       object-of
+                       (a Be-Activated) [Deactivate-pcs-1]))))
+
+  (del-list ((forall (the defeats of Self)
+		     (:triple 
+		       It 
+		       object 
+		       (the object of Self) [Deactivate-del-1])))))
+
+(comment [Deactivate-pcs-1] (:seq (the object of Self) " must be activated to be deactivated.")
+	 "Something must be active for it to be deactivated.")
+
+(comment [Deactivate-del-1] (:seq (the object of Self) " is no longer activated.")
+	 "A deactivate stops something from being activated.")
+
+(every Deactivate has
+  (text-active-verbseq-sg ("deactivates"))
+  (text-active-verbseq-pl ("deactivate"))
+  (text-passive-verbseq-sg ("gets deactivated"))
+  (text-passive-verbseq-pl ("get deactivated"))
+
+  (text-argslots ((:seq base instrument path result)))
+)
+
+
+
+
+;; automatically added WN synsets
+(Deactivate has (wn16-synset ((:set  
+                                         (:triple "deactivate" 1 "v")
+                                         (:triple "disable" 1 "v")
+                                         (:triple "disenable" 1 "v")
+                                         (:triple "inactivate" 1 "v")
+                                         (:triple "incapacitate" 1 "v")
+))))
+
+(Deactivate has (wn20-synset ((:set
+                                         (:triple "deactivate" 2 "v")
+                                         (:triple "disable" 1 "v")
+                                         (:triple "disenable" 1 "v")
+                                         (:triple "inactivate" 2 "v")
+                                         (:triple "incapacitate" 1 "v")
+))))
+
+(every Deactivate has (text-nominalization ("deactivation")))

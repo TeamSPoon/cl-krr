@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Monoprotic-Acid-Compound.km,v 1.8 2008/07/25 14:32:52 tecuci Exp $ 
+;; 
+(Monoprotic-Acid-Compound has
+		 (superclasses (Bronsted-Lowry-Acid-Compound))
+		 (test-case ()))
+
+(a Partition with (members (Monoprotic-Acid-Compound Polyprotic-Acid-Compound)))
+
+(Monoprotic-Acid-Compound has (user-description ("An acid that yields one H+ ion per molecule of acid.")))
+
+(every Monoprotic-Acid-Compound has-definition
+   (instance-of (Bronsted-Lowry-Acid-Compound))
+   (has-chemical-formula ((a Chemical-Formula)
+			  (constraint (        (Self isa Monoprotic-Acid-Compound)
+					       or					
+					       (if (the term of TheValue)
+						   then
+						 ((not (Self isa H2O))
+						  and
+						  (oneof (the elements of (the term of TheValue))
+							 where ((((the2 of It) = H-Plus)
+								 or 
+								 ((the2 of It) = H))
+								and
+								((the1 of It) = 1))))
+						 ))))))

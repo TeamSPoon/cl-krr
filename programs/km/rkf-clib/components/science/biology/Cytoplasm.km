@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Cytoplasm.km,v 1.16 2002/06/21 19:16:58 tecuci Exp $ 
+;; 
+
+(Cytoplasm has
+	  (superclasses (Protoplasm))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("Contents of a cell that are contained within
+                         the plasma membrane, but, in the case of
+                         eucaryotic cells, outside of the nucleus.
+                         Alberts:ECB:G-5"))
+	  (cmap-correspondence ()))
+
+(every Cytoplasm has
+   (is-part-of ((must-be-a Cell)))
+   (has-part ((a Aggregate with
+
+		 (element-type (Ribosome)))))
+   )
+
+
+
+
+
+
+

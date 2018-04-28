@@ -1,0 +1,14 @@
+;; $Id: CH2_COOH_2.km,v 1.2 2006/01/23 23:33:41 jfan Exp $ 
+(CH2_COOH_2 has (superclasses (Ionic-Compound)))
+(every CH2_COOH_2 has
+	(has-chemical-name ("malonic acid"))
+	(has-part ((a H-Plus)(a C3H2O4-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 2 H-Plus)
+			(:pair 1 C3H2O4-Minus-2)))))))
+)
+(every CH2_COOH_2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C3H2O4-Minus-2))))
+

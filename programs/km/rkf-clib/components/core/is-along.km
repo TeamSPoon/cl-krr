@@ -1,0 +1,32 @@
+;; 
+;;    $Id: is-along.km,v 1.14 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(is-along has
+       (instance-of (Spatial-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Spatial-Entity))
+       (range (Spatial-Entity))
+       (inverse (is-along))
+       (text-slot (text-is-along))
+       (fluent-status (*Inertial-Fluent))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+(text-is-along has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-is-along))
+)
+
+(text-is-along-of has (instance-of (NL-Slot-Group)))
+
+
+

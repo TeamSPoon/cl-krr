@@ -1,0 +1,40 @@
+;; 
+;;    $Id: Be-Restrained.km,v 1.11 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Restrained has
+	       (superclasses        (Be-Obstructed))
+	       (required-slot       (object))
+	       (primary-slot        ())
+	       (secondary-slot      ())
+               (caused-by-class      (Restrain))
+               (defeated-by-class    (Unrestrain))
+	       (cmap-correspondence (
+		     (:seq object "the thing Being-Restrained")
+				     ))
+	       )
+
+(every Be-Restrained has
+       ; "object" is inherited from Be-Obstructed.
+       (resulting-state-of ((must-be-a Restrain with
+				       (object ((the object of Self))))))
+
+       (defeated-by ((must-be-a Unrestrain with
+				(object ((the object of Self))))))
+       )
+
+(every Be-Restrained has
+   (text-particle ("restrained"))
+)
+
+(Be-Restrained has (wn20-synset ((:set (:triple "restrained" 2 "a")
+                                       (:triple "immobile" 1 "a")
+                                       (:triple "immovable" 1 "a")
+                                       (:triple "immoveable" 1 "a")
+                                       (:triple "stabile" 2 "a")
+                                       (:triple "unmovable" 1 "a")
+                                       (:triple "fixed" 5 "a")
+                                       (:triple "frozen" 7 "a")
+))))
+
+

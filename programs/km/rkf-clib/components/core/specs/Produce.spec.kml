@@ -1,0 +1,90 @@
+<!--- $Id: Produce.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+<kml>
+
+<concept name=Produce><system-documentation name=Produce>
+<superconcept name=Create>
+
+<definition>
+
+  Create something from raw materials.  The <slot>raw-material</slot> 
+  becomes either the <slot>material</slot> or the <slot>has-part</slot>
+  of the thing that's created.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=result>
+     The thing that's produced
+  </slotdescription>
+
+  <slotdescription name=raw-material>
+     The parts or material that comprise the <slot>result</slot> 
+     after the action
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the production
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the tool or aid that was used to create the result
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the production
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The little pig built a house of stone.</text>
+    <slotdescription name=result>a house</slotdescription>
+    <slotdescription name=raw-material>stone</slotdescription>
+    <slotdescription name=agent>the little pig</slotdescription>
+  </examplesentence>
+  <comment>
+    In this case, the raw-material (stone) is a <conceptref name=Substance>.
+    Consequently, this action creates a result (a house) 
+    which is related to the raw-material by the <slot>material</slot>
+    relationship.
+  </comment>
+
+  <examplesentence>
+    <text>John made a raft out of 3 logs.</text>
+    <slotdescription name=result>a raft</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=raw-material>3 logs</slotdescription>
+  </examplesentence>
+  <comment>
+    In this case, the raw-material (3 logs) is a set of 
+    <conceptref name=Physical-Object>s.
+    Consequently, this action creates a result (a raft) 
+    which is related to the raw-material by the <slot>has-part</slot>
+    relationship.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Create>
+     Create is more general than Produce.  It involves something coming
+     into existence, but does not specify raw materials.
+  </neighbor>
+  
+  <neighbor name=Copy>
+     Copy creates a result that resembles some original object.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

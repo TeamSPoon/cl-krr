@@ -1,0 +1,136 @@
+<!--- $Id: Send.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Send>
+<system-documentation name=Send>
+<superconcept name=Action>
+
+  <definition>
+	an intentional change of possession of an <slot>object</slot> from a
+	<slot>donor</slot> to a <slot>recipient</slot>.
+	It involves first a <conceptref name=Relinquish> of the 
+        <slot>object</slot>
+	by the <slot>agent</slot>, followed by a <conceptref name=Move> of the 
+	<slot>object</slot> from the <slot>origin</slot> to the 
+        <slot>destination</slot>.
+	Finally, the <slot>object</slot> is <conceptref name=Deliver>ed to the 
+	<slot>recipient</slot>.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the Send action to occur
+  </slotdescription>
+
+  <slotdescription name=object>
+     the thing that changes possession
+  </slotdescription>
+
+  <slotdescription name=recipient>
+     the entity that possesses the <slot>object</slot> after the Send
+  </slotdescription>
+
+  <slotdescription name=donor>
+     the entity that possesses the <slot>object</slot> after the Send
+  </slotdescription>
+
+</requiredslotlist>
+
+<subeventlist>
+
+  <subeventdescription name=Relinquish>
+	the <slot>object</slot> changes possession;
+        afterwards the <slot>agent</slot>
+	no longer possesses it
+  </subeventdescription>
+
+  <subeventdescription name=Move>
+    	the <slot>agent</slot> <conceptref name=Move>s the 
+        <slot>object</slot> from
+	the <slot>location</slot> of the <slot>donor</slot> to the 
+        <slot>location</slot>
+	of the <slot>recipient</slot>
+  </subeventdescription>
+
+  <subeventdescription name=Deliver>
+	the <slot>object</slot> is delivered by the <slot>donor</slot>
+        to the <slot>recipient</slot>
+  </subeventdescription>
+
+</subeventlist>
+
+<subeventorder>
+  Relinquish then Move then Deliver
+</subeventorder>
+
+<primaryslotlist>
+
+  <slotdescription name=instrument>
+	the medium of transfer of the <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=origin>
+	the <slot>location</slot> of the 
+        <slot>donor</slot> and, before the Send action occurs, 
+    	the <slot>location</slot> of the <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=path>
+	the <slot>location</slot> of the <slot>object</slot> during the 
+	<conceptref name=Move> <slot>subevent</slot>
+  </slotdescription>
+
+  <slotdescription name=destination>
+	the <slot>location</slot> of the 
+        <slot>recipient</slot> and, after the Send action is done,
+    	the <slot>location</slot> of the <slot>object</slot>
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Victor is in Fresno. He sent a letter to Maurice in Detroit.</text>
+    <slotdescription name=agent>Victor</slotdescription>
+    <slotdescription name=donor>Victor</slotdescription>
+    <slotdescription name=object>a letter</slotdescription>
+    <slotdescription name=recipient>Maurice</slotdescription>
+    <slotdescription name=origin>Fresno</slotdescription>
+    <slotdescription name=destination>Detroit</slotdescription>
+  </examplesentence>
+  
+  <examplesentence>
+    <text>Marie sent the package to Jane using an express carrier.</text>
+    <slotdescription name=agent>Marie</slotdescription>
+    <slotdescription name=donor>Marie</slotdescription>
+    <slotdescription name=object>the package</slotdescription>
+    <slotdescription name=recipient>Jane</slotdescription>
+    <slotdescription name=instrument>an express carrier</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Transfer>
+    Transfer involves only a change of possession, while Send
+    involves also a change in location of the <slot>object</slot>.
+  </neighbor>
+
+  <neighbor name=Move>
+    Move involves only a change in location, while Send involves
+    also a change in possession of the <slot>object</slot>.
+  </neighbor>  
+
+  <neighbor name=Deliver>
+    Deliver involves only a change of possession. The <slot>agent</slot>
+    of the Deliver must be different than the <slot>donor</slot>.  
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

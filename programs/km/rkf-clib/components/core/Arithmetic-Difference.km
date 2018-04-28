@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Arithmetic-Difference.km,v 1.2 2008/08/26 15:03:54 kbarker Exp $ 
+;; 
+(Arithmetic-Difference has (superclasses (Arithmetic-Method)))
+
+(every Arithmetic-Difference has 
+      (output (#'(LAMBDA () 
+	            (PROPERTY-MINUS 
+		        (KM-UNIQUE '(the input of Self))
+			(KM-UNIQUE '(the input2 of Self)))))))
+
+(every Arithmetic-Difference has
+  (text-premods  ((:seq "the difference between"
+                        (the text-phrase of (the input of Self))
+                        "and"
+                        (the text-phrase of (the input2 of Self))
+  )))
+)
+
+
+(Arithmetic-Difference has (wn20-synset ((:triple "difference" 0 "n"))))

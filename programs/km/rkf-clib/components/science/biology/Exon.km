@@ -1,0 +1,18 @@
+;; 
+;;    $Id: Exon.km,v 1.9 2001/05/18 13:14:43 souther Exp $ 
+;; 
+
+(Exon has
+         (superclasses (DNA-Coding-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Segment of a eucaryotic gene that is transcribed into
+                        RNA and codes for the amino acid sequence of part of a
+                        protein. Alberts:ECB:G-7."))
+         (test-case ()))
+
+(every Exon has 
+       (is-part-of ((must-be-a Eucaryotic-Gene))))
+

@@ -1,0 +1,100 @@
+<!--- $Id: Penetrate.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+<kml>
+
+<concept name=Penetrate><system-documentation name=Penetrate>
+<superconcept name=Action>
+
+<definition>
+
+  An <slot>agent</slot> penetrates a barrier in two 
+  steps. First, it <conceptref name=Breach>es the Barrier, creating a 
+  portal through it. Second, the <slot>agent</slot> 
+  moves through (i.e. <conceptref name=Traverse>s) the portal, 
+  thereby passing through the barrier.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+    causes the penetration and passes through the barrier
+  </slotdescription>
+
+  <slotdescription name=object>
+    the barrier
+  </slotdescription>
+
+</requiredslotlist>
+
+<subeventlist>
+
+  <subeventdescription name=Breach>
+    the <slot>agent</slot> <conceptref name=Break>s the 
+    barrier, creating a portal through it
+  </subeventdescription>
+
+  <subeventdescription name=Traverse>
+    the <slot>agent</slot> <conceptref name=Move>s through the 
+    portal
+  </subeventdescription>
+
+</subeventlist>
+
+
+<subeventorder>
+  Breach then Traverse
+</subeventorder>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The burglar broke through the skylight.</text>
+    <slotdescription name=agent>the burglar</slotdescription>
+    <slotdescription name=object>the skylight</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The burglar broke through the skylight and went into the house.</text>
+    <slotdescription name=agent>the burglar</slotdescription>
+    <slotdescription name=object>the skylight</slotdescription>
+    <subeventdescription name=Traverse>
+      <slotdescription name=destination>inside the house</slotdescription>
+    </subeventdescription>
+  </examplesentence>
+
+  <examplesentence>
+    <text>The burglar broke through the skylight with a hammer.</text>
+    <slotdescription name=agent>the burglar</slotdescription>
+    <slotdescription name=object>the skylight</slotdescription>
+    <subeventdescription name=Breach>
+      <slotdescription name=instrument>a hammer</slotdescription>
+    </subeventdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Enter>
+    both Enter and Penetrate involve moving into an 
+    enclosure.  However, Penetrate involves 
+    "breaking in".
+  </neighbor>
+
+  <neighbor name=Breach>
+    Penetrate is more than Breach. While Breach creates a portal 
+    in an enclosure, Penetrate Traverses through that portal 
+    to Enter the enclosure. 
+  </neighbor>
+
+  <neighbor name=Traverse>
+    Penetrate is more than Traverse. While Traverse moves through a 
+    portal to Enter an enclosure, Penetrate includes first Breaching 
+    the enclosure.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

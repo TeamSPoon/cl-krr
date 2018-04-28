@@ -1,0 +1,19 @@
+;; 
+;;    $Id: capability.km,v 1.14 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(capability has
+       (instance-of (Causal-Relation))
+       (superslots ())
+       (subslots ())
+       (domain (Entity))
+       (range (Role))
+       (fluent-status (*Inertial-Fluent))
+       (inverse (capability-of))
+       (original-slot      (t))	
+       (cardinality (N-to-N)))
+
+(capability has (text-gloss ("has the capability to be")))
+(capability-of has 
+	(instance-of (Causal-Relation))
+	(text-gloss ("is a capability of")))

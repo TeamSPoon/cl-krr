@@ -1,0 +1,13 @@
+;;
+;; $Id: CH3OH-Substance.km,v 1.7 2008/11/03 03:11:26 tecuci Exp $
+;;
+
+(CH3OH-Substance has (superclasses (Organic-Molecule-Substance)))
+
+(every CH3OH-Substance has
+       (has-chemical-name ("methanol"))
+       (has-basic-structural-unit 
+	((a CH3OH))))
+(every CH3OH-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a CH3OH))))

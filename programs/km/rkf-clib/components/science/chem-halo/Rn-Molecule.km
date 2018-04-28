@@ -1,0 +1,16 @@
+;;
+;; $Id: Rn-Molecule.km,v 1.2 2008/11/03 00:10:40 tecuci Exp $
+;;
+
+(Rn-Molecule has (superclasses (Monoatomic-Molecule Inorganic-Molecule)))
+
+(every Rn-Molecule has
+       (has-part ((a Rn)))
+       (has-chemical-name ("radon"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Rn)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Rn)))))))
+       (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Rn))))))))
+
+(Rn-Molecule has (wn20-synset ((:set (:triple "radon" 0 "n")
+				     (:triple "molecular radon" 0 "n")
+				     ))))

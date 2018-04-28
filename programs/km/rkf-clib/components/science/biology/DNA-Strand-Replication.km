@@ -1,0 +1,107 @@
+;; 
+;;    $Id: DNA-Strand-Replication.km,v 1.8 2001/06/06 20:58:36 pzyeh Exp $
+;; 
+
+(DNA-Strand-Replication has
+  (superclasses  (DNA-Replication))
+  (required-slot (object result))
+  (primary-slot  (origin instrument destination))
+  (description 	 ("The replication of a daughter strand using the
+		   strand that runs 3' to 5' as the template, so the
+		   daughter strand can be synthesized continuously.
+		   Compare with DNA-Lagging-Strand-Replication.
+		   Souther.")) 
+  (cmap-correspondence ()))
+
+(every DNA-Strand-Replication has
+  (object ((a Polydeoxyribonucleotide called "template strand")))
+  (result ((a DNA-Molecule-Segment with
+	      (has-part 
+		(((the Polydeoxyribonucleotide object of Self) called "template strand")
+		 (a Polydeoxyribonucleotide called "daughter strand" with
+		    (complement 
+		      (((the Polydeoxyribonucleotide object of Self)
+			called "template strand"))) ))))))
+       
+  (first-subevent ((the DNA-Priming subevent of Self)))
+  
+  (subevent 
+
+	((a DNA-Priming with
+	    (next-event ((the DNA-Replication subevent of Self))))
+
+	 (a DNA-Replication with
+	    (object 
+	     ((a Polydeoxyribonucleotide 
+		 called "postprimer part of daughter strand" with
+		 (is-part-of ((the Polydeoxyribonucleotide object of Self)))
+		 (object-of
+		  ((a Be-Attached-To with
+		      (object
+		       ((the RNA-Primer has-part of
+			     (the Nucleic-Acid-Complex result of
+				   (the DNA-Priming subevent of Self))) ))
+		      (instrument ((a Phosphodiester-Bond)))
+		      (site
+		       ((the 3-Prime-End has-region of
+			     (the RNA-Primer has-part of
+				  (the Nucleic-Acid-Complex result of
+				       (the DNA-Priming subevent of Self))))
+			(the 5-Prime-End has-region of
+			     (the Polydeoxyribonucleotide object of
+				  (the DNA-Replication subevent of Self)))))
+		      )))
+		 )))
+	     (next-event (((the Replace subevent of Self)
+			   called "replace primer")))
+	     )
+
+	 (a Replace called "replace primer" with
+	    (object
+	     ((the RNA-Primer has-part of
+		   (the Nucleic-Acid-Complex result of
+			 (the DNA-Priming subevent of Self)))
+	      (a Oligodeoxyribonucleotide with
+		  (complement
+		   ((the 3-Prime-End object of
+			 (the DNA-Priming subevent of Self)))))
+	      ))
+
+	     (base
+	      ((the Polydeoxyribonucleotide object of 
+		    (the DNA-Replication subevent of Self))))
+
+	     (instrument ((a DNA-Polymerase-Repair-Enzyme)))
+	     
+	     (subevent
+	      ((a Detach called "remove primer" with
+		  (object 
+		   ((the RNA-Primer has-part of
+			 (the Nucleic-Acid-Complex result of
+			      (the DNA-Priming subevent of Self)))))
+		  (base 
+		   ((the Polydeoxyribonucleotide object of
+			 (the DNA-Replication subevent of Self))))
+
+		  (instrument 
+		   ((the instrument of (the Replace subevent of Self))))
+		  )
+
+	       (a Attach called "add DNA string in place of primer" with
+                  (object
+		   ((a Oligodeoxyribonucleotide with
+		       (complement
+			((the 3-Prime-End has-part of
+			      (the DNA-Priming subevent of Self))))
+		       )))
+                  (base
+		   ((the Polydeoxyribonucleotide object of
+			 (the DNA-Replication subevent of Self))))
+		   (instrument ((the instrument of 
+				    (the Replace subevent of Self))))
+		  )))
+	     )
+	 ))
+       )
+	      
+

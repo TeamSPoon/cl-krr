@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Polydeoxyribonucleotide.km,v 1.20 2001/12/21 05:25:30 tecuci Exp $ 
+;; 
+
+(Polydeoxyribonucleotide has
+			 (superclasses (Polynucleotide DNA-Sequence))
+			 (required-slot ())
+			 (primary-slot ())
+			 (secondary-slot ())
+			 (description ("A molecular chain of 
+                                        deoxyribonucleotides chemically bonded 
+                                        by a series of phosphodiester linkages.
+                                        Alberts:ECB:G-14."))
+			 (cmap-correspondence ()))
+
+(every Polydeoxyribonucleotide has 
+       (material ((a DNA-Substance)))
+       (has-part ((a Internal-DNA-Sequence with
+		     (has-part ((a Deoxyribonucleotide))))))
+       (element-type 
+	 ((a D-GMP) (a D-AMP) (a D-CMP) (a D-TMP))))
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+;;
+;; $Id: Ne-Molecule.km,v 1.2 2008/11/03 00:11:41 tecuci Exp $
+;;
+
+(Ne-Molecule has (superclasses (Monoatomic-Molecule Inorganic-Molecule)))
+
+(every Ne-Molecule has
+       (has-part ((a Ne)))
+       (has-chemical-name ("neon"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ne)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ne)))))))
+       (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 Ne))))))))
+
+(Ne-Molecule has (wn20-synset ((:set (:triple "neon" 0 "n")
+				     (:triple "molecular neon" 0 "n")
+				     ))))

@@ -1,0 +1,57 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Precipitation-Reaction596
+
+
+|#
+
+(disable-classification)
+
+(Precipitation-Reaction has (superclasses (Reaction)))
+
+(Precipitation-Reaction now-has (user-description ("Precipitation reactions are reaction in which mixing of solutions results in the formation of an insoluble product.")))
+
+(_Precipitation-Reaction823 has
+  (prototype-of (Precipitation-Reaction Reaction))
+  (prototype-scope (Precipitation-Reaction (the-class Reaction with (raw-material ((a Chemical with (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical))))))) (must-be-a Chemical) (must-be-a Chemical))) (result ((a Precipitate with (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical))))))) (must-be-a Chemical) (must-be-a Entity) (must-be-a Chemical))))))
+  (prototype-participants (_Solubility-Value830 _Solubility-Value826 _Chemical825 _Precipitate824 _Precipitation-Reaction823)))
+
+(_Precipitation-Reaction823 has
+  (instance-of (Precipitation-Reaction))
+  (raw-material (_Chemical825 (must-be-a Chemical) (must-be-a Chemical)))
+  (result (_Precipitate824 (must-be-a Chemical) (must-be-a Entity) (must-be-a Chemical))))
+
+(_Precipitate824 has (instance-of (Precipitate)) (solubility (_Solubility-Value826)))
+
+(_Chemical825 has (instance-of (Chemical)) (solubility (_Solubility-Value830)))
+
+(_Solubility-Value826 has (instance-of (Solubility-Value)))
+
+(_Solubility-Value830 has (instance-of (Solubility-Value)) (value ((:pair *soluble Chemical))))
+
+(enable-classification)
+
+(explanation (:triple _Solubility-Value830 value (:pair *soluble Chemical)) (((@ SME entered)) (every Precipitation-Reaction has (raw-material ((a Chemical with (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical))))))))))))
+
+(explanation (:triple _Precipitation-Reaction823 instance-of Precipitation-Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Precipitate824 instance-of Precipitate) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical825 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value826 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value830 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Precipitation-Reaction has (raw-material ((a Chemical with (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical))))))))))
+
+|#
+
+|#
+

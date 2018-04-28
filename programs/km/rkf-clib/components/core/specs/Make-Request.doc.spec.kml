@@ -1,0 +1,59 @@
+<!--- $Id: Make-Request.doc.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<kml>
+
+<concept name=Make-Request>
+<superconcept name=Communicate>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Make-Request>
+  <definition>An object (a <conceptref name=Request>) is requested, usually in a polite manner.</definition>
+  <requiredslot name=agent>
+    <restriction>requests <slot>object</slot> </restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Request</restriction>
+    <restriction>requested by <slot>agent</slot></restriction>
+  </requiredslot>
+  <requiredslot name=recipient>
+    <restriction>a Entity</restriction>
+  </requiredslot>
+  <requiredslot name=manner>
+   <restriction>((a Manner-Value with (value (*politely))))</restriction>
+  </requiredslot>
+
+  <primaryslot name=instrument>
+    <inheritedfrom name=Action>
+    <restriction>a Tangible-Entity</restriction>
+  </primaryslot>
+  <primaryslot name=base>
+    <inheritedfrom name=Action>
+    <restriction>a Medium</restriction>
+  </primaryslot>
+  
+  <wnsynsets><verb>request#1, request#2, request#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>bespeak#2, call for#1, quest#5
+  </verb></wnsynsets>
+</component>
+
+<musing>
+
+</musing>
+
+<h3>Other Senses:</h3>
+<senselist>
+
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNrequest#1><equiv tag=request1></sense>
+<sense tag=WNrequest#2><equiv tag=request2></sense>
+<sense tag=WNrequest#3><equiv tag=request3></sense>
+</senselist>
+</reference>
+</kml>
+
+

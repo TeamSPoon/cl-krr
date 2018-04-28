@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Nucleoprotein.km,v 1.7 2001/05/01 22:31:55 pnav Exp $ 
+;; 
+
+(Nucleoprotein has
+         (superclasses (Macromolecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Organic molecule containing both nucleic acid and
+                        protein(s).  Examples are ribosomes and SNRPs.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Nucleoprotein has
+        (has-part ((a Protein)    
+                   (a Polynucleotide))))
+
+

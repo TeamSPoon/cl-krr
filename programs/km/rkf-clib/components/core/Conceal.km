@@ -1,0 +1,92 @@
+;; 
+;;    $Id: Conceal.km,v 1.25 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Conceal has
+  (superclasses 	(Make-Inaccessible))
+  (required-slot 	(object)) 
+  (primary-slot  	(agent base))
+  (secondary-slot 	())
+  (cmap-correspondence  (
+			 (:seq object "the thing Concealed")
+			 (:seq base "the thing to which the object is Concealed")
+			 (:seq agent "the Concealer")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Conceal has
+  (object 	   ((a Tangible-Entity)))
+  (base 	   ((must-be-a Thing)))
+  (agent  	   ((must-be-a Entity)))
+  (resulting-state ((a Be-Concealed)))
+
+  (soft-pcs-list ((if (has-value (the agent of Self))
+		      then (:triple (the agent of Self)
+				    experiencer-of
+				    (a Be-Known with
+				       (object ((a Information with
+						   (information-content 
+						    (the location of (the object of Self))))))))))) 
+			    
+  (add-list ((if (has-value (the base of Self))
+		 then
+		 (:triple
+		   (the resulting-state of Self)
+		   base
+		   (the base of Self) [Conceal-add-1]))
+	     (:triple
+	       (the resulting-state of Self)
+	       object 
+	       (the object of Self) [Conceal-add-2]))))
+
+
+(comment [Conceal-add-1] (:seq (the base of Self) " is concealing " (the object of Self))
+	 "A conceal causes something to be concealed by something else.")
+
+(comment [Conceal-add-2] (:seq (the object of Self) " is concealed by " (the base of Self))
+	 "A conceal causes something to be concealed by something else.")
+
+(every Conceal has
+	(preparatory-event ((:default
+		(a Expose with
+		   (object ((the object of Self)))
+		   (agent  ((the agent of Self)))
+		   (base   ((the base of Self)))
+
+
+)))))
+
+
+(every Conceal has
+  (text-active-verbseq-sg ("conceals"))
+  (text-active-verbseq-pl ("conceal"))
+  (text-passive-verbseq-sg ("gets concealed"))
+  (text-passive-verbseq-pl ("get concealed"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("from"))))
+
+  (text-argslots ((:seq base instrument path result)))
+
+)
+
+
+;;TODO: contextual info       
+
+;; TODO: add test cases
+
+
+
+;; automatically added WN synsets
+(Conceal has (wn16-synset ((:set  
+                                      (:triple "conceal" 1 "v")
+                                      (:triple "hide" 1 "v")
+))))
+
+(Conceal has (wn20-synset ((:set
+                                      (:triple "conceal" 1 "v")
+                                      (:triple "hide" 1 "v")
+))))
+
+(every Conceal has (text-nominalization ("concealment")))

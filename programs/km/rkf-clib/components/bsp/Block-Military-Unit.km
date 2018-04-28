@@ -1,0 +1,65 @@
+
+;;
+;;  $Id: Block-Military-Unit.km,v 1.7 2004/01/30 22:40:14 kbarker Exp $
+;;
+
+(Block-Military-Unit has
+   (superclasses (Block-Military))
+   (description  ("a tactical mission task that prevents an enemy's advance along an avenue of approach"))
+)
+
+(every Block-Military-Unit has-definition
+   (instance-of (Block-Military))
+   (object ((a Military-Unit)))
+)
+
+(every Block-Military-Unit has
+   (agent  ((a Military-Unit)))
+   (base   ((a Spatial-Entity)))
+  (object ((a Military-Unit)))
+   (object ((set-constraint
+              (((the number of 
+                     (the value of (the allegiance of TheValues))) <= 1)
+               and
+               (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+   (enemy ((the object of Self)))
+
+  (first-subevent ((if (((the location of (the agent of Self))
+                   /= (the base of Self))
+                  and
+                   ((the location of (the agent of Self))
+                    /= (the location of (the base of Self)))
+                  and
+                   ((the is-at of (the location of (the agent of Self)))
+                     /= (the is-at of (the base of Self))))
+              then
+                 (a Move-Military-Unit with
+                    (object ((the agent of Self)))
+                    (destination ((the base of Self))))
+   )))
+
+   (resulting-state ((a Be-Blocked)))
+
+   (add-list (
+       (:triple
+           (the base of Self)
+           object-of
+           (the resulting-state of Self) [Block-Military-Unit-add-1])))
+
+   (text-base ("from using"))
+   (text-argslots ((:seq base path)))
+)
+
+(comment [Block-Military-Unit-add-1]
+   (:seq (the base of Self) " is now blocked.")
+   "Block-Military-Unit prevents a unit from moving along an AoA.")
+
+

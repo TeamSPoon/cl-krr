@@ -1,0 +1,16 @@
+;; $Id: CH3_3_NH-Plus.km,v 1.2 2003/02/23 20:08:58 jchaw Exp $ 
+(CH3_3_NH-Plus has (superclasses (Cation)))
+(every CH3_3_NH-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *electronic-charge))))))
+	(has-chemical-name ("Trimethlyammonium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq 
+						  (:pair 3 
+							 (:seq
+							  (:pair 1 C)
+							  (:pair 3 H)))
+						  (:pair 1 N)
+						  (:pair 1 H)
+						  ))))))
+)

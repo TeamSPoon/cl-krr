@@ -1,0 +1,50 @@
+<!--- $Id: Screen.spec.kml,v 1.1 2005/08/01 20:56:42 jchaw Exp $ --->
+<kml>
+
+<concept name=Screen>
+<superconcept name=Military-Task>
+
+<definition>
+
+  A form of security operation that primarily provides early warning
+  to the protected force
+  
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that is screening the
+     <slot>object</slot>
+  </slotdescription>
+
+  <slotdescription name=object>
+     the <conceptref name=Military-Unit> that is being protected by the 
+     <slot>agent</slot> by this screening operation
+  </slotdescription>
+  
+  <slotdescription name=base>
+     the <conceptref name=Military-Unit> that is being screened by the 
+     <slot>agent</slot>
+  </slotdescription>
+
+</requiredslotlist>
+
+  <comment>
+  The <slot>agent</slot> and the <slot>object</slot> have the same
+  <slot>allegiance</slot>, and the <slot>base</slot> has a different 
+  <slot>allegiance</slot>
+  </comment>
+
+<neighborlist>
+
+  <neighbor name=Guard>
+    Guard is also a security action.  Guard means to fix an enemy
+    ground force before it can engage the main body.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

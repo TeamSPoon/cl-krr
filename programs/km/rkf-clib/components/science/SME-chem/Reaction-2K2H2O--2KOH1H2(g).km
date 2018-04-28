@@ -1,0 +1,369 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for |Reaction-2K2H2O--2KOH1H2(g)| ----------
+
+(|Reaction-2K2H2O--2KOH1H2(g)| has (superclasses (Reaction)))
+
+(|_Reaction-2K2H2O--2KOH1H2(g)199| has 
+  (instance-of (|Reaction-2K2H2O--2KOH1H2(g)|))
+  (prototype-of (|Reaction-2K2H2O--2KOH1H2(g)|))
+  (prototype-scope (|Reaction-2K2H2O--2KOH1H2(g)|))
+  (prototype-participants (_Property-Node269
+                           _Property-Node268
+                           _Property-Node267
+                           _Property-Node266
+                           _Property-Node265
+                           _Chemical-Entity264
+                           _Reaction-Material263
+                           _Chemical262
+                           _Coefficient-Value261
+                           _Reaction-Material260
+                           _Chemical-Entity259
+                           _Chemical258
+                           _Coefficient-Value257
+                           _Chemical-Entity256
+                           _Reaction-Result255
+                           _Chemical254
+                           _State-Value253
+                           _Coefficient-Value252
+                           _Reaction-Result251
+                           _Chemical-Entity250
+                           _Chemical249
+                           _Coefficient-Value248
+                           |_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (big-nodes (_Property-Node265
+              _Property-Node266
+              _Property-Node267
+              _Property-Node268
+              _Property-Node269))
+  (raw-material (_Chemical258
+                 _Chemical262))
+  (result (_Chemical249
+           _Chemical254))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq raw-material _Chemical258 t)
+                    (:seq raw-material _Chemical262 t)
+                    (:seq result _Chemical249 t)
+                    (:seq result _Chemical254 t))))
+
+(_Property-Node269 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_State-Value253))
+  (contains-edge ((:triple _State-Value253 value *gas)))
+  (big-node-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Property-Node268 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value252))
+  (contains-edge ((:triple _Coefficient-Value252 value (:pair 1 *unity))))
+  (big-node-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Property-Node267 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value248))
+  (contains-edge ((:triple _Coefficient-Value248 value (:pair 2 *unity))))
+  (big-node-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Property-Node266 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value261))
+  (contains-edge ((:triple _Coefficient-Value261 value (:pair 2 *unity))))
+  (big-node-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Property-Node265 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value257))
+  (contains-edge ((:triple _Coefficient-Value257 value (:pair 2 *unity))))
+  (big-node-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Chemical-Entity264 has 
+  (instance-of (Chemical-Entity
+                H2O))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical262))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Reaction-Material263 has 
+  (instance-of (Reaction-Material))
+  (played-by (_Chemical262))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Chemical262 has 
+  (has-basic-structural-unit (_Chemical-Entity264))
+  (plays (_Reaction-Material263))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value261))
+  (edge-visibility ((:seq coefficient _Coefficient-Value261 t)))
+  (raw-material-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Coefficient-Value261 has 
+  (contains-node-of (_Property-Node266))
+  (coefficient-of (_Chemical262))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Reaction-Material260 has 
+  (instance-of (Reaction-Material))
+  (played-by (_Chemical258))
+  (internally-expanded (f))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Chemical-Entity259 has 
+  (instance-of (Chemical-Entity
+                K))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical258))
+  (atomic-symbol (K))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Chemical258 has 
+  (plays (_Reaction-Material260))
+  (has-basic-structural-unit (_Chemical-Entity259))
+  (instance-of (Chemical))
+  (raw-material-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value257))
+  (edge-visibility ((:seq coefficient _Coefficient-Value257 t)))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Coefficient-Value257 has 
+  (contains-node-of (_Property-Node265))
+  (coefficient-of (_Chemical258))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Chemical-Entity256 has 
+  (instance-of (Chemical-Entity
+                H2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical254))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Reaction-Result255 has 
+  (instance-of (Reaction-Result))
+  (played-by (_Chemical254))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Chemical254 has 
+  (has-basic-structural-unit (_Chemical-Entity256))
+  (plays (_Reaction-Result255))
+  (instance-of (Chemical
+                Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value252))
+  (edge-visibility ((:seq coefficient _Coefficient-Value252 t)))
+  (physical-state (_State-Value253))
+  (result-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_State-Value253 has 
+  (contains-node-of (_Property-Node269))
+  (physical-state-of (_Chemical254))
+  (instance-of (State-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value (*gas))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Coefficient-Value252 has 
+  (contains-node-of (_Property-Node268))
+  (coefficient-of (_Chemical254))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 1 *unity)))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Reaction-Result251 has 
+  (instance-of (Reaction-Result))
+  (played-by (_Chemical249))
+  (internally-expanded (f))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Chemical-Entity250 has 
+  (instance-of (Chemical-Entity
+                KOH))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical249))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Chemical249 has 
+  (plays (_Reaction-Result251))
+  (has-basic-structural-unit (_Chemical-Entity250))
+  (instance-of (Chemical
+                Entity))
+  (result-of (|_Reaction-2K2H2O--2KOH1H2(g)199|))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value248))
+  (edge-visibility ((:seq coefficient _Coefficient-Value248 t)))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(_Coefficient-Value248 has 
+  (contains-node-of (_Property-Node267))
+  (coefficient-of (_Chemical249))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (|_Reaction-2K2H2O--2KOH1H2(g)199|)))
+
+(explanation (:triple |_Reaction-2K2H2O--2KOH1H2(g)199| result _Chemical254)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple |_Reaction-2K2H2O--2KOH1H2(g)199| raw-material _Chemical262)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple |_Reaction-2K2H2O--2KOH1H2(g)199| raw-material _Chemical258)
+  ((a Chemical (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction raw-material))))
+(explanation (:triple |_Reaction-2K2H2O--2KOH1H2(g)199| result _Chemical249)
+  ((a Chemical (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction result))))
+(explanation (:triple |_Reaction-2K2H2O--2KOH1H2(g)199| chemical-equation _Chemical-Equation-Expression201)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of |_Reaction-2K2H2O--2KOH1H2(g)199|) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of |_Reaction-2K2H2O--2KOH1H2(g)199|) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] |_Reaction-2K2H2O--2KOH1H2(g)199|) (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction chemical-equation))))
+(explanation (:triple |_Reaction-2K2H2O--2KOH1H2(g)199| instance-of |Reaction-2K2H2O--2KOH1H2(g)|)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical-Entity264 atomic-chemical-formula _Chemical-Formula221)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity264)) or (the term of (the has-chemical-formula of _Chemical-Entity264)) (@ _Chemical-Entity264 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity264)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity264))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity264)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity264)))))))))) (@ _Chemical-Entity264 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity264 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity264 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity264 nested-atomic-chemical-formula _Chemical-Formula219)
+  ((_Chemical-Formula219)))
+(explanation (:triple _Chemical-Entity264 nested-atomic-chemical-formula _Chemical-Formula219)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H) (:pair 1 O)))) (@ _Chemical-Entity264 H2O nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity264 instance-of H2O)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical-Entity264 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical262 Chemical has-basic-structural-unit))))
+(explanation (:triple _Reaction-Material263 instance-of Reaction-Material)
+  ((a Reaction-Material (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (raw-material must-be-a) Chemical plays))))
+(explanation (:triple _Chemical262 plays _Reaction-Material263)
+  ((a Reaction-Material (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (raw-material must-be-a) Chemical plays))))
+(explanation (:triple _Chemical262 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (raw-material must-be-a) Chemical plays)))) (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical262 coefficient _Coefficient-Value261)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical262 has-basic-structural-unit _Chemical-Entity264)
+  ((a Chemical-Entity (@ _Chemical262 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical262 instance-of Chemical)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Coefficient-Value261 value (:pair 2 *unity))
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Coefficient-Value261 instance-of Coefficient-Value)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Reaction-Material260 instance-of Reaction-Material)
+  ((a Reaction-Material (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (raw-material must-be-a) Chemical plays))))
+(explanation (:triple _Chemical-Entity259 atomic-chemical-formula _Chemical-Formula241)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity259)) or (the term of (the has-chemical-formula of _Chemical-Entity259)) (@ _Chemical-Entity259 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity259)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity259))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity259)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity259)))))))))) (@ _Chemical-Entity259 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity259 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity259 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity259 atomic-chemical-formula _Chemical-Formula241)
+  ((the nested-atomic-chemical-formula of _Chemical-Entity259 (@ _Chemical-Entity259 Atom atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity259 nested-atomic-chemical-formula _Chemical-Formula241)
+  ((if (the atomic-symbol of _Chemical-Entity259 (@ _Chemical-Entity259 Atom nested-atomic-chemical-formula)) then (a Chemical-Formula with (term ((:seq (:pair 1 (the atomic-symbol of _Chemical-Entity259))))) (@ _Chemical-Entity259 Atom nested-atomic-chemical-formula)) (@ _Chemical-Entity259 Atom nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity259 instance-of K)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical-Entity259 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical258 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical258 has-basic-structural-unit _Chemical-Entity259)
+  ((a Chemical-Entity (@ _Chemical258 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical258 plays _Reaction-Material260)
+  ((a Reaction-Material (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (raw-material must-be-a) Chemical plays))))
+(explanation (:triple _Chemical258 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (raw-material must-be-a) Chemical plays)))) (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical258 instance-of Chemical)
+  ((a Chemical (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction raw-material))))
+(explanation (:triple _Chemical258 coefficient _Coefficient-Value257)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical258 instance-of Chemical)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Coefficient-Value257 value (:pair 2 *unity))
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Coefficient-Value257 instance-of Coefficient-Value)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical-Entity256 atomic-chemical-formula _Chemical-Formula239)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity256)) or (the term of (the has-chemical-formula of _Chemical-Entity256)) (@ _Chemical-Entity256 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity256)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity256))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity256)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity256)))))))))) (@ _Chemical-Entity256 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity256 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity256 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity256 nested-atomic-chemical-formula _Chemical-Formula237)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 H)))) (@ _Chemical-Entity256 H2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity256 instance-of H2)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical-Entity256 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical254 Chemical has-basic-structural-unit))))
+(explanation (:triple _Reaction-Result255 instance-of Reaction-Result)
+  ((a Reaction-Result (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (result must-be-a) Chemical plays))))
+(explanation (:triple _Chemical254 plays _Reaction-Result255)
+  ((a Reaction-Result (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (result must-be-a) Chemical plays))))
+(explanation (:triple _Chemical254 instance-of Entity)
+  ((a Entity (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Event (result must-be-a)))))
+(explanation (:triple _Chemical254 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (result must-be-a) Chemical plays)))) (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (result must-be-a)))))
+(explanation (:triple _Chemical254 physical-state _State-Value253)
+  ((a State-Value (@ _Chemical254 Chemical physical-state))))
+(explanation (:triple _Chemical254 coefficient _Coefficient-Value252)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical254 has-basic-structural-unit _Chemical-Entity256)
+  ((a Chemical-Entity (@ _Chemical254 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical254 instance-of Chemical)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _State-Value253 value *gas)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _State-Value253 instance-of State-Value)
+  ((a State-Value (@ _Chemical254 Chemical physical-state))))
+(explanation (:triple _State-Value253 instance-of State-Value)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Coefficient-Value252 value (:pair 1 *unity))
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Coefficient-Value252 instance-of Coefficient-Value)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Reaction-Result251 instance-of Reaction-Result)
+  ((a Reaction-Result (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (result must-be-a) Chemical plays))))
+(explanation (:triple _Chemical-Entity250 instance-of KOH)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical-Entity250 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical249 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical249 has-basic-structural-unit _Chemical-Entity250)
+  ((a Chemical-Entity (@ _Chemical249 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical249 plays _Reaction-Result251)
+  ((a Reaction-Result (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (result must-be-a) Chemical plays))))
+(explanation (:triple _Chemical249 instance-of Entity)
+  ((a Entity (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Event (result must-be-a)))))
+(explanation (:triple _Chemical249 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (result must-be-a) Chemical plays)))) (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction (result must-be-a)))))
+(explanation (:triple _Chemical249 instance-of Chemical)
+  ((a Chemical (@ |_Reaction-2K2H2O--2KOH1H2(g)199| Reaction result))))
+(explanation (:triple _Chemical249 coefficient _Coefficient-Value248)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Chemical249 instance-of Chemical)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Coefficient-Value248 value (:pair 2 *unity))
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+(explanation (:triple _Coefficient-Value248 instance-of Coefficient-Value)
+  ((added-at |Reaction-2K2H2O--2KOH1H2(g)| "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

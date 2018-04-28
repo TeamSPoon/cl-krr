@@ -1,0 +1,57 @@
+;; 
+;;    $Id: Oligonucleotide.km,v 1.10 2001/08/08 20:55:31 kbarker Exp $ 
+;; 
+
+(Oligonucleotide has
+     (superclasses (Nucleotide-Sequence Macromolecule))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A molecular chain of nucleotides chemically bonded by a
+                    series of phosphodiester linkages.  Alberts:ECB:G-14.
+                    Defined in this KB to be between 3 and 49 
+                    nucleotides long, longer nucleotide sequences are called
+                    polynucleotides.  Note: the current lengths are
+                    arbitrary.  All sources so far consulted just say a
+                    'short' nucleotide sequence.  Souther. "))
+     (cmap-correspondence ()))
+
+(every Oligonucleotide has
+       (has-region ((a 3-Prime-End)
+		(a 5-Prime-End)
+		))
+       (has-part ((a 5-Prime-Nucleotide with
+                     (object-of
+                      ((a Be-Attached-To with
+                          (object (((the Nucleotide-Sequence has-part of Self)
+				    called "Nucleotide Sequence")))
+                          (site
+                           (((the Carbon-Atom has-part of
+                                  (the Pentose has-part of
+                                       (the 5-Prime-Nucleotide has-part of
+                                            Self)))
+                            called "Carbon-3")
+                           ))
+                          (instrument ((a Phosphodiester-Bond)))
+                          )
+                       )))
+                  (a 3-Prime-Nucleotide with
+                     (object-of
+                      ((a Be-Attached-To with
+                          (object (((the Nucleotide-Sequence has-part of Self)
+				    called "Nucleotide Sequence")))
+                          (site
+                           (((the Carbon-Atom has-part of
+                                  (the Pentose has-part of
+                                       (the 3-Prime-Nucleotide has-part of
+                                            Self)))
+                            called "Carbon-5")
+                           ))
+                          (instrument ((a Phosphodiester-Bond)))
+                          ))))
+                  (a Nucleotide-Sequence called "Nucleotide Sequence")
+		  (at-least 3 Nucleotide)
+		  (at-most 49 Nucleotide)
+		  ))
+       )
+

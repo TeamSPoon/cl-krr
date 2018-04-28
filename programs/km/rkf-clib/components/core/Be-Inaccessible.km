@@ -1,0 +1,44 @@
+;; 
+;;    $Id: Be-Inaccessible.km,v 1.14 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Inaccessible has
+		 (superclasses   (State))
+		 (required-slot  (object))
+		 (primary-slot   (base))
+                 (caused-by-class      (Make-Inaccessible))
+                 (defeated-by-class    (Make-Accessible))
+		 (cmap-correspondence (
+				       (:seq object "the inaccessible object")
+				       (:seq base "the thing the object is inaccessible to")
+				       )))
+
+(every Be-Inaccessible has
+       (object ((a Entity)))
+       (base ((must-be-a Thing)))
+       
+       (resulting-state-of ((if (has-value (the base of Self))
+				then
+			      (must-be-a Make-Inaccessible with
+					 (object ((the object of Self)))
+					 (base ((the base of Self))))
+			      else
+			      (must-be-a Make-Inaccessible with
+					 (object ((the object of Self)))))))
+       
+       (defeated-by ((if (has-value (the base of Self))
+			 then
+		       (must-be-a Make-Accessible with
+				  (object ((the object of Self)))
+				  (base ((the base of Self))))
+		       else
+		       (must-be-a Make-Accessible with
+				  (object ((the object of Self))))))))
+
+(every Be-Inaccessible has
+   (text-particle ("inaccessible"))
+)
+
+;; Be-Inaccessible has no links to WordNet. It serves as a grouper for
+;; more specific and useful concepts.
+

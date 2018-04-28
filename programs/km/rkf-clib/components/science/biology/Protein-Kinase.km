@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Protein-Kinase.km,v 1.11 2001/05/18 13:15:04 souther Exp $ 
+;; 
+
+(Protein-Kinase has
+         (superclasses (Kinase))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Enzyme that transfers a phosphate group from ATP to a
+                        specific amino acid of a target protein.  Cells contain
+                        hundreds of different protein kinases, phosphorylating
+                        different sets of target proteins. Alberts:ECB:G-15."))
+         (test-case ()))
+
+(every Protein-Kinase has    
+       (purpose ((a Catalyst with
+                    (in-event ((a Phosphorylation with
+                                  (base ((a Protein)))
+                                  ))))
+                 )))
+
+
+
+
+

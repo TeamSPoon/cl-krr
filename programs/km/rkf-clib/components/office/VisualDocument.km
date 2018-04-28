@@ -1,0 +1,23 @@
+
+;; 
+;; $Id: VisualDocument.km,v 1.7 2005/08/24 00:41:18 billj Exp $
+;; 
+
+;; IRIS_class: VisualDocument
+(VisualDocument has
+		(superclasses (Document InformationObject)))
+
+(every VisualDocument has 
+       (hasBinaryRepresentation ((a String)))
+       (isDepictionOf ((a Thing)))
+       ;; range should be the common super of Identification, Person, Artifact
+       ;(isPictureOf ((a Thing)))
+)
+
+(hasBinaryRepresentation has  (instance-of (Interface-Slot)) (domain (VisualDocument))  (range (String))  (cardinality (N-to-N)))
+
+(isDepictionOf has   (instance-of (Interface-Slot))   (domain (VisualDocument))    #|(range (Thing))|#    (cardinality (N-to-N))(inverse (hasDepiction)))
+
+#|
+(isPictureOf has (instance-of (Interface-Slot)) (domain (VisualDocument))  (range (Person Artifact))  (cardinality (N-to-N)))
+|#

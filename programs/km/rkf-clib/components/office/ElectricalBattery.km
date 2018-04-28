@@ -1,0 +1,12 @@
+;;
+;; $Id: ElectricalBattery.km,v 1.5 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(ElectricalBattery has 
+		   (superclasses (PowerSource)))
+
+(ElectricalBattery has (wn20-synset ((:set (:triple "storage_battery" 1 "n")
+					   (:triple "accumulator" 2 "n")))))(ElectricalBattery has
+  (feature-slot ((the feature-slot of PowerSource)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = ElectricalBattery)))))
+

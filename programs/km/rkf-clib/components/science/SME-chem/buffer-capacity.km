@@ -1,0 +1,22 @@
+;;
+;;  $Id: buffer-capacity.km,v 1.1 2007/11/28 23:46:47 tecuci Exp $
+;;
+
+(buffer-capacity has
+	     (instance-of (Property))
+	     (superslots  ())
+	     (subslots    ())
+	     (domain      (Buffer))
+	     (range       (Buffer-Capacity-Value))
+	     (cardinal-unit-class (UoM-Unitless))
+	     (scalar-constant-class (Buffer-Capacity-Constant))
+	     (fluent-status (*Inertial-Fluent))
+	     ; (inherit-with-overrides (t))
+	     (inverse     (buffer-capacity-of))
+	     (cardinality (N-to-1))
+             (original-slot      (t))	
+	     )
+
+(buffer-capacity has (user-description ("The amount of acid or base a buffer solution can absorb without significant changes in pH.")))
+
+(buffer-capacity-of has (instance-of (Property)))

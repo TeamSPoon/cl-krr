@@ -1,0 +1,42 @@
+<!--- $Id: intensity.spec.kml,v 1.3 2006/03/01 20:20:46 kbarker Exp $ --->
+<kml>
+<property-doc name=intensity/Intensity-Value>
+<system-documentation name=Intensity-Value>
+<gpd-documentation name=Property>
+
+<from name=Thing>
+<to name=Intensity-Value>
+
+<description> 
+  the intensity of a Thing
+</description>
+
+<value-description>
+  <cardinal-value-description>
+  a number along with any of the units of measurement for <conceptref name=UoM-Intensity>
+<p>
+    <examplesentence>
+      <text>the bulb that I bought has an intensity of 1000001 *kilocalorie/mole.</text>
+      <slotdescription name=number>1000001</slotdescription>
+      <slotdescription name=unit of measure>*kilocalorie/mole</slotdescription>
+    </examplesentence>
+  </cardinal-value-description>
+
+  <scalar-value-description>
+   a relative value along with a reference concept (what is the relative value relative to?)<p>
+<scalars>weak, strong</scalars>
+<scale name=*weak-strong-scale>weak..strong</scale>
+    <p>
+    <examplesentence>
+      <text>The intensity of the newly discovered star is weak compared to that of the NorthStar.</text>
+      <slotdescription name=value>weak</slotdescription>
+      <slotdescription name=relative to>the instensity of NorthStar</slotdescription><p>
+    </examplesentence>
+  </scalar-value-description>
+</value-description>
+</kml>
+
+escription>
+</value-description>
+</kml>
+

@@ -1,0 +1,73 @@
+<!--- $Id: Be-Inaccessible.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+<kml>
+
+<concept name=Be-Inaccessible><system-documentation name=Be-Inaccessible>
+
+<superconcept name=State>
+
+<definition>
+
+  An <slot>object</slot> becomes inaccessible.  
+  An object is put in this state by <conceptref name=Make-Inaccessible>.
+  An object is taken out of this state by <conceptref name=Make-Accessible>.
+
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=object>
+      the thing that becomes inaccessible
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=base>
+    the entity that the <slot>object</slot> is inaccessible to.
+  </slotdescription>
+
+</primaryslotlist>
+<examplesentencelist>
+
+   <examplesentence>
+     <text>Sally closed the jar of peanut butter.</text>
+     <slotdescription name=object>peanut butter</slotdescription>
+   </examplesentence>
+   
+   <examplesentence>
+     <text>Jerome deactivated the database.</text>
+     <slotdescription name=object>the database</slotdescription>
+   </examplesentence>
+
+   <examplesentence>
+     <text>King Arthur raised the drawbridge to the castle to keep the
+dragons out.</text>
+     <slotdescription name=object>the castle</slotdescription>
+     <slotdescription name=base>the dragons</slotdescription>
+   </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Be-Blocked>
+      Be-Blocked applies to Places which are inaccessible.
+   </neighbor>
+
+   <neighbor name=Be-Closed>
+      Be-Closed applies to Portals which are blocked to objects moving through.
+   </neighbor>
+
+   <neighbor name=Be-Concealed>
+      Be-Concealed applies to objects that are hidden from view.
+   </neighbor>
+
+   <neighbor name=Be-Obstructed>
+      Be-Obstructed applies to objects that are restricted in movement.
+   </neighbor>
+</neighborlist>
+   
+</kml>
+
+

@@ -1,0 +1,58 @@
+;;
+;;  $Id: Penetrate-Defenses.km,v 1.14 2005/11/21 03:17:20 kbarker Exp $
+;;
+
+(Penetrate-Defenses has
+		    (superclasses (Engagement-Military-Task Penetrate))
+		    (description ("a form of maneuver to seek to rupture enemy defenses on a narrow front")))
+
+(every Penetrate-Defenses has
+       (agent ((a Military-Unit)))
+  (object ((a Military-Unit)))
+       (object ((set-constraint
+                   (((the number of 
+                          (the value of (the allegiance of TheValues))) <= 1)
+                    and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+       (enemy ((the object of Self)))
+
+  (first-subevent ((if (((the location of (the agent of Self))
+                   /= (the object of Self))
+                  and
+                   ((the location of (the agent of Self))
+                    /= (the location of (the object of Self)))
+                  and
+                   ((the is-at of (the location of (the agent of Self)))
+                     /= (the is-at of (the object of Self))))
+              then
+                 (a Move-Military-Unit with
+                    (object ((the agent of Self)))
+                    (destination ((the object of Self))))
+   )))
+
+       (site ((must-be-a Spatial-Entity)))
+
+       (required-force-ratio 
+          ((a Required-Force-Ratio-Value with
+              (value ((:pair 3 NIL))))))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.9 NIL))))))
+       (enemy-attrition-rate ((a Enemy-Attrition-Rate-Value with
+                                 (value ((:pair 0.7 NIL))))))
+
+       (text-nominalization ("penetration"))
+       (text-active-verbseq-sg ("penetrates"))
+       (text-active-verbseq-pl ("penetrate"))
+
+       (text-path ("through"))
+       (text-argslots ((:seq site path)))
+)

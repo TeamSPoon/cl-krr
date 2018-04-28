@@ -1,0 +1,11 @@
+;; $Id: H2SO3-Substance.km,v 1.3 2003/02/22 16:27:22 jchaw Exp $ 
+(H2SO3-Substance has (superclasses (Acid)))
+(every H2SO3-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 1.7e-2 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("Sulfurous"))
+	(has-basic-structural-unit ((a H2SO3)))
+)

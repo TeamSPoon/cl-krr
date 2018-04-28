@@ -1,0 +1,14 @@
+;;
+;; $Id: Tape.km,v 1.3 2005/04/10 21:05:22 jchaw Exp $
+;;
+(Tape has (superclasses (Artifact)))
+
+(every Tape has 
+       (purpose ((a Instrument-Role with
+		    (in-event ((must-be-a Attach)))
+		    (played-by (Self)))))
+       )
+
+(Tape has (wn20-synset ((:set
+			     (:triple "tape" 1 "n")	
+))))

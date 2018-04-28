@@ -1,0 +1,10 @@
+;; 
+;;    $Id: Pattern-D4.km,v 1.2 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+(Pattern-D4 has (superclasses (Pattern)))
+(every Pattern-D4 has
+  (has-pattern ((a Attack with
+		   (object ((a Military-Unit with
+		   	       (allegiance ((a Allegiance-Value with
+				   	       (value (*red))))))))))))

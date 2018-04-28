@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Unicellular-Organism.km,v 1.2 2005/08/02 21:24:48 jchaw Exp $ 
+;; 
+
+(Unicellular-Organism has
+	  (superclasses (Organism))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (cmap-correspondence ())
+	  (description ("An organism consisting of a single cell."))
+	  (test-case ()))
+
+(every Unicellular-Organism has
+          (has-part ((exactly 1 Cell))))
+
+
+
+
+

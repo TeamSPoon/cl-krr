@@ -1,0 +1,19 @@
+;;
+;; $Id: next-element.km,v 1.11 2007/04/11 21:31:10 jchaw Exp $
+;;
+
+(next-element has
+	     (instance-of (Meronymic-Relation))
+	     (domain (Entity))
+	     (range (Entity))
+	     (cardinality (N-to-N))
+	     (fluent-status (*Inertial-Fluent))
+             (original-slot      (t))	
+	     (inverse (previous-element)))
+
+
+(previous-element has (wn20-synset ((:set
+				 (:triple "previous element" 0 "n")))))(next-element has (text-gloss ("comes before")))
+(previous-element has 
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("comes after")))

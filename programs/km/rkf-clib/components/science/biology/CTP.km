@@ -1,0 +1,32 @@
+;; 
+;;    $Id: CTP.km,v 1.9 2001/06/01 23:26:15 pnav Exp $ 
+;; 
+
+(CTP has
+         (superclasses (Ribonucleoside-Triphosphate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Nucleoside triphosphate containing cytosine used in the
+                        synthesis of RNA and DNA.  Souther."))
+         (test-case ()))
+
+(every CTP has
+  (has-part ((a Triphosphate with
+          	(object-of
+           	  ((a Be-Attached-To with
+               	      (object ((the Cytidine has-part of Self)))
+                      (site   (((the Carbon-Atom has-part of
+                         	     (the Ribose has-part of
+                              		  (the Cytidine has-part of Self)))
+				called "Carbon-5")
+		   	       ((the Oxygen-Atom has-part of
+			  	     ((the Monophosphate has-part of
+				     	   (the Triphosphate has-part of Self))
+			   	      called "Phosphate-1"))
+		    		called "Oxygen-1")))
+		      (instrument ((a Covalent-CO-Bond))) ))))
+       	     (a Cytidine) )))
+
+

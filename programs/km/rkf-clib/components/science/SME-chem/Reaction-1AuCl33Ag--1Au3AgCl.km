@@ -1,0 +1,17 @@
+;;
+;;    $Id: Reaction-1AuCl33Ag--1Au3AgCl.km,v 1.2 2007/12/13 21:21:46 mrglass Exp $
+;;
+
+(Reaction-1AuCl33Ag--1Au3AgCl has (superclasses (Single-Displacement-Reaction)))
+
+(Reaction-1AuCl33Ag--1Au3AgCl has (user-description ("Silver replaces gold in gold chloride.")))
+
+(every Reaction-1AuCl33Ag--1Au3AgCl has-definition
+(instance-of (Reaction))
+(raw-material ((a AuCl3-Substance) (a Ag-Substance))))
+
+
+(every Reaction-1AuCl33Ag--1Au3AgCl has
+(raw-material ((a AuCl3-Substance) (a Ag-Substance)))
+(result ((a Au-Substance) (a AgCl-Substance))))
+

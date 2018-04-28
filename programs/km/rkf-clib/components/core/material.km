@@ -1,0 +1,36 @@
+;; 
+;;    $Id: material.km,v 1.18 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+;; Note the range should be Substance but currently changed 
+;; to Tangible-Entity.
+(material has
+  (instance-of 		(Meronymic-Relation))
+  (superslots 		())
+  (subslots 		())
+  (domain 		(Tangible-Entity))
+  (range 		(Tangible-Entity))
+  (inverse 		(material-of))
+  (text-slot            (text-material))
+  (fluent-status 	(*Inertial-Fluent))
+  (original-slot      (t))	
+  (cardinality 		(N-to-N)))
+
+(material has (text-gloss ("is made of")))
+
+(text-material has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Tangible-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-material-of has (instance-of (NL-Slot-Group)))
+
+(material-of has 
+        (instance-of (Meronymic-Relation))
+	(text-gloss ("is the material of")))

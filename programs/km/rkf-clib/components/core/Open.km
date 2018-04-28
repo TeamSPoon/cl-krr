@@ -1,0 +1,164 @@
+;; 
+;;    $Id: Open.km,v 1.33 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(Open has
+  (superclasses 	(Unblock))
+  (required-slot	(object))
+  (primary-slot 	(agent instrument))
+  (secondary-slot 	())
+  (cmap-correspondence 	(
+			 (:seq object "thing opened")
+			 (:seq agent "opener")
+			 (:seq instrument "portal covering")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Open has
+  (object ((a Spatial-Entity with
+              (object-of 
+                 ((a Be-Closed with
+                     (instrument ((a Tangible-Entity with
+                                     (plays ((a Portal-Covering))))))))))))
+
+  ;; The state that is voided.
+  (defeats 	    ((allof (the object-of of (the object of Self))
+                             where 
+                             ((the classes of It) = Be-Closed))))
+	
+  (resulting-state  ((a Be-Open)))
+
+  ;; Preconditions.
+  (pcs-list 	    ((:triple
+		       (the object of Self) 
+		       object-of
+		       (mustnt-be-a Be-Open) [Open-pcs-1])
+		     (:triple
+		       (the object of Self)
+		       object-of
+		       (a Be-Closed) [Open-pcs-2])
+  ))
+
+  (del-list ((forall (the defeats of Self)
+               (:triple It object (the object of Self) [Open-del-1]))
+             (forall (the defeats of Self)
+               (:triple (the instrument of It) 
+                        plays 
+                        (a Portal-Covering)) [Open-del-2])
+             (forall (the defeats of Self)
+               (:triple It instrument (the instrument of It)) [Open-del-3])
+  ))
+
+  (add-list 	   ((:triple
+                      (the resulting-state of Self)
+		      object
+		      (the object of Self) [Open-add-1])
+                    (:triple
+                      (the object of Self)
+                      plays
+                      (a Portal) [Open-add-2])
+)))
+
+(comment [Open-pcs-1] (:seq (the object of Self) " must not be open yet.")
+	 "Something that is open cannot be opened again.")
+
+(comment [Open-pcs-2] (:seq (the object of Self) " must be closed.")
+	 "Something must be closed before it can be opened.")
+
+(comment [Open-del-1] (:seq (the object of Self) " is no longer closed.")
+	 "When something is opened, it is no longer closed.")
+
+(comment [Open-del-2] (:seq "The blockage is no longer a portal covering")
+         "Something is only a portal covering when it is blocking the portal.")
+
+(comment [Open-del-3] (:seq "The portal cover no longer blocks " 
+                            (the object of Self))
+	 "An open removes the portal covering from the portal.")
+
+(comment [Open-add-1] (:seq (the object of Self) " is now a portal.")
+	 "An open results in a portal.")
+
+(every Open has
+  (text-active-verbseq-sg ("opens"))
+  (text-active-verbseq-pl ("open"))
+  (text-passive-verbseq-sg ("gets opened"))
+  (text-passive-verbseq-pl ("get opened"))
+
+  (text-argslots ((:seq base instrument path result)))
+)
+
+(every Open has 
+  (preparatory-event ((:default
+	(a Close with 
+	   (object 	((the object of Self)))
+	   (base   	((the base of Self)))
+	   (agent  	((the agent of Self)))
+	   (instrument  ((the instrument of Self))))
+	(a Unblock with
+	   (object	((the object of Self))))
+))))
+
+
+(Open has 
+  (test-case ('(
+		(*the-Jar-Opening has (instance-of (Spatial-Entity)))
+		(*the-Jar-Lid has (instance-of (Tangible-Entity)))
+		(*the-Cookie-Jar has 
+		  (instance-of 	(Tangible-Entity))
+		  (has-region 	(*the-Jar-Opening))
+		  (has-part (*the-Jar-Lid)))
+		(*Ralf has (instance-of (Living-Entity)))
+
+		(not (the Be-Open object-of of *the-Jar-Opening))
+
+                (a Be-Closed with
+                   (object (*the-Jar-Opening))
+                   (instrument (*the-Jar-Lid)))
+                (the text-gen of (thelast Be-Closed))
+
+		(a Open with 
+		   (object 	     (*the-Jar-Opening))
+		   (agent  	     (*Ralf)))
+		(do-and-next (thelast Open))
+		(the text-gen of (thelast Open))
+		(forall 
+                   (the resulting-state of (thelast Open)) 
+                   (the text-gen of It))
+
+		(the Be-Open object-of of *the-Jar-Opening)
+		(not (the Be-Closed object-of of *the-Jar-Opening))
+
+		(a Close with
+		   (object           (*the-Jar-Opening))
+                   (instrument       (*the-Jar-Lid))
+                   (agent            (*Ralf)))
+		(do-and-next (thelast Close))
+		(the text-gen of (thelast Close))
+
+		(not (the Be-Open object-of of *the-Jar-Opening))
+ 		(the Be-Closed object-of of *the-Jar-Opening)
+		(forall 
+                   (the resulting-state of (thelast Close)) 
+                   (the text-gen of It))
+))))
+
+
+
+
+;; automatically added WN synsets
+(Open has (wn16-synset ((:set  
+                                   (:triple "open" 6 "v")
+                                   (:triple "open_up" 3 "v")
+                                   (:triple "afford" 2 "v")
+                                   (:triple "unfasten" 2 "v")
+))))
+
+(Open has (wn20-synset ((:set
+                                   (:triple "open" 6 "v")
+                                   (:triple "open_up" 3 "v")
+                                   (:triple "afford" 2 "v")
+                                   (:triple "unfasten" 2 "v")
+))))
+
+(every Open has (text-nominalization ("opening")))

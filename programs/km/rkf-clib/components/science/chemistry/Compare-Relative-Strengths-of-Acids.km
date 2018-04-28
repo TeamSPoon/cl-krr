@@ -1,0 +1,178 @@
+
+;;
+;; $Id: Compare-Relative-Strengths-of-Acids.km,v 1.3 2003/09/23 15:39:10 jfan Exp $
+;;
+
+(Compare-Relative-Strengths-of-Acids has
+  (superclasses (Method))
+  (description ("compare the strengths of two given acid")))
+
+;; 
+;; Takes as input two Chemicals. It is assumed that both chemicals
+;; play the role of an acid.
+;;
+(every Compare-Relative-Strengths-of-Acids has
+  (output ((if (((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the first of (the input of Self))))))
+		 = *strong) 
+		and
+		((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the second of (the input of Self))))))
+		 /= *strong)) 
+	       then
+	       (the first of (the input of Self))
+            [Compare-Relative-Strengths-of-Acids-output-1]
+  )))
+
+  (output ((if (((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the first of (the input of Self))))))
+		 /= *strong) 
+		and
+		((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the second of (the input of Self))))))
+		 = *strong)) 
+	       then
+	       (the second of (the input of Self))
+            [Compare-Relative-Strengths-of-Acids-output-2]
+  )))
+
+  (output ((if (((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the first of (the input of Self))))))
+		 = *weak) 
+		and
+		((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the second of (the input of Self))))))
+		 = *negligible)) 
+	       then
+	       (the first of (the input of Self))
+            [Compare-Relative-Strengths-of-Acids-output-3]
+  )))
+
+  (output ((if (((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the first of (the input of Self))))))
+		 = *negligible) 
+		and
+		((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the second of (the input of Self))))))
+		 = *weak)) 
+	       then
+	       (the second of (the input of Self))
+            [Compare-Relative-Strengths-of-Acids-output-4]
+  )))
+
+  ;; Special case involving H3O+.
+  (output ((if (((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the first of (the input of Self))))))
+		 = *strong) 
+		and
+		((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the second of (the input of Self))))))
+		 = *strong)) 
+	       then
+	       (if (the H3O-Plus has-basic-structural-unit of 
+			(the first of (the input of Self)))
+		   then
+		   (the second of (the input of Self))
+		   else
+		   (if (the H3O-Plus has-basic-structural-unit of
+			    (the second of (the input of Self)))
+		       then
+		       (the first of (the input of Self))))
+            [Compare-Relative-Strengths-of-Acids-output-5]
+  )))
+
+  ;; Special case involving H2O.
+  (output ((if (((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the first of (the input of Self))))))
+		 = *negligible) 
+		and
+		((the1 of (the value of (the intensity of 
+		   (the Acid-Role plays of 
+		     (the second of (the input of Self))))))
+		 = *negligible)) 
+	       then
+	       (if ((the first of (the input of Self)) isa H2O-Substance)
+		   then
+		   (the first of (the input of Self))
+		   else
+		   (if ((the second of (the input of Self)) isa H2O-Substance)
+		       then
+		       (the second of (the input of Self))))
+            [Compare-Relative-Strengths-of-Acids-output-6]
+  )))
+)
+
+
+(comment [Compare-Relative-Strengths-of-Acids-output-1]
+  (:seq (the text-gen of (the first of (the input of Self)))
+        "is known to be a stronger acid than"
+        (the text-gen of (the second of (the input of Self)))
+  )
+  "Checking the strength of acids..."
+)
+
+(comment [Compare-Relative-Strengths-of-Acids-output-2]
+  (:seq (the text-gen of (the second of (the input of Self)))
+        "is known to be a stronger acid than"
+        (the text-gen of (the first of (the input of Self)))
+  )
+  "Checking the strength of acids..."
+)
+
+(comment [Compare-Relative-Strengths-of-Acids-output-3]
+  (:seq (the text-gen of (the first of (the input of Self)))
+        "is known to be a weak acid, but the strength of"
+        (the text-gen of (the second of (the input of Self)))
+        "is negligible;"
+        (the text-gen of (the first of (the input of Self)))
+        "is therefore the stronger acid"
+  )
+  "Checking the strength of acids..."
+)
+
+(comment [Compare-Relative-Strengths-of-Acids-output-4]
+  (:seq (the text-gen of (the second of (the input of Self)))
+        "is known to be a weak acid, but the strength of"
+        (the text-gen of (the first of (the input of Self)))
+        "is negligible;"
+        (the text-gen of (the second of (the input of Self)))
+        "is therefore the stronger acid"
+  )
+  "Checking the strength of acids..."
+)
+
+(comment [Compare-Relative-Strengths-of-Acids-output-5]
+  (:seq "Both"
+        (the text-gen of (the first of (the input of Self)))
+        "and"
+        (the text-gen of (the second of (the input of Self)))
+        "are known to be strong acids, but"
+        (the text-gen of (the output of Self))
+        "is stronger"
+  )
+  "Checking the strength of acids..."
+)
+
+(comment [Compare-Relative-Strengths-of-Acids-output-6]
+  (:seq "The strength of both"
+        (the text-gen of (the first of (the input of Self)))
+        "and"
+        (the text-gen of (the second of (the input of Self)))
+        "is negligible, but"
+        (the text-gen of (the output of Self))
+        "is considered stronger"
+  )
+  "Checking the strength of acids..."
+)
+

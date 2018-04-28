@@ -1,0 +1,85 @@
+;; 
+;;    $Id: Break.km,v 1.19 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Break has
+       (superclasses   (Damage))
+       (required-slot  (object))
+       (primary-slot   (agent instrument by-means-of))
+       (secondary-slot ())
+       (cmap-correspondence (
+			     (:seq object "the thing broken")
+			     (:seq agent "the breaker")
+			     (:seq by-means-of "the precipitating event")))
+     #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Break has 
+       (object ((a Tangible-Entity)))
+       (resulting-state ((a Be-Broken)))
+       (add-list ((:triple
+		   (the resulting-state of Self)
+		   object
+		   (the object of Self) [Break-add-1]))))
+
+(comment [Break-add-1] (:seq (the object of Self) " is broken.")
+	 "A break causes something to be broken.")
+
+(every Break has
+  (text-active-verbseq-sg ("breaks"))
+  (text-active-verbseq-pl ("break"))
+  (text-passive-verbseq-sg ("gets broken"))
+  (text-passive-verbseq-pl ("get broken"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Break has 
+       (test-case     ('(
+			 (*Vase has (instance-of (Physical-Object)))
+			 
+			 (a Break with (object (*Vase)))
+
+			 (do-and-next (thelast Break))
+
+                         (the text-gen of (thelast Break))
+
+                         (the text-gen of 
+                              (the resulting-state of (thelast Break)))
+
+			 (has-value (the Be-Broken object-of of *Vase))
+
+			 ))))
+
+
+
+
+
+
+;; automatically added WN synsets
+(Break has (wn16-synset ((:set  
+                                    (:triple "break" 3 "v")
+                                    (:triple "break" 17 "v")
+                                    (:triple "break_down" 4 "v")
+                                    (:triple "conk_out" 1 "v")
+                                    (:triple "die" 4 "v")
+                                    (:triple "fail" 4 "v")
+                                    (:triple "give_out" 4 "v")
+                                    (:triple "give_way" 4 "v")
+                                    (:triple "go" 30 "v")
+))))
+
+(Break has (wn20-synset ((:set
+                                    (:triple "break" 4 "v")
+                                    (:triple "break" 17 "v")
+                                    (:triple "break_down" 4 "v")
+                                    (:triple "conk_out" 1 "v")
+                                    (:triple "die" 4 "v")
+                                    (:triple "fail" 4 "v")
+                                    (:triple "give_out" 4 "v")
+                                    (:triple "give_way" 4 "v")
+                                    (:triple "go" 30 "v")
+))))
+
+(every Break has (text-nominalization ("breaking")))

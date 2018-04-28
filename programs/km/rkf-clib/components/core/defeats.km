@@ -1,0 +1,22 @@
+;; 
+;;    $Id: defeats.km,v 1.9 2007/04/10 21:29:48 jchaw Exp $ 
+;; 
+
+; note use of inherit-with-overrides.  This ensures that KM returns only
+; the most specific value of the defeats slot
+(defeats has
+         (instance-of (Causal-Relation))
+         (superslots ())
+	 (subslots ())
+	 (domain (Action))
+	 (range (State))
+	 (inverse (defeated-by))
+	 (fluent-status (*Inertial-Fluent))
+	 (inherit-with-overrides (t))
+         (original-slot      (t))	
+	 (cardinality (N-to-N)))
+
+(defeats has (text-gloss ("defeats")))
+(defeated-by has 
+	(instance-of (Causal-Relation))
+	(text-gloss ("is defeated by")))

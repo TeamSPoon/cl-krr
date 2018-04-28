@@ -1,0 +1,26 @@
+;; 
+;;  $Id: quantity.km,v 1.7 2006/09/26 20:48:26 jchaw Exp $
+;; 
+
+(quantity has
+  (instance-of (EntityProperty))
+  (domain      (Tangible-Entity))
+  (range       (Quantity-Value))
+  (scalar-constant-class (Quantity-Constant))   
+  (cardinal-unit-class   (UoM-Quantity))   
+  (fluent-status (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (inverse     (quantity-of))
+  (cardinality (N-to-1))
+)
+
+(quantity has (wn20-synset ((:set
+                               (:triple "quantity" 1 "n")
+                               (:triple "quantity" 3 "n")
+                               (:triple "measure" 3 "n")
+                               (:triple "amount" 3 "n")
+))))
+
+(quantity-of has
+	(instance-of (EntityProperty)))
+

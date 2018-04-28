@@ -1,0 +1,20 @@
+;; 
+;; $Id: Researcher.km,v 1.5 2005/04/10 21:40:16 jchaw Exp $
+;; 
+
+;; Change superclass from Technical-Role to Seeker. This was
+;; done to align our ontology with IRIS.
+(Researcher has
+  (superclasses 	(Seeker))
+  (required-slot 	())
+  (primary-slot 	())
+  (secondary-slot 	())
+)
+
+; stubby for Project World
+
+(Researcher has (wn20-synset ((:set
+	 		     (:triple "research_worker" 1 "n")
+	 		     (:triple "researcher" 1 "n")
+	 		     (:triple "investigator" 1 "n")
+))))

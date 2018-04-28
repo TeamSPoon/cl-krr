@@ -1,0 +1,12 @@
+;;
+;; $Id: symbol.km,v 1.2 2002/12/12 16:58:30 wilder Exp $
+;;
+
+(symbol has
+    (instance-of (Property))
+    (domain      (Atom))
+    (range       (String))
+    (inherit-with-overrides (t))
+    (inverse (symbol-of))
+    (cardinality (N-to-1))
+)

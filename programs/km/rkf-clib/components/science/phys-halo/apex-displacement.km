@@ -1,0 +1,24 @@
+;;
+;; $Id: apex-displacement.km,v 1.6 2008/07/31 22:05:32 tecuci Exp $
+;;
+
+(apex-displacement has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Move))    
+   (range       (Displacement-Vector-Value))
+   (inverse 	(apex-displacement-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(apex-displacement has (wn20-synset ((:set
+                               (:triple "displacement at the apex" 0 "n")
+                               (:triple "apex displacement" 0 "n")
+))))
+
+(apex-displacement-of has
+	(instance-of (EventProperty)))
+(apex-displacement has (name ("displacement at apex")))
+

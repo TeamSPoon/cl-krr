@@ -1,0 +1,14 @@
+;; 
+;;    $Id: Property.km,v 1.4 2005/09/08 21:14:36 kbarker Exp $ 
+;; 
+
+(Property has 
+	  (superclasses (Slot)))
+
+
+(every Property has
+  (shaken-ui-hidden-slot ((if (anonymous-instancep Self) then t)))
+)
+
+
+

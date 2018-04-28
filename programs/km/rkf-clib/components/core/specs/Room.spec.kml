@@ -1,0 +1,57 @@
+<!--- $Id: Room.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<kml>
+
+<concept name=Room>
+<system-documentation name=Room>
+<superconcept name=Structure>
+
+<definition>
+	 A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the Room is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>hotel room</text>
+	<slotdescription name=is-part-of>hotel</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Bridge>
+     A Structure that plays the Role of a Conduit over something playing the Role of a Barrier
+  </neighbor>
+
+  <neighbor name=Building>
+	A Building is a Structure that contains Persons, Tangible-Entities, Walls, a Roof, Floors, Rooms, Portals, Hallways and plaus the Role of a Container. 
+  </neighbor>
+
+  <neighbor name=Wall>
+   A vertical Structure, playing the Role of a Barrier
+  </neighbor>
+
+  <neighbor name=Ceiling>
+     A surface, part of a Room, plays the Role of Cover for a Room, <slot>is-above</slot> everything in room.
+  </neighbor>
+
+  <neighbor name=Platform>
+    Horizontal Structure, supports everything on it, is-below everything on it.
+  </neighbor>
+
+  <neighbor name=Roof>
+   A Structure that plays Cover for another Structure; if the second Structure plays a Container, 
+   then the first is <slot>is-above</slot> the content of the second.
+  </neighbor>
+ 
+</neighborlist>
+
+</kml>

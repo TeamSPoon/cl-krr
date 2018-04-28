@@ -1,0 +1,19 @@
+;; $Id: Li-Plus.km,v 1.5 2008/05/14 20:16:56 kunal Exp $ 
+(Li-Plus has (superclasses (Metal-Cation)))
+(every Li-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("lithium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Li)))))))
+        (is-ion-of ((a Li)))
+)
+
+(every Li-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("lithium"))
+  (charge ((a Charge-Value with
+	      (value ((:pair +1 *unity)))))))
+
+(Li-Plus has (wn20-synset ((:triple "Li+" 0 "n"))))

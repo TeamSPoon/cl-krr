@@ -1,0 +1,57 @@
+;; 
+;;    $Id: Okazaki-Fragment-Replication.km,v 1.7 2001/06/01 23:26:44 pnav Exp $
+;; 
+
+(Okazaki-Fragment-Replication has
+  (superclasses        (DNA-Strand-Replication))
+  (required-slot       (object result))
+  (primary-slot        (instrument))
+  (description ("A process by which an Okazaki fragment is generated during
+                 the copying of the lagging strand during 
+                 DNA-Lagging-Strand-Replication.  Souther."))
+  (cmap-correspondence ()))
+
+(every Okazaki-Fragment-Replication has
+       (subevent-of (((the DNA-Strand-Replication subevent of
+			   (a Half-Replicon-Replication))
+		      called "lagging strand replication")))
+       (object
+	((a Polydeoxyribonucleotide called "Okazaki fragment template")))
+       (origin ((a Replication-Fork)))
+       (result
+	((a DNA-Molecule-Segment with
+	    (has-part
+	     (((the Polydeoxyribonucleotide object of Self)
+	       called "Okazaki fragment template")
+	      (a Okazaki-Fragment with
+		 (complement
+		  (((the Polydeoxyribonucleotide object of Self)
+		    called "Okazaki fragment template")))
+		 )))
+	    )))
+
+       (first-subevent ((the DNA-Priming subevent of Self)))
+	 
+       (subevent 
+	((a DNA-Priming with
+	    (object   ((a 3-Prime-End called "primer template" with
+			  (length ((at-most 15 Nucleotide)))
+			  (is-part-of
+			   ((a Polydeoxyribonucleotide 
+			       called "Okazaki fragment template"))) 
+			  )))
+	    (next-event ((the DNA-Replication subevent of Self)))
+	 )
+	 
+	 (a DNA-Replication with
+	    (object
+	     ((the Polydeoxyribonucleotide object of
+		   (the DNA-Strand-Replication subevent of Self))))
+	    (result
+	     (((the Polydeoxyribonucleotide has-part of
+		    (the Okazaki-Fragment has-part of
+			 (the DNA-Molecule-Segment result of Self)))
+	       called "Okazaki fragment excluding primer")
+	      )))
+	 )))
+       

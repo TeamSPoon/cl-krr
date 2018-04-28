@@ -1,0 +1,711 @@
+<html>
+<head>
+
+<title>Component Library Properties</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Component Library Properties</h1>
+</p>
+
+<p>
+<div class="headline">Kinds of Properties</div>
+</p>
+
+<p>
+The Component Library distinguishes two kinds of properties: <i>categorical</i> 
+properties and <i>scalar/cardinal</i> properties.
+</p>
+
+<p>
+Categorical properties have symbolic values that do not sensibly appear
+on any scale or continuum. There is no ordering to the values of
+categorical properties. For example, the <i>color</i> property is 
+categorical.  There is no natural ordering of its symbolic values: 
+<i>*blue</i>, <i>*orange</i>, etc. Although it is possible to assign 
+arbitrary numeric values to the symbolic constants (such as the RGB 
+encoding of colors), it is not a feature of the colors that they are 
+ordered. Outside of some arbitrary imposed ordering, it does not make 
+sense to say that "blue is greater than orange", or "something green 
+has a higher/greater color than something red".
+</p>
+
+<p>
+Scalar/cardinal properties have two different kinds of values: symbolic,
+relative values that appear on an ordered scale and numeric values.
+Scalar values consist of a symbolic constant and a reference class.
+Cardinal values consist of a cardinal number and a unit of measurement.
+</p>
+
+<p>
+<div class="headline">Representing Properties</div>
+</p>
+
+<p>
+Properties of Entities and Events are expressed using property slots
+filled by instances of Property-Value. Each property slot has a range of
+exactly one subclass of Property-Value. Different property slots may
+have the same subclass of Property-Value as range. For example, 
+<i>length</i>, <i>width</i>, <i>height</i>, etc. all have a range
+of Length-Value.
+</p>
+
+<p><table><tr><td>
+<pre>(a Device with (weight ((a Weight-Value))))
+
+(a Substance with (temperature ((a Temperature-Value))))
+
+(a Physical-Object with (color ((a Color-Value))))
+
+(a Event with (duration ((a Duration-Value))))
+</pre>
+</td></tr></table></p>
+
+<p>
+Every property slot is filled by at most one instance of a
+Property-Value. So, for example, an Entity has a single
+Temperature-Value, though that value may be expressed in many forms (50
+degrees Fahrenheit, 10 degrees Celsius, cool for a summer day, etc.).
+</p>
+
+<p>There are two parallel and equivalent representations for individual
+values of properties. The Component Library copies any values from one
+representation to the other. The first representation uses the
+<i>value</i> slot and KM's <i>:pair</i> notation. The following example
+shows a Device that weighs 10 pounds, 4.54 kilograms and is heavy
+relative to Computers. The Device has a single weight (Weight-Value) but
+there are three representations of that weight:
+</p>
+
+<p><table><tr><td>
+<pre>(a Device with
+   (weight ((a Weight-Value with
+               (value ((:pair 10 *pound)
+                       (:pair 4.54 *kilogram)
+                       (:pair *heavy Computer)
+               ))
+   )))
+)
+</pre>
+</td></tr></table></p>
+
+<p>
+The <i>value</i> slot is also used for categorical properties, where it
+is filled by a simple constant (not a <i>:pair</i>):
+</p> 
+
+<p><table><tr><td>
+<pre>(a Physical-Object with
+   (color ((a Color-Value with
+              (value (*blue))
+   )))
+)
+</pre>
+</td></tr></table></p>
+
+<p>
+The second representation for values of properties avoids KM's
+<i>:pair</i> notation. It uses three different slots in place of the
+generic <i>value</i> slot: <i>cardinal-value</i>, <i>scalar-value</i>
+and <i>categorical-value</i>. These slots are filled by one or more
+instances of the classes <i>Cardinal</i>, <i>Scalar</i> and 
+<i>Categorical</i>. Each instance is <i>one</i> representation of the
+property value. An instance of Cardinal must have exactly one
+filler each for the <i>numeric-value</i> and <i>unit</i> slots. An
+instance of Scalar must have exactly one filler for each of the
+<i>scalar-constant</i> and <i>reference-class</i> slots. An instance of
+Categorical must have exactly one filler for the
+<i>categorical-constant</i> slot.
+</p>
+
+<p><table><tr><td>
+<pre>(a Device with
+   (weight ((a Weight-Value with
+               (cardinal-value ((a Cardinal with
+                                   (numeric-value (10))
+                                   (unit (*pound))
+                                )
+                                (a Cardinal with
+                                   (numeric-value (4.54))
+                                   (unit (*kilogram))
+                                )
+                               )
+               )
+               (scalar-value   ((a Scalar with
+                                   (scalar-constant (*heavy))
+                                   (reference-class (Computer))
+                                )
+                               )
+               )
+   )))
+)
+
+(a Physical-Object with
+   (color ((a Color-Value with
+              (categorical-value ((a Categorical with
+                                     (categorical-constant (*blue))
+                                  )
+              ))
+   )))
+)
+</pre>
+</td></tr></table></p>
+
+<p>
+<div class="headline">Syntax and Constraints</div>
+</p>
+
+<p>
+To summarize, here is the syntax for each representation. Constraints are
+enforced in KM. Values encoded in each representation are copied to the
+other representation so either can be used for assertions and queries.
+</p>
+
+<p><table>
+<tr><td>
+<div class="boxtop">Cardinals</div>
+<div class="boxbody">
+  <h3>Syntax</h3>
+      <table>
+      <tr><td>
+      <pre>(&lt;property&gt; ((a Property-Value with
+                (value ((:pair &lt;Number&gt; &lt;Unit-of-Measurement&gt;)))
+            ))
+)
+      </pre>
+      </tr></td>
+      <tr><td>
+      <pre>(&lt;property&gt; ((a Property-Value with
+                (cardinal-value ((a Cardinal with
+                                    (numeric-value (&lt;Number&gt;))
+                                    (unit (&lt;Unit-of-Measurement&gt;))
+                                 )
+                ))
+            ))
+)
+      </pre>
+      </tr></td>
+      </table>
+</div>
+<div class="boxbody2">
+  <h3>Constraints</h3>
+      <table>
+      <tr><td><i>&lt;property&gt;</i> must be a property slot that allows cardinal values</td></tr>
+      <tr><td><i>&lt;Number&gt;</i> must be an instance of Number</td></tr>
+      <tr><td><i>&lt;Unit-of-Measurement&gt;</i> must be an instance of 
+              Unit-of-Measurement appropriate to <i>&lt;property&gt;</i> or a
+              Class subsumed by the domain of <i>&lt;property&gt;</i></td></tr>
+      <tr><td>multiple numeric values must be equivalent</td></tr>
+      </table>
+</div>
+</tr></td>
+</table></p>
+
+<p><table>
+<tr><td>
+<div class="boxtop">Scalars</div>
+<div class="boxbody">
+  <h3>Syntax</h3>
+      <table>
+      <tr><td>
+      <pre>(&lt;property&gt; ((a Property-Value with
+                (value ((:pair &lt;Constant&gt; &lt;Class&gt;)))
+            ))
+)
+      </pre>
+      </tr></td>
+      <tr><td>
+      <pre>(&lt;property&gt; ((a Property-Value with
+                (scalar-value ((a Scalar with
+                                  (scalar-constant (&lt;Constant&gt;))
+                                  (reference-class (&lt;Class&gt;))
+                               )
+                ))
+            ))
+)
+      </pre>
+      </tr></td>
+      </table>
+</div>
+<div class="boxbody2">
+  <h3>Constraints</h3>
+      <table>
+      <tr><td><i>&lt;property&gt;</i> must be a property slot that allows scalar values</td></tr>
+      <tr><td><i>&lt;Constant&gt;</i> must be an instance of Constant appropriate to <i>&lt;property&gt;</i></td></tr>
+      <tr><td><i>&lt;Class&gt;</i> must be a Class subsumed by the domain of <i>&lt;property&gt;</i></td></tr>
+      <tr><td>multiple values with the same reference <i>&lt;Class&gt;</i> must have the same <i>&lt;Constant&gt;</i></td></tr>
+      </table>
+</div>
+</tr></td>
+</table></p>
+
+<p><table>
+<tr><td>
+<div class="boxtop">Categoricals</div>
+<div class="boxbody">
+  <h3>Syntax</h3>
+      <table>
+      <tr><td>
+      <pre>(&lt;property&gt; ((a Property-Value with
+                (value (&lt;Constant&gt;))
+            ))
+)
+      </pre>
+      </tr></td>
+      <tr><td>
+      <pre>(&lt;property&gt; ((a Property-Value with
+                (categorical-value ((a Categorical with
+                                       (categorical-constant (&lt;Constant&gt;))
+                                    )
+                ))
+            ))
+)
+      </pre>
+      </tr></td>
+      </table>
+</div>
+<div class="boxbody2">
+  <h3>Constraints</h3>
+      <table>
+      <tr><td><i>&lt;property&gt;</i> must be a property slot that allows categorical values</td></tr>
+      <tr><td><i>&lt;Constant&gt;</i> must be an instance of Constant appropriate to <i>&lt;property&gt;</i></td></tr>
+      </table>
+</div>
+</tr></td>
+</table></p>
+
+<p>
+<div class="headline">Using Property Values</div>
+</p>
+
+<p>
+To use a Component Library property you must know the property's:
+<ul>
+    <li><i>domain</i>: what classes admit the property</li>
+    <li><i>range</i>: what subclass of Property-Value is the appropriate filler</li>
+    <li><i>categorical-constant-class</i>: what are the defined constants (for categoricals)</li>
+    <li><i>scalar-constant-class</i>: what are the defined constants (for scalars)</li>
+    <li><i>cardinal-unit-class</i>: what are the defined units of measure (for cardinals)</li>
+</ul>
+</p>
+
+<p>
+To create your own properties, you must specify the slots above (as
+appropriate) and create corresponding subclasses of Constant and
+Unit-of-Measurement with appropriate instances.
+</p>
+
+<p>
+Here are some examples of <i>domain</i>, <i>range</i>,
+<i>categorical-constant-class</i>, <i>scalar-constant-class</i> and
+<i>cardinal-unit-class</i>:
+</p>
+
+<p><table>
+<tr><td><pre>KM> (the domain of width)
+(Spatial-Entity)
+
+KM> (the range of width)
+(Length-Value)
+
+KM> (the scalar-constant-class of width)
+(Width-Constant)
+
+KM> (the all-instances of (the scalar-constant-class of width))
+(*narrow *wide)
+
+KM> (the cardinal-unit-class of width)
+(UoM-Length)
+
+KM> (the all-instances of (the cardinal-unit-class of width))
+(*kilometer *inch *foot *mile *yard *meter *centimeter *millimeter *micrometer *nanometer)
+
+KM> (the domain of color)
+(Spatial-Entity)
+
+KM> (the range of color)
+(Color-Value)
+
+KM> (the categorical-constant-class of color)
+(Color-Constant)
+
+KM> (the all-instances of (the categorical-constant-class of color))
+(*red *blue *yellow *green *orange *purple *pink *brown *black *white
+*gray *colorless *auburn *blond *blonde *brunette *redhead *silver
+*hazel *aqua *fuchsia *lime *maroon *navy *olive *teal *aliceBlue
+*antiqueWhite *aquamarine *azure *beige *bisque *blanchedAlmond
+*blueViolet *burlyWood *cadetBlue *chartreuse *chocolate *coral
+*cornflowerBlue *cornsilk *crimson *cyan *darkBlue *darkCyan
+*darkGoldenRod *darkGray *darkGreen *darkKhaki *darkMagenta
+*darkOliveGreen *darkorange *darkOrchid *darkRed *darkSalmon
+*darkSeaGreen *darkSlateBlue *darkSlateGray *darkTurquoise *darkViolet
+*deepPink *deepSkyBlue *dimGray *dodgerBlue *feldspar *fireBrick
+*floralWhite *forestGreen *gainsboro *ghostWhite *gold *goldenRod
+*greenYellow *honeyDew *hotPink *indianRed *indigo *ivory *khaki
+*lavender *lavenderBlush *lawnGreen *lemonChiffon *lightBlue
+*lightCoral *lightCyan *lightGoldenRodYellow *lightGrey *lightGreen
+*lightPink *lightSalmon *lightSeaGreen *lightSkyBlue *lightSlateBlue
+*lightSlateGray *lightSteelBlue *lightYellow *limeGreen *linen
+*magenta *mediumAquaMarine *mediumBlue *mediumOrchid *mediumPurple
+*mediumSeaGreen *mediumSlateBlue *mediumSpringGreen *mediumTurquoise
+*mediumVioletRed *midnightBlue *mintCream *mistyRose *moccasin
+*mavajoWhite *oldLace *oliveDrab *orangeRed *orchid *paleGoldenRod
+*paleGreen *paleTurquoise *paleVioletRed *papayaWhip *peachPuff *peru
+*plum *powderBlue *rosyBrown *royalBlue *saddleBrown *salmon
+*sandyBrown *seaGreen *seaShell *sienna *skyBlue *slateBlue *slateGray
+*snow *springGreen *steelBlue *tan *thistle *tomato *turquoise *violet
+*violetRed *wheat *whiteSmoke *yellowGreen)
+
+KM> (the domain of slope)
+(Spatial-Entity)
+
+KM> (the range of slope)
+(Unitless-Value)
+
+KM> (the scalar-constant-class of slope)
+(Slope-Constant)
+
+KM> (the all-instances of (the scalar-constant-class of slope))
+(*vertical *steep *gradual *horizontal)
+
+KM> (the cardinal-unit-class of slope)
+(UoM-Unitless)
+
+KM> (the all-instances of (the cardinal-unit-class of slope)) 
+(*unity)
+
+KM> (the domain of distance)
+(Event)
+
+KM> (the range of distance)
+(Length-Value)
+
+KM> (the scalar-constant-class of distance)
+(Distance-Constant)
+
+KM> (the all-instances of (the scalar-constant-class of distance))
+(*near *far *long)
+
+KM> (the cardinal-unit-class of distance)
+(UoM-Length)</pre>
+</td></tr>
+</table></p>
+
+<p>
+<div class="headline">Unit Conversion</div>
+</p>
+
+<p>
+The Component Library provides a unit converter for most Property
+Values and their Units of Measure. For a given instance of a subclass
+of Property-Value, the CLib class <i>Unit-Conversion</i> creates a new 
+instance of the same Property-Value subclass with desired units.
+Unfortunately, the unit converter does not yet convert <i>temperatures</i>.
+</p>
+
+<p><table>
+<tr><td>
+<div class="boxtop">Unit-Conversion</div>
+<div class="boxbody">
+  <h3>Syntax</h3>
+      <table>
+      <tr><td>
+      <pre>(the output of
+     (a Unit-Conversion with
+        (input (&lt;Property-Value&gt;))
+        (target-unit (&lt;Unit-of-Measurement&gt;))
+     )
+)</pre>
+      </tr></td>
+      </table>
+</div>
+<div class="boxbody2">
+  <h3>Constraints</h3>
+      <table>
+      <tr><td><i>&lt;Property-Value&gt;</i> must be a Property-Value that allows cardinal values</td></tr>
+      <tr><td><i>&lt;Unit-of-Measurement&gt;</i> must be an instance of 
+              Unit-of-Measurement appropriate to <i>&lt;Property-Value&gt;</i></td></tr>
+      </table>
+</div>
+<div class="boxbody2">
+  <h3>Example</h3>
+      <table>
+      <tr><td>
+      <pre>KM> (a Volume-Value with (value ((:pair 1 *liter))))
+(_Volume-Value2)
+
+KM> (the output of (a Unit-Conversion with (input (_Volume-Value2)) (target-unit (*gallon))))
+(_Volume-Value4)
+
+KM> (the value of _Volume-Value4)
+((:pair 0.26417205 *gallon))</pre>
+      </tr></td>
+      </table>
+</div>
+</tr></td>
+</table></p>
+
+
+<p>
+<div class="headline">Property Value Comparison</div>
+</p>
+
+<p>
+There are two kinds of expression that could rightfully claim the
+description "Property Value Comparison". This unfortunate fact is the
+source of much confusion. To be explicit, let's give neither one that
+label. Here we distinguish "Asserting Property Value (In)Equality" 
+and "Testing Property Value (In)Equality".
+</p>
+
+<p>
+Asserting Property Value (In)Equality is accomplished through use of
+the relations <i>greater-than</i> (inverse <i>less-than</i>)
+and <i>same-as</i>. These relations allow you to assert that one
+Property-Value is greater than (or less than, or the same as) another
+Property-Value. The Property-Value instances need not have values (on
+the <i>value</i> slot). This allows the assertion of (in)equality even
+when the exact values are unknown.
+</p>
+
+<p>
+If, however, cardinal values are given (on the <i>value</i> slot),
+assertions of (in)equality will be enforced with KM constraints:
+</p>
+
+<p><table><tr><td>
+<pre>KM> (a Length-Value) 
+(_Length-Value5)
+
+KM> (a Length-Value)
+(_Length-Value6)
+
+KM> (_Length-Value5 has (greater-than (_Length-Value6)))
+(_Length-Value5)
+
+KM> (the greater-than of _Length-Value5)
+(_Length-Value6)
+
+KM> (the less-than of _Length-Value6)
+(_Length-Value5)
+
+KM> (_Length-Value5 has (value ((:pair 2 *meter))))
+(_Length-Value5)
+
+KM> (_Length-Value6 has (value ((:pair 3 *meter))))
+(_Length-Value6)
+
+KM> (the greater-than of _Length-Value5)
+ERROR! Constraint violation! Discarding value _Length-Value6
+(Execution aborted)
+NIL
+
+
+KM> (a Temperature-Value with (value ((:pair 3 *celsius))))
+(_Temperature-Value7)
+
+KM> (a Temperature-Value)
+(_Temperature-Value8)
+
+KM> (_Temperature-Value7 has (same-as (_Temperature-Value8)))
+(_Temperature-Value7)
+
+KM> (the same-as of _Temperature-Value8)
+(_Temperature-Value7)
+
+KM> (the value of _Temperature-Value8) 
+NIL
+
+KM> (_Temperature-Value8 has (value ((:pair 3 *fahrenheit))))
+(_Temperature-Value8)
+
+KM> (the value of _Temperature-Value8)
+((:pair 3 *fahrenheit))
+
+KM> (the same-as of _Temperature-Value7)
+ERROR! Constraint violation! Discarding value _Temperature-Value8
+(Execution aborted)
+NIL</pre>
+</td></tr></table></p>
+
+<p>
+The second kind of "Property Value Comparison" is the "Test for
+Property Value (In)Equality". Testing for (in)equality makes use
+of special infix Property-Value operators <i>property-eq</i>,
+<i>property-gt</i>, <i>property-lt</i>, <i>property-gte</i> and
+<i>property-lte</i>. The property comparison operators respect
+units of measure (with the sad exception of <i>temperature</i> for
+now). The operators also respect KM's default or user-set mathematical
+tolerances:
+
+<p><table><tr><td>
+<pre>
+KM> (a Length-Value with (value ((:pair 36 *inch))))
+(_Length-Value11)
+
+KM> (a Lenght-Value with (value ((:pair 1 *meter))))
+(_Lenght-Value9545)
+
+KM> (a Length-Value with (value ((:pair 1 *meter))))
+(_Length-Value12)
+
+KM> (_Length-Value11 property-eq _Length-Value12)
+NIL
+
+KM> (_Length-Value11 property-lt _Length-Value12)
+(T)
+
+KM> (_Length-Value11 property-gt _Length-Value12)
+NIL
+
+
+KM> (a Volume-Value with (value ((:pair 1 *liter))))
+(_Volume-Value13)
+
+KM> (a Volume-Value with (value ((:pair 0.26417205 *gallon))))
+(_Volume-Value14)
+
+KM> (_Volume-Value13 property-eq _Volume-Value14)
+(T)
+
+KM> (a Volume-Value with (value ((:pair 0.264 *gallon))))
+(_Volume-Value15)
+
+KM> (_Volume-Value13 property-eq _Volume-Value15)
+NIL
+
+KM> (a Volume-Value with (value ((:pair 0.26417 *gallon))))
+(_Volume-Value16)
+
+KM> (_Volume-Value13 property-eq _Volume-Value16)
+(T)</pre>
+</td></tr></table></p>
+
+<p>
+<div class="headline">Property Value Math</div>
+</p>
+
+<p>
+The Component Library also supports some arithmetic on Property
+Values. The following infix operators are available: 
+<i>property-plus</i>, <i>property-minus</i>, <i>property-mult</i>
+and <i>property-div</i>.
+</p>
+
+<p>
+<i>Note that Property arithmetic is only as numerically accurate as
+the underlying Lisp arithmetic</i> <tt>:-b</tt>
+</p>
+
+<p><table>
+<tr><td>
+<div class="boxtop">Arithmetic Operators</div>
+<div class="boxbody">
+  <h3>Syntax</h3>
+      <table>
+      <tr><td>
+      <pre>(&lt;Property-Value-a&gt; property-plus &lt;Property-Value-a&gt;)</pre>
+      </tr></td>
+      <tr><td>
+      <pre>(&lt;Property-Value-b&gt; property-minus &lt;Property-Value-b&gt;)</pre>
+      </tr></td>
+      <tr><td>
+      <pre>(&lt;Property-Value-c&gt; property-mult &lt;Number&gt;)</pre>
+      <pre>(&lt;Number&gt; property-mult &lt;Property-Value-c&gt;)</pre>
+      <pre>(&lt;Property-Value-c&gt; property-mult &lt;Property-Value-c&gt;)</pre>
+      </tr></td>
+      <tr><td>
+      <pre>(&lt;Property-Value-d&gt; property-div &lt;Number&gt;)</pre>
+      <pre>(&lt;Property-Value-d&gt; property-div &lt;Property-Value-d&gt;)</pre>
+      </tr></td>
+      </table>
+</div>
+<div class="boxbody2">
+  <h3>Constraints</h3>
+      <table>
+      <tr><td><i>&lt;Property-Value-*&gt;</i> must be a Property-Value that allows cardinal values</td></tr>
+      <tr><td>all operators return a new instance of an appropriate subclass of <i>Property-Value</i></td></tr>
+      <tr><td>where both operands are <i>&lt;Property-Value&gt;</i> they must be of the same type</td></tr>
+      <tr><td><i>property-mult</i> admits two <i>&lt;Property-Value&gt;</i> operands for only a small subset of <i>Property-Value</i> subclasses</td></tr>
+      <tr><td><i>property-div</i> admits any two <i>&lt;Property-Value&gt;</i> operands of the same type and returns an instance of <i>Unitless-Value</i></td></tr>
+      </table>
+</div>
+<div class="boxbody2">
+  <h3>Examples</h3>
+      <table>
+      <tr><td>
+      <pre>KM> (the value of 
+     ((a Mass-Value with (value ((:pair 1 *kilogram))))
+      property-plus
+      (a Length-Value with (value ((:pair 1000 *meter))))))
+NIL
+
+KM> (the value of 
+     ((a Mass-Value with (value ((:pair 1 *kilogram))))
+      property-plus
+      (a Mass-Value with (value ((:pair 1.2 *kilogram))))))
+((:pair 2.2 *kilogram))
+
+KM> (the value of
+     ((a Mass-Value with (value ((:pair 1 *kilogram))))
+      property-minus
+      (a Mass-Value with (value ((:pair 1.2 *kilogram))))))
+((:pair -0.20000005 *kilogram))
+
+KM> (the value of
+     ((a Mass-Value with (value ((:pair 1.2 *kilogram))))
+      property-minus
+      (a Mass-Value with (value ((:pair 1 *kilogram))))))
+((:pair 0.20000005 *kilogram))
+
+KM> (the value of
+     ((a Length-Value with (value ((:pair 1 *centimeter))))
+      property-plus
+      (a Length-Value with (value ((:pair 1 *inch))))))
+((:pair 3.54 *centimeter))
+
+KM> (the value of
+     ((a Mass-Value with (value ((:pair 1.2 *kilogram))))
+      property-mult
+      5))
+((:pair 6.0 *kilogram))
+
+KM> (the value of
+     ((a Mass-Value with (value ((:pair 1.2 *kilogram))))
+      property-div
+      6))
+((:pair 0.20000002 *kilogram))
+
+KM> ((a Mass-Value with (value ((:pair 1.2 *kilogram))))
+     property-div
+     (a Mass-Value with (value ((:pair 2 *kilogram)))))
+(_Unitless-Value13)
+
+KM> (the value of _Unitless-Value13)
+((:pair 0.6 *unity))
+
+KM> ((a Length-Value with (value ((:pair 10 *meter))))
+     property-mult
+     (a Length-Value with (value ((:pair 10 *meter)))))
+(_Area-Value16)
+
+KM> (the value of _Area-Value16)
+((:pair 100 *square-meter))</pre>
+      </tr></td>
+      </table>
+</div>
+</tr></td>
+</table></p>
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td style="border-left-width:0; border-right-width:0">&nbsp;</td></tr>
+</table><p>
+
+</body>
+</html>

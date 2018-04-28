@@ -1,0 +1,58 @@
+;; 
+;;    $Id: Peptide-Bond.km,v 1.18 2001/11/17 06:50:23 jarred Exp $ 
+;; 
+
+(Peptide-Bond has
+         (superclasses (Covalent-CN-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Chemical bond between the carbonyl group of one amino 
+                        acid and the amino group of a second amino acid - a
+                        special form of amide linkage.  Alberts:ECB:G-14."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+; (every Peptide-Bond has      
+;        (instrument-of 
+; 	((must-be-a Be-Attached-To with
+; 		    (object (((a Amino-Acid-Sequence)
+; 			      called "amino acid sequence 1")
+; 			     ((a Amino-Acid-Sequence)
+;                               called "amino acid sequence 2") 
+; 			     ))
+; 		    (site
+; 		     (
+;                       ((the Amino-Acid has-part of
+; 			    ((the Amino-Acid-Sequence object of
+; 				  (the Be-Attached-To instrument-of of Self))
+; 			     called "amino acid sequence 1"))
+; 		       called "the carboxyl end amino acid")
+;                       ((the Amino-Acid has-part of
+;                             ((the Amino-Acid-Sequence base of
+;                                   (the Be-Attached-To instrument-of of Self))
+; 			     called "amino acid sequence 2"))
+; 		       called "the amino end amino acid")
+; 		      ))
+; 		    )))
+;         (purpose 
+; 	 ((a Connector with
+; 	     (in-event 
+; 	      ((a Be-Attached-To with
+; 		  (
+; 		   (object
+; 		    (((the object of (the Be-Attached-To instrument-of of Self)
+; 			   )
+; 		      called "amino acid sequence 1")
+; 		     ((the object of (the Be-Attached-To instrument-of of Self)
+;                            )
+;                       called "amino acid sequence 2") ))
+; 		   (instrument ((Self)))
+; 		   ))))
+; 	     )))
+;        (intensity ((a Intensity-Value with (value ((:pair 70 *kilocalorie/mole))))))
+;        (length ((a Length-Value with (value ((:pair 1 *nanometer))))))   
+;        )
+
+
+

@@ -1,0 +1,36 @@
+;; 
+;;    $Id: Follow-and-Assume.txt,v 1.3 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Follow-and-assume 
+   superclass: Tactical-Mission-Task 
+   agent/object: <----> Actor 
+   base: <----> Acted on 
+   site: <--> Location 
+ 
+   subevent: 
+      Follow 
+           object: MU called "following friendly forces" 
+           base: MU called "friendly forces" 
+           path: Place 
+            
+      *Assume 
+           superclass: Take-Over?? 
+           agent: MU called "following friendly forces" 
+           object: Tactical-Mission-Task with 
+                            agent: MU called "friendly forces"  
+           base: MU called "friendly forces" agent of Tactical-Mission-Task object of Assume . .  
+            
+ 
+Follow-and-assume (A). 
+=================. 
+1. Follow and assume is a tactical mission task in which a second committed force follows a force conducting an offensive operation and is prepared to continue the mission if the lead force is fixed, attritted, or unable to continue. 
+2. The follow-and-assume force is not a reserve but is committed to accomplish specific tasks. 
+ 
+3. Tasks for a follow-and-assume force include: 
+- Preparing to execute all missions of the followed unit. 
+- Maintaining contact with the trail elements of the leading force. 
+- Preparing to conduct a forward passage of lines through the force it is following. 
+- Monitoring all combat information and intelligence being provided to and from the force it is following. 
+- Avoiding engaging enemy forces bypassed by the force it is following. 
+ 

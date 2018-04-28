@@ -1,0 +1,15 @@
+;;
+;; $Id: Ga.km,v 1.5 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Ga has (superclasses (Metal-Atom IIIA-Element)))
+(every Ga has
+       (atomic-symbol (Ga))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 31 NIL))))))
+       (chemical-period (4)))
+
+(every Ga has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("gallium"))
+)

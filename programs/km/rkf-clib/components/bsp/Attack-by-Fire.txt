@@ -1,0 +1,36 @@
+Attack-by-fire 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+  instrument: Artillery 
+  site: mustnt-be-a Place with 
+                                   is-near: Military-Unit called "enemy force object-of Self 
+  manner: Forcefully 
+  cliché: Intentional-Act 
+  cliché: Unauthorized-Act 
+  is-supported-by: Support-by-Fire 
+ 
+  subevent:  
+                   Occupy:  
+                        object: Military-Unit called "friendly forces" agent of Self 
+                        destination: a Place with 
+                                                plays: Cover   
+                                                mustnt-be-a Place with     (w/o closing in on enemy) 
+                                                is-near: MU called "enemy forces"    
+ 
+                   Fire 
+                      agent: MU called "friendly forces" agent of Self 
+                      origin: the Place origin of Occupy subevent of Self 
+                      destination: Military-Unit called "enemy forces"  object of Self 
+ 
+Note:  The six objectives noted below in 1 and 2 were not encoded. 
+ 
+--------------------------------------- 
+ 
+Attack-by-fire (A). 
+ 
+1. Attack-by-fire is a tactical mission task in which a commander uses direct fires, supported by indirect fires, to engage an enemy without closing with him to destroy, suppress, fix, or deceive him. 
+2. A commander assigning this task to a subordinate must also state the desired effect on the enemy, such as neutralize, fix, or disrupt. 
+3. An attack by fire closely resembles the task of support by fire. 
+The chief difference is that one unit conducts the support-by-fire task to support another unit so it can maneuver against the enemy. 
+ 

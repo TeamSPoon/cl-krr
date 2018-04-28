@@ -1,0 +1,14 @@
+;; $Id: Al_CO3_3.km,v 1.2 2007/12/21 20:39:05 mrglass Exp $
+
+(Al_CO3_3 has (superclasses (Ionic-Compound)))
+(every Al_CO3_3 has
+        (has-chemical-name ("aluminium carbonate"))
+        (has-part ((a Al-Plus-3)(a CO3-Minus-2)))
+        (has-chemical-formula ((a Chemical-Formula with
+                (term ((:seq
+                        (:pair 2 Al-Plus-3)
+                        (:pair 3 CO3-Minus-2)))))))
+)
+(every Al_CO3_3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Al-Plus-3) (a CO3-Minus-2))))

@@ -1,0 +1,42 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Cs5285
+
+
+|#
+
+(disable-classification)
+
+(Cs has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+
+(every Cs has (atomic-symbol (Cs)) (atomic-number ((a Atomic-Number-Value with (value ((:pair 55 NIL)))))) (chemical-period (6)))
+
+(_Cs5296 has
+  (prototype-of (Cs))
+  (prototype-scope (Cs))
+  (prototype-participants (_Cs-Plus5301 _Cs5296)))
+
+(_Cs5296 has (instance-of (Cs)) (has-ion (_Cs-Plus5301)))
+
+(_Cs-Plus5301 has (instance-of (Cs-Plus)))
+
+(enable-classification)
+
+(explanation (:triple _Cs5296 has-ion _Cs-Plus5301) (((@ SME entered)) (every Cs has (has-ion ((a Cs-Plus))))))
+
+(explanation (:triple _Cs5296 instance-of Cs) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cs-Plus5301 instance-of Cs-Plus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Cs has (has-ion ((a Cs-Plus))))
+
+|#
+
+|#
+

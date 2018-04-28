@@ -1,0 +1,93 @@
+;; 
+;;    $Id: Let-Fall.km,v 1.22 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(Let-Fall has
+  (superclasses       	(Unobstruct))
+  (required-slot      	(object agent causes))
+  (primary-slot       	())
+  (secondary-slot	())
+  (cmap-correspondence  (
+			 (:seq object "object")
+			 (:seq agent "causer")
+			 (:seq causes "causes")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Let-Fall has
+  (object   ((a Tangible-Entity)))
+  (agent    ((a Tangible-Entity)))
+  (causes   ((a Fall with
+		(object ((the object of Self))))))
+
+  ; Let-Fall will remove an object from a Be-Supported state.
+  (defeats  ((allof (the object-of of (the object of Self))
+		    where
+		    ((the classes of It) = Be-Supported))))
+
+  (pcs-list ((forall (the object of Self)
+	       (:triple
+		 It
+                 object-of
+                 (a Be-Supported) [Let-Fall-pcs-1]))))
+
+  (del-list ((forall (the defeats of Self)
+	       (:triple It object (the object of Self) [Let-Fall-del-1]))))
+)
+
+(comment [Let-Fall-pcs-1] (:seq (the object of Self) " must be supported before it can fall.")
+	 "Something must be supported by something else before it can fall.")
+
+(comment [Let-Fall-del-1] (:seq (the object of Self) " is no longer being supported.")
+	 "A let-fall stops something from being supported.")
+
+(every Let-Fall has
+  (text-active-verbseq-sg ("lets"))
+  (text-active-verbseq-pl ("let"))
+  (text-passive-verbseq-sg ("is left to"))
+  (text-passive-verbseq-pl ("are left to"))
+
+  (text-argslots ((:seq text-particle destination)))
+  (text-particle ("fall"))
+
+)
+
+
+;; The following are some additional contextual information
+;; we want to say about this component.
+(every Let-Fall has
+  (preparatory-event (
+		   ; The agent must first move to where the
+		   ; object is.
+		   ((:default
+		     (:set (a Move with
+			      (object      ((the agent of Self)))
+			      (destination ((a Spatial-Entity with
+					       (is-at ((the object of Self)))))))
+			   (a Support with 
+			      (object      ((the object of Self)))
+			      (agent 	     ((the agent of Self)))
+			      (instrument  ((the instrument of Self)))))
+		     
+		     ))))
+  (interrupted-by ((must-be-a Support with
+			      (object ((the object of Self))))))
+  )
+
+
+;; Tests cases are incorporated with that of Support and
+;; can be found in Support.km
+(Let-Fall has (test-case ()))
+
+
+
+;; automatically added WN synsets
+(Let-Fall has (wn16-synset ((:set  
+                                       (:triple "drop" 1 "v")
+))))
+
+(Let-Fall has (wn20-synset ((:set
+                                       (:triple "drop" 1 "v")
+))))
+(every Let-Fall has (text-nominalization ("letting")))

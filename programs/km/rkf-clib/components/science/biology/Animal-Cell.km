@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Animal-Cell.km,v 1.2 2001/05/29 02:29:33 souther Exp $
+;; 
+
+(Animal-Cell has
+      (superclasses (Suborganismal-Entity))
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (description ("The basic unit from which animals are made. Most 
+                     are capable of movement.  Souther. "))
+       (cmap-correspondence ()))
+
+(every Animal-Cell has
+       (is-basic-structural-unit-of ((a Animal)))
+       (is-basic-functional-unit-of ((a Animal)))  
+       (has-part ((a Plasma-Membrane with
+		     (encloses ((the Cytoplasm has-part of Self))))
+		  (a Cytoplasm)))
+       )
+
+
+
+
+

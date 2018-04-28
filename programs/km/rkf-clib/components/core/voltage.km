@@ -1,0 +1,31 @@
+;; 
+;; $Id: voltage.km,v 1.6 2007/04/11 21:42:44 jchaw Exp $
+;; 
+
+(voltage has
+  (instance-of            (EntityProperty))
+  (domain                 (Spatial-Entity))    
+  (range                  (Voltage-Value))
+  (scalar-constant-class  (Voltage-Constant))
+  (cardinal-unit-class    (UoM-Voltage))
+  (inverse                (voltage-of))
+  (fluent-status          (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (cardinality            (N-to-1))
+  (original-slot      (t))	
+)
+
+(voltage-of has
+	(instance-of (EntityProperty)))
+
+(voltage has (wn20-synset ((:set
+                               (:triple "voltage" 1 "n")
+                               (:triple "voltage" 2 "n")
+                               (:triple "electromotive force" 1 "n")
+                               (:triple "emf" 1 "n")
+                               (:triple "electric potential" 1 "n")
+                               (:triple "potential" 2 "n")
+                               (:triple "potential difference" 1 "n")
+                               (:triple "potential drop" 1 "n")
+))))
+

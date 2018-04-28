@@ -1,0 +1,62 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Mitochondrion-matrix ----------
+
+(Mitochondrion-matrix has (superclasses (Subcellular-Entity Spatial-Entity)))
+
+(_Mitochondrion-matrix584 has 
+  (instance-of (Mitochondrion-matrix))
+  (prototype-of (Mitochondrion-matrix))
+  (prototype-scope (Mitochondrion-matrix))
+  (prototype-participants (_Ribosome801
+                           _Mitochondrion-matrix584
+                           _Respiratory-enzyme185))
+  (prototype-participant-of (_Mitochondrion-matrix584))
+  (has-clones (_Placeholder-Class583585
+               _Mitochondrion-matrix183
+               _Mitochondrion-matrix394))
+  (has-built-clones (_Placeholder-Class583585
+                     _Mitochondrion-matrix183
+                     _Mitochondrion-matrix394))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (encloses (_Respiratory-enzyme185))
+  (has-part (_Ribosome801))
+  (edge-coordinate ((:seq has-part _Ribosome801 244 532)))
+  (edge-visibility ((:seq has-part _Ribosome801 t))))
+
+(_Ribosome801 has 
+  (instance-of (Ribosome))
+  (has-clones (_Ribosome800))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-part-of (_Mitochondrion-matrix584))
+  (node-coordinate ((:pair 345 546)))
+  (prototype-participant-of (_Mitochondrion-matrix584)))
+
+(_Respiratory-enzyme185 has 
+  (prototype-participant-of (_Mitochondrion-matrix584))
+  (is-inside (_Mitochondrion-matrix584))
+  (instance-of (Respiratory-enzyme))
+  (has-clones (_Respiratory-enzyme184
+               _Respiratory-enzyme393))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq is-inside _Mitochondrion-matrix584 -21 601)))
+  (edge-visibility ((:seq is-inside _Mitochondrion-matrix584 t)))
+  (node-coordinate ((:pair -238 601))))
+
+(explanation (:triple _Mitochondrion-matrix584 has-part _Ribosome801) ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Mitochondrion-matrix584 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Respiratory-enzyme185 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Ribosome801 instance-of Ribosome) ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Respiratory-enzyme185 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Mitochondrion-matrix584 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Respiratory-enzyme185 is-inside _Mitochondrion-matrix584) ((added-at Mitochondrion-matrix "User defined")))
+(explanation (:triple _Respiratory-enzyme185 instance-of Respiratory-enzyme) ((added-at Mitochondrion-matrix "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(Mitochondrion-matrix now-has (user-description ("The material inside the inner mitochondrial membrane.")))
+(enable-classification)
+

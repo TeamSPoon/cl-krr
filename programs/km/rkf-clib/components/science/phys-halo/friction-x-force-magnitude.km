@@ -1,0 +1,31 @@
+;;
+;; $Id: friction-x-force-magnitude.km,v 1.1 2007/11/07 22:18:23 bsagashe Exp $
+;;
+
+(friction-x-force-magnitude has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Exert-Force))
+  (range (Force-Magnitude-Value))
+  (scale-class (Force-Scale))
+  (scalar-constant-class (Force-Constant))
+  (cardinal-unit-class (UoM-Force))
+  (inverse (friction-x-force-magnitude-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(friction-x-force-magnitude has (wn20-synset ((:set
+			       (:triple "horizontal friction force" 0 "n")
+			       (:triple "x friction force" 0 "n")
+			       (:triple "horizontal friction force magnitude" 0 "n")
+			       (:triple "x friction force magnitude" 0 "n")
+			       ))))
+
+(friction-x-force-magnitude-of has (instance-of (EventProperty)))
+
+
+
+(friction-x-force-magnitude has (name ("magnitude of the horizontal friction force")))

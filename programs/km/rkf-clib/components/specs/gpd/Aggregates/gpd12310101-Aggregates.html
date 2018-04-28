@@ -1,0 +1,142 @@
+<!--- $Id: gpd12310101-Aggregates.html,v 1.2 2003/09/10 20:43:32 jchaw Exp $ --->
+<html>
+<head>
+<title>SHAKEN Aggregates</title>
+</head>
+
+<body bgcolor=white>
+
+<h5>SHAKEN gpd 12310101</h5>
+
+<table border=0 width="100%" bgcolor=#8C3016 cellpadding=0>
+<tr><td><font color=white><h1>SHAKEN Aggregates</font></td></tr>
+</table></h1><p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href=#Aggregates>Aggregates</a>
+<li><a href=#Using>How to Use Aggregates in SHAKEN</a>
+<ul>
+    <li><a href=#Simple>Simple Aggregates</a>
+    <li><a href=#Structured>Structured Aggregates</a>
+    <li><a href=#Complex>Complex Aggregates</a>
+</ul>
+<li><a href=#Number>Number of Elements</a>
+</ul>
+
+<a name=Aggregates>
+<hr noshade size=6 color=#8C3016>
+
+<h2>Aggregates</h2>
+
+An Aggregate is a collection of Entities. Here are some examples of
+Aggregates:<ul>
+<li>a Sequence of nucleotides
+<li>an Ensemble of organisms, functioning together
+<li>a Family of animals
+<li>a Pool of genes
+<li>etc.
+</ul><p>
+
+We call the Entities that make up an Aggregate the <i>elements</i> of
+the Aggregate.<p>
+
+<a name=Using>
+<hr noshade size=6 color=#8C3016>
+
+<h2>How to Use Aggregates in SHAKEN</h2>
+
+<a name=Simple>
+<h3>Simple Aggregates</h3>
+
+Aggregates can be added to concept maps, just like Entities and Events.
+
+An Aggregate is connected to its Entity elements using
+the <tt>element</tt> relation. For example, having defined Crowd as a kind of
+Aggregate, we can specify the people in the Crowd by enumerating the
+<tt>element</tt>s:<p>
+
+<center><img src=Crowd2-x.gif><p></center>
+
+One of the advantages of using an Aggregate is that we can say things
+about the Aggregate as a whole that do not necessarily apply to the
+individual elements of the Aggregate. For example, we can say that a
+crowd of people is blocking some entrance. It is not the case that
+each person in the crowd is blocking the entrance individually. It is
+only the crowd as a whole that is doing the blocking:<p>
+
+<center><img src=Crowd3-x.gif><p></center>
+
+<a name=Structured>
+<h3>Structured Aggregates</h3>
+
+Sometimes we wish to impose a structure on the elements of an
+Aggregate. Consider the simple definition of a Train as an Aggregate
+of TrainCars. Here we have defined a new concept in SHAKEN called
+Train, which is a kind of Aggregate. We have put some different kinds
+of Train Cars as <tt>element</tt>s of the Train:<p>
+
+<center><img src=Train2-x.gif><p></center>
+
+This example says nothing about the order of the cars in the Train. To
+specify the order of the cars we need to impose structure on the
+elements of the Train. To specify the structure of the elements of an 
+Aggregate use the <tt>first-element</tt> and <tt>next-element</tt> 
+relations (you may recognize this technique from imposing structure on 
+the <tt>subevent</tt>s of a process):<p>
+
+<center><img src=Train3-x.gif><p></center>
+
+Here is the final Train, as you might encode it in SHAKEN. As with the
+Crowd example, we can specify things about the Aggregate as a whole,
+such as its intended purpose (see
+<a href=gpd12170101-Roles.html>Roles</a>):<p>
+
+<center><img src=Train5-x.gif><p></center>
+
+<a name=Complex>
+<h3>Complex Aggregates</h3>
+
+The use of <tt>element</tt>, <tt>first-element</tt>
+and <tt>next-element</tt> may seem cumbersome for simple aggregates. On
+the other hand, it allows for arbitrarily complex aggregates. Any 
+<tt>element</tt> can have multiple <tt>next-element</tt>s and multiple
+<tt>element</tt>s can share the same <tt>next-element</tt>. Here is an
+example of a complex aggregate (not all <tt>element</tt> links are
+shown):<p>
+
+<center><img src=Lattice01-x.gif><p></center>
+
+Graphs with complex aggregates can become quite cluttered, especially
+when multiple <tt>next-element</tt> links point to the same <tt>element</tt>.
+You may have to do some clever arranging to make these graphs look neater.
+For example, you can make <tt>next-element</tt> links that point to the
+same <tt>element</tt> overlap without losing any information:<p>
+
+<center><img src=LatticeMove-x.gif><p></center>
+
+<a name=Number>
+<hr noshade size=6 color=#8C3016>
+<h2>Number of Elements</h2>
+
+SHAKEN will count the number of elements in an aggregate. 
+Here is another example of a complex aggregate, arranged 
+to reduce clutter (many <tt>next-element</tt> links have been made
+to overlap so that only one <tt>next-element</tt> label is visible):<p>
+
+<center><img src=Family-x.gif><p></center>
+
+To have SHAKEN report the number of elements in the aggregate, go to
+SHAKEN's "Ask Question" window and ask a question about the
+<tt>number-of-elements</tt> of the Family:<p>
+
+<center><img src=number-of-elements-q.gif><p></center>
+
+And the answer is...<p>
+
+<center><img src=number-of-elements-a.gif><p></center>
+
+<hr noshade size=12 color=#8C3016>
+
+</body>
+</html>

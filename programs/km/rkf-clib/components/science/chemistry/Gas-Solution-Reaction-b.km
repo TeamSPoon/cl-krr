@@ -1,0 +1,105 @@
+;; 
+;;    $Id: Gas-Solution-Reaction-b.km,v 1.6 2003/02/17 22:55:18 porter Exp $ 
+;; 
+
+
+(Gas-Solution-Reaction-b has (superclasses (Reaction)))
+
+(every Gas-Solution-Reaction-b has-definition
+       (instance-of (Reaction [Gas-Solution-Reaction-b-instance-of-1]))
+       (raw-material (
+		      (a Ionic-Compound-Substance with
+			 (base-of ((a Aqueous-Solution))))
+		      (a H2S-Substance))))
+
+(every Gas-Solution-Reaction-b has
+       (result (
+		(:set
+		(if (forall (the raw-material of Self)
+			    where
+			    (not (It isa H2S-Substance))
+			    ((the Anion has-part of 
+				  (the has-basic-structural-unit
+				       of
+				       It)) 
+			     isa
+			    OH-Minus))
+		    then
+		  (a H2O-Substance)
+		  else
+		  (a Ionic-Compound-Substance with
+		     (base-of ((a Aqueous-Solution)))
+		     (has-basic-structural-unit 
+		      ((a Ionic-Compound 
+			  with
+			  (has-part ((forall (the raw-material of Self)
+					     where
+					     (not (It isa H2S-Substance))
+					     (the Anion has-part of 
+						  (the has-basic-structural-unit of
+						       It)))
+				     (a H-Plus))))))))
+		(a Ionic-Compound-Substance with
+		   (base-of ((a Aqueous-Solution)))
+		   (has-basic-structural-unit 
+		    ((a Ionic-Compound 
+			with
+			(has-part ((forall (the raw-material of Self)
+					   where
+					   (not (It isa H2S-Substance))
+					   (the Cation has-part of 
+						(the has-basic-structural-unit of
+						     It)))
+				   (a S-Minus-2))))))
+                 [Gas-Solution-Reaction-b-result-1] 
+                )
+       ))
+))
+
+(comment [Gas-Solution-Reaction-b-instance-of-1]
+  "Therefore, ions exchange between the metal compound and the hydrogen sulfide"
+
+  "This is a reaction between hydrogen sulfide gas and a metal compound of group III-A"
+)
+
+(comment [Gas-Solution-Reaction-b-result-1]
+  (:seq "The products of the reaction of"
+        (andify (the text-gen of (the raw-material of Self)))
+        "are thus"
+        (andify (the text-gen of (the result of Self)))
+  )
+  "When H2S(g) reacts with a metal compound, the products are an insoluble metal sulfide and a compound consisting of H and the anion from the metal compound"
+)
+
+
+(Gas-Solution-Reaction-b
+ has
+ (test-case ( '(
+		((the number of
+		     (allof
+		      (the result of
+			   (a Reaction with
+			      (raw-material ((a H2S-Substance)
+					     (a Ca_OH_2-Substance with
+						(base-of ((a Aqueous-Solution))))))))
+		      where
+		       (((the elements of
+			    (the term of
+				 (the has-chemical-formula of
+				      (the has-basic-structural-unit of
+					   It))))
+			 = (:set (:pair 1 Ca-Plus-2)
+				 (:pair 1 S-Minus-2)))
+			or
+			((the elements of
+			      (the term of
+				   (the has-chemical-formula of
+					(the has-basic-structural-unit of
+					     It))))
+			 = (:set (:pair 1 H-Plus)
+				 (:pair 1 OH-Minus))))))
+		 =
+		 2)
+))))
+		 
+

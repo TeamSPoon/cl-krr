@@ -1,0 +1,17 @@
+;;
+;; $Id: H2C2O4.km,v 1.7 2008/10/14 19:16:13 tecuci Exp $ 
+;;
+
+(H2C2O4 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every H2C2O4 has
+	(has-chemical-name ("oxalic acid"))
+	(has-part ((a H-Plus)(a C2O4-Minus-2)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 2 H-Plus)
+			(:pair 1 C2O4-Minus-2)))))))
+)
+(every H2C2O4 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C2O4-Minus-2))))
+

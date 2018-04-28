@@ -1,0 +1,33 @@
+;;
+;;  $Id: Occupy.km,v 1.11 2005/11/07 20:38:02 kbarker Exp $
+;;
+
+(Occupy has
+	(superclasses (Non-Engagement-Military-Task Locomotion))
+	(description ("a tactical mission task to move a friendly force into and control an area")))
+
+(every Occupy has
+       (agent ((a Military-Unit)))
+
+       (base ((a Spatial-Entity)))
+       (objective ((a Take-Control with
+		      (object ((the base of Self)))
+		      (agent ((the agent of Self))))))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.95 NIL))))))
+
+;; The thing occupied is the base, so the required-force-ratio is not
+;; appropriate here (the object is the agent)
+;;       (required-force-ratio 
+;;          ((a Required-Force-Ratio-Value with
+;;              (value ((:pair 2 NIL))))))
+
+       (text-nominalization ("occupation"))
+       (text-active-verbseq-sg ("occupies"))
+       (text-active-verbseq-pl ("occupy"))
+
+       (text-base (""))
+       (text-argslots ((:seq base site)))
+)
+

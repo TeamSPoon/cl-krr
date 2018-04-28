@@ -1,0 +1,30 @@
+<!--- $Id: Courier.spec.kml,v 1.1 2005/08/01 21:00:54 jchaw Exp $ --->
+
+<kml>
+<concept name=Courier>
+<system-documentation name=Courier>
+<gpd-documentation name=Roles>
+
+<superconcept name=Role>
+
+<definition>
+   Courier is the <conceptref name=Role> played by a Person which is
+   the <slot>agent</slot> of a <conceptref name=Convey>.
+</definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the Person that's playing the role of a Courier
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Convey> event that the Person is engaged in
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+</examplesentencelist>
+
+</kml>
+

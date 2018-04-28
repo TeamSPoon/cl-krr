@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Endocytose.km,v 1.13 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Endocytose has
+       (superclasses   (Take-In))
+       (required-slot  (object destination))
+       (primary-slot   (agent origin path))
+       (secondary-slot ())
+       (description ("Uptake of material into a cell by an invagination of the
+                      plasma membrane leading to internalization in a membrane-
+                      bounded vesicle.  Alberts:ECB:G-7.")) )
+
+;; nothing extra to say about contextual info
+;; inherited from Move and Action
+
+(every Endocytose has
+       (agent ((a Cell)))
+       (object ((a Tangible-Entity)))
+       (origin ((a Spatial-Entity with
+                        (is-outside ((the Cell agent of Self))))))
+       (destination ((a Spatial-Entity with
+			(is-inside ((the Cell agent of Self))))))
+       )
+
+
+
+
+
+
+(every Endocytose has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

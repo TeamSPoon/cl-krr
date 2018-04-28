@@ -1,0 +1,50 @@
+
+;;
+;; $Id: Add-Volumes.km,v 1.2 2005/09/02 18:25:46 jfan Exp $
+;;
+
+(Add-Volumes has 
+	     (superclasses (Method))
+	     (description ("a method to add the volumes of multiple volumes"))
+	     )
+
+(every Add-Volumes has
+  (input ((a Volume-Value)))
+  (output (
+      (if (has-value (the value of (the input of Self)))
+       then
+         (a Volume-Value with
+            (value ((:pair
+		      (the sum of (forall-bag 
+                                    (the bag of (the input of Self))
+				    (the1 of
+                                          (the value of
+                                               (the output of
+				                    (a Unit-Conversion with
+					               (input (It))
+		       			               (target-unit (*liter))))))))
+		      *liter
+                      [Add-Volumes-output-1]
+            )))
+         )
+       else
+         (a Volume-Value)
+      )))
+)
+
+(comment [Add-Volumes-output-1]
+  (:seq "the sum of "
+        (andify (forall (the input of Self) (:seq (the1 of (the value of It))
+                                                  (the2 of (the value of It)))))
+        "="
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  "To find total volume, add the component volumes:"
+;  (forall (the input of Self) (:triple It value (the value of It)))
+)
+
+;; the dependent :triples should be reinstated once we can turn off
+;; KM's default output for dependents with no justifying comments
+;; (i.e. "The <slot> of <frame> = <value>")
+

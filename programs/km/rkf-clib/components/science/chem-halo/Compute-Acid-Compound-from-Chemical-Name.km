@@ -1,0 +1,62 @@
+
+;;
+;; $Id: Compute-Acid-Compound-from-Chemical-Name.km,v 1.2 2005/09/21 19:53:20 jfan Exp $
+;;
+
+(Compute-Acid-Compound-from-Chemical-Name has
+					  (superclasses (Method))
+					  (description ("derive an acid based on its name")))
+
+(every Compute-Acid-Compound-from-Chemical-Name has
+       ;;(input ((a Thing)))
+       (output
+	((a Acid-Compound with
+	    (has-part
+	     ((:set (a H-Plus)
+		    (an instance of		; Anion computed from first word in name
+			(the output of
+			     (a Compute-Acid-Ion-from-Name with
+				(input ((the1 of (#'(LAMBDA ()
+							    (SPLIT-COMPOUND-NAME-COMPONENTS
+							     (KM-UNIQUE0 '(the input of Self))))))))))))))
+	    (has-chemical-formula
+	     ((the output of 
+		   (a Compute-Chemical-Formula-of-Ionic-Compound with
+		      (input ((a H-Plus)
+			      (an instance of		; Anion computed from first word in name
+				  (the output of
+				       (a Compute-Acid-Ion-from-Name with
+					  (input ((the1 of (#'(LAMBDA ()
+								      (SPLIT-COMPOUND-NAME-COMPONENTS
+								       (KM-UNIQUE0 '(the input of Self)))))))))))))))))
+	    (nested-atomic-chemical-formula
+	     ((the output of
+		   (a Compute-Nested-Atomic-Formula-from-Formula with
+		      (input ((the output of 
+				   (a Compute-Chemical-Formula-of-Ionic-Compound with
+				      (input ((a H-Plus)
+					      (an instance of		; Anion computed from first word in name
+						  (the output of
+						       (a Compute-Acid-Ion-from-Name with
+							  (input ((the1 of (#'(LAMBDA ()
+										      (SPLIT-COMPOUND-NAME-COMPONENTS
+										       (KM-UNIQUE0 '(the input of Self)))))))))))))))
+			      ))))))
+	    (atomic-chemical-formula
+	     ((the output of
+		   (a Compute-Atomic-Formula-from-Nested-Formula with
+		      (input ((the output of
+				   (a Compute-Nested-Atomic-Formula-from-Formula with
+				      (input ((the output of 
+						   (a Compute-Chemical-Formula-of-Ionic-Compound with
+						      (input ((a H-Plus)
+							      (an instance of		; Anion computed from first word in name
+								  (the output of
+								       (a Compute-Acid-Ion-from-Name with
+									  (input ((the1 of (#'(LAMBDA ()
+												      (SPLIT-COMPOUND-NAME-COMPONENTS
+												       (KM-UNIQUE0 '(the input of Self)))))))))))))))
+					      ))))
+			      ))))))
+	    )))
+       )

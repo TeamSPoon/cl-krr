@@ -1,0 +1,48 @@
+;; 
+;;    $Id: Follow-and-Support.txt,v 1.3 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Follow-and-support 
+   superclass: Tactical-Mission-Task 
+   agent/object: <----> Actor 
+   base: <----> Acted on 
+   site: <--> Location 
+ 
+  subevent: 
+      Follow 
+           object: MU called "following friendly forces" object of Self 
+           base: MU called "friendly forces" base of Self 
+           path: Place 
+ 
+      Support 
+           superclass: Take-Over?? 
+           agent: MU called "following friendly forces" 
+           object: Tactical-Mission-Task with 
+                            agent: MU called "friendly forces"  
+           base: MU called "friendly forces" agent of Tactical-Mission-Task object of Support . . 
+ 
+   prevents: Event with 
+                      inhibits: Tactical-Mission-Task 
+                                        agent: MU called "friendly forces" base of Self  
+ 
+ 
+Follow-and-support (A). 
+==================. 
+Follow and support is a tactical mission task in which a committed force follows and supports a lead force conducting an offensive operation. 
+The follow-and-support force is not a reserve but is a force committed to specific tasks. 
+ 
+Tasks for a follow-and-support force include: 
+- Destroying bypassed enemy units when the lead unit does not clear the AO as it advances. 
+- Blocking movement of enemy reinforcements. 
+- Relieving in place any direct-pressure or encircling force halted to contain the enemy. 
+- Securing lines of communication. 
+- Clearing obstacles. 
+- Guarding prisoners, key areas, and installations. 
+- Recovering friendly battle losses. 
+- Securing key terrain. 
+- Controlling dislocated civilians. 
+ 
+A commander assigns a unit the task of follow and support to keep the supported force from having to commit its combat power to tasks other than the decisive operation, which would slow the offensive operation's momentum and tempo. 
+The follow-and-support force must accomplish its tasks to prevent the enemy, obstacles, and other factors from interfering with offensive operations, especially along the lines of communications. 
+ 
+ 

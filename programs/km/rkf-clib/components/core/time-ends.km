@@ -1,0 +1,18 @@
+;;
+;; $Id: time-ends.km,v 1.6 2007/04/11 21:42:44 jchaw Exp $ 
+;;
+
+(time-ends has
+  (instance-of (Temporal-Relation))
+  (domain (Temporal-Entity))
+  (range (Time-Instant))
+  (inverse (time-end-of))
+  (fluent-status (*Inertial-Fluent))
+  (cardinality (N-to-1))
+  (original-slot      (t))	
+)
+
+(time-ends has (text-gloss ("ends at")))
+
+(time-end-of has
+	(instance-of (Temporal-Relation)))

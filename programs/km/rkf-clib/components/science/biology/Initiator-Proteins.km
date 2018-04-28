@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Initiator-Proteins.km,v 1.2 2001/06/03 06:16:42 souther Exp $ 
+;; 
+
+(Initiator-Proteins has
+         (superclasses (Enzyme-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("An enzyme complex of proteins that bind to the 
+                        replication origin and catalyze the separation of 
+                        strands in a DNA molecule before replication. 
+                        see Lehninger:PBC:G-6"))
+         (test-case ()))
+
+(every Initiator-Proteins has  
+       (purpose ((a Catalyst with
+		    (in-event ((a Replicon-DNA-Melting))))
+		 ))
+       )
+
+

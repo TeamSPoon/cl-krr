@@ -1,0 +1,14 @@
+;; 
+;;  $Id: Energy-Value.km,v 1.2 2005/02/14 22:41:31 kbarker Exp $
+;; 
+
+(Energy-Value has 
+		(superclasses (Property-Value)))
+
+(every Energy-Value has
+  (property-slot (energy))
+       (energy-of ((must-be-a Entity)))
+       (less-than ((must-be-a Energy-Value)))
+       (greater-than ((must-be-a Energy-Value)))
+       (same-as ((must-be-a Energy-Value)))
+)

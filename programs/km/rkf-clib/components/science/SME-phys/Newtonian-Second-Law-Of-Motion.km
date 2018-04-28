@@ -1,0 +1,41 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Newtonian-Second-Law-Of-Motion ----------
+
+(Newtonian-Second-Law-Of-Motion has (superclasses (Information)))
+
+(_Newtonian-Second-Law-Of-Motion580 has 
+  (instance-of (Newtonian-Second-Law-Of-Motion))
+  (prototype-of (Newtonian-Second-Law-Of-Motion))
+  (prototype-scope (Newtonian-Second-Law-Of-Motion))
+  (prototype-participants (_Thing583
+                           _Newtonian-Second-Law-Of-Motion580))
+  (prototype-participant-of (_Newtonian-Second-Law-Of-Motion580))
+  (has-clones (_Placeholder-Class579581))
+  (has-built-clones (_Placeholder-Class579581))
+  (information-content (_Thing583))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq information-content _Thing583 294 613)))
+  (edge-visibility ((:seq information-content _Thing583 t))))
+
+(_Thing583 has 
+  (instance-of (Thing))
+  (has-clones (_Thing582))
+  (information-content-of (_Newtonian-Second-Law-Of-Motion580))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 444 607)))
+  (prototype-participant-of (_Newtonian-Second-Law-Of-Motion580)))
+
+(explanation (:triple _Newtonian-Second-Law-Of-Motion580 information-content _Thing583) ((a Thing (@ _Newtonian-Second-Law-Of-Motion580 Information information-content))))
+(explanation (:triple _Newtonian-Second-Law-Of-Motion580 instance-of Newtonian-Second-Law-Of-Motion) ((added-at Newtonian-Second-Law-Of-Motion "User defined")))
+(explanation (:triple _Thing583 instance-of Thing) ((a Thing (@ _Newtonian-Second-Law-Of-Motion580 Information information-content))))
+
+;;; ---------- end of prototype definition ----------
+
+(Newtonian-Second-Law-Of-Motion now-has (user-description ("The rate of change of the product of the mass and the velocity of a body is proportional to the net force exerted on the body and is in the same direction.")))
+(enable-classification)
+

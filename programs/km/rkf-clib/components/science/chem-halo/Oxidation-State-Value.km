@@ -1,0 +1,15 @@
+;; 
+;;  $Id: Oxidation-State-Value.km,v 1.3 2007/05/21 04:43:14 mrglass Exp $
+;; 
+
+(Oxidation-State-Value has 
+		(superclasses (Property-Value)))
+
+(every Oxidation-State-Value has
+       (property-slot (oxidation-state))
+       (quantity-of ((must-be-a Chemical)))
+       (less-than ((must-be-a Oxidation-State-Value)))
+       (greater-than ((must-be-a Oxidation-State-Value)))
+       (same-as ((must-be-a Oxidation-State-Value)))
+)
+(Oxidation-State-Value has (description ("the degree of oxidation of an atom or ion or molecule.")))

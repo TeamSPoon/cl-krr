@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Hydrogen-Atom.km,v 1.13 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Hydrogen-Atom has
+         (superclasses (Atom))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A colorless, odorless, flammable element that combines
+                        with oxygen to form water.  The lightest of all
+                        elements. RHCD:1st Revised:649. "))
+         (test-case ()))
+
+(every Hydrogen-Atom has
+       (atomic-symbol (H)) 
+       (has-part ((a Proton)
+                  (a Electron)))
+       (mass ((a Mass-Value with
+		(value ((:pair 1 *dalton))))))
+       )
+
+
+
+
+
+(every Hydrogen-Atom has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

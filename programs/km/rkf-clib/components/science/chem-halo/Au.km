@@ -1,0 +1,16 @@
+;;
+;; $Id: Au.km,v 1.6 2008/10/14 19:16:12 tecuci Exp $
+;;
+
+(Au has (superclasses (Metal-Atom IB-Element)))
+(every Au has
+       (atomic-symbol (Au))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 79 NIL))))))
+       (has-ion ((a Au-Plus-2)))
+       (chemical-period (6)))
+
+(every Au has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("gold"))
+)

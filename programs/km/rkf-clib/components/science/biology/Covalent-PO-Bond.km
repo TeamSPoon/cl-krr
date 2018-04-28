@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Covalent-PO-Bond.km,v 1.5 2001/11/17 06:50:18 jarred Exp $ 
+;; 
+
+(Covalent-PO-Bond has
+         (superclasses (Covalent-Single-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Chemical bond between a phosphorus and a oxygen.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Covalent-PO-Bond has      
+       (purpose ((a Connector with
+		    (in-event ((a Be-Attached-To with
+				  (object ((a Phosphorus-Atom)
+					   (a Oxygen-Atom)
+					   (exactly 2 Atom)))
+                                      )))
+                        )))
+       (intensity ((a Intensity-Value with 
+		(value ((:pair 100 *kilocalorie/mole))))))
+;       (length ((a Length-Value with (value ((:pair ?? *nanometer))))))   
+       )
+
+

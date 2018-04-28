@@ -1,0 +1,25 @@
+;; 
+;; $Id: Author.km,v 1.5 2005/04/10 22:19:47 jchaw Exp $
+;; 
+
+;;
+;; IRIS defines Author as a kind of Creator. We original had it
+;; as a kind of TechnicalRole. The two definitions do not seem
+;; to conflict, so we will say its both.
+;;
+(Author has
+  (superclasses  	(TechnicalRole Creator))
+  (required-slot 	())
+  (primary-slot 	())
+  (secondary-slot 	())
+)
+
+; stubby for Project World
+
+(Author has (wn20-synset ((:set
+	 		     (:triple "writer" 1 "n")
+	 		     (:triple "author" 1 "n")
+	 		     (:triple "generator" 3 "n")
+	 		     (:triple "source" 7 "n")
+	 		     (:triple "author" 2 "n")
+))))

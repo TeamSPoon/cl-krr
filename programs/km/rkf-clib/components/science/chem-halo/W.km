@@ -1,0 +1,15 @@
+;;
+;; $Id: W.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(W has (superclasses (Metal-Atom VIB-Element)))
+(every W has
+       (atomic-symbol (W))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 74 NIL))))))
+       (chemical-period (6)))
+
+(every W has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("tungsten"))
+)

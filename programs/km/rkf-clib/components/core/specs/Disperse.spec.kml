@@ -1,0 +1,94 @@
+<!--- $Id: Disperse.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<kml>
+
+<concept name=Disperse><system-documentation name=Disperse>
+<superconcept name=Action>
+
+<definition>
+
+  Several <slot>object</slot>s change location from the same place.  
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the things that Disperse
+  </slotdescription>
+
+  <slotdescription name=origin>
+     the location from which things leave
+  </slotdescription>
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot>s after the move
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot>s move
+     along.  Typically, this is an object or surface along which the
+     <slot>object</slot>s are moving
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot>s move.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot>s need not reach this
+    Place, but they may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot>s move away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot>s need not start at this
+    Place, but they may
+  </slotdescription>
+
+</primaryslotlist>
+
+
+<subeventlist>
+
+  <subeventdescription name=Leave>
+    for every <slot>object</slot>, it <conceptref name=Leave>s
+    from the <slot>origin</slot>
+  </subeventdescription>
+
+</subeventlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The crowd dispersed from the theater.</text>
+    <slotdescription name=object>all the people in the crowd</slotdescription>
+    <slotdescription name=origin>the theater</slotdescription>
+  </examplesentence>
+  <comment>
+     Here the crowd is explictly listed as all the individuals in the crowd
+  </comment>
+
+  <examplesentence>
+    <text>Apples scattered from the basket.</text>
+    <slotdescription name=object>apples</slotdescription>
+    <slotdescription name=origin>the basket</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move-Apart>
+    Whereas Disperse involves self-movement, i.e. the objects move themselves, Move-Apart involves an
+    agent that causes the objects to move. 
+  </neighbor>
+
+  <neighbor name=Come-Together>
+    Whereas Disperse involves objects leaving from an origin, Come-Together involves objects coming
+    to an destination.
+  </neighbor>
+</neighborlist>
+
+</kml>
+
+

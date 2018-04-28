@@ -1,0 +1,1594 @@
+<html>
+<head>
+
+<title>The Computer Ontology for Calo</title>
+
+<style type="text/css">
+  @import "ontologies.css";
+</style>
+
+</head>
+
+<body>
+
+<p>
+<h1>Calo Ontology</h1>
+</p>
+
+<p>
+<div class="headline">Computers</div>
+</p>
+
+<p>
+<table><tr><td>
+<div class="boxtop">Description</div>
+<div class="boxbody">This is the ontology for computer equipment, computer
+files and software. It includes computer components and computer 
+accessories. Documentation is provided only for classes that have their own
+domain-specific slots.</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">References</div>
+<div class="boxbody">
+<li>ISI's <a href="https://calo.sri.com/cgi-bin/Zope.cgi/Plone/Teams/RA/Projects/Ontology/ComputerOntology.doc">computer ontology</a> (.doc format)
+<li>the <a href="https://calo.sri.com/cgi-bin/Zope.cgi/Plone/Teams/RA/Projects/Ontology/computer-ont.owl/file_view">OWL Specification</a> of ISI's computer ontology
+<li>the <a href="https://calo.sri.com/cgi-bin/Zope.cgi/Plone/Teams/RA/Projects/Ontology/computer-dt.xsd/file_view">OWL Datatypes</a> of ISI's computer ontology
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">See Also</div>
+<div class="boxbody">
+<li>The <a href="Contact-onto.html">Contact ontology</a>
+<li>The <a href="Chat-onto.html">Chat ontology</a>
+<li>The <a href="EMail-onto.html">EMail ontology</a>
+<li>The <a href="Filebrowser-onto.html">Filebrowser ontology</a>
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<table><tr><td>
+<div class="boxtop">Classes</div>
+<div class="boxbody">
+<ul>
+<li>Thing
+    <ul>
+    <li>Entity
+        <ul>
+        <li>Intangible-Entity
+            <ul>
+            <li>Language
+                <ul>
+                <li>Standard
+                    <ul>
+                    <li><a href=#Graphics-Display-Standard><b>Graphics-Display-Standard</b></a>
+                    <li><a href=#Interface-Standard><b>Interface-Standard</b></a>
+                        <ul>
+                        <li><a href=#Computer-Interface-Standard><b>Computer-Interface-Standard</b></a>
+                        </ul>
+                    </ul>
+                </ul>
+            <li>Message
+                <ul>
+                <li>Document
+                    <ul>
+                    <li>Computer-File
+                        <ul>
+                        <li>Computer-Program
+                            <ul>
+                            <li><a href=#Operating-System><b>Operating-System</b></a>
+                                <ul>
+                                <li>MS-DOS
+                                <li>Mac-OS
+                                <li>Microsoft-Windows
+                                    <ul>
+                                    <li>Microsoft-Windows-2000
+                                    <li>Microsoft-Windows-9X
+                                        <ul>
+                                        <li>Microsoft-Windows-95
+                                        <li>Microsoft-Windows-98
+                                        </ul>
+                                    <li>Microsoft-Windows-ME
+                                    <li>Microsoft-Windows-NT
+                                    <li>Microsoft-Windows-XP
+                                    </ul>
+                                <li>Unix
+                                    <ul>
+                                    <li>AIX
+                                    <li>BSD
+                                    <li>HP-UX
+                                    <li>Linux
+                                        <ul>
+                                        <li>Debian
+                                        <li>Red-Hat
+                                        <li>Suse
+                                        </ul>
+                                    <li>Solaris
+                                    </ul>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        <li>Spatial-Entity
+            <ul>
+            <li>Tangible-Entity
+            <ul>
+                <li>Physical-Object
+                    <ul>
+                    <li>Inanimate-Object
+                        <ul>
+                        <li>Artifact
+                            <ul>
+                            <li>Device
+                                <ul>
+                                <li>Office-Equipment
+                                    <ul>
+                                    <li><a href=#Computer-Equipment><b>Computer-Equipment</b></a>
+                                        <ul>
+                                        <li><a href=#Computer><b>Computer</b></a>
+                                            <ul>
+                                            <li>Apple-Macintosh
+                                                <ul>
+                                                <li>Power-Mac-G3
+                                                <li>Power-Mac-G4
+                                                </ul>
+                                            <li>Desktop-Computer
+                                            <li>Handheld-Computer
+                                            <li><a href=#Laptop-Computer><b>Laptop-Computer</b></a>
+                                            <li>PC
+                                            <li>Server-Computer
+                                            </ul>
+                                        <li>Computer-Accessory
+                                            <ul>
+                                            <li>Handheld-Accessory
+                                            <li>Input-Device
+                                                <ul>
+                                                <li>Keyboard
+                                                <li>Mouse
+                                                <li><a href=#Scanner><b>Scanner</b></a>
+                                                    <ul>
+                                                    <li>Flatbed-Scanner.km
+                                                    </ul>
+                                                </ul>
+                                            <li>Laptop-Accessory
+                                                <ul>
+                                                <li>Laptop-Battery
+                                                <li>Laptop-Case
+                                                </ul>
+                                            <li>Output-Device
+                                                <ul>
+                                                <li><a href=#Computer-Display><b>Computer-Display</b></a>
+                                                    <ul>
+                                                    <li>CRT-Display
+                                                    <li><a href=#Flat-Panel-Display><b>Flat-Panel-Display</b></a>
+                                                        <ul>
+                                                        <li>LCD-Display
+                                                        <li>Plasma-Display
+                                                        </ul>
+                                                    <li>Handheld-Computer-LCD
+                                                    <li><a href=#Projector><b>Projector</b></a>
+                                                        <ul>
+                                                        <li>DLP-Projector
+                                                        <li>LCD-Projector
+                                                        </ul>
+                                                    <li>WallDisplayMonitor
+                                                    </ul>
+                                                <li>Printer
+                                                    <ul>
+                                                    <li>Dot-Matrix-Printer
+                                                    <li>Film-Printer
+                                                    <li>Ink-Jet-Printer
+                                                    <li>Laser-Printer
+                                                    </ul>
+                                                </ul>
+                                            </ul>
+                                        <li>Computer-Component
+                                            <ul>
+                                            <li><a href=#Computer-Storage><b>Computer-Storage</b></a>
+                                                <ul>
+                                                <li>Compact-Disc
+                                                    <ul>
+                                                    <li>CDR
+                                                    <li>CDROM
+                                                    <li>CDRW
+                                                    </ul>
+                                                <li>Computer-Memory
+                                                <li>DVD
+                                                    <ul>
+                                                    <li>DVDRAM
+                                                    <li>DVDROM
+                                                    </ul>
+                                                <li><a href=#Hard-Drive><b>Hard-Drive</b></a>
+                                                <li>USB-Mini-Drive
+                                                </ul>
+                                            <li>Image-Sensor
+                                                <ul>
+                                                <li>CCD
+                                                <li>CIS
+                                                </ul>
+                                            <li><a href=#Modem><b>Modem</b></a>
+                                            <li>Network-Card
+                                                <ul>
+                                                <li>Wireless-Network-Card
+                                                </ul>
+                                            <li><a href=#Optical-Drive><b>Optical-Drive</b></a>
+                                                <ul>
+                                                <li>CD-Drive
+                                                    <ul>
+                                                    <li>CD-DVD-Combo-Drive
+                                                    <li>CDROM-Drive
+                                                    <li>CDRW-Drive
+                                                    </ul>
+                                                <li>DVD-Drive
+                                                    <ul>
+                                                    <li>CD-DVD-Combo-Drive
+                                                    <li>DVDROM-Drive
+                                                    <li>DVDRW-Drive
+                                                    </ul>
+                                                </ul>
+                                            <li><a href=#Processor><b>Processor</b></a>
+                                                <ul>
+                                                <li>AMD-Processor
+                                                    <ul>
+                                                    <li>AMD-Athlon-Processor
+                                                        <ul>
+                                                        <li>AMD-Athlon-4
+                                                        <li>AMD-Athlon-MP
+                                                        <li>AMD-Athlon-XP
+                                                        </ul>
+                                                    <li>AMD-Duron-Processor
+                                                    </ul>
+                                                <li>Intel-Processor
+                                                    <ul>
+                                                    <li>Intel-Celeron-Processor
+                                                    <li>Intel-Centrino-Processor
+                                                    <li>Intel-Pentium-Processor
+                                                        <ul>
+                                                        <li>Intel-Pentium-4
+                                                        <li>Intel-Pentium-4-M
+                                                        <li>Intel-Pentium-II
+                                                        <li>Intel-Pentium-III
+                                                        <li>Intel-Pentium-III-M
+                                                        <li>Intel-Pentium-M
+                                                        <li>Intel-Pentium-MMX
+                                                        </ul>
+                                                    <li>Intel-Xeon-Processor
+                                                        <ul>
+                                                        <li>Intel-Xeon-MP
+                                                        </ul>
+                                                    </ul>
+                                                <li>PowerPC-Processor
+                                                    <ul>
+                                                    <li>PowerPC-G4
+                                                    <li>PowerPC-G5
+                                                    </ul>
+                                                </ul>
+                                            <li>Sound-Card
+                                            <li>Video-Card
+                                            </ul>
+                                        </ul>
+                                    </ul>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+</ul>
+</div>
+</td></tr></table>
+</p>
+
+
+<p>
+<a name=Graphics-Display-Standard>
+<table>
+<tr><td>
+
+<div class="boxtop">Graphics-Display-Standard</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Standard defining the specifications for graphics displays.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Graphics-Display-Standard with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Graphics-Display-Standard-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Standard</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Instances</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>*CGA</pre></td></tr>
+    <tr><td><pre>*EGA</pre></td></tr>
+    <tr><td><pre>*VGA</pre></td></tr>
+    <tr><td><pre>*SVGA</pre></td></tr>
+    <tr><td><pre>*XGA</pre></td></tr>
+    <tr><td><pre>*SXGA</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Interface-Standard>
+<table>
+<tr><td>
+
+<div class="boxtop">Interface-Standard</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Standard defining the specifications for interfacing devices
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Interface-Standard with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Interface-Standard-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Standard</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Instances</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>*RGB</pre></td></tr>
+    <tr><td><pre>*DVI</pre></td></tr>
+    <tr><td><pre>*DVI-D</pre></td></tr>
+    <tr><td><pre>*S-Video</pre></td></tr>
+    <tr><td><pre>*Composite-Video</pre></td></tr>
+    <tr><td><pre>*NTSC</pre></td></tr>
+    <tr><td><pre>*NTSC4_43</pre></td></tr>
+    <tr><td><pre>*SECAM</pre></td></tr>
+    <tr><td><pre>*PAL</pre></td></tr>
+    <tr><td><pre>*PAL-N</pre></td></tr>
+    <tr><td><pre>*PAL-M</pre></td></tr>
+    <tr><td><pre>*PAL-60</pre></td></tr>
+    <tr><td><pre>*HDTV</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Computer-Interface-Standard>
+<table>
+<tr><td>
+
+<div class="boxtop">Computer-Interface-Standard</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A Standard defining the specifications for interfacing computer equipment
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Computer-Interface-Standard with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Computer-Interface-Standard-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Interface-Standard</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Instances</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>*USB           ;; "USB"</pre></td></tr>
+    <tr><td><pre>*USB1_0        ;; "USB 1.0"</pre></td></tr>
+    <tr><td><pre>*USB1_1        ;; "USB 1.1"</pre></td></tr>
+    <tr><td><pre>*USB2_0        ;; "USB 2.0"</pre></td></tr>
+    <tr><td><pre>*FireWire      ;; "FireWire"</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Operating-System>
+<table>
+<tr><td>
+
+<div class="boxtop">Operating-System</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Software that controls the execution of programs and manages computer resources.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Operating-System with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Operating-System-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasOSEdition</pre></td><td align=center><pre>n</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasOSVersion</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer-Program</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Microsoft-Windows-98 with
+   (hasOSEdition ("Second Edition"))
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(a Microsoft-Windows-XP with
+   (hasOSVersion ("5.1.2600"))
+   (hasOSEdition ("64-bit Edition" "Professional"))
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(a Mac-OS with
+   (hasOSVersion ("X"))
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(*TheLinuxOnMyMachine has
+   (instance-of (Debian))
+   (hasOSVersion ("2.4.24"))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Computer-Equipment>
+<table>
+<tr><td>
+
+<div class="boxtop">Computer-Equipment</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Computers, computer components and computer accessories. This class is usually 
+        avoided in favor of its more specific subclasses.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Computer-Equipment with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Computer-Equipment-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasColorBitDepth</pre></td><td align=center><pre>1</pre></td><td><pre>(a Bit-Length-Value)</pre></td></tr>
+    <tr><td><pre>hasGrayscaleBitDepth</pre></td><td align=center><pre>1</pre></td><td><pre>(a Bit-Length-Value)</pre></td></tr>
+    <tr><td><pre>hasImageSensor</pre></td><td align=center><pre>N</pre></td><td><pre>(a Image-Sensor)</pre></td></tr>
+    <tr><td><pre>hasInterfaceType</pre></td><td align=center><pre>N</pre></td><td><pre>(a Computer-Interface-Standard)</pre></td></tr>
+    <tr><td><pre>hasMemory</pre></td><td align=center><pre>n</pre></td><td><pre>(a Computer-Memory)</pre></td></tr>
+    <tr><td><pre>hasModelName</pre></td><td align=center><pre>1</pre></td><td><pre>(a String)</pre></td></tr>
+    <tr><td><pre>hasTotalPrice</pre></td><td align=center><pre>1</pre></td><td><pre>(a Worth-Value)</pre></td></tr>
+    <tr><td><pre>hasWarranty</pre></td><td align=center><pre>n</pre></td><td><pre>(a Warranty)</pre></td></tr>
+    <tr><td><pre>hasWeight</pre></td><td align=center><pre>1</pre></td><td><pre>(a Weight-Value)</pre></td></tr>
+    <tr><td><pre>isCompatibleWith</pre></td><td align=center><pre>N</pre></td><td><pre>(a Device) or (a Computer-Program)</pre></td></tr>
+    <tr><td><pre>isCompatibleWithHardware</pre></td><td align=center><pre>N</pre></td><td><pre>(a Device)</pre></td></tr>
+    <tr><td><pre>isCompatibleWithSoftware</pre></td><td align=center><pre>N</pre></td><td><pre>(a Computer-Program)</pre></td></tr>
+    <tr><td><pre>isCompatibleWithOS</pre></td><td align=center><pre>N</pre></td><td><pre>(a Operating-System)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Office-Equipment</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Laptop-Computer with
+   (hasModelName  ("Inspiron 300m"))
+   (height        ((a Height-Value with (value ((:pair 0.96 *inch))))))
+   (width         ((a Width-Value with (value ((:pair 10.8 *inch))))))
+   (depth         ((a Depth-Value with (value ((:pair 9.2 *inch))))))
+   (hasWeight     ((a Weight-Value with (value ((:pair 2.99 *pound))))))
+   (hasTotalPrice ((a Worth-Value with (value ((:pair 1369 *usdollar))))))
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(a Sound-Card with
+   (hasMemory ((a Computer-Memory with
+                           (computer-storage-size ((a Computer-Storage-Size-Value with
+                                                      (value ((:pair 64 *megabyte)))
+                           )))
+   )))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Computer>
+<table>
+<tr><td>
+
+<div class="boxtop">Computer</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>Desktop computers, laptops, handhelds, servers, etc.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Computer with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Computer-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasProcessor</pre></td><td align=center><pre>n</pre></td><td><pre>(a Processor)</pre></td></tr>
+    <tr><td><pre>hasHardDrive</pre></td><td align=center><pre>n</pre></td><td><pre>(a Hard-Drive)</pre></td></tr>
+    <tr><td><pre>hasModem </pre></td><td align=center><pre>n</pre></td><td><pre>(a Modem)</pre></td></tr>
+    <tr><td><pre>hasNetworkCard</pre></td><td align=center><pre>n</pre></td><td><pre>(a Network-Card)</pre></td></tr>
+    <tr><td><pre>hasVideoCard</pre></td><td align=center><pre>n</pre></td><td><pre>(a Video-Card)</pre></td></tr>
+    <tr><td><pre>hasSoundCard</pre></td><td align=center><pre>n</pre></td><td><pre>(a Sound-Card)</pre></td></tr>
+    <tr><td><pre>hasOpticalDrive</pre></td><td align=center><pre>n</pre></td><td><pre>(a Optical-Drive)</pre></td></tr>
+    <tr><td><pre>hasDisplay</pre></td><td align=center><pre>n</pre></td><td><pre>(a Computer-Display)</pre></td></tr>
+    <tr><td><pre>hasOperatingSystem</pre></td><td align=center><pre>n</pre></td><td><pre>(a Operating-System)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer-Equipment</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Computer with
+   (hasModelName       ("Dimension 4600"))
+   (hasTotalPrice      ((a Worth-Value with (value ((:pair 868 *usdollar))))))
+   (hasProcessor       ((a Intel-Pentium-4)))
+   (hasOperatingSystem ((a Microsoft-Windows-XP with (hasOSEdition ("Professional")))))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Laptop-Computer>
+<table>
+<tr><td>
+
+<div class="boxtop">Laptop-Computer</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A small, portable computer with built-in display and keyboard, capable
+        of running on battery power.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Laptop-Computer with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Laptop-Computer-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasLaptopBattery</pre></td><td align=center><pre>n</pre></td><td><pre>(a Laptop-Battery)</pre></td></tr>
+    <tr><td><pre>hasLaptopCase</pre></td><td align=center><pre>n</pre></td><td><pre>(a Laptop-Case)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Laptop-Computer with
+   (hasModelName     ("Inspiron 300m"))
+   (height           ((a Height-Value with (value ((:pair 0.96 *inch))))))
+   (width            ((a Width-Value with (value ((:pair 10.8 *inch))))))
+   (depth            ((a Depth-Value with (value ((:pair 9.2 *inch))))))
+   (hasWeight        ((a Weight-Value with (value ((:pair 2.99 *pound))))))
+   (hasTotalPrice    ((a Worth-Value with (value ((:pair 1369 *usdollar))))))
+   (hasProcessor     ((a Intel-Pentium-M with
+                                  (hasProcessorSpeed ((a Frequency-Value with
+                                                                  (value ((:pair 1.2 *gigahertz)))
+                                  )))
+   )))
+   (hasHardDrive     ((a Hard-Drive with
+                                  (computer-storage-size ((a Computer-Storage-Size-Value with
+                                                             (value ((:pair 30 *gigabyte)))
+                                  )))
+   )))
+   (hasMemory        ((a Computer-Memory with
+                                  (computer-storage-size ((a Computer-Storage-Size-Value with
+                                                             (value ((:pair 256 *megabyte)))
+                                  )))
+   )))
+   (hasOpticalDrive  ((a DVDRW-Drive)))
+   (hasLaptopBattery ((a Laptop-Battery)))
+   (hasLaptopCase    ((a Laptop-Case)))
+   (hasModem         ((a Modem with
+                                  (data-transfer-rate ((a Data-Transfer-Rate-Value with
+                                                          (value ((:pair 56 *kilobits-per-second)))
+                                  )))
+   )))
+   (hasNetworkCard   ((a Wireless-Network-Card)))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Scanner>
+<table>
+<tr><td>
+
+<div class="boxtop">Scanner</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A device for creating a digital image of physical objects (usually flat objects such as paper).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Scanner with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Scanner-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasHorizontalHardwareScanResolution</pre></td><td align=center><pre>1</pre></td><td><pre>(a Optical-Resolution-Value)</pre></td></tr>
+    <tr><td><pre>hasVerticalHardwareScanResolution</pre></td><td align=center><pre>1</pre></td><td><pre>(a Optical-Resolution-Value)</pre></td></tr>
+    <tr><td><pre>hasHorizontalInterpolatedScanResolution</pre></td><td align=center><pre>1</pre></td><td><pre>(a Optical-Resolution-Value)</pre></td></tr>
+    <tr><td><pre>hasVerticalInterpolatedScanResolution</pre></td><td align=center><pre>1</pre></td><td><pre>(a Optical-Resolution-Value)</pre></td></tr>
+    <tr><td><pre>hasHorizontalOpticalScanResolution</pre></td><td align=center><pre>1</pre></td><td><pre>(a Optical-Resolution-Value)</pre></td></tr>
+    <tr><td><pre>hasVerticalOpticalScanResolution</pre></td><td align=center><pre>1</pre></td><td><pre>(a Optical-Resolution-Value)</pre></td></tr>
+    <tr><td><pre>hasHorizontalScanSize</pre></td><td align=center><pre>1</pre></td><td><pre>(a Length-Value)</pre></td></tr>
+    <tr><td><pre>hasVerticalScanSize</pre></td><td align=center><pre>1</pre></td><td><pre>(a Length-Value)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Input-Device</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Scanner with
+   (hasModelName                   ("ScanJet 3970 Digital Flatbed Scanner"))
+   (hasManufacturer                ((a Company called "HP")))
+   (hasVendor                      ((a Company called "CompUSA.com")))
+   (hasModelNumber                 ("Q3191A#A2L"))
+   (hasVendorItemNumber            ("306711"))
+   (hasTotalPrice                  ((a Worth-Value with (value ((:pair 99.99 *usdollar))))))
+   (hasHorizontalScanSize         ((a Length-Value with (value ((:pair 8.5 *inch))))))
+   (hasVerticalScanSize           ((a Length-Value with (value ((:pair 11.7 *inch))))))
+   (hasInterfaceType              (*USB2_0))
+   (hasColorBitDepth              ((a Bit-Length-Value with (value ((:pair 48 *bit))))))
+   (hasGrayscaleBitDepth          ((a Bit-Length-Value with (value ((:pair 8 *bit))))))
+   (hasHorizontalInterpolatedScanResolution ((a Optical-Resolution-Value with (value ((:pair 2400 *dpi))))))
+   (hasVerticalInterpolatedScanResolution   ((a Optical-Resolution-Value with (value ((:pair 2400 *dpi))))))
+   (hasHorizontalOpticalScanResolution      ((a Optical-Resolution-Value with (value ((:pair 2400 *dpi))))))
+   (isCompatibleWithHardware      ((a Apple-Macintosh)))
+   (isCompatibleWithOS            ((a Mac-OS with (hasOSVersion ("9.1")))))
+   (isCompatibleWithOS            ((a Mac-OS with (hasOSVersion ("X (10.1.5)")))))
+   (isCompatibleWithHardware      ((a PC)))
+   (isCompatibleWithOS            ((a Microsoft-Windows-2000)))
+   (isCompatibleWithOS            ((a Microsoft-Windows-98)))
+   (isCompatibleWithOS            ((a Microsoft-Windows-98 with (hasOSEdition ("SE")))))
+   (isCompatibleWithOS            ((a Microsoft-Windows-ME)))
+   (isCompatibleWithOS            ((a Microsoft-Windows-XP with (hasOSEdition ("Home")))))
+   (isCompatibleWithOS            ((a Microsoft-Windows-XP with (hasOSEdition ("Professional")))))
+   (depth                                  ((a Depth-Value with (value ((:pair 11.73 *inch))))))
+   (height                                 ((a Height-Value with (value ((:pair 3.66 *inch))))))
+   (width                                  ((a Width-Value with (value ((:pair 18.58 *inch))))))
+   (weight                                 ((a Weight-Value with (value ((:pair 5.08 *pound))))))
+   (hasWarranty                    ((a Warranty with
+                                               (hasWarrantyDuration ((a Duration-Value with (value ((:pair 90 *day)))))))))
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(*MyColleaguesCanoScanLiDE80 has
+   (instance-of                            (Flatbed-Scanner))
+   (hasModelName                   ("Canon CanoScan LiDE 80"))
+   (hasManufacturer                ((a Company called "Canon")))
+   (hasVendor                      ((a Company called "TigerDirect.com")))
+   (hasModelNumber                 ("7877A002"))
+   (hasVendorItemNumber            ("C125-1412"))
+   (hasTotalPrice                  ((a Worth-Value with (value ((:pair 129.99 *usdollar))))))
+   (hasImageSensor                ((a CIS)))
+   (hasHorizontalScanSize         ((a Length-Value with (value ((:pair 8.5 *inch))))))
+   (hasVerticalScanSize           ((a Length-Value with (value ((:pair 11.7 *inch))))))
+   (hasInterfaceType              (*USB2_0))
+   (hasColorBitDepth              ((a Bit-Length-Value with (value ((:pair 48 *bit))))))
+   (hasGrayscaleBitDepth          ((a Bit-Length-Value with (value ((:pair 16 *bit))))))
+   (hasHorizontalInterpolatedScanResolution ((a Optical-Resolution-Value with (value ((:pair 9600 *dpi))))))
+   (hasVerticalInterpolatedScanResolution ((a Optical-Resolution-Value with (value ((:pair 9600 *dpi))))))
+   (hasHorizontalOpticalScanResolution      ((a Optical-Resolution-Value with (value ((:pair 2400 *dpi))))))
+   (hasHorizontalHardwareScanResolution     ((a Optical-Resolution-Value with (value ((:pair 2400 *dpi))))))
+   (hasVerticalHardwareScanResolution     ((a Optical-Resolution-Value with (value ((:pair 4800 *dpi))))))
+   (isCompatibleWithOS            ((a Mac-OS with (hasOSVersion ("9.0")))))
+   (isCompatibleWithOS            ((a Mac-OS with (hasOSVersion ("X")))))
+   (isCompatibleWithOS            ((a Microsoft-Windows-2000)))
+   (isCompatibleWithOS            ((a Microsoft-Windows-98)))
+   (isCompatibleWithOS            ((a Microsoft-Windows-ME)))
+   (isCompatibleWithOS            ((a Microsoft-Windows-XP)))
+   (hasWarranty                    ((a Warranty called "parts" with
+                                               (hasWarrantyDuration ((a Duration-Value with (value ((:pair 12 *month)))))))))
+   (hasWarranty                    ((a Warranty called "labor" with
+                                               (hasWarrantyDuration ((a Duration-Value with (value ((:pair 12 *month)))))))))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Computer-Display>
+<table>
+<tr><td>
+
+<div class="boxtop">Computer-Display</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A device (such as an LCD screen or CRT screen) for displaying computer output.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Computer-Display with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Computer-Display-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasDisplaySize</pre></td><td align=center><pre>1</pre></td><td><pre>(a Length-Value)</pre></td></tr>
+    <tr><td><pre>hasDisplayDotSize</pre></td><td align=center><pre>1</pre></td><td><pre>(a Length-Value)</pre></td></tr>
+    <tr><td><pre>hasDisplayRegion</pre></td><td align=center><pre>1</pre></td><td><pre>(a Region)</pre></td></tr>
+    <tr><td><pre>hasDisplayHeight</pre></td><td align=center><pre>1</pre></td><td><pre>(a Pixel-Length-Value)</pre></td></tr>
+    <tr><td><pre>hasDisplayWidth</pre></td><td align=center><pre>1</pre></td><td><pre>(a Pixel-Length-Value)</pre></td></tr>
+    <tr><td><pre>hasHorizontalResolution</pre></td><td align=center><pre>1</pre></td><td><pre>(a Optical-Resolution-Value)</pre></td></tr>
+    <tr><td><pre>hasVerticalResolution</pre></td><td align=center><pre>1</pre></td><td><pre>(a Optical-Resolution-Value)</pre></td></tr>
+    <tr><td><pre>hasImageBrightness</pre></td><td align=center><pre>1</pre></td><td><pre>(a Luminous-Flux-Value) or (a Luminance-Value)</pre></td></tr>
+    <tr><td><pre>hasImageContrastRatio</pre></td><td align=center><pre>1</pre></td><td><pre>(a Contrast-Ratio-Value)</pre></td></tr>
+    <tr><td><pre>hasResponseTime</pre></td><td align=center><pre>1</pre></td><td><pre>(a Duration-Value)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Output-Device</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Computer-Display with
+   (hasModelName      ("Dell Ultrasharp<sup>TM</sup> 2001FP"))
+   (hasTotalPrice     ((a Worth-Value with (value ((:pair 892 *usdollar))))))
+   (height            ((a Height-Value with (value ((:pair 18 *inch))))))
+   (width             ((a Width-Value with (value ((:pair 17.6 *inch))))))
+   (depth             ((a Depth-Value with (value ((:pair 9.67 *inch))))))
+   (hasWeight         ((a Weight-Value with (value ((:pair 18.72 *pound))))))
+   (hasDisplaySize    ((a Length-Value with
+                                   (value ((:pair 12.1 *inch)))
+   )))
+   (hasDisplayDotSize ((a Length-Value with
+                                   (value ((:pair 0.255 *millimeter)))
+   )))
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(*MyLaptop has
+   (instance-of (Laptop-Computer))
+   (hasDisplay ((a Computer-Display with
+                            (hasDisplaySize ((a Length-Value with
+                                                         (value ((:pair 12.1 *inch)))
+                            )))
+   )))
+   (hasDisplayWidth ((a Pixel-Length-Value with (value ((:pair 1024 *pixel))))))
+   (hasDisplayHeight ((a Pixel-Length-Value with (value ((:pair 768 *pixel))))))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Flat-Panel-Display>
+<table>
+<tr><td>
+
+<div class="boxtop">Flat-Panel-Display</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A device much thinner than it is wide for displaying computer output.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Flat-Panel-Display with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Flat-Panel-Display-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Computer-Display</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a LCD-Display with
+   (hasModelName          ("Viewsonic VP171B 17-inch LCD Monitor"))
+   (hasManufacturer       ((a Company called "Viewsonic")))
+   (hasVendor             ((a Company called "Amazon.com")))
+   (hasModelNumber        ("VP171B"))
+   (hasTotalPrice         ((a Worth-Value with (value ((:pair 469.99 *usdollar))))))
+   (hasImageBrightness    ((a Luminance-Value with (value ((:pair 260 *nit))))))
+   (hasImageContrastRatio ((a Contrast-Ratio-Value with (value ((:pair 500 NIL))))))
+   (hasDisplayWidth       ((a Pixel-Length-Value with (value ((:pair 1280 *pixel))))))
+   (hasDisplayHeight      ((a Pixel-Length-Value with (value ((:pair 1024 *pixel))))))
+   (hasDisplaySize        ((a Length-Value with (value ((:pair 17 *inch))))))
+   (hasDisplayStandard    (*SXGA))
+   (hasDisplayRegion      ((a Region with (width ((a Width-Value with (value ((:pair 13.3 *inch))))))
+                                          (height ((a Height-Value with (value ((:pair 10.6 *inch)))))))))
+   (hasResponseTime       ((a Duration-Value with (value ((:pair 16 *millisecond))))))
+   (hasPowerConsumption   ((a Power-Value with (value ((:pair 33 *watt))))))
+   (hasInterfaceType      (*RGB *DVI-D))
+   (isCompatibleWith      ((a PC)))
+   (isCompatibleWith      ((a Power-Mac-G3) (a Power-Mac-G4)))
+   (height                ((a Height-Value with (value ((:pair 12.2 *inch))))))
+   (width                 ((a Width-Value with (value ((:pair 14.6 *inch))))))
+   (depth                 ((a Depth-Value with (value ((:pair 2.2 *inch))))))
+   (voltage               ((a Voltage-Value with 
+                              (greater-than-or-equal-to ((a Voltage-Value with (value ((:pair 100 *volt))))))
+                              (less-than-or-equal-to ((a Voltage-Value with (value ((:pair 240 *volt))))))
+                          ))
+   )
+   (weight                ((a Weight-Value with (value ((:pair 14.3 *pound))))))
+   (hasWarranty           ((a Warranty called "Parts" with
+                              (hasWarrantyDuration ((a Duration-Value with (value ((:pair 3 *year)))))))
+                           (a Warranty called "Labor" with
+                              (hasWarrantyDuration ((a Duration-Value with (value ((:pair 3 *year)))))))
+                          )
+   )
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(a LCD-Display with
+   (hasModelName          ("BenQ - 17-inch Flat Panel Monitor FP791"))
+   (hasManufacturer       ((a Company called "BenQ")))
+   (hasVendor             ((a Company called "photoalley.com")))
+   (hasModelNumber        ("FP791"))
+   (hasVendorItemNumber   ("816280028"))
+   (hasTotalPrice         ((a Worth-Value with (value ((:pair 499.99 *usdollar))))))
+   (hasColorBitDepth      ((a Bit-Length-Value with (value ((:pair 24 *bit))))))
+   (hasImageBrightness    ((a Luminance-Value with (value ((:pair 400 *candelas-per-meter-squared))))))
+   (hasImageContrastRatio ((a Contrast-Ratio-Value with (value ((:pair 450 NIL))))))
+   (hasDisplayWidth       ((a Pixel-Length-Value with (value ((:pair 1280 *pixel))))))
+   (hasDisplayHeight      ((a Pixel-Length-Value with (value ((:pair 1024 *pixel))))))
+   (hasDisplaySize        ((a Length-Value with (value ((:pair 17 *inch))))))
+   (hasDisplayDotSize     ((a Length-Value with (value ((:pair 0.264 *millimeter))))))
+   (hasDisplayRegion      ((a Region with (width ((a Width-Value with (value ((:pair 13.3 *inch))))))
+                                          (height ((a Height-Value with (value ((:pair 10.6 *inch)))))))))
+   (hasResponseTime       ((a Duration-Value with (value ((:pair 16 *millisecond))))))
+   (hasPowerConsumption   ((a Power-Value with (value ((:pair 50 *watt))))))
+   (hasInterfaceType      (*DVI))
+   (height                ((a Height-Value with (value ((:pair 17.5 *inch))))))
+   (width                 ((a Width-Value with (value ((:pair 17.8 *inch))))))
+   (depth                 ((a Depth-Value with (value ((:pair 7.6 *inch))))))
+   (weight                ((a Weight-Value with (value ((:pair 16.6 *pound))))))
+   (color                 ((a Color-Value with (value (*silver *black)))))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+<p>
+<a name=Projector>
+<table>
+<tr><td>
+
+<div class="boxtop">Projector</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A device for projecting computer output onto a large external surface.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Projector with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Projector-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td colspan=3><i>slots inherited from Computer-Display</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a LCD-Projector with
+   (hasModelName          ("PowerLite 61p Multimedia Projector"))
+   (hasManufacturer       ((a Company called "EPSON")))
+   (hasVendor             ((a Company called "Buy.com")))
+   (hasModelNumber        ("V11H158020"))
+   (hasVendorItemNumber   ("C56XKE"))
+   (hasSKU                ("10373994"))
+   (hasTotalPrice         ((a Worth-Value with (value ((:pair 1499 *usdollar))))))
+   (hasImageBrightness    ((a Luminous-Flux-Value with (value ((:pair 2000 *lumen))))))
+   (hasImageContrastRatio ((a Contrast-Ratio-Value with (value ((:pair 400 NIL))))))
+   (hasDisplayWidth       ((a Pixel-Length-Value with (value ((:pair 800 *pixel))))))
+   (hasDisplayHeight      ((a Pixel-Length-Value with (value ((:pair 600 *pixel))))))
+   (hasPowerConsumption   ((a Power-Value with (value ((:pair 280 *watt))))))
+   (hasPowerOutput        ((a Power-Value called "Audio Output" with (value ((:pair 5 *watt))))))
+   (hasInterfaceType      (*RGB *S-Video *Composite-Video *NTSC *NTSC4_43 *SECAM *PAL *PAL-N *PAL-M *PAL-60 *HDTV))
+   (hasColorBitDepth      ((a Bit-Length-Value with (value ((:pair 24 *bit))))))
+   (height                ((a Height-Value with (value ((:pair 4.3 *inch))))))
+   (width                 ((a Width-Value with (value ((:pair 13.8 *inch))))))
+   (depth                 ((a Depth-Value with (value ((:pair 10.7 *inch))))))
+   (weight                ((a Weight-Value with (value ((:pair 8.8 *pound))))))
+   (hasWarranty           ((a Warranty with
+                              (hasWarrantyDuration ((a Duration-Value with (value ((:pair 2 *year)))))))))
+)</pre>
+    </td></tr>
+
+    <tr><td>&nbsp;</td></tr>
+
+    <tr><td>
+<pre>(a DLP-Projector with
+   (hasModelName          ("LP120 Projector"))
+   (hasManufacturer       ((a Company called "InFocus")))
+   (hasVendor             ((a Company called "Gateway.com")))
+   (hasModelNumber        ("LP120"))
+   (hasVendorItemNumber   ("6615562"))
+   (hasTotalPrice         ((a Worth-Value with (value ((:pair 1899.95 *usdollar))))))
+   (hasImageBrightness    ((a Luminous-Flux-Value with (value ((:pair 1000 *lumen))))))
+   (hasImageContrastRatio ((a Contrast-Ratio-Value with (value ((:pair 2000 NIL))))))
+   (hasDisplayWidth       ((a Pixel-Length-Value with (value ((:pair 1024 *pixel))))))
+   (hasDisplayHeight      ((a Pixel-Length-Value with (value ((:pair 768 *pixel))))))
+   (hasPowerConsumption   ((a Power-Value with (value ((:pair 150 *watt))))))
+   (hasPowerOutput        ((a Power-Value called "Audio Output" with (value ((:pair 1 *watt))))))
+   (hasInterfaceType      (*RGB *S-Video *NTSC *SECAM *PAL))
+   (hasColorBitDepth      ((a Bit-Length-Value with (value ((:pair 24 *bit))))))
+   (height                ((a Height-Value with (value ((:pair 2 *inch))))))
+   (width                 ((a Width-Value with (value ((:pair 9.8 *inch))))))
+   (depth                 ((a Depth-Value with (value ((:pair 3.7 *inch))))))
+   (weight                ((a Weight-Value with (value ((:pair 2 *pound))))))
+   (hasWarranty           ((a Warranty with
+                              (hasWarrantyDuration ((a Duration-Value with (value ((:pair 2 *year)))))))))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Computer-Storage>
+<table>
+<tr><td>
+
+<div class="boxtop">Computer-Storage</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A device in which electronic data is stored. The Computer-Storage may be
+        distinct from the device that reads/writes the data (as is the case with
+        a CDROM and a CDROM-Drive), or they may be the same (as is the case with
+        Hard-Drive).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Computer-Storage with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Computer-Storage-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>computer-storage-size</pre></td><td align=center><pre>1</pre></td><td><pre>(a Computer-Storage-Size-Value)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer-Component</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a CDR with
+   (computer-storage-size ((a Computer-Storage-Size-Value with
+                              (value ((:pair 700 *megabyte)))
+   )))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Hard-Drive>
+<table>
+<tr><td>
+
+<div class="boxtop">Hard-Drive</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A device for storing electronic data magnetically on rigid, rotating platters
+        in a sealed case.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Hard-Drive with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Hard-Drive-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasHardDriveRotationalSpeed</pre></td><td align=center><pre>1</pre></td><td><pre>(a Rotational-Rate-Value)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer-Storage</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Hard-Drive with
+   (hasModelName ("WD600BBRTL"))
+   (computer-storage-size ((a Computer-Storage-Size-Value with
+                              (value ((:pair 60 *gigabyte)))
+   )))
+   (hasHardDriveRotationalSpeed ((a Rotational-Rate-Value with 
+                                             (value ((:pair 7200 *revolutions-per-minute)))
+   )))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Modem>
+<table>
+<tr><td>
+
+<div class="boxtop">Modem</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A device that allows computers to communicate over telephone lines.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Modem with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Modem-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasModemSpeed</pre></td><td align=center><pre>1</pre></td><td><pre>(a Data-Transfer-Rate-Value)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer-Component</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a Modem with
+   (hasModemSpeed ((a Data-Transfer-Rate-Value with 
+                               (value ((:pair 56 *kilobits-per-second)))
+   )))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Optical-Drive>
+<table>
+<tr><td>
+
+<div class="boxtop">Optical-Drive</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A device for reading or reading and writing optical storage discs (CDs and/or DVDs).
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Optical-Drive with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Optical-Drive-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasReadSpeed</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)    <i>;; a multiple of the read speed of a standard audio cd drive</i></pre></td></tr>
+    <tr><td><pre>hasWriteSpeed</pre></td><td align=center><pre>1</pre></td><td><pre>(a Number)</i></pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer-Component</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a CDRW-Drive with
+   (hasReadSpeed (48))
+   (hasWriteSpeed (16))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+<p>
+<a name=Processor>
+<table>
+<tr><td>
+
+<div class="boxtop">Processor</div>
+
+<div class="boxbody">
+  <h3>Description</h3>
+  <dl>
+    <dd>A microchip that carries out computation and control commands within computer equipment.
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Syntax</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><pre>(a Processor with (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    <tr><td><pre>(&lt;Processor-instance&gt; has (&lt;slot&gt; (&lt;value&gt; ...)))</pre></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Slots</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td><i>slot</i></td><td align=center><i>card</i></td><td><i>value</i></td></tr>
+    <tr><td><pre>hasProcessorSpeed</pre></td><td align=center><pre>1</pre></td><td><pre>(a Frequency-Value)</pre></td></tr>
+    <tr><td colspan=3><i>+ slots inherited from Computer-Component</i></td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+<div class="boxbody2">
+  <h3>Examples</h3>
+  <dl>
+    <dd>
+    <table>
+    <tr><td>
+<pre>(a PowerPC-G5 with
+   (hasProcessorSpeed ((a Frequency-Value with
+                                   (value ((:pair 1.8 *gigahertz)))
+   )))
+)</pre>
+    </td></tr>
+    </table>
+    </dd>
+  </dl>
+</div>
+
+</td></tr>
+</table>
+</p>
+
+
+
+<table width="100%" bgcolor=#DEE7EC cellspacing=0>
+<tr><td align=center style="border-left-width:0; border-right-width:0"><font color=#436976 size=-1><a href="./">Return to Calo Ontologies Page</a></font></td></tr>
+</table><p>
+
+
+</basefont>
+
+</body>
+</html>
+

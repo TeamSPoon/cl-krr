@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Web-Service.km,v 1.1 2004/09/23 19:03:21 tecuci Exp $
+;;
+
+; IRIS_class: Website
+
+;; an Online-Service that delivers Webpages from a Website on demand
+
+(Web-Service has (superclasses (Online-Service)))
+
+(every Web-Service has
+       (object ((a Website))))
+
+;; a little more general
+(Web-Service has (wn20-synset ((:set (:triple "server" 3 "n")
+				     (:triple "host" 10 "n")))))
+;; stubby

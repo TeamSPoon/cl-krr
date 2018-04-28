@@ -1,0 +1,4 @@
+- export correctly multiple forms of a frame defined in a situation (1.22 patch 1)
+- warn user if he wants to use the name of a built-in frame (1.22 patch 2)
+- forbid to rename a built-in frame (1.22 patch 2)
+- forbid to use a reserved word as frame name (1.22 patch 2)

@@ -1,0 +1,22 @@
+;; 
+;; $Id: CalendarAttendee.km,v 1.1 2004/12/22 22:07:58 kbarker Exp $
+;; 
+
+(CalendarAttendee has
+  (superclasses (CalendarParticipant))
+)
+
+;; played-by                      ;; Person, Organization, Room, Device, etc.
+;; hasContactInformation          ;; cal-address of the Entity
+;; in-organization                ;; MEMBER parameter
+;; the plays of the played-by     ;; ROLE parameter
+;; status                         ;; PARTSTAT parameter
+                                  ;; RSVP parameter
+(hasRSVP has (instance-of (Interface-Slot)) (domain (CalendarAttendee)) (range (Boolean)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+                                  ;; DELEGATED-TO and DELEGATED-FROM parameters
+(isDelegatedTo has (instance-of (Interface-Slot)) (domain (CalendarAttendee)) (range (Entity Role)) (inverse (isDelegatedFrom)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+;; isSentBy                       ;; SENT-BY parameters
+;; hasCommonName                  ;; CN parameter
+;; hasDir                         ;; DIR parameter
+
+

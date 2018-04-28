@@ -1,0 +1,16 @@
+;;
+;;    $Id: ProjectRole.km,v 1.2 2004/11/05 16:59:40 pzyeh Exp $
+;;
+
+(ProjectRole has
+  (superclasses        (Agent-Role))
+  (required-slot       ())
+  (primary-slot        ()))
+
+(every ProjectRole has
+
+  ;; Need to consult KB about whether these encodings are
+  ;; correct.
+  (played-by  	((a Person)))
+  (identifier   ((a Text-Field uniquely-called "title")))
+)

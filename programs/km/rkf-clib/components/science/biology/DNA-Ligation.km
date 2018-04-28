@@ -1,0 +1,36 @@
+;; 
+;;    $Id: DNA-Ligation.km,v 1.13 2001/06/19 03:29:48 souther Exp $ 
+;; 
+
+(DNA-Ligation has
+  (superclasses         (Ligation))
+  (required-slot        (object))
+  (primary-slot         (agent instrument))
+  (secondary-slot       ())
+  (description ("The joining of the 3' end of one DNA strand with the
+                 5' end of another, forming a continuous strand. see
+                 Lodish:MCB:G-10. definition for ligase."))
+  )
+
+(every DNA-Ligation has
+       (object     ((a DNA-Sequence called "5' DNA sequence")  ))
+       (base 	   ((a DNA-Sequence called "3' DNA sequence")  ))
+       (instrument ((a Ligase)))
+       (resulting-state 
+	((a Be-Attached-To with
+	    (object (((the object of Self) called "5' DNA sequence")
+		     ((the base of Self) called "3' DNA sequence")
+		     ))
+	    (site
+	     ((the 3-Prime-Deoxyribonucleotide has-part of 
+		   ((the object of Self) 
+		    called "5' DNA sequence"))
+	      (the 5-Prime-Deoxyribonucleotide has-part of 
+		   ((the base of Self)
+		    called "3' DNA sequence"))))
+	    )))
+       )
+
+
+;; need to capture be-attached in post-condition
+

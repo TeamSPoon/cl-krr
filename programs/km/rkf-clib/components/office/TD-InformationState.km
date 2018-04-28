@@ -1,0 +1,10 @@
+;; $Id: TD-InformationState.km,v 1.1 2005/01/21 16:51:57 billj Exp $
+
+(TD-InformationState has
+  (superclasses (Information))
+)
+
+(hasSalientItem has (instance-of (Interface-Slot)) (domain (TD-InformationState)) (range (Thing)) (inverse (isSalientItemOf)) (cardinality (N-to-N)))
+(hasQUD has (instance-of (Interface-Slot)) (domain (TD-InformationState)) (range (TD-Question)) (inverse (isQUDOf)) (cardinality (N-to-N)))
+(hasIUN has (instance-of (Interface-Slot)) (domain (TD-InformationState)) (range (TD-Issue)) (inverse (isIUNOf)) (cardinality (N-to-N)))
+

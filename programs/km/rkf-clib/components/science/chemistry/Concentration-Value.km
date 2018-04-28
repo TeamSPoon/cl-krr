@@ -1,0 +1,14 @@
+;; 
+;;  $Id: Concentration-Value.km,v 1.2 2005/02/14 22:39:43 kbarker Exp $
+;; 
+
+(Concentration-Value has 
+		(superclasses (Property-Value)))
+
+(every Concentration-Value has
+  (property-slot (concentration))
+       (concentration-of ((must-be-a Chemical)))
+       (less-than ((must-be-a Concentration-Value)))
+       (greater-than ((must-be-a Concentration-Value)))
+       (same-as ((must-be-a Concentration-Value)))
+)

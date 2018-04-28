@@ -1,0 +1,20 @@
+;;
+;;    $Id: DNA-5prime-UTR.km,v 1.4 2001/05/31 21:49:55 pnav Exp $
+;;
+    
+(DNA-5prime-UTR has
+		(superclasses (DNA-Noncoding-Sequence))
+		(required-slot ())
+		(primary-slot ())
+		(secondary-slot ())
+		(description ("The sequence at the beginning of the 
+                               transcription unit which is not later translated
+                               Souther. "))
+		(cmap-correspondence ()))
+
+(every DNA-5prime-UTR has
+       (is-part-of ((a Transcription-Unit)))
+       (location ((a 5-Prime-End with
+                     (is-region-of ((the Transcription-Unit is-part-of of Self)))
+                     )))
+       )

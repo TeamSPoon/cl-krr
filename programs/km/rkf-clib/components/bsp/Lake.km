@@ -1,0 +1,17 @@
+
+;; 
+;;  $Id: Lake.km,v 1.3 2002/07/12 16:28:16 porter Exp $
+;; 
+
+(Lake has
+   (superclasses (Terrain))
+   (description ("A feature of the terrain")))
+
+(every Lake has
+   (trafficability ((a Trafficability-Value with
+                       (value ((:pair *SR Armor-Unit)
+                               (:pair *SR Infantry-Unit)))
+   )))
+)
+
+

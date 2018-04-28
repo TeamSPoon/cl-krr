@@ -1,0 +1,15 @@
+;;
+;; $Id: DVD.km,v 1.3 2004/09/23 22:36:29 tecuci Exp $
+;;
+
+(DVD has 
+  (superclasses (Computer-Storage))
+  (feature-slot ((the feature-slot of Computer-Storage)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = DVD))
+  ))
+)
+
+(DVD has (wn20-synset ((:set (:triple "videodisk" 1 "n")
+			     (:triple "videodisc" 1 "n")
+			     (:triple "DVD" 1 "n")))))

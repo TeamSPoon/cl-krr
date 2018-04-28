@@ -1,0 +1,33 @@
+;; 
+;;    $Id: Be-Obstructed.km,v 1.12 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Obstructed has
+	       (superclasses   (Be-Inaccessible))
+	       (required-slot  (object))
+	       (primary-slot   ())
+               (caused-by-class      (Obstruct))
+               (defeated-by-class    (Unobstruct))
+	       (cmap-correspondence (
+			     (:seq object "the object being obstructed")
+				     )))
+
+(every Be-Obstructed has
+       (object ((a Entity)))
+
+       (resulting-state-of ((must-be-a Obstruct with
+				       (object ((the object of Self))))))
+
+       (defeated-by ((must-be-a Unobstruct with
+				(object ((the object of Self)))))) 
+       )
+
+
+(every Be-Obstructed has
+   (text-particle ("obstructed"))
+)
+
+(Be-Obstructed has (wn20-synset ((:set (:triple "obstructed" 1 "a")
+))))
+
+

@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Procaryotic-Gene.km,v 1.8 2001/05/17 20:23:01 jfan Exp $ 
+;; 
+
+(Procaryotic-Gene has
+		 (superclasses (Gene))
+		 (required-slot ())
+		 (primary-slot ())
+		 (secondary-slot ())
+		 (description ("Region of procaryotic DNA that controls a
+                                discrete hereditary characteristic, usually 
+                                corresponding to a single protein or RNA.
+                                Most procaryotic genes are part of operons. 
+                                Souther. "))
+		 (cmap-correspondence ())
+		 (test-case ()))
+
+(every Procaryotic-Gene has
+       (is-part-of
+            ((a Operon))))    ;;; this condition is "usually"
+
+
+
+

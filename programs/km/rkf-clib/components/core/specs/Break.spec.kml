@@ -1,0 +1,94 @@
+<!--- $Id: Break.spec.kml,v 1.2 2005/08/09 20:28:27 pzyeh Exp $ --->
+<kml>
+
+<concept name=Break><system-documentation name=Break>
+<superconcept name=Damage>
+
+<definition>
+
+  Break an object so that it can no longer perform its function.  
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that's broken.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the break to occur.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing that was used to break the object.
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the break to occur.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Bubba broke the TV with a bat.</text>
+    <slotdescription name=object>the TV</slotdescription>
+    <slotdescription name=agent>Bubba</slotdescription>
+    <slotdescription name=instrument>a bat</slotdescription>
+  </examplesentence>
+  <comment>
+     The TV ceases to perform its function.  If its broken 
+     permanently, use <conceptref name=Ruin> to describe
+     the action.
+  </comment>
+
+  <examplesentence>
+    <text>The cup broke when it hit the floor. </text>
+    <slotdescription name=object>the cup</slotdescription>
+    <slotdescription name=by-means-of>hit the floor (a <conceptref name=Collide>)</slotdescription>
+  </examplesentence>
+  <comment>
+     The cup ceases to perform its function of being a container.
+  </comment>
+
+  <examplesentence>
+    <text>Fido broke his leash. </text>
+    <slotdescription name=agent>Fido</slotdescription>
+    <slotdescription name=object>Fido's leash</slotdescription>
+  </examplesentence>
+  <comment>
+     Fido's leash ceases to perform its function of restraint.
+     See also <conceptref name=Detach> for an encoding of the 
+     consequences of this action.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Breach>
+     A breach is a special kind of break in which a barrier is 
+     punctured, creating a portal through it.
+  </neighbor>
+  
+  <neighbor name=Destroy>
+     A destroy is a special kind of break which causes an object 
+     to cease to exist.
+  </neighbor>
+
+  <neighbor name=Ruin>
+     A ruin is a special kind of break.  A ruin breaks an object 
+     permanently so it can never again perform its function.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,107 @@
+;; 
+;;    $Id: Phenyl-Group.km,v 1.9 2001/06/03 01:11:29 pzyeh Exp $ 
+;; 
+
+(Phenyl-Group has
+	 (superclasses (Aromatic-Compound))
+	 (required-slot ())
+	 (primary-slot ())
+	 (secondary-slot ())
+	 (description ("A six-carbon ring with the carbons attached to each 
+                        other by conjugated double bonds.  Souther."))
+	 (cmap-correspondence ()))
+
+(every Phenyl-Group has
+       (has-part
+        (
+         (a Carbon-Atom uniquely-called "Carbon-1" with
+            (object-of
+             (
+              (a Be-Attached-To with                        
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-6")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C1-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))
+		 ))))
+         (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-1")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-3")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C2-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond))) 
+		 ))))
+         (a Carbon-Atom uniquely-called "Carbon-3" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C3-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))))))   
+
+         (a Carbon-Atom uniquely-called "Carbon-4" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-3")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C4-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))  
+		 ))))
+
+         (a Carbon-Atom uniquely-called "Carbon-5" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-4")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-6")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+		 (object 	(((the has-part of Self) uniquely-called "C5-Hydrogen")))
+		 (instrument 	((a Covalent-CH-Bond))) 
+		 ))))
+
+         (a Carbon-Atom uniquely-called "Carbon-6" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-5")))
+                 (instrument 	((a Conjugated-Double-Bond))) )
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "Carbon-1")))
+                 (instrument 	((a Conjugated-Double-Bond))) ) 
+              (a Be-Attached-To with
+                 (object 	(((the has-part of Self) uniquely-called "C6-Hydrogen")))
+                 (instrument 	((a Covalent-CH-Bond)))
+                 )))) 
+         (a Hydrogen-Atom uniquely-called "C1-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C2-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C3-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C4-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C5-Hydrogen")
+         (a Hydrogen-Atom uniquely-called "C6-Hydrogen")
+    )))
+
+
+
+

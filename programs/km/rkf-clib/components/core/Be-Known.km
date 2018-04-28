@@ -1,0 +1,37 @@
+
+;;
+;; $Id: Be-Known.km,v 1.4 2005/04/18 19:43:36 oursland Exp $
+;;
+
+(Be-Known has
+  (superclasses (State))
+  (required-slot (object experiencer))
+)
+
+(every Be-Known has
+  (object ((a Entity)))
+  (experiencer ((a Tangible-Entity)))
+)
+
+(every Be-Known has
+  (text-active-verbseq-sg ("knows"))
+  (text-active-verbseq-pl ("know"))
+
+  (text-subj ((the experiencer of Self)))
+  (text-dobj ((the object of Self)))
+  (text-argslots ((:seq)))
+)
+
+(Be-Known has (wn20-synset ((:set (:triple "known" 1 "a")
+                                  (:triple "familiar" 1 "a")
+                                  (:triple "familiar" 3 "a")
+                                  (:triple "conversant" 1 "a")
+                                  (:triple "versed" 1 "a")
+                                  (:triple "knowledgeable" 2 "a")
+                                  (:triple "intimate" 6 "a")
+                                  (:triple "intimate_with" 1 "a")
+                                  (:triple "knowledgeable" 4 "a")
+                                  (:triple "knowledgeable_about" 1 "a")
+                                  (:triple "know" 1 "v")
+))))
+

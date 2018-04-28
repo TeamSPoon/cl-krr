@@ -1,0 +1,36 @@
+;; 
+;; $Id: Device.km,v 1.13 2005/03/17 22:58:01 billj Exp $
+;; 
+
+;; NB: Basic information about the Device class is defined in the 
+;; NB: core directory. This file contains only office-specific
+;; NB: "interface" info
+
+(Device has
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Device))
+  ))
+)
+
+(every Device has
+  (identifier ((a Text-Field with
+                  (information-content ((the hasModelName of Self)))
+  )))
+
+  (worth ((the hasTotalPrice of Self)))
+  (hasTotalPrice ((the worth of Self)))
+)
+
+(hasManufacturer has (instance-of (Interface-Slot)) (domain (Device)) (range (Organization)) (inverse (isManufacturerOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasVendor has (instance-of (Interface-Slot)) (domain (Device)) (range (Organization)) (inverse (isVendorOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))) ; Note: maps between *instances* of Device to Organizations.  See also typeHasVendor which maps from Classes.
+(hasModelName has (instance-of (Interface-Slot)) (domain (Device)) (range (String)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasModelNumber has (instance-of (Interface-Slot)) (domain (Device)) (range (String)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasTotalPrice has (instance-of (Interface-Slot)) (domain (Device)) (range (Worth-Value)) (inverse (isTotalPriceOf)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasVendorItemNumber has (instance-of (Interface-Slot)) (domain (Device)) (range (String)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasSKU has (instance-of (Interface-Slot)) (domain (Device)) (range (String)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasWarranty has (instance-of (Interface-Slot)) (domain (Device)) (range (Warranty)) (inverse (isWarrantyOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasInterfaceType has (instance-of (Interface-Slot)) (domain (Device)) (range (Interface-Standard)) (inverse (isInterfaceTypeOf)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(hasPowerConsumption has (instance-of (Interface-Slot)) (domain (Device)) (range (Power-Value)) (inverse (isPowerConsumptionOf)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+(hasPowerOutput has (instance-of (Interface-Slot)) (domain (Device)) (range (Power-Value)) (inverse (isPowerOutputOf)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+
+

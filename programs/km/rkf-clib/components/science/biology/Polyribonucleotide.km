@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Polyribonucleotide.km,v 1.24 2002/06/21 19:17:01 tecuci Exp $ 
+;; 
+
+(Polyribonucleotide has
+     (superclasses (Polynucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A polymer of ribonucleotides.  Example is RNA. Souther."))
+     (cmap-correspondence ()))
+
+(every Polyribonucleotide has
+  (element 		     ((at-least 2 Ribonucleotide)))
+
+  (element-type (Ribonucleoside-Monophosphate)))
+
+;; want to specify here that the connections are by phosphodiester bonds.
+
+
+
+
+

@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Smooth-Endoplasmic-Reticulum.km,v 1.9 2001/06/03 06:16:50 souther Exp $ 
+;; 
+
+(Smooth-Endoplasmic-Reticulum has
+        (superclasses   (Organic-Structure))
+        (required-slot  ())
+        (primary-slot   ())
+        (secondary-slot ())
+        (description    ("Region of the endoplasmic reticulum not associated with
+                          ribosomes; involved in synthesis of lipids.
+                          Alberts:ECB:G-17."))
+        (cmap-correspondence ())
+        (test-case 	()))
+
+(every Smooth-Endoplasmic-Reticulum has  
+       (location ((a Place with
+		     (location-of ((a Lipid-Synthesis)))))))
+
+;; Original:
+;; (location-of ((a Lipid-Synthesis)))
+;;

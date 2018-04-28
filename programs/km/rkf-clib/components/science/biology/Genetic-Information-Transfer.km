@@ -1,0 +1,17 @@
+;;
+;;    $Id: Genetic-Information-Transfer.km,v 1.3 2004/09/12 13:32:03 kbarker Exp $
+;;
+  
+(Genetic-Information-Transfer has
+        (superclasses   (Communicate))
+        (required-slot  (object))
+        (primary-slot   (agent donor recipient instrument))
+        (secondary-slot ())
+	(description	("The transfer of genetic information from one entity
+                          to another.  Souther.")))
+
+(every Genetic-Information-Transfer has
+  (object       ((a Genetic-Information)))
+  )
+
+(every Genetic-Information-Transfer has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

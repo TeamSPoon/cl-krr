@@ -1,0 +1,17 @@
+;;
+;; $Id: H2C4H4O6-Substance.km,v 1.6 2008/11/03 03:11:26 tecuci Exp $ 
+;;
+
+(H2C4H4O6-Substance has (superclasses (Bronsted-Lowry-Acid)))
+(every H2C4H4O6-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 1.0e-3 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("tartaric"))
+	(has-basic-structural-unit ((a H2C4H4O6)))
+)
+(every H2C4H4O6-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a H2C4H4O6))))

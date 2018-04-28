@@ -1,0 +1,23 @@
+; 
+;;    $Id: has-goal.km,v 1.8 2007/04/11 21:23:39 jchaw Exp $
+;; 
+
+(has-goal has
+   (instance-of           (Causal-Relation))
+   (superslots            ())
+   (subslots              ())
+   (domain                (Entity))
+   (range                 (Event))             ;; a Goal or any other Event
+   (inverse               (is-goal-of))
+   (fluent-status         (*Inertial-Fluent))
+  (original-slot      (t))	
+   (cardinality           (N-to-N)))
+
+(has-goal has (wn20-synset ((:set
+			     (:triple "goal" 0 "n")))))
+
+
+(has-goal has (text-gloss ("has the goal")))
+(is-goal-of has 
+	(instance-of (Causal-Relation))
+	(text-gloss ("is a goal of")))

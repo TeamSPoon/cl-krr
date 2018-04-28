@@ -1,0 +1,19 @@
+;; $Id: CHO2-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(CHO2-Minus has (superclasses (Anion)))
+(every CHO2-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("formate"))
+	(has-acid-name ("formic"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 C)(:pair 1 H)(:pair 2 O)))))))
+)
+
+
+(every CHO2-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("formate"))
+)
+
+(CHO2-Minus has (wn20-synset ((:triple "CHO2-" 0 "n") (:triple "CHO_2-" 0 "n"))))

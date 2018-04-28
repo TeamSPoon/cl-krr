@@ -1,0 +1,15 @@
+;;
+;; $Id: Weak-Electrolyte-Entity.km,v 1.3 2008/10/29 22:24:30 tecuci Exp $
+;;
+
+(Weak-Electrolyte-Entity has
+  (superclasses (Electrolyte-Entity)))
+
+(Weak-Electrolyte-Entity has
+  (user-description ("A weak electrolyte entity is the basic structural unit of a substance that only partly ionizes in solution.")))
+
+(every Weak-Electrolyte-Entity has-definition
+  (instance-of (Chemical-Entity))
+  (is-basic-structural-unit-of ((a Weak-Electrolyte))))
+
+

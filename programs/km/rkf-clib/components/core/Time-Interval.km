@@ -1,0 +1,177 @@
+;; 
+;; $Id: Time-Interval.km,v 1.12 2005/05/19 21:17:37 billj Exp $ 
+;; 
+
+(Time-Interval has
+   (superclasses (Temporal-Entity))
+)
+
+(every Time-Interval has
+       (time-begins-or-in ((:set (the time-begins of Self)
+				 (the time-inside of Self))))
+       (time-between ((:set (the time-begins of Self)
+			    (the time-ends of Self))))
+
+       ;; (time-before ?before ?after) 
+       ;; <- 
+       ;; (and (time-ends ?before ?before-ep)(time-begins ?after ?after-bp)(time-lt ?before-ep ?after-bp))
+       (time-before 
+	((allof (the all-instances of Time-Interval)
+		where
+		((the time-ends of Self) time-lt (the time-begins of It)))))
+       ;; [Note: below is the "hidden-inverse" version of the above.]
+       (time-after 
+	((allof (the all-instances of Time-Interval)
+		where
+		((the time-ends of It) time-lt (the time-begins of Self)))))
+
+       ;; (time-inside ?interval ?inside-pt) 
+       ;; <- 
+       ;; (and (time-begins ?interval ?interval-begin-pt)
+       ;;     (time-ends ?interval ?interval-end-pt)
+       ;;     (time-lte ?interval-begin-pt ?inside-pt)
+       ;;     (time-gte ?interval-end-pt ?inside-pt))
+       ;; 
+       ;; [Note: there is a "hidden inverse" of this axiom in
+       ;; Time-Instant.km]
+       ;;
+       (time-inside
+	((allof (the all-instances of Time-Instant)
+		where
+		(((the time-begins of Self) time-lte It)
+		 and
+		 ((the time-ends of Self) time-gte It)))))
+
+       ;; (time-int-during ?contained ?container)
+       ;; <-
+       ;; (and
+       ;;  (time-begins ?contained ?contained-bp)  
+       ;;  (time-ends ?contained ?contained-ep)  
+       ;;  (time-begins ?container ?container-bp)  
+       ;;  (time-ends ?container ?container-ep)  
+       ;;  (time-lt ?container-bp ?contained-bp)    
+       ;;  (time-gt ?container-ep ?contained-ep)    
+       ;;  )
+       (time-int-during 
+	((allof (the all-instances of Time-Interval)
+		where
+		(((the time-begins of It) time-lt (the time-begins of Self))
+		 and
+		 ((the time-ends of It) time-gt (the time-ends of Self))
+		 ))))
+       ;; [Note: below is the "hidden-inverse" version of the above.]
+       (time-int-contains
+	((allof (the all-instances of Time-Interval)
+		where
+		(((the time-begins of Self) time-lt (the time-begins of It))
+		 and
+		 ((the time-ends of Self) time-gt (the time-ends of It))
+		 ))))
+
+	;; (time-int-overlaps ?x ?y) 
+	;; 
+	(time-int-overlaps
+	 ((allof (the all-instances of Time-Interval)
+		 where
+		 (((the time-ends of Self) time-gt (the time-begins of It))
+		  and
+		  ((the time-ends of It) time-gt (the time-ends of Self))
+		  and
+		  ((the time-begins of It) time-gt (the time-begins of Self))))))
+	 ;; [Note: below is the "hidden-inverse" version of the above.]
+	 (time-int-overlapped-by
+	  ((allof (the all-instances of Time-Interval)
+		  where
+		  (((the time-ends of It) time-gt (the time-begins of Self))
+		   and
+		   ((the time-ends of Self) time-gt (the time-ends of It))
+		   and
+		   ((the time-begins of Self) time-gt (the time-begins of It))))))
+	 )
+
+(Time-Interval has (wn20-synset ((:set
+				  (:triple "time_interval" 1 "n")
+				  (:triple "interval" 1 "n")
+))))
+
+
+
+(Time-Interval 
+ has
+ (test-case 
+  ('(
+
+     (*UT-Thanksgiving-Break-2004-Nov-25th-thru-27th 
+      has
+      (instance-of (Time-Interval))
+      (time-begins ((a Time-Instant with (time-value ((:pair 2004 *year) (:pair 11 *month) (:pair 25 *day))))))
+      (time-ends ((a Time-Instant with (time-value ((:pair 2004 *year) (:pair 11 *month) (:pair 27 *day)))))))
+
+     (*UT-Spring-Break-2005-March-14th-thru-19th
+      has
+      (instance-of (Time-Interval))
+      (time-begins  ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 3 *month) (:pair 14 *day))))))
+      (time-ends  ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 3 *month) (:pair 19 *day)))))))
+
+     (*UT-Summer-Add-Drop-Period-2005-May-24-thru-26
+      has
+      (instance-of (Time-Interval))
+      (time-begins ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 5 *month) (:pair 24 *day)))))))
+
+     ((the time-before of *UT-Thanksgiving-Break-2004-Nov-25th-thru-27th)
+      includes *UT-Spring-Break-2005-March-14th-thru-19th)
+
+     ((the time-after of *UT-Summer-Add-Drop-Period-2005-May-24-thru-26)
+      includes *UT-Spring-Break-2005-March-14th-thru-19th)
+
+     (*2005-March-15-Noon 
+      has 
+      (instance-of (Time-Instant))
+      (time-value ((:pair 12 *hour)
+		   (:pair 0 *minute)
+		   (:pair 0 *second)
+		   (:pair 15 *day)
+		   (:pair 3 *month)
+		   (:pair 2005 *year)
+		   )))
+
+     ((the time-inside of *UT-Spring-Break-2005-March-14th-thru-19th) includes *2005-March-15-Noon)
+
+     (*UT-Spring-Semester-2005
+      has
+      (instance-of (Time-Interval))
+      (time-begins ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 1 *month))))))
+      (time-ends ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 5 *month)))))))
+
+     ((the time-int-during of *UT-Spring-Break-2005-March-14th-thru-19th) includes  *UT-Spring-Semester-2005) 
+
+     (*UT-Fall-Semester-2004
+      has
+      (instance-of (Time-Interval))
+      (time-begins ((a Time-Instant with (time-value ((:pair 2004 *year) (:pair 8 *month))))))
+      (time-ends ((a Time-Instant with (time-value ((:pair 2004 *year) (:pair 12 *month)))))))
+
+     ((the time-int-contains of *UT-Fall-Semester-2004) includes *UT-Thanksgiving-Break-2004-Nov-25th-thru-27th)
+
+	(*Time-Overlapping-Start-Of-UT-Spring-Break-2005
+      has
+      (instance-of (Time-Interval))
+      (time-begins ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 3 *month) (:pair 12 *day))))))
+      (time-ends  ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 3 *month) (:pair 15 *day)))))))
+	
+     (*Time-Overlapping-End-Of-UT-Spring-Break-2005
+      has
+      (instance-of (Time-Interval))
+      (time-begins ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 3 *month) (:pair 17 *day))))))
+      (time-ends  ((a Time-Instant with (time-value ((:pair 2005 *year) (:pair 3 *month) (:pair 21 *day)))))))
+
+     ((the time-int-overlaps of *Time-Overlapping-Start-Of-UT-Spring-Break-2005) includes  *UT-Spring-Break-2005-March-14th-thru-19th)
+
+     ((the time-int-overlapped-by of *Time-Overlapping-End-Of-UT-Spring-Break-2005) includes  *UT-Spring-Break-2005-March-14th-thru-19th)
+
+     (not ((the time-int-overlaps of *UT-Thanksgiving-Break-2004-Nov-25th-thru-27th) includes *UT-Fall-Semester-2004))
+
+     )
+   )))
+
+

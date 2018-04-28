@@ -1,0 +1,18 @@
+;; 
+;;    $Id: default-combat-power.km,v 1.4 2002/08/21 22:08:55 kbarker Exp $
+;; 
+
+(default-combat-power has
+   (instance-of (Property))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Military-Unit Military-Equipment))
+   (range       (Default-Combat-Power-Value))
+   (cardinal-unit-class   (UoM-Unitless))
+   (scalar-constant-class (Default-Combat-Power-Constant))
+   (inverse 	(default-combat-power-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (cardinality (N-to-1))
+)
+

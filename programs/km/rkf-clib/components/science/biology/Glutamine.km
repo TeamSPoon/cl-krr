@@ -1,0 +1,35 @@
+;; 
+;;    $Id: Glutamine.km,v 1.13 2001/06/01 23:26:36 pnav Exp $ 
+;; 
+
+(Glutamine has                
+         (superclasses (Uncharged-Polar-Amino-Acid Nonessential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A polar amino acid with a propionamino side chain.
+                        Souther")) 
+         (test-case ()))
+
+(every Glutamine has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 (((the Carbon-Atom has-part of 
+		       (the Propionamino-Group has-part of
+			    (the Amino-Acid-Side-Chain has-part of Self)))
+		  called "Carbon-1")))
+		))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Propionamino-Group))))	
+	)))
+
+ 
+
+
+

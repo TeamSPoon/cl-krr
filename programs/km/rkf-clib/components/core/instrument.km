@@ -1,0 +1,41 @@
+;; 
+;;    $Id: instrument.km,v 1.19 2007/04/11 21:23:39 jchaw Exp $ 
+;; 
+
+(instrument has
+	    (instance-of (Participant-Relation Agentive-Relation))
+	    (superslots ())
+	    (subslots ())
+	    (domain (Event))
+	    (range (Entity))
+	    (inverse (instrument-of))
+            (text-slot (text-instrument))
+	    (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+	    (cardinality (N-to-N)))
+
+(instrument-of has
+	(instance-of (Participant-Relation Agentive-Relation)))
+
+(text-instrument has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-instrument-of has (instance-of (NL-Slot-Group)))
+
+(instrument has (wn20-synset ((:set
+                                    (:triple "instrumental_role" 1 "n")
+                                    (:triple "instrument" 5 "n")
+                                    (:triple "use" 1 "v")
+))))
+
+(instrument has (text-gloss ("uses")))
+(instrument-of has (text-gloss ("is used in")))
+

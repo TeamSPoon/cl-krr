@@ -1,0 +1,5041 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for MRNA ----------
+
+(MRNA has (superclasses (Entity Tangible-Entity Spatial-Entity Thing Nucleic-acid)))
+
+(_MRNA864 has 
+  (has-clones (_MRNA6582
+               _MRNA5877
+               _MRNA2386
+               _Entity864
+               _MRNA765
+               _MRNA7046
+               _MRNA6982
+               _MRNA4032
+               _MRNA2451
+               _MRNA1252
+               _MRNA7274
+               _MRNA7257
+               _MRNA4926
+               _MRNA2650
+               _MRNA1308
+               _MRNA1382
+               _Entity711
+               _Entity258
+               _MRNA289
+               _Entity1084
+               _MRNA1199
+               _Entity1241
+               _Entity645
+               _MRNA6653
+               _MRNA2714
+               _MRNA2586
+               _MRNA3518
+               _MRNA816
+               _MRNA1006
+               _MRNA1249
+               _MRNA1934
+               _MRNA1956
+               _MRNA2052
+               _MRNA2221
+               _MRNA2416
+               _MRNA2967
+               _MRNA3650
+               _MRNA3687
+               _MRNA3756
+               _MRNA3888
+               _MRNA4082
+               _MRNA4160
+               _MRNA4457
+               _MRNA4532
+               _MRNA4631
+               _MRNA4732
+               _MRNA4875
+               _MRNA5017
+               _MRNA5128
+               _MRNA5272
+               _MRNA5433
+               _MRNA5585
+               _MRNA5775
+               _MRNA5963
+               _MRNA7594
+               _MRNA7641
+               _MRNA7698
+               _MRNA2517
+               _MRNA934
+               _MRNA1145
+               _MRNA1450
+               _MRNA1578
+               _MRNA2608
+               _MRNA2630
+               _MRNA2751
+               _MRNA2806
+               _MRNA2972
+               _MRNA3137
+               _MRNA3879
+               _MRNA4279
+               _MRNA4297
+               _MRNA4408
+               _MRNA4543
+               _MRNA4611
+               _MRNA4649
+               _MRNA5034
+               _MRNA5151
+               _MRNA5211
+               _MRNA5273
+               _MRNA5348
+               _MRNA5493
+               _MRNA5641
+               _MRNA5750
+               _MRNA5930
+               _MRNA6102
+               _MRNA6224
+               _MRNA7089
+               _MRNA7185
+               _MRNA7348
+               _MRNA7491
+               _MRNA7513
+               _MRNA7687
+               _MRNA7842
+               _MRNA8002
+               _MRNA8057
+               _MRNA8241
+               _MRNA8460
+               _MRNA8599
+               _MRNA8724
+               _MRNA8874
+               _MRNA9012
+               _MRNA9080
+               _MRNA9195
+               _MRNA9356
+               _MRNA9461
+               _MRNA9583
+               _MRNA9694))
+  (has-built-clones (_MRNA6582
+                     _MRNA5877
+                     _MRNA2386
+                     _Entity864
+                     _MRNA765
+                     _MRNA7046
+                     _MRNA6982
+                     _MRNA4032
+                     _MRNA2451
+                     _MRNA1252
+                     _MRNA7274
+                     _MRNA7257
+                     _MRNA4926
+                     _MRNA2650
+                     _MRNA1308
+                     _MRNA1382
+                     _Entity711
+                     _Entity258
+                     _MRNA289
+                     _Entity1084
+                     _MRNA1199
+                     _Entity1241
+                     _Entity645
+                     _MRNA6653
+                     _MRNA2714
+                     _MRNA2586
+                     _MRNA3518
+                     _MRNA816
+                     _MRNA1006
+                     _MRNA1249
+                     _MRNA1934
+                     _MRNA1956
+                     _MRNA2052
+                     _MRNA2221
+                     _MRNA2416
+                     _MRNA2967
+                     _MRNA3650
+                     _MRNA3687
+                     _MRNA3756
+                     _MRNA3888
+                     _MRNA4082
+                     _MRNA4160
+                     _MRNA4457
+                     _MRNA4532
+                     _MRNA4631
+                     _MRNA4732
+                     _MRNA4875
+                     _MRNA5017
+                     _MRNA5128
+                     _MRNA5272
+                     _MRNA5433
+                     _MRNA5585
+                     _MRNA5775
+                     _MRNA5963
+                     _MRNA7594
+                     _MRNA7641
+                     _MRNA7698
+                     _MRNA2517
+                     _MRNA934
+                     _MRNA1145
+                     _MRNA1450
+                     _MRNA1578
+                     _MRNA2608
+                     _MRNA2630
+                     _MRNA2751
+                     _MRNA2806
+                     _MRNA2972
+                     _MRNA3137
+                     _MRNA3879
+                     _MRNA4279
+                     _MRNA4297
+                     _MRNA4408
+                     _MRNA4543
+                     _MRNA4611
+                     _MRNA4649
+                     _MRNA5034
+                     _MRNA5151
+                     _MRNA5211
+                     _MRNA5273
+                     _MRNA5348
+                     _MRNA5493
+                     _MRNA5641
+                     _MRNA5750
+                     _MRNA5930
+                     _MRNA6102
+                     _MRNA6224
+                     _MRNA7089
+                     _MRNA7185
+                     _MRNA7348
+                     _MRNA7491
+                     _MRNA7513
+                     _MRNA7687
+                     _MRNA7842
+                     _MRNA8002
+                     _MRNA8057
+                     _MRNA8241
+                     _MRNA8460
+                     _MRNA8599
+                     _MRNA8724
+                     _MRNA8874
+                     _MRNA9012
+                     _MRNA9080
+                     _MRNA9195
+                     _MRNA9356
+                     _MRNA9461
+                     _MRNA9583
+                     _MRNA9694))
+  (instance-of (MRNA))
+  (big-nodes (_Property-Node940))
+  (has-basic-structural-unit (_Atom939))
+  (/== (_Pore913
+        _Cytoplasm930))
+  (instrument-of (_Synthesis929))
+  (object-of (_Move-Through928))
+  (result-of (_Synthesis927))
+  (cloned-from (_Entity645
+                _Nucleic-acid1037))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq abuts _Ribosome935 185 583)
+                    (:seq has-basic-structural-unit _Atom939 50 600)))
+  (edge-visibility ((:seq abuts _Ribosome935 t)
+                    (:seq has-basic-structural-unit _Atom939 f)))
+  (prototype-participants (_Protein7002
+                           _Synthesis7000
+                           _Atom6999
+                           _Amino-Acid6998
+                           _Atom6997
+                           _RRNA6995
+                           _Atom6994
+                           _Amino-Acid6992
+                           _Polymer6990
+                           _Protein6989
+                           _Chromatid1649
+                           _Centromere1648
+                           _Spatial-Entity1647
+                           _Polymer1646
+                           _Spatial-Entity1645
+                           _Spatial-Entity1644
+                           _Spatial-Entity1643
+                           _Block1642
+                           _Polymer1641
+                           _MRNA864
+                           _Tangible-Entity912
+                           _Pore913
+                           _Barrier914
+                           _Synthesis915
+                           _Nucleus916
+                           _DNA917
+                           _Atom918
+                           _Protein919
+                           _Atom920
+                           _Chromosome921
+                           _Synthesis922
+                           _Nucleolus923
+                           _Ribosome924
+                           _Protein925
+                           _RRNA926
+                           _Synthesis927
+                           _Move-Through928
+                           _Synthesis929
+                           _Cytoplasm930
+                           _Protein931
+                           _Atom932
+                           _RRNA933
+                           _Atom934
+                           _Ribosome935
+                           _Amino-Acid936
+                           _Atom937
+                           _Protein938
+                           _Atom939
+                           _Property-Node940
+                           _Amino-Acid7514
+                           _Spatial-Entity7515
+                           _Organic-Molecule7516
+                           _Phosphate7517
+                           _Atom7518
+                           _Adenine7519
+                           _Phosphate7520
+                           _Atom7521
+                           _Thymine7522
+                           _Cytosine7523
+                           _Phosphate7524
+                           _Atom7525
+                           _Guanine7526
+                           _Thymine7527
+                           _Phosphate7528
+                           _Atom7529
+                           _Adenine7530
+                           _Guanine7531
+                           _Phosphate7532
+                           _Atom7533
+                           _Cytosine7534
+                           _Polymer7535
+                           _Polymer7536
+                           _Organic-Molecule7537
+                           _Chromatid7538
+                           _Chromatid7539
+                           _Deoxyribose7540
+                           _Nucleotide7541
+                           _Amino-Acid7542))
+  (prototype-participant-of (_MRNA864))
+  (prototype-of (MRNA))
+  (prototype-scope (MRNA))
+  (abuts (_Ribosome935))
+  (clone-built-from (_Nucleic-acid1037)))
+
+(_Protein7002 has 
+  (has-clones (_Thing7394
+               _Thing7402
+               _Thing7410
+               _Thing7542
+               _Thing7550
+               _Thing8107
+               _Thing8115
+               _Thing8123
+               _Thing8131
+               _Thing8395
+               _Thing8685
+               _Thing8772
+               _Thing9120
+               _Thing9128
+               _Thing9136
+               _Thing9506
+               _Thing9514
+               _Thing9522
+               _Thing9797
+               _Thing9805
+               _Entity9836
+               _Entity9828
+               _Entity9820
+               _Entity9852
+               _Entity9844
+               _Entity9884
+               _Entity9876
+               _Entity9868
+               _Entity9860
+               _Entity9892
+               _Entity9900
+               _Entity9908
+               _Entity9932
+               _Entity9924
+               _Entity9916
+               _Entity9956
+               _Entity9948
+               _Entity9940
+               _Entity9972
+               _Entity9964))
+  (instance-of (Protein
+                Entity))
+  (cloned-from (_Protein576))
+  (result-of (_Synthesis7000))
+  (node-visibility (f))
+  (node-coordinate ((:pair 0 0)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Synthesis7000 has 
+  (has-clones (_Thing7395
+               _Thing7403
+               _Thing7411
+               _Thing7543
+               _Thing7551
+               _Thing8108
+               _Thing8116
+               _Thing8124
+               _Thing8132
+               _Thing8396
+               _Thing8686
+               _Thing8773
+               _Thing9121
+               _Thing9129
+               _Thing9137
+               _Thing9507
+               _Thing9515
+               _Thing9523
+               _Thing9798
+               _Thing9806
+               _Synthesis9835
+               _Synthesis9827
+               _Synthesis9819
+               _Synthesis9851
+               _Synthesis9843
+               _Synthesis9883
+               _Synthesis9875
+               _Synthesis9867
+               _Synthesis9859
+               _Synthesis9891
+               _Synthesis9899
+               _Synthesis9907
+               _Synthesis9931
+               _Synthesis9923
+               _Synthesis9915
+               _Synthesis9955
+               _Synthesis9947
+               _Synthesis9939
+               _Synthesis9971
+               _Synthesis9963))
+  (result (_Protein7002))
+  (instance-of (Synthesis))
+  (cloned-from (_Synthesis575))
+  (agent (_Ribosome924))
+  (raw-material (_Amino-Acid6998))
+  (edge-coordinate ((:seq agent _Ribosome924 0 0)
+                    (:seq result _Protein7002 0 0)
+                    (:seq raw-material _Amino-Acid6998 0 0)))
+  (edge-visibility ((:seq agent _Ribosome924 f)
+                    (:seq result _Protein7002 f)
+                    (:seq raw-material _Amino-Acid6998 f)))
+  (node-visibility (f))
+  (node-coordinate ((:pair 3750 50)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Atom6999 has 
+  (has-clones (_Thing7396
+               _Thing7404
+               _Thing7412
+               _Thing7544
+               _Thing7552
+               _Thing8109
+               _Thing8117
+               _Thing8125
+               _Thing8133
+               _Thing8397
+               _Thing8687
+               _Thing8774
+               _Thing9122
+               _Thing9130
+               _Thing9138
+               _Thing9508
+               _Thing9516
+               _Thing9524
+               _Thing9799
+               _Thing9807
+               _Atom9834
+               _Atom9826
+               _Atom9818
+               _Atom9850
+               _Atom9842
+               _Atom9882
+               _Atom9874
+               _Atom9866
+               _Atom9858
+               _Atom9890
+               _Atom9898
+               _Atom9906
+               _Atom9930
+               _Atom9922
+               _Atom9914
+               _Atom9954
+               _Atom9946
+               _Atom9938
+               _Atom9970
+               _Atom9962))
+  (instance-of (Atom))
+  (cloned-from (_Atom574))
+  (is-basic-structural-unit-of (_Amino-Acid6998))
+  (node-visibility (f))
+  (node-coordinate ((:pair 3850 50)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Amino-Acid6998 has 
+  (has-clones (_Thing7397
+               _Thing7405
+               _Thing7413
+               _Thing7545
+               _Thing7553
+               _Thing8110
+               _Thing8118
+               _Thing8126
+               _Thing8134
+               _Thing8398
+               _Thing8688
+               _Thing8775
+               _Thing9123
+               _Thing9131
+               _Thing9139
+               _Thing9509
+               _Thing9517
+               _Thing9525
+               _Thing9800
+               _Thing9808
+               _Amino-Acid9833
+               _Amino-Acid9825
+               _Amino-Acid9817
+               _Amino-Acid9849
+               _Amino-Acid9841
+               _Amino-Acid9881
+               _Amino-Acid9873
+               _Amino-Acid9865
+               _Amino-Acid9857
+               _Amino-Acid9889
+               _Amino-Acid9897
+               _Amino-Acid9905
+               _Amino-Acid9929
+               _Amino-Acid9921
+               _Amino-Acid9913
+               _Amino-Acid9953
+               _Amino-Acid9945
+               _Amino-Acid9937
+               _Amino-Acid9969
+               _Amino-Acid9961))
+  (raw-material-of (_Synthesis7000))
+  (has-basic-structural-unit (_Atom6999))
+  (instance-of (Amino-Acid))
+  (cloned-from (_Amino-Acid573))
+  (node-visibility (f))
+  (node-coordinate ((:pair 0 0)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom6999 0 0)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom6999 f)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Atom6997 has 
+  (has-clones (_Thing7398
+               _Thing7406
+               _Thing7414
+               _Thing7546
+               _Thing7554
+               _Thing8111
+               _Thing8119
+               _Thing8127
+               _Thing8135
+               _Thing8399
+               _Thing8689
+               _Thing8776
+               _Thing9124
+               _Thing9132
+               _Thing9140
+               _Thing9510
+               _Thing9518
+               _Thing9526
+               _Thing9801
+               _Thing9809
+               _Atom9832
+               _Atom9824
+               _Atom9816
+               _Atom9848
+               _Atom9840
+               _Atom9880
+               _Atom9872
+               _Atom9864
+               _Atom9856
+               _Atom9888
+               _Atom9896
+               _Atom9904
+               _Atom9928
+               _Atom9920
+               _Atom9912
+               _Atom9952
+               _Atom9944
+               _Atom9936
+               _Atom9968
+               _Atom9960))
+  (instance-of (Atom))
+  (cloned-from (_Atom181))
+  (is-basic-structural-unit-of (_RRNA6995))
+  (node-visibility (f))
+  (node-coordinate ((:pair 3350 50)))
+  (prototype-participant-of (_MRNA864)))
+
+(_RRNA6995 has 
+  (has-clones (_Thing7399
+               _Thing7407
+               _Thing7415
+               _Thing7547
+               _Thing7555
+               _Thing8112
+               _Thing8120
+               _Thing8128
+               _Thing8136
+               _Thing8400
+               _Thing8690
+               _Thing8777
+               _Thing9125
+               _Thing9133
+               _Thing9141
+               _Thing9511
+               _Thing9519
+               _Thing9527
+               _Thing9802
+               _Thing9810
+               _RRNA9831
+               _RRNA9823
+               _RRNA9815
+               _RRNA9847
+               _RRNA9839
+               _RRNA9879
+               _RRNA9871
+               _RRNA9863
+               _RRNA9855
+               _RRNA9887
+               _RRNA9895
+               _RRNA9903
+               _RRNA9927
+               _RRNA9919
+               _RRNA9911
+               _RRNA9951
+               _RRNA9943
+               _RRNA9935
+               _RRNA9967
+               _RRNA9959))
+  (has-basic-structural-unit (_Atom6997))
+  (instance-of (RRNA))
+  (cloned-from (_RRNA180))
+  (is-basic-structural-unit-of (_Ribosome924))
+  (node-visibility (f))
+  (node-coordinate ((:pair 0 0)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom6997 0 0)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom6997 f)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Atom6994 has 
+  (has-clones (_Thing7400
+               _Thing7408
+               _Thing7416
+               _Thing7548
+               _Thing7556
+               _Thing8113
+               _Thing8121
+               _Thing8129
+               _Thing8137
+               _Thing8401
+               _Thing8691
+               _Thing8778
+               _Thing9126
+               _Thing9134
+               _Thing9142
+               _Thing9512
+               _Thing9520
+               _Thing9528
+               _Thing9803
+               _Thing9811
+               _Atom9830
+               _Atom9822
+               _Atom9814
+               _Atom9846
+               _Atom9838
+               _Atom9878
+               _Atom9870
+               _Atom9862
+               _Atom9854
+               _Atom9886
+               _Atom9894
+               _Atom9902
+               _Atom9926
+               _Atom9918
+               _Atom9910
+               _Atom9950
+               _Atom9942
+               _Atom9934
+               _Atom9966
+               _Atom9958))
+  (instance-of (Atom))
+  (cloned-from (_Atom183
+                _Atom309))
+  (is-basic-structural-unit-of (_Protein6989))
+  (node-visibility (f))
+  (node-coordinate ((:pair 3650 50)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Amino-Acid6992 has 
+  (instance-of (Amino-Acid))
+  (has-clones (_Amino-Acid6818))
+  (cloned-from (_Amino-Acid298))
+  (is-basic-structural-unit-of (_Protein6989))
+  (node-visibility (f))
+  (node-coordinate ((:pair 3550 50)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Polymer6990 has 
+  (instance-of (Polymer))
+  (has-clones (_Polymer6820))
+  (cloned-from (_Polymer308))
+  (is-part-of (_Protein6989))
+  (node-visibility (f))
+  (node-coordinate ((:pair 3450 50)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Protein6989 has 
+  (has-clones (_Thing7401
+               _Thing7409
+               _Thing7417
+               _Thing7549
+               _Thing7557
+               _Thing8114
+               _Thing8122
+               _Thing8130
+               _Thing8138
+               _Thing8402
+               _Thing8692
+               _Thing8779
+               _Thing9127
+               _Thing9135
+               _Thing9143
+               _Thing9513
+               _Thing9521
+               _Thing9529
+               _Thing9804
+               _Thing9812
+               _Protein9829
+               _Protein9821
+               _Protein9813
+               _Protein9845
+               _Protein9837
+               _Protein9877
+               _Protein9869
+               _Protein9861
+               _Protein9853
+               _Protein9885
+               _Protein9893
+               _Protein9901
+               _Protein9925
+               _Protein9917
+               _Protein9909
+               _Protein9949
+               _Protein9941
+               _Protein9933
+               _Protein9965
+               _Protein9957))
+  (has-basic-structural-unit (_Atom6994
+                              _Amino-Acid6992))
+  (has-part (_Polymer6990))
+  (instance-of (Protein))
+  (cloned-from (_Protein182
+                _Protein305))
+  (clone-built-from (_Protein305))
+  (is-basic-structural-unit-of (_Ribosome924))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Polymer6990 0 0)
+                    (:seq has-basic-structural-unit _Amino-Acid6992 0 0)
+                    (:seq has-basic-structural-unit _Atom6994 0 0)))
+  (edge-visibility ((:seq has-part _Polymer6990 f)
+                    (:seq has-basic-structural-unit _Amino-Acid6992 f)
+                    (:seq has-basic-structural-unit _Atom6994 f)))
+  (node-coordinate ((:pair 0 0)))
+  (prototype-participant-of (_MRNA864)))
+
+(_Chromatid1649 has 
+  (has-clones (_Chromatid2409
+               _Chromatid2474
+               _Chromatid2672
+               _Thing1214
+               _Chromatid2736
+               _Chromatid2608
+               _Chromatid764
+               _Chromatid2025
+               _Chromatid3734
+               _Chromatid4622
+               _Chromatid5039
+               _Chromatid5250
+               _Chromatid5634
+               _Chromatid2541
+               _Chromatid945
+               _Chromatid1614
+               _Chromatid3161
+               _Chromatid4567
+               _Chromatid5160
+               _Chromatid5320
+               _Chromatid5955
+               _Chromatid6247
+               _Chromatid7066
+               _Chromatid7663
+               _Chromatid9034
+               _Chromatid9173
+               _Chromatid9561))
+  (cloned-from (_Chromatid215))
+  (prototype-participant-of (_MRNA864))
+  (is-part-of (_Chromosome921))
+  (instance-of (Chromatid))
+  (node-visibility (t))
+  (node-coordinate ((:pair 224 89))))
+
+(_Centromere1648 has 
+  (has-clones (_Centromere2377
+               _Centromere2442
+               _Centromere2641
+               _Thing1215
+               _Centromere2705
+               _Centromere2577
+               _Centromere1172
+               _Centromere2335
+               _Centromere3765
+               _Centromere4692
+               _Centromere5075
+               _Centromere5530
+               _Centromere5909
+               _Centromere2508
+               _Centromere944
+               _Centromere1567
+               _Centromere3128
+               _Centromere4533
+               _Centromere5159
+               _Centromere5358
+               _Centromere5920
+               _Centromere6214
+               _Centromere7100
+               _Centromere7698
+               _Centromere9003
+               _Centromere9204
+               _Centromere9592))
+  (cloned-from (_Centromere214
+                _Centromere167))
+  (prototype-participant-of (_MRNA864))
+  (location-of (_Spatial-Entity7515
+                _Spatial-Entity1647))
+  (is-region-of (_Chromosome921))
+  (instance-of (Centromere
+                Place))
+  (node-visibility (t))
+  (clone-built-from (_Centromere167))
+  (node-coordinate ((:pair 230 138))))
+
+(_Spatial-Entity1647 has 
+  (has-clones (_Spatial-Entity5858
+               _Spatial-Entity4017
+               _Spatial-Entity4907
+               _Spatial-Entity6638
+               _Spatial-Entity3499
+               _Spatial-Entity986
+               _Spatial-Entity2205
+               _Spatial-Entity3868
+               _Spatial-Entity4624
+               _Spatial-Entity4890
+               _Spatial-Entity5414
+               _Spatial-Entity5768
+               _Spatial-Entity7682
+               _Spatial-Entity943
+               _Spatial-Entity1482
+               _Spatial-Entity2989
+               _Spatial-Entity4429
+               _Spatial-Entity5158
+               _Spatial-Entity5477
+               _Spatial-Entity5770
+               _Spatial-Entity6123
+               _Spatial-Entity7166
+               _Spatial-Entity7827
+               _Spatial-Entity8889
+               _Spatial-Entity9337
+               _Spatial-Entity9678))
+  (cloned-from (_Spatial-Entity213))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Spatial-Entity))
+  (location (_Centromere1648))
+  (node-visibility (t))
+  (edge-visibility ((:seq location _Centromere1648 t)))
+  (edge-coordinate ((:seq location _Centromere1648 130 112)))
+  (node-coordinate ((:pair 111 39))))
+
+(_Polymer1646 has 
+  (has-clones (_Polymer2375
+               _Polymer2440
+               _Polymer2639
+               _Polymer1201
+               _Polymer2703
+               _Polymer2575
+               _Polymer851
+               _Polymer2064
+               _Polymer3768
+               _Polymer4625
+               _Polymer5005
+               _Polymer5283
+               _Polymer5667
+               _Polymer2506
+               _Polymer941
+               _Polymer1565
+               _Polymer3126
+               _Polymer4531
+               _Polymer5157
+               _Polymer5360
+               _Polymer5918
+               _Polymer6212
+               _Polymer7102
+               _Polymer7700
+               _Polymer9001
+               _Polymer9206
+               _Polymer9594))
+  (prototype-participant-of (_MRNA864))
+  (is-part-of (_Protein919))
+  (instance-of (Polymer))
+  (cloned-from (_Polymer308))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Spatial-Entity1645 has 
+  (has-clones (_Spatial-Entity5864
+               _Spatial-Entity4023
+               _Spatial-Entity4913
+               _Spatial-Entity1204
+               _Spatial-Entity6644
+               _Spatial-Entity3505
+               _Spatial-Entity993
+               _Spatial-Entity2211
+               _Spatial-Entity3874
+               _Spatial-Entity4626
+               _Spatial-Entity4884
+               _Spatial-Entity5420
+               _Spatial-Entity5751
+               _Spatial-Entity7689
+               _Spatial-Entity940
+               _Spatial-Entity1476
+               _Spatial-Entity2981
+               _Spatial-Entity4423
+               _Spatial-Entity5156
+               _Spatial-Entity5484
+               _Spatial-Entity5763
+               _Spatial-Entity6112
+               _Spatial-Entity7172
+               _Spatial-Entity7833
+               _Spatial-Entity8883
+               _Spatial-Entity9343
+               _Spatial-Entity9685))
+  (prototype-participant-of (_MRNA864))
+  (is-between-of (_Tangible-Entity912))
+  (instance-of (Spatial-Entity))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Spatial-Entity1644 has 
+  (has-clones (_Spatial-Entity5863
+               _Spatial-Entity4022
+               _Spatial-Entity4912
+               _Spatial-Entity1205
+               _Spatial-Entity6643
+               _Spatial-Entity3504
+               _Spatial-Entity992
+               _Spatial-Entity2210
+               _Spatial-Entity3873
+               _Spatial-Entity4627
+               _Spatial-Entity4885
+               _Spatial-Entity5419
+               _Spatial-Entity5752
+               _Spatial-Entity7688
+               _Spatial-Entity939
+               _Spatial-Entity1477
+               _Spatial-Entity2983
+               _Spatial-Entity4424
+               _Spatial-Entity5155
+               _Spatial-Entity5483
+               _Spatial-Entity5764
+               _Spatial-Entity6113
+               _Spatial-Entity7171
+               _Spatial-Entity7832
+               _Spatial-Entity8884
+               _Spatial-Entity9342
+               _Spatial-Entity9684))
+  (prototype-participant-of (_MRNA864))
+  (is-between-of (_Tangible-Entity912))
+  (instance-of (Spatial-Entity))
+  (abuts ((excluded-values (the first of (the is-between of (the played-by of _Barrier914))))))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Spatial-Entity1643 has 
+  (has-clones (_Spatial-Entity5862
+               _Spatial-Entity4021
+               _Spatial-Entity4911
+               _Spatial-Entity1213
+               _Spatial-Entity6642
+               _Spatial-Entity3503
+               _Spatial-Entity990
+               _Spatial-Entity2209
+               _Spatial-Entity3872
+               _Spatial-Entity4628
+               _Spatial-Entity4886
+               _Spatial-Entity5418
+               _Spatial-Entity5772
+               _Spatial-Entity7687
+               _Spatial-Entity938
+               _Spatial-Entity1478
+               _Spatial-Entity2984
+               _Spatial-Entity4425
+               _Spatial-Entity5154
+               _Spatial-Entity5482
+               _Spatial-Entity5765
+               _Spatial-Entity6115
+               _Spatial-Entity7170
+               _Spatial-Entity7831
+               _Spatial-Entity8885
+               _Spatial-Entity9341
+               _Spatial-Entity9683))
+  (prototype-participant-of (_MRNA864))
+  (object-of (_Block1642))
+  (instance-of (Spatial-Entity
+                Entity
+                Thing))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Block1642 has 
+  (has-clones (_Block5861
+               _Block4020
+               _Block4910
+               _Block6641
+               _Block3502
+               _Block989
+               _Block2208
+               _Block3871
+               _Block4629
+               _Block4887
+               _Block5417
+               _Block5750
+               _Block7686
+               _Block937
+               _Block1479
+               _Block2985
+               _Block4426
+               _Block5153
+               _Block5481
+               _Block5766
+               _Block6116
+               _Block7169
+               _Block7830
+               _Block8886
+               _Block9340
+               _Block9682))
+  (prototype-participant-of (_MRNA864))
+  (in-event-of (_Barrier914))
+  (instrument (_Tangible-Entity912))
+  (instance-of (Block))
+  (object (_Spatial-Entity1643))
+  (edge-visibility ((:seq object _Spatial-Entity1643 f)
+                    (:seq instrument _Tangible-Entity912 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq object _Spatial-Entity1643 -14 74)
+                    (:seq instrument _Tangible-Entity912 -14 74)))
+  (node-coordinate ((:pair -14 74))))
+
+(_Polymer1641 has 
+  (has-clones (_Polymer5860
+               _Polymer4019
+               _Polymer4909
+               _Polymer1207
+               _Polymer6640
+               _Polymer3501
+               _Polymer988
+               _Polymer2207
+               _Polymer3870
+               _Polymer4630
+               _Polymer4888
+               _Polymer5416
+               _Polymer5754
+               _Polymer7684
+               _Polymer936
+               _Polymer1480
+               _Polymer2987
+               _Polymer4427
+               _Polymer5152
+               _Polymer5480
+               _Polymer5767
+               _Polymer6121
+               _Polymer7168
+               _Polymer7829
+               _Polymer8887
+               _Polymer9339
+               _Polymer9680))
+  (prototype-participant-of (_MRNA864))
+  (is-part-of (_Protein931))
+  (instance-of (Polymer))
+  (cloned-from (_Polymer308))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Tangible-Entity912 has 
+  (has-clones (_Tangible-Entity6578
+               _Tangible-Entity5871
+               _Tangible-Entity2391
+               _Tangible-Entity1410
+               _Tangible-Entity1426
+               _Tangible-Entity7042
+               _Tangible-Entity6978
+               _Tangible-Entity4028
+               _Tangible-Entity2456
+               _Tangible-Entity1245
+               _Tangible-Entity7270
+               _Tangible-Entity7253
+               _Tangible-Entity4920
+               _Tangible-Entity2655
+               _Tangible-Entity1302
+               _Tangible-Entity1376
+               _Tangible-Entity1627
+               _Tangible-Entity337
+               _Tangible-Entity392
+               _Tangible-Entity1149
+               _Tangible-Entity1198
+               _Tangible-Entity1278
+               _Tangible-Entity1668
+               _Tangible-Entity6649
+               _Tangible-Entity2719
+               _Tangible-Entity2591
+               _Tangible-Entity3512
+               _Tangible-Entity806
+               _Tangible-Entity1000
+               _Tangible-Entity1183
+               _Tangible-Entity1872
+               _Tangible-Entity1893
+               _Tangible-Entity2043
+               _Tangible-Entity2217
+               _Tangible-Entity2347
+               _Tangible-Entity2973
+               _Tangible-Entity3656
+               _Tangible-Entity3693
+               _Tangible-Entity3751
+               _Tangible-Entity3882
+               _Tangible-Entity4037
+               _Tangible-Entity4113
+               _Tangible-Entity4415
+               _Tangible-Entity4488
+               _Tangible-Entity4632
+               _Tangible-Entity4708
+               _Tangible-Entity4879
+               _Tangible-Entity5022
+               _Tangible-Entity5086
+               _Tangible-Entity5267
+               _Tangible-Entity5427
+               _Tangible-Entity5541
+               _Tangible-Entity5651
+               _Tangible-Entity5920
+               _Tangible-Entity7590
+               _Tangible-Entity7637
+               _Tangible-Entity7694
+               _Tangible-Entity2522
+               _Tangible-Entity933
+               _Tangible-Entity1150
+               _Tangible-Entity1458
+               _Tangible-Entity1584
+               _Tangible-Entity2657
+               _Tangible-Entity2676
+               _Tangible-Entity2755
+               _Tangible-Entity2810
+               _Tangible-Entity2976
+               _Tangible-Entity3143
+               _Tangible-Entity3870
+               _Tangible-Entity4283
+               _Tangible-Entity4301
+               _Tangible-Entity4414
+               _Tangible-Entity4549
+               _Tangible-Entity4604
+               _Tangible-Entity4643
+               _Tangible-Entity5077
+               _Tangible-Entity5150
+               _Tangible-Entity5235
+               _Tangible-Entity5277
+               _Tangible-Entity5339
+               _Tangible-Entity5489
+               _Tangible-Entity5645
+               _Tangible-Entity5756
+               _Tangible-Entity5936
+               _Tangible-Entity6106
+               _Tangible-Entity6229
+               _Tangible-Entity7083
+               _Tangible-Entity7179
+               _Tangible-Entity7344
+               _Tangible-Entity7450
+               _Tangible-Entity7467
+               _Tangible-Entity7682
+               _Tangible-Entity7838
+               _Tangible-Entity7998
+               _Tangible-Entity8053
+               _Tangible-Entity8247
+               _Tangible-Entity8418
+               _Tangible-Entity8557
+               _Tangible-Entity8700
+               _Tangible-Entity8878
+               _Tangible-Entity9017
+               _Tangible-Entity9076
+               _Tangible-Entity9190
+               _Tangible-Entity9350
+               _Tangible-Entity9457
+               _Tangible-Entity9578
+               _Tangible-Entity9690))
+  (prototype-participant-of (_MRNA864))
+  (base-of (_Move-Through928))
+  (plays (_Barrier914))
+  (has-region (_Pore913))
+  (instance-of (Tangible-Entity
+                Entity))
+  (is-between (_Spatial-Entity1645
+               _Spatial-Entity1644))
+  (instrument-of (_Block1642))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-region _Pore913 549 583)
+                    (:seq is-between _Spatial-Entity1644 -14 74)
+                    (:seq is-between _Spatial-Entity1645 -14 74)
+                    (:seq plays _Barrier914 549 603)))
+  (edge-visibility ((:seq has-region _Pore913 f)
+                    (:seq is-between _Spatial-Entity1644 f)
+                    (:seq is-between _Spatial-Entity1645 f)
+                    (:seq plays _Barrier914 f)))
+  (node-coordinate ((:pair 499 588)))
+  (node-visibility (f)))
+
+(_Pore913 has 
+  (has-clones (_Pore6579
+               _Pore5875
+               _Pore2392
+               _Pore1411
+               _Pore1427
+               _Pore7043
+               _Pore6979
+               _Pore4029
+               _Pore2457
+               _Pore1250
+               _Pore7271
+               _Pore7254
+               _Pore4924
+               _Pore2656
+               _Pore1306
+               _Pore1380
+               _Pore1628
+               _Pore336
+               _Pore391
+               _Pore1148
+               _Pore1197
+               _Pore1277
+               _Pore1669
+               _Pore6650
+               _Pore2720
+               _Pore2592
+               _Pore3516
+               _Pore804
+               _Pore1004
+               _Pore1182
+               _Pore1871
+               _Pore1892
+               _Pore2042
+               _Pore2218
+               _Pore2346
+               _Pore2969
+               _Pore3652
+               _Pore3689
+               _Pore3750
+               _Pore3886
+               _Pore4036
+               _Pore4112
+               _Pore4414
+               _Pore4487
+               _Pore4633
+               _Pore4707
+               _Pore4878
+               _Pore5023
+               _Pore5085
+               _Pore5266
+               _Pore5431
+               _Pore5540
+               _Pore5650
+               _Pore5919
+               _Pore7591
+               _Pore7638
+               _Pore7695
+               _Pore2523
+               _Pore932
+               _Pore1149
+               _Pore1452
+               _Pore1585
+               _Pore2658
+               _Pore2677
+               _Pore2754
+               _Pore2809
+               _Pore2975
+               _Pore3144
+               _Pore3877
+               _Pore4282
+               _Pore4300
+               _Pore4410
+               _Pore4550
+               _Pore4609
+               _Pore4647
+               _Pore5078
+               _Pore5149
+               _Pore5236
+               _Pore5276
+               _Pore5337
+               _Pore5490
+               _Pore5644
+               _Pore5752
+               _Pore5937
+               _Pore6105
+               _Pore6230
+               _Pore7082
+               _Pore7183
+               _Pore7345
+               _Pore7449
+               _Pore7466
+               _Pore7681
+               _Pore7839
+               _Pore7999
+               _Pore8054
+               _Pore8243
+               _Pore8417
+               _Pore8556
+               _Pore8699
+               _Pore8877
+               _Pore9018
+               _Pore9077
+               _Pore9189
+               _Pore9354
+               _Pore9458
+               _Pore9577
+               _Pore9691))
+  (/== (_MRNA864))
+  (prototype-participant-of (_MRNA864))
+  (path-of (_Move-Through928))
+  (instance-of (Pore
+                Spatial-Entity))
+  (is-region-of (_Tangible-Entity912))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 499 544)))
+  (node-visibility (t)))
+
+(_Barrier914 has 
+  (has-clones (_Barrier6580
+               _Barrier5869
+               _Barrier2393
+               _Barrier1412
+               _Barrier1428
+               _Barrier7044
+               _Barrier6980
+               _Barrier4030
+               _Barrier2458
+               _Barrier1242
+               _Barrier7272
+               _Barrier7255
+               _Barrier4918
+               _Barrier2657
+               _Barrier1300
+               _Barrier1374
+               _Barrier1629
+               _Barrier890
+               _Barrier335
+               _Barrier390
+               _Barrier1147
+               _Barrier1196
+               _Barrier1276
+               _Barrier1670
+               _Barrier6651
+               _Barrier2721
+               _Barrier2593
+               _Barrier3510
+               _Barrier803
+               _Barrier998
+               _Barrier1181
+               _Barrier1870
+               _Barrier1891
+               _Barrier2041
+               _Barrier2219
+               _Barrier2345
+               _Barrier2975
+               _Barrier3658
+               _Barrier3695
+               _Barrier3749
+               _Barrier3880
+               _Barrier4035
+               _Barrier4111
+               _Barrier4413
+               _Barrier4486
+               _Barrier4634
+               _Barrier4706
+               _Barrier4877
+               _Barrier5024
+               _Barrier5084
+               _Barrier5265
+               _Barrier5425
+               _Barrier5539
+               _Barrier5649
+               _Barrier5918
+               _Barrier7592
+               _Barrier7639
+               _Barrier7696
+               _Barrier2524
+               _Barrier931
+               _Barrier1148
+               _Barrier1460
+               _Barrier1586
+               _Barrier2659
+               _Barrier2678
+               _Barrier2753
+               _Barrier2808
+               _Barrier2974
+               _Barrier3145
+               _Barrier3868
+               _Barrier4281
+               _Barrier4299
+               _Barrier4416
+               _Barrier4551
+               _Barrier4602
+               _Barrier4641
+               _Barrier5079
+               _Barrier5148
+               _Barrier5237
+               _Barrier5275
+               _Barrier5336
+               _Barrier5491
+               _Barrier5643
+               _Barrier5758
+               _Barrier5938
+               _Barrier6104
+               _Barrier6231
+               _Barrier7081
+               _Barrier7177
+               _Barrier7346
+               _Barrier7448
+               _Barrier7465
+               _Barrier7680
+               _Barrier7840
+               _Barrier8000
+               _Barrier8055
+               _Barrier8249
+               _Barrier8416
+               _Barrier8555
+               _Barrier8698
+               _Barrier8876
+               _Barrier9019
+               _Barrier9078
+               _Barrier9188
+               _Barrier9348
+               _Barrier9459
+               _Barrier9576
+               _Barrier9692))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Barrier))
+  (in-event (_Block1642))
+  (played-by (_Tangible-Entity912))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 699 598)))
+  (edge-visibility ((:seq in-event _Block1642 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq in-event _Block1642 -14 74))))
+
+(_Synthesis915 has 
+  (has-clones (_Synthesis2378
+               _Synthesis761
+               _Synthesis7011
+               _Synthesis2443
+               _Synthesis1284
+               _Synthesis2642
+               _Synthesis1366
+               _Synthesis712
+               _Synthesis285
+               _Synthesis1083
+               _Synthesis1195
+               _Synthesis1246
+               _Synthesis650
+               _Synthesis2706
+               _Synthesis2578
+               _Synthesis846
+               _Synthesis1938
+               _Synthesis2061
+               _Synthesis2944
+               _Synthesis3664
+               _Synthesis3764
+               _Synthesis4458
+               _Synthesis4533
+               _Synthesis4635
+               _Synthesis4727
+               _Synthesis5008
+               _Synthesis5280
+               _Synthesis5664
+               _Synthesis2509
+               _Synthesis930
+               _Synthesis1568
+               _Synthesis2626
+               _Synthesis2784
+               _Synthesis3129
+               _Synthesis3903
+               _Synthesis4534
+               _Synthesis4636
+               _Synthesis5033
+               _Synthesis5147
+               _Synthesis5216
+               _Synthesis5357
+               _Synthesis5921
+               _Synthesis6215
+               _Synthesis7099
+               _Synthesis7495
+               _Synthesis7697
+               _Synthesis8024
+               _Synthesis8218
+               _Synthesis8461
+               _Synthesis8600
+               _Synthesis8719
+               _Synthesis9004
+               _Synthesis9203
+               _Synthesis9591))
+  (prototype-participant-of (_MRNA864))
+  (result (_DNA917))
+  (site (_Nucleus916))
+  (instance-of (Synthesis))
+  (cloned-from (_Synthesis650))
+  (edge-coordinate ((:seq site _Nucleus916 1486 119)
+                    (:seq result _DNA917 1486 139)))
+  (edge-visibility ((:seq site _Nucleus916 f)
+                    (:seq result _DNA917 f)))
+  (node-coordinate ((:pair 1436 124)))
+  (node-visibility (f)))
+
+(_Nucleus916 has 
+  (has-clones (_Nucleus2379
+               _Nucleus763
+               _Nucleus6976
+               _Nucleus2444
+               _Nucleus1238
+               _Nucleus2643
+               _Nucleus1298
+               _Nucleus703
+               _Nucleus287
+               _Nucleus1095
+               _Nucleus1194
+               _Nucleus1237
+               _Nucleus302
+               _Nucleus2707
+               _Nucleus2579
+               _Nucleus1242
+               _Nucleus1936
+               _Nucleus2406
+               _Nucleus2977
+               _Nucleus4153
+               _Nucleus3763
+               _Nucleus4450
+               _Nucleus4525
+               _Nucleus4636
+               _Nucleus4736
+               _Nucleus5121
+               _Nucleus5578
+               _Nucleus5955
+               _Nucleus2510
+               _Nucleus928
+               _Nucleus1569
+               _Nucleus2628
+               _Nucleus2812
+               _Nucleus3130
+               _Nucleus3866
+               _Nucleus4535
+               _Nucleus4600
+               _Nucleus5041
+               _Nucleus5146
+               _Nucleus5207
+               _Nucleus5356
+               _Nucleus5922
+               _Nucleus6216
+               _Nucleus7098
+               _Nucleus7493
+               _Nucleus7696
+               _Nucleus7996
+               _Nucleus8251
+               _Nucleus8453
+               _Nucleus8592
+               _Nucleus8728
+               _Nucleus9005
+               _Nucleus9202
+               _Nucleus9590))
+  (prototype-participant-of (_MRNA864))
+  (site-of (_Synthesis927
+            _Synthesis915))
+  (has-part (_Nucleolus923))
+  (encloses (_Chromosome921))
+  (instance-of (Nucleus
+                Spatial-Entity))
+  (cloned-from (_Nucleus302
+                _Organelle256))
+  (clone-built-from (_Nucleus302
+                     _Organelle256))
+  (edge-coordinate ((:seq encloses _Chromosome921 82 376)
+                    (:seq has-part _Nucleolus923 68 430)))
+  (edge-visibility ((:seq encloses _Chromosome921 f)
+                    (:seq has-part _Nucleolus923 f)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 18 435)))
+  (node-visibility (t)))
+
+(_DNA917 has 
+  (has-clones (_DNA2380
+               _Entity762
+               _DNA6975
+               _DNA2445
+               _DNA1236
+               _DNA2644
+               _DNA1297
+               _Spatial-Entity702
+               _Entity286
+               _Spatial-Entity1096
+               _DNA1193
+               _DNA1244
+               _DNA648
+               _DNA2708
+               _DNA2580
+               _DNA1241
+               _DNA1937
+               _DNA2405
+               _DNA2978
+               _DNA4152
+               _DNA3762
+               _DNA4449
+               _DNA4584
+               _DNA4637
+               _DNA4729
+               _DNA5120
+               _DNA5577
+               _DNA5662
+               _DNA2511
+               _DNA927
+               _DNA1570
+               _DNA2627
+               _DNA2813
+               _DNA3131
+               _DNA3865
+               _DNA4536
+               _DNA4599
+               _DNA5042
+               _DNA5145
+               _DNA5214
+               _DNA5355
+               _DNA5923
+               _DNA6217
+               _DNA7097
+               _DNA7494
+               _DNA7695
+               _DNA7995
+               _DNA8252
+               _DNA8452
+               _DNA8591
+               _DNA8721
+               _DNA9006
+               _DNA9201
+               _DNA9589))
+  (cloned-from (_DNA413
+                _DNA648
+                _DNA272
+                _Nucleic-acid1037))
+  (prototype-participant-of (_MRNA864))
+  (has-part (_Nucleotide7541
+             _Deoxyribose7540
+             _Chromatid7539
+             _Chromatid7538
+             _Polymer7536
+             _Polymer7535))
+  (is-basic-structural-unit-of (_Chromosome921))
+  (has-basic-structural-unit (_Atom918))
+  (instance-of (DNA
+                Entity
+                Nucleic-acid))
+  (result-of (_Synthesis915))
+  (node-coordinate ((:pair 1236 124)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom918 1286 129)
+                    (:seq has-part _Polymer7535 -14 74)
+                    (:seq has-part _Polymer7536 -14 74)
+                    (:seq has-part _Chromatid7538 -14 74)
+                    (:seq has-part _Chromatid7539 -14 74)
+                    (:seq has-part _Deoxyribose7540 -14 74)
+                    (:seq has-part _Nucleotide7541 -14 74)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom918 f)
+                    (:seq has-part _Polymer7535 f)
+                    (:seq has-part _Polymer7536 f)
+                    (:seq has-part _Chromatid7538 f)
+                    (:seq has-part _Chromatid7539 f)
+                    (:seq has-part _Deoxyribose7540 f)
+                    (:seq has-part _Nucleotide7541 f)))
+  (clone-built-from (_DNA272
+                     _Nucleic-acid1037))
+  (node-visibility (f)))
+
+(_Atom918 has 
+  (has-clones (_Atom2411
+               _Atom776
+               _Atom7014
+               _Atom2476
+               _Atom1322
+               _Atom2674
+               _Atom1372
+               _Atom714
+               _Atom868
+               _Atom301
+               _Atom1081
+               _Atom1192
+               _Atom1245
+               _Atom649
+               _Atom2738
+               _Atom2610
+               _Atom762
+               _Atom1916
+               _Atom2023
+               _Atom2916
+               _Atom3662
+               _Atom3732
+               _Atom4460
+               _Atom4535
+               _Atom4638
+               _Atom4728
+               _Atom5041
+               _Atom5248
+               _Atom5632
+               _Atom2543
+               _Atom926
+               _Atom1616
+               _Atom2641
+               _Atom2782
+               _Atom3164
+               _Atom3937
+               _Atom4569
+               _Atom4639
+               _Atom5031
+               _Atom5144
+               _Atom5215
+               _Atom5318
+               _Atom5957
+               _Atom6252
+               _Atom7064
+               _Atom7481
+               _Atom7661
+               _Atom8026
+               _Atom8190
+               _Atom8463
+               _Atom8602
+               _Atom8720
+               _Atom9036
+               _Atom9171
+               _Atom9559))
+  (cloned-from (_Atom414
+                _Atom649
+                _Atom531
+                _Atom1040))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_DNA917))
+  (node-coordinate ((:pair 1336 124)))
+  (node-visibility (f)))
+
+(_Protein919 has 
+  (has-clones (_Protein2373
+               _Protein772
+               _Protein6969
+               _Protein2438
+               _Protein1223
+               _Protein2637
+               _Protein1291
+               _Protein699
+               _Protein297
+               _Protein1099
+               _Protein1191
+               _Protein1242
+               _Protein646
+               _Protein2701
+               _Protein2573
+               _Protein855
+               _Protein1923
+               _Protein2067
+               _Protein2985
+               _Protein3704
+               _Protein3770
+               _Protein4446
+               _Protein4520
+               _Protein4639
+               _Protein4731
+               _Protein5003
+               _Protein5285
+               _Protein5669
+               _Protein2504
+               _Protein915
+               _Protein1561
+               _Protein2638
+               _Protein2819
+               _Protein3123
+               _Protein3858
+               _Protein4528
+               _Protein4593
+               _Protein5046
+               _Protein5143
+               _Protein5212
+               _Protein5362
+               _Protein5915
+               _Protein6210
+               _Protein7104
+               _Protein7484
+               _Protein7702
+               _Protein7989
+               _Protein8259
+               _Protein8449
+               _Protein8588
+               _Protein8723
+               _Protein8999
+               _Protein9208
+               _Protein9596))
+  (cloned-from (_Protein415
+                _Protein646
+                _Protein305))
+  (prototype-participant-of (_MRNA864))
+  (has-basic-structural-unit (_Amino-Acid7514
+                              _Atom920))
+  (is-part-of (_Chromosome921))
+  (instance-of (Protein))
+  (has-part (_Polymer1646))
+  (node-coordinate ((:pair 1036 124)))
+  (edge-coordinate ((:seq has-part _Polymer1646 -14 74)
+                    (:seq has-basic-structural-unit _Atom920 1086 129)
+                    (:seq has-basic-structural-unit _Amino-Acid7514 1086 129)))
+  (edge-visibility ((:seq has-part _Polymer1646 f)
+                    (:seq has-basic-structural-unit _Atom920 f)
+                    (:seq has-basic-structural-unit _Amino-Acid7514 f)))
+  (clone-built-from (_Protein305))
+  (node-visibility (f)))
+
+(_Atom920 has 
+  (has-clones (_Atom2374
+               _Atom773
+               _Atom6970
+               _Atom2439
+               _Atom1225
+               _Atom2638
+               _Atom1292
+               _Atom700
+               _Atom870
+               _Atom298
+               _Atom1098
+               _Atom1190
+               _Atom1243
+               _Atom647
+               _Atom2702
+               _Atom2574
+               _Atom852
+               _Atom1920
+               _Atom2066
+               _Atom2984
+               _Atom3703
+               _Atom3769
+               _Atom4447
+               _Atom4522
+               _Atom4640
+               _Atom4730
+               _Atom5004
+               _Atom5284
+               _Atom5668
+               _Atom2505
+               _Atom877
+               _Atom1564
+               _Atom2639
+               _Atom2818
+               _Atom3124
+               _Atom3859
+               _Atom4530
+               _Atom4594
+               _Atom5045
+               _Atom5142
+               _Atom5213
+               _Atom5361
+               _Atom5917
+               _Atom6211
+               _Atom7103
+               _Atom7483
+               _Atom7701
+               _Atom7990
+               _Atom8258
+               _Atom8450
+               _Atom8589
+               _Atom8722
+               _Atom9000
+               _Atom9207
+               _Atom9595))
+  (cloned-from (_Atom416
+                _Atom647
+                _Atom309))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Protein919))
+  (node-coordinate ((:pair 1136 124)))
+  (node-visibility (f)))
+
+(_Chromosome921 has 
+  (has-clones (_Chromosome2408
+               _Tangible-Entity771
+               _Chromosome6974
+               _Chromosome2473
+               _Chromosome1235
+               _Chromosome2671
+               _Chromosome1296
+               _Chromosome701
+               _Chromosome880
+               _Chromosome296
+               _Chromosome1097
+               _Chromosome1189
+               _Chromosome1233
+               _Chromosome215
+               _Chromosome2735
+               _Chromosome2607
+               _Chromosome1240
+               _Chromosome1924
+               _Chromosome2404
+               _Chromosome2979
+               _Chromosome4151
+               _Chromosome3735
+               _Chromosome4448
+               _Chromosome4523
+               _Chromosome4641
+               _Chromosome4740
+               _Chromosome5119
+               _Chromosome5576
+               _Chromosome5953
+               _Chromosome2540
+               _Chromosome876
+               _Chromosome1613
+               _Chromosome2636
+               _Chromosome2814
+               _Chromosome3160
+               _Chromosome3864
+               _Chromosome4566
+               _Chromosome4598
+               _Chromosome5043
+               _Chromosome5141
+               _Chromosome5203
+               _Chromosome5321
+               _Chromosome5954
+               _Chromosome6246
+               _Chromosome7067
+               _Chromosome7485
+               _Chromosome7664
+               _Chromosome7994
+               _Chromosome8253
+               _Chromosome8451
+               _Chromosome8590
+               _Chromosome8732
+               _Chromosome9033
+               _Chromosome9174
+               _Chromosome9562))
+  (cloned-from (_Chromosome164
+                _Chromosome215
+                _Tangible-Entity172))
+  (clone-built-from (_Chromosome164))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Chromosome
+                Tangible-Entity
+                Spatial-Entity))
+  (has-part (_Chromatid1649
+             _Protein919))
+  (has-region (_Centromere1648))
+  (is-inside (_Nucleus916))
+  (has-basic-structural-unit (_DNA917))
+  (edge-coordinate ((:seq has-basic-structural-unit _DNA917 268 470)
+                    (:seq is-inside _Nucleus916 268 430)
+                    (:seq has-region _Centromere1648 -14 74)
+                    (:seq has-part _Protein919 268 450)
+                    (:seq has-part _Chromatid1649 268 450)))
+  (edge-visibility ((:seq has-basic-structural-unit _DNA917 f)
+                    (:seq is-inside _Nucleus916 f)
+                    (:seq has-region _Centromere1648 f)
+                    (:seq has-part _Protein919 f)
+                    (:seq has-part _Chromatid1649 f)))
+  (node-coordinate ((:pair 218 445)))
+  (node-visibility (f)))
+
+(_Synthesis922 has 
+  (has-clones (_Synthesis6595
+               _Synthesis5895
+               _Synthesis5891
+               _Synthesis1431
+               _Synthesis1435
+               _Synthesis7059
+               _Synthesis6998
+               _Synthesis4049
+               _Synthesis4045
+               _Synthesis1275
+               _Synthesis7295
+               _Synthesis7287
+               _Synthesis4944
+               _Synthesis4940
+               _Synthesis1348
+               _Synthesis1398
+               _Synthesis1632
+               _Synthesis327
+               _Synthesis379
+               _Synthesis1138
+               _Synthesis1188
+               _Synthesis1268
+               _Synthesis1650
+               _Synthesis6670
+               _Synthesis6666
+               _Synthesis3532
+               _Synthesis3536
+               _Synthesis1036
+               _Synthesis1043
+               _Synthesis1178
+               _Synthesis1863
+               _Synthesis1867
+               _Synthesis2241
+               _Synthesis2246
+               _Synthesis2342
+               _Synthesis2953
+               _Synthesis3635
+               _Synthesis3673
+               _Synthesis3902
+               _Synthesis3906
+               _Synthesis4032
+               _Synthesis4108
+               _Synthesis4410
+               _Synthesis4483
+               _Synthesis4642
+               _Synthesis4726
+               _Synthesis4857
+               _Synthesis4861
+               _Synthesis5081
+               _Synthesis5447
+               _Synthesis5451
+               _Synthesis5536
+               _Synthesis5786
+               _Synthesis5915
+               _Synthesis7607
+               _Synthesis7654
+               _Synthesis7715
+               _Synthesis7711
+               _Synthesis873
+               _Synthesis1114
+               _Synthesis1396
+               _Synthesis1401
+               _Synthesis2681
+               _Synthesis2686
+               _Synthesis2734
+               _Synthesis2793
+               _Synthesis2955
+               _Synthesis2959
+               _Synthesis3893
+               _Synthesis4256
+               _Synthesis4264
+               _Synthesis4390
+               _Synthesis4394
+               _Synthesis4625
+               _Synthesis4666
+               _Synthesis5082
+               _Synthesis5140
+               _Synthesis5217
+               _Synthesis5258
+               _Synthesis5507
+               _Synthesis5512
+               _Synthesis5625
+               _Synthesis5730
+               _Synthesis5735
+               _Synthesis6083
+               _Synthesis6088
+               _Synthesis7202
+               _Synthesis7206
+               _Synthesis7361
+               _Synthesis7441
+               _Synthesis7445
+               _Synthesis7855
+               _Synthesis7859
+               _Synthesis8015
+               _Synthesis8070
+               _Synthesis8227
+               _Synthesis8413
+               _Synthesis8552
+               _Synthesis8718
+               _Synthesis8857
+               _Synthesis8861
+               _Synthesis9093
+               _Synthesis9370
+               _Synthesis9374
+               _Synthesis9474
+               _Synthesis9707
+               _Synthesis9711))
+  (prototype-participant-of (_MRNA864))
+  (raw-material (_RRNA926
+                 _Protein925))
+  (result (_Ribosome924))
+  (site (_Nucleolus923))
+  (instance-of (Synthesis))
+  (cloned-from (_Synthesis193
+                _Synthesis212))
+  (edge-coordinate ((:seq site _Nucleolus923 797 67)
+                    (:seq result _Ribosome924 797 111)
+                    (:seq raw-material _Protein925 797 173)
+                    (:seq raw-material _RRNA926 797 173)))
+  (edge-visibility ((:seq site _Nucleolus923 f)
+                    (:seq result _Ribosome924 f)
+                    (:seq raw-material _Protein925 f)
+                    (:seq raw-material _RRNA926 f)))
+  (node-coordinate ((:pair 636 124)))
+  (node-visibility (f)))
+
+(_Nucleolus923 has 
+  (has-clones (_Nucleolus2401
+               _Spatial-Entity769
+               _Nucleolus6999
+               _Nucleolus2466
+               _Nucleolus1276
+               _Nucleolus2665
+               _Nucleolus1349
+               _Nucleolus708
+               _Nucleolus878
+               _Nucleolus294
+               _Nucleolus1091
+               _Nucleolus1187
+               _Nucleolus1235
+               _Nucleolus213
+               _Nucleolus2729
+               _Nucleolus2601
+               _Nucleolus1246
+               _Nucleolus1926
+               _Nucleolus2413
+               _Nucleolus2952
+               _Nucleolus4157
+               _Nucleolus3741
+               _Nucleolus4454
+               _Nucleolus4529
+               _Nucleolus4643
+               _Nucleolus4738
+               _Nucleolus5125
+               _Nucleolus5582
+               _Nucleolus5959
+               _Nucleolus2533
+               _Nucleolus872
+               _Nucleolus1605
+               _Nucleolus2634
+               _Nucleolus2792
+               _Nucleolus3154
+               _Nucleolus3894
+               _Nucleolus4559
+               _Nucleolus4626
+               _Nucleolus5037
+               _Nucleolus5139
+               _Nucleolus5205
+               _Nucleolus5328
+               _Nucleolus5946
+               _Nucleolus6239
+               _Nucleolus7073
+               _Nucleolus7487
+               _Nucleolus7671
+               _Nucleolus8016
+               _Nucleolus8226
+               _Nucleolus8457
+               _Nucleolus8596
+               _Nucleolus8730
+               _Nucleolus9027
+               _Nucleolus9180
+               _Nucleolus9568))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Nucleolus
+                Spatial-Entity))
+  (is-part-of (_Nucleus916))
+  (site-of (_Synthesis922))
+  (cloned-from (_Nucleolus188
+                _Nucleolus213))
+  (clone-built-from (_Nucleolus188))
+  (node-coordinate ((:pair 947 61)))
+  (node-visibility (f)))
+
+(_Ribosome924 has 
+  (has-clones (_Ribosome6596
+               _Ribosome5896
+               _Ribosome5892
+               _Ribosome1432
+               _Ribosome1436
+               _Ribosome7060
+               _Ribosome7000
+               _Ribosome4050
+               _Ribosome4046
+               _Ribosome1277
+               _Ribosome7296
+               _Ribosome7288
+               _Ribosome4945
+               _Ribosome4941
+               _Ribosome1350
+               _Ribosome1399
+               _Ribosome1633
+               _Ribosome879
+               _Ribosome325
+               _Ribosome376
+               _Ribosome1136
+               _Ribosome1186
+               _Ribosome1266
+               _Ribosome1651
+               _Ribosome6671
+               _Ribosome6667
+               _Ribosome3533
+               _Ribosome3537
+               _Ribosome1038
+               _Ribosome1044
+               _Ribosome1177
+               _Ribosome1862
+               _Ribosome1866
+               _Ribosome2242
+               _Ribosome2247
+               _Ribosome2341
+               _Ribosome2951
+               _Ribosome3634
+               _Ribosome3671
+               _Ribosome3903
+               _Ribosome3907
+               _Ribosome4031
+               _Ribosome4107
+               _Ribosome4409
+               _Ribosome4482
+               _Ribosome4645
+               _Ribosome4725
+               _Ribosome4856
+               _Ribosome4860
+               _Ribosome5080
+               _Ribosome5448
+               _Ribosome5452
+               _Ribosome5535
+               _Ribosome5788
+               _Ribosome5914
+               _Ribosome7608
+               _Ribosome7655
+               _Ribosome7716
+               _Ribosome7712
+               _Ribosome871
+               _Ribosome1113
+               _Ribosome1395
+               _Ribosome1400
+               _Ribosome2682
+               _Ribosome2688
+               _Ribosome2733
+               _Ribosome2791
+               _Ribosome2952
+               _Ribosome2958
+               _Ribosome3895
+               _Ribosome4255
+               _Ribosome4263
+               _Ribosome4389
+               _Ribosome4393
+               _Ribosome4627
+               _Ribosome4667
+               _Ribosome5083
+               _Ribosome5138
+               _Ribosome5218
+               _Ribosome5257
+               _Ribosome5508
+               _Ribosome5513
+               _Ribosome5624
+               _Ribosome5729
+               _Ribosome5734
+               _Ribosome6080
+               _Ribosome6086
+               _Ribosome7203
+               _Ribosome7207
+               _Ribosome7362
+               _Ribosome7440
+               _Ribosome7444
+               _Ribosome7856
+               _Ribosome7860
+               _Ribosome8017
+               _Ribosome8071
+               _Ribosome8225
+               _Ribosome8412
+               _Ribosome8551
+               _Ribosome8717
+               _Ribosome8856
+               _Ribosome8860
+               _Ribosome9094
+               _Ribosome9371
+               _Ribosome9375
+               _Ribosome9475
+               _Ribosome9708
+               _Ribosome9712))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Ribosome
+                Entity
+                Organelle))
+  (result-of (_Synthesis922))
+  (cloned-from (_Ribosome196
+                _Ribosome214
+                _Ribosome567
+                _Organelle256))
+  (node-coordinate ((:pair 947 105)))
+  (agent-of (_Synthesis7000))
+  (has-basic-structural-unit (_Protein6989
+                              _RRNA6995))
+  (clone-built-from (_Ribosome567
+                     _Organelle256))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-basic-structural-unit _RRNA6995 0 0)
+                    (:seq has-basic-structural-unit _Protein6989 0 0)))
+  (edge-visibility ((:seq has-basic-structural-unit _RRNA6995 f)
+                    (:seq has-basic-structural-unit _Protein6989 f))))
+
+(_Protein925 has 
+  (has-clones (_Protein6597
+               _Protein5897
+               _Protein5893
+               _Protein1433
+               _Protein1437
+               _Protein7061
+               _Protein7001
+               _Protein4051
+               _Protein4047
+               _Protein1278
+               _Protein7297
+               _Protein7289
+               _Protein4946
+               _Protein4942
+               _Protein1352
+               _Protein1401
+               _Protein1634
+               _Protein875
+               _Protein324
+               _Protein374
+               _Protein1135
+               _Protein1185
+               _Protein1265
+               _Protein1652
+               _Protein6672
+               _Protein6668
+               _Protein3534
+               _Protein3538
+               _Protein1039
+               _Protein1045
+               _Protein1176
+               _Protein1861
+               _Protein1865
+               _Protein2244
+               _Protein2248
+               _Protein2339
+               _Protein2950
+               _Protein3632
+               _Protein3670
+               _Protein3904
+               _Protein3908
+               _Protein4030
+               _Protein4106
+               _Protein4408
+               _Protein4481
+               _Protein4646
+               _Protein4724
+               _Protein4855
+               _Protein4859
+               _Protein5079
+               _Protein5449
+               _Protein5453
+               _Protein5534
+               _Protein5789
+               _Protein5913
+               _Protein7609
+               _Protein7656
+               _Protein7717
+               _Protein7713
+               _Protein870
+               _Protein1111
+               _Protein1394
+               _Protein1398
+               _Protein2683
+               _Protein2689
+               _Protein2731
+               _Protein2790
+               _Protein2951
+               _Protein2957
+               _Protein3896
+               _Protein4254
+               _Protein4262
+               _Protein4388
+               _Protein4392
+               _Protein4629
+               _Protein4668
+               _Protein5084
+               _Protein5137
+               _Protein5219
+               _Protein5255
+               _Protein5509
+               _Protein5516
+               _Protein5623
+               _Protein5728
+               _Protein5733
+               _Protein6079
+               _Protein6085
+               _Protein7204
+               _Protein7208
+               _Protein7363
+               _Protein7439
+               _Protein7443
+               _Protein7857
+               _Protein7861
+               _Protein8018
+               _Protein8072
+               _Protein8224
+               _Protein8411
+               _Protein8550
+               _Protein8716
+               _Protein8855
+               _Protein8859
+               _Protein9095
+               _Protein9372
+               _Protein9376
+               _Protein9476
+               _Protein9709
+               _Protein9713))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Protein))
+  (raw-material-of (_Synthesis922))
+  (cloned-from (_Protein224
+                _Protein420))
+  (node-coordinate ((:pair 947 149)))
+  (node-visibility (f)))
+
+(_RRNA926 has 
+  (has-clones (_RRNA6598
+               _RRNA5898
+               _RRNA5894
+               _RRNA1434
+               _RRNA1438
+               _RRNA7062
+               _RRNA7003
+               _RRNA4052
+               _RRNA4048
+               _RRNA1279
+               _RRNA7298
+               _RRNA7290
+               _RRNA4947
+               _RRNA4943
+               _RRNA1353
+               _RRNA1403
+               _RRNA1635
+               _RRNA874
+               _RRNA323
+               _RRNA370
+               _RRNA1133
+               _RRNA1184
+               _RRNA1264
+               _RRNA1653
+               _RRNA6673
+               _RRNA6669
+               _RRNA3535
+               _RRNA3539
+               _RRNA1040
+               _RRNA1046
+               _RRNA1175
+               _RRNA1860
+               _RRNA1864
+               _RRNA2245
+               _RRNA2249
+               _RRNA2338
+               _RRNA2949
+               _RRNA3631
+               _RRNA3669
+               _RRNA3905
+               _RRNA3909
+               _RRNA4029
+               _RRNA4105
+               _RRNA4407
+               _RRNA4480
+               _RRNA4647
+               _RRNA4723
+               _RRNA4854
+               _RRNA4858
+               _RRNA5078
+               _RRNA5450
+               _RRNA5454
+               _RRNA5533
+               _RRNA5790
+               _RRNA5912
+               _RRNA7610
+               _RRNA7657
+               _RRNA7718
+               _RRNA7714
+               _RRNA869
+               _RRNA1107
+               _RRNA1393
+               _RRNA1397
+               _RRNA2684
+               _RRNA2690
+               _RRNA2730
+               _RRNA2789
+               _RRNA2950
+               _RRNA2956
+               _RRNA3897
+               _RRNA4253
+               _RRNA4261
+               _RRNA4387
+               _RRNA4391
+               _RRNA4630
+               _RRNA4669
+               _RRNA5085
+               _RRNA5136
+               _RRNA5220
+               _RRNA5254
+               _RRNA5510
+               _RRNA5517
+               _RRNA5622
+               _RRNA5727
+               _RRNA5731
+               _RRNA6077
+               _RRNA6084
+               _RRNA7205
+               _RRNA7209
+               _RRNA7364
+               _RRNA7438
+               _RRNA7442
+               _RRNA7858
+               _RRNA7862
+               _RRNA8019
+               _RRNA8073
+               _RRNA8223
+               _RRNA8410
+               _RRNA8549
+               _RRNA8715
+               _RRNA8854
+               _RRNA8858
+               _RRNA9096
+               _RRNA9373
+               _RRNA9377
+               _RRNA9477
+               _RRNA9710
+               _RRNA9714))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (RRNA))
+  (raw-material-of (_Synthesis922))
+  (cloned-from (_RRNA222
+                _RRNA421))
+  (node-coordinate ((:pair 947 184)))
+  (node-visibility (f)))
+
+(_Synthesis927 has 
+  (has-clones (_Synthesis6594
+               _Synthesis5890
+               _Synthesis2397
+               _Synthesis863
+               _Synthesis764
+               _Synthesis7058
+               _Synthesis6997
+               _Synthesis4044
+               _Synthesis2462
+               _Synthesis1274
+               _Synthesis7286
+               _Synthesis7269
+               _Synthesis4939
+               _Synthesis2661
+               _Synthesis1347
+               _Synthesis1397
+               _Synthesis710
+               _Synthesis259
+               _Synthesis288
+               _Synthesis1089
+               _Synthesis1183
+               _Synthesis1240
+               _Synthesis644
+               _Synthesis6665
+               _Synthesis2725
+               _Synthesis2597
+               _Synthesis3531
+               _Synthesis789
+               _Synthesis1035
+               _Synthesis1248
+               _Synthesis1935
+               _Synthesis1955
+               _Synthesis2036
+               _Synthesis2236
+               _Synthesis2415
+               _Synthesis2954
+               _Synthesis3636
+               _Synthesis3674
+               _Synthesis3745
+               _Synthesis3901
+               _Synthesis4081
+               _Synthesis4159
+               _Synthesis4456
+               _Synthesis4531
+               _Synthesis4648
+               _Synthesis4733
+               _Synthesis4862
+               _Synthesis5028
+               _Synthesis5127
+               _Synthesis5261
+               _Synthesis5446
+               _Synthesis5584
+               _Synthesis5645
+               _Synthesis5962
+               _Synthesis7606
+               _Synthesis7653
+               _Synthesis7710
+               _Synthesis2529
+               _Synthesis868
+               _Synthesis1115
+               _Synthesis1402
+               _Synthesis1599
+               _Synthesis2609
+               _Synthesis2629
+               _Synthesis2735
+               _Synthesis2794
+               _Synthesis2960
+               _Synthesis3150
+               _Synthesis3892
+               _Synthesis4265
+               _Synthesis4284
+               _Synthesis4395
+               _Synthesis4555
+               _Synthesis4624
+               _Synthesis4665
+               _Synthesis5035
+               _Synthesis5135
+               _Synthesis5210
+               _Synthesis5259
+               _Synthesis5332
+               _Synthesis5506
+               _Synthesis5626
+               _Synthesis5736
+               _Synthesis5942
+               _Synthesis6089
+               _Synthesis6235
+               _Synthesis7077
+               _Synthesis7201
+               _Synthesis7360
+               _Synthesis7492
+               _Synthesis7512
+               _Synthesis7676
+               _Synthesis7854
+               _Synthesis8014
+               _Synthesis8069
+               _Synthesis8228
+               _Synthesis8459
+               _Synthesis8598
+               _Synthesis8725
+               _Synthesis8862
+               _Synthesis9023
+               _Synthesis9092
+               _Synthesis9184
+               _Synthesis9369
+               _Synthesis9473
+               _Synthesis9572
+               _Synthesis9706))
+  (result (_MRNA864))
+  (prototype-participant-of (_MRNA864))
+  (next-event (_Move-Through928))
+  (instance-of (Synthesis))
+  (site (_Nucleus916))
+  (cloned-from (_Synthesis644))
+  (edge-coordinate ((:seq next-event _Move-Through928 172 475)
+                    (:seq site _Nucleus916 48 474)
+                    (:seq result _MRNA864 81 550)))
+  (edge-visibility ((:seq next-event _Move-Through928 t)
+                    (:seq site _Nucleus916 t)
+                    (:seq result _MRNA864 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair -46 515)))
+  (node-visibility (t)))
+
+(_Move-Through928 has 
+  (has-clones (_Move-Through6581
+               _Move-Through5876
+               _Move-Through2394
+               _Move-Through1413
+               _Move-Through1429
+               _Move-Through7045
+               _Move-Through6981
+               _Move-Through4031
+               _Move-Through2459
+               _Move-Through1251
+               _Move-Through7273
+               _Move-Through7256
+               _Move-Through4925
+               _Move-Through2658
+               _Move-Through1307
+               _Move-Through1381
+               _Move-Through1630
+               _Move-Through321
+               _Move-Through368
+               _Move-Through1131
+               _Move-Through1182
+               _Move-Through1262
+               _Move-Through1671
+               _Move-Through6652
+               _Move-Through2722
+               _Move-Through2594
+               _Move-Through3517
+               _Move-Through802
+               _Move-Through1005
+               _Move-Through1180
+               _Move-Through1869
+               _Move-Through1890
+               _Move-Through2040
+               _Move-Through2220
+               _Move-Through2344
+               _Move-Through2968
+               _Move-Through3651
+               _Move-Through3688
+               _Move-Through3748
+               _Move-Through3887
+               _Move-Through4034
+               _Move-Through4110
+               _Move-Through4412
+               _Move-Through4485
+               _Move-Through4649
+               _Move-Through4705
+               _Move-Through4876
+               _Move-Through5025
+               _Move-Through5083
+               _Move-Through5264
+               _Move-Through5432
+               _Move-Through5538
+               _Move-Through5648
+               _Move-Through5917
+               _Move-Through7593
+               _Move-Through7640
+               _Move-Through7697
+               _Move-Through2525
+               _Move-Through867
+               _Move-Through1146
+               _Move-Through1451
+               _Move-Through1587
+               _Move-Through2660
+               _Move-Through2679
+               _Move-Through2752
+               _Move-Through2807
+               _Move-Through2973
+               _Move-Through3146
+               _Move-Through3878
+               _Move-Through4280
+               _Move-Through4298
+               _Move-Through4409
+               _Move-Through4552
+               _Move-Through4610
+               _Move-Through4648
+               _Move-Through5080
+               _Move-Through5134
+               _Move-Through5238
+               _Move-Through5274
+               _Move-Through5335
+               _Move-Through5492
+               _Move-Through5642
+               _Move-Through5751
+               _Move-Through5939
+               _Move-Through6103
+               _Move-Through6232
+               _Move-Through7080
+               _Move-Through7184
+               _Move-Through7347
+               _Move-Through7447
+               _Move-Through7464
+               _Move-Through7679
+               _Move-Through7841
+               _Move-Through8001
+               _Move-Through8056
+               _Move-Through8242
+               _Move-Through8415
+               _Move-Through8554
+               _Move-Through8697
+               _Move-Through8875
+               _Move-Through9020
+               _Move-Through9079
+               _Move-Through9187
+               _Move-Through9355
+               _Move-Through9460
+               _Move-Through9575
+               _Move-Through9693))
+  (object (_MRNA864))
+  (prototype-participant-of (_MRNA864))
+  (destination (_Cytoplasm930))
+  (next-event (_Synthesis929))
+  (instance-of (Move-Through
+                Event))
+  (base (_Tangible-Entity912))
+  (path (_Pore913))
+  (prev-event (_Synthesis927))
+  (edge-visibility ((:seq next-event _Synthesis929 t)
+                    (:seq path _Pore913 t)
+                    (:seq base _Tangible-Entity912 f)
+                    (:seq object _MRNA864 t)
+                    (:seq destination _Cytoplasm930 t)))
+  (edge-coordinate ((:seq next-event _Synthesis929 246 595)
+                    (:seq path _Pore913 349 550)
+                    (:seq base _Tangible-Entity912 349 594)
+                    (:seq object _MRNA864 132 558)
+                    (:seq destination _Cytoplasm930 317 586)))
+  (time-during ((a Time-Interval with (time-after ((the time-during of _Synthesis927))))))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 198 524)))
+  (node-visibility (t)))
+
+(_Synthesis929 has 
+  (has-clones (_Synthesis6583
+               _Synthesis5878
+               _Synthesis2389
+               _Synthesis1406
+               _Synthesis1421
+               _Synthesis7047
+               _Synthesis6983
+               _Synthesis4033
+               _Synthesis2454
+               _Synthesis1254
+               _Synthesis7275
+               _Synthesis7258
+               _Synthesis4927
+               _Synthesis2653
+               _Synthesis1309
+               _Synthesis1384
+               _Synthesis1622
+               _Synthesis320
+               _Synthesis367
+               _Synthesis1130
+               _Synthesis1181
+               _Synthesis1261
+               _Synthesis1664
+               _Synthesis6654
+               _Synthesis2717
+               _Synthesis2589
+               _Synthesis3519
+               _Synthesis813
+               _Synthesis1007
+               _Synthesis1199
+               _Synthesis1877
+               _Synthesis1898
+               _Synthesis2045
+               _Synthesis2222
+               _Synthesis2352
+               _Synthesis2966
+               _Synthesis3649
+               _Synthesis3686
+               _Synthesis3753
+               _Synthesis3889
+               _Synthesis4042
+               _Synthesis4119
+               _Synthesis4419
+               _Synthesis4492
+               _Synthesis4650
+               _Synthesis4712
+               _Synthesis4874
+               _Synthesis5020
+               _Synthesis5090
+               _Synthesis5269
+               _Synthesis5434
+               _Synthesis5545
+               _Synthesis5653
+               _Synthesis5924
+               _Synthesis7595
+               _Synthesis7642
+               _Synthesis7699
+               _Synthesis2520
+               _Synthesis866
+               _Synthesis1144
+               _Synthesis1449
+               _Synthesis1581
+               _Synthesis2652
+               _Synthesis2670
+               _Synthesis2750
+               _Synthesis2805
+               _Synthesis2971
+               _Synthesis3141
+               _Synthesis3880
+               _Synthesis4278
+               _Synthesis4296
+               _Synthesis4407
+               _Synthesis4547
+               _Synthesis4612
+               _Synthesis4651
+               _Synthesis5073
+               _Synthesis5133
+               _Synthesis5231
+               _Synthesis5271
+               _Synthesis5345
+               _Synthesis5494
+               _Synthesis5640
+               _Synthesis5749
+               _Synthesis5934
+               _Synthesis6101
+               _Synthesis6227
+               _Synthesis7085
+               _Synthesis7186
+               _Synthesis7349
+               _Synthesis7455
+               _Synthesis7471
+               _Synthesis7684
+               _Synthesis7843
+               _Synthesis8003
+               _Synthesis8058
+               _Synthesis8240
+               _Synthesis8422
+               _Synthesis8561
+               _Synthesis8704
+               _Synthesis8873
+               _Synthesis9015
+               _Synthesis9081
+               _Synthesis9192
+               _Synthesis9357
+               _Synthesis9462
+               _Synthesis9580
+               _Synthesis9695))
+  (instrument (_MRNA864))
+  (prototype-participant-of (_MRNA864))
+  (result (_Protein938))
+  (raw-material (_Amino-Acid936))
+  (agent (_Ribosome935))
+  (instance-of (Synthesis
+                Event))
+  (prev-event (_Move-Through928))
+  (cloned-from (_Synthesis575))
+  (edge-coordinate ((:seq agent _Ribosome935 384 704)
+                    (:seq instrument _MRNA864 192 680)
+                    (:seq raw-material _Amino-Acid936 1897 129)
+                    (:seq result _Protein938 401 656)))
+  (edge-visibility ((:seq agent _Ribosome935 t)
+                    (:seq instrument _MRNA864 t)
+                    (:seq raw-material _Amino-Acid936 f)
+                    (:seq result _Protein938 t)))
+  (time-during ((a Time-Interval with (time-after ((the time-during of _Move-Through928))))))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 253 658)))
+  (node-visibility (t)))
+
+(_Cytoplasm930 has 
+  (has-clones (_Cytoplasm6584
+               _Cytoplasm5879
+               _Cytoplasm2395
+               _Cytoplasm1414
+               _Cytoplasm1430
+               _Cytoplasm7048
+               _Cytoplasm6984
+               _Cytoplasm4034
+               _Cytoplasm2460
+               _Cytoplasm1255
+               _Cytoplasm7276
+               _Cytoplasm7259
+               _Cytoplasm4928
+               _Cytoplasm2659
+               _Cytoplasm1310
+               _Cytoplasm1385
+               _Cytoplasm1631
+               _Cytoplasm892
+               _Cytoplasm319
+               _Cytoplasm366
+               _Cytoplasm1129
+               _Cytoplasm1180
+               _Cytoplasm1260
+               _Cytoplasm1672
+               _Cytoplasm6655
+               _Cytoplasm2723
+               _Cytoplasm2595
+               _Cytoplasm3520
+               _Cytoplasm801
+               _Cytoplasm1009
+               _Cytoplasm1179
+               _Cytoplasm1868
+               _Cytoplasm1889
+               _Cytoplasm2039
+               _Cytoplasm2223
+               _Cytoplasm2343
+               _Cytoplasm2965
+               _Cytoplasm3648
+               _Cytoplasm3685
+               _Cytoplasm3747
+               _Cytoplasm3890
+               _Cytoplasm4033
+               _Cytoplasm4109
+               _Cytoplasm4411
+               _Cytoplasm4484
+               _Cytoplasm4651
+               _Cytoplasm4704
+               _Cytoplasm4873
+               _Cytoplasm5026
+               _Cytoplasm5082
+               _Cytoplasm5263
+               _Cytoplasm5435
+               _Cytoplasm5537
+               _Cytoplasm5647
+               _Cytoplasm5916
+               _Cytoplasm7596
+               _Cytoplasm7643
+               _Cytoplasm7700
+               _Cytoplasm2526
+               _Cytoplasm857
+               _Cytoplasm1143
+               _Cytoplasm1448
+               _Cytoplasm1588
+               _Cytoplasm2661
+               _Cytoplasm2680
+               _Cytoplasm2749
+               _Cytoplasm2804
+               _Cytoplasm2970
+               _Cytoplasm3147
+               _Cytoplasm3881
+               _Cytoplasm4277
+               _Cytoplasm4294
+               _Cytoplasm4406
+               _Cytoplasm4553
+               _Cytoplasm4613
+               _Cytoplasm4652
+               _Cytoplasm5081
+               _Cytoplasm5132
+               _Cytoplasm5239
+               _Cytoplasm5270
+               _Cytoplasm5334
+               _Cytoplasm5495
+               _Cytoplasm5639
+               _Cytoplasm5748
+               _Cytoplasm5940
+               _Cytoplasm6100
+               _Cytoplasm6233
+               _Cytoplasm7079
+               _Cytoplasm7187
+               _Cytoplasm7350
+               _Cytoplasm7446
+               _Cytoplasm7463
+               _Cytoplasm7678
+               _Cytoplasm7844
+               _Cytoplasm8004
+               _Cytoplasm8059
+               _Cytoplasm8239
+               _Cytoplasm8414
+               _Cytoplasm8553
+               _Cytoplasm8696
+               _Cytoplasm8872
+               _Cytoplasm9021
+               _Cytoplasm9082
+               _Cytoplasm9186
+               _Cytoplasm9358
+               _Cytoplasm9463
+               _Cytoplasm9574
+               _Cytoplasm9696))
+  (/== (_MRNA864))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Cytoplasm
+                Spatial-Entity))
+  (destination-of (_Move-Through928))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 448 581)))
+  (node-visibility (t)))
+
+(_Protein931 has 
+  (has-clones (_Protein6585
+               _Protein5880
+               _Protein2381
+               _Protein1400
+               _Protein1415
+               _Protein7049
+               _Protein6985
+               _Protein4035
+               _Protein2446
+               _Protein1256
+               _Protein7277
+               _Protein7260
+               _Protein4929
+               _Protein2645
+               _Protein1314
+               _Protein1386
+               _Protein1614
+               _Protein317
+               _Protein365
+               _Protein1128
+               _Protein1179
+               _Protein1259
+               _Protein1658
+               _Protein6656
+               _Protein2709
+               _Protein2581
+               _Protein3521
+               _Protein842
+               _Protein1010
+               _Protein1209
+               _Protein1887
+               _Protein1912
+               _Protein2058
+               _Protein2224
+               _Protein2364
+               _Protein2964
+               _Protein3647
+               _Protein3684
+               _Protein3761
+               _Protein3891
+               _Protein4049
+               _Protein4126
+               _Protein4425
+               _Protein4498
+               _Protein4652
+               _Protein4718
+               _Protein4872
+               _Protein5012
+               _Protein5096
+               _Protein5277
+               _Protein5436
+               _Protein5552
+               _Protein5661
+               _Protein5930
+               _Protein7597
+               _Protein7644
+               _Protein7701
+               _Protein2512
+               _Protein856
+               _Protein1142
+               _Protein1445
+               _Protein1571
+               _Protein2646
+               _Protein2662
+               _Protein2748
+               _Protein2803
+               _Protein2969
+               _Protein3132
+               _Protein3882
+               _Protein4276
+               _Protein4293
+               _Protein4405
+               _Protein4537
+               _Protein4614
+               _Protein4653
+               _Protein5067
+               _Protein5131
+               _Protein5225
+               _Protein5269
+               _Protein5354
+               _Protein5496
+               _Protein5638
+               _Protein5747
+               _Protein5924
+               _Protein6099
+               _Protein6218
+               _Protein7096
+               _Protein7190
+               _Protein7351
+               _Protein7462
+               _Protein7477
+               _Protein7694
+               _Protein7845
+               _Protein8005
+               _Protein8060
+               _Protein8238
+               _Protein8428
+               _Protein8567
+               _Protein8710
+               _Protein8871
+               _Protein9007
+               _Protein9083
+               _Protein9200
+               _Protein9359
+               _Protein9464
+               _Protein9588
+               _Protein9697))
+  (prototype-participant-of (_MRNA864))
+  (has-basic-structural-unit (_Amino-Acid7542
+                              _Atom932))
+  (is-basic-structural-unit-of (_Ribosome935))
+  (instance-of (Protein))
+  (has-part (_Polymer1641))
+  (cloned-from (_Protein182
+                _Protein305))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 560 744)))
+  (edge-coordinate ((:seq has-part _Polymer1641 -14 74)
+                    (:seq has-basic-structural-unit _Atom932 696 750)
+                    (:seq has-basic-structural-unit _Amino-Acid7542 696 750)))
+  (edge-visibility ((:seq has-part _Polymer1641 f)
+                    (:seq has-basic-structural-unit _Atom932 f)
+                    (:seq has-basic-structural-unit _Amino-Acid7542 f)))
+  (clone-built-from (_Protein305))
+  (node-visibility (f)))
+
+(_Atom932 has 
+  (has-clones (_Atom6586
+               _Atom5882
+               _Atom2382
+               _Atom1401
+               _Atom1416
+               _Atom7050
+               _Atom6986
+               _Atom4036
+               _Atom2447
+               _Atom1260
+               _Atom7278
+               _Atom7261
+               _Atom4931
+               _Atom2646
+               _Atom1325
+               _Atom1389
+               _Atom1615
+               _Atom897
+               _Atom316
+               _Atom364
+               _Atom1127
+               _Atom1178
+               _Atom1258
+               _Atom1659
+               _Atom6657
+               _Atom2710
+               _Atom2582
+               _Atom3523
+               _Atom839
+               _Atom1012
+               _Atom1206
+               _Atom1885
+               _Atom1907
+               _Atom2057
+               _Atom2225
+               _Atom2362
+               _Atom2962
+               _Atom3645
+               _Atom3683
+               _Atom3760
+               _Atom3893
+               _Atom4048
+               _Atom4124
+               _Atom4424
+               _Atom4497
+               _Atom4653
+               _Atom4717
+               _Atom4870
+               _Atom5013
+               _Atom5095
+               _Atom5276
+               _Atom5438
+               _Atom5551
+               _Atom5660
+               _Atom5929
+               _Atom7598
+               _Atom7645
+               _Atom7702
+               _Atom2513
+               _Atom853
+               _Atom1141
+               _Atom1440
+               _Atom1572
+               _Atom2647
+               _Atom2663
+               _Atom2747
+               _Atom2802
+               _Atom2968
+               _Atom3133
+               _Atom3884
+               _Atom4275
+               _Atom4292
+               _Atom4403
+               _Atom4539
+               _Atom4615
+               _Atom4656
+               _Atom5068
+               _Atom5130
+               _Atom5226
+               _Atom5268
+               _Atom5353
+               _Atom5497
+               _Atom5636
+               _Atom5745
+               _Atom5926
+               _Atom6098
+               _Atom6220
+               _Atom7095
+               _Atom7193
+               _Atom7352
+               _Atom7461
+               _Atom7476
+               _Atom7692
+               _Atom7846
+               _Atom8006
+               _Atom8061
+               _Atom8236
+               _Atom8427
+               _Atom8566
+               _Atom8709
+               _Atom8870
+               _Atom9008
+               _Atom9084
+               _Atom9199
+               _Atom9361
+               _Atom9465
+               _Atom9587
+               _Atom9698))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Protein931))
+  (cloned-from (_Atom183
+                _Atom309))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 846 744)))
+  (node-visibility (f)))
+
+(_RRNA933 has 
+  (has-clones (_RRNA6587
+               _RRNA5883
+               _RRNA2383
+               _RRNA1402
+               _RRNA1417
+               _RRNA7051
+               _RRNA6987
+               _RRNA4037
+               _RRNA2448
+               _RRNA1261
+               _RRNA7279
+               _RRNA7262
+               _RRNA4932
+               _RRNA2647
+               _RRNA1326
+               _RRNA1390
+               _RRNA1616
+               _RRNA315
+               _RRNA363
+               _RRNA1126
+               _RRNA1177
+               _RRNA1257
+               _RRNA1660
+               _RRNA6658
+               _RRNA2711
+               _RRNA2583
+               _RRNA3524
+               _RRNA821
+               _RRNA1013
+               _RRNA1203
+               _RRNA1884
+               _RRNA1906
+               _RRNA2056
+               _RRNA2226
+               _RRNA2359
+               _RRNA2961
+               _RRNA3644
+               _RRNA3682
+               _RRNA3759
+               _RRNA3894
+               _RRNA4047
+               _RRNA4123
+               _RRNA4423
+               _RRNA4496
+               _RRNA4654
+               _RRNA4716
+               _RRNA4869
+               _RRNA5014
+               _RRNA5094
+               _RRNA5275
+               _RRNA5439
+               _RRNA5550
+               _RRNA5659
+               _RRNA5928
+               _RRNA7599
+               _RRNA7646
+               _RRNA7703
+               _RRNA2514
+               _RRNA851
+               _RRNA1139
+               _RRNA1439
+               _RRNA1573
+               _RRNA2648
+               _RRNA2665
+               _RRNA2746
+               _RRNA2801
+               _RRNA2967
+               _RRNA3134
+               _RRNA3885
+               _RRNA4274
+               _RRNA4291
+               _RRNA4402
+               _RRNA4540
+               _RRNA4616
+               _RRNA4657
+               _RRNA5069
+               _RRNA5129
+               _RRNA5227
+               _RRNA5267
+               _RRNA5352
+               _RRNA5498
+               _RRNA5635
+               _RRNA5744
+               _RRNA5927
+               _RRNA6097
+               _RRNA6221
+               _RRNA7092
+               _RRNA7194
+               _RRNA7353
+               _RRNA7460
+               _RRNA7475
+               _RRNA7690
+               _RRNA7847
+               _RRNA8007
+               _RRNA8062
+               _RRNA8235
+               _RRNA8426
+               _RRNA8565
+               _RRNA8708
+               _RRNA8869
+               _RRNA9009
+               _RRNA9085
+               _RRNA9198
+               _RRNA9362
+               _RRNA9466
+               _RRNA9586
+               _RRNA9699))
+  (prototype-participant-of (_MRNA864))
+  (is-basic-structural-unit-of (_Ribosome935))
+  (has-basic-structural-unit (_Atom934))
+  (instance-of (RRNA))
+  (cloned-from (_RRNA180))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 560 709)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom934 690 715)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom934 f)))
+  (node-visibility (f)))
+
+(_Atom934 has 
+  (has-clones (_Atom6588
+               _Atom5884
+               _Atom2384
+               _Atom1403
+               _Atom1418
+               _Atom7052
+               _Atom6989
+               _Atom4038
+               _Atom2449
+               _Atom1263
+               _Atom7280
+               _Atom7263
+               _Atom4933
+               _Atom2648
+               _Atom1328
+               _Atom1391
+               _Atom1617
+               _Atom899
+               _Atom314
+               _Atom362
+               _Atom1125
+               _Atom1176
+               _Atom1256
+               _Atom1661
+               _Atom6659
+               _Atom2712
+               _Atom2584
+               _Atom3525
+               _Atom820
+               _Atom1023
+               _Atom1202
+               _Atom1882
+               _Atom1905
+               _Atom2054
+               _Atom2230
+               _Atom2358
+               _Atom2960
+               _Atom3643
+               _Atom3681
+               _Atom3758
+               _Atom3895
+               _Atom4046
+               _Atom4122
+               _Atom4422
+               _Atom4495
+               _Atom4655
+               _Atom4715
+               _Atom4868
+               _Atom5015
+               _Atom5093
+               _Atom5274
+               _Atom5440
+               _Atom5549
+               _Atom5658
+               _Atom5927
+               _Atom7600
+               _Atom7647
+               _Atom7704
+               _Atom2515
+               _Atom850
+               _Atom1138
+               _Atom1438
+               _Atom1576
+               _Atom2649
+               _Atom2666
+               _Atom2744
+               _Atom2800
+               _Atom2966
+               _Atom3135
+               _Atom3886
+               _Atom4273
+               _Atom4290
+               _Atom4401
+               _Atom4541
+               _Atom4618
+               _Atom4659
+               _Atom5070
+               _Atom5128
+               _Atom5228
+               _Atom5266
+               _Atom5351
+               _Atom5499
+               _Atom5634
+               _Atom5743
+               _Atom5928
+               _Atom6096
+               _Atom6222
+               _Atom7091
+               _Atom7195
+               _Atom7354
+               _Atom7459
+               _Atom7474
+               _Atom7689
+               _Atom7848
+               _Atom8008
+               _Atom8063
+               _Atom8234
+               _Atom8425
+               _Atom8564
+               _Atom8707
+               _Atom8868
+               _Atom9010
+               _Atom9086
+               _Atom9197
+               _Atom9363
+               _Atom9467
+               _Atom9585
+               _Atom9700))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_RRNA933))
+  (cloned-from (_Atom181))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 840 709)))
+  (node-visibility (f)))
+
+(_Ribosome935 has 
+  (has-clones (_Ribosome6589
+               _Ribosome5885
+               _Ribosome2385
+               _Ribosome1407
+               _Ribosome1423
+               _Ribosome7053
+               _Ribosome6990
+               _Ribosome4039
+               _Ribosome2450
+               _Ribosome1264
+               _Ribosome7281
+               _Ribosome7264
+               _Ribosome4934
+               _Ribosome2649
+               _Ribosome1329
+               _Ribosome1392
+               _Ribosome1623
+               _Ribosome896
+               _Ribosome313
+               _Ribosome353
+               _Ribosome1124
+               _Ribosome1175
+               _Ribosome1255
+               _Ribosome1665
+               _Ribosome6660
+               _Ribosome2713
+               _Ribosome2585
+               _Ribosome3526
+               _Ribosome819
+               _Ribosome1024
+               _Ribosome1198
+               _Ribosome1876
+               _Ribosome1896
+               _Ribosome2053
+               _Ribosome2231
+               _Ribosome2351
+               _Ribosome2959
+               _Ribosome3642
+               _Ribosome3680
+               _Ribosome3757
+               _Ribosome3896
+               _Ribosome4041
+               _Ribosome4118
+               _Ribosome4418
+               _Ribosome4491
+               _Ribosome4656
+               _Ribosome4711
+               _Ribosome4867
+               _Ribosome5016
+               _Ribosome5089
+               _Ribosome5273
+               _Ribosome5441
+               _Ribosome5544
+               _Ribosome5761
+               _Ribosome5923
+               _Ribosome7601
+               _Ribosome7648
+               _Ribosome7705
+               _Ribosome2516
+               _Ribosome849
+               _Ribosome1131
+               _Ribosome1437
+               _Ribosome1577
+               _Ribosome2653
+               _Ribosome2671
+               _Ribosome2742
+               _Ribosome2799
+               _Ribosome2965
+               _Ribosome3136
+               _Ribosome3887
+               _Ribosome4272
+               _Ribosome4289
+               _Ribosome4400
+               _Ribosome4542
+               _Ribosome4619
+               _Ribosome4660
+               _Ribosome5074
+               _Ribosome5127
+               _Ribosome5232
+               _Ribosome5265
+               _Ribosome5350
+               _Ribosome5500
+               _Ribosome5632
+               _Ribosome5742
+               _Ribosome5929
+               _Ribosome6095
+               _Ribosome6223
+               _Ribosome7090
+               _Ribosome7196
+               _Ribosome7355
+               _Ribosome7454
+               _Ribosome7470
+               _Ribosome7688
+               _Ribosome7849
+               _Ribosome8009
+               _Ribosome8064
+               _Ribosome8233
+               _Ribosome8421
+               _Ribosome8560
+               _Ribosome8703
+               _Ribosome8867
+               _Ribosome9011
+               _Ribosome9087
+               _Ribosome9196
+               _Ribosome9364
+               _Ribosome9468
+               _Ribosome9584
+               _Ribosome9701))
+  (prototype-participant-of (_MRNA864))
+  (abuts (_MRNA864))
+  (instance-of (Ribosome
+                Entity
+                Spatial-Entity
+                Organelle))
+  (agent-of (_Synthesis929))
+  (has-basic-structural-unit (_Protein931
+                              _RRNA933))
+  (cloned-from (_Ribosome567
+                _Organelle256))
+  (clone-built-from (_Ribosome567
+                     _Organelle256))
+  (edge-coordinate ((:seq has-basic-structural-unit _RRNA933 410 733)
+                    (:seq has-basic-structural-unit _Protein931 410 733)
+                    (:seq abuts _MRNA864 22 697)))
+  (edge-visibility ((:seq has-basic-structural-unit _RRNA933 f)
+                    (:seq has-basic-structural-unit _Protein931 f)
+                    (:seq abuts _MRNA864 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 112 759)))
+  (node-visibility (t)))
+
+(_Amino-Acid936 has 
+  (has-clones (_Amino-Acid6590
+               _Amino-Acid5886
+               _Amino-Acid2387
+               _Amino-Acid1404
+               _Amino-Acid1419
+               _Amino-Acid7054
+               _Amino-Acid6991
+               _Amino-Acid4040
+               _Amino-Acid2452
+               _Amino-Acid1265
+               _Amino-Acid7282
+               _Amino-Acid7265
+               _Amino-Acid4935
+               _Amino-Acid2651
+               _Amino-Acid1330
+               _Amino-Acid1393
+               _Amino-Acid1618
+               _Amino-Acid312
+               _Amino-Acid352
+               _Amino-Acid1123
+               _Amino-Acid1174
+               _Amino-Acid1254
+               _Amino-Acid1662
+               _Amino-Acid6661
+               _Amino-Acid2715
+               _Amino-Acid2587
+               _Amino-Acid3527
+               _Amino-Acid815
+               _Amino-Acid1025
+               _Amino-Acid1201
+               _Amino-Acid1880
+               _Amino-Acid1903
+               _Amino-Acid2051
+               _Amino-Acid2232
+               _Amino-Acid2355
+               _Amino-Acid2958
+               _Amino-Acid3641
+               _Amino-Acid3679
+               _Amino-Acid3755
+               _Amino-Acid3897
+               _Amino-Acid4045
+               _Amino-Acid4121
+               _Amino-Acid4421
+               _Amino-Acid4494
+               _Amino-Acid4657
+               _Amino-Acid4714
+               _Amino-Acid4866
+               _Amino-Acid5018
+               _Amino-Acid5092
+               _Amino-Acid5271
+               _Amino-Acid5442
+               _Amino-Acid5547
+               _Amino-Acid5655
+               _Amino-Acid5926
+               _Amino-Acid7602
+               _Amino-Acid7649
+               _Amino-Acid7706
+               _Amino-Acid2518
+               _Amino-Acid848
+               _Amino-Acid1130
+               _Amino-Acid1436
+               _Amino-Acid1579
+               _Amino-Acid2650
+               _Amino-Acid2667
+               _Amino-Acid2741
+               _Amino-Acid2798
+               _Amino-Acid2964
+               _Amino-Acid3138
+               _Amino-Acid3888
+               _Amino-Acid4269
+               _Amino-Acid4288
+               _Amino-Acid4399
+               _Amino-Acid4544
+               _Amino-Acid4620
+               _Amino-Acid4661
+               _Amino-Acid5071
+               _Amino-Acid5126
+               _Amino-Acid5229
+               _Amino-Acid5264
+               _Amino-Acid5347
+               _Amino-Acid5501
+               _Amino-Acid5631
+               _Amino-Acid5741
+               _Amino-Acid5931
+               _Amino-Acid6094
+               _Amino-Acid6225
+               _Amino-Acid7088
+               _Amino-Acid7197
+               _Amino-Acid7356
+               _Amino-Acid7457
+               _Amino-Acid7473
+               _Amino-Acid7686
+               _Amino-Acid7850
+               _Amino-Acid8010
+               _Amino-Acid8065
+               _Amino-Acid8232
+               _Amino-Acid8424
+               _Amino-Acid8563
+               _Amino-Acid8706
+               _Amino-Acid8866
+               _Amino-Acid9013
+               _Amino-Acid9088
+               _Amino-Acid9194
+               _Amino-Acid9365
+               _Amino-Acid9469
+               _Amino-Acid9582
+               _Amino-Acid9702))
+  (prototype-participant-of (_MRNA864))
+  (has-basic-structural-unit (_Atom937))
+  (instance-of (Amino-Acid))
+  (raw-material-of (_Synthesis929))
+  (cloned-from (_Amino-Acid573))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 2047 123)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom937 2202 129)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom937 f)))
+  (node-visibility (f)))
+
+(_Atom937 has 
+  (has-clones (_Atom6591
+               _Atom5887
+               _Atom2388
+               _Atom1405
+               _Atom1420
+               _Atom7055
+               _Atom6993
+               _Atom4041
+               _Atom2453
+               _Atom1266
+               _Atom7283
+               _Atom7266
+               _Atom4936
+               _Atom2652
+               _Atom1331
+               _Atom1394
+               _Atom1621
+               _Atom903
+               _Atom311
+               _Atom351
+               _Atom1122
+               _Atom1173
+               _Atom1253
+               _Atom1663
+               _Atom6662
+               _Atom2716
+               _Atom2588
+               _Atom3528
+               _Atom814
+               _Atom1029
+               _Atom1200
+               _Atom1879
+               _Atom1902
+               _Atom2050
+               _Atom2233
+               _Atom2354
+               _Atom2957
+               _Atom3640
+               _Atom3678
+               _Atom3754
+               _Atom3898
+               _Atom4044
+               _Atom4120
+               _Atom4420
+               _Atom4493
+               _Atom4658
+               _Atom4713
+               _Atom4865
+               _Atom5019
+               _Atom5091
+               _Atom5270
+               _Atom5443
+               _Atom5546
+               _Atom5654
+               _Atom5925
+               _Atom7603
+               _Atom7650
+               _Atom7707
+               _Atom2519
+               _Atom847
+               _Atom1129
+               _Atom1435
+               _Atom1580
+               _Atom2651
+               _Atom2669
+               _Atom2740
+               _Atom2797
+               _Atom2963
+               _Atom3140
+               _Atom3889
+               _Atom4268
+               _Atom4287
+               _Atom4398
+               _Atom4546
+               _Atom4621
+               _Atom4662
+               _Atom5072
+               _Atom5125
+               _Atom5230
+               _Atom5263
+               _Atom5346
+               _Atom5503
+               _Atom5630
+               _Atom5740
+               _Atom5932
+               _Atom6093
+               _Atom6226
+               _Atom7087
+               _Atom7198
+               _Atom7357
+               _Atom7456
+               _Atom7472
+               _Atom7685
+               _Atom7851
+               _Atom8011
+               _Atom8066
+               _Atom8231
+               _Atom8423
+               _Atom8562
+               _Atom8705
+               _Atom8865
+               _Atom9014
+               _Atom9089
+               _Atom9193
+               _Atom9366
+               _Atom9470
+               _Atom9581
+               _Atom9703))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (is-basic-structural-unit-of (_Amino-Acid936))
+  (cloned-from (_Atom574))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 2352 123)))
+  (node-visibility (f)))
+
+(_Protein938 has 
+  (has-clones (_Protein6592
+               _Protein5888
+               _Protein2390
+               _Protein1408
+               _Protein1424
+               _Protein7056
+               _Protein6994
+               _Protein4042
+               _Protein2455
+               _Protein1269
+               _Protein7284
+               _Protein7267
+               _Protein4937
+               _Protein2654
+               _Protein1332
+               _Protein1395
+               _Protein1625
+               _Protein905
+               _Protein310
+               _Protein349
+               _Protein1121
+               _Protein1172
+               _Protein1252
+               _Protein1666
+               _Protein6663
+               _Protein2718
+               _Protein2590
+               _Protein3529
+               _Protein807
+               _Protein1033
+               _Protein1197
+               _Protein1875
+               _Protein1895
+               _Protein2044
+               _Protein2234
+               _Protein2349
+               _Protein2956
+               _Protein3638
+               _Protein3676
+               _Protein3752
+               _Protein3899
+               _Protein4040
+               _Protein4117
+               _Protein4417
+               _Protein4490
+               _Protein4659
+               _Protein4710
+               _Protein4864
+               _Protein5021
+               _Protein5088
+               _Protein5268
+               _Protein5444
+               _Protein5543
+               _Protein5652
+               _Protein5922
+               _Protein7604
+               _Protein7651
+               _Protein7708
+               _Protein2521
+               _Protein845
+               _Protein1117
+               _Protein1432
+               _Protein1583
+               _Protein2655
+               _Protein2672
+               _Protein2737
+               _Protein2796
+               _Protein2962
+               _Protein3142
+               _Protein3890
+               _Protein4267
+               _Protein4286
+               _Protein4397
+               _Protein4548
+               _Protein4622
+               _Protein4663
+               _Protein5075
+               _Protein5124
+               _Protein5233
+               _Protein5261
+               _Protein5340
+               _Protein5504
+               _Protein5629
+               _Protein5738
+               _Protein5935
+               _Protein6092
+               _Protein6228
+               _Protein7084
+               _Protein7199
+               _Protein7358
+               _Protein7453
+               _Protein7469
+               _Protein7683
+               _Protein7852
+               _Protein8012
+               _Protein8067
+               _Protein8230
+               _Protein8420
+               _Protein8559
+               _Protein8702
+               _Protein8864
+               _Protein9016
+               _Protein9090
+               _Protein9191
+               _Protein9367
+               _Protein9471
+               _Protein9579
+               _Protein9704))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Protein
+                Entity))
+  (result-of (_Synthesis929))
+  (cloned-from (_Protein576))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 439 687)))
+  (node-visibility (t)))
+
+(_Atom939 has 
+  (has-clones (_Atom6593
+               _Atom5889
+               _Atom2396
+               _Atom1409
+               _Atom1425
+               _Atom7057
+               _Atom6996
+               _Atom4043
+               _Atom2461
+               _Atom1273
+               _Atom7285
+               _Atom7268
+               _Atom4938
+               _Atom2660
+               _Atom1346
+               _Atom1396
+               _Atom1626
+               _Atom865
+               _Atom308
+               _Atom348
+               _Atom1120
+               _Atom1171
+               _Atom1251
+               _Atom1667
+               _Atom6664
+               _Atom2724
+               _Atom2596
+               _Atom3530
+               _Atom799
+               _Atom1034
+               _Atom1196
+               _Atom1874
+               _Atom1894
+               _Atom2037
+               _Atom2235
+               _Atom2348
+               _Atom2955
+               _Atom3637
+               _Atom3675
+               _Atom3746
+               _Atom3900
+               _Atom4039
+               _Atom4115
+               _Atom4416
+               _Atom4489
+               _Atom4660
+               _Atom4709
+               _Atom4863
+               _Atom5027
+               _Atom5087
+               _Atom5262
+               _Atom5445
+               _Atom5542
+               _Atom5646
+               _Atom5921
+               _Atom7605
+               _Atom7652
+               _Atom7709
+               _Atom2527
+               _Atom840
+               _Atom1116
+               _Atom1431
+               _Atom1594
+               _Atom2656
+               _Atom2675
+               _Atom2736
+               _Atom2795
+               _Atom2961
+               _Atom3149
+               _Atom3891
+               _Atom4266
+               _Atom4285
+               _Atom4396
+               _Atom4554
+               _Atom4623
+               _Atom4664
+               _Atom5076
+               _Atom5123
+               _Atom5234
+               _Atom5260
+               _Atom5333
+               _Atom5505
+               _Atom5628
+               _Atom5737
+               _Atom5941
+               _Atom6091
+               _Atom6234
+               _Atom7078
+               _Atom7200
+               _Atom7359
+               _Atom7452
+               _Atom7468
+               _Atom7677
+               _Atom7853
+               _Atom8013
+               _Atom8068
+               _Atom8229
+               _Atom8419
+               _Atom8558
+               _Atom8701
+               _Atom8863
+               _Atom9022
+               _Atom9091
+               _Atom9185
+               _Atom9368
+               _Atom9472
+               _Atom9573
+               _Atom9705))
+  (is-basic-structural-unit-of (_MRNA864))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 50 600)))
+  (cloned-from (_Atom1040))
+  (node-visibility (f)))
+
+(_Property-Node940 has 
+  (big-node-of (_MRNA864))
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node883
+               _Property-Node305
+               _Property-Node346
+               _Property-Node1119
+               _Property-Node1170
+               _Property-Node1250
+               _Property-Node4661
+               _Property-Node5804
+               _Property-Node825
+               _Property-Node5122))
+  (cloned-from (_Property-Node218)))
+
+(_Amino-Acid7514 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing4698
+               _Amino-Acid824
+               _Amino-Acid5121))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Protein919))
+  (node-coordinate ((:pair 294 193))))
+
+(_Spatial-Entity7515 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity4691
+               _Spatial-Entity823
+               _Spatial-Entity5120))
+  (cloned-from (_Spatial-Entity171))
+  (location (_Centromere1648))
+  (edge-visibility ((:seq location _Centromere1648 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq location _Centromere1648 -14 74)))
+  (node-coordinate ((:pair -14 74))))
+
+(_Organic-Molecule7516 has 
+  (prototype-participant-of (_MRNA864))
+  (is-part-of (_Polymer7535))
+  (has-basic-structural-unit (_Atom7518))
+  (has-part (_Phosphate7517))
+  (instance-of (Organic-Molecule
+                Nucleotide))
+  (cloned-from (_Organic-Molecule271
+                _Nucleotide337
+                _Organic-Molecule336))
+  (clone-built-from (_Nucleotide337))
+  (edge-visibility ((:seq has-part _Phosphate7517 f)
+                    (:seq has-basic-structural-unit _Atom7518 f)))
+  (has-clones (_Organic-Molecule820
+               _Organic-Molecule5119))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate7517 -14 74)
+                    (:seq has-basic-structural-unit _Atom7518 -14 74)))
+  (node-coordinate ((:pair -14 74))))
+
+(_Phosphate7517 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate4672
+               _Phosphate819
+               _Phosphate5118))
+  (cloned-from (_Phosphate346
+                _Phosphate1520))
+  (is-part-of (_Organic-Molecule7516))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Atom7518 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (has-clones (_Atom4671
+               _Atom818
+               _Atom5117))
+  (cloned-from (_Atom347
+                _Atom1521))
+  (is-basic-structural-unit-of (_Organic-Molecule7516))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Adenine7519 has 
+  (prototype-participant-of (_MRNA864))
+  (is-part-of (_Polymer7535))
+  (complement (_Thymine7522))
+  (has-basic-structural-unit (_Atom7521))
+  (has-part (_Phosphate7520))
+  (instance-of (Adenine
+                Nucleotide))
+  (cloned-from (_Nucleotide337
+                _Adenine378
+                _Adenine328))
+  (clone-built-from (_Nucleotide337
+                     _Adenine378))
+  (edge-visibility ((:seq has-part _Phosphate7520 f)
+                    (:seq has-basic-structural-unit _Atom7521 f)
+                    (:seq complement _Thymine7522 f)))
+  (has-clones (_Adenine817
+               _Adenine5116))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate7520 -14 74)
+                    (:seq has-basic-structural-unit _Atom7521 -14 74)
+                    (:seq complement _Thymine7522 -14 74)))
+  (node-coordinate ((:pair -14 74))))
+
+(_Phosphate7520 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate4682
+               _Phosphate816
+               _Phosphate5115))
+  (cloned-from (_Phosphate346
+                _Phosphate391
+                _Phosphate329))
+  (is-part-of (_Adenine7519))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Atom7521 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (has-clones (_Atom4681
+               _Atom815
+               _Atom5114))
+  (cloned-from (_Atom347
+                _Atom392
+                _Atom330))
+  (is-basic-structural-unit-of (_Adenine7519))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Thymine7522 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Thymine))
+  (has-clones (_Thymine4680
+               _Thymine811
+               _Thymine5113))
+  (cloned-from (_Thymine400
+                _Thymine331))
+  (complement-of (_Adenine7519))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Cytosine7523 has 
+  (prototype-participant-of (_MRNA864))
+  (is-part-of (_Polymer7535))
+  (complement (_Guanine7526))
+  (has-basic-structural-unit (_Atom7525))
+  (has-part (_Phosphate7524))
+  (instance-of (Cytosine
+                Nucleotide))
+  (cloned-from (_Nucleotide337
+                _Cytosine402
+                _Cytosine335))
+  (clone-built-from (_Nucleotide337
+                     _Cytosine402))
+  (edge-visibility ((:seq has-part _Phosphate7524 f)
+                    (:seq has-basic-structural-unit _Atom7525 f)
+                    (:seq complement _Guanine7526 f)))
+  (has-clones (_Cytosine810
+               _Cytosine5112))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate7524 -14 74)
+                    (:seq has-basic-structural-unit _Atom7525 -14 74)
+                    (:seq complement _Guanine7526 -14 74)))
+  (node-coordinate ((:pair -14 74))))
+
+(_Phosphate7524 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate4670
+               _Phosphate809
+               _Phosphate5111))
+  (cloned-from (_Phosphate346
+                _Phosphate420
+                _Phosphate1522))
+  (is-part-of (_Cytosine7523))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Atom7525 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (has-clones (_Atom4669
+               _Atom808
+               _Atom5110))
+  (cloned-from (_Atom347
+                _Atom421
+                _Atom1523))
+  (is-basic-structural-unit-of (_Cytosine7523))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Guanine7526 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Guanine))
+  (has-clones (_Guanine4668
+               _Guanine807
+               _Guanine5109))
+  (cloned-from (_Guanine423
+                _Guanine1524))
+  (complement-of (_Cytosine7523))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Thymine7527 has 
+  (prototype-participant-of (_MRNA864))
+  (is-part-of (_Polymer7535))
+  (complement (_Adenine7530))
+  (has-basic-structural-unit (_Atom7529))
+  (has-part (_Phosphate7528))
+  (instance-of (Thymine
+                Nucleotide))
+  (cloned-from (_Nucleotide337
+                _Thymine385
+                _Thymine334))
+  (clone-built-from (_Nucleotide337
+                     _Thymine385))
+  (edge-visibility ((:seq has-part _Phosphate7528 f)
+                    (:seq has-basic-structural-unit _Atom7529 f)
+                    (:seq complement _Adenine7530 f)))
+  (has-clones (_Thymine806
+               _Thymine5108))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate7528 -14 74)
+                    (:seq has-basic-structural-unit _Atom7529 -14 74)
+                    (:seq complement _Adenine7530 -14 74)))
+  (node-coordinate ((:pair -14 74))))
+
+(_Phosphate7528 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate4667
+               _Phosphate805
+               _Phosphate5107))
+  (cloned-from (_Phosphate346
+                _Phosphate393
+                _Phosphate1525))
+  (is-part-of (_Thymine7527))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Atom7529 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (has-clones (_Atom4666
+               _Atom804
+               _Atom5106))
+  (cloned-from (_Atom347
+                _Atom394
+                _Atom1526))
+  (is-basic-structural-unit-of (_Thymine7527))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Adenine7530 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Adenine))
+  (has-clones (_Adenine4665
+               _Adenine803
+               _Adenine5105))
+  (cloned-from (_Adenine399
+                _Adenine1527))
+  (complement-of (_Thymine7527))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Guanine7531 has 
+  (prototype-participant-of (_MRNA864))
+  (is-part-of (_Polymer7535))
+  (complement (_Cytosine7534))
+  (has-basic-structural-unit (_Atom7533))
+  (has-part (_Phosphate7532))
+  (instance-of (Guanine
+                Nucleotide))
+  (cloned-from (_Nucleotide337
+                _Guanine410
+                _Guanine333))
+  (clone-built-from (_Nucleotide337
+                     _Guanine410))
+  (edge-visibility ((:seq has-part _Phosphate7532 f)
+                    (:seq has-basic-structural-unit _Atom7533 f)
+                    (:seq complement _Cytosine7534 f)))
+  (has-clones (_Guanine802
+               _Guanine5104))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Phosphate7532 -14 74)
+                    (:seq has-basic-structural-unit _Atom7533 -14 74)
+                    (:seq complement _Cytosine7534 -14 74)))
+  (node-coordinate ((:pair -14 74))))
+
+(_Phosphate7532 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Phosphate))
+  (has-clones (_Phosphate4664
+               _Phosphate801
+               _Phosphate5103))
+  (cloned-from (_Phosphate346
+                _Phosphate418
+                _Phosphate1528))
+  (is-part-of (_Guanine7531))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Atom7533 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Atom))
+  (has-clones (_Atom4663
+               _Atom800
+               _Atom5102))
+  (cloned-from (_Atom347
+                _Atom419
+                _Atom1530))
+  (is-basic-structural-unit-of (_Guanine7531))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Cytosine7534 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Cytosine))
+  (has-clones (_Cytosine4662
+               _Cytosine780
+               _Cytosine5101))
+  (cloned-from (_Cytosine425
+                _Cytosine1531))
+  (complement-of (_Guanine7531))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Polymer7535 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Polymer))
+  (has-clones (_Polymer4679
+               _Polymer778
+               _Polymer5100))
+  (cloned-from (_Polymer268
+                _Polymer332))
+  (clone-built-from (_Polymer268))
+  (has-part (_Organic-Molecule7516
+             _Adenine7519
+             _Cytosine7523
+             _Thymine7527
+             _Guanine7531))
+  (is-part-of (_DNA917))
+  (edge-visibility ((:seq has-part _Guanine7531 f)
+                    (:seq has-part _Thymine7527 f)
+                    (:seq has-part _Cytosine7523 f)
+                    (:seq has-part _Adenine7519 f)
+                    (:seq has-part _Organic-Molecule7516 f)))
+  (node-visibility (f))
+  (edge-coordinate ((:seq has-part _Guanine7531 -14 74)
+                    (:seq has-part _Thymine7527 -14 74)
+                    (:seq has-part _Cytosine7523 -14 74)
+                    (:seq has-part _Adenine7519 -14 74)
+                    (:seq has-part _Organic-Molecule7516 -14 74)))
+  (node-coordinate ((:pair -14 74))))
+
+(_Polymer7536 has 
+  (prototype-participant-of (_MRNA864))
+  (has-part (_Organic-Molecule7537))
+  (instance-of (Polymer))
+  (cloned-from (_Polymer268
+                _Polymer326))
+  (clone-built-from (_Polymer268))
+  (is-part-of (_DNA917))
+  (edge-visibility ((:seq has-part _Organic-Molecule7537 f)))
+  (has-clones (_Polymer777
+               _Polymer5099))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74)))
+  (edge-coordinate ((:seq has-part _Organic-Molecule7537 -14 74))))
+
+(_Organic-Molecule7537 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Organic-Molecule))
+  (has-clones (_Organic-Molecule4684
+               _Organic-Molecule775
+               _Organic-Molecule5098))
+  (cloned-from (_Organic-Molecule271
+                _Organic-Molecule327))
+  (is-part-of (_Polymer7536))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Chromatid7538 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Chromatid))
+  (has-clones (_Chromatid4688
+               _Chromatid774
+               _Chromatid5097))
+  (cloned-from (_Chromatid529))
+  (is-part-of (_DNA917))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Chromatid7539 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Chromatid))
+  (has-clones (_Chromatid4687
+               _Chromatid773
+               _Chromatid5096))
+  (cloned-from (_Chromatid203
+                _Chromatid530))
+  (clone-built-from (_Chromatid203))
+  (is-part-of (_DNA917))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Deoxyribose7540 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Deoxyribose))
+  (has-clones (_Deoxyribose4674
+               _Deoxyribose771
+               _Deoxyribose5095))
+  (cloned-from (_Deoxyribose337))
+  (is-part-of (_DNA917))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Nucleotide7541 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Nucleotide))
+  (has-clones (_Nucleotide4673
+               _Nucleotide770
+               _Nucleotide5094))
+  (cloned-from (_Nucleotide338))
+  (is-part-of (_DNA917))
+  (node-visibility (f))
+  (node-coordinate ((:pair -14 74))))
+
+(_Amino-Acid7542 has 
+  (prototype-participant-of (_MRNA864))
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing4697
+               _Amino-Acid769
+               _Amino-Acid5093))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Protein931))
+  (node-coordinate ((:pair 269 41))))
+
+(explanation (:triple _MRNA864 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Synthesis929 Create (instrument must-be-a)))))
+(explanation (:triple _MRNA864 instance-of Entity) ((a Entity (@ _Synthesis929 Action (instrument must-be-a)))))
+(explanation (:triple _MRNA864 instance-of Entity) ((a Entity with (abuts ((if (has-value (the agent of _Synthesis929) (@ _Synthesis929 Event (instrument must-be-a) Entity abuts)) then (the agent of _Synthesis929 (@ _Synthesis929 Event (instrument must-be-a) Entity abuts)) (@ _Synthesis929 Event (instrument must-be-a) Entity abuts)))) (@ _Synthesis929 Event (instrument must-be-a)))))
+(explanation (:triple _MRNA864 instance-of Entity) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _MRNA864 instance-of MRNA) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _MRNA864 result-of _Synthesis927) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _MRNA864 instance-of MRNA) ((added-at Nucleus "User defined")))
+(explanation (:triple _MRNA864 instance-of Entity) ((a Entity (@ _Synthesis927 Create result))))
+(explanation (:triple _MRNA864 instance-of MRNA) ((a MRNA)))
+(explanation (:triple _MRNA864 has-basic-structural-unit _Atom939) ((a Atom (@ _MRNA864 Molecule has-basic-structural-unit))))
+(explanation (:triple _MRNA864 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Move-Through928 Move-Through object))))
+(explanation (:triple _MRNA864 abuts _Ribosome935) ((if (has-value (the agent of _Synthesis929) (@ _Synthesis929 Event (instrument must-be-a) Entity abuts)) then (the agent of _Synthesis929 (@ _Synthesis929 Event (instrument must-be-a) Entity abuts)) (@ _Synthesis929 Event (instrument must-be-a) Entity abuts))))
+(explanation (:triple _MRNA864 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Ribosome935 Spatial-Entity (abuts must-be-a)))))
+(explanation (:triple _MRNA864 instance-of Thing) ((a Thing (@ _Move-Through928 Action (object must-be-a)))))
+(explanation (:triple _MRNA864 instance-of Nucleic-acid) ((added-at MRNA "User defined")))
+(explanation (:triple _MRNA864 has-basic-structural-unit _Atom939) ((cloned-from _Nucleic-acid1037 _MRNA864)))
+(explanation (:triple _Protein7002 instance-of Entity) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Protein7002 instance-of Protein) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Protein7002 result-of _Synthesis7000) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Protein7002 instance-of Entity) ((a Entity (@ _Synthesis7000 Create result))))
+(explanation (:triple _Synthesis7000 result _Protein7002) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Synthesis7000 instance-of Synthesis) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Synthesis7000 raw-material _Amino-Acid6998) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Synthesis7000 agent _Ribosome924) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Synthesis7000 result _Protein7002) ((a Entity (@ _Synthesis7000 Create result))))
+(explanation (:triple _Atom6999 instance-of Atom) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Atom6999 is-basic-structural-unit-of _Amino-Acid6998) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Atom6999 instance-of Atom) ((a Atom (@ _Amino-Acid6998 Molecule has-basic-structural-unit))))
+(explanation (:triple _Amino-Acid6998 has-basic-structural-unit _Atom6999) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Amino-Acid6998 raw-material-of _Synthesis7000) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Amino-Acid6998 instance-of Amino-Acid) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Amino-Acid6998 has-basic-structural-unit _Atom6999) ((a Atom (@ _Amino-Acid6998 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom6997 is-basic-structural-unit-of _RRNA6995) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Atom6997 instance-of Atom) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Atom6997 instance-of Atom) ((a Atom (@ _RRNA6995 Molecule has-basic-structural-unit))))
+(explanation (:triple _RRNA6995 instance-of RRNA) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _RRNA6995 has-basic-structural-unit _Atom6997) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _RRNA6995 is-basic-structural-unit-of _Ribosome924) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _RRNA6995 has-basic-structural-unit _Atom6997) ((a Atom (@ _RRNA6995 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom6994 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom6994 is-basic-structural-unit-of _Protein6989) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Atom6994 instance-of Atom) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Atom6994 instance-of Atom) ((a Atom (@ _Protein6989 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom6994 instance-of Atom) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Atom6994 is-basic-structural-unit-of _Protein6989) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Amino-Acid6992 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Amino-Acid6992 is-basic-structural-unit-of _Protein6989) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Polymer6990 instance-of Polymer) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Polymer6990 is-part-of _Protein6989) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Protein6989 instance-of Protein) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Protein6989 has-basic-structural-unit _Atom6994) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Protein6989 is-basic-structural-unit-of _Ribosome924) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Protein6989 has-basic-structural-unit _Atom6994) ((a Atom (@ _Protein6989 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein6989 has-part _Polymer6990) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Protein6989 has-basic-structural-unit _Amino-Acid6992) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Protein6989 has-basic-structural-unit _Atom6994) ((cloned-from _Protein305 _Protein6989)))
+(explanation (:triple _Protein6989 instance-of Protein) ((a Protein)))
+(explanation (:triple _Chromatid1649 instance-of Chromatid) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Centromere1648 instance-of Centromere) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Centromere1648 instance-of Place) ((a Place (@ _Spatial-Entity1647 Spatial-Entity (location must-be-a)))))
+(explanation (:triple _Centromere1648 location-of _Spatial-Entity7515) ((a Spatial-Entity (@ _Centromere1648 Place location-of))))
+(explanation (:triple _Centromere1648 is-region-of _Chromosome921) ((a Tangible-Entity (@ _Centromere1648 Region is-region-of))))
+(explanation (:triple _Centromere1648 is-region-of _Chromosome921) ((cloned-from _Centromere167 _Centromere1648)))
+(explanation (:triple _Centromere1648 location-of _Spatial-Entity7515) ((cloned-from _Centromere167 _Centromere1648)))
+(explanation (:triple _Spatial-Entity1647 instance-of Spatial-Entity) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Spatial-Entity1647 location _Centromere1648) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Polymer1646 is-part-of _Protein919) ((cloned-from _Protein305 _Protein919)))
+(explanation (:triple _Polymer1646 instance-of Polymer) ((cloned-from _Protein305 _Protein919)))
+(explanation (:triple _Polymer1646 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Spatial-Entity1645 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Barrier914 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Spatial-Entity1644 instance-of Spatial-Entity) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Barrier914)))))) (@ _Barrier914 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Spatial-Entity1643 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Block1642 Block object))))
+(explanation (:triple _Spatial-Entity1643 instance-of Entity) ((a Entity (@ _Block1642 Make-Inaccessible object))))
+(explanation (:triple _Spatial-Entity1643 instance-of Thing) ((a Thing (@ _Block1642 Action (object must-be-a)))))
+(explanation (:triple _Spatial-Entity1643 instance-of Spatial-Entity) ((a Spatial-Entity)))
+(explanation (:triple _Spatial-Entity1643 instance-of Entity) ((a Entity)))
+(explanation (:triple _Block1642 instance-of Block) ((a Block with (object ((the location of _Barrier914 (@ _Barrier914 Barrier in-event Block object)))) (@ _Barrier914 Barrier in-event))))
+(explanation (:triple _Block1642 object _Spatial-Entity1643) ((a Spatial-Entity (@ _Block1642 Block object))))
+(explanation (:triple _Block1642 object _Spatial-Entity1643) ((a Entity (@ _Block1642 Make-Inaccessible object))))
+(explanation (:triple _Polymer1641 is-part-of _Protein931) ((cloned-from _Protein305 _Protein931)))
+(explanation (:triple _Polymer1641 instance-of Polymer) ((cloned-from _Protein305 _Protein931)))
+(explanation (:triple _Polymer1641 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Tangible-Entity912 instance-of Tangible-Entity) ((a Tangible-Entity with (plays ((a Barrier (@ _Move-Through928 Move-Through base Tangible-Entity plays)))) (has-region ((a Spatial-Entity (@ _Move-Through928 Move-Through base Tangible-Entity has-region)))) (@ _Move-Through928 Move-Through base))))
+(explanation (:triple _Tangible-Entity912 has-region _Pore913) ((a Spatial-Entity (@ _Move-Through928 Move-Through base Tangible-Entity has-region))))
+(explanation (:triple _Tangible-Entity912 plays _Barrier914) ((a Barrier (@ _Move-Through928 Move-Through base Tangible-Entity plays))))
+(explanation (:triple _Tangible-Entity912 instance-of Tangible-Entity) ((a Tangible-Entity with (instrument-of ((the in-event of _Barrier914 (@ _Barrier914 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Barrier914 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Barrier914)))))) (@ _Barrier914 Barrier played-by Tangible-Entity is-between)))) (@ _Barrier914 Barrier played-by))))
+(explanation (:triple _Tangible-Entity912 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Pore913 Region is-region-of))))
+(explanation (:triple _Tangible-Entity912 instrument-of _Block1642) ((the in-event of _Barrier914 (@ _Barrier914 Barrier played-by Tangible-Entity instrument-of))))
+(explanation (:triple _Tangible-Entity912 is-between _Spatial-Entity1645) ((a Spatial-Entity (@ _Barrier914 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Tangible-Entity912 is-between _Spatial-Entity1644) ((a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Barrier914)))))) (@ _Barrier914 Barrier played-by Tangible-Entity is-between))))
+(explanation (:triple _Tangible-Entity912 instance-of Entity) ((a Entity (@ _Block1642 Action (instrument must-be-a)))))
+(explanation (:triple _Tangible-Entity912 instance-of Entity) ((a Entity with (abuts ((if (has-value (the agent of _Block1642) (@ _Block1642 Event (instrument must-be-a) Entity abuts)) then (the agent of _Block1642 (@ _Block1642 Event (instrument must-be-a) Entity abuts)) (@ _Block1642 Event (instrument must-be-a) Entity abuts)))) (@ _Block1642 Event (instrument must-be-a)))))
+(explanation (:triple _Pore913 instance-of Pore) ((added-at MRNA "User defined")))
+(explanation (:triple _Pore913 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move-Through928 Move-Through base Tangible-Entity has-region))))
+(explanation (:triple _Pore913 is-region-of _Tangible-Entity912) ((a Tangible-Entity (@ _Pore913 Region is-region-of))))
+(explanation (:triple _Barrier914 instance-of Barrier) ((a Barrier (@ _Move-Through928 Move-Through base Tangible-Entity plays))))
+(explanation (:triple _Barrier914 played-by _Tangible-Entity912) ((a Tangible-Entity with (instrument-of ((the in-event of _Barrier914 (@ _Barrier914 Barrier played-by Tangible-Entity instrument-of)))) (is-between ((a Spatial-Entity (@ _Barrier914 Barrier played-by Tangible-Entity is-between)) (a Spatial-Entity with (abuts ((excluded-values (the first of (the is-between of (the played-by of _Barrier914)))))) (@ _Barrier914 Barrier played-by Tangible-Entity is-between)))) (@ _Barrier914 Barrier played-by))))
+(explanation (:triple _Barrier914 in-event _Block1642) ((a Block with (object ((the location of _Barrier914 (@ _Barrier914 Barrier in-event Block object)))) (@ _Barrier914 Barrier in-event))))
+(explanation (:triple _Synthesis915 instance-of Synthesis) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis915 result _DNA917) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis915 site _Nucleus916) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis915 instance-of Synthesis) ((added-at Nucleus "User defined")))
+(explanation (:triple _Synthesis915 result _DNA917) ((a Entity (@ _Synthesis915 Create result))))
+(explanation (:triple _Synthesis915 site _Nucleus916) ((added-at Nucleus "User defined")))
+(explanation (:triple _Nucleus916 instance-of Nucleus) ((added-at MRNA "User defined")))
+(explanation (:triple _Nucleus916 encloses _Chromosome921) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleus916 has-part _Nucleolus923) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleus916 site-of _Synthesis927) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleus916 site-of _Synthesis915) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleus916 is-near (((if (has-value (the object of _Synthesis927) (@ _Synthesis927 Event site (must-be-a Spatial-Entity) is-near)) then (the location of (the object of _Synthesis927) (@ _Synthesis927 Event site (must-be-a Spatial-Entity) is-near)) (@ _Synthesis927 Event site (must-be-a Spatial-Entity) is-near))) && ((if (has-value (the object of _Synthesis915) (@ _Synthesis915 Event site (must-be-a Spatial-Entity) is-near)) then (the location of (the object of _Synthesis915) (@ _Synthesis915 Event site (must-be-a Spatial-Entity) is-near)) (@ _Synthesis915 Event site (must-be-a Spatial-Entity) is-near))))) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleus916 instance-of Nucleus) ((a Nucleus)))
+(explanation (:triple _Nucleus916 has-part _Nucleolus923) ((added-at Nucleus "User defined")))
+(explanation (:triple _Nucleus916 instance-of Spatial-Entity) ((added-at Nucleus "User defined")))
+(explanation (:triple _Nucleus916 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Chromosome921 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Nucleus916 instance-of Spatial-Entity) ((a Spatial-Entity with (is-near ((if (has-value (the object of _Synthesis915) (@ _Synthesis915 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Synthesis915) (@ _Synthesis915 Event (site must-be-a) Spatial-Entity is-near)) (@ _Synthesis915 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Synthesis915 Event (site must-be-a)))))
+(explanation (:triple _Nucleus916 instance-of Spatial-Entity) ((a Spatial-Entity with (is-near ((if (has-value (the object of _Synthesis927) (@ _Synthesis927 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Synthesis927) (@ _Synthesis927 Event (site must-be-a) Spatial-Entity is-near)) (@ _Synthesis927 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Synthesis927 Event (site must-be-a)))))
+(explanation (:triple _Nucleus916 instance-of Organelle) ((a Organelle)))
+(explanation (:triple _DNA917 instance-of DNA) ((a DNA)))
+(explanation (:triple _DNA917 has-basic-structural-unit _Atom918) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _DNA917 has-part _Chromatid7539) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _DNA917 has-part _Chromatid7538) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _DNA917 has-part _Polymer7536) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _DNA917 has-part _Polymer7535) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _DNA917 has-part _Nucleotide7541) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _DNA917 has-part _Deoxyribose7540) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _DNA917 result-of _Synthesis915) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _DNA917 has-basic-structural-unit _Atom918) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _DNA917 instance-of DNA) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _DNA917 instance-of Entity) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _DNA917 is-basic-structural-unit-of _Chromosome921) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _DNA917 is-basic-structural-unit-of _Chromosome921) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _DNA917 has-basic-structural-unit _Atom918) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _DNA917 instance-of DNA) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _DNA917 instance-of DNA) ((added-at Chromosome "User defined")))
+(explanation (:triple _DNA917 has-basic-structural-unit _Atom918) ((a Atom (@ _DNA917 Molecule has-basic-structural-unit))))
+(explanation (:triple _DNA917 instance-of DNA) ((added-at Nucleus "User defined")))
+(explanation (:triple _DNA917 instance-of Entity) ((a Entity (@ _Synthesis915 Create result))))
+(explanation (:triple _DNA917 has-basic-structural-unit _Atom918) ((cloned-from _Nucleic-acid1037 _DNA917)))
+(explanation (:triple _Atom918 is-basic-structural-unit-of _DNA917) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom918 instance-of Atom) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom918 instance-of Atom) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Atom918 is-basic-structural-unit-of _DNA917) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Atom918 instance-of Atom) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Atom918 is-basic-structural-unit-of _DNA917) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Atom918 instance-of Atom) ((a Atom (@ _DNA917 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom918 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom918 is-basic-structural-unit-of _DNA917) ((cloned-from _Nucleic-acid1037 _DNA917)))
+(explanation (:triple _Atom918 instance-of Atom) ((cloned-from _Nucleic-acid1037 _DNA917)))
+(explanation (:triple _Protein919 has-basic-structural-unit _Atom920) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Protein919 instance-of Protein) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Protein919 is-part-of _Chromosome921) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Protein919 is-part-of _Chromosome921) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Protein919 has-basic-structural-unit _Atom920) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Protein919 instance-of Protein) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Protein919 instance-of Protein) ((added-at Chromosome "User defined")))
+(explanation (:triple _Protein919 has-basic-structural-unit _Atom920) ((a Atom (@ _Protein919 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein919 has-basic-structural-unit _Atom920) ((cloned-from _Protein305 _Protein919)))
+(explanation (:triple _Protein919 has-part _Polymer1646) ((cloned-from _Protein305 _Protein919)))
+(explanation (:triple _Protein919 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein919 has-part _Polymer1646) ((added-at Protein "User defined")))
+(explanation (:triple _Protein919 has-basic-structural-unit _Amino-Acid7514) ((cloned-from _Protein305 _Protein919)))
+(explanation (:triple _Atom920 instance-of Atom) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Atom920 is-basic-structural-unit-of _Protein919) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Atom920 instance-of Atom) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Atom920 is-basic-structural-unit-of _Protein919) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Atom920 instance-of Atom) ((a Atom (@ _Protein919 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom920 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom920 is-basic-structural-unit-of _Protein919) ((cloned-from _Protein305 _Protein919)))
+(explanation (:triple _Atom920 instance-of Atom) ((cloned-from _Protein305 _Protein919)))
+(explanation (:triple _Chromosome921 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Centromere1648 Region is-region-of))))
+(explanation (:triple _Chromosome921 has-region _Centromere1648) ((cloned-from _Centromere167 _Centromere1648)))
+(explanation (:triple _Chromosome921 instance-of Tangible-Entity) ((cloned-from _Centromere167 _Centromere1648)))
+(explanation (:triple _Chromosome921 is-inside _Nucleus916) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Chromosome921 instance-of Chromosome) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Chromosome921 instance-of Tangible-Entity) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Chromosome921 has-basic-structural-unit _DNA917) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Chromosome921 has-part _Protein919) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Chromosome921 has-part _Protein919) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Chromosome921 has-basic-structural-unit _DNA917) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Chromosome921 has-basic-structural-unit _DNA917) ((added-at Chromosome "User defined")))
+(explanation (:triple _Chromosome921 has-part _Protein919) ((added-at Chromosome "User defined")))
+(explanation (:triple _Chromosome921 instance-of Chromosome) ((added-at Nucleus "User defined")))
+(explanation (:triple _Chromosome921 is-inside _Nucleus916) ((added-at Nucleus "User defined")))
+(explanation (:triple _Chromosome921 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Nucleus916 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Chromosome921 has-part _Chromatid1649) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Chromosome921 has-region _Centromere1648) ((cloned-from _Chromosome164 _Chromosome921)))
+(explanation (:triple _Synthesis922 result _Ribosome924) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis922 site _Nucleolus923) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis922 instance-of Synthesis) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis922 raw-material _RRNA926) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis922 raw-material _Protein925) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis922 result _Ribosome924) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Synthesis922 instance-of Synthesis) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Synthesis922 site _Nucleolus923) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Synthesis922 instance-of Synthesis) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Synthesis922 result _Ribosome924) ((a Entity (@ _Synthesis922 Create result))))
+(explanation (:triple _Synthesis922 site _Nucleolus923) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Synthesis922 raw-material _RRNA926) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Synthesis922 raw-material _Protein925) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Nucleolus923 is-part-of _Nucleus916) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleolus923 instance-of Nucleolus) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleolus923 instance-of Spatial-Entity) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleolus923 site-of _Synthesis922) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleolus923 is-near (((if (has-value (the object of _Synthesis922)) then (the location of (the object of _Synthesis922)))) && ((if (has-value (the object of _Synthesis922) (@ _Synthesis922 Event site (must-be-a Spatial-Entity) is-near)) then (the location of (the object of _Synthesis922) (@ _Synthesis922 Event site (must-be-a Spatial-Entity) is-near)) (@ _Synthesis922 Event site (must-be-a Spatial-Entity) is-near))))) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Nucleolus923 instance-of Nucleolus) ((added-at Nucleus "User defined")))
+(explanation (:triple _Nucleolus923 site-of _Synthesis922) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Nucleolus923 is-near (if (has-value (the object of _Synthesis922) (@ _Synthesis922 Event site (must-be-a Spatial-Entity) is-near)) then (the location of (the object of _Synthesis922) (@ _Synthesis922 Event site (must-be-a Spatial-Entity) is-near)) (@ _Synthesis922 Event site (must-be-a Spatial-Entity) is-near))) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Nucleolus923 instance-of Spatial-Entity) ((a Spatial-Entity with (is-near ((if (has-value (the object of _Synthesis922) (@ _Synthesis922 Event (site must-be-a) Spatial-Entity is-near)) then (the location of (the object of _Synthesis922) (@ _Synthesis922 Event (site must-be-a) Spatial-Entity is-near)) (@ _Synthesis922 Event (site must-be-a) Spatial-Entity is-near)))) (@ _Synthesis922 Event (site must-be-a)))))
+(explanation (:triple _Ribosome924 instance-of Ribosome) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Ribosome924 instance-of Entity) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Ribosome924 result-of _Synthesis922) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Ribosome924 instance-of Ribosome) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Ribosome924 instance-of Entity) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Ribosome924 result-of _Synthesis922) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Ribosome924 instance-of Ribosome) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Ribosome924 instance-of Entity) ((a Entity (@ _Synthesis922 Create result))))
+(explanation (:triple _Ribosome924 abuts (if (has-value (the instrument of _Synthesis7000) (@ _Synthesis7000 Event (agent must-be-a) Entity abuts)) then (the instrument of _Synthesis7000 (@ _Synthesis7000 Event (agent must-be-a) Entity abuts)) (@ _Synthesis7000 Event (agent must-be-a) Entity abuts))) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Ribosome924 has-basic-structural-unit _Protein6989) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Ribosome924 has-basic-structural-unit _RRNA6995) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Ribosome924 agent-of _Synthesis7000) ((cloned-from _Ribosome567 _Ribosome924)))
+(explanation (:triple _Ribosome924 instance-of Ribosome) ((a Ribosome)))
+(explanation (:triple _Ribosome924 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Synthesis7000) (@ _Synthesis7000 Event (agent must-be-a) Entity abuts)) then (the instrument of _Synthesis7000 (@ _Synthesis7000 Event (agent must-be-a) Entity abuts)) (@ _Synthesis7000 Event (agent must-be-a) Entity abuts)))) (@ _Synthesis7000 Event (agent must-be-a)))))
+(explanation (:triple _Ribosome924 instance-of Entity) ((a Entity (@ _Synthesis7000 Create (agent must-be-a)))))
+(explanation (:triple _Ribosome924 instance-of Organelle) ((a Organelle)))
+(explanation (:triple _Protein925 instance-of Protein) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Protein925 raw-material-of _Synthesis922) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Protein925 instance-of Protein) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _RRNA926 instance-of RRNA) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _RRNA926 raw-material-of _Synthesis922) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _RRNA926 instance-of RRNA) ((cloned-from _Nucleolus188 _Nucleolus923)))
+(explanation (:triple _Synthesis927 result _MRNA864) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis927 instance-of Synthesis) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis927 site _Nucleus916) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Synthesis927 instance-of Synthesis) ((added-at Nucleus "User defined")))
+(explanation (:triple _Synthesis927 site _Nucleus916) ((added-at Nucleus "User defined")))
+(explanation (:triple _Synthesis927 result _MRNA864) ((a Entity (@ _Synthesis927 Create result))))
+(explanation (:triple _Synthesis927 instance-of Synthesis) ((added-at MRNA "User defined")))
+(explanation (:triple _Synthesis927 next-event _Move-Through928) ((added-at MRNA "User defined")))
+(explanation (:triple _Move-Through928 instance-of Move-Through) ((added-at MRNA "User defined")))
+(explanation (:triple _Move-Through928 base _Tangible-Entity912) ((a Tangible-Entity with (plays ((a Barrier (@ _Move-Through928 Move-Through base Tangible-Entity plays)))) (has-region ((a Spatial-Entity (@ _Move-Through928 Move-Through base Tangible-Entity has-region)))) (@ _Move-Through928 Move-Through base))))
+(explanation (:triple _Move-Through928 path _Pore913) ((the has-region of (the base of _Move-Through928) (@ _Move-Through928 Move-Through path))))
+(explanation (:triple _Move-Through928 object _MRNA864) ((a Tangible-Entity (@ _Move-Through928 Move-Through object))))
+(explanation (:triple _Move-Through928 object _MRNA864) ((a Tangible-Entity (@ _Move-Through928 Move object))))
+(explanation (:triple _Move-Through928 destination _Cytoplasm930) ((added-at MRNA "User defined")))
+(explanation (:triple _Move-Through928 next-event _Synthesis929) ((added-at MRNA "User defined")))
+(explanation (:triple _Move-Through928 instance-of Event) ((a Event with (time-during ((a Time-Interval with (time-after ((the time-during of _Synthesis927 (@ _Synthesis927 Event (next-event must-be-a) Event time-during Time-Interval time-after)))) (@ _Synthesis927 Event (next-event must-be-a) Event time-during)))) (@ _Synthesis927 Event (next-event must-be-a)))))
+(explanation (:triple _Synthesis929 instance-of Synthesis) ((added-at MRNA "User defined")))
+(explanation (:triple _Synthesis929 result _Protein938) ((a Entity (@ _Synthesis929 Create result))))
+(explanation (:triple _Synthesis929 instrument _MRNA864) ((added-at MRNA "User defined")))
+(explanation (:triple _Synthesis929 agent _Ribosome935) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Synthesis929 result _Protein938) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Synthesis929 instance-of Synthesis) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Synthesis929 raw-material _Amino-Acid936) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Synthesis929 instance-of Synthesis) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis929 raw-material _Amino-Acid936) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis929 agent _Ribosome935) ((added-at Ribosome "User defined")))
+(explanation (:triple _Synthesis929 instance-of Event) ((a Event with (time-during ((a Time-Interval with (time-after ((the time-during of _Move-Through928 (@ _Move-Through928 Event (next-event must-be-a) Event time-during Time-Interval time-after)))) (@ _Move-Through928 Event (next-event must-be-a) Event time-during)))) (@ _Move-Through928 Event (next-event must-be-a)))))
+(explanation (:triple _Cytoplasm930 instance-of Cytoplasm) ((added-at MRNA "User defined")))
+(explanation (:triple _Cytoplasm930 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Move-Through928 Move (destination must-be-a)))))
+(explanation (:triple _Protein931 has-basic-structural-unit _Atom932) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Protein931 instance-of Protein) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Protein931 is-basic-structural-unit-of _Ribosome935) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Protein931 instance-of Protein) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein931 has-basic-structural-unit _Atom932) ((a Atom (@ _Protein931 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein931 has-basic-structural-unit _Atom932) ((cloned-from _Protein305 _Protein931)))
+(explanation (:triple _Protein931 has-part _Polymer1641) ((cloned-from _Protein305 _Protein931)))
+(explanation (:triple _Protein931 instance-of Protein) ((a Protein)))
+(explanation (:triple _Protein931 has-part _Polymer1641) ((added-at Protein "User defined")))
+(explanation (:triple _Protein931 has-basic-structural-unit _Amino-Acid7542) ((cloned-from _Protein305 _Protein931)))
+(explanation (:triple _Atom932 instance-of Atom) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Atom932 is-basic-structural-unit-of _Protein931) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Atom932 instance-of Atom) ((a Atom (@ _Protein931 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom932 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom932 is-basic-structural-unit-of _Protein931) ((cloned-from _Protein305 _Protein931)))
+(explanation (:triple _Atom932 instance-of Atom) ((cloned-from _Protein305 _Protein931)))
+(explanation (:triple _RRNA933 has-basic-structural-unit _Atom934) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _RRNA933 instance-of RRNA) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _RRNA933 is-basic-structural-unit-of _Ribosome935) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _RRNA933 instance-of RRNA) ((added-at Ribosome "User defined")))
+(explanation (:triple _RRNA933 has-basic-structural-unit _Atom934) ((a Atom (@ _RRNA933 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom934 instance-of Atom) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Atom934 is-basic-structural-unit-of _RRNA933) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Atom934 instance-of Atom) ((a Atom (@ _RRNA933 Molecule has-basic-structural-unit))))
+(explanation (:triple _Ribosome935 instance-of Entity) ((a Entity (@ _Synthesis929 Create (agent must-be-a)))))
+(explanation (:triple _Ribosome935 instance-of Entity) ((a Entity with (abuts ((if (has-value (the instrument of _Synthesis929) (@ _Synthesis929 Event (agent must-be-a) Entity abuts)) then (the instrument of _Synthesis929 (@ _Synthesis929 Event (agent must-be-a) Entity abuts)) (@ _Synthesis929 Event (agent must-be-a) Entity abuts)))) (@ _Synthesis929 Event (agent must-be-a)))))
+(explanation (:triple _Ribosome935 instance-of Ribosome) ((added-at MRNA "User defined")))
+(explanation (:triple _Ribosome935 agent-of _Synthesis929) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Ribosome935 has-basic-structural-unit _RRNA933) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Ribosome935 has-basic-structural-unit _Protein931) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Ribosome935 instance-of Ribosome) ((a Ribosome)))
+(explanation (:triple _Ribosome935 has-basic-structural-unit _RRNA933) ((added-at Ribosome "User defined")))
+(explanation (:triple _Ribosome935 has-basic-structural-unit _Protein931) ((added-at Ribosome "User defined")))
+(explanation (:triple _Ribosome935 instance-of Spatial-Entity) ((a Spatial-Entity (@ _MRNA864 Spatial-Entity (abuts must-be-a)))))
+(explanation (:triple _Ribosome935 abuts _MRNA864) ((if (has-value (the instrument of _Synthesis929) (@ _Synthesis929 Event (agent must-be-a) Entity abuts)) then (the instrument of _Synthesis929 (@ _Synthesis929 Event (agent must-be-a) Entity abuts)) (@ _Synthesis929 Event (agent must-be-a) Entity abuts))))
+(explanation (:triple _Ribosome935 instance-of Organelle) ((a Organelle)))
+(explanation (:triple _Amino-Acid936 raw-material-of _Synthesis929) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Amino-Acid936 has-basic-structural-unit _Atom937) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Amino-Acid936 instance-of Amino-Acid) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Amino-Acid936 instance-of Amino-Acid) ((added-at Ribosome "User defined")))
+(explanation (:triple _Amino-Acid936 has-basic-structural-unit _Atom937) ((a Atom (@ _Amino-Acid936 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom937 instance-of Atom) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Atom937 is-basic-structural-unit-of _Amino-Acid936) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Atom937 instance-of Atom) ((a Atom (@ _Amino-Acid936 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein938 instance-of Protein) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Protein938 instance-of Entity) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Protein938 result-of _Synthesis929) ((cloned-from _Ribosome567 _Ribosome935)))
+(explanation (:triple _Protein938 instance-of Protein) ((added-at Ribosome "User defined")))
+(explanation (:triple _Protein938 instance-of Entity) ((a Entity (@ _Synthesis929 Create result))))
+(explanation (:triple _Protein938 instance-of Protein) ((added-at MRNA "User defined")))
+(explanation (:triple _Atom939 instance-of Atom) ((a Atom (@ _MRNA864 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom939 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom939 is-basic-structural-unit-of _MRNA864) ((cloned-from _Nucleic-acid1037 _MRNA864)))
+(explanation (:triple _Atom939 instance-of Atom) ((cloned-from _Nucleic-acid1037 _MRNA864)))
+(explanation (:triple _Property-Node940 big-node-of _Nucleus916) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Property-Node940 instance-of Property-Node) ((cloned-from _Nucleus302 _Nucleus916)))
+(explanation (:triple _Amino-Acid7514 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein919)))
+(explanation (:triple _Spatial-Entity7515 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Centromere1648 Place location-of))))
+(explanation (:triple _Spatial-Entity7515 location _Centromere1648) ((cloned-from _Centromere167 _Centromere1648)))
+(explanation (:triple _Spatial-Entity7515 instance-of Spatial-Entity) ((cloned-from _Centromere167 _Centromere1648)))
+(explanation (:triple _Organic-Molecule7516 has-basic-structural-unit _Atom7518) ((cloned-from _Nucleotide337 _Organic-Molecule7516)))
+(explanation (:triple _Organic-Molecule7516 has-part _Phosphate7517) ((cloned-from _Nucleotide337 _Organic-Molecule7516)))
+(explanation (:triple _Organic-Molecule7516 has-basic-structural-unit _Atom7518) ((a Atom (@ _Organic-Molecule7516 Molecule has-basic-structural-unit))))
+(explanation (:triple _Organic-Molecule7516 is-part-of _Polymer7535) ((cloned-from _Polymer268 _Polymer7535)))
+(explanation (:triple _Organic-Molecule7516 instance-of Organic-Molecule) ((cloned-from _Polymer268 _Polymer7535)))
+(explanation (:triple _Organic-Molecule7516 has-basic-structural-unit _Atom7518) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Organic-Molecule7516 has-part _Phosphate7517) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Organic-Molecule7516 instance-of Organic-Molecule) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Organic-Molecule7516 instance-of Nucleotide) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Organic-Molecule7516 is-part-of _Polymer7535) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7517 is-part-of _Organic-Molecule7516) ((cloned-from _Nucleotide337 _Organic-Molecule7516)))
+(explanation (:triple _Phosphate7517 instance-of Phosphate) ((cloned-from _Nucleotide337 _Organic-Molecule7516)))
+(explanation (:triple _Phosphate7517 instance-of Phosphate) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7517 is-part-of _Organic-Molecule7516) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7518 is-basic-structural-unit-of _Organic-Molecule7516) ((cloned-from _Nucleotide337 _Organic-Molecule7516)))
+(explanation (:triple _Atom7518 instance-of Atom) ((cloned-from _Nucleotide337 _Organic-Molecule7516)))
+(explanation (:triple _Atom7518 instance-of Atom) ((a Atom (@ _Organic-Molecule7516 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom7518 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom7518 instance-of Atom) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7518 is-basic-structural-unit-of _Organic-Molecule7516) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Adenine7519 has-basic-structural-unit _Atom7521) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Adenine7519 has-part _Phosphate7520) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Adenine7519 complement _Thymine7522) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Adenine7519 has-basic-structural-unit _Atom7521) ((cloned-from _Nucleotide337 _Adenine7519)))
+(explanation (:triple _Adenine7519 has-part _Phosphate7520) ((cloned-from _Nucleotide337 _Adenine7519)))
+(explanation (:triple _Adenine7519 has-basic-structural-unit _Atom7521) ((a Atom (@ _Adenine7519 Molecule has-basic-structural-unit))))
+(explanation (:triple _Adenine7519 is-part-of _Polymer7535) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Adenine7519 complement _Thymine7522) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Adenine7519 has-basic-structural-unit _Atom7521) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Adenine7519 has-part _Phosphate7520) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Adenine7519 instance-of Adenine) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Adenine7519 instance-of Nucleotide) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7520 is-part-of _Adenine7519) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Phosphate7520 instance-of Phosphate) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Phosphate7520 instance-of Phosphate) ((cloned-from _Nucleotide337 _Adenine7519)))
+(explanation (:triple _Phosphate7520 is-part-of _Adenine7519) ((cloned-from _Nucleotide337 _Adenine7519)))
+(explanation (:triple _Phosphate7520 instance-of Phosphate) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7520 is-part-of _Adenine7519) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7521 is-basic-structural-unit-of _Adenine7519) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Atom7521 instance-of Atom) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Atom7521 instance-of Atom) ((cloned-from _Nucleotide337 _Adenine7519)))
+(explanation (:triple _Atom7521 is-basic-structural-unit-of _Adenine7519) ((cloned-from _Nucleotide337 _Adenine7519)))
+(explanation (:triple _Atom7521 instance-of Atom) ((a Atom (@ _Adenine7519 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom7521 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom7521 instance-of Atom) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7521 is-basic-structural-unit-of _Adenine7519) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Thymine7522 complement-of _Adenine7519) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Thymine7522 instance-of Thymine) ((cloned-from _Adenine378 _Adenine7519)))
+(explanation (:triple _Thymine7522 instance-of Thymine) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Thymine7522 complement-of _Adenine7519) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Cytosine7523 has-basic-structural-unit _Atom7525) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Cytosine7523 has-part _Phosphate7524) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Cytosine7523 complement _Guanine7526) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Cytosine7523 has-basic-structural-unit _Atom7525) ((cloned-from _Nucleotide337 _Cytosine7523)))
+(explanation (:triple _Cytosine7523 has-part _Phosphate7524) ((cloned-from _Nucleotide337 _Cytosine7523)))
+(explanation (:triple _Cytosine7523 has-basic-structural-unit _Atom7525) ((a Atom (@ _Cytosine7523 Molecule has-basic-structural-unit))))
+(explanation (:triple _Cytosine7523 complement _Guanine7526) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Cytosine7523 has-basic-structural-unit _Atom7525) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Cytosine7523 has-part _Phosphate7524) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Cytosine7523 instance-of Cytosine) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Cytosine7523 instance-of Nucleotide) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Cytosine7523 is-part-of _Polymer7535) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7524 is-part-of _Cytosine7523) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Phosphate7524 instance-of Phosphate) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Phosphate7524 instance-of Phosphate) ((cloned-from _Nucleotide337 _Cytosine7523)))
+(explanation (:triple _Phosphate7524 is-part-of _Cytosine7523) ((cloned-from _Nucleotide337 _Cytosine7523)))
+(explanation (:triple _Phosphate7524 instance-of Phosphate) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7524 is-part-of _Cytosine7523) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7525 is-basic-structural-unit-of _Cytosine7523) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Atom7525 instance-of Atom) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Atom7525 instance-of Atom) ((cloned-from _Nucleotide337 _Cytosine7523)))
+(explanation (:triple _Atom7525 is-basic-structural-unit-of _Cytosine7523) ((cloned-from _Nucleotide337 _Cytosine7523)))
+(explanation (:triple _Atom7525 instance-of Atom) ((a Atom (@ _Cytosine7523 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom7525 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom7525 instance-of Atom) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7525 is-basic-structural-unit-of _Cytosine7523) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Guanine7526 complement-of _Cytosine7523) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Guanine7526 instance-of Guanine) ((cloned-from _Cytosine402 _Cytosine7523)))
+(explanation (:triple _Guanine7526 instance-of Guanine) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Guanine7526 complement-of _Cytosine7523) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Thymine7527 has-basic-structural-unit _Atom7529) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Thymine7527 has-part _Phosphate7528) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Thymine7527 complement _Adenine7530) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Thymine7527 has-basic-structural-unit _Atom7529) ((cloned-from _Nucleotide337 _Thymine7527)))
+(explanation (:triple _Thymine7527 has-part _Phosphate7528) ((cloned-from _Nucleotide337 _Thymine7527)))
+(explanation (:triple _Thymine7527 has-basic-structural-unit _Atom7529) ((a Atom (@ _Thymine7527 Molecule has-basic-structural-unit))))
+(explanation (:triple _Thymine7527 complement _Adenine7530) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Thymine7527 has-basic-structural-unit _Atom7529) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Thymine7527 has-part _Phosphate7528) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Thymine7527 instance-of Thymine) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Thymine7527 instance-of Nucleotide) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Thymine7527 is-part-of _Polymer7535) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7528 is-part-of _Thymine7527) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Phosphate7528 instance-of Phosphate) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Phosphate7528 instance-of Phosphate) ((cloned-from _Nucleotide337 _Thymine7527)))
+(explanation (:triple _Phosphate7528 is-part-of _Thymine7527) ((cloned-from _Nucleotide337 _Thymine7527)))
+(explanation (:triple _Phosphate7528 instance-of Phosphate) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7528 is-part-of _Thymine7527) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7529 is-basic-structural-unit-of _Thymine7527) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Atom7529 instance-of Atom) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Atom7529 instance-of Atom) ((cloned-from _Nucleotide337 _Thymine7527)))
+(explanation (:triple _Atom7529 is-basic-structural-unit-of _Thymine7527) ((cloned-from _Nucleotide337 _Thymine7527)))
+(explanation (:triple _Atom7529 instance-of Atom) ((a Atom (@ _Thymine7527 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom7529 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom7529 instance-of Atom) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7529 is-basic-structural-unit-of _Thymine7527) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Adenine7530 complement-of _Thymine7527) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Adenine7530 instance-of Adenine) ((cloned-from _Thymine385 _Thymine7527)))
+(explanation (:triple _Adenine7530 instance-of Adenine) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Adenine7530 complement-of _Thymine7527) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Guanine7531 has-basic-structural-unit _Atom7533) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Guanine7531 has-part _Phosphate7532) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Guanine7531 complement _Cytosine7534) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Guanine7531 has-basic-structural-unit _Atom7533) ((cloned-from _Nucleotide337 _Guanine7531)))
+(explanation (:triple _Guanine7531 has-part _Phosphate7532) ((cloned-from _Nucleotide337 _Guanine7531)))
+(explanation (:triple _Guanine7531 has-basic-structural-unit _Atom7533) ((a Atom (@ _Guanine7531 Molecule has-basic-structural-unit))))
+(explanation (:triple _Guanine7531 complement _Cytosine7534) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Guanine7531 has-basic-structural-unit _Atom7533) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Guanine7531 has-part _Phosphate7532) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Guanine7531 instance-of Guanine) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Guanine7531 instance-of Nucleotide) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Guanine7531 is-part-of _Polymer7535) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7532 is-part-of _Guanine7531) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Phosphate7532 instance-of Phosphate) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Phosphate7532 instance-of Phosphate) ((cloned-from _Nucleotide337 _Guanine7531)))
+(explanation (:triple _Phosphate7532 is-part-of _Guanine7531) ((cloned-from _Nucleotide337 _Guanine7531)))
+(explanation (:triple _Phosphate7532 instance-of Phosphate) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Phosphate7532 is-part-of _Guanine7531) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7533 is-basic-structural-unit-of _Guanine7531) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Atom7533 instance-of Atom) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Atom7533 instance-of Atom) ((cloned-from _Nucleotide337 _Guanine7531)))
+(explanation (:triple _Atom7533 is-basic-structural-unit-of _Guanine7531) ((cloned-from _Nucleotide337 _Guanine7531)))
+(explanation (:triple _Atom7533 instance-of Atom) ((a Atom (@ _Guanine7531 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom7533 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom7533 instance-of Atom) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Atom7533 is-basic-structural-unit-of _Guanine7531) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Cytosine7534 complement-of _Guanine7531) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Cytosine7534 instance-of Cytosine) ((cloned-from _Guanine410 _Guanine7531)))
+(explanation (:triple _Cytosine7534 instance-of Cytosine) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Cytosine7534 complement-of _Guanine7531) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7535 has-part _Organic-Molecule7516) ((cloned-from _Polymer268 _Polymer7535)))
+(explanation (:triple _Polymer7535 is-part-of _DNA917) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7535 has-part _Organic-Molecule7516) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7535 has-part _Adenine7519) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7535 has-part _Cytosine7523) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7535 has-part _Thymine7527) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7535 has-part _Guanine7531) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7535 instance-of Polymer) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7536 has-part _Organic-Molecule7537) ((cloned-from _Polymer268 _Polymer7536)))
+(explanation (:triple _Polymer7536 is-part-of _DNA917) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7536 has-part _Organic-Molecule7537) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Polymer7536 instance-of Polymer) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Organic-Molecule7537 is-part-of _Polymer7536) ((cloned-from _Polymer268 _Polymer7536)))
+(explanation (:triple _Organic-Molecule7537 instance-of Organic-Molecule) ((cloned-from _Polymer268 _Polymer7536)))
+(explanation (:triple _Organic-Molecule7537 instance-of Organic-Molecule) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Organic-Molecule7537 is-part-of _Polymer7536) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Chromatid7538 is-part-of _DNA917) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Chromatid7538 instance-of Chromatid) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Chromatid7539 is-part-of _DNA917) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Chromatid7539 instance-of Chromatid) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Deoxyribose7540 is-part-of _DNA917) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Deoxyribose7540 instance-of Deoxyribose) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Nucleotide7541 is-part-of _DNA917) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Nucleotide7541 instance-of Nucleotide) ((cloned-from _DNA272 _DNA917)))
+(explanation (:triple _Amino-Acid7542 instance-of Amino-Acid) ((cloned-from _Protein305 _Protein931)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,63 @@
+
+;$Id: Non-Metal.km,v 1.16 2008/10/30 20:16:16 tecuci Exp $
+
+(Non-Metal has (superclasses (Inorganic-Molecule-Substance)))
+(every Non-Metal has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a Non-Metal-Molecule)))
+  )
+
+(every Non-Metal now-has
+       (text-has-part        ("made of"))
+       (text-result-of       ("product of"))
+       (text-raw-material-of ("reactant in"))
+       (text-premodslots     ((:seq)))
+;;       (text-postmodslots    ((:seq has-part result-of raw-material-of)))
+       (text-postmodslots    (NIL))
+       
+       (text-gen ((make-phrase (the text-phrase of Self))))
+       (text-description ((the text-gen of Self)))
+
+       (text-def-head    ((:seq (the text-def-determiner of (the first of (the has-basic-structural-unit of Self)))
+                                (the text-head of Self)))
+       )
+
+       (text-head        ((if (has-value (the has-chemical-name of (the has-basic-structural-unit of Self)))
+                           then (the text-head of
+                                     (the first of (the has-basic-structural-unit of Self)))
+                           else Self))
+       )
+
+       (text-base-phrase ((if (has-value (the has-chemical-name of (the has-basic-structural-unit of Self)))
+                           then (the text-base-phrase of
+                                     (the first of (the has-basic-structural-unit of Self)))
+                           else (the text-def-head of Self)))
+       )
+
+       (text-phrase ((if (has-value (the has-chemical-name of (the has-basic-structural-unit of Self)))
+;                      then (the text-phrase of (the has-basic-structural-unit of Self))
+                      then (the first of (the has-chemical-name of (the has-basic-structural-unit of Self)))
+                      else (the text-base-phrase of Self)
+                    ))
+       )
+
+       (text-definition-sentence (
+         (make-sentence (:seq (the text-indef-head of Self)
+                              "is"
+                              (andify ((forall (the superclasses of
+                                                    (the classes of
+                                                         (the has-basic-structural-unit of Self)))
+                                        where (not ((the all-superclasses of Chemical) includes It))
+                                        (the text-indef-head of (an instance of It))
+                                       )
+                                       or
+                                       "a chemical"
+                                      )
+                              )
+                        )
+       )))
+)
+
+(Non-Metal has (wn20-synset ((:set
+                                   (:triple "nonmetal" 1 "n")
+))))

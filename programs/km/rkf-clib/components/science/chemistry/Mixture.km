@@ -1,0 +1,28 @@
+
+;;
+;; $Id: Mixture.km,v 1.22 2003/02/13 19:55:51 kbarker Exp $
+;;
+
+(Mixture has (superclasses (Chemical)))
+
+(every Mixture has
+  (has-part (
+     (a Chemical with (has-basic-structural-unit ((a Chemical-Entity))))
+  ))
+)
+
+(every Mixture has
+  (text-phrase ((if (has-value
+                         (the text-phrase of
+                              (the has-basic-structural-unit of 
+                                   (the has-part of Self))))
+                 then (:seq (andify (the text-phrase of
+                                         (the has-basic-structural-unit of 
+                                              (the has-part of Self))))
+                            Self
+                      )
+                 else (the text-base-phrase of Self)
+               ))
+  )
+)
+

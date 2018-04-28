@@ -1,0 +1,35 @@
+<!--- $Id: Sell.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<kml>
+<concept name=Sell>
+<superconcept name=Relinquish>
+<component tag=Sell>
+  <definition>Sell is a Transfer in which the donor is the agent. A sum of money is exchanged.</definition>
+  <comment> Note that an instance of Sell doesn't imply that there is an instance of Buy. Each "sales transaction" is either one or the other, depending on the point of view. We don't have two instances.</comment>
+
+
+<requiredslotlist>
+	<slotdescription name=recipient>the one who received the object Relinquished</slotdescription>
+</requiredslotlist>
+
+<primaryslotlist>
+	<slotdescription name=instrument>the sum of money used in the transaction</slotdescription>
+</primaryslotlist>
+
+<examplesentencelist>
+  <examplesentence>
+    <text>I sold Jim by bike for $200.</text>
+  	<comment> This is represented as a Sell with the following properties:
+        <slotdescription name=agent>Me</slotdescription>
+	<slotdescription name=recipient>Jim</slotdescription>
+	<slotdescription name=instrument>$200</slotdescription>
+	</comment>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+	<neighbor name=Buy>
+		Buy is an Obtain in which the recipient is the agent. A sum of money is exchanged.
+	</neighbor>
+</neighborlist>
+
+</kml>

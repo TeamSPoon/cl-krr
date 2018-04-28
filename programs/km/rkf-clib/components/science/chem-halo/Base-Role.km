@@ -1,0 +1,68 @@
+;; 
+;;    $Id: Base-Role.km,v 1.6 2008/08/28 03:26:55 tecuci Exp $
+;; 
+
+(Base-Role has (superclasses (Role)))
+
+(every Base-Role has
+  ;;
+  ;; Like ka, kb is also the property of a Hydrolysis reaction. However, b/c 
+  ;; of the unique nature of hydrolysis, in that it only has one compound for
+  ;; the raw-material of the reaction, kb can also be viewed as the property 
+  ;; of the compound. The following allows kb to refer to both the compound
+  ;; and the hydrolysis.
+  ;;
+  (kb (
+    (if ((the played-by of Self)
+         and
+	 (the raw-material-of of (the played-by of Self))
+	 and
+         (oneof (the raw-material-of of (the played-by of Self)) 
+		where (It isa Hydrolysis))
+         and
+         (the kb of (the raw-material-of of (the played-by of Self))))
+        then
+      (the kb of (the raw-material-of of (the played-by of Self))))))
+
+  ;; compute the conjugate Acid/Base
+  
+
+  ;; Law 47 - det ka from kb of conj base
+  
+  
+  (pkb (
+    (if ((the played-by of Self)
+         and
+	 (the raw-material-of of (the played-by of Self))
+	 and
+         (oneof (the raw-material-of of (the played-by of Self)) 
+		where (It isa Hydrolysis))
+         and
+         (the pkb of (the raw-material-of of (the played-by of Self))))
+        then
+      (the pkb of (the raw-material-of of (the played-by of Self))))))
+    
+  (kb-expression (
+		  (if ((has-value (the played-by of Self))
+		       and
+		       (oneof (the raw-material-of of (the played-by of Self)) 
+			      where (It isa Hydrolysis))
+		       and
+		       (the kb-expression of (the raw-material-of of (the played-by of Self))))
+		      then
+		    (the kb-expression of
+			 (the raw-material-of of
+			      (the played-by of Self)))
+		    else
+		    (a Equilibrium-Constant-Expression))))
+  )
+
+#|(Base-Role has
+	   (test-case (' (
+			  ((the1 of
+				 (the value of 
+				      (the default-kb of ((a Base-Role with 
+							     (played-by ((a NO2-Minus-Substance))))))))
+			   = 2.22e-11 +/- 1.0e-12)
+			  ))))
+			  |#

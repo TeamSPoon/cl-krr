@@ -1,0 +1,29 @@
+<!--- $Id: Propel.doc.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Propel>
+<superconcept name=Move>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Propel>
+  <definition>move something toward a target</definition>
+  <requiredslot name=object>
+    <inherited-from name=Move>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=destination>
+    <restriction>a Spatial-Entity</restriction>
+    <restriction><slot>plays</slot> a Target Role</restriction>
+  </requiredslot>
+  <wnsynsets><verb>propel#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>impel#1
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

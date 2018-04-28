@@ -1,0 +1,88 @@
+<!--- $Id: Admit.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Admit><system-documentation name=Admit>
+<superconcept name=Unobstruct>
+
+<definition>
+
+  Allow some thing to move into a container.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=base>
+     The container that the object is admitted into.
+  </slotdescription>
+  <slotdescription name=object>
+     Some tangible entity that is located outside base.
+     Before the object is admitted to the container, it is
+     assumed to be in a state of <conceptref name=Be-Shut-Out>
+     of that container.  Afterwards it's no longer in that state.
+     
+     Note that Admit does not cause the object to move into the
+     container; it only permits <conceptref name=Move-Into> to occur.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes this action
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) used to admit the object
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that admits the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John was admitted to the secret chamber by saying the magic
+          words.</text>
+    <slotdescription name=base>the secret chamber</slotdescription>
+    <slotdescription name=object>John</slotdescription>
+    <slotdescription name=by-means-of>saying the magic words</slotdescription>
+  </examplesentence>
+  <comment>
+      Note that the secret chamber is being viewed as a container here.
+      Also, note that it's assumed that John was shut-out of the
+      secret chamber before he was admitted.
+  </comment>
+
+  <examplesentence>
+    <text>The cell admits some foreign particles by osmosis.</text>
+    <slotdescription name=base>the cell</slotdescription>
+    <slotdescription name=object>some foreign particles</slotdescription>
+    <slotdescription name=by-means-of>osmosis</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Unobstruct> 
+     Unobstruct is more general than Admit.  
+     Unobstruct allows some object to move more freely, whereas
+     Admit (more specifically) allows an object into a container.
+  </neighbor>
+
+  <neighbor name=Move-Into>
+     Admit <i>allows</i> an object to move into a container, whereas 
+     Move-Into is the act of actually doing it.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

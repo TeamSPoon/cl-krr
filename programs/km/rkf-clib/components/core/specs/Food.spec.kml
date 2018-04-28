@@ -1,0 +1,43 @@
+<!--- $Id: Food.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+<concept name=Food>
+<system-documentation name=Food>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Role>
+
+  <definition>
+    Food is the <conceptref name=Role> played by an entity which is the 
+    <slot>object</slot> of a <conceptref name=Feed>'ing event. 
+  </definition>
+
+<requiredslotlist>
+
+   <slotdescription name=played-by>
+     the entity that's playing the role of food
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Feed>'ing event in which the entity is eaten
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>A bird ate the locust.</text>
+     <comment>
+     In this example, the Food role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Feed> with
+         <slot>agent</slot>=bird</slotdescription>
+     <slotdescription name=played-by>the locust</slotdescription>
+     </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+

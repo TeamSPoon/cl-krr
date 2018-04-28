@@ -1,0 +1,12 @@
+;;
+;;    $Id: Film-Printer.km,v 1.4 2005/05/23 18:52:00 kbarker Exp $
+;;
+
+(Film-Printer has 
+  (superclasses (Printer))
+)
+
+(Film-Printer has
+  (feature-slot ((the feature-slot of Printer)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) where ((the domain of It) = Film-Printer)))))
+

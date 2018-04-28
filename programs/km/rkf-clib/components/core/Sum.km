@@ -1,0 +1,39 @@
+;; 
+;;    $Id: Sum.km,v 1.2 2008/08/26 15:03:54 kbarker Exp $ 
+;; 
+
+(Sum has (superclasses (Arithmetic-Method)))
+
+(every Sum has
+  (output ((the property-sum of (the input of Self)))))
+
+(every Sum has
+  (text-premods  ((:seq "the sum of"
+                        (andify (the text-phrase of (the input of Self)))
+  )))
+)
+
+
+(Sum has (wn20-synset ((:set
+			(:triple "sum" 2 "n")
+			(:triple "sum" 3 "n")
+			(:triple "amount" 4 "n")
+			(:triple "summation" 3 "n")
+			(:triple "sum_total" 1 "n")
+			(:triple "sum" 5 "n")
+			(:triple "total" 1 "n")
+			(:triple "totality" 3 "n")
+			(:triple "aggregate" 2 "n")
+
+			(:triple "total" 2 "v")
+			(:triple "tot" 1 "v")
+			(:triple "tot_up" 1 "v")
+			(:triple "sum" 2 "v")
+			(:triple "sum_up" 3 "v")
+			(:triple "summate" 1 "v")
+			(:triple "tote_up" 1 "v")
+			(:triple "add" 5 "v")
+			(:triple "add_together" 1 "v")
+			(:triple "tally" 4 "v")
+			(:triple "add_up" 2 "v")
+))))

@@ -1,0 +1,16 @@
+;;
+;; $Id: Out-Basket.km,v 1.3 2005/04/14 17:50:15 jchaw Exp $
+;;
+(Out-Basket has (superclasses (Artifact)))
+
+(every Out-Basket has
+       (purpose ((a Container with
+		    (content ((a Message)))
+		    (in-event ((must-be-a Be-Contained)))
+		    (played-by (Self)))))
+       )
+
+(Out-Basket has (wn20-synset ((:set
+		       (:triple "out-basket" 1 "n")
+		       (:triple "out-tray" 1 "n")
+))))

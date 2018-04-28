@@ -1,0 +1,15 @@
+;;
+;; $Id: Os.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Os has (superclasses (Metal-Atom VIIIB-Element)))
+(every Os has
+       (atomic-symbol (Os))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 76 NIL))))))
+       (chemical-period (6)))
+
+(every Os has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("osmium"))
+)

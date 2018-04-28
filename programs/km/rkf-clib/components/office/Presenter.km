@@ -1,0 +1,11 @@
+;; $Id: Presenter.km,v 1.1 2005/01/12 19:59:02 kbarker Exp $
+
+(Presenter has 
+  (superclasses (Participant))
+  (description ("a role played by the agent Participant in a Presentation"))
+)
+
+(every Presenter has
+  (in-event ((a Presentation with (agent ((the played-by of Self))))))
+)
+

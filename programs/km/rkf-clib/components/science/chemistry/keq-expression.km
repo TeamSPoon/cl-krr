@@ -1,0 +1,17 @@
+
+;; 
+;;    $Id: keq-expression.km,v 1.2 2005/07/19 20:51:02 tecuci Exp $ 
+;; 
+
+(keq-expression has
+  (instance-of    	  (EventProperty))
+  (superslots     	  ())
+  (subslots       	  ())
+  (domain         	  (Equilibrium-Reaction))
+  (range          	  (Equilibrium-Constant-Expression))
+  (fluent-status  	  (*Inertial-Fluent))
+  (cardinality    	  (N-to-1))
+  (inherit-with-overrides (t))
+  (inverse		  (keq-expression-of)))
+
+

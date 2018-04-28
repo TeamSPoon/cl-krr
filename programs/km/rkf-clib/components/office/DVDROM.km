@@ -1,0 +1,13 @@
+;;
+;; $Id: DVDROM.km,v 1.2 2004/01/23 19:23:39 kbarker Exp $
+;;
+
+(DVDROM has 
+  (superclasses (DVD))
+  (feature-slot ((the feature-slot of DVD)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = DVDROM))
+  ))
+)
+
+

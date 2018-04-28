@@ -1,0 +1,24 @@
+;; 
+;; $Id: Select.km,v 1.4 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Select has
+  (superclasses (Action))
+  (description ("choose one item from a list"))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+;; stubby selection right now ("oneof where t")
+
+(every Select has
+  (base ((a Entity)))
+  (object ((oneof (the base of Self) where t)))
+)
+
+(Select has (wn20-synset ((:set
+	   		  (:triple "choose" 1 "v")
+			  (:triple "take" 10 "v")
+			  (:triple "select" 1 "v")
+			  (:triple "pick_out" 1 "v")
+))))
+(every Select has (text-nominalization ("selection")))

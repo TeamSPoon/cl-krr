@@ -1,0 +1,74 @@
+<!-- $Id: Mark.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ -->
+<kml>
+
+<concept name=Mark><system-documentation name=Mark>
+<superconcept name=Embody>
+<superconcept name=Produce>
+
+<definition>
+
+The act of embodying a message in the form of a printed ink, a
+physical mark or sketch, etc.  This includes any action in which an
+object playing the role of writing implement (pen, pencil, printer,
+magic marker, spray paint can, finger dipped in paint, etc) writes,
+sketches, scribbles or sprays some kind of physical mark, set of
+markings, or written text.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+
+The <conceptref name=Message> being embodied in ink, paint, etc.
+
+  </slotdescription>
+
+  <slotdescription name=result>
+
+The <conceptref name=Tangible-Entity> (ink, paint, etc.) that is left
+on the page, whiteboard. 
+
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Fred sketched the project schedule ghantt chart using ink on paper.</text>
+    <slotdescription name=agent>Fred</slotdescription>
+    <slotdescription name=object>scheduling information encoded in ghantt chart symbols</slotdescription>
+    <slotdescription name=result>a set of trails of ink markings laid out on paper</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+<neighbor name=Print>
+
+<conceptref name=Print> is a more specific type of 
+<conceptref name=Mark> in which the result is, by definition, a 
+<conceptref name=Physical-Document>.  With <conceptref name=Mark>, a 
+<conceptref name=Physical-Document> *may* be the result, or it may be something
+less document-like (e.g. spray paint on a subway car).
+
+</neighbor>
+
+<neighbor name=Write>
+
+The object of (or input to) a <conceptref name=Write> is an instance
+of <conceptref name=Information> whereas the object of a <conceptref
+name=Mark> is a <conceptref name=Message>.  Also, a <conceptref
+name=Write> results in an intangible <conceptref name=Message>,
+specifically a <conceptref name=Document> whereas <conceptref
+name=Mark> results in a <conceptref name=Physical-Mark>.
+
+</neighbor>
+
+
+</neighborlist>
+
+</kml>
+

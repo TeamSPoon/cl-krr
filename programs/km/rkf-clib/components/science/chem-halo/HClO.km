@@ -1,0 +1,14 @@
+;; $Id: HClO.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HClO has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HClO has
+	(has-chemical-name ("hypochlorous acid"))
+	(has-part ((a H-Plus)(a ClO-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 ClO-Minus)))))))
+)
+(every HClO has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a ClO-Minus))))
+

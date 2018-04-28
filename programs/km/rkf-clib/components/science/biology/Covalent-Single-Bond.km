@@ -1,0 +1,36 @@
+;; 
+;;    $Id: Covalent-Single-Bond.km,v 1.7 2001/11/17 06:50:18 jarred Exp $ 
+;; 
+
+(Covalent-Single-Bond has
+         (superclasses (Covalent-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A stable chemical link between two atoms produced by
+                        sharing a pair of electrons. cf Alberts:ECB:G-5"))
+         (test-case ()))
+
+(every Covalent-Single-Bond has 
+        (purpose ((a Connector with
+                        (in-event ((a Be-Attached-To with
+                                      (object ((a Atom)
+                                               (a Atom)
+                                               (exactly 2 Atom)))
+                                      )))
+                        )))     
+       (intensity ((a Intensity-Value with 
+		(value ((:pair 90 *kilocalorie/mole))))))
+       (length  ((a Length-Value with 
+		(value ((:pair .15 *nanometer)))))) 
+       )
+
+
+
+
+
+
+
+
+

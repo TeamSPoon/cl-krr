@@ -1,0 +1,58 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Prophase ----------
+
+(Prophase has (superclasses (Grow)))
+
+(_Prophase483 has 
+  (instance-of (Prophase))
+  (prototype-of (Prophase))
+  (prototype-scope (Prophase))
+  (prototype-participants (_Come-Together490
+                           _Come-Together489
+                           _Prophase483))
+  (prototype-participant-of (_Prophase483))
+  (has-clones (_Placeholder-Class482484))
+  (has-built-clones (_Placeholder-Class482484))
+  (subevent (_Come-Together490
+             _Come-Together489))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-coordinate ((:seq subevent _Come-Together489 239 590)
+                    (:seq subevent _Come-Together490 239 590)))
+  (edge-visibility ((:seq subevent _Come-Together489 t)
+                    (:seq subevent _Come-Together490 t)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Come-Together490 has 
+  (instance-of (Come-Together))
+  (has-clones (_Come-Together487))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (subevent-of (_Prophase483))
+  (node-coordinate ((:pair 422 555)))
+  (prototype-participant-of (_Prophase483)))
+
+(_Come-Together489 has 
+  (instance-of (Come-Together))
+  (has-clones (_Come-Together488))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (subevent-of (_Prophase483))
+  (node-coordinate ((:pair 433 633)))
+  (prototype-participant-of (_Prophase483)))
+
+(explanation (:triple _Prophase483 subevent _Come-Together490) ((added-at Prophase "User defined")))
+(explanation (:triple _Prophase483 subevent _Come-Together489) ((added-at Prophase "User defined")))
+(explanation (:triple _Come-Together490 instance-of Come-Together) ((added-at Prophase "User defined")))
+(explanation (:triple _Come-Together490 instance-of Event) ((added-at Prophase "User defined")))
+(explanation (:triple _Come-Together490 instance-of Event) ((a Event (@ _Prophase483 Event (subevent must-be-a)))))
+(explanation (:triple _Come-Together489 instance-of Come-Together) ((added-at Prophase "User defined")))
+(explanation (:triple _Come-Together489 instance-of Event) ((added-at Prophase "User defined")))
+(explanation (:triple _Come-Together489 instance-of Event) ((a Event (@ _Prophase483 Event (subevent must-be-a)))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

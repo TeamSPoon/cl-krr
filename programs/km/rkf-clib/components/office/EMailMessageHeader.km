@@ -1,0 +1,25 @@
+;;    $Id: EMailMessageHeader.km,v 1.9 2005/02/22 21:18:23 jchaw Exp $
+
+(EMailMessageHeader has
+	       (superclasses (MessageHeader))
+	       (required-slot ())
+	       (primary-slot ())
+	       (secondary-slot ())
+	       (cmap-correspondence ())
+	       (test-case ()))
+
+(every EMailMessageHeader has
+       (hasMailer ((a String)))
+       (hasMIMEType ((a Thing))) ; FIXME! MIMEType is not available yet.
+       (hasMIMEVersion ((a String)))
+       (hasXSpamStatusBoolean ((a Boolean)))
+       (hasXSpamStatusString ((a String))))
+
+(hasMailer has  (instance-of (Interface-Slot)) (domain (EMailMessageHeader)) (range (String)) (cardinality (N-to-1)))
+
+(hasXSpamStatusBoolean has  (instance-of (Interface-Slot)) (domain (EMailMessageHeader)) (range (Boolean)) (cardinality (N-to-1)))
+
+(hasXSpamStatusString has  (instance-of (Interface-Slot)) (domain (EMailMessageHeader)) (range (String)) (cardinality (N-to-1)))
+
+(hasXCaloTestId has  (instance-of (Interface-Slot)) (domain (EMailMessageHeader)) (range (String)) (cardinality (1-to-1)))
+

@@ -1,0 +1,33 @@
+
+;;
+;; $Id: Muscle.km,v 1.2 2006/06/27 20:50:52 kbarker Exp $
+;;
+
+(Muscle has (superclasses (Tissue)))
+(every Muscle has
+       (is-part-of ((a Multicellular-Organism)))
+       (instrument-of ((a Contract with 
+			  (causes ((a Exert-Force with 
+				      (instrument ((Self)))
+				      (object ((a Suborganismal-Entity with 
+						  (is-part-of 
+						   ((the Multicellular-Organism
+							 is-part-of of Self)))
+						  )))))))
+		       (a Expand with 
+			  (causes ((a Exert-Force with 
+				      (instrument ((Self)))
+				      (object ((a Suborganismal-Entity with 
+						  (is-part-of 
+						   ((the Multicellular-Organism
+							 is-part-of of Self)))
+						  )))))))))
+)
+
+(Muscle has (wn20-synset ((:set 
+                                  (:triple "muscle" 1 "n")
+                                  (:triple "musculus" 1 "n")
+                                  (:triple "muscle" 2 "n")
+                                  (:triple "muscular_tissue" 1 "n")
+))))
+

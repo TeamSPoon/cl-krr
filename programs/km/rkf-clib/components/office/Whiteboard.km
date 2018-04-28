@@ -1,0 +1,11 @@
+;;
+;;    $Id: Whiteboard.km,v 1.1 2003/09/03 04:49:37 pzyeh Exp $
+;;
+(Whiteboard has (superclasses (Artifact)))
+
+(every Whiteboard has 
+       (purpose ((a Medium with
+       		    (in-event  ((must-be-a Express)))
+       		    (played-by (Self))
+       )))
+)

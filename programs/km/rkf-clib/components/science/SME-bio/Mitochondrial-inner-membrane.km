@@ -1,0 +1,84 @@
+
+;;; ---------- Definition of prototype for Mitochondrion-inner-membrane ----------
+
+(Mitochondrion-inner-membrane has (superclasses (Membrane-Enclosure)))
+
+(_Mitochondrion-inner-membrane579 has 
+  (instance-of (Mitochondrion-inner-membrane))
+  (prototype-of (Mitochondrion-inner-membrane))
+  (prototype-scope (Mitochondrion-inner-membrane))
+  (prototype-participants (_Property-Node596
+                           _Texture-Value595
+                           _Living-Entity594
+                           _Mitochondrion-matrix593
+                           _Mitochondrion-inner-membrane579))
+  (prototype-participant-of (_Mitochondrion-inner-membrane579))
+  (has-clones (_Placeholder-Class578580))
+  (has-built-clones (_Placeholder-Class578580))
+  (big-nodes (_Property-Node596))
+  (texture (_Texture-Value595))
+  (is-part-of (_Living-Entity594))
+  (encloses (_Mitochondrion-matrix593))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq shape _Shape-Value587 205 542)
+                    (:seq texture _Texture-Value595 196 532)
+                    (:seq encloses _Mitochondrion-matrix593 273 613)))
+  (edge-visibility ((:seq shape _Shape-Value587 t)
+                    (:seq texture _Texture-Value595 t)
+                    (:seq encloses _Mitochondrion-matrix593 t)))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Property-Node596 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node592))
+  (node-visibility (t))
+  (contains-node (_Texture-Value595))
+  (big-node-of (_Mitochondrion-inner-membrane579))
+  (contains-edge ((:triple _Texture-Value595 value *rough)))
+  (prototype-participant-of (_Mitochondrion-inner-membrane579)))
+
+(_Texture-Value595 has 
+  (contains-node-of (_Property-Node596))
+  (instance-of (Texture-Value))
+  (texture-of (_Mitochondrion-inner-membrane579))
+  (internally-expanded (t))
+  (value (*rough))
+  (node-coordinate ((:pair 342 463)))
+  (node-visibility (t))
+  (prototype-participant-of (_Mitochondrion-inner-membrane579)))
+
+(_Living-Entity594 has 
+  (instance-of (Living-Entity))
+  (has-clones (_Living-Entity582))
+  (has-part (_Mitochondrion-inner-membrane579))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq has-part _Mitochondrion-inner-membrane579 -100 607)))
+  (edge-visibility ((:seq has-part _Mitochondrion-inner-membrane579 f)))
+  (node-coordinate ((:pair -250 607)))
+  (prototype-participant-of (_Mitochondrion-inner-membrane579)))
+
+(_Mitochondrion-matrix593 has 
+  (instance-of (Mitochondrion-matrix
+                Physical-Object))
+  (has-clones (_Mitochondrion-matrix586))
+  (internally-expanded (f))
+  (is-inside (_Mitochondrion-inner-membrane579))
+  (node-coordinate ((:pair 423 607)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq is-inside _Mitochondrion-inner-membrane579 473 612)))
+  (edge-visibility ((:seq is-inside _Mitochondrion-inner-membrane579 f)))
+  (prototype-participant-of (_Mitochondrion-inner-membrane579)))
+
+(explanation (:triple _Mitochondrion-inner-membrane579 encloses _Mitochondrion-matrix593) ((a Physical-Object (@ _Mitochondrion-inner-membrane579 Membrane-Enclosure encloses))))
+(explanation (:triple _Mitochondrion-inner-membrane579 is-part-of _Living-Entity594) ((a Living-Entity (@ _Mitochondrion-inner-membrane579 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Mitochondrion-inner-membrane579 shape _Shape-Value587) ((added-at Mitochondrion-inner-membrane "User defined")))
+(explanation (:triple _Mitochondrion-inner-membrane579 texture _Texture-Value595) ((added-at Mitochondrion-inner-membrane "User defined")))
+(explanation (:triple _Texture-Value595 instance-of Texture-Value) ((added-at Mitochondrion-inner-membrane "User defined")))
+(explanation (:triple _Living-Entity594 instance-of Living-Entity) ((a Living-Entity (@ _Mitochondrion-inner-membrane579 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Mitochondrion-matrix593 instance-of Mitochondrion-matrix) ((added-at Mitochondrion-inner-membrane "User defined")))
+(explanation (:triple _Mitochondrion-matrix593 instance-of Physical-Object) ((a Physical-Object (@ _Mitochondrion-inner-membrane579 Membrane-Enclosure encloses))))
+
+;;; ---------- end of prototype definition ----------
+
+(Mitochondrion-inner-membrane now-has (user-description ("A highly folded membrane inside mitochondria. The components of the electron transport chain are embedded in this membrane.")))

@@ -1,0 +1,17 @@
+;;
+;; $Id: CuCl2.km,v 1.1 2007/11/09 23:41:26 mrglass Exp $
+;;
+
+(CuCl2 has (superclasses (Ionic-Compound)))
+
+(every CuCl2 has
+  (has-part ((a Cu-Plus-2) (a Cl-Minus)))
+  (nested-atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 1 Cu) (:pair 2 Cl)))))))
+  (atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 1 Cu) (:pair 2 Cl)))))))
+  (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Cu-Plus-2) (:pair 2 Cl-Minus)))))))
+  )
+

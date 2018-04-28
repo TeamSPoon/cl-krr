@@ -1,0 +1,22 @@
+;;
+;;    $Id: VariableCost.km,v 1.4 2004/11/05 19:55:24 tecuci Exp $
+;;
+ 
+(VariableCost has
+	      (superclasses        (Cost))
+	      (required-slot       ())
+	      (primary-slot        ()))
+
+;;(every VariableCost has
+;;      (standardRate ((exactly 1 Cost-Rate-Value)))
+;;      (overtimeRate ((exactly 1 Cost-Rate-Value)))
+;;       )
+
+
+(standardRate has (instance-of (Interface-Slot)) (domain (VariableCost)) (range (Cost-Rate-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+
+(overtimeRate has (instance-of (Interface-Slot)) (domain (VariableCost)) (range (Cost-Rate-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+
+   
+
+

@@ -1,0 +1,26 @@
+;;
+;; $Id: displacement.km,v 1.4 2008/06/03 21:54:20 jchaw Exp $
+;;
+
+(displacement has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Move))    
+   (range       (Displacement-Vector-Value))
+   ;(scale-class (Distance-Scale))
+   ;(scalar-constant-class (Distance-Constant))
+   ;(cardinal-unit-class   (UoM-Length))
+   (inverse 	(displacement-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(displacement has (wn20-synset ((:set
+;                               (:triple "distance" 1 "n")
+                               (:triple "displacement" 3 "n")
+;                               (:triple "translation" 7 "n")
+))))
+
+(displacement-of has
+	(instance-of (EventProperty)))

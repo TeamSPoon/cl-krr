@@ -1,0 +1,45 @@
+<!--- $Id: Heat.spec.kml,v 1.2 2008/07/21 03:08:01 tecuci Exp $ --->
+<kml>
+
+<concept name=Heat><system-documentation name=Heat>
+<superconcept name=Increase>
+
+<definition>
+
+  An <conceptref name=Increase> in <slot>temperature</slot>
+
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=from-value>
+    the initial value of the <slot>temperature</slot> before the heating
+  </slotdescription>
+
+  <slotdescription name=to-value>
+    the final value of the <slot>temperature</slot> after the heating
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Hans heated the coffee to a boil.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=base>the coffee</slotdescription>
+    <slotdescription name=to-value>boiling (with respect to water)</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+<neighborlist>
+
+  <neighbor name=Cool>
+     To opposite of <conceptref name=Heat>
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

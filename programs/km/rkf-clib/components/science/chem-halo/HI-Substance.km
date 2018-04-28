@@ -1,0 +1,11 @@
+;; 
+;;    $Id: HI-Substance.km,v 1.9 2008/11/03 03:11:26 tecuci Exp $
+;; 
+
+(HI-Substance has (superclasses (Bronsted-Lowry-Acid)))
+
+(every HI-Substance has
+       (has-basic-structural-unit ((a HI))))
+(every HI-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a HI))))

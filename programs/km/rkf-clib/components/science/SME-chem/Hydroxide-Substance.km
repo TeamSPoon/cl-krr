@@ -1,0 +1,46 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Hydroxide-Substance8764
+
+
+|#
+
+(disable-classification)
+
+(Hydroxide-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every Hydroxide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Hydroxide-Substance1285 has
+  (prototype-of (Hydroxide-Substance Ionic-Compound-Substance))
+  (prototype-scope (Hydroxide-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a OH-Minus)))))))))
+  (prototype-participants (_OH-Minus1291 _Chemical-Entity1287 _Hydroxide-Substance1285)))
+
+(_Hydroxide-Substance1285 has (instance-of (Hydroxide-Substance)) (has-basic-structural-unit (_Chemical-Entity1287)))
+
+(_Chemical-Entity1287 has (instance-of (Ionic-Compound)) (has-part (_OH-Minus1291)))
+
+(_OH-Minus1291 has (instance-of (OH-Minus)))
+
+(enable-classification)
+
+(explanation (:triple _Hydroxide-Substance1285 has-basic-structural-unit _Chemical-Entity1287) (((@ SME entered)) (every Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Hydroxide-Substance1285 instance-of Hydroxide-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity1287 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _OH-Minus1291 instance-of OH-Minus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

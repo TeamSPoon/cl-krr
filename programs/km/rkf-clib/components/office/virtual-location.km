@@ -1,0 +1,21 @@
+;; 
+;;    $Id: virtual-location.km,v 1.1 2005/08/25 18:19:07 billj Exp $ 
+;; 
+
+(virtual-location has
+		  (instance-of (Spatial-Relation))
+		  (superslots ())
+		  (subslots ())
+		  ;; in order to accomodate Intangible-Entities as well as Services
+		  (domain (Thing)) 
+		  (range (Virtual-Place))
+		  (inverse (virtual-location-of))
+		  (cardinality (N-to-1))
+		  (fluent-status (*Inertial-Fluent)))
+
+(virtual-location-of has
+	     (combine-values-by-appending (t)))
+
+
+
+

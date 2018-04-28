@@ -1,0 +1,15 @@
+;; 
+;;  $Id: Conductivity-Value.km,v 1.4 2007/05/21 04:43:14 mrglass Exp $
+;; 
+
+(Conductivity-Value has 
+		(superclasses (Property-Value)))
+
+(every Conductivity-Value has
+  (property-slot (conductivity))
+       (conductivity-of ((must-be-a Chemical)))
+       (less-than ((must-be-a Conductivity-Value)))
+       (greater-than ((must-be-a Conductivity-Value)))
+       (same-as ((must-be-a Conductivity-Value)))
+)
+(Conductivity-Value has (description ("A measure of the resistance of water to electrical flow; this resistance is a direct measure of the salinity of water, and it can be measured accurately with a conductivity sensor.")))

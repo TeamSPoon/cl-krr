@@ -1,0 +1,17 @@
+;; $Id: HC4H4O6-Minus-Substance.km,v 1.3 2003/02/23 05:58:05 tecuci Exp $ 
+(HC4H4O6-Minus-Substance has (superclasses (Anion-Substance)))
+(every HC4H4O6-Minus-Substance has
+	(plays (((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 4.6e-5 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid))))))))
+	       ((a Base-Role with		
+		   (default-kb ((a Equilibrium-Constant-Value with
+				   (value ((:pair 1.0e-11 nil))))))
+		   (intensity ((a Intensity-Value with
+				  (value ((:pair *weak Base))))))))
+	))
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a HC4H4O6-Minus)))
+)

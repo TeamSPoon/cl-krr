@@ -1,0 +1,29 @@
+<!--- $Id: BuildingComplex.spec.kml,v 1.1 2004/09/09 16:00:03 jfan Exp $ --->
+<kml>
+
+<concept name=BuildingComplex>
+<system-documentation name=BuildingComplex>
+<superconcept name=Structure>
+
+<definition>
+	  A BuildingComplex is a Structure that contains multiple room.
+</definition>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The house had only a bedroom and a living-room</text>
+	<comment>The house is described as a BuildingComplex having the properties:
+	<slotdescription name=has-part>bedroom, living-room</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Building>
+     a Structure that contains Persons, Tangible-Entities, Walls, a Roof, Floors, Rooms, Portals, Hallways and plays the Role of a Container.
+  </neighbor>
+
+</neighborlist>
+
+</kml>

@@ -1,0 +1,50 @@
+<!--- $Id: Lie.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<kml>
+
+<concept name=Lie>
+<system-documentation name=Lie>
+<superconcept name=Express>
+
+  <definition>
+        Expression of false information.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the false <conceptref name=Information> (i.e. information with a <conceptref name=Truth-Value> of false) that is expressed by the <slot>agent</slot> before
+       the Lie and known by the <slot>recipient</slot>(if specified) afterwards.
+  </slotdescription>
+
+  <slotdescription name=agent>
+        The <slot>agent</slot> expresses the false information in the <slot> object </slot>.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Mick lied to his brother when he said, "The sky is green".</text>
+    <slotdescription name=agent>Mick</slotdescription>
+    <slotdescription name=object>"the sky is green"</slotdescription>
+    <slotdescription name=recipient>Mick's brother</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Deceive>
+        Deceive is a special type of Lie in which a <slot>recipient</slot>
+        is mandatory and that the <slot>recipient</slot> Interprets the 
+	<slot> object </slot> of the Deceive.
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>

@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Chemical-Oxidation.km,v 1.4 2003/02/17 22:16:18 jfan Exp $ 
+;; 
+
+(Chemical-Oxidation has
+		    (superclasses (Lose)))
+
+(every Chemical-Oxidation has-definition
+       (instance-of (Lose [Chemical-Oxidation-instance-of-1]))
+       (donor ((a Atom)))
+       (object ((a Electron))))
+
+
+(every Chemical-Oxidation has
+       (object ((a Electron with
+		   (object-of ((a Chemical-Reduction)))))))
+
+(comment [Chemical-Oxidation-instance-of-1]
+  (:seq (the text-gen of (the donor of Self))
+        "loses electrons and is therefore oxidized"
+  )
+  "When an atom loses electrons it is said to be oxidized"
+)
+
+(Chemical-Oxidation 
+ has
+ (test-case ('(
+	       ((a Lose with (donor ((a Na))) (object ((a Electron))))
+		isa
+		Chemical-Oxidation)
+	       ))))

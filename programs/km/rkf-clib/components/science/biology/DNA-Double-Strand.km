@@ -1,0 +1,22 @@
+
+;; 
+;;    $Id: DNA-Double-Strand.km,v 1.2 2001/06/03 06:16:35 souther Exp $
+;; 
+
+(DNA-Double-Strand has
+         (superclasses (Nucleic-Acid-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("Two strands of DNA held together by hydrogen bonds.
+                        Examples: DNA double helix and replicon. Souther."))
+         (test-case ()))
+
+(every DNA-Double-Strand has
+     (has-part ((a DNA-Sequence)
+                (at-least 2 DNA-Sequence)))
+     )
+
+
+

@@ -1,0 +1,11 @@
+;; 
+;; $Id: Solute-Species-Entity.km,v 1.1 2005/09/01 15:53:34 jfan Exp $
+;; 
+
+(Solute-Species-Entity has 
+		(superclasses (Chemical-Entity)))
+
+(every Solute-Species-Entity has-definition
+       (instance-of (Chemical-Entity))
+       (solute-species-of ((a Solution))))
+

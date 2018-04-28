@@ -1,0 +1,95 @@
+<!--- $Id: Release.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Release><system-documentation name=Release>
+<superconcept name=Unobstruct>
+
+<definition>
+
+  Allow some thing to leave an enclosure or container.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     Some tangible entity.
+     Before this action, the object is
+     assumed to be confined by the container, i.e. it's in a state of
+     <conceptref name=Be-Confined>.
+     Afterwards it's no longer in that state.
+  </slotdescription>
+
+  <slotdescription name=base>
+     A container that's confining the object.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes the release
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) used to release the object
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that facilitates releasing the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John released Fido from the pen with wire cutters.</text>
+    <slotdescription name=base>the pen</slotdescription>
+    <slotdescription name=object>Fido</slotdescription>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=instrument>wire cutters</slotdescription>
+  </examplesentence>
+
+  <comment>
+    It's assumed that Fido was confined to the pen beforehand.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Detach> 
+     Detach removes an attachment between two objects, whereas
+     Release frees an object from
+     its confinement in a container.
+  </neighbor>
+
+  <neighbor name=Take-Apart> 
+     Take-Apart disassembles an object by removing all of its parts, whereas
+     Release frees an object from its confinement in a container.
+  </neighbor>
+
+  <neighbor name=Break-Contact> 
+     Break-Contact terminates the contact between two objects.
+  </neighbor>
+
+  <neighbor name=Unobstruct> 
+     Unobstruct is more general than Release.
+     Unobstruct allows some object to move more freely, whereas
+     Release (more specifically) frees an object from
+     its confinement in a container.
+  </neighbor>
+
+  <neighbor name=Move-Out-Of>
+     Release <i>allows</i> an object to move out of a container, whereas 
+     Move-Out-Of is the act of actually doing it.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,8 @@
+
+;; $Id: MessageBody.km,v 1.4 2004/12/21 23:37:04 billj Exp $
+
+(MessageBody has (superclasses (DataRecord)))
+
+(hasPlainTextContent has (instance-of (Interface-Slot)) (domain (MessageBody)) (range (String)) (cardinality (N-to-1)))
+(hasMarkedUpContent has (instance-of (Interface-Slot)) (domain (MessageBody)) (range (String)) (cardinality (N-to-1)))
+

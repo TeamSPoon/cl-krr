@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Calcium-Hydroxide-Substance9862
+
+
+|#
+
+(disable-classification)
+
+(Calcium-Hydroxide-Substance has (superclasses (Hydroxide-Substance)))
+
+(every Calcium-Hydroxide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Calcium-Hydroxide-Substance10615 has
+  (prototype-of (Calcium-Hydroxide-Substance Hydroxide-Substance))
+  (prototype-scope (Calcium-Hydroxide-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Ca-Plus-2) (a OH-Minus)))))))))
+  (prototype-participants (_Ca-Plus-10612 _OH-Minus10613 _Ionic-Compound10611 _Calcium-Hydroxide-Substance10615)))
+
+(_Ionic-Compound10611 has (instance-of (Ionic-Compound)) (has-part (_Ca-Plus-10612 _OH-Minus10613)))
+
+(_Ca-Plus-10612 has (instance-of (Ca-Plus-2)))
+
+(_OH-Minus10613 has (instance-of (OH-Minus)))
+
+(_Calcium-Hydroxide-Substance10615 has (instance-of (Calcium-Hydroxide-Substance)) (has-basic-structural-unit (_Ionic-Compound10611)))
+
+(enable-classification)
+
+(explanation (:triple _Calcium-Hydroxide-Substance10615 has-basic-structural-unit _Ionic-Compound10611) (((@ SME entered)) (every Calcium-Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Ionic-Compound10611 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Ca-Plus-10612 instance-of Ca-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _OH-Minus10613 instance-of OH-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Calcium-Hydroxide-Substance10615 instance-of Calcium-Hydroxide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Calcium-Hydroxide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

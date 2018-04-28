@@ -1,0 +1,51 @@
+<!--- $Id: Ionic-Compound.spec.kml,v 1.2 2005/12/01 15:59:31 jfan Exp $ --->
+
+<kml>
+<concept name=Ionic-Compound>
+
+<superconcept name=Chemical-Entity>
+
+  <definition>
+    A type of chemical composed of an ionic molecule, containing a
+    <conceptref name=Cation> and an <conceptref name=Anion>
+  </definition>
+
+<primaryslotlist>
+
+  <slotdescription name=has-basic-structural-unit>
+    the type of <conceptref name=Molecule>s which comprise this
+    Ionic-Compound.  Used to specify the type of <conceptref name=Anion>s
+    and <conceptref name=Cation>s in this Ionic-Compound
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+   <neighbor name=Salt>
+     An Ionic-Compound formed by replacing one or more 
+     <conceptref name=Hydrogen-Atom>s of an <conceptref name=Acid>
+     by other <conceptref name=Cation>s
+  </neighbor>
+
+   <neighbor name=Acid>
+     An Ionic-Compound that is able to donate a 
+     <conceptref name=Hydrogen-Ion> (a <conceptref name=Proton>)
+     and hence increases the <slot>concentration</slot> of 
+     <conceptref name=Hydrogen-Atom>s when it dissolves in water
+
+  </neighbor>
+
+   <neighbor name=Base>
+     An Ionic-Compound that is an <conceptref name=Hydrogen-Ion>
+     acceptor
+  </neighbor>
+
+   <neighbor name=Molecule>
+      A Chemical that consists of (non-ionic) molecules
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

@@ -1,0 +1,25 @@
+;;
+;;    $Id: CDROM-Drive.km,v 1.8 2005/04/25 02:46:45 gking Exp $
+;;
+
+(CDROM-Drive has 
+  (superclasses (CD-Drive))
+  (feature-slot ((allof (the feature-slot of CD-Drive)
+                  where (It /= hasWriteSpeed))
+  ))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = CDROM-Drive))
+  ))
+)
+
+
+(every CDROM-Drive has
+  (hasWriteSpeed ((exactly 0 Number)))    ;; block write
+)
+
+
+(CDROM-Drive has
+	     (wn20-synset ((:set
+			    (:triple "CD-ROM" 1 "n")
+			    (:triple "compact_disc_read-only_memory" 1 "n")
+))))

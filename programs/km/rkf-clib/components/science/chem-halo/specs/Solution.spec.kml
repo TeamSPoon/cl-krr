@@ -1,0 +1,37 @@
+<!--- $Id: Solution.spec.kml,v 1.1 2005/09/09 14:08:41 jfan Exp $ --->
+
+<kml>
+<concept name=Solution>
+
+<superconcept name=Mixture>
+
+  <definition>
+    A solution is a <conceptref name=Mixture> of chemicals that has a
+    uniform composition that is the result of a <conceptref name=Mix> 
+    action.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=base>
+     The chemicals that are involved in the mix action.
+   </slotdescription>
+   <slotdescription name=has-part>
+     The parts of the resulting solution.
+   </slotdescription>
+</requiredslotlist>
+
+<neighborlist>
+
+  <neighbor name=Mixture>
+     A Mixture is the chemical that is the result of a mix action.
+  </neighbor>
+
+  <neighbor name=Aqueous-Solution>
+     A solution in which water is the solvent.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

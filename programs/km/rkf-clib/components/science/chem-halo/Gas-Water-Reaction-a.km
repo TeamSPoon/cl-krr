@@ -1,0 +1,60 @@
+;; 
+;;    $Id: Gas-Water-Reaction-a.km,v 1.2 2006/04/05 19:54:16 tecuci Exp $ 
+;; 
+
+(Gas-Water-Reaction-a has (superclasses (Reaction)))
+
+
+(Gas-Water-Reaction-a has 
+		      (user-description ("A reaction between CO2 (gas) and water")))
+
+(every Gas-Water-Reaction-a has-definition
+       (instance-of (Reaction [Gas-Water-Reaction-a-instance-of-1]))
+       (raw-material (;; the raw material
+		      ;; has to be 
+		      ;; Water with CO2
+		      (a H2O-Substance)
+		       (a CO2-Substance))))
+
+(every Gas-Water-Reaction-a has
+       (result ((a Cation-Substance with
+		   (has-basic-structural-unit
+		    ((a H-Plus))))
+		(a Anion-Substance with
+		   (has-basic-structural-unit
+		    ((a HCO3-Minus)))
+		[Gas-Water-Reaction-a-result-1]
+                )
+		)))
+		   
+       
+(comment [Gas-Water-Reaction-a-instance-of-1]
+  "This is a reaction with CO2 (gas) and water"
+
+  "A gas-water reaction involves gaseous SO2 or CO2 reacting with water"
+)
+
+(comment [Gas-Water-Reaction-a-result-1]
+  (:seq "The result of the reaction is H2CO3, which dissociates into"
+	(andify (the text-gen of (the result of Self))))
+
+  "The reactants are CO2 (gas) and water"
+)
+
+(Gas-Water-Reaction-a 
+ has
+ (test-case ('(
+	       ((the number of
+		    (allof (the result of
+				(a Reaction with
+				   (raw-material ((a H2O-Substance)
+						  (a CO2-Substance)))))
+			   where
+			   ((It is '(a Cation-Substance with
+				       (has-basic-structural-unit
+					((a H-Plus)))))
+			    or
+			    (It is '(a Anion-Substance with
+				       (has-basic-structural-unit
+					((a HCO3-Minus))))))))
+	       = 2)))))

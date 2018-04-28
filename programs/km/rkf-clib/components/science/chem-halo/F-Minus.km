@@ -1,0 +1,20 @@
+;; $Id: F-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(F-Minus has (superclasses (Anion)))
+(every F-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("fluoride"))
+	(has-acid-name ("hydrofluoric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 F)))))))
+        (is-ion-of ((a F)))
+)
+
+(every F-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("fluoride"))
+)
+
+
+(F-Minus has (wn20-synset ((:triple "F-" 0 "n"))))

@@ -1,0 +1,37 @@
+<!--- $Id: Teach.doc.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Teach>
+<superconcept name=Inform>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Teach>
+  <definition>Causes <conceptref name=Information> to be transferred from an <slot>agent</slot> to a <slot>recipient</slot> who doesn't know the information before.
+  </definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Inform>
+    <restriction><slot>object</slot> is the <conceptref name=Information> transferred. It must be known by the <slot>agent</slot>
+    </restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+    <inheritedfrom name=Inform>
+    <restriction><slot>agent</slot> must know the <slot>object</slot>. Must have <slot>plays</slot> a <conceptref name=Teacher>
+    </restriction>
+  </requiredslot>
+  <requiredslot name=recipient>
+    <inheritedfrom name=Inform>
+    <restriction><slot>recipient</slot> must not know the <slot>object</slot> before. Must have <slot>plays</slot> a <conceptref name=Pupil>
+    </restriction>
+  </requiredslot>
+
+  <wnsynsets><verb>teach#1
+  </verb></wnsynsets>
+  <wnsynsets><verb>learn#5, instruct#1 
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

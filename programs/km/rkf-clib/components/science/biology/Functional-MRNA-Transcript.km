@@ -1,0 +1,55 @@
+;; 
+;;    $Id: Functional-MRNA-Transcript.km,v 1.22 2002/06/21 19:17:00 tecuci Exp $ 
+;; 
+
+(Functional-MRNA-Transcript has
+	  (superclasses (Functional-RNA-Transcript Eucaryotic-MRNA))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("The RNA transcript after all the post-transcription
+                         processing has been completed, which includes RNA
+                         capping, polyadenylation, and splicing. Souther. "))  
+	  (cmap-correspondence ())
+	  (test-case ()))
+
+
+(every Functional-MRNA-Transcript has
+  (has-part 
+    ((a Nucleotide called "First Ribonucleotide")
+     (a 7-Methyl-Guanosine with
+	(object-of 
+	 ((a Be-Attached-To with
+	     (object (((the Nucleotide has-part of Self) called "First Ribonucleotide")))
+	     (site
+	      (((the Carbon-Atom has-part of
+		     (the Ribose has-part of
+			  (the 7-Methyl-Guanosine has-part of Self)))
+		called "Carbon-5")       
+	       ((the Carbon-Atom has-part of
+		      (the Ribose has-part of
+			   (the Nucleoside has-part of 
+				((the has-part of Self) called "First Ribonucleotide"))))
+		 called "Carbon-5")))
+	     (instrument ((a Phosphodiester-Bond))))))) 
+
+     (a Methyl-Group with 
+	(object-of 	    	
+	 ((a Be-Attached-To uniquely-called "MG-FR" with
+             (object (((the Nucleotide has-part of Self) called "First Ribonucleotide")))
+	     (instrument ((a Covalent-CO-Bond)))
+	     (site
+	      ((the Hydroxyl-Group has-part of
+		     ((the Carbon-Atom has-part of
+			   (the Ribose has-part of
+				((the Ribonucleotide has-part of Self) 
+				 called "First Ribonucleotide")))
+		      called "Carbon-2"))
+	       (the Carbon-Atom has-part of
+		    (the Methyl-Group has-part of Self))))))))
+     (a Poly-A-Tail with
+
+	(element-type (AMP)))
+     )))
+
+

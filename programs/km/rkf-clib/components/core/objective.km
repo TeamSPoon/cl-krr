@@ -1,0 +1,19 @@
+; 
+;;    $Id: objective.km,v 1.7 2007/04/11 21:31:10 jchaw Exp $
+;; 
+
+(objective has
+   (instance-of           (Causal-Relation))
+   (superslots            ())
+   (subslots              ())
+   (domain                (Event))
+   (range                 (Event))             ;; a Goal or any other Event
+   (inverse               (objective-of))
+   (fluent-status         (*Inertial-Fluent))
+   (original-slot      (t))	
+   (cardinality           (N-to-N)))
+
+(objective has (text-gloss ("has as objective")))
+(objective-of has 
+	(instance-of (Causal-Relation))	
+(text-gloss ("is an objective of")))	

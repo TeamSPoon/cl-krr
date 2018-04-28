@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Organic-Compartment.km,v 1.8 2002/07/23 23:58:41 souther Exp $ 
+;; 
+
+(Organic-Compartment has
+         (superclasses (Organic-Structure ))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A compartment within a living structure, surrounded
+                        by a membrane.  Examples are chambers of the heart,
+                        and the nucleus of the cell."))
+         (test-case ()))  
+
+(every Organic-Compartment has
+       (purpose ((a Container)))
+       (is-part-of ((a Eucaryote)))
+       (is-inside ((the Eucaryote is-part-of of Self)))
+       )
+
+
+
+
+
+

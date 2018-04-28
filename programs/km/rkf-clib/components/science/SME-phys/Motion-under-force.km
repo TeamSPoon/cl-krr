@@ -1,0 +1,2231 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Motion-under-force ----------
+
+(Motion-under-force has (superclasses (Move)))
+
+(_Motion-under-force733 has 
+  (instance-of (Motion-under-force))
+  (prototype-of (Motion-under-force))
+  (prototype-scope (Motion-under-force))
+  (prototype-participants (_Equation-Big-Node552
+                           _Property-Node551
+                           _Property-Node548
+                           _Property-Node546
+                           _Equation-Set545
+                           _Force-Magnitude-Value544
+                           _Force-Magnitude-Value543
+                           _Force-Vector-Value542
+                           _Equation-Big-Node545
+                           _Equation-Big-Node544
+                           _Equation-Set543
+                           _Equation-Set542
+                           _Equation-Big-Node537
+                           _Equation-Set533
+                           _Equation-Big-Node526
+                           _Equation-Big-Node524
+                           _Equation-Big-Node523
+                           _Equation-Big-Node522
+                           _Equation-Big-Node521
+                           _Property-Node513
+                           _Property-Node512
+                           _Property-Node511
+                           _Property-Node510
+                           _Property-Node509
+                           _Equation-Set504
+                           _Equation-Set503
+                           _Equation-Set502
+                           _Equation-Set501
+                           _Angle-Value500
+                           _Force-Magnitude-Value499
+                           _Force-Magnitude-Value498
+                           _Force-Vector-Value497
+                           _Force-Magnitude-Value496
+                           _Equation-Set495
+                           _Property-Node983
+                           _Property-Node982
+                           _Equation-Big-Node981
+                           _Equation-Big-Node980
+                           _Equation-Big-Node979
+                           _Equation-Big-Node978
+                           _Property-Node977
+                           _Property-Node976
+                           _Property-Node975
+                           _System974
+                           _Equation-Set973
+                           _Equation-Set972
+                           _Equation-Set971
+                           _Equation-Set970
+                           _Angle-Value969
+                           _Force-Magnitude-Value968
+                           _Force-Magnitude-Value967
+                           _Force-Magnitude-Value966
+                           _Force-Vector-Value965
+                           _Exert-Force945
+                           _Motion-under-force733
+                           _Displacement-Vector-Value784
+                           _Length-Value785
+                           _Length-Value786
+                           _Velocity-Vector-Value787
+                           _Speed-Value788
+                           _Speed-Value789
+                           _Speed-Value790
+                           _Velocity-Vector-Value791
+                           _Speed-Value792
+                           _Speed-Value793
+                           _Speed-Value794
+                           _Velocity-Vector-Value795
+                           _Angle-Value796
+                           _Speed-Value797
+                           _Speed-Value798
+                           _Speed-Value799
+                           _Acceleration-Vector-Value800
+                           _Acceleration-Magnitude-Value801
+                           _Acceleration-Magnitude-Value802
+                           _Acceleration-Magnitude-Value803
+                           _Duration-Value804
+                           _Tangible-Entity805
+                           _Spatial-Entity806
+                           _Spatial-Entity807
+                           _Spatial-Entity808
+                           _Spatial-Entity809
+                           _Spatial-Entity810
+                           _Property-Node811
+                           _Property-Node812
+                           _Property-Node813
+                           _Property-Node814
+                           _Property-Node815
+                           _Property-Node816
+                           _Property-Node817
+                           _Property-Node818
+                           _Property-Node819
+                           _Property-Node820
+                           _Property-Node821
+                           _Property-Node822
+                           _Property-Node823
+                           _Property-Node824
+                           _Property-Node825
+                           _Property-Node826
+                           _Property-Node827
+                           _Property-Node828
+                           _Property-Node829
+                           _Property-Node830
+                           _Property-Node831
+                           _Mass-Value842
+                           _Property-Node844
+                           _Equation-Set1071
+                           _Force-Vector-Value1072
+                           _Force-Magnitude-Value1073
+                           _Acceleration-Magnitude-Value1074
+                           _Property-Node1075
+                           _Property-Node1076
+                           _Property-Node1077
+                           _Equation-Big-Node1078))
+  (prototype-participant-of (_Motion-under-force733))
+  (has-clones (_Motion-under-force407))
+  (has-built-clones (_Motion-under-force407))
+  (big-nodes (_Equation-Big-Node1078
+              _Property-Node1077
+              _Property-Node1076
+              _Property-Node1075
+              _Property-Node844
+              _Property-Node831
+              _Property-Node830
+              _Property-Node829
+              _Property-Node828
+              _Property-Node827
+              _Property-Node826
+              _Property-Node825
+              _Property-Node824
+              _Property-Node823
+              _Property-Node822
+              _Property-Node821
+              _Property-Node820
+              _Property-Node819
+              _Property-Node818
+              _Property-Node817
+              _Property-Node816
+              _Property-Node815
+              _Property-Node814
+              _Property-Node813
+              _Property-Node812
+              _Property-Node811
+              _Equation-Big-Node552
+              _Property-Node551
+              _Property-Node548
+              _Property-Node546
+              _Equation-Big-Node545
+              _Equation-Big-Node544
+              _Equation-Big-Node537
+              _Equation-Big-Node526
+              _Equation-Big-Node524
+              _Equation-Big-Node523
+              _Equation-Big-Node522
+              _Equation-Big-Node521
+              _Property-Node513
+              _Property-Node512
+              _Property-Node511
+              _Property-Node510
+              _Property-Node509
+              _Property-Node983
+              _Property-Node982
+              _Equation-Big-Node981
+              _Equation-Big-Node980
+              _Equation-Big-Node979
+              _Equation-Big-Node978
+              _Property-Node977
+              _Property-Node976
+              _Property-Node975))
+  (toward (_Spatial-Entity810))
+  (path (_Spatial-Entity809))
+  (origin (_Spatial-Entity808))
+  (destination (_Spatial-Entity807))
+  (away-from (_Spatial-Entity806))
+  (object (_Tangible-Entity805))
+  (duration (_Duration-Value804))
+  (y-acceleration-magnitude (_Acceleration-Magnitude-Value803))
+  (x-acceleration-magnitude (_Acceleration-Magnitude-Value802))
+  (acceleration-magnitude (_Acceleration-Magnitude-Value801))
+  (acceleration (_Acceleration-Vector-Value800))
+  (initial-y-speed (_Speed-Value799))
+  (initial-x-speed (_Speed-Value798))
+  (initial-speed (_Speed-Value797))
+  (direction (_Angle-Value796))
+  (initial-velocity (_Velocity-Vector-Value795))
+  (y-speed (_Speed-Value794))
+  (x-speed (_Speed-Value793))
+  (speed (_Speed-Value792))
+  (velocity (_Velocity-Vector-Value791))
+  (final-y-speed (_Speed-Value790))
+  (final-x-speed (_Speed-Value789))
+  (final-speed (_Speed-Value788))
+  (final-velocity (_Velocity-Vector-Value787))
+  (y-distance (_Length-Value786))
+  (x-distance (_Length-Value785))
+  (displacement (_Displacement-Vector-Value784))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq displacement _Displacement-Vector-Value784 f)
+                    (:seq x-distance _Length-Value785 f)
+                    (:seq y-distance _Length-Value786 f)
+                    (:seq final-velocity _Velocity-Vector-Value787 f)
+                    (:seq final-speed _Speed-Value788 f)
+                    (:seq final-x-speed _Speed-Value789 f)
+                    (:seq final-y-speed _Speed-Value790 f)
+                    (:seq velocity _Velocity-Vector-Value791 f)
+                    (:seq speed _Speed-Value792 f)
+                    (:seq x-speed _Speed-Value793 f)
+                    (:seq y-speed _Speed-Value794 f)
+                    (:seq initial-velocity _Velocity-Vector-Value795 f)
+                    (:seq object _Tangible-Entity805 f)
+                    (:seq acceleration _Acceleration-Vector-Value800 t)
+                    (:seq acceleration-magnitude _Acceleration-Magnitude-Value801 t)
+                    (:seq x-acceleration-magnitude _Acceleration-Magnitude-Value802 t)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value803 t)
+                    (:seq direction _Angle-Value796 t)
+                    (:seq initial-speed _Speed-Value797 f)
+                    (:seq initial-x-speed _Speed-Value798 f)
+                    (:seq initial-y-speed _Speed-Value799 f)
+                    (:seq duration _Duration-Value804 f)
+                    (:seq away-from _Spatial-Entity806 f)
+                    (:seq destination _Spatial-Entity807 f)
+                    (:seq origin _Spatial-Entity808 f)
+                    (:seq path _Spatial-Entity809 f)
+                    (:seq toward _Spatial-Entity810 f)))
+  (edge-coordinate ((:seq displacement _Displacement-Vector-Value784 280 1061)
+                    (:seq x-distance _Length-Value785 280 841)
+                    (:seq y-distance _Length-Value786 280 1017)
+                    (:seq final-velocity _Velocity-Vector-Value787 280 577)
+                    (:seq final-speed _Speed-Value788 280 445)
+                    (:seq final-x-speed _Speed-Value789 280 489)
+                    (:seq final-y-speed _Speed-Value790 280 533)
+                    (:seq velocity _Velocity-Vector-Value791 280 1149)
+                    (:seq speed _Speed-Value792 280 357)
+                    (:seq x-speed _Speed-Value793 280 885)
+                    (:seq y-speed _Speed-Value794 280 1105)
+                    (:seq initial-velocity _Velocity-Vector-Value795 280 753)
+                    (:seq object _Tangible-Entity805 483 629)
+                    (:seq acceleration _Acceleration-Vector-Value800 283 802)
+                    (:seq acceleration-magnitude _Acceleration-Magnitude-Value801 208 954)
+                    (:seq x-acceleration-magnitude _Acceleration-Magnitude-Value802 140 987)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value803 72 1022)
+                    (:seq direction _Angle-Value796 272 918)
+                    (:seq initial-speed _Speed-Value797 280 621)
+                    (:seq initial-x-speed _Speed-Value798 280 665)
+                    (:seq initial-y-speed _Speed-Value799 280 709)
+                    (:seq duration _Duration-Value804 280 93)
+                    (:seq away-from _Spatial-Entity806 280 181)
+                    (:seq destination _Spatial-Entity807 280 225)
+                    (:seq origin _Spatial-Entity808 280 269)
+                    (:seq path _Spatial-Entity809 280 313)
+                    (:seq toward _Spatial-Entity810 280 401)))
+  (node-coordinate ((:pair 50 600)))
+  (caused-by (_Exert-Force945))
+  (component-of (_System974)))
+
+(_Equation-Big-Node552 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set545))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node496))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set545 equation-symbol (:pair 'theta_acc _Angle-Value796))
+                  (:triple _Equation-Set545 equation-symbol (:pair 'f_wt _Force-Magnitude-Value1073))
+                  (:triple _Equation-Set545 equation-uses _Angle-Value796)
+                  (:triple _Equation-Set545 equation-uses _Force-Magnitude-Value1073)
+                  (:triple _System974 equation _Equation-Set545)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _Equation-Set545 user-equation-expression '(= f_norm (* (- f_wt) (cos (:op_paren theta_acc)))))
+                  (:triple _Equation-Set545 equation-uses _Force-Magnitude-Value543)
+                  (:triple _Equation-Set545 equation-expression '(= f_norm (* (- f_wt) (cos theta_acc))))
+                  (:triple _Equation-Set545 equation-symbol (:pair 'f_norm _Force-Magnitude-Value543)))))
+
+(_Property-Node551 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Magnitude-Value544))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node495))
+  (node-visibility (t)))
+
+(_Property-Node548 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Magnitude-Value543))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node493))
+  (node-visibility (t)))
+
+(_Property-Node546 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Vector-Value542))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node491))
+  (node-visibility (t)))
+
+(_Equation-Set545 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Force-Magnitude-Value1073
+                  _Angle-Value796
+                  _Force-Magnitude-Value543))
+  (equation-of (_System974))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node552))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (equation-symbol ((:pair 'f_wt _Force-Magnitude-Value1073)
+                    (:pair 'theta_acc _Angle-Value796)
+                    (:pair 'f_norm _Force-Magnitude-Value543)))
+  (user-equation-expression ('(= f_norm (* (- f_wt) (cos (:op_paren theta_acc))))))
+  (equation-expression ('(= f_norm (* (- f_wt) (cos theta_acc)))))
+  (node-coordinate ((:pair 864 524)))
+  (has-clones (_Equation-Set489))
+  (edge-visibility ((:seq user-equation-expression '(= f_norm (* (- f_wt) (cos (:op_paren theta_acc)))) f)
+                    (:seq equation-expression '(= f_norm (* (- f_wt) (cos theta_acc))) f)
+                    (:seq equation-symbol (:pair 'f_norm _Force-Magnitude-Value543) f)
+                    (:seq equation-symbol (:pair 'theta_acc _Angle-Value796) f)
+                    (:seq equation-symbol (:pair 'f_wt _Force-Magnitude-Value1073) f)
+                    (:seq equation-uses _Force-Magnitude-Value543 t)
+                    (:seq equation-uses _Angle-Value796 t)
+                    (:seq equation-uses _Force-Magnitude-Value1073 t))))
+
+(_Force-Magnitude-Value544 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (y-force-magnitude-of (_Force-Vector-Value1072))
+  (instance-of (Force-Magnitude-Value))
+  (contains-node-of (_Property-Node551))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 693 428)))
+  (has-clones (_Force-Magnitude-Value488)))
+
+(_Force-Magnitude-Value543 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (used-in-equation (_Equation-Set545
+                     _Equation-Set501
+                     _Equation-Set495))
+  (force-magnitude-of (_Force-Vector-Value542))
+  (instance-of (Force-Magnitude-Value))
+  (contains-node-of (_Property-Node548))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 602 517)))
+  (has-clones (_Force-Magnitude-Value487)))
+
+(_Force-Vector-Value542 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (normal-force-of (_Exert-Force945))
+  (instance-of (Force-Vector-Value))
+  (contains-node-of (_Property-Node546))
+  (force-magnitude (_Force-Magnitude-Value543))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 217 517)))
+  (edge-coordinate ((:seq force-magnitude _Force-Magnitude-Value543 464 519)))
+  (edge-visibility ((:seq force-magnitude _Force-Magnitude-Value543 t)))
+  (has-clones (_Force-Vector-Value486)))
+
+(_Equation-Big-Node545 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set543))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node485))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set543 equation-expression '(= fy_net (* acc_y m)))
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _System974 equation _Equation-Set543)
+                  (:triple _Equation-Set543 equation-uses _Acceleration-Magnitude-Value803)
+                  (:triple _Equation-Set543 equation-uses _Force-Magnitude-Value498)
+                  (:triple _Equation-Set543 equation-uses _Mass-Value842)
+                  (:triple _Equation-Set543 equation-symbol (:pair 'acc_y _Acceleration-Magnitude-Value803))
+                  (:triple _Equation-Set543 equation-symbol (:pair 'fy_net _Force-Magnitude-Value498))
+                  (:triple _Equation-Set543 equation-symbol (:pair 'm _Mass-Value842))
+                  (:triple _Equation-Set543 user-equation-expression '(= fy_net (* acc_y m))))))
+
+(_Equation-Big-Node544 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set542))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node484))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set542 equation-symbol (:pair 'm _Mass-Value842))
+                  (:triple _Equation-Set542 equation-symbol (:pair 'acc_x _Acceleration-Magnitude-Value802))
+                  (:triple _Equation-Set542 equation-symbol (:pair 'fx_net _Force-Magnitude-Value496))
+                  (:triple _Equation-Set542 equation-expression '(= fx_net (* acc_x m)))
+                  (:triple _Equation-Set542 equation-uses _Mass-Value842)
+                  (:triple _Equation-Set542 equation-uses _Acceleration-Magnitude-Value802)
+                  (:triple _Equation-Set542 equation-uses _Force-Magnitude-Value496)
+                  (:triple _System974 equation _Equation-Set542)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _Equation-Set542 user-equation-expression '(= fx_net (* acc_x m))))))
+
+(_Equation-Set543 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Mass-Value842
+                  _Acceleration-Magnitude-Value803
+                  _Force-Magnitude-Value498))
+  (equation-of (_System974))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node545))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (equation-expression ('(= fy_net (* acc_y m))))
+  (equation-symbol ((:pair 'acc_y _Acceleration-Magnitude-Value803)
+                    (:pair 'fy_net _Force-Magnitude-Value498)
+                    (:pair 'm _Mass-Value842)))
+  (user-equation-expression ('(= fy_net (* acc_y m))))
+  (node-coordinate ((:pair 1178 1123)))
+  (has-clones (_Equation-Set483))
+  (edge-visibility ((:seq equation-expression '(= fy_net (* acc_y m)) f)
+                    (:seq user-equation-expression '(= fy_net (* acc_y m)) f)
+                    (:seq equation-symbol (:pair 'm _Mass-Value842) f)
+                    (:seq equation-symbol (:pair 'fy_net _Force-Magnitude-Value498) f)
+                    (:seq equation-symbol (:pair 'acc_y _Acceleration-Magnitude-Value803) f)
+                    (:seq equation-uses _Force-Magnitude-Value498 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value803 t)
+                    (:seq equation-uses _Mass-Value842 t))))
+
+(_Equation-Set542 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Mass-Value842
+                  _Acceleration-Magnitude-Value802
+                  _Force-Magnitude-Value496))
+  (equation-of (_System974))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node544))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (user-equation-expression ('(= fx_net (* acc_x m))))
+  (node-coordinate ((:pair 1174 1032)))
+  (has-clones (_Equation-Set482))
+  (edge-visibility ((:seq user-equation-expression '(= fx_net (* acc_x m)) f)
+                    (:seq equation-expression '(= fx_net (* acc_x m)) f)
+                    (:seq equation-symbol (:pair 'm _Mass-Value842) f)
+                    (:seq equation-symbol (:pair 'acc_x _Acceleration-Magnitude-Value802) f)
+                    (:seq equation-symbol (:pair 'fx_net _Force-Magnitude-Value496) f)
+                    (:seq equation-uses _Force-Magnitude-Value496 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value802 t)
+                    (:seq equation-uses _Mass-Value842 t)))
+  (equation-expression ('(= fx_net (* acc_x m))))
+  (equation-symbol ((:pair 'fx_net _Force-Magnitude-Value496)
+                    (:pair 'acc_x _Acceleration-Magnitude-Value802)
+                    (:pair 'm _Mass-Value842))))
+
+(_Equation-Big-Node537 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set533))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node481))
+  (node-visibility (t))
+  (contains-edge ((:triple _System974 component _Motion-under-force733)
+                  (:triple _System974 equation _Equation-Set533)
+                  (:triple _Equation-Set533 user-equation-expression '(= theta_acc (atan (:op_paren (/ acc_y acc_x)))))
+                  (:triple _Equation-Set533 equation-uses _Angle-Value796)
+                  (:triple _Equation-Set533 equation-symbol (:pair 'theta_acc _Angle-Value796))
+                  (:triple _Equation-Set533 equation-uses _Acceleration-Magnitude-Value802)
+                  (:triple _Equation-Set533 equation-symbol (:pair 'acc_x _Acceleration-Magnitude-Value802))
+                  (:triple _Equation-Set533 equation-uses _Acceleration-Magnitude-Value803)
+                  (:triple _Equation-Set533 equation-expression '(= theta_acc (atan (/ acc_y acc_x))))
+                  (:triple _Equation-Set533 equation-symbol (:pair 'acc_y _Acceleration-Magnitude-Value803)))))
+
+(_Equation-Set533 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Acceleration-Magnitude-Value803
+                  _Acceleration-Magnitude-Value802
+                  _Angle-Value796))
+  (equation-of (_System974))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node537))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (user-equation-expression ('(= theta_acc (atan (:op_paren (/ acc_y acc_x))))))
+  (node-coordinate ((:pair 1153 817)))
+  (equation-symbol ((:pair 'theta_acc _Angle-Value796)
+                    (:pair 'acc_x _Acceleration-Magnitude-Value802)
+                    (:pair 'acc_y _Acceleration-Magnitude-Value803)))
+  (equation-expression ('(= theta_acc (atan (/ acc_y acc_x)))))
+  (has-clones (_Equation-Set480))
+  (edge-visibility ((:seq user-equation-expression '(= theta_acc (atan (:op_paren (/ acc_y acc_x)))) f)
+                    (:seq equation-expression '(= theta_acc (atan (/ acc_y acc_x))) f)
+                    (:seq equation-symbol (:pair 'acc_y _Acceleration-Magnitude-Value803) f)
+                    (:seq equation-symbol (:pair 'acc_x _Acceleration-Magnitude-Value802) f)
+                    (:seq equation-symbol (:pair 'theta_acc _Angle-Value796) f)
+                    (:seq equation-uses _Angle-Value796 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value802 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value803 t))))
+
+(_Equation-Big-Node526 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set504))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node479))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set504 equation-symbol (:pair 'acc_y _Acceleration-Magnitude-Value803))
+                  (:triple _Equation-Set504 equation-expression '(= acc (sqrt (+ (expt acc_x 2) (expt acc_y 2)))))
+                  (:triple _Equation-Set504 equation-uses _Acceleration-Magnitude-Value803)
+                  (:triple _Equation-Set504 equation-symbol (:pair 'acc_x _Acceleration-Magnitude-Value802))
+                  (:triple _Equation-Set504 equation-uses _Acceleration-Magnitude-Value802)
+                  (:triple _Equation-Set504 equation-symbol (:pair 'acc _Acceleration-Magnitude-Value801))
+                  (:triple _Equation-Set504 equation-uses _Acceleration-Magnitude-Value801)
+                  (:triple _System974 equation _Equation-Set504)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _Equation-Set504 user-equation-expression '(= acc (sqrt (:op_paren (+ (expt (:op_paren acc_x) 2) (expt (:op_paren acc_y) 2)))))))))
+
+(_Equation-Big-Node524 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set503))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node478))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set503 equation-symbol (:pair 'fy_net _Force-Magnitude-Value498))
+                  (:triple _Equation-Set503 equation-expression '(= f_net (sqrt (+ (expt fx_net 2) (expt fy_net 2)))))
+                  (:triple _Equation-Set503 equation-symbol (:pair 'fx_net _Force-Magnitude-Value496))
+                  (:triple _Equation-Set503 equation-uses _Force-Magnitude-Value496)
+                  (:triple _Equation-Set503 equation-symbol (:pair 'f_net _Force-Magnitude-Value499))
+                  (:triple _Equation-Set503 equation-uses _Force-Magnitude-Value499)
+                  (:triple _System974 equation _Equation-Set503)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _Equation-Set503 equation-uses _Force-Magnitude-Value498)
+                  (:triple _Equation-Set503 user-equation-expression '(= f_net (sqrt (:op_paren (+ (expt (:op_paren fx_net) 2) (expt (:op_paren fy_net) 2)))))))))
+
+(_Equation-Big-Node523 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set501))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node477))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set501 equation-uses _Force-Magnitude-Value543)
+                  (:triple _Equation-Set501 user-equation-expression '(= fy_net (+ (* f_norm (cos (:op_paren theta_acc))) f_wt)))
+                  (:triple _Equation-Set501 equation-symbol (:pair 'f_wt _Force-Magnitude-Value1073))
+                  (:triple _Equation-Set501 equation-symbol (:pair 'theta_acc _Angle-Value796))
+                  (:triple _Equation-Set501 equation-uses _Force-Magnitude-Value1073)
+                  (:triple _Equation-Set501 equation-uses _Angle-Value796)
+                  (:triple _Equation-Set501 equation-symbol (:pair 'fy_net _Force-Magnitude-Value498))
+                  (:triple _Equation-Set501 equation-uses _Force-Magnitude-Value498)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _System974 equation _Equation-Set501)
+                  (:triple _Equation-Set501 equation-expression '(= fy_net (+ (* f_norm (cos theta_acc)) f_wt)))
+                  (:triple _Equation-Set501 equation-symbol (:pair 'f_norm _Force-Magnitude-Value543)))))
+
+(_Equation-Big-Node522 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set502))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node476))
+  (node-visibility (t))
+  (contains-edge ((:triple _System974 component _Motion-under-force733)
+                  (:triple _System974 equation _Equation-Set502)
+                  (:triple _Equation-Set502 user-equation-expression '(= theta_net (atan (:op_paren (/ fy_net fx_net)))))
+                  (:triple _Equation-Set502 equation-uses _Angle-Value500)
+                  (:triple _Equation-Set502 equation-symbol (:pair 'theta_net _Angle-Value500))
+                  (:triple _Equation-Set502 equation-uses _Force-Magnitude-Value496)
+                  (:triple _Equation-Set502 equation-symbol (:pair 'fx_net _Force-Magnitude-Value496))
+                  (:triple _Equation-Set502 equation-uses _Force-Magnitude-Value498)
+                  (:triple _Equation-Set502 equation-expression '(= theta_net (atan (/ fy_net fx_net))))
+                  (:triple _Equation-Set502 equation-symbol (:pair 'fy_net _Force-Magnitude-Value498)))))
+
+(_Equation-Big-Node521 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_System974
+                  _Equation-Set495))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node475))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set495 equation-expression '(= fx_net (- fx_app (* f_norm (sin theta_acc)))))
+                  (:triple _Equation-Set495 equation-symbol (:pair 'theta_acc _Angle-Value796))
+                  (:triple _Equation-Set495 equation-symbol (:pair 'f_norm _Force-Magnitude-Value543))
+                  (:triple _Equation-Set495 equation-symbol (:pair 'fx_app _Force-Magnitude-Value967))
+                  (:triple _Equation-Set495 equation-uses _Force-Magnitude-Value967)
+                  (:triple _Equation-Set495 equation-symbol (:pair 'fx_net _Force-Magnitude-Value496))
+                  (:triple _Equation-Set495 equation-uses _Force-Magnitude-Value496)
+                  (:triple _System974 equation _Equation-Set495)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _Equation-Set495 equation-uses _Force-Magnitude-Value543)
+                  (:triple _Equation-Set495 equation-uses _Angle-Value796)
+                  (:triple _Equation-Set495 user-equation-expression '(= fx_net (- fx_app (* f_norm (sin (:op_paren theta_acc)))))))))
+
+(_Property-Node513 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Magnitude-Value498))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node474))
+  (node-visibility (t)))
+
+(_Property-Node512 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Magnitude-Value496))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node473))
+  (node-visibility (t)))
+
+(_Property-Node511 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Magnitude-Value499))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node471))
+  (node-visibility (t)))
+
+(_Property-Node510 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Angle-Value500))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node461))
+  (node-visibility (t)))
+
+(_Property-Node509 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Vector-Value497))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node460))
+  (node-visibility (t)))
+
+(_Equation-Set504 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Acceleration-Magnitude-Value803
+                  _Acceleration-Magnitude-Value802
+                  _Acceleration-Magnitude-Value801))
+  (equation-of (_System974))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node526))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 1154 924)))
+  (user-equation-expression ('(= acc (sqrt (:op_paren (+ (expt (:op_paren acc_x) 2) (expt (:op_paren acc_y) 2)))))))
+  (equation-symbol ((:pair 'acc _Acceleration-Magnitude-Value801)
+                    (:pair 'acc_x _Acceleration-Magnitude-Value802)
+                    (:pair 'acc_y _Acceleration-Magnitude-Value803)))
+  (equation-expression ('(= acc (sqrt (+ (expt acc_x 2) (expt acc_y 2))))))
+  (has-clones (_Equation-Set450))
+  (edge-visibility ((:seq user-equation-expression '(= acc (sqrt (:op_paren (+ (expt (:op_paren acc_x) 2) (expt (:op_paren acc_y) 2))))) f)
+                    (:seq equation-expression '(= acc (sqrt (+ (expt acc_x 2) (expt acc_y 2)))) f)
+                    (:seq equation-symbol (:pair 'acc_y _Acceleration-Magnitude-Value803) f)
+                    (:seq equation-symbol (:pair 'acc_x _Acceleration-Magnitude-Value802) f)
+                    (:seq equation-symbol (:pair 'acc _Acceleration-Magnitude-Value801) f)
+                    (:seq equation-uses _Acceleration-Magnitude-Value801 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value802 t)
+                    (:seq equation-uses _Acceleration-Magnitude-Value803 t))))
+
+(_Equation-Set503 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-of (_System974))
+  (equation-uses (_Force-Magnitude-Value496
+                  _Force-Magnitude-Value498
+                  _Force-Magnitude-Value499))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node524))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (user-equation-expression ('(= f_net (sqrt (:op_paren (+ (expt (:op_paren fx_net) 2) (expt (:op_paren fy_net) 2)))))))
+  (equation-symbol ((:pair 'f_net _Force-Magnitude-Value499)
+                    (:pair 'fx_net _Force-Magnitude-Value496)
+                    (:pair 'fy_net _Force-Magnitude-Value498)))
+  (equation-expression ('(= f_net (sqrt (+ (expt fx_net 2) (expt fy_net 2))))))
+  (node-coordinate ((:pair 981 127)))
+  (has-clones (_Equation-Set449))
+  (edge-visibility ((:seq user-equation-expression '(= f_net (sqrt (:op_paren (+ (expt (:op_paren fx_net) 2) (expt (:op_paren fy_net) 2))))) f)
+                    (:seq equation-expression '(= f_net (sqrt (+ (expt fx_net 2) (expt fy_net 2)))) f)
+                    (:seq equation-symbol (:pair 'fy_net _Force-Magnitude-Value498) f)
+                    (:seq equation-symbol (:pair 'fx_net _Force-Magnitude-Value496) f)
+                    (:seq equation-symbol (:pair 'f_net _Force-Magnitude-Value499) f)
+                    (:seq equation-uses _Force-Magnitude-Value499 t)
+                    (:seq equation-uses _Force-Magnitude-Value498 t)
+                    (:seq equation-uses _Force-Magnitude-Value496 t))))
+
+(_Equation-Set502 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-of (_System974))
+  (equation-uses (_Force-Magnitude-Value496
+                  _Force-Magnitude-Value498
+                  _Angle-Value500))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node522))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (user-equation-expression ('(= theta_net (atan (:op_paren (/ fy_net fx_net))))))
+  (equation-symbol ((:pair 'theta_net _Angle-Value500)
+                    (:pair 'fx_net _Force-Magnitude-Value496)
+                    (:pair 'fy_net _Force-Magnitude-Value498)))
+  (equation-expression ('(= theta_net (atan (/ fy_net fx_net)))))
+  (node-coordinate ((:pair 980 32)))
+  (has-clones (_Equation-Set448))
+  (edge-visibility ((:seq user-equation-expression '(= theta_net (atan (:op_paren (/ fy_net fx_net)))) f)
+                    (:seq equation-expression '(= theta_net (atan (/ fy_net fx_net))) f)
+                    (:seq equation-symbol (:pair 'fy_net _Force-Magnitude-Value498) f)
+                    (:seq equation-symbol (:pair 'fx_net _Force-Magnitude-Value496) f)
+                    (:seq equation-symbol (:pair 'theta_net _Angle-Value500) f)
+                    (:seq equation-uses _Angle-Value500 t)
+                    (:seq equation-uses _Force-Magnitude-Value498 t)
+                    (:seq equation-uses _Force-Magnitude-Value496 t))))
+
+(_Equation-Set501 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Force-Magnitude-Value1073
+                  _Angle-Value796
+                  _Force-Magnitude-Value498
+                  _Force-Magnitude-Value543))
+  (equation-of (_System974))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node523))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (user-equation-expression ('(= fy_net (+ (* f_norm (cos (:op_paren theta_acc))) f_wt))))
+  (equation-symbol ((:pair 'fy_net _Force-Magnitude-Value498)
+                    (:pair 'theta_acc _Angle-Value796)
+                    (:pair 'f_wt _Force-Magnitude-Value1073)
+                    (:pair 'f_norm _Force-Magnitude-Value543)))
+  (equation-expression ('(= fy_net (+ (* f_norm (cos theta_acc)) f_wt))))
+  (node-coordinate ((:pair 994 265)))
+  (has-clones (_Equation-Set447))
+  (edge-visibility ((:seq user-equation-expression '(= fy_net (+ (* f_norm (cos (:op_paren theta_acc))) f_wt)) f)
+                    (:seq equation-expression '(= fy_net (+ (* f_norm (cos theta_acc)) f_wt)) f)
+                    (:seq equation-symbol (:pair 'f_norm _Force-Magnitude-Value543) f)
+                    (:seq equation-symbol (:pair 'f_wt _Force-Magnitude-Value1073) f)
+                    (:seq equation-symbol (:pair 'theta_acc _Angle-Value796) f)
+                    (:seq equation-symbol (:pair 'fy_net _Force-Magnitude-Value498) f)
+                    (:seq equation-uses _Force-Magnitude-Value543 t)
+                    (:seq equation-uses _Force-Magnitude-Value498 t)
+                    (:seq equation-uses _Angle-Value796 t)
+                    (:seq equation-uses _Force-Magnitude-Value1073 t))))
+
+(_Angle-Value500 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (direction-of (_Force-Vector-Value497))
+  (instance-of (Angle-Value))
+  (contains-node-of (_Property-Node510))
+  (used-in-equation (_Equation-Set502))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 638 125)))
+  (has-clones (_Angle-Value446)))
+
+(_Force-Magnitude-Value499 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (force-magnitude-of (_Force-Vector-Value497))
+  (instance-of (Force-Magnitude-Value))
+  (contains-node-of (_Property-Node511))
+  (used-in-equation (_Equation-Set503))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 641 184)))
+  (has-clones (_Force-Magnitude-Value445)))
+
+(_Force-Magnitude-Value498 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (y-force-magnitude-of (_Force-Vector-Value497))
+  (instance-of (Force-Magnitude-Value))
+  (used-in-equation (_Equation-Set543
+                     _Equation-Set503
+                     _Equation-Set502
+                     _Equation-Set501))
+  (contains-node-of (_Property-Node513))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 631 284)))
+  (has-clones (_Force-Magnitude-Value444)))
+
+(_Force-Vector-Value497 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (net-force-of (_Exert-Force945))
+  (x-force-magnitude (_Force-Magnitude-Value496))
+  (instance-of (Force-Vector-Value))
+  (contains-node-of (_Property-Node509))
+  (direction (_Angle-Value500))
+  (force-magnitude (_Force-Magnitude-Value499))
+  (y-force-magnitude (_Force-Magnitude-Value498))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq same-as _Force-Vector-Value498 461 17)
+                    (:seq force-magnitude _Force-Magnitude-Value499 449 173)
+                    (:seq y-force-magnitude _Force-Magnitude-Value498 439 280)
+                    (:seq direction _Angle-Value500 460 127)
+                    (:seq x-force-magnitude _Force-Magnitude-Value496 441 221)))
+  (edge-visibility ((:seq same-as _Force-Vector-Value498 f)
+                    (:seq force-magnitude _Force-Magnitude-Value499 t)
+                    (:seq y-force-magnitude _Force-Magnitude-Value498 t)
+                    (:seq direction _Angle-Value500 t)
+                    (:seq x-force-magnitude _Force-Magnitude-Value496 t)))
+  (node-coordinate ((:pair 244 131)))
+  (has-clones (_Force-Vector-Value443)))
+
+(_Force-Magnitude-Value496 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (used-in-equation (_Equation-Set495
+                     _Equation-Set503
+                     _Equation-Set502
+                     _Equation-Set542))
+  (instance-of (Force-Magnitude-Value))
+  (contains-node-of (_Property-Node512))
+  (x-force-magnitude-of (_Force-Vector-Value497))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 630 232)))
+  (has-clones (_Force-Magnitude-Value442)))
+
+(_Equation-Set495 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Angle-Value796
+                  _Force-Magnitude-Value967
+                  _Force-Magnitude-Value543
+                  _Force-Magnitude-Value496))
+  (equation-of (_System974))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node521))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (user-equation-expression ('(= fx_net (- fx_app (* f_norm (sin (:op_paren theta_acc)))))))
+  (equation-symbol ((:pair 'fx_net _Force-Magnitude-Value496)
+                    (:pair 'fx_app _Force-Magnitude-Value967)
+                    (:pair 'f_norm _Force-Magnitude-Value543)
+                    (:pair 'theta_acc _Angle-Value796)))
+  (equation-expression ('(= fx_net (- fx_app (* f_norm (sin theta_acc))))))
+  (node-coordinate ((:pair 986 190)))
+  (has-clones (_Equation-Set441))
+  (edge-visibility ((:seq user-equation-expression '(= fx_net (- fx_app (* f_norm (sin (:op_paren theta_acc))))) f)
+                    (:seq equation-expression '(= fx_net (- fx_app (* f_norm (sin theta_acc)))) f)
+                    (:seq equation-symbol (:pair 'theta_acc _Angle-Value796) f)
+                    (:seq equation-symbol (:pair 'f_norm _Force-Magnitude-Value543) f)
+                    (:seq equation-symbol (:pair 'fx_app _Force-Magnitude-Value967) f)
+                    (:seq equation-symbol (:pair 'fx_net _Force-Magnitude-Value496) f)
+                    (:seq equation-uses _Force-Magnitude-Value496 t)
+                    (:seq equation-uses _Force-Magnitude-Value543 t)
+                    (:seq equation-uses _Force-Magnitude-Value967 t)
+                    (:seq equation-uses _Angle-Value796 t))))
+
+(_Property-Node983 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Magnitude-Value966))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node440))
+  (node-visibility (t)))
+
+(_Property-Node982 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Magnitude-Value967))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node439))
+  (node-visibility (t)))
+
+(_Equation-Big-Node981 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Equation-Set973
+                  _System974))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node432))
+  (node-visibility (t))
+  (contains-edge ((:triple _System974 equation _Equation-Set973)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _Equation-Set973 user-equation-expression '(= fy_app (* f_app (sin (:op_paren theta_app)))))
+                  (:triple _Equation-Set973 equation-uses _Angle-Value969)
+                  (:triple _Equation-Set973 equation-symbol (:pair 'theta_app _Angle-Value969))
+                  (:triple _Equation-Set973 equation-uses _Force-Magnitude-Value968)
+                  (:triple _Equation-Set973 equation-symbol (:pair 'f_app _Force-Magnitude-Value968))
+                  (:triple _Equation-Set973 equation-uses _Force-Magnitude-Value966)
+                  (:triple _Equation-Set973 equation-expression '(= fy_app (* f_app (sin theta_app))))
+                  (:triple _Equation-Set973 equation-symbol (:pair 'fy_app _Force-Magnitude-Value966)))))
+
+(_Equation-Big-Node980 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Equation-Set970
+                  _System974))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node431))
+  (node-visibility (t))
+  (contains-edge ((:triple _System974 equation _Equation-Set970)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _Equation-Set970 user-equation-expression '(= fx_app (* f_app (cos (:op_paren theta_app)))))
+                  (:triple _Equation-Set970 equation-uses _Angle-Value969)
+                  (:triple _Equation-Set970 equation-symbol (:pair 'theta_app _Angle-Value969))
+                  (:triple _Equation-Set970 equation-uses _Force-Magnitude-Value968)
+                  (:triple _Equation-Set970 equation-symbol (:pair 'f_app _Force-Magnitude-Value968))
+                  (:triple _Equation-Set970 equation-uses _Force-Magnitude-Value967)
+                  (:triple _Equation-Set970 equation-expression '(= fx_app (* f_app (cos theta_app))))
+                  (:triple _Equation-Set970 equation-symbol (:pair 'fx_app _Force-Magnitude-Value967)))))
+
+(_Equation-Big-Node979 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Equation-Set971
+                  _System974))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node430))
+  (node-visibility (t))
+  (contains-edge ((:triple _Equation-Set971 equation-symbol (:pair 'fy_app _Force-Magnitude-Value966))
+                  (:triple _Equation-Set971 equation-expression '(= f_app (sqrt (+ (expt fx_app 2) (expt fy_app 2)))))
+                  (:triple _Equation-Set971 equation-uses _Force-Magnitude-Value966)
+                  (:triple _Equation-Set971 equation-symbol (:pair 'fx_app _Force-Magnitude-Value967))
+                  (:triple _Equation-Set971 equation-uses _Force-Magnitude-Value967)
+                  (:triple _Equation-Set971 equation-symbol (:pair 'f_app _Force-Magnitude-Value968))
+                  (:triple _Equation-Set971 equation-uses _Force-Magnitude-Value968)
+                  (:triple _System974 equation _Equation-Set971)
+                  (:triple _System974 component _Motion-under-force733)
+                  (:triple _Equation-Set971 user-equation-expression '(= f_app (sqrt (:op_paren (+ (expt (:op_paren fx_app) 2) (expt (:op_paren fy_app) 2)))))))))
+
+(_Equation-Big-Node978 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Equation-Set972
+                  _System974))
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node429))
+  (node-visibility (t))
+  (contains-edge ((:triple _System974 component _Motion-under-force733)
+                  (:triple _System974 equation _Equation-Set972)
+                  (:triple _Equation-Set972 user-equation-expression '(= theta_app (atan (:op_paren (/ fy_app fx_app)))))
+                  (:triple _Equation-Set972 equation-uses _Angle-Value969)
+                  (:triple _Equation-Set972 equation-symbol (:pair 'theta_app _Angle-Value969))
+                  (:triple _Equation-Set972 equation-uses _Force-Magnitude-Value967)
+                  (:triple _Equation-Set972 equation-symbol (:pair 'fx_app _Force-Magnitude-Value967))
+                  (:triple _Equation-Set972 equation-uses _Force-Magnitude-Value966)
+                  (:triple _Equation-Set972 equation-expression '(= theta_app (atan (/ fy_app fx_app))))
+                  (:triple _Equation-Set972 equation-symbol (:pair 'fy_app _Force-Magnitude-Value966)))))
+
+(_Property-Node977 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Magnitude-Value968))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node428))
+  (node-visibility (t)))
+
+(_Property-Node976 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Angle-Value969))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node426))
+  (node-visibility (t)))
+
+(_Property-Node975 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (contains-node (_Force-Vector-Value965))
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node424))
+  (node-visibility (t)))
+
+(_System974 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (component (_Motion-under-force733))
+  (contains-node-of (_Equation-Big-Node981
+                     _Equation-Big-Node980
+                     _Equation-Big-Node979
+                     _Equation-Big-Node978
+                     _Equation-Big-Node1078
+                     _Equation-Big-Node521
+                     _Equation-Big-Node522
+                     _Equation-Big-Node523
+                     _Equation-Big-Node524
+                     _Equation-Big-Node526
+                     _Equation-Big-Node537
+                     _Equation-Big-Node544
+                     _Equation-Big-Node545
+                     _Equation-Big-Node552))
+  (equation (_Equation-Set1071
+             _Equation-Set970
+             _Equation-Set971
+             _Equation-Set972
+             _Equation-Set973
+             _Equation-Set495
+             _Equation-Set502
+             _Equation-Set501
+             _Equation-Set503
+             _Equation-Set504
+             _Equation-Set533
+             _Equation-Set542
+             _Equation-Set543
+             _Equation-Set545))
+  (instance-of (System))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-visibility ((:seq component _Motion-under-force733 t)
+                    (:seq equation _Equation-Set545 t)
+                    (:seq equation _Equation-Set543 t)
+                    (:seq equation _Equation-Set542 t)
+                    (:seq equation _Equation-Set533 t)
+                    (:seq equation _Equation-Set504 t)
+                    (:seq equation _Equation-Set503 t)
+                    (:seq equation _Equation-Set501 t)
+                    (:seq equation _Equation-Set502 t)
+                    (:seq equation _Equation-Set495 t)
+                    (:seq equation _Equation-Set973 t)
+                    (:seq equation _Equation-Set972 t)
+                    (:seq equation _Equation-Set971 t)
+                    (:seq equation _Equation-Set970 t)
+                    (:seq equation _Equation-Set1071 t)))
+  (has-clones (_System423)))
+
+(_Equation-Set973 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Force-Magnitude-Value966
+                  _Force-Magnitude-Value968
+                  _Angle-Value969))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node981))
+  (equation-of (_System974))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (user-equation-expression ('(= fy_app (* f_app (sin (:op_paren theta_app))))))
+  (equation-symbol ((:pair 'theta_app _Angle-Value969)
+                    (:pair 'f_app _Force-Magnitude-Value968)
+                    (:pair 'fy_app _Force-Magnitude-Value966)))
+  (equation-expression ('(= fy_app (* f_app (sin theta_app)))))
+  (node-coordinate ((:pair 1127 600)))
+  (has-clones (_Equation-Set422))
+  (edge-visibility ((:seq user-equation-expression '(= fy_app (* f_app (sin (:op_paren theta_app)))) f)
+                    (:seq equation-expression '(= fy_app (* f_app (sin theta_app))) f)
+                    (:seq equation-symbol (:pair 'fy_app _Force-Magnitude-Value966) f)
+                    (:seq equation-symbol (:pair 'f_app _Force-Magnitude-Value968) f)
+                    (:seq equation-symbol (:pair 'theta_app _Angle-Value969) f)
+                    (:seq equation-uses _Angle-Value969 f)
+                    (:seq equation-uses _Force-Magnitude-Value968 f)
+                    (:seq equation-uses _Force-Magnitude-Value966 f))))
+
+(_Equation-Set972 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Force-Magnitude-Value966
+                  _Force-Magnitude-Value967
+                  _Angle-Value969))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node978))
+  (equation-of (_System974))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (user-equation-expression ('(= theta_app (atan (:op_paren (/ fy_app fx_app))))))
+  (equation-symbol ((:pair 'theta_app _Angle-Value969)
+                    (:pair 'fx_app _Force-Magnitude-Value967)
+                    (:pair 'fy_app _Force-Magnitude-Value966)))
+  (equation-expression ('(= theta_app (atan (/ fy_app fx_app)))))
+  (node-coordinate ((:pair 1129 390)))
+  (has-clones (_Equation-Set421))
+  (edge-visibility ((:seq user-equation-expression '(= theta_app (atan (:op_paren (/ fy_app fx_app)))) f)
+                    (:seq equation-expression '(= theta_app (atan (/ fy_app fx_app))) f)
+                    (:seq equation-symbol (:pair 'fy_app _Force-Magnitude-Value966) f)
+                    (:seq equation-symbol (:pair 'fx_app _Force-Magnitude-Value967) f)
+                    (:seq equation-symbol (:pair 'theta_app _Angle-Value969) f)
+                    (:seq equation-uses _Angle-Value969 f)
+                    (:seq equation-uses _Force-Magnitude-Value967 f)
+                    (:seq equation-uses _Force-Magnitude-Value966 f))))
+
+(_Equation-Set971 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Force-Magnitude-Value966
+                  _Force-Magnitude-Value967
+                  _Force-Magnitude-Value968))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node979))
+  (equation-of (_System974))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (user-equation-expression ('(= f_app (sqrt (:op_paren (+ (expt (:op_paren fx_app) 2) (expt (:op_paren fy_app) 2)))))))
+  (equation-symbol ((:pair 'f_app _Force-Magnitude-Value968)
+                    (:pair 'fx_app _Force-Magnitude-Value967)
+                    (:pair 'fy_app _Force-Magnitude-Value966)))
+  (equation-expression ('(= f_app (sqrt (+ (expt fx_app 2) (expt fy_app 2))))))
+  (node-coordinate ((:pair 1130 487)))
+  (has-clones (_Equation-Set420))
+  (edge-visibility ((:seq user-equation-expression '(= f_app (sqrt (:op_paren (+ (expt (:op_paren fx_app) 2) (expt (:op_paren fy_app) 2))))) f)
+                    (:seq equation-expression '(= f_app (sqrt (+ (expt fx_app 2) (expt fy_app 2)))) f)
+                    (:seq equation-symbol (:pair 'fy_app _Force-Magnitude-Value966) f)
+                    (:seq equation-symbol (:pair 'fx_app _Force-Magnitude-Value967) f)
+                    (:seq equation-symbol (:pair 'f_app _Force-Magnitude-Value968) f)
+                    (:seq equation-uses _Force-Magnitude-Value968 f)
+                    (:seq equation-uses _Force-Magnitude-Value967 f)
+                    (:seq equation-uses _Force-Magnitude-Value966 f))))
+
+(_Equation-Set970 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (equation-uses (_Force-Magnitude-Value967
+                  _Force-Magnitude-Value968
+                  _Angle-Value969))
+  (instance-of (Equation-Set))
+  (contains-node-of (_Equation-Big-Node980))
+  (equation-of (_System974))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (user-equation-expression ('(= fx_app (* f_app (cos (:op_paren theta_app))))))
+  (equation-symbol ((:pair 'theta_app _Angle-Value969)
+                    (:pair 'f_app _Force-Magnitude-Value968)
+                    (:pair 'fx_app _Force-Magnitude-Value967)))
+  (equation-expression ('(= fx_app (* f_app (cos theta_app)))))
+  (node-coordinate ((:pair 1129 546)))
+  (has-clones (_Equation-Set417))
+  (edge-visibility ((:seq user-equation-expression '(= fx_app (* f_app (cos (:op_paren theta_app)))) f)
+                    (:seq equation-expression '(= fx_app (* f_app (cos theta_app))) f)
+                    (:seq equation-symbol (:pair 'fx_app _Force-Magnitude-Value967) f)
+                    (:seq equation-symbol (:pair 'f_app _Force-Magnitude-Value968) f)
+                    (:seq equation-symbol (:pair 'theta_app _Angle-Value969) f)
+                    (:seq equation-uses _Angle-Value969 f)
+                    (:seq equation-uses _Force-Magnitude-Value968 f)
+                    (:seq equation-uses _Force-Magnitude-Value967 f))))
+
+(_Angle-Value969 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (direction-of (_Force-Vector-Value965))
+  (instance-of (Angle-Value))
+  (contains-node-of (_Property-Node976))
+  (used-in-equation (_Equation-Set973
+                     _Equation-Set972
+                     _Equation-Set970))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 918 339)))
+  (has-clones (_Angle-Value416)))
+
+(_Force-Magnitude-Value968 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (force-magnitude-of (_Force-Vector-Value965))
+  (instance-of (Force-Magnitude-Value))
+  (contains-node-of (_Property-Node977))
+  (used-in-equation (_Equation-Set973
+                     _Equation-Set971
+                     _Equation-Set970))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 913 390)))
+  (has-clones (_Force-Magnitude-Value415)))
+
+(_Force-Magnitude-Value967 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (x-force-magnitude-of (_Force-Vector-Value965))
+  (instance-of (Force-Magnitude-Value))
+  (used-in-equation (_Equation-Set495
+                     _Equation-Set972
+                     _Equation-Set971
+                     _Equation-Set970))
+  (contains-node-of (_Property-Node982))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 901 477)))
+  (has-clones (_Force-Magnitude-Value414)))
+
+(_Force-Magnitude-Value966 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (y-force-magnitude-of (_Force-Vector-Value965))
+  (instance-of (Force-Magnitude-Value))
+  (contains-node-of (_Property-Node983))
+  (used-in-equation (_Equation-Set973
+                     _Equation-Set972
+                     _Equation-Set971))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 905 541)))
+  (has-clones (_Force-Magnitude-Value410)))
+
+(_Force-Vector-Value965 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (applied-force-of (_Exert-Force945))
+  (instance-of (Force-Vector-Value))
+  (contains-node-of (_Property-Node975))
+  (direction (_Angle-Value969))
+  (force-magnitude (_Force-Magnitude-Value968))
+  (x-force-magnitude (_Force-Magnitude-Value967))
+  (y-force-magnitude (_Force-Magnitude-Value966))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq same-as _Force-Vector-Value498 772 269)
+                    (:seq y-force-magnitude _Force-Magnitude-Value966 722 504)
+                    (:seq force-magnitude _Force-Magnitude-Value968 732 396)
+                    (:seq x-force-magnitude _Force-Magnitude-Value967 727 452)
+                    (:seq direction _Angle-Value969 745 328)))
+  (edge-visibility ((:seq same-as _Force-Vector-Value498 f)
+                    (:seq y-force-magnitude _Force-Magnitude-Value966 f)
+                    (:seq force-magnitude _Force-Magnitude-Value968 f)
+                    (:seq x-force-magnitude _Force-Magnitude-Value967 f)
+                    (:seq direction _Angle-Value969 f)))
+  (node-coordinate ((:pair 555 383)))
+  (has-clones (_Force-Vector-Value409)))
+
+(_Exert-Force945 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (causes (_Motion-under-force733))
+  (y-acceleration-magnitude (_Acceleration-Magnitude-Value1074))
+  (weight-force (_Force-Vector-Value1072))
+  (object (_Tangible-Entity805))
+  (instance-of (Exert-Force))
+  (normal-force (_Force-Vector-Value542))
+  (net-force (_Force-Vector-Value497))
+  (applied-force (_Force-Vector-Value965))
+  (has-clones (_Exert-Force408))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 91 405)))
+  (edge-coordinate ((:seq force _Force-Vector-Value498 280 318)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value1074 155 294)
+                    (:seq applied-force _Force-Vector-Value965 356 390)
+                    (:seq net-force _Force-Vector-Value497 158 229)
+                    (:seq normal-force _Force-Vector-Value542 209 463)
+                    (:seq causes _Motion-under-force733 151 497)
+                    (:seq object _Tangible-Entity805 394 495)
+                    (:seq weight-force _Force-Vector-Value1072 284 428)))
+  (edge-visibility ((:seq force _Force-Vector-Value498 t)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value1074 f)
+                    (:seq applied-force _Force-Vector-Value965 f)
+                    (:seq net-force _Force-Vector-Value497 t)
+                    (:seq normal-force _Force-Vector-Value542 t)
+                    (:seq causes _Motion-under-force733 t)
+                    (:seq object _Tangible-Entity805 f)
+                    (:seq weight-force _Force-Vector-Value1072 t))))
+
+(_Displacement-Vector-Value784 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (displacement-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node813))
+  (y-distance (_Length-Value786))
+  (x-distance (_Length-Value785))
+  (instance-of (Displacement-Vector-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq x-distance _Length-Value785 682 1038)
+                    (:seq y-distance _Length-Value786 682 1082)))
+  (edge-visibility ((:seq x-distance _Length-Value785 f)
+                    (:seq y-distance _Length-Value786 f)))
+  (node-coordinate ((:pair 430 1055)))
+  (has-clones (_Displacement-Vector-Value406)))
+
+(_Length-Value785 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (x-distance-of (_Motion-under-force733
+                  _Displacement-Vector-Value784))
+  (contains-node-of (_Property-Node818))
+  (instance-of (Length-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 835)))
+  (has-clones (_Length-Value405)))
+
+(_Length-Value786 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (y-distance-of (_Motion-under-force733
+                  _Displacement-Vector-Value784))
+  (contains-node-of (_Property-Node814))
+  (instance-of (Length-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 1011)))
+  (has-clones (_Length-Value404)))
+
+(_Velocity-Vector-Value787 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (final-velocity-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node824))
+  (y-speed (_Speed-Value790))
+  (x-speed (_Speed-Value789))
+  (speed (_Speed-Value788))
+  (instance-of (Velocity-Vector-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq speed _Speed-Value788 656 532)
+                    (:seq x-speed _Speed-Value789 656 576)
+                    (:seq y-speed _Speed-Value790 656 620)))
+  (edge-visibility ((:seq speed _Speed-Value788 f)
+                    (:seq x-speed _Speed-Value789 f)
+                    (:seq y-speed _Speed-Value790 f)))
+  (node-coordinate ((:pair 430 571)))
+  (has-clones (_Velocity-Vector-Value403)))
+
+(_Speed-Value788 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (final-speed-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node827))
+  (instance-of (Speed-Value))
+  (speed-of (_Velocity-Vector-Value787))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 439)))
+  (has-clones (_Speed-Value402)))
+
+(_Speed-Value789 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (final-x-speed-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node826))
+  (instance-of (Speed-Value))
+  (x-speed-of (_Velocity-Vector-Value787))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 483)))
+  (has-clones (_Speed-Value401)))
+
+(_Speed-Value790 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (final-y-speed-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node825))
+  (instance-of (Speed-Value))
+  (y-speed-of (_Velocity-Vector-Value787))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 527)))
+  (has-clones (_Speed-Value400)))
+
+(_Velocity-Vector-Value791 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (velocity-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node811))
+  (y-speed (_Speed-Value794))
+  (x-speed (_Speed-Value793))
+  (speed (_Speed-Value792))
+  (instance-of (Velocity-Vector-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq speed _Speed-Value792 656 1104)
+                    (:seq x-speed _Speed-Value793 656 1148)
+                    (:seq y-speed _Speed-Value794 656 1192)))
+  (edge-visibility ((:seq speed _Speed-Value792 f)
+                    (:seq x-speed _Speed-Value793 f)
+                    (:seq y-speed _Speed-Value794 f)))
+  (node-coordinate ((:pair 430 1143)))
+  (has-clones (_Velocity-Vector-Value399)))
+
+(_Speed-Value792 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (speed-of (_Motion-under-force733
+             _Velocity-Vector-Value791))
+  (contains-node-of (_Property-Node828))
+  (instance-of (Speed-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 351)))
+  (has-clones (_Speed-Value398)))
+
+(_Speed-Value793 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (x-speed-of (_Motion-under-force733
+               _Velocity-Vector-Value791))
+  (contains-node-of (_Property-Node817))
+  (instance-of (Speed-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 879)))
+  (has-clones (_Speed-Value397)))
+
+(_Speed-Value794 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (y-speed-of (_Motion-under-force733
+               _Velocity-Vector-Value791))
+  (contains-node-of (_Property-Node812))
+  (instance-of (Speed-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 1099)))
+  (has-clones (_Speed-Value394)))
+
+(_Velocity-Vector-Value795 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (initial-velocity-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node820))
+  (y-speed (_Speed-Value799))
+  (x-speed (_Speed-Value798))
+  (speed (_Speed-Value797))
+  (direction (_Angle-Value796))
+  (instance-of (Velocity-Vector-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (edge-coordinate ((:seq direction _Angle-Value796 656 685)
+                    (:seq speed _Speed-Value797 656 729)
+                    (:seq x-speed _Speed-Value798 656 773)
+                    (:seq y-speed _Speed-Value799 656 817)))
+  (edge-visibility ((:seq direction _Angle-Value796 f)
+                    (:seq speed _Speed-Value797 f)
+                    (:seq x-speed _Speed-Value798 f)
+                    (:seq y-speed _Speed-Value799 f)))
+  (node-coordinate ((:pair 430 747)))
+  (has-clones (_Velocity-Vector-Value393)))
+
+(_Angle-Value796 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (direction-of (_Motion-under-force733
+                 _Velocity-Vector-Value795
+                 _Acceleration-Vector-Value800))
+  (contains-node-of (_Property-Node830))
+  (instance-of (Angle-Value))
+  (used-in-equation (_Equation-Set545
+                     _Equation-Set533
+                     _Equation-Set501
+                     _Equation-Set495))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 907 876)))
+  (has-clones (_Angle-Value392)))
+
+(_Speed-Value797 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (initial-speed-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node823))
+  (instance-of (Speed-Value))
+  (speed-of (_Velocity-Vector-Value795))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 615)))
+  (has-clones (_Speed-Value391)))
+
+(_Speed-Value798 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (initial-x-speed-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node822))
+  (instance-of (Speed-Value))
+  (x-speed-of (_Velocity-Vector-Value795))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 659)))
+  (has-clones (_Speed-Value390)))
+
+(_Speed-Value799 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (initial-y-speed-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node821))
+  (instance-of (Speed-Value))
+  (y-speed-of (_Velocity-Vector-Value795))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 703)))
+  (has-clones (_Speed-Value389)))
+
+(_Acceleration-Vector-Value800 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (acceleration-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node815))
+  (y-acceleration-magnitude (_Acceleration-Magnitude-Value803))
+  (x-acceleration-magnitude (_Acceleration-Magnitude-Value802))
+  (acceleration-magnitude (_Acceleration-Magnitude-Value801))
+  (instance-of (Acceleration-Vector-Value))
+  (direction (_Angle-Value796))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq acceleration-magnitude _Acceleration-Magnitude-Value801 703 929)
+                    (:seq direction _Angle-Value796 741 871)
+                    (:seq x-acceleration-magnitude _Acceleration-Magnitude-Value802 687 988)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value803 674 1041)))
+  (edge-visibility ((:seq acceleration-magnitude _Acceleration-Magnitude-Value801 t)
+                    (:seq direction _Angle-Value796 t)
+                    (:seq x-acceleration-magnitude _Acceleration-Magnitude-Value802 t)
+                    (:seq y-acceleration-magnitude _Acceleration-Magnitude-Value803 t)))
+  (node-coordinate ((:pair 408 800)))
+  (has-clones (_Acceleration-Vector-Value388)))
+
+(_Acceleration-Magnitude-Value801 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (acceleration-magnitude-of (_Motion-under-force733
+                              _Acceleration-Vector-Value800))
+  (contains-node-of (_Property-Node831))
+  (instance-of (Acceleration-Magnitude-Value))
+  (used-in-equation (_Equation-Set504))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 894 922)))
+  (has-clones (_Acceleration-Magnitude-Value387)))
+
+(_Acceleration-Magnitude-Value802 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (x-acceleration-magnitude-of (_Motion-under-force733
+                                _Acceleration-Vector-Value800))
+  (contains-node-of (_Property-Node819))
+  (instance-of (Acceleration-Magnitude-Value))
+  (used-in-equation (_Equation-Set542
+                     _Equation-Set533
+                     _Equation-Set504))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 870 997)))
+  (has-clones (_Acceleration-Magnitude-Value386)))
+
+(_Acceleration-Magnitude-Value803 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (y-acceleration-magnitude-of (_Motion-under-force733
+                                _Acceleration-Vector-Value800))
+  (contains-node-of (_Property-Node816))
+  (instance-of (Acceleration-Magnitude-Value))
+  (used-in-equation (_Equation-Set543
+                     _Equation-Set533
+                     _Equation-Set504))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 872 1043)))
+  (has-clones (_Acceleration-Magnitude-Value385)))
+
+(_Duration-Value804 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (duration-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node829))
+  (instance-of (Duration-Value))
+  (node-visibility (f))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 430 87)))
+  (has-clones (_Duration-Value384)))
+
+(_Tangible-Entity805 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (object-of (_Motion-under-force733
+              _Exert-Force945))
+  (mass (_Mass-Value842))
+  (instance-of (Tangible-Entity))
+  (has-clones (_Tangible-Entity383))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 628 599)))
+  (edge-coordinate ((:seq mass _Mass-Value842 835 598)))
+  (edge-visibility ((:seq mass _Mass-Value842 f))))
+
+(_Spatial-Entity806 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (away-from-of (_Motion-under-force733))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity382))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 430 175))))
+
+(_Spatial-Entity807 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (destination-of (_Motion-under-force733))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity381))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 430 219))))
+
+(_Spatial-Entity808 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (origin-of (_Motion-under-force733))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity380))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 430 263))))
+
+(_Spatial-Entity809 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (path-of (_Motion-under-force733))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity379))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 430 307))))
+
+(_Spatial-Entity810 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (toward-of (_Motion-under-force733))
+  (instance-of (Spatial-Entity))
+  (has-clones (_Spatial-Entity378))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 430 395))))
+
+(_Property-Node811 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Velocity-Vector-Value791))
+  (has-clones (_Property-Node377))
+  (node-visibility (t)))
+
+(_Property-Node812 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value794))
+  (has-clones (_Property-Node376))
+  (node-visibility (t)))
+
+(_Property-Node813 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Displacement-Vector-Value784))
+  (has-clones (_Property-Node375))
+  (node-visibility (t)))
+
+(_Property-Node814 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Length-Value786))
+  (has-clones (_Property-Node369))
+  (node-visibility (t)))
+
+(_Property-Node815 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Acceleration-Vector-Value800))
+  (has-clones (_Property-Node368))
+  (node-visibility (t)))
+
+(_Property-Node816 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Acceleration-Magnitude-Value803))
+  (has-clones (_Property-Node367))
+  (node-visibility (t)))
+
+(_Property-Node817 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value793))
+  (has-clones (_Property-Node356))
+  (node-visibility (t)))
+
+(_Property-Node818 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Length-Value785))
+  (has-clones (_Property-Node351))
+  (node-visibility (t)))
+
+(_Property-Node819 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Acceleration-Magnitude-Value802))
+  (has-clones (_Property-Node342))
+  (node-visibility (t)))
+
+(_Property-Node820 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Velocity-Vector-Value795))
+  (has-clones (_Property-Node341))
+  (node-visibility (t)))
+
+(_Property-Node821 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value799))
+  (has-clones (_Property-Node340))
+  (node-visibility (t)))
+
+(_Property-Node822 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value798))
+  (has-clones (_Property-Node339))
+  (node-visibility (t)))
+
+(_Property-Node823 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value797))
+  (has-clones (_Property-Node338))
+  (node-visibility (t)))
+
+(_Property-Node824 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Velocity-Vector-Value787))
+  (has-clones (_Property-Node337))
+  (node-visibility (t)))
+
+(_Property-Node825 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value790))
+  (has-clones (_Property-Node336))
+  (node-visibility (t)))
+
+(_Property-Node826 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value789))
+  (has-clones (_Property-Node335))
+  (node-visibility (t)))
+
+(_Property-Node827 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value788))
+  (has-clones (_Property-Node334))
+  (node-visibility (t)))
+
+(_Property-Node828 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Speed-Value792))
+  (has-clones (_Property-Node333))
+  (node-visibility (t)))
+
+(_Property-Node829 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Duration-Value804))
+  (has-clones (_Property-Node332))
+  (node-visibility (t)))
+
+(_Property-Node830 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Angle-Value796))
+  (has-clones (_Property-Node331))
+  (node-visibility (t)))
+
+(_Property-Node831 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Acceleration-Magnitude-Value801))
+  (has-clones (_Property-Node330))
+  (node-visibility (t)))
+
+(_Mass-Value842 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (used-in-equation (_Equation-Set1071
+                     _Equation-Set543
+                     _Equation-Set542))
+  (contains-node-of (_Property-Node844))
+  (instance-of (Mass-Value))
+  (mass-of (_Tangible-Entity805))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 920 591)))
+  (has-clones (_Mass-Value329)))
+
+(_Property-Node844 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Mass-Value842))
+  (node-visibility (t))
+  (has-clones (_Property-Node328)))
+
+(_Equation-Set1071 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (contains-node-of (_Equation-Big-Node1078))
+  (equation-uses (_Acceleration-Magnitude-Value1074
+                  _Force-Magnitude-Value1073
+                  _Mass-Value842))
+  (instance-of (Equation-Set))
+  (equation-of (_System974))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (user-equation-expression ('(= f_wt (* m g))))
+  (equation-symbol ((:pair 'f_wt _Force-Magnitude-Value1073)
+                    (:pair 'm _Mass-Value842)
+                    (:pair 'g _Acceleration-Magnitude-Value1074)))
+  (equation-expression ('(= f_wt (* m g))))
+  (node-coordinate ((:pair 404 616)))
+  (has-clones (_Equation-Set327))
+  (edge-visibility ((:seq user-equation-expression '(= f_wt (* m g)) f)
+                    (:seq equation-expression '(= f_wt (* m g)) f)
+                    (:seq equation-symbol (:pair 'g _Acceleration-Magnitude-Value1074) f)
+                    (:seq equation-symbol (:pair 'm _Mass-Value842) f)
+                    (:seq equation-symbol (:pair 'f_wt _Force-Magnitude-Value1073) f)
+                    (:seq equation-uses _Mass-Value842 f)
+                    (:seq equation-uses _Force-Magnitude-Value1073 f)
+                    (:seq equation-uses _Acceleration-Magnitude-Value1074 f))))
+
+(_Force-Vector-Value1072 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node1075))
+  (force-magnitude (_Force-Magnitude-Value1073))
+  (instance-of (Force-Vector-Value))
+  (y-force-magnitude (_Force-Magnitude-Value544))
+  (weight-force-of (_Exert-Force945))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq y-force-magnitude _Force-Magnitude-Value544 583 427)
+                    (:seq force-magnitude _Force-Magnitude-Value1073 701 430)))
+  (edge-visibility ((:seq y-force-magnitude _Force-Magnitude-Value544 t)
+                    (:seq force-magnitude _Force-Magnitude-Value1073 f)))
+  (node-coordinate ((:pair 376 430)))
+  (has-clones (_Force-Vector-Value323)))
+
+(_Force-Magnitude-Value1073 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node1076))
+  (instance-of (Force-Magnitude-Value))
+  (used-in-equation (_Equation-Set545
+                     _Equation-Set501
+                     _Equation-Set1071))
+  (force-magnitude-of (_Force-Vector-Value1072))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 823 436)))
+  (has-clones (_Force-Magnitude-Value322)))
+
+(_Acceleration-Magnitude-Value1074 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (contains-node-of (_Property-Node1077))
+  (instance-of (Acceleration-Magnitude-Value))
+  (y-acceleration-magnitude-of (_Exert-Force945))
+  (used-in-equation (_Equation-Set1071))
+  (node-visibility (f))
+  (internally-expanded (f))
+  (value ((:pair -9.8 *meter-per-second-squared)))
+  (node-coordinate ((:pair 366 186)))
+  (has-clones (_Acceleration-Magnitude-Value321))
+  (edge-visibility ((:seq value (:pair -9.8 *meter-per-second-squared) f))))
+
+(_Property-Node1075 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Force-Vector-Value1072))
+  (has-clones (_Property-Node320))
+  (node-visibility (t)))
+
+(_Property-Node1076 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Force-Magnitude-Value1073))
+  (has-clones (_Property-Node319))
+  (node-visibility (t)))
+
+(_Property-Node1077 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Property-Node))
+  (contains-node (_Acceleration-Magnitude-Value1074))
+  (has-clones (_Property-Node317))
+  (node-visibility (t)))
+
+(_Equation-Big-Node1078 has 
+  (prototype-participant-of (_Motion-under-force733))
+  (big-node-of (_Motion-under-force733))
+  (instance-of (Equation-Big-Node))
+  (contains-node (_System974
+                  _Equation-Set1071))
+  (has-clones (_Equation-Big-Node311))
+  (node-visibility (t))
+  (contains-edge ((:triple _System974 component _Motion-under-force733)
+                  (:triple _System974 equation _Equation-Set1071)
+                  (:triple _Equation-Set1071 user-equation-expression '(= f_wt (* m g)))
+                  (:triple _Equation-Set1071 equation-uses _Force-Magnitude-Value1073)
+                  (:triple _Equation-Set1071 equation-symbol (:pair 'f_wt _Force-Magnitude-Value1073))
+                  (:triple _Equation-Set1071 equation-uses _Mass-Value842)
+                  (:triple _Equation-Set1071 equation-symbol (:pair 'm _Mass-Value842))
+                  (:triple _Equation-Set1071 equation-uses _Acceleration-Magnitude-Value1074)
+                  (:triple _Equation-Set1071 equation-expression '(= f_wt (* m g)))
+                  (:triple _Equation-Set1071 equation-symbol (:pair 'g _Acceleration-Magnitude-Value1074)))))
+
+(explanation (:triple _Motion-under-force733 direction _Angle-Value796) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Motion-under-force733 instance-of Placeholder-Class732) ((added-at Placeholder-Class732 "User defined")))
+(explanation (:triple _Motion-under-force733 velocity _Velocity-Vector-Value791) ((a Velocity-Vector-Value (@ _Motion-under-force733 Move velocity))))
+(explanation (:triple _Motion-under-force733 y-speed _Speed-Value794) ((the y-speed of (the velocity of _Motion-under-force733) (@ _Motion-under-force733 Move y-speed))))
+(explanation (:triple _Motion-under-force733 displacement _Displacement-Vector-Value784) ((a Displacement-Vector-Value (@ _Motion-under-force733 Move displacement))))
+(explanation (:triple _Motion-under-force733 y-distance _Length-Value786) ((the y-distance of (the displacement of _Motion-under-force733) (@ _Motion-under-force733 Move y-distance))))
+(explanation (:triple _Motion-under-force733 acceleration _Acceleration-Vector-Value800) ((a Acceleration-Vector-Value (@ _Motion-under-force733 Move acceleration))))
+(explanation (:triple _Motion-under-force733 y-acceleration-magnitude _Acceleration-Magnitude-Value803) ((the y-acceleration-magnitude of (the acceleration of _Motion-under-force733) (@ _Motion-under-force733 Move y-acceleration-magnitude))))
+(explanation (:triple _Motion-under-force733 x-speed _Speed-Value793) ((the x-speed of (the velocity of _Motion-under-force733) (@ _Motion-under-force733 Move x-speed))))
+(explanation (:triple _Motion-under-force733 x-distance _Length-Value785) ((the x-distance of (the displacement of _Motion-under-force733) (@ _Motion-under-force733 Move x-distance))))
+(explanation (:triple _Motion-under-force733 x-acceleration-magnitude _Acceleration-Magnitude-Value802) ((the x-acceleration-magnitude of (the acceleration of _Motion-under-force733) (@ _Motion-under-force733 Move x-acceleration-magnitude))))
+(explanation (:triple _Motion-under-force733 initial-velocity _Velocity-Vector-Value795) ((a Velocity-Vector-Value (@ _Motion-under-force733 Move initial-velocity))))
+(explanation (:triple _Motion-under-force733 initial-y-speed _Speed-Value799) ((the y-speed of (the initial-velocity of _Motion-under-force733) (@ _Motion-under-force733 Move initial-y-speed))))
+(explanation (:triple _Motion-under-force733 initial-x-speed _Speed-Value798) ((the x-speed of (the initial-velocity of _Motion-under-force733) (@ _Motion-under-force733 Move initial-x-speed))))
+(explanation (:triple _Motion-under-force733 initial-speed _Speed-Value797) ((the speed of (the initial-velocity of _Motion-under-force733) (@ _Motion-under-force733 Move initial-speed))))
+(explanation (:triple _Motion-under-force733 final-velocity _Velocity-Vector-Value787) ((a Velocity-Vector-Value (@ _Motion-under-force733 Move final-velocity))))
+(explanation (:triple _Motion-under-force733 final-y-speed _Speed-Value790) ((the y-speed of (the final-velocity of _Motion-under-force733) (@ _Motion-under-force733 Move final-y-speed))))
+(explanation (:triple _Motion-under-force733 final-x-speed _Speed-Value789) ((the x-speed of (the final-velocity of _Motion-under-force733) (@ _Motion-under-force733 Move final-x-speed))))
+(explanation (:triple _Motion-under-force733 final-speed _Speed-Value788) ((the speed of (the final-velocity of _Motion-under-force733) (@ _Motion-under-force733 Move final-speed))))
+(explanation (:triple _Motion-under-force733 toward _Spatial-Entity810) ((a Spatial-Entity (@ _Motion-under-force733 Move toward))))
+(explanation (:triple _Motion-under-force733 speed _Speed-Value792) ((the speed of (the velocity of _Motion-under-force733) (@ _Motion-under-force733 Move speed))))
+(explanation (:triple _Motion-under-force733 path _Spatial-Entity809) ((a Spatial-Entity (@ _Motion-under-force733 Move path))))
+(explanation (:triple _Motion-under-force733 origin _Spatial-Entity808) ((a Spatial-Entity (@ _Motion-under-force733 Move origin))))
+(explanation (:triple _Motion-under-force733 object _Tangible-Entity805) ((a Tangible-Entity (@ _Motion-under-force733 Move object))))
+(explanation (:triple _Motion-under-force733 destination _Spatial-Entity807) ((a Spatial-Entity (@ _Motion-under-force733 Move destination))))
+(explanation (:triple _Motion-under-force733 away-from _Spatial-Entity806) ((a Spatial-Entity (@ _Motion-under-force733 Move away-from))))
+(explanation (:triple _Motion-under-force733 duration _Duration-Value804) ((a Duration-Value (@ _Motion-under-force733 Move duration))))
+(explanation (:triple _Motion-under-force733 direction _Angle-Value796) ((the direction of (the initial-velocity of _Motion-under-force733) (@ _Motion-under-force733 Move direction))))
+(explanation (:triple _Motion-under-force733 acceleration-magnitude _Acceleration-Magnitude-Value801) ((the acceleration-magnitude of (the acceleration of _Motion-under-force733) (@ _Motion-under-force733 Move acceleration-magnitude))))
+(explanation (:triple _Motion-under-force733 acceleration _Acceleration-Vector-Value800) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 equation-symbol (:pair (QUOTE f_norm) _Force-Magnitude-Value543)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 equation-expression (QUOTE (= f_norm (* (- f_wt) (cos theta_acc))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 equation-uses _Force-Magnitude-Value543) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 user-equation-expression (QUOTE (= f_norm (* (- f_wt) (cos (:op_paren theta_acc)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 user-equation-expression (QUOTE (= fy_wt (* f_wt (cos (:op_paren theta_acc)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 equation-symbol (:pair (QUOTE theta_acc) _Angle-Value796)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 equation-symbol (:pair (QUOTE f_wt) _Force-Magnitude-Value1073)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 equation-uses _Angle-Value796) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 equation-uses _Force-Magnitude-Value1073) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set545 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value544 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value1072 Force-Vector-Value y-force-magnitude))))
+(explanation (:triple _Force-Magnitude-Value544 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value543 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value542 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Force-Magnitude-Value543 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value542 force-magnitude _Force-Magnitude-Value543) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value542 force-magnitude _Force-Magnitude-Value543) ((a Force-Magnitude-Value (@ _Force-Vector-Value542 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Force-Vector-Value542 instance-of Force-Vector-Value) ((a Force-Vector-Value (@ _Exert-Force945 Exert-Force normal-force))))
+(explanation (:triple _Force-Vector-Value542 instance-of Force-Vector-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 user-equation-expression (QUOTE (= acc_y (/ fy_net m)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 equation-symbol (:pair (QUOTE m) _Mass-Value842)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 equation-symbol (:pair (QUOTE fy_net) _Force-Magnitude-Value498)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 equation-symbol (:pair (QUOTE acc_y) _Acceleration-Magnitude-Value803)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 equation-expression (QUOTE (= acc_y (/ fy_net m)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 equation-uses _Mass-Value842) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 equation-uses _Force-Magnitude-Value498) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 equation-uses _Acceleration-Magnitude-Value803) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 equation-expression (QUOTE (= fy_net (* acc_y m)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set543 user-equation-expression (QUOTE (= fy_net (* acc_y m)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 user-equation-expression (QUOTE (= acc_x (/ fx_net m)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 equation-uses _Force-Magnitude-Value496) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 equation-uses _Acceleration-Magnitude-Value802) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 equation-uses _Mass-Value842) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 equation-expression (QUOTE (= fx_net (* acc_x m)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 equation-symbol (:pair (QUOTE fx_net) _Force-Magnitude-Value496)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 equation-symbol (:pair (QUOTE acc_x) _Acceleration-Magnitude-Value802)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 equation-symbol (:pair (QUOTE m) _Mass-Value842)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set542 user-equation-expression (QUOTE (= fx_net (* acc_x m)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 equation-symbol (:pair (QUOTE acc_y) _Acceleration-Magnitude-Value803)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 equation-expression (QUOTE (= theta_acc (atan (/ acc_y acc_x))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 equation-uses _Acceleration-Magnitude-Value803) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 equation-symbol (:pair (QUOTE acc_x) _Acceleration-Magnitude-Value802)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 equation-uses _Acceleration-Magnitude-Value802) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 equation-symbol (:pair (QUOTE theta_acc) _Angle-Value796)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 equation-uses _Angle-Value796) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 user-equation-expression (QUOTE (= theta_acc (atan (:op_paren (/ acc_y acc_x)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set533 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 equation-symbol (:pair (QUOTE acc_y) _Acceleration-Magnitude-Value803)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 equation-expression (QUOTE (= acc (sqrt (+ (expt acc_x 2) (expt acc_y 2)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 equation-uses _Acceleration-Magnitude-Value803) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 equation-symbol (:pair (QUOTE acc_x) _Acceleration-Magnitude-Value802)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 equation-uses _Acceleration-Magnitude-Value802) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 equation-symbol (:pair (QUOTE acc) _Acceleration-Magnitude-Value801)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 equation-uses _Acceleration-Magnitude-Value801) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 user-equation-expression (QUOTE (= acc (sqrt (:op_paren (+ (expt acc_x 2) (expt acc_y 2))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set504 user-equation-expression (QUOTE (= acc (sqrt (:op_paren (+ (expt (:op_paren acc_x) 2) (expt (:op_paren acc_y) 2))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 equation-symbol (:pair (QUOTE fx_net) _Force-Magnitude-Value496)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 equation-expression (QUOTE (= f_net (sqrt (+ (expt fx_net 2) (expt fx_net 2)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 equation-uses _Force-Magnitude-Value496) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 equation-symbol (:pair (QUOTE f_net) _Force-Magnitude-Value499)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 equation-uses _Force-Magnitude-Value499) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 user-equation-expression (QUOTE (= f_net (sqrt (:op_paren (+ (expt fx_net 2) (expt fx_net 2))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 user-equation-expression (QUOTE (= f_net (sqrt (:op_paren (+ (expt (:op_paren fx_net) 2) (expt (:op_paren fx_net) 2))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 equation-uses _Force-Magnitude-Value498) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 equation-expression (QUOTE (= f_net (sqrt (+ (expt fx_net 2) (expt fy_net 2)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 equation-symbol (:pair (QUOTE fy_net) _Force-Magnitude-Value498)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set503 user-equation-expression (QUOTE (= f_net (sqrt (:op_paren (+ (expt (:op_paren fx_net) 2) (expt (:op_paren fy_net) 2))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 equation-symbol (:pair (QUOTE fy_net) _Force-Magnitude-Value498)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 equation-expression (QUOTE (= theta_net (atan (/ fy_net fx_net))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 equation-uses _Force-Magnitude-Value498) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 equation-symbol (:pair (QUOTE fx_net) _Force-Magnitude-Value496)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 equation-uses _Force-Magnitude-Value496) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 equation-symbol (:pair (QUOTE theta_net) _Angle-Value500)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 equation-uses _Angle-Value500) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 user-equation-expression (QUOTE (= theta_net (atan (:op_paren (/ fy_net fx_net)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set502 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-symbol (:pair (QUOTE f_norm) _Force-Magnitude-Value543)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-expression (QUOTE (= fy_net (+ (* f_norm (cos theta_acc)) f_wt)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-uses _Force-Magnitude-Value543) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 user-equation-expression (QUOTE (= fy_net (+ (* f_norm (cos (:op_paren theta_acc))) f_wt)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 user-equation-expression (QUOTE (= fy_net (+ (* f_norm (cos (:op_paren theta_acc))) (* f_wt (cos (:op_paren theta_acc))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-symbol (:pair (QUOTE theta_acc) _Angle-Value796)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-uses _Angle-Value796) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 user-equation-expression (QUOTE (= fy_net (+ (* f_norm (cos (:op_paren theta_acc))) fy_wt)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 user-equation-expression (QUOTE (= fy_net (+ fy_app f_wt)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-symbol (:pair (QUOTE f_wt) _Force-Magnitude-Value1073)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-expression (QUOTE (= fy_net (+ fy_app f_wt)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-uses _Force-Magnitude-Value1073) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-symbol (:pair (QUOTE fy_net) _Force-Magnitude-Value498)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-uses _Force-Magnitude-Value498) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 user-equation-expression (QUOTE (= fy_net (+ fy_app fy_wt)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-symbol (:pair (QUOTE fy_app) _Force-Magnitude-Value966)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-uses _Force-Magnitude-Value966) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-symbol (:pair (QUOTE f_net) _Force-Magnitude-Value499)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-uses _Force-Magnitude-Value499) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-symbol (:pair (QUOTE theta_net) _Angle-Value500)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-uses _Angle-Value500) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 user-equation-expression (QUOTE (= fy_net (* f_net (sin (:op_paren theta_net)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-expression (QUOTE (= fy_net fy_app))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 user-equation-expression (QUOTE (= fy_net fy_app))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 equation-expression (QUOTE (= fy_net 0))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set501 user-equation-expression (QUOTE (= fy_net 0))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Angle-Value500 instance-of Angle-Value) ((a Angle-Value (@ _Force-Vector-Value497 Force-Vector-Value direction))))
+(explanation (:triple _Angle-Value500 instance-of Angle-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value499 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value497 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Force-Magnitude-Value499 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value498 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value497 Force-Vector-Value y-force-magnitude))))
+(explanation (:triple _Force-Magnitude-Value498 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value497 text-phrase (:seq (:seq "an unknown" force-magnitude) "at an unknown angle")) ((:seq (the text-head of _Force-Vector-Value497) (the text-postmods of _Force-Vector-Value497))))
+(explanation (:triple _Force-Vector-Value497 text-postmods "at an unknown angle") ((if (has-value (the value of (the direction of _Force-Vector-Value497)) (@ _Force-Vector-Value497 Property-Vector-Value text-postmods)) then (:seq "at an angle of" (the text-gen of (the direction of _Force-Vector-Value497))) else "at an unknown angle" (@ _Force-Vector-Value497 Property-Vector-Value text-postmods))))
+(explanation (:triple _Force-Vector-Value497 text-head (:seq "an unknown" force-magnitude)) (((?card-val == (oneof ?val in (the value of (the (the secondary-slot of _Force-Vector-Value497) of _Force-Vector-Value497)) where (((the1 of ?val) and ((the1 of ?val) isa Number) and (has-value (the cardinal-unit-class of (the secondary-slot of _Force-Vector-Value497))) and ((the2 of ?val) isa (the cardinal-unit-class of (the secondary-slot of _Force-Vector-Value497))))))) and (?conv-card-val == (if ((has-value ?card-val) and (has-value (the preferred-unit of (the (the secondary-slot of _Force-Vector-Value497) of _Force-Vector-Value497)))) then (the value of (the output of (a Unit-Conversion with (input ((the (the secondary-slot of _Force-Vector-Value497) of _Force-Vector-Value497))) (target-unit ((the preferred-unit of (the (the secondary-slot of _Force-Vector-Value497) of _Force-Vector-Value497))))))))) and (if ?conv-card-val then (:seq (the1 of ?conv-card-val) (if ((the2 of ?conv-card-val) /= *unity) then (the2 of ?conv-card-val))) else (if ?card-val then (:seq (the1 of ?card-val) (if ((the2 of ?card-val) /= *unity) then (the2 of ?card-val))) else (:seq "an unknown" (the secondary-slot of _Force-Vector-Value497)))) (@ _Force-Vector-Value497 Property-Vector-Value text-head))))
+(explanation (:triple _Force-Vector-Value497 y-force-magnitude _Force-Magnitude-Value498) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value497 y-force-magnitude _Force-Magnitude-Value498) ((a Force-Magnitude-Value (@ _Force-Vector-Value497 Force-Vector-Value y-force-magnitude))))
+(explanation (:triple _Force-Vector-Value497 x-force-magnitude _Force-Magnitude-Value496) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value497 x-force-magnitude _Force-Magnitude-Value496) ((a Force-Magnitude-Value (@ _Force-Vector-Value497 Force-Vector-Value x-force-magnitude))))
+(explanation (:triple _Force-Vector-Value497 force-magnitude _Force-Magnitude-Value499) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value497 force-magnitude _Force-Magnitude-Value499) ((a Force-Magnitude-Value (@ _Force-Vector-Value497 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Force-Vector-Value497 direction _Angle-Value500) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value497 direction _Angle-Value500) ((a Angle-Value (@ _Force-Vector-Value497 Force-Vector-Value direction))))
+(explanation (:triple _Force-Vector-Value497 instance-of Force-Vector-Value) ((a Force-Vector-Value (@ _Exert-Force945 Exert-Force net-force))))
+(explanation (:triple _Force-Vector-Value497 instance-of Force-Vector-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value496 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value497 Force-Vector-Value x-force-magnitude))))
+(explanation (:triple _Force-Magnitude-Value496 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 user-equation-expression (QUOTE (= fx_net (+ fx_app (* f_norm (sin (:op_paren theta_acc))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-symbol (:pair (QUOTE theta_acc) _Angle-Value796)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-symbol (:pair (QUOTE f_norm) _Force-Magnitude-Value543)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-expression (QUOTE (= fx_net (+ fx_app (* f_norm (sin theta_acc)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-uses _Angle-Value796) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-uses _Force-Magnitude-Value543) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 user-equation-expression (QUOTE (= fx_net fx_app))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-expression (QUOTE (= fx_net fx_app))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 user-equation-expression (QUOTE (= fx_net (+ fx_app 0)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-expression (QUOTE (= fx_net (+ fx_app 0)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 user-equation-expression (QUOTE (= fx_net (+ fx_app fx_wt)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-symbol (:pair (QUOTE fx_app) _Force-Magnitude-Value967)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-uses _Force-Magnitude-Value967) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-symbol (:pair (QUOTE fx_net) _Force-Magnitude-Value496)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-expression (QUOTE (= fx_net (* f_net (cos theta_net))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-uses _Force-Magnitude-Value496) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-symbol (:pair (QUOTE f_net) _Force-Magnitude-Value499)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-uses _Force-Magnitude-Value499) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-symbol (:pair (QUOTE theta_net) _Angle-Value500)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-uses _Angle-Value500) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 user-equation-expression (QUOTE (= fx_net (* f_net (cos (:op_paren theta_net)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 equation-expression (QUOTE (= fx_net (- fx_app (* f_norm (sin theta_acc)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set495 user-equation-expression (QUOTE (= fx_net (- fx_app (* f_norm (sin (:op_paren theta_acc))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set545) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set543) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set542) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set533) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set504) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set503) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set501) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set502) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set495) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 instance-of System) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 component _Motion-under-force733) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set972) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set971) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set970) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set973) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _System974 equation _Equation-Set1071) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 user-equation-expression (QUOTE (= fy_app (* f_app (cos (:op_paren theta_app)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 user-equation-expression (QUOTE (= fy_app (* f_app (sin (:op_paren theta_app)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 equation-uses _Angle-Value969) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 equation-symbol (:pair (QUOTE theta_app) _Angle-Value969)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 equation-uses _Force-Magnitude-Value968) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 equation-symbol (:pair (QUOTE f_app) _Force-Magnitude-Value968)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 equation-uses _Force-Magnitude-Value966) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 equation-expression (QUOTE (= fy_app (* f_app (sin theta_app))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set973 equation-symbol (:pair (QUOTE fy_app) _Force-Magnitude-Value966)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 user-equation-expression (QUOTE (= theta_app (atan (:op_paren (/ fy_app fx_app)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 equation-uses _Angle-Value969) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 equation-symbol (:pair (QUOTE theta_app) _Angle-Value969)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 equation-uses _Force-Magnitude-Value967) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 equation-symbol (:pair (QUOTE fx_app) _Force-Magnitude-Value967)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 equation-uses _Force-Magnitude-Value966) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 equation-expression (QUOTE (= theta_app (atan (/ fy_app fx_app))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set972 equation-symbol (:pair (QUOTE fy_app) _Force-Magnitude-Value966)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 user-equation-expression (QUOTE (= f_app (sqrt (:op_paren (+ (expt fx_app 2) (expt fy_app 2))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 equation-uses _Force-Magnitude-Value968) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 equation-symbol (:pair (QUOTE f_app) _Force-Magnitude-Value968)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 equation-uses _Force-Magnitude-Value967) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 equation-symbol (:pair (QUOTE fx_app) _Force-Magnitude-Value967)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 equation-uses _Force-Magnitude-Value966) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 equation-expression (QUOTE (= f_app (sqrt (+ (expt fx_app 2) (expt fy_app 2)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 equation-symbol (:pair (QUOTE fy_app) _Force-Magnitude-Value966)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set971 user-equation-expression (QUOTE (= f_app (sqrt (:op_paren (+ (expt (:op_paren fx_app) 2) (expt (:op_paren fy_app) 2))))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 user-equation-expression (QUOTE (= fx_app (* f_app (sin (:op_paren theta_app)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 user-equation-expression (QUOTE (= fx_app (* f_app (cos (:op_paren theta_app)))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 equation-uses _Angle-Value969) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 equation-symbol (:pair (QUOTE theta_app) _Angle-Value969)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 equation-uses _Force-Magnitude-Value968) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 equation-symbol (:pair (QUOTE f_app) _Force-Magnitude-Value968)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 equation-uses _Force-Magnitude-Value967) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 equation-expression (QUOTE (= fx_app (* f_app (cos theta_app))))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set970 equation-symbol (:pair (QUOTE fx_app) _Force-Magnitude-Value967)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Angle-Value969 instance-of Angle-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Angle-Value969 instance-of Angle-Value) ((a Angle-Value (@ _Force-Vector-Value965 Force-Vector-Value direction))))
+(explanation (:triple _Force-Magnitude-Value968 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value968 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value965 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Force-Magnitude-Value967 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value967 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value965 Force-Vector-Value x-force-magnitude))))
+(explanation (:triple _Force-Magnitude-Value966 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value966 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value965 Force-Vector-Value y-force-magnitude))))
+(explanation (:triple _Force-Vector-Value965 text-phrase (:seq (:seq "an unknown" force-magnitude) "at an unknown angle")) ((:seq (the text-head of _Force-Vector-Value965) (the text-postmods of _Force-Vector-Value965))))
+(explanation (:triple _Force-Vector-Value965 text-postmods "at an unknown angle") ((if (has-value (the value of (the direction of _Force-Vector-Value965)) (@ _Force-Vector-Value965 Property-Vector-Value text-postmods)) then (:seq "at an angle of" (the text-gen of (the direction of _Force-Vector-Value965))) else "at an unknown angle" (@ _Force-Vector-Value965 Property-Vector-Value text-postmods))))
+(explanation (:triple _Force-Vector-Value965 text-head (:seq "an unknown" force-magnitude)) (((?card-val == (oneof ?val in (the value of (the (the secondary-slot of _Force-Vector-Value965) of _Force-Vector-Value965)) where (((the1 of ?val) and ((the1 of ?val) isa Number) and (has-value (the cardinal-unit-class of (the secondary-slot of _Force-Vector-Value965))) and ((the2 of ?val) isa (the cardinal-unit-class of (the secondary-slot of _Force-Vector-Value965))))))) and (?conv-card-val == (if ((has-value ?card-val) and (has-value (the preferred-unit of (the (the secondary-slot of _Force-Vector-Value965) of _Force-Vector-Value965)))) then (the value of (the output of (a Unit-Conversion with (input ((the (the secondary-slot of _Force-Vector-Value965) of _Force-Vector-Value965))) (target-unit ((the preferred-unit of (the (the secondary-slot of _Force-Vector-Value965) of _Force-Vector-Value965))))))))) and (if ?conv-card-val then (:seq (the1 of ?conv-card-val) (if ((the2 of ?conv-card-val) /= *unity) then (the2 of ?conv-card-val))) else (if ?card-val then (:seq (the1 of ?card-val) (if ((the2 of ?card-val) /= *unity) then (the2 of ?card-val))) else (:seq "an unknown" (the secondary-slot of _Force-Vector-Value965)))) (@ _Force-Vector-Value965 Property-Vector-Value text-head))))
+(explanation (:triple _Force-Vector-Value965 instance-of Force-Vector-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value965 instance-of Force-Vector-Value) ((a Force-Vector-Value (@ _Exert-Force945 Exert-Force applied-force))))
+(explanation (:triple _Force-Vector-Value965 direction _Angle-Value969) ((a Angle-Value (@ _Force-Vector-Value965 Force-Vector-Value direction))))
+(explanation (:triple _Force-Vector-Value965 direction _Angle-Value969) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value965 force-magnitude _Force-Magnitude-Value968) ((a Force-Magnitude-Value (@ _Force-Vector-Value965 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Force-Vector-Value965 force-magnitude _Force-Magnitude-Value968) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value965 x-force-magnitude _Force-Magnitude-Value967) ((a Force-Magnitude-Value (@ _Force-Vector-Value965 Force-Vector-Value x-force-magnitude))))
+(explanation (:triple _Force-Vector-Value965 x-force-magnitude _Force-Magnitude-Value967) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value965 y-force-magnitude _Force-Magnitude-Value966) ((a Force-Magnitude-Value (@ _Force-Vector-Value965 Force-Vector-Value y-force-magnitude))))
+(explanation (:triple _Force-Vector-Value965 y-force-magnitude _Force-Magnitude-Value966) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 force _Force-Vector-Value498) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 normal-force _Force-Vector-Value542) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 normal-force _Force-Vector-Value542) ((a Force-Vector-Value (@ _Exert-Force945 Exert-Force normal-force))))
+(explanation (:triple _Exert-Force945 net-force _Force-Vector-Value497) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 net-force _Force-Vector-Value497) ((a Force-Vector-Value (@ _Exert-Force945 Exert-Force net-force))))
+(explanation (:triple _Exert-Force945 instance-of Exert-Force) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 causes _Motion-under-force733) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 object _Tangible-Entity805) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 applied-force _Force-Vector-Value965) ((a Force-Vector-Value (@ _Exert-Force945 Exert-Force applied-force))))
+(explanation (:triple _Exert-Force945 applied-force _Force-Vector-Value965) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 weight-force _Force-Vector-Value1072) ((a Force-Vector-Value (@ _Exert-Force945 Exert-Force weight-force))))
+(explanation (:triple _Exert-Force945 weight-force _Force-Vector-Value1072) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Exert-Force945 y-acceleration-magnitude _Acceleration-Magnitude-Value1074) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Displacement-Vector-Value784 instance-of Displacement-Vector-Value) ((a Displacement-Vector-Value (@ _Motion-under-force733 Move displacement))))
+(explanation (:triple _Displacement-Vector-Value784 y-distance _Length-Value786) ((a Length-Value (@ _Displacement-Vector-Value784 Displacement-Vector-Value y-distance))))
+(explanation (:triple _Displacement-Vector-Value784 x-distance _Length-Value785) ((a Length-Value (@ _Displacement-Vector-Value784 Displacement-Vector-Value x-distance))))
+(explanation (:triple _Length-Value785 instance-of Length-Value) ((a Length-Value (@ _Displacement-Vector-Value784 Displacement-Vector-Value x-distance))))
+(explanation (:triple _Length-Value786 instance-of Length-Value) ((a Length-Value (@ _Displacement-Vector-Value784 Displacement-Vector-Value y-distance))))
+(explanation (:triple _Velocity-Vector-Value787 instance-of Velocity-Vector-Value) ((a Velocity-Vector-Value (@ _Motion-under-force733 Move final-velocity))))
+(explanation (:triple _Velocity-Vector-Value787 y-speed _Speed-Value790) ((a Speed-Value (@ _Velocity-Vector-Value787 Velocity-Vector-Value y-speed))))
+(explanation (:triple _Velocity-Vector-Value787 x-speed _Speed-Value789) ((a Speed-Value (@ _Velocity-Vector-Value787 Velocity-Vector-Value x-speed))))
+(explanation (:triple _Velocity-Vector-Value787 speed _Speed-Value788) ((a Speed-Value (@ _Velocity-Vector-Value787 Velocity-Vector-Value speed))))
+(explanation (:triple _Speed-Value788 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value787 Velocity-Vector-Value speed))))
+(explanation (:triple _Speed-Value789 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value787 Velocity-Vector-Value x-speed))))
+(explanation (:triple _Speed-Value790 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value787 Velocity-Vector-Value y-speed))))
+(explanation (:triple _Velocity-Vector-Value791 instance-of Velocity-Vector-Value) ((a Velocity-Vector-Value (@ _Motion-under-force733 Move velocity))))
+(explanation (:triple _Velocity-Vector-Value791 y-speed _Speed-Value794) ((a Speed-Value (@ _Velocity-Vector-Value791 Velocity-Vector-Value y-speed))))
+(explanation (:triple _Velocity-Vector-Value791 x-speed _Speed-Value793) ((a Speed-Value (@ _Velocity-Vector-Value791 Velocity-Vector-Value x-speed))))
+(explanation (:triple _Velocity-Vector-Value791 speed _Speed-Value792) ((a Speed-Value (@ _Velocity-Vector-Value791 Velocity-Vector-Value speed))))
+(explanation (:triple _Speed-Value792 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value791 Velocity-Vector-Value speed))))
+(explanation (:triple _Speed-Value793 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value791 Velocity-Vector-Value x-speed))))
+(explanation (:triple _Speed-Value794 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value791 Velocity-Vector-Value y-speed))))
+(explanation (:triple _Velocity-Vector-Value795 instance-of Velocity-Vector-Value) ((a Velocity-Vector-Value (@ _Motion-under-force733 Move initial-velocity))))
+(explanation (:triple _Velocity-Vector-Value795 y-speed _Speed-Value799) ((a Speed-Value (@ _Velocity-Vector-Value795 Velocity-Vector-Value y-speed))))
+(explanation (:triple _Velocity-Vector-Value795 x-speed _Speed-Value798) ((a Speed-Value (@ _Velocity-Vector-Value795 Velocity-Vector-Value x-speed))))
+(explanation (:triple _Velocity-Vector-Value795 speed _Speed-Value797) ((a Speed-Value (@ _Velocity-Vector-Value795 Velocity-Vector-Value speed))))
+(explanation (:triple _Velocity-Vector-Value795 direction _Angle-Value796) ((a Angle-Value (@ _Velocity-Vector-Value795 Velocity-Vector-Value direction))))
+(explanation (:triple _Angle-Value796 instance-of Angle-Value) ((a Angle-Value (@ _Velocity-Vector-Value795 Velocity-Vector-Value direction))))
+(explanation (:triple _Angle-Value796 instance-of Angle-Value) ((a Angle-Value (@ _Acceleration-Vector-Value800 Acceleration-Vector-Value direction))))
+(explanation (:triple _Angle-Value796 instance-of Angle-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Speed-Value797 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value795 Velocity-Vector-Value speed))))
+(explanation (:triple _Speed-Value798 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value795 Velocity-Vector-Value x-speed))))
+(explanation (:triple _Speed-Value799 instance-of Speed-Value) ((a Speed-Value (@ _Velocity-Vector-Value795 Velocity-Vector-Value y-speed))))
+(explanation (:triple _Acceleration-Vector-Value800 direction _Angle-Value796) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Acceleration-Vector-Value800 direction _Angle-Value796) ((a Angle-Value (@ _Acceleration-Vector-Value800 Acceleration-Vector-Value direction))))
+(explanation (:triple _Acceleration-Vector-Value800 acceleration-magnitude _Acceleration-Magnitude-Value801) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Acceleration-Vector-Value800 y-acceleration-magnitude _Acceleration-Magnitude-Value803) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Acceleration-Vector-Value800 x-acceleration-magnitude _Acceleration-Magnitude-Value802) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Acceleration-Vector-Value800 instance-of Acceleration-Vector-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Acceleration-Vector-Value800 instance-of Acceleration-Vector-Value) ((a Acceleration-Vector-Value (@ _Motion-under-force733 Move acceleration))))
+(explanation (:triple _Acceleration-Vector-Value800 y-acceleration-magnitude _Acceleration-Magnitude-Value803) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value800 Acceleration-Vector-Value y-acceleration-magnitude))))
+(explanation (:triple _Acceleration-Vector-Value800 x-acceleration-magnitude _Acceleration-Magnitude-Value802) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value800 Acceleration-Vector-Value x-acceleration-magnitude))))
+(explanation (:triple _Acceleration-Vector-Value800 acceleration-magnitude _Acceleration-Magnitude-Value801) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value800 Acceleration-Vector-Value acceleration-magnitude))))
+(explanation (:triple _Acceleration-Magnitude-Value801 instance-of Acceleration-Magnitude-Value) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value800 Acceleration-Vector-Value acceleration-magnitude))))
+(explanation (:triple _Acceleration-Magnitude-Value801 instance-of Acceleration-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value802 instance-of Acceleration-Magnitude-Value) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value800 Acceleration-Vector-Value x-acceleration-magnitude))))
+(explanation (:triple _Acceleration-Magnitude-Value802 instance-of Acceleration-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value803 instance-of Acceleration-Magnitude-Value) ((a Acceleration-Magnitude-Value (@ _Acceleration-Vector-Value800 Acceleration-Vector-Value y-acceleration-magnitude))))
+(explanation (:triple _Acceleration-Magnitude-Value803 instance-of Acceleration-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Duration-Value804 instance-of Duration-Value) ((a Duration-Value (@ _Motion-under-force733 Move duration))))
+(explanation (:triple _Tangible-Entity805 instance-of Entity) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Tangible-Entity805 instance-of Tangible-Entity) ((a Tangible-Entity (@ _Motion-under-force733 Move object))))
+(explanation (:triple _Tangible-Entity805 instance-of Thing) ((a Thing (@ _Motion-under-force733 Action (object must-be-a)))))
+(explanation (:triple _Tangible-Entity805 mass _Mass-Value842) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Tangible-Entity805 instance-of Thing) ((a Thing (@ _Exert-Force945 Action (object must-be-a)))))
+(explanation (:triple _Spatial-Entity806 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Motion-under-force733 Move away-from))))
+(explanation (:triple _Spatial-Entity807 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Motion-under-force733 Move destination))))
+(explanation (:triple _Spatial-Entity808 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Motion-under-force733 Move origin))))
+(explanation (:triple _Spatial-Entity809 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Motion-under-force733 Move path))))
+(explanation (:triple _Spatial-Entity810 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Motion-under-force733 Move toward))))
+(explanation (:triple _Mass-Value842 instance-of Mass-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 instance-of Equation-Set) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 user-equation-expression (QUOTE (= f_wt (* m g)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 equation-uses _Force-Magnitude-Value1073) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 equation-symbol (:pair (QUOTE f_wt) _Force-Magnitude-Value1073)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 equation-uses _Mass-Value842) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 equation-symbol (:pair (QUOTE m) _Mass-Value842)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 equation-uses _Acceleration-Magnitude-Value1074) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 equation-expression (QUOTE (= f_wt (* m g)))) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Equation-Set1071 equation-symbol (:pair (QUOTE g) _Acceleration-Magnitude-Value1074)) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value1072 y-force-magnitude _Force-Magnitude-Value544) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value1072 y-force-magnitude _Force-Magnitude-Value544) ((a Force-Magnitude-Value (@ _Force-Vector-Value1072 Force-Vector-Value y-force-magnitude))))
+(explanation (:triple _Force-Vector-Value1072 instance-of Force-Vector-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Vector-Value1072 instance-of Force-Vector-Value) ((a Force-Vector-Value (@ _Exert-Force945 Exert-Force weight-force))))
+(explanation (:triple _Force-Vector-Value1072 force-magnitude _Force-Magnitude-Value1073) ((a Force-Magnitude-Value (@ _Force-Vector-Value1072 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Force-Vector-Value1072 force-magnitude _Force-Magnitude-Value1073) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value1073 instance-of Force-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+(explanation (:triple _Force-Magnitude-Value1073 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value1072 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Acceleration-Magnitude-Value1074 instance-of Acceleration-Magnitude-Value) ((added-at Motion-under-force "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(Motion-under-force now-has (user-description ("Now dealing with incline motion")))
+(enable-classification)
+

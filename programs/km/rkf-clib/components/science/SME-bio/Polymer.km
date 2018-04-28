@@ -1,0 +1,39 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Polymer ----------
+
+(Polymer has (superclasses (Chemical-Entity)))
+
+(_Polymer268 has 
+  (instance-of (Polymer))
+  (prototype-of (Polymer))
+  (prototype-scope (Polymer))
+  (prototype-participants (_Organic-Molecule271
+                           _Polymer268))
+  (prototype-participant-of (_Polymer268))
+  (has-clones (_Placeholder-Class267269))
+  (has-built-clones (_Placeholder-Class267269))
+  (has-part (_Organic-Molecule271))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 223 380)))
+  (edge-coordinate ((:seq has-part _Organic-Molecule271 391 402)))
+  (edge-visibility ((:seq has-part _Organic-Molecule271 t))))
+
+(_Organic-Molecule271 has 
+  (instance-of (Organic-Molecule))
+  (has-clones (_Organic-Molecule270))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-part-of (_Polymer268))
+  (node-coordinate ((:pair 511 382)))
+  (prototype-participant-of (_Polymer268)))
+
+(explanation (:triple _Polymer268 has-part _Organic-Molecule271) ((added-at Polymer "User defined")))
+(explanation (:triple _Organic-Molecule271 instance-of Organic-Molecule) ((added-at Polymer "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

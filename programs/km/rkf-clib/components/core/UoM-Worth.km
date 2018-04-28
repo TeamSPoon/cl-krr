@@ -1,0 +1,43 @@
+;; 
+;; $Id: UoM-Worth.km,v 1.8 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Worth has
+ (superclasses (Unit-of-Measurement))
+  (base-unit (*usdollar))
+ (instances (*rol *ntdollar *rmb *sgdollar *ringgit *usdollar *canadiandollar *britishpound *euro *yen))
+)
+
+(*rol has (instance-of (UoM-Worth))
+      (wn20-synset ((:set  (:triple "rol" 0 "n")))))
+
+(*ntdollar has (instance-of (UoM-Worth))
+      (wn20-synset ((:set  (:triple "ntdollar" 0 "n"))))) 
+
+(*rmb has (instance-of (UoM-Worth))
+      (wn20-synset ((:set  (:triple "rmb" 0 "n"))))) 
+
+(*sgdollar has (instance-of (UoM-Worth))
+      (wn20-synset ((:set  (:triple "sgdollar" 0 "n") ))))
+
+(*ringgit has (instance-of (UoM-Worth))
+      (wn20-synset ((:set  (:triple "ringit" 0 "n") ))))
+
+(*usdollar has (instance-of (UoM-Worth))
+      (name ("USD"))
+      (wn20-synset ((:set  (:triple "usd" 0 "n") ))))
+
+(*canadiandollar has (instance-of (UoM-Worth))
+      (name ("CAD"))
+      (wn20-synset ((:set  (:triple "cad" 0 "n") ))))
+
+(*britishpound has (instance-of (UoM-Worth))
+      (wn20-synset ((:set  (:triple "bp" 0 "n") ))))
+
+(*euro has (instance-of (UoM-Worth))
+      (wn20-synset ((:set (:triple "euro" 0 "n") 
+			  (:triple "euros" 0 "n")))))
+
+(*yen has (instance-of (UoM-Worth))
+      (wn20-synset ((:set (:triple "yen" 0 "n") ))))
+(*usdollar has (conversion-multiplier (1.0)))

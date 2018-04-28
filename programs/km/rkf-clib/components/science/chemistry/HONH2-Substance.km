@@ -1,0 +1,11 @@
+;; $Id: HONH2-Substance.km,v 1.2 2003/02/23 20:08:59 jchaw Exp $ 
+(HONH2-Substance has (superclasses (Base)))
+(every HONH2-Substance has
+       (plays ((a Base-Role with
+		  (default-kb ((a Equilibrium-Constant-Value with
+				  (value ((:pair 1.1e-8 nil))))))
+		  (intensity ((a Intensity-Value with
+			(value ((:pair *weak Base)))))))))
+	(has-chemical-name ("Hydroxylamine"))
+	(has-basic-structural-unit ((a HONH2)))
+)

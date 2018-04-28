@@ -1,0 +1,42 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Precipitate632
+
+
+|#
+
+(disable-classification)
+
+(Precipitate has (superclasses (Chemical)))
+
+(Precipitate now-has (user-description ("A precipitate is an insoluble solid formed by a reaction in solution.")))
+
+(_Precipitate839 has
+  (prototype-of (Precipitate Chemical))
+  (prototype-scope (Precipitate (the-class Chemical with 
+           (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical))))))
+           (result-of ((a Precipitation-Reaction)))
+           )))
+  (prototype-participants (_Solubility-Value840 _Precipitate839)))
+
+(_Precipitate839 has (instance-of (Precipitate)) (solubility (_Solubility-Value840)))
+
+(_Solubility-Value840 has (instance-of (Solubility-Value)))
+
+(enable-classification)
+
+(explanation (:triple _Precipitate839 instance-of Precipitate) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value840 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+
+|#
+
+|#
+

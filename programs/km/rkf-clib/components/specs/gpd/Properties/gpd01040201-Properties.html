@@ -1,0 +1,244 @@
+<!--- $Id: gpd01040201-Properties.html,v 1.2 2003/09/10 20:45:56 jchaw Exp $ --->
+
+<html>
+<head>
+<title>SHAKEN Properties and Values</title>
+</head>
+
+<body bgcolor=white>
+
+<h5>SHAKEN gpd 01040201</h5>
+
+<table border=0 width="100%" bgcolor=#8C3016 cellpadding=0>
+<tr><td><font color=white><h1>SHAKEN Properties and Values</font></td></tr>
+</table></h1><p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href=#Properties>Properties and Values</a>
+<li><a href=#Encoding>How to Encode Properties and Values</a>
+<ul>
+    <li><a href=#Linking>Linking a Concept to a Property Value</a>
+    <li><a href=#Specifics>Adding Specifics to a Property Value</a>
+    <li><a href=#Comparing>Comparing Property Values</a>
+</ul>
+<li><a href=#Aggregates>Properties of Aggregates</a>
+</ul><p>
+
+<a name=Properties>
+<hr noshade size=6 color=#8C3016>
+
+<h2>Properties and Values</h2>
+
+SHAKEN uses <i>relations</i> to link Entities and Events. Some
+knowledge, however, cannot be expressed in such terms. Properties
+such as <i>10-centimeters-long</i>, <i>very-quickly</i>, <i>purple</i>,
+<i>north-by-northwest</i>, etc. are neither Entities, Events nor
+relations.<p>
+
+SHAKEN has a set of special <i>property relations</i>, listed in the
+Slot Dictionary under the headings Event-to-Value and Entity-to-Value.
+In a graph, property relations are arrows that go from an Event or 
+Entity to a special kind of concept called a Value. Values are complex
+concepts that may consist of a number and a unit of measurement 
+(<i>e.g.</i>, &lt;<tt>10</tt>, <tt>degreesCelsius</tt>&gt;), or a relative
+value (<i>e.g.</i>, &lt;<tt>dense</tt>&gt; compared to Gas),
+or simply a standalone value (<i>e.g.</i>, &lt;<tt>purple</tt>&gt;).<p>
+
+<center><img src=Properties1.gif></center><p>
+<center><table>
+<tr><td><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td><i>Three concepts: MyDrink (with temperature 10&deg;C),
+Water (which is dense compared to Gas), purple Gum.</i></td></tr>
+</table><p></center>
+
+SHAKEN currently has a limited ability to express and reason with such
+values, though more sophisticated reasoning is still beyond its grasp.
+For example, SHAKEN is unable to determine whether <tt>50 centimeters</tt>
+should be considered <tt>long</tt> or <tt>short</tt> relative to some
+population of Entities, or whether <tt>30 degreesFahrenheit</tt> is
+colder than <tt>10 degressCelsius</tt>. And although SHAKEN knows that
+<tt>cool</tt> is colder than </tt>warm</tt>, it is not yet able 
+to answer such questions.<p>
+
+Here is a list of the properties in SHAKEN and the nodes they link
+in a graph:<p>
+
+<center><table>
+<tr><td align=left><i>From node</i></td><td align=center><i><b>property</b></i></td><td align=right><i>To node</i></td></tr>
+<tr height=3><td colspan=3><hr noshade size=3 color=#8C3016></td></tr>
+<tr><td align=left>Entity</td><td align=center><b>age</b></td><td align=right>Age-Value</td></tr>
+<tr><td align=left>Entity</td><td align=center><b>animacy</b></td><td align=right>Animacy-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>area</b></td><td align=right>Area-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>breakability</b></td><td align=right>Breakability-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>brightness</b></td><td align=right>Brightness-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>capacity</b></td><td align=right>Capacity-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>color</b></td><td align=right>Color-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>consistency</b></td><td align=right>Consistency-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>density</b></td><td align=right>Density-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>depth</b></td><td align=right>Depth-Value</td></tr>
+<tr><td align=left>Event</td><td align=center><b>direction</b></td><td align=right>Direction-Value</td></tr>
+<tr><td align=left>Event</td><td align=center><b>distance</b></td><td align=right>Distance-Value</td></tr>
+<tr><td align=left>Event</td><td align=center><b>duration</b></td><td align=right>Duration-Value</td></tr>
+<tr><td align=left>Event</td><td align=center><b>frequency</b></td><td align=right>Frequency-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>height</b></td><td align=right>Height-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>integrity</b></td><td align=right>Integrity-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>length</b></td><td align=right>Length-Value</td></tr>
+<tr><td align=left>Event</td><td align=center><b>manner</b></td><td align=right>Manner-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>mass</b></td><td align=right>Mass-Value</td></tr>
+<tr><td align=left>Chemical-Object</td><td align=center><b>pH</b></td><td align=right>PH-Value</td></tr>
+<tr><td align=left>Chemical-Object</td><td align=center><b>polarity</b></td><td align=right>Polarity-Value</td></tr>
+<tr><td align=left>Event</td><td align=center><b>rate</b></td><td align=right>Rate-Value</td></tr>
+<tr><td align=left>Organism</td><td align=center><b>sentience</b></td><td align=right>Sentience-Value</td></tr>
+<tr><td align=left>Organism</td><td align=center><b>sex</b></td><td align=right>Sex-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>shape</b></td><td align=right>Shape-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>size</b></td><td align=right>Size-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>smell</b></td><td align=right>Smell-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>taste</b></td><td align=right>Taste-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>temperature</b></td><td align=right>Temperature-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>texture</b></td><td align=right>Texture-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>thickness</b></td><td align=right>Thickness-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>volume</b></td><td align=right>Volume-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>wetness</b></td><td align=right>Wetness-Value</td></tr>
+<tr><td align=left>Tangible-Entity</td><td align=center><b>width</b></td><td align=right>Width-Value</td></tr>
+</table></center><p>
+
+<a name=Encoding>
+<hr noshade size=6 color=#8C3016>
+
+<h2>How to Encode Properties and Values</h2>
+
+There are three main things you can do with property values when
+encoding knowledge:<ol>
+<li>link a concept to a property value via a property arc
+<li>add specific information about the property value
+<li>encode information comparing two property values
+</ol>
+
+<a name=Linking>
+<h3>Linking a Concept to a Property Value</h3>
+
+Choose the property you wish to ascribe to a concept. Add the
+appropriate Property-Value node to the graph. For example, if
+you want to specify the <tt>temperature</tt> of an Entity, add a 
+Temperature-Value concept to the graph; if you want to specify
+the <tt>rate</tt> of a process, add a Rate-Value concept to the
+graph. Then simply draw an arc from the Entity or Event to the
+Property-Value node. SHAKEN will present a short list of arc
+labels. Choose your property from the list.<p>
+
+<center><img src=Temp1.gif></center><p>
+
+<a name=Specifics>
+<h3>Adding Specifics to a Property Value</h3>
+
+To add specific information about a property value, click with
+the <i>right</i> mouse button on the green Property Value node.
+SHAKEN will present you with a menu of options. Choose the option
+"Edit Value...".<p>
+
+<center><img src=Temp2.gif></center><p>
+
+SHAKEN will present you with a window called "Properties Dialog".
+Click the "Add..." button to specify a new value. SHAKEN will
+present another window called simply "Properties". For each
+property, SHAKEN knows some units of measurement that make sense
+for values of that property. For example, for the temperature
+property, SHAKEN knows that Kelvin, Celsius and Fahrenheit are
+meaningful units of measurement.<p>
+
+<center><img src=Temp3.gif></center><p>
+
+If you choose one of these units of measurement in the "Property 
+Value" menu, you will be expected to enter a number in the "Value" box.<p>
+
+<center><img src=Temp4.gif></center><p>
+
+When you have entered the value you want, click "Ok" in the 
+"Properties" window and then "Ok" again in the "Properties Dialog"
+window. The value you entered will appear in the green node in the
+graph.<p>
+
+<center><img src=Temp5.gif></center><p>
+
+You can enter as many values as you want. And you can enter
+"relative" values in addition to numeric values. For example, 
+having specified that your Ice concept is -4&deg;C, you can 
+also specify that it is cold compared to other Substances.
+In the "Properties" window, instead of choosing a unit of 
+measurment in the "Property Value" menu, choose "Temperature Value".<p>
+
+<center><img src=Temp6.gif></center><p>
+
+Now instead of entering a numeric value, you can choose a 
+relative value from the "Name" menu. Before choosing from
+the "Name" menu, click on the "Subclass..." button. Since
+you're entering a relative value, you must specify what kinds
+of things this value is relative to. For example, to specify
+that Ice is cold relative to Substances in general, type
+Substance in the window called "Choose a concept more special
+than Tangible-Entity".<p>
+
+<center><img src=Temp7.gif></center><p>
+
+Now choose "*cold Substance" from the "Name" menu in the
+"Properties" window to specify that your Ice is cold relative
+to Substances.<p>
+
+<center><img src=Temp8.gif></center><p>
+
+Again, click "Ok" in the "Properties" window and the "Properties
+Dialog" window. Both the numeric and relative property values
+now appear in the green node.<p>
+
+<center><img src=Temp9.gif></center><p>
+
+For now, SHAKEN isn't quite smart enough to make sure that the values 
+you enter are consistent, so exercise some care in entering multiple values.<p>
+
+<a name=Comparing>
+<h3>Comparing Property Values</h3>
+
+SHAKEN allows you to enter knowledge comparing property values
+by linking one green Property-Value node to another. The legal
+relations between two Property-Value nodes are <tt>greater-than</tt>,
+<tt>less-than</tt> and <tt>same-as</tt>. For example, to encode the
+fact that the temperature of Ice is lower than the temperature of
+Water, simply draw an arc from Ice's Temperature-Value to Water's
+Temperature-Value, then choose the <tt>less-than</tt> relation from
+SHAKEN's menu of relations. (You may have to add a Temperature-Value
+to Water first).<p>
+
+<center><img src=Temp10.gif></center><p>
+
+<a name=Aggregates>
+<hr noshade size=12 color=#8C3016>
+
+<h2>Properties of Aggregates</h2>
+
+Properties such as <tt>length</tt> and <tt>size</tt> refer to the
+<i>physical dimensions</i> of Entities. With 
+<a href=gpd12310101-Aggregates.html>Aggregates</a> we often
+use the term <i>size</i> to refer to the number of elements in the
+Aggregate. The term <i>length</i> is often used for the number of
+elements in a Sequence. SHAKEN has a special relation
+<tt>number-of-elements</tt> to encode the "size" of an Aggregate
+or the "length" of a Sequence. SHAKEN will compute the 
+<tt>number-of-elements</tt> for a given Aggregate. Unfortunately,
+for now there is no way for the user to specify a value for the
+<tt>number-of-elements</tt>. That is, for now there is no way for
+the user to specify a Sequence of "length" 15 or a Crowd of 100
+people.<p>
+
+There is a way to encode the fact that one Aggregate is
+bigger than another, or that one Sequence is longer than another.
+Use <tt>size</tt> or <tt>length</tt>, but don't add any specific
+values. Here is how to encode the fact that MySequence is longer
+than YourSequence.<p>
+
+<center><img src=MySeq.gif></center><p>
+
+<hr noshade size=12 color=#8C3016>
+
+</body>
+</html>

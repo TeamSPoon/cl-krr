@@ -1,0 +1,19 @@
+;;
+;; $Id: Waste-Basket.km,v 1.3 2005/04/14 17:50:15 jchaw Exp $
+;;
+(Waste-Basket has (superclasses (Artifact)))
+
+(every Waste-Basket has
+       (purpose ((a Container with
+		    (content ((a Message)))
+		    (in-event ((must-be-a Be-Contained)))
+		    (played-by (Self)))))
+       )
+
+(Waste-Basket has (wn20-synset ((:set
+  		       (:triple "wastepaper_basket" 1 "n")
+  		       (:triple "waste-paper_basket" 1 "n")
+  		       (:triple "wastebasket" 1 "n")
+  		       (:triple "waste_basket" 1 "n")
+  		       (:triple "circular_file" 1 "n")
+))))

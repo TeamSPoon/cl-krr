@@ -1,0 +1,45 @@
+<!--- $Id: Add-Volumes.spec.kml,v 1.1 2005/08/01 20:59:02 jchaw Exp $ --->
+
+<kml>
+<concept name=Add-Volumes>
+
+
+<superconcept name=Method>
+
+  <definition>
+    An Add-Volumes is the <conceptref name=Method> to compute the 
+    total volume when two solutions are added.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=input>
+     Volume values denoting the volumes of the solutions being added.
+   </slotdescription>
+   <slotdescription name=output>
+     A volume value denoting the total volume of the resulting solution.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>One liter of NaCl solution is added to 2 liters of NaOH solution, the total volume is 3 liters.</text>
+     <slotdescription name=input> 1 liter and 2 liters.</slotdescription>
+     <slotdescription name=output> 3 liters.</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Compute-Quantity-from-Concentration-and-Volume>
+  Compute-Quantity-from-Concentration-and-Volume computes the quantity of a solute
+  given its concentration and the volume of the solution.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

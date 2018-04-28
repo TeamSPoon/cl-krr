@@ -1,0 +1,11 @@
+;;    $Id: Dissociation-Reaction.km,v 1.1 2007/11/30 21:06:50 mrglass Exp $
+(Dissociation-Reaction has (superclasses (Reaction)))
+
+(Dissociation-Reaction has (user-description ("Electrolytes, when placed in water, dissociate into their component ions.")))
+
+(every Dissociation-Reaction has
+   (raw-material ((a Ionic-Compound-Substance with 
+            (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical))))))
+            (physical-state ((a State-Value with (value (*aqueous))))) 
+            )))
+   (result ((the has-part of (the raw-material of Self)))))

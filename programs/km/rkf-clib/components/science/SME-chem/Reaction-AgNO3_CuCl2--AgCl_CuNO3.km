@@ -1,0 +1,11 @@
+;; $Id: Reaction-AgNO3_CuCl2--AgCl_CuNO3.km,v 1.2 2007/12/13 19:33:32 mrglass Exp $ 
+(Reaction-AgNO3_CuCl2--AgCl_CuNO3 has (superclasses (Metathesis-Reaction)))
+
+(every Reaction-AgNO3_CuCl2--AgCl_CuNO3 has
+(raw-material (
+      (a Ionic-Compound-Substance with (has-basic-structural-unit ((a AgNO3))))
+      (a Ionic-Compound-Substance with (has-basic-structural-unit ((a CuCl2))))
+      ))
+(result (
+      (a Ionic-Compound-Substance with (has-basic-structural-unit ((a AgCl))))
+      (a Ionic-Compound-Substance with (has-basic-structural-unit ((a CuNO3_2)))))))

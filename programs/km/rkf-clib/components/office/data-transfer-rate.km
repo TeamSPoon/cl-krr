@@ -1,0 +1,18 @@
+;; 
+;; $Id: data-transfer-rate.km,v 1.1 2003/12/11 20:52:11 kbarker Exp $
+;; 
+
+(data-transfer-rate has
+  (instance-of (Property))
+  (superslots  ())
+  (subslots    ())
+  (domain      (Event))    
+  (range       (Data-Transfer-Rate-Value))
+  (scalar-constant-class (Data-Transfer-Rate-Constant))
+  (cardinal-unit-class (UoM-Data-Transfer-Rate))
+  (inverse     (data-transfer-rate-of))
+  (fluent-status (*Inertial-Fluent))
+  (inherit-with-overrides (t))
+  (cardinality (N-to-1))
+)
+

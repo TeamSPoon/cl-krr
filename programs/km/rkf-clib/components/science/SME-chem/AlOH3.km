@@ -1,0 +1,16 @@
+(AlOH3 has (superclasses (Ionic-Compound)))
+
+(every AlOH3 has
+       (has-chemical-name ("aluminium hydroxide"))
+     	(solubility ((a Solubility-Value with
+                       (value ((:pair *insoluble Chemical))))))
+       (has-part
+        ((a Al-Plus-3) (a OH-Minus)))
+       (has-chemical-formula
+        ((a Chemical-Formula with
+            (term ((:seq (:pair 1 Al-Plus-3)
+                         (:pair 3 OH-Minus))))))))
+
+(every AlOH3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Al-Plus-3) (a OH-Minus))))

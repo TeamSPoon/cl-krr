@@ -1,0 +1,77 @@
+<!--- $Id: Aggregate.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+<concept name=Aggregate>
+<system-documentation name=Aggregate>
+<gpd-documentation name=Aggregate>
+
+
+<superconcept name=Entity>
+
+  <definition>
+     An Aggregate is a collection of <conceptref name=Entity>s.
+     There are various types of aggregates which vary in the
+     constraints imposed on the elements of the collection.  
+     See the table below.
+  </definition>
+
+<requiredslotlist>
+   There are no slots that are required for an aggregate.
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=element>
+    the individual entities that comprise the aggregate.
+  </slotdescription>
+
+  <slotdescription name=number-of-elements>
+    the number of elements in the aggregate
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>a group of three butterflies</text>
+     <slotdescription name=number-of-elements>three</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+     <text>a collection of Moe, Larry, and Curly</text>
+     <slotdescription name=element>Moe, Larry, Curly</slotdescription>
+  <comment>
+     Optionally, you might also assert that the <slot>size</slot> 
+     is three, 
+     although this information is redundant since the system can 
+     infer it from the list of elements.
+  </comment>
+  </examplesentence>
+
+  <examplesentence>
+	<text>a pool of enzymes in the stomach</text>
+    <comment>A pool is an aggregate of a identical or functionally 
+	identical elements in a compartment of an organism
+    </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Sequence>
+     A Sequence is a linearly ordered collection of individuals.
+  </neighbor>
+
+  <neighbor name=Ensemble>
+     An Ensemble is a special kind of Aggregate in which the individuals
+     function together to perform some task.
+  </neighbor>
+
+</neighborlist>
+</kml>
+
+
+
+

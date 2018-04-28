@@ -1,0 +1,10 @@
+;; $Id: PO4-Minus-3.km,v 1.5 2003/02/22 18:20:03 jfan Exp $ 
+(PO4-Minus-3 has (superclasses (Anion)))
+(every PO4-Minus-3 has
+	(charge ((a Charge-Value with
+		(value ((:pair -3 *electronic-charge))))))
+	(has-chemical-name ("phosphate"))
+	(has-acid-name ("phosphoric"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 P) (:pair 4 O)))))))
+)

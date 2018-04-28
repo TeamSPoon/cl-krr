@@ -1,0 +1,21 @@
+;;
+;;    $Id: acceleration.km,v 1.7 2008/07/21 19:40:40 kbarker Exp $
+;;
+
+;;Necessary to use now-has to overwrite values introduced in components/core/acceleration.km
+;;We need to 
+;;
+;;a) overwrite the range for acceleration slot to be Acceleration-Vector-Value instead
+;;   of Acceleration-Magnitude-Value (core version).
+;;b) Remove the scale-class, scalar-constant-class, and cardinal-unit-class fillers introduced
+;;   in (core version).
+
+(acceleration now-has
+	      (range (Acceleration-Vector-Value))
+	      (scale-class ())
+	      (scalar-constant-class ())
+	      (cardinal-unit-class ()))
+
+(acceleration-of now-has (domain (Acceleration-Vector-Value)))
+
+

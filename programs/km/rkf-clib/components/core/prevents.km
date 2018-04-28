@@ -1,0 +1,23 @@
+;; 
+;;    $Id: prevents.km,v 1.9 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(prevents has
+	 (instance-of 		(Causal-Relation))
+	 (superslots 		())
+	 (subslots 		())
+	 (domain 		(Event))
+	 (range 		(Event))
+	 (inverse 		(prevented-by))
+	 (fluent-status 	(*Inertial-Fluent))
+         (original-slot      (t))	
+	 (cardinality 		(N-to-N)))
+
+
+
+
+
+(prevents has (text-gloss ("prevents")))
+(prevented-by has 
+	(instance-of (Causal-Relation))
+	(text-gloss ("is prevented by")))

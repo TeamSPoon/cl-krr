@@ -1,0 +1,21 @@
+;;
+;; $Id: Sr_OH_2.km,v 1.3 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(Sr_OH_2 has (superclasses (Ionic-Compound)))
+
+(every Sr_OH_2 has-definition
+       (instance-of (Chemical-Entity))
+       (has-chemical-name ("strontium hydroxide"))
+       (has-part 
+	((exactly 2 Ion) (a Sr-Plus-2) (a OH-Minus))))
+(every Sr_OH_2 has-definition
+       (instance-of (Chemical-Entity))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Sr-Plus-2)
+			 (:pair 2 OH-Minus)))))))
+       )
+(every Sr_OH_2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Sr-Plus-2) (a OH-Minus))))

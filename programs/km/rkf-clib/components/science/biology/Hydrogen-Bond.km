@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Hydrogen-Bond.km,v 1.13 2001/11/17 06:50:20 jarred Exp $ 
+;; 
+
+(Hydrogen-Bond has
+	       (superclasses (Noncovalent-Bond))
+	       (required-slot ())
+	       (primary-slot ())
+	       (secondary-slot ())
+	       (description ("A weak chemical bond between an electronegative 
+                              atom such as nitrogen or oxygen and a hydrogen 
+                              atom bound to another electronegative atom.
+                              Alberts:ECB:G-9."))
+	       (cmap-correspondence ())
+	       (test-case ()))
+
+(every Hydrogen-Bond has
+       (purpose ((a Connector with
+		     (in-event ((a Be-Attached-To with
+                                      (object ((a Hydrogen-Atom)
+                                               (a Atom)
+                                               (exactly 2 Atom)))
+                                      )))
+                        )))
+       (intensity ((a Intensity-Value with (value ((:pair 1 *kilocalorie/mole))))))
+       (length ((a Length-Value with (value ((:pair .30 *nanometer))))))
+       )
+
+

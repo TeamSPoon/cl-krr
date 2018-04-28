@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Strontium-Sulfide-Substance5964
+
+
+|#
+
+(disable-classification)
+
+(Strontium-Sulfide-Substance has (superclasses (Sulfide-Substance)))
+
+(every Strontium-Sulfide-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+(_Strontium-Sulfide-Substance511 has
+  (prototype-of (Strontium-Sulfide-Substance Sulfide-Substance))
+  (prototype-scope (Strontium-Sulfide-Substance (the-class Sulfide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Sr-Plus-2) (a S-Minus-2)))))))))
+  (prototype-participants (_Sr-Plus-517 _S-Minus-518 _Chemical-Entity513 _Strontium-Sulfide-Substance511)))
+
+(_Chemical-Entity513 has (instance-of (Ionic-Compound)) (has-part (_Sr-Plus-517 _S-Minus-518)))
+
+(_Sr-Plus-517 has (instance-of (Sr-Plus-2)))
+
+(_S-Minus-518 has (instance-of (S-Minus-2)))
+
+(_Strontium-Sulfide-Substance511 has (instance-of (Strontium-Sulfide-Substance)) (has-basic-structural-unit (_Chemical-Entity513)))
+
+(enable-classification)
+
+(explanation (:triple _Strontium-Sulfide-Substance511 has-basic-structural-unit _Chemical-Entity513) (((@ SME entered)) (every Strontium-Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity513 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Sr-Plus-517 instance-of Sr-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _S-Minus-518 instance-of S-Minus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Strontium-Sulfide-Substance511 instance-of Strontium-Sulfide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Strontium-Sulfide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

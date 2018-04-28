@@ -1,0 +1,166 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Vacuole ----------
+
+(Vacuole has (superclasses (Organelle Spatial-Entity Physical-Object Living-Entity)))
+
+(_Vacuole542 has 
+  (has-clones (_Vacuole1307
+               _Vacuole1440
+               _Vacuole795
+               _Vacuole830
+               _Tangible-Entity1171))
+  (has-built-clones (_Vacuole1307
+                     _Vacuole1440
+                     _Vacuole795
+                     _Vacuole830
+                     _Tangible-Entity1171))
+  (instance-of (Vacuole))
+  (prototype-of (Vacuole))
+  (prototype-scope (Vacuole))
+  (prototype-participants (_Storage802
+                           _Length-Value552
+                           _Length-Value551
+                           _Vesicle550
+                           _Vacuole542
+                           _Entity700))
+  (prototype-participant-of (_Vacuole542))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t))
+  (diameter (_Length-Value552))
+  (edge-coordinate ((:seq plays _Storage802 43 550)
+                    (:seq diameter _Length-Value552 215 574)
+                    (:seq is-inside _Entity700 197 710)
+                    (:seq has-part _Entity700 257 671)))
+  (edge-visibility ((:seq plays _Storage802 t)
+                    (:seq diameter _Length-Value552 t)
+                    (:seq is-inside _Entity700 t)
+                    (:seq has-part _Entity700 t)))
+  (has-part (_Entity700))
+  (is-inside (_Entity700))
+  (cloned-from (_Physical-Object264
+                _Living-Entity269))
+  (plays (_Storage802))
+  (node-never-visible (f))
+  (edge-never-visible ((:seq plays _Storage802 t)
+                       (:seq diameter _Length-Value552 t)
+                       (:seq is-inside _Entity700 t)
+                       (:seq has-part _Entity700 t))))
+
+(_Storage802 has 
+  (has-clones (_Thing906
+               _Thing1191
+               _Storage1192
+               _Storage1193))
+  (instance-of (Storage))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-never-visible (t))
+  (played-by (_Vacuole542))
+  (node-coordinate ((:pair 36 500)))
+  (prototype-participant-of (_Vacuole542)))
+
+(_Length-Value552 has 
+  (has-clones (_Length-Value1306
+               _Length-Value1445
+               _Length-Value798
+               _Length-Value829
+               _Length-Value1176))
+  (prototype-participant-of (_Vacuole542))
+  (diameter-of (_Vacuole542))
+  (greater-than (_Length-Value551))
+  (instance-of (Length-Value))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 360 553)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq greater-than _Length-Value551 374 449)))
+  (edge-visibility ((:seq greater-than _Length-Value551 t)))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq greater-than _Length-Value551 t))))
+
+(_Length-Value551 has 
+  (has-clones (_Length-Value1305
+               _Length-Value1444
+               _Length-Value797
+               _Length-Value828
+               _Length-Value1175))
+  (prototype-participant-of (_Vacuole542))
+  (diameter-of (_Vesicle550))
+  (instance-of (Length-Value))
+  (less-than (_Length-Value552))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 389 345)))
+  (node-visibility (t))
+  (node-never-visible (t)))
+
+(_Vesicle550 has 
+  (has-clones (_Vesicle1304
+               _Vesicle1443
+               _Vesicle796
+               _Vesicle827
+               _Vesicle1174))
+  (prototype-participant-of (_Vacuole542))
+  (instance-of (Vesicle))
+  (diameter (_Length-Value551))
+  (internally-expanded (f))
+  (edge-coordinate ((:seq diameter _Length-Value551 278 383)))
+  (edge-visibility ((:seq diameter _Length-Value551 t)))
+  (node-coordinate ((:pair 119 426)))
+  (node-visibility (t))
+  (node-never-visible (t))
+  (edge-never-visible ((:seq diameter _Length-Value551 t))))
+
+(_Entity700 has 
+  (has-clones (_Thymine1403
+               _Spatial-Entity835
+               _Spatial-Entity836
+               _Entity794
+               _Spatial-Entity903
+               _Spatial-Entity983))
+  (prototype-participant-of (_Vacuole542))
+  (is-part-of (_Vacuole542))
+  (encloses (_Vacuole542))
+  (instance-of (Entity
+                Vacuole-Membrane
+                Spatial-Entity))
+  (cloned-from (_Vacuole-Membrane259))
+  (clone-built-from (_Vacuole-Membrane259))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 288 802)))
+  (node-never-visible (t)))
+
+(explanation (:triple _Vacuole542 plays _Storage802) ((added-at Vacuole "User defined")))
+(explanation (:triple _Vacuole542 instance-of Living-Entity) ((a Living-Entity)))
+(explanation (:triple _Vacuole542 instance-of Living-Entity) ((a Living-Entity (@ _Entity700 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Vacuole542 instance-of Living-Entity) ((cloned-from _Vacuole-Membrane259 _Entity700)))
+(explanation (:triple _Vacuole542 has-part _Entity700) ((cloned-from _Vacuole-Membrane259 _Entity700)))
+(explanation (:triple _Vacuole542 instance-of Physical-Object) ((a Physical-Object (@ _Entity700 Membrane-Enclosure encloses))))
+(explanation (:triple _Vacuole542 instance-of Physical-Object) ((cloned-from _Vacuole-Membrane259 _Entity700)))
+(explanation (:triple _Vacuole542 is-inside _Entity700) ((cloned-from _Vacuole-Membrane259 _Entity700)))
+(explanation (:triple _Vacuole542 instance-of Physical-Object) ((a Physical-Object)))
+(explanation (:triple _Vacuole542 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Entity700 Spatial-Entity (encloses must-be-a)))))
+(explanation (:triple _Vacuole542 is-inside _Entity700) ((added-at Vacuole "User defined")))
+(explanation (:triple _Vacuole542 has-part _Entity700) ((added-at Vacuole "User defined")))
+(explanation (:triple _Vacuole542 diameter _Length-Value552) ((added-at Vacuole "User defined")))
+(explanation (:triple _Storage802 instance-of Storage) ((added-at Vacuole "User defined")))
+(explanation (:triple _Length-Value552 greater-than _Length-Value551) ((added-at Vacuole "User defined")))
+(explanation (:triple _Length-Value552 instance-of Length-Value) ((added-at Vacuole "User defined")))
+(explanation (:triple _Length-Value551 instance-of Length-Value) ((added-at Vacuole "User defined")))
+(explanation (:triple _Vesicle550 diameter _Length-Value551) ((added-at Vacuole "User defined")))
+(explanation (:triple _Vesicle550 instance-of Vesicle) ((added-at Vacuole "User defined")))
+(explanation (:triple _Entity700 instance-of Entity) ((added-at Vacuole "User defined")))
+(explanation (:triple _Entity700 instance-of Spatial-Entity) ((a Spatial-Entity (@ _Vacuole542 Spatial-Entity (is-inside must-be-a)))))
+(explanation (:triple _Entity700 instance-of Spatial-Entity) ((added-at Vacuole "User defined")))
+(explanation (:triple _Entity700 instance-of Vacuole-Membrane) ((added-at Vacuole "User defined")))
+(explanation (:triple _Entity700 is-part-of _Vacuole542) ((a Living-Entity (@ _Entity700 Membrane-Enclosure is-part-of))))
+(explanation (:triple _Entity700 encloses _Vacuole542) ((a Physical-Object (@ _Entity700 Membrane-Enclosure encloses))))
+(explanation (:triple _Entity700 encloses _Vacuole542) ((cloned-from _Vacuole-Membrane259 _Entity700)))
+(explanation (:triple _Entity700 is-part-of _Vacuole542) ((cloned-from _Vacuole-Membrane259 _Entity700)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

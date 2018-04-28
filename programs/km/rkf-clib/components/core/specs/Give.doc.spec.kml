@@ -1,0 +1,41 @@
+<!--- $Id: Give.doc.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Give>
+<superconcept name=Relinquish>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Give>
+  <definition>intentional change of possession of an object by the donor to a recipient</definition>
+  <requiredslot name=recipient>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Give</restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+    <inheritedfrom name=Relinquish>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+    <restriction>= <slot>donor</slot>
+  </requiredslot>
+  <requiredslot name=donor>
+    <inheritedfrom name=Relinquish>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Give</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Relinquish>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Relinquish>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>give#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+
+</kml>
+
+

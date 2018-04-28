@@ -1,0 +1,25 @@
+
+;; 
+;; $Id: Message.km,v 1.9 2006/04/04 15:36:18 kbarker Exp $
+;; 
+
+(Message has
+  (superclasses (Conceptual-Entity))
+  (description ("an encoding of information in a language"))
+)
+
+(every Message has
+  (information-content ((a Thing)))
+  (information-language ((a Language)))
+)
+
+
+
+;; automatically added WN synsets
+(Message has (wn16-synset ((:set  
+                                      (:triple "message" 1 "n")
+))))
+
+(Message has (wn20-synset ((:set
+                                      (:triple "message" 1 "n")
+))))

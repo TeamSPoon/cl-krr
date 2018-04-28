@@ -1,0 +1,21 @@
+;; 
+;;    $Id: 3-Prime-Ribonucleotide.km,v 1.5 2001/07/13 02:00:46 souther Exp $ 
+;; 
+
+(3-Prime-Ribonucleotide has
+     (superclasses (Ribonucleotide 3-Prime-Nucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("Nucleotide at the end of a RNA sequence which is connected
+                    within the sequence only at the 5' OH. At the end of a
+                    molecule the 3'-OH is free.  Souther.")) 
+     (description ("Nucleotide at the 3-Prime-End of an RNA-Sequence which is 
+                    connected within the sequence only at the 5'
+                    Hydroxyl-Group.  At the end of a molecule the 3' 
+                    Hydroxyl-Group is free.  Souther."))
+     (cmap-correspondence ()))
+
+(every 3-Prime-Ribonucleotide has
+       (is-part-of ((a RNA-Sequence)))
+       )  

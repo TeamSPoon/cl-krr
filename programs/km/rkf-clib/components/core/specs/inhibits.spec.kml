@@ -1,0 +1,29 @@
+<!--- $Id: inhibits.spec.kml,v 1.2 2005/12/06 21:39:12 kbarker Exp $ --->
+<kml>
+<relation-doc name=inhibits>
+
+
+<from name=Event>
+<to name=Event>
+
+<description> 
+	an Event inhibits another Event but is insufficient to prevent it.
+</description>
+
+<examplesentencelist>
+   <examplesentence>
+	<text><ex-from>Obstructing</ex-from> an object inhibits <ex-to>moving</ex-to> it.</text>
+   </examplesentence>
+   <examplesentence>
+	<text><ex-from>Firing</ex-from> a warning shot inhibits the suspect from <ex-to>fleeing</ex-to>.</text>
+   </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+   <neighbor name=prevents>
+	Prevents is stronger than inhibits: it asserts that the second event
+        does not occur; an event that is merely inhibited may still occur.
+   </neighbor>
+</neighborlist>
+
+</kml>

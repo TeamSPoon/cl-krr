@@ -1,0 +1,91 @@
+<!--- $Id: Make-Accessible.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Make-Accessible><system-documentation name=Make-Accessible>
+<superconcept name=Action>
+
+<definition>
+
+  Make some entity accessible, perhaps so it can be acted upon.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The thing that's made accessible.  It's assumed to be 
+     in a <conceptref name=Be-Inaccessible> state before this
+     action is taken, and afterwards it's no longer in that state.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused this action
+  </slotdescription>
+
+  <slotdescription name=base>
+    the thing (entity or event) that the object becomes accessible to
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that caused the object to become accessible.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>John made the book available for copying.</text>
+    <slotdescription name=agent>John</slotdescription>
+    <slotdescription name=object>the book</slotdescription>
+    <slotdescription name=base>copying</slotdescription>
+  </examplesentence>
+  <comment>
+    The book is assumed to be inaccessible before John made it available.
+  </comment>
+
+  <examplesentence>
+    <text>By smashing the window, the burglar could reach the lock. </text>
+    <slotdescription name=agent>the burglar</slotdescription>
+    <slotdescription name=object>the lock</slotdescription>
+    <slotdescription name=by-means-of>smashing the window</slotdescription>
+  </examplesentence>
+  <comment>
+    In this context, "reach" means "access".  
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Expose>
+     Expose is more specific than Make-Accessible.  It takes a concealed object
+     and makes it visible.
+  </neighbor>
+  
+  <neighbor name=Open>
+     Open applies only to portal coverings.  It causes a portal to
+     become accessible to things moving through it.
+  </neighbor>
+
+  <neighbor name=Unblock>
+     Unblock is more specific than Make-Accessible.  It takes a blocked
+     path and makes it accessible to things moving through it or along
+     it.
+  </neighbor>
+
+  <neighbor name=Unobstruct>
+     Unobstruct is more specific than Make-Accessible.  It takes an
+     obstructed object and allows it to move.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

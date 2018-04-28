@@ -1,0 +1,35 @@
+<!--- $Id: Rectangle.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Rectangle>
+<superconcept name=Quadrilateral>
+
+<definition>
+	A <conceptref name=Quadrilateral> whose <conceptref name=Vertex>es all have
+	90 degree angles.
+</definition>
+
+<requiredslotlist>
+   <slotdescription name=has-part>
+	The 4 <conceptref name=Line-Segment>s and 4 <conceptref name=Vertex>es (each with a 90 degree
+	angle specified by an <conceptref name=Angle-Value>) that make up the quadrilateral.
+   </slotdescription>
+</requiredslotlist>
+
+<neighborlist>
+  <neighbor name=Quadrilateral>
+	A <conceptref name=Polygon> bounded by exactly 4 <conceptref name=Line-Segment>s.
+  </neighbor>
+  <neighbor name=Square>
+	A rectangle whose <conceptref name=Line-Segment>s all have equal length.
+  </neighbor>
+  <neighbor name=Vertex>
+  	A <conceptref name=Point> that has an <conceptref name=Angle-Value> and is part of
+        two <conceptref name=Line>s.
+  </neighbor>
+  <neighbor name=Line-Segment>
+  	 A <conceptref name=Line> with two <conceptref name=Point>s, one on each end.
+  </neighbor>
+</neighborlist>
+
+</kml>

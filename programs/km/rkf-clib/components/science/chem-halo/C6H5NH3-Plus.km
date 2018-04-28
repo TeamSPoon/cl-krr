@@ -1,0 +1,22 @@
+;; $Id: C6H5NH3-Plus.km,v 1.6 2008/05/14 20:16:55 kunal Exp $ 
+(C6H5NH3-Plus has (superclasses (Cation)))
+(every C6H5NH3-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("anilinium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 6 C) 
+						       (:pair 5 H)
+						       (:pair 1 N)
+						       (:pair 3 H)
+						       ))))))
+)
+
+
+(every C6H5NH3-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("anilinium"))
+)
+
+(C6H5NH3-Plus has (wn20-synset ((:triple "C6H5NH3+" 0 "n") (:triple "C_6H_5NH_3+" 0 "n"))))

@@ -1,0 +1,57 @@
+;; 
+;;    $Id: Oligodeoxyribonucleotide.km,v 1.5 2001/08/08 20:55:32 kbarker Exp $
+;; 
+
+(Oligodeoxyribonucleotide has
+     (superclasses (DNA-Sequence Oligonucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A short chain of deoxyribonucleotides, arbitrarily defined
+                    in this KB to be between 3 and 49 nucleotides long.  Note: 
+                    the current lengths are arbitrary. see Oligonucleotide.
+                    Souther. "))
+     (cmap-correspondence ()))
+
+(every Oligodeoxyribonucleotide has
+       (has-region ((a 3-Prime-End)
+		(a 5-Prime-End)
+		))
+       (has-part ((a 5-Prime-Deoxyribonucleotide with
+                     (object-of
+                      ((a Be-Attached-To with
+                          (object 
+			   (((the DNA-Sequence has-part of Self)
+				    called "Deoxyribonucleotide Sequence")))
+                          (site
+                           (((the Carbon-Atom has-part of
+                                  (the Pentose has-part of
+                                       (the 5-Prime-Deoxyribonucleotide has-part of
+                                            Self)))
+                            called "Carbon-3")
+                           ))
+                          (instrument ((a Phosphodiester-Bond)))
+                          )
+                       )))
+                  (a 3-Prime-Deoxyribonucleotide with
+                     (object-of
+                      ((a Be-Attached-To with
+                          (object 
+			   (((the DNA-Sequence has-part of Self)
+				    called "Deoxyribonucleotide Sequence")))
+                          (site
+                           (((the Carbon-Atom has-part of
+                                  (the Pentose has-part of
+                                       (the 3-Prime-Deoxyribonucleotide 
+					    has-part of Self)))
+                            called "Carbon-5")
+                           ))
+                          (instrument ((a Phosphodiester-Bond)))
+                          ))))
+                  (a DNA-Sequence 
+		     called "DNA Sequence")
+		  (at-least 3 Deoxyribonucleotide)
+		  (at-most 49 Deoxyribonucleotide)
+		  ))
+       )
+

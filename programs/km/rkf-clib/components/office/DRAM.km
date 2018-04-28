@@ -1,0 +1,12 @@
+;;
+;; $Id: DRAM.km,v 1.2 2004/09/23 22:35:33 tecuci Exp $
+;;
+
+(DRAM has 
+  (superclasses (RAM))
+  (feature-slot ((the feature-slot of Computer-Memory)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = DRAM))
+  ))
+)
+

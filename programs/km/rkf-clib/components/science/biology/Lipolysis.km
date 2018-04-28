@@ -1,0 +1,21 @@
+
+;; 
+;;    $Id: Lipolysis.km,v 1.5 2001/05/29 02:29:55 souther Exp $ 
+;; 
+
+(Lipolysis has
+        (superclasses   (Catabolize))
+        (required-slot  (object))
+        (primary-slot   (agent instrument by-means-of))
+	(description	("The catabolic pathway by which lipids are hydrolyzed.
+                          Souther.")))
+
+(every Lipolysis has
+       (agent ((a Suborganismal-Entity)))
+       (object       ((a Lipid)))
+       (instrument   ((a Lipase)))
+  )
+
+
+
+

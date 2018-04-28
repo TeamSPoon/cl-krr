@@ -1,0 +1,21 @@
+;; 
+;; $Id: NonParticipant.km,v 1.3 2005/04/15 16:55:55 jchaw Exp $
+;; 
+
+;;
+;; Was Non-Participant, but renamed to align with IRIS ontology.
+;; Furthermore, the superclass information was changed from 
+;; Job-Role to Participant.
+;;
+(NonParticipant has 
+  (superclasses   (Participant))
+  (required-slot  ())
+  (primary-slot   ())
+  (secondary-slot ())
+)
+
+; stubby for calendar ontology
+
+(NonParticipant has (wn20-synset ((:set
+		       (:triple "nonparticipant" 1 "n")
+))))

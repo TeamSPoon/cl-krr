@@ -1,0 +1,18 @@
+;; $Id: HPO4-Minus-2.km,v 1.6 2008/05/15 17:19:10 kunal Exp $ 
+(HPO4-Minus-2 has (superclasses (Anion)))
+(every HPO4-Minus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair -2 *unity))))))
+	(has-chemical-name ("hydrogen phosphate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 H) (:pair 1 P) (:pair 4 O)))))))
+)
+
+
+(every HPO4-Minus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrogen phosphate"))
+)
+
+(HPO4-Minus-2 has (wn20-synset ((:triple "HPO4-2" 0 "n") (:triple "HPO_4-2" 0 "n"))))

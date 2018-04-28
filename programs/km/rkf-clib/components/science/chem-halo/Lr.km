@@ -1,0 +1,14 @@
+;;
+;; $Id: Lr.km,v 1.3 2008/10/14 19:16:14 tecuci Exp $
+;;
+
+(Lr has (superclasses (Metal-Atom IIIB-Element)))
+(every Lr has
+       (atomic-symbol (Lr))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 103 NIL))))))
+       (chemical-period (7)))
+(every Lr has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("lawrencium"))
+)

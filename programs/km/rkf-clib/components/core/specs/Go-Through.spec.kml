@@ -1,0 +1,86 @@
+<!--- $Id: Go-Through.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+<kml>
+
+<concept name=Go-Through><system-documentation name=Go-Through>
+<superconcept name=Move-Through>
+
+<definition>
+
+  An <slot>agent</slot> changes its own location by moving through some place
+  or along some path.
+
+</definition>
+
+<requiredslotlist>
+
+
+  <slotdescription name=agent>
+     the entity that moves.
+  </slotdescription>
+  <comment>
+     Go-Through is a type of self-movement, i.e. the agent moves itself.
+     Therefore, the
+     <slot>agent</slot> (the entity that causes the move) is the same
+     as the <slot>object</slot> (the thing being moved).
+  </comment>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot> moves
+     along or through.  Typically, this is an object or surface along
+     which, or through which, the <slot>object</slot> is moving.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the move.
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the move.
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may.
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Alex went through the doorway.</text>
+    <slotdescription name=agent>Alex</slotdescription>
+    <slotdescription name=path>the doorway</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+     Go-Through is a special type of Move in which the
+     <slot>path</slot> is required information; the object moves
+     through or along the path.
+  </neighbor>
+
+  <neighbor name=Move-Through>
+     Go-Through is a special type of Move-Through in which the
+     <slot>agent</slot> moves itself.  Move-Through lacks this 
+     constraint.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

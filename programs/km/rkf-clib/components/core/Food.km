@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Food.km,v 1.11 2006/02/07 04:32:21 jchaw Exp $ 
+;; 
+
+(Food has
+	(superclasses (Role))
+	(required-slot ())
+	(primary-slot ())
+	(secondary-slot ())
+	(description ("Substance which provides nourishment to an organism."))
+	(cmap-correspondence ())
+	(test-case ()))
+
+(every Food has
+	(in-event ((a Feed)))
+	(played-by ((a Tangible-Entity with 
+			(object-of ((the in-event of Self)))))))
+
+
+
+;; automatically added WN synsets
+(Food has (wn16-synset ((:set  
+                                   (:triple "food" 1 "n")
+                                   (:triple "nutrient" 1 "n")
+))))
+
+(Food has (wn20-synset ((:set
+                                   (:triple "food" 1 "n")
+				   (:triple "food" 2 "n")
+                                   (:triple "nutrient" 1 "n")
+))))

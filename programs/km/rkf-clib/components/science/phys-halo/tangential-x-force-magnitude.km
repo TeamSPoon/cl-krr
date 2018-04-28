@@ -1,0 +1,28 @@
+
+;; $Id: tangential-x-force-magnitude.km,v 1.2 2007/06/29 15:13:12 kbarker Exp $
+
+(tangential-x-force-magnitude has
+  (instance-of (EventProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Exert-Force))
+  (range (Force-Magnitude-Value))
+  (scale-class (Force-Scale))
+  (scalar-constant-class (Force-Constant))
+  (cardinal-unit-class (UoM-Force))
+  (inverse (tangential-x-force-magnitude-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(tangential-x-force-magnitude has (wn20-synset ((:set
+				     (:triple "tangential x force" 0 "n")
+				     (:triple "tangential horizontal force" 0 "n")
+				     ))))
+
+(tangential-x-force-magnitude-of has (instance-of (EventProperty)))
+
+
+
+(tangential-x-force-magnitude has (name ("magnitude of the horizontal tangential force")))

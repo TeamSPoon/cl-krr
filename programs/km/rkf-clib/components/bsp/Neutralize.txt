@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Neutralize.txt,v 1.4 2003/09/10 16:29:17 jchaw Exp $
+;; 
+
+Neutralize 
+  superclass: Tactical-Mission-Task 
+  agent: Military-Unit <----> Actor 
+  object:  Military-Unit <---->  Acted on 
+ 
+  causes:  
+     Decrease with 
+         property: Combat-Strength of M-U object of Self 
+         new-value: less-than Combat-Strength  
+                                               required-for: Action with 
+                                                                              agent: MU called "enemy forces" 
+                                                                         inhibits: Tactical-Mission-Task 
+                                                                                                  agent: MU called "friendly forces" 
+ 
+  prevents: Attack with 
+                    agent: MU called "enemy forces" object of Self 
+                    before: Reconstitute with 
+                                      agent: MU called "enemy forces"  object of Self 
+ 
+Neutralize (E). 
+==========. 
+1. Neutralize is a tactical mission task that results in rendering enemy personnel or materiel incapable of interfering with a particular operation. 
+2. When assigning a task to neutralize, the commander must specify the enemy force or materiel to neutralize and the duration, which is time- or event-driven. 
+3. The neutralized target may become effective again when casualties are replaced, damage is repaired, or effort resulting in the neutralization is lifted. 
+4. The commander normally uses a combination of lethal and nonlethal fires to neutralize enemy personnel or materiel. 
+5. The assets required to neutralize a target vary according to the type and size of the target and the weapon and munitions combination used. 
+ 

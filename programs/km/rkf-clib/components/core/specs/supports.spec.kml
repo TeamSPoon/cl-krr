@@ -1,0 +1,29 @@
+<!--- $Id: supports.spec.kml,v 1.2 2005/12/06 21:39:13 kbarker Exp $ --->
+<kml>
+<relation-doc name=supports>
+
+
+<from name=Event>
+<to name=Event>
+
+<description> 
+An Event that supports another Event.
+</description>
+
+<examplesentencelist>
+ <examplesentence>
+<text><ex-from>The 1st brigade's attack</ex-from> supports <ex-to>the main attack</ex-to> carried out by the 4th brigade.</text>
+ </examplesentence>
+
+ <examplesentence>
+	<text>DS artillery will <ex-from>advance</ex-from> through the mountains and take up positons to support <ex-to>the main attack</ex-to>.</text>
+ </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=enables>
+enables is stronger; performing a supporting Event is intended to help in the execution of another Event.
+ </neighbor>
+</neighborlist>
+
+</kml>

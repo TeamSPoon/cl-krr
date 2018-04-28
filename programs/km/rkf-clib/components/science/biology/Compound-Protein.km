@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Compound-Protein.km,v 1.12 2002/06/21 19:16:58 tecuci Exp $ 
+;; 
+
+(Compound-Protein has
+         (superclasses (Protein-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A protein made up of polypeptide subunits held
+                        together by noncovalent bonds.  The structure formed
+                        by these subunits is called quaternary structure.
+                        Examples include microtubules, hemoglobin.  Souther."))
+         (test-case ()))
+
+(every Compound-Protein has     
+
+       (element-type (Polypeptide
+		      (at-least 2 Polypeptide))))
+;;; attached by noncovalent bonds.  the generic case again with an
+;;; unspecified number of elements.
+
+

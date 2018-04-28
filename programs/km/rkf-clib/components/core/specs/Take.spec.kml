@@ -1,0 +1,77 @@
+<!--- $Id: Take.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<kml>
+
+<concept name=Take>
+<system-documentation name=Take>
+<superconcept name=Obtain>
+
+  <definition>
+       One entity intentionally takes an object from another, 
+       thereby gaining possession of it.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+       the thing taken
+  </slotdescription>
+
+  <slotdescription name=recipient>
+       the entity that takes the <slot>object</slot>, and then
+       <slot>possesses</slot> it
+  </slotdescription>
+  <comment>
+       The <slot>recipient</slot> is also the <slot>agent</slot>, 
+       i.e. the entity that's responsible for the action.
+  </comment>
+
+  <slotdescription name=donor>
+       the entity that <slot>possesses</slot> the <slot>object</slot> 
+       before it's taken by the <slot>recipient</slot>
+  </slotdescription>
+
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=instrument>
+       used by the <slot>recipient</slot> to take the <slot>object</slot>
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The sheriff took the gun from the prisoner.</text>
+    <slotdescription name=object>the gun</slotdescription>
+    <slotdescription name=recipient>the sheriff</slotdescription>
+    <slotdescription name=donor>the prisoner</slotdescription>
+    <comment>
+        The sheriff is both the <slot>recipient</slot> and the
+        <slot>agent</slot>.  
+     </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Obtain>
+        Take is a special type of Obtain in which the <slot>donor</slot>
+        is required        
+  </neighbor>
+
+  <neighbor name=Withdraw>
+        Withdraw is a special type of Transfer in which the 
+        <slot>object</slot> is withdrawn from a <slot>base</slot>,
+        thereby removing it from a <conceptref name=Be-Stored> state
+  </neighbor>  
+
+</neighborlist>
+
+
+</kml>
+

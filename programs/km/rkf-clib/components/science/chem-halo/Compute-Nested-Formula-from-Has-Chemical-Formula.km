@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Compute-Nested-Formula-from-Has-Chemical-Formula.km,v 1.2 2010/05/18 15:05:12 kbarker Exp $ 
+;; 
+
+(Compute-Nested-Formula-from-Has-Chemical-Formula has
+					  (superclasses (Method)))
+
+(every Compute-Nested-Formula-from-Has-Chemical-Formula has
+       (input ((a Chemical-Formula)))
+       (output
+	((a Chemical-Formula with
+	    (term (#'(LAMBDA ()
+			     (COMPOSE-COMPONENT-STRUCTURES
+			      ;; cation coeff
+			      (KM-UNIQUE0 '(|the1| |of| (|the1| |of| (|the| |term| |of| (|the| |input| |of| |Self|)))))
+			      ;; cation
+			      (KM-UNIQUE0 '(|the| |atomic-chemical-formula| |of|
+						  (|the2| |of| (|the1| |of| (|the| |term| |of| (|the| |input| |of| |Self|))))))
+			      ;; anion coeff
+			      (KM-UNIQUE0 '(|the1| |of| (|the2| |of| (|the| |term| |of| (|the| |input| |of| |Self|)))))
+			      ;; anion
+			      (KM-UNIQUE0 '(|the| |atomic-chemical-formula| |of|
+						  (|the2| |of| (|the2| |of| (|the| |term| |of| (|the| |input| |of| |Self|))))))))))))))

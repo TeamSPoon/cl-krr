@@ -1,0 +1,21 @@
+;; 
+;;    $Id: KM-Slot-Group.km,v 1.8 2004/10/09 03:30:10 jfan Exp $ 
+;; 
+
+; a Group of Slot's used by KM machinery - not by SME's
+
+(KM-Slot-Group has
+	       (superclasses (Slot)))
+
+;; this causes KM to assert an inappropriate (instance-of (Slot)) on 
+;; Interface-Slot on load
+;; Having cardinality and fluent-status values seems bizarre anyway...
+#|
+(every KM-Slot-Group has
+               (domain (Thing))
+               #|(range (Thing))|#
+               (inverse ()) ; no inverse for this "grouper"
+               (cardinality (N-to-N))
+               (fluent-status (*Non-Fluent)))
+|#
+

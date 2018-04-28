@@ -1,0 +1,78 @@
+<!--- $Id: Withdraw.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+<kml>
+
+<concept name=Withdraw><system-documentation name=Withdraw>
+<superconcept name=Action>
+
+<definition>
+
+  One <slot>object</slot> is withdrawn from another which is 
+  the <slot>base</slot>. This action takes the object out of
+  a <conceptref name=Be-Stored> state.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The <conceptref name=Entity> that's withdrawn
+  </slotdescription>
+
+  <slotdescription name=base>
+     The <conceptref name=Tangible-Entity> that the object is withdrawn from. 
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+     the entity that withdrew the object from the base
+  </slotdescription>
+
+  <slotdescription name=instrument>
+     the instrument or tool used to withdraw the object from the base
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that is instrumental in storing the object in the base
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Mary withdrew money from the ATM with her bankcard.</text>
+    <slotdescription name=object>money</slotdescription>
+    <slotdescription name=base>ATM</slotdescription>
+    <slotdescription name=agent>Mary</slotdescription>
+    <slotdescription name=instrument>bankcard</slotdescription>
+  </examplesentence>
+  <comment>
+    The ATM no longer contains the money that Mary withdrew.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Be-Stored>
+     Withdraw causes an object to be taken out of a Be-Stored state.
+  </neighbor>
+
+  <neighbor name=Store>
+     Store is the opposite of Withdraw.  It puts an object into a 
+     Be-Stored state.
+  </neighbor>
+
+  <neighbor name=Move-Out-Of>
+     Move-Out-Of takes something physical out of a container. Withdraw
+     takes any kind of thing out of a Be-Stored state.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

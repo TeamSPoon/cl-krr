@@ -1,0 +1,66 @@
+<!--- $Id: Detach.doc.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Detach::doc>
+<superconcept name=Break-Contact::doc>
+
+<sme-documentation name=Detach>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Detach>
+  <definition>remove the link attaching an object to a base</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Break-Contact::doc>
+    <restriction>a Tangible-Entity</restriction>
+  </requiredslot>
+  <requriedslot name=base>
+    <inheritedfrom name=Break-Contact::doc>
+    <restriction>a Tangible-Entity</restriction>
+    <comment> the <slot>base</slot> of the Detach is the object being detached 
+    	from the <slot>object</slot> of the Detach.
+    </comment>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Attached-To> state whose <slot>base</slot>
+      is the <slot>base</slot> of this Detach
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is no longer the <slot>object</slot> of a 
+      <conceptref name=Be-Attached-To> state whose <slot>base</slot>
+      is the <slot>base</slot> of this Detach
+    <restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Break-Contact::doc>
+    <restriction>causes <slot>object</slot> to be no longer Attached
+      to the <slot>base</slot>
+    </restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>a Tangible-Entity</restriction>
+    <comment>the <slot>instrument</slot> of the Detach is not the
+    connector, it is a Tangible-Entity used to remove the connection;
+    the connector is the <slot>instrument</slot> of the
+    <conceptref name=Be-Attached-To> state</comment>
+  </primaryslot>
+  <wnsynsets><verb>detach#1, detach#3
+  </verb></wnsynsets>
+  <wnsynsets><verb>come_off#1, come_away#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Detach takes its object and a base out of a <conceptref name=Be-Attached-To> 
+state, which is the result of <conceptref name=Attach::doc>ing the 
+<slot>object</slot> to a <slot>base</slot> (which is the <slot>base</slot> 
+of the Detach). As a result of the Detach, the <slot>object</slot> is 
+free to <conceptref name=Move::doc> independently of the <slot>base</slot>.
+</musing>
+
+</kml>
+
+

@@ -1,0 +1,31 @@
+;; 
+;;    $Id: Carbon-Atom.km,v 1.15 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Carbon-Atom has
+	     (superclasses (Atom))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (description ("The fundamental building block of living systems.
+                        Souther. "))
+	     (test-case ()))
+
+(every Carbon-Atom has
+       (atomic-symbol (C)) 
+       (has-part
+        (
+         (a Proton)
+         (exactly 6 Proton)
+	 (a Neutron)
+         (exactly 6 Neutron)
+         (a Electron)
+         (exactly 6 Electron)))
+       (mass ((a Mass-Value with
+		(value ((:pair 12 *dalton))))))
+       )
+
+
+
+(every Carbon-Atom has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

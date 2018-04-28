@@ -1,0 +1,56 @@
+;; 
+;;    $Id: agent.km,v 1.17 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(agent has
+       (instance-of 	   (Participant-Relation Agentive-Relation))
+       (superslots 	   ())
+       (subslots 	   ())
+       (domain      	   (Event))
+       (range       	   (Entity))
+       (inverse  	   (agent-of))
+       (fluent-status 	   (*Inertial-Fluent))
+       (text-slot 	   (text-agent))
+       (original-slot      (t))
+       (cardinality 	   (N-to-N)))
+
+(agent has (text-gloss ("is done by")))
+(agent-of has (text-gloss ("does")))
+
+(agent-of has
+	(instance-of (Participant-Relation Agentive-Relation)))
+
+(agent-of has
+  (text-slot (text-agent-of))
+  (combine-values-by-appending (t)))
+
+(text-agent has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Event))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(text-agent-of has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(agent has (wn20-synset ((:set
+                               (:triple "agentive_role" 1 "n")
+                               (:triple "agent" 6 "n")
+                               (:triple "actor" 2 "n")
+                               (:triple "doer" 1 "n")
+                               (:triple "worker" 4 "n")
+))))
+

@@ -1,0 +1,19 @@
+;;
+;;   $Id: same-type.km,v 1.1 2007/12/05 05:26:59 jchaw Exp $
+;;
+
+(same-type has
+  (instance-of (Property-Relation))      ; not a property (even though domain is Value)
+  (domain (Thing))
+  (range (Thing))
+  (inverse (same-type))
+  (cardinality (N-to-N))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+)
+
+(same-as has (text-gloss ("is the same type as")))
+
+(same-as has (wn20-synset ((:set 
+				   (:triple "same type" 0 "n")
+))))

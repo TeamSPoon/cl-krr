@@ -1,0 +1,73 @@
+
+;;
+;; $Id: Compute-Quantity-of-Chemical-Object.km,v 1.2 2005/11/01 22:13:11 jfan Exp $
+;;
+
+(Compute-Quantity-of-Chemical-Object has (superclasses (Method)))
+
+(every Compute-Quantity-of-Chemical-Object has
+  (input ((a Class) (a Chemical-Entity)))
+  (output (
+    (a Quantity-Value with
+       (value ((:pair
+		(the sum of
+		     (forall-bag (the bag of (the Chemical-Entity input of Self))
+				 (if (It isa (the Class input of Self))
+				     then
+				   1
+				   else
+				   (if (has-value     ;;; may want a method to compute parts
+					(the has-part of It))
+				       then
+				     (the sum of
+					  (forall-bag2
+					   (the bag of (the has-part of It))
+					  (the1 of
+						(the value of
+						     (the output of
+							  (a Compute-Quantity-of-Chemical-Object with
+							     (input ((the Class input of Self)
+								     It2))))))))
+				    else
+				    0))))
+           [Compute-Quantity-of-Chemical-Object-output-1]
+	   *gross)
+          )
+       ))
+  )))
+
+
+(comment [Compute-Quantity-of-Chemical-Object-output-1]
+  (:seq "the quantity of"
+        (the Class input of Self)
+        "in"
+        (andify (the text-gen of (the Chemical-Entity input of Self)))
+        "is thus"
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  (:seq "In" 
+        (andify (the text-gen of (the Chemical-Entity input of Self)))
+        ", the quantity of" (the Class input of Self)
+        "is the sum of the quantity of" (the Class input of Self)
+        "in its parts:"
+  )
+  (forall (the Chemical input of Self)
+          (if (It isa (the Class input of Self))
+           then 
+              (:triple It quantity *)
+           else
+              (if (has-value (the has-part of It))
+               then
+                  (forall2 (the has-part of It)
+                           (:triple (a Compute-Quantity-of-Chemical-Object with
+                                       (input ((the Class input of Self) It2)))
+                                    output
+                                    *)
+                  )
+              )
+          )
+  )
+)
+
+

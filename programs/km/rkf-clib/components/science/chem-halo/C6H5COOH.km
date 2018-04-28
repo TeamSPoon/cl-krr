@@ -1,0 +1,14 @@
+;; $Id: C6H5COOH.km,v 1.2 2006/01/24 20:27:28 jfan Exp $ 
+(C6H5COOH has (superclasses (Ionic-Compound)))
+(every C6H5COOH has
+	(has-chemical-name ("benzoic acid"))
+	(has-part ((a H-Plus)(a C7H5O2-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 C7H5O2-Minus)))))))
+)
+(every C6H5COOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a C7H5O2-Minus))))
+

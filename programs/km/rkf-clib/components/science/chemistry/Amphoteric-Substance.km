@@ -1,0 +1,27 @@
+;;
+;;    $Id: Amphoteric-Substance.km,v 1.5 2003/02/07 19:37:32 kbarker Exp $
+;;
+
+(Amphoteric-Substance has
+		      (superclasses (Chemical)))
+
+(every Amphoteric-Substance has
+       (capability ((a Acid-Role)
+		    (a Base-Role
+                     [Amphoteric-Substance-capability-1]
+                    )
+       ))
+)
+
+(comment [Amphoteric-Substance-capability-1]
+  (if (Self isa H2O-Substance)
+   then "Water is known to be amphoteric and can thus act as both an acid and a base"
+   else (:seq "Since"
+              (the text-gen of Self)
+              "is amphoteric, it can act as both an acid and a base"
+        )
+  )
+  "An amphoteric substance can both lose and gain a proton, meaning it can act as a base when combined with something more acidic and as an acid when combined with something more basic"
+  (:triple Self instance-of *)
+)
+

@@ -1,0 +1,17 @@
+;; 
+;;    $Id: subscript.km,v 1.4 2006/09/29 18:57:37 jchaw Exp $
+;; 
+
+(subscript has
+	   (instance-of (Property))
+	   (user-description ("a number that indicates the mole proportion of the preceeding element"))
+	   (superslots  ())
+	   (subslots    ())
+	   (domain 	(Chemical Property-Value))	   
+	   (range       (Subscript-Value))
+	   (cardinal-unit-class (UoM-Unitless))
+	   (fluent-status (*Inertial-Fluent))
+	   (inverse     (subscript-of))
+	   (cardinality (N-to-N)))
+
+(subscript-of has (instance-of (Property)))

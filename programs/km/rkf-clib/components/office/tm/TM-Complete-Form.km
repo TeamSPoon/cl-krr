@@ -1,0 +1,66 @@
+;;    $Id: TM-Complete-Form.km,v 1.4 2004/09/10 22:57:32 pzyeh Exp $ 
+(TM-Complete-Form has
+      (superclasses  (TM-Task-Model))
+      (required-slot (object)))
+
+(every TM-Complete-Form has
+       ;;----------------------------------------------------------------
+       ;; SPARK parameters.
+       ;;----------------------------------------------------------------
+       (object 		((a Form-Document)))    ;; the object of this event corresponds to $form
+       (base   		((a Artifact)))         ;; the base of this event corresponds to $selection
+       (result 		((the object of Self))) ;; the result of this event correspinds to $filled_form
+
+       ;;----------------------------------------------------------------
+       ;; Additional axioms.
+       ;;----------------------------------------------------------------
+       (instrument    ((must-be-a Entity)))
+       (soft-pcs-list (
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the instrument of Self)))
+			   then
+			   (forall (the instrument of Self)
+				   (:set (:triple It
+						  object-of
+						  (a Be-Controlled with
+						     (agent ((the agent of Self)))))
+				         (:triple It 
+						  object-of 
+						  (mustnt-be-a Be-Inaccessible with
+							       (base ((the agent of Self))))))))
+		       
+		       (if (has-value (the instrument of Self))
+			   then
+			   (forall (the instrument of Self)
+				   (:triple It object-of (mustnt-be-a Be-Inaccessible))))
+		       
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the object of Self)))
+			   then
+			   (forall (the object of Self)
+				   (:triple It
+					    object-of
+					    (mustnt-be-a Be-Inaccessible with
+						         (base ((the agent of Self)))))))
+		       
+		       (forall (the object of Self)
+			       (:triple It
+					object-of
+					(mustnt-be-a Be-Inaccessible)))
+       ))
+       (preparatory-event ((:default
+			     (if ((the agent of Self) /= (the object of Self))
+				 then
+			         (a Move with 
+				    (object      ((the agent of Self)))
+				    (destination ((the object of Self)))
+			     ))
+			     (a Move with 
+			        (object	     ((the instrument of Self)))
+			        (destination ((the object of Self)))
+			     )
+       )))
+
+       (duration ((a Duration-Value)))
+       (pcs-list ((:triple (the object of Self) information-content nil))) ;; the precondition is that the form is empty
+)

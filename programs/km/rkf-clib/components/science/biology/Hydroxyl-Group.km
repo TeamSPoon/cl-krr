@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Hydroxyl-Group.km,v 1.7 2001/05/01 22:31:25 pnav Exp $ 
+;; 
+
+(Hydroxyl-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Chemical group consisting of a hydrogen atom
+                             linked to an oxygen, as in an alcohol.
+                             Alberts:ECB:G-9."))
+	      (cmap-correspondence ()))
+
+(every Hydroxyl-Group has
+              (has-part 
+                 (
+                  (a Hydrogen-Atom)
+                  (a Oxygen-Atom with
+                    (object-of 
+                       ((a Be-Attached-To with
+                          (object ((the Hydrogen-Atom has-part of Self)))
+			  ))))
+		  )))
+
+
+
+

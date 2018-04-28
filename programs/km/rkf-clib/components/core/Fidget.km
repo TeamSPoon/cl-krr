@@ -1,0 +1,30 @@
+;;
+;; $Id: Fidget.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(Fidget has 
+  (superclasses (Orient))  
+  (description ("The act of fidgeting."))
+#|(sentence-type (*punctual *conclusive *iterative))|#
+)
+
+;; it may seem a little weird to make this reflexive (you fidget yourself?)
+;; but it makes even less sense to allow somebody else to fidget you.
+
+(every Fidget has
+  (agent ((a Entity)))
+  (object ((the agent of Self)))
+)
+
+(every Fidget has
+  (text-active-verbseq-sg ("fidgets"))
+  (text-active-verbseq-pl ("fidget"))
+)
+
+
+(Fidget has (wn20-synset ((:set
+			(:triple "fidget" 1 "v")
+))))
+
+
+(every Fidget has (text-nominalization ("fidgeting")))

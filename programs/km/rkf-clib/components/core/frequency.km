@@ -1,0 +1,28 @@
+;; 
+;;    $Id: frequency.km,v 1.12 2007/04/10 21:29:48 jchaw Exp $ 
+;; 
+
+(frequency has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Event))    
+   (range       (Frequency-Value))
+   (scale-class (Frequency-Scale))
+   (scalar-constant-class (Frequency-Constant))
+   (cardinal-unit-class   (UoM-Frequency))
+   (inverse 	(frequency-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1))
+)
+
+(frequency has (wn20-synset ((:set
+                               (:triple "frequency" 1 "n")
+                               (:triple "frequence" 1 "n")
+                               (:triple "oftenness" 1 "n")
+))))
+
+(frequency-of has
+	(instance-of (EventProperty)))

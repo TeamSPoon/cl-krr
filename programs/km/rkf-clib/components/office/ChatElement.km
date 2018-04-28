@@ -1,0 +1,32 @@
+;;    $Id: ChatElement.km,v 1.4 2005/02/22 21:18:23 jchaw Exp $
+(ChatElement has
+	     (superclasses (ChatDataStructure))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+(every ChatElement has
+       (hasChatPath ((a ChatEntity)))
+       (hasFromChatEntity ((a ChatEntity)))
+       (hasOnBehalfOf ((a ChatEntity)))
+       (hasToChatEntity ((a ChatEntity)))
+       ;(isChatElementOf ((a ChatSession)))
+       )
+
+(hasChatPath has (instance-of (Interface-Slot)) (domain (ChatElement)) (range (ChatEntity)) (inverse (isChatPathOf)) (cardinality (N-to-N)))
+
+(hasFromChatEntity has (instance-of (Interface-Slot)) (domain (ChatElement)) (range (ChatEntity)) (inverse (isFromChatEntityOf)) (cardinality (1-to-1)))
+
+(hasOnBehalfOf has (instance-of (Interface-Slot)) (domain (ChatElement)) (range (ChatEntity)) (inverse (isOnBehalfOf)) (cardinality (1-to-1)))
+
+(hasToChatEntity has (instance-of (Interface-Slot)) (domain (ChatElement)) (range (ChatEntity)) (inverse (isToChatEntityOf)) (cardinality (1-to-1)))
+
+#|
+(isChatElementOf has 
+	(instance-of (Interface-Slot))
+	(domain (ChatElement)) 
+	(range (ChatSession)) 
+	(cardinality (N-to-N)))
+|#

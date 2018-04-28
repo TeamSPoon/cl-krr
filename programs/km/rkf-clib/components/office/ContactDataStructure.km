@@ -1,0 +1,11 @@
+;;    $Id: ContactDataStructure.km,v 1.8 2005/03/01 19:20:16 kbarker Exp $
+
+(ContactDataStructure has (superclasses (DataRecord)))
+
+(every ContactDataStructure has
+       (hasEncryptionKey ((must-be-a String)))
+       ;(isContactInformationFor ((a Thing)))
+)
+
+(hasEncryptionKey has (instance-of (Interface-Slot)) (domain (ContactDataStructure)) (range (String)) (cardinality (N-to-1)))
+

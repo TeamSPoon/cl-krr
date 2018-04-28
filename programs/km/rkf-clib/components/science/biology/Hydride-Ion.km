@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Hydride-Ion.km,v 1.4 2004/01/30 22:02:42 kbarker Exp $
+;; 
+
+(Hydride-Ion has
+         (superclasses (Ion))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A negatively charged hydrogen ion. Souther."))
+         (test-case ()))
+
+(every Hydride-Ion has
+       (possesses ((a Electric-Charge with
+		      (polarity ((a Polarity-Value with
+			(value  (*negative))))))))
+
+       )
+
+
+(every Hydride-Ion has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

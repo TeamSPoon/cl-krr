@@ -1,0 +1,19 @@
+;; 
+;; $Id: UoM-Voltage.km,v 1.6 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Voltage has
+  (superclasses (Unit-of-Measurement))
+  (base-unit (*volt))
+  (instances (*volt))
+)
+
+(*volt has (instance-of (UoM-Voltage))
+       (name ("V"))
+       (wn20-synset ((:set  
+		      (:triple "volt" 0 "n")
+		      (:triple "volts" 0 "n")
+		      ))))
+
+
+(*volt has (conversion-multiplier (1.0)))

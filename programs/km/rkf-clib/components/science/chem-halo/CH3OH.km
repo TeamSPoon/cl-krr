@@ -1,0 +1,17 @@
+;;
+;; $Id: CH3OH.km,v 1.11 2008/09/17 23:51:50 tecuci Exp $
+;;
+
+(CH3OH has (superclasses (Organic-Molecule)))
+
+(every CH3OH has	
+       (has-chemical-name ("methanol"))
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 C)
+					      (:pair 1 O)
+					      (:pair 4 H))))))))
+
+(every CH3OH has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("methanol"))
+)

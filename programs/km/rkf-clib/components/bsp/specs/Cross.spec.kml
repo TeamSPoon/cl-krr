@@ -1,0 +1,81 @@
+<!--- $Id: Cross.spec.kml,v 1.1 2005/08/01 20:56:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Cross>
+<superconcept name=Military-Task>
+<superconcept name=Locomotion>
+
+<definition>
+
+   A tactical mission task to move over or across a 
+   <conceptref name=Spatial-Entity> in the terrain
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the <conceptref name=Military-Unit> that crosses the 
+     <slot>path</slot>
+  </slotdescription>
+
+  <slotdescription name=path>
+     the <conceptref name=Spatial-Entity> that is crossed by the 
+     <slot>agent</slot>
+  </slotdescription>
+
+</requiredslotlist>
+
+<comment>
+  
+   It is assumed that the <slot>objective</slot> of this action is to 
+   <conceptref name=Take-Control> of the <slot>base</slot>
+
+</comment>
+
+<neighborlist>
+
+  <neighbor name=Attack> 
+
+     An Attack is an offensive operation that destroys or defeats
+     enemy forces, seizes and secures terrain, or both
+
+  </neighbor>
+
+  <neighbor name=Attack-by-Fire>
+
+     An Attack-by-Fire is an attack using direct fires, supported by
+     indirect fires, to engage an enemy without closing with him to
+     destroy, suppress, fix, or deceive him
+
+  </neighbor>
+
+  <neighbor name=Follow-and-Assume>
+
+     Follow-and-Assume is a tactical mission task to follow a force
+     conducting an offensive operation and to continue the mission if the
+     lead force is disabled
+
+  </neighbor>
+
+  <neighbor name=Follow-and-Support>
+
+     Follow-and-Support is a tactical mission task to follow and
+     support a lead force conducting an offensive operation
+
+  </neighbor>
+
+  <neighbor name=Support-by-Fire>
+
+     Support-by-Fire is a tactical mission task in which a maneuver
+     force moves to a position where it can engage the enemy by direct
+     fire in support of another maneuvering force
+
+  </neighbor>
+
+
+</neighborlist>
+
+</kml>
+
+

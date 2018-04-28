@@ -1,0 +1,25 @@
+;; $Id: Pupil.km,v 1.2 2004/09/08 06:10:46 jchaw Exp $
+
+
+
+(Pupil has
+	(superclasses (Role)))
+
+(every Pupil has
+	(in-event ((must-be-a Teach)))
+	(played-by ((a Tangible-Entity with (recipient-of ((the in-event of Self))))))
+)
+
+(Pupil has 
+       (wn20-synset 
+	((:set (:triple "pupil" 1 "n")
+	       (:triple "student" 1 "n")
+	       (:triple "educatee" 1 "n")
+	       (:triple "schoolchild" 1 "n")
+	       (:triple "school-age_child" 1 "n")
+	       (:triple "pupil" 3 "n")))))
+
+			  
+
+
+

@@ -1,0 +1,76 @@
+;;    $Id: TM-Process-Authorization-Response.km,v 1.5 2004/10/22 16:11:51 pzyeh Exp $ 
+(TM-Process-Authorization-Response has (superclasses (TM-Task-Model)))
+
+(every TM-Process-Authorization-Response has
+
+       ;;----------------------------------------------------------------
+       ;; SPARK parameters
+       ;;----------------------------------------------------------------
+       (object ((a Form-Document))) 			;; the object of this event corresponds to $form
+       (base   ((a Person with				;; the base of this event corresponds to $manager
+		   (plays ((a ManagementOrganizationRole)))))) 
+
+       ;;----------------------------------------------------------------
+       ;; Additional axioms.
+       ;;----------------------------------------------------------------
+       (agent         ((a Person)))	
+       (soft-pcs-list (
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the instrument of Self)))
+			   then
+			 (forall (the instrument of Self)
+				 (:set (:triple It
+						object-of
+						(a Be-Controlled with
+						   (agent ((the agent of Self)))))
+				       (:triple It 
+						object-of 
+						(mustnt-be-a Be-Inaccessible 
+							     with
+							     (base ((the agent of Self))))))))
+		       
+		       (if (has-value (the instrument of Self))
+			   then
+			 (forall (the instrument of Self)
+				 (:triple It object-of (mustnt-be-a Be-Inaccessible))))
+		       
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the object of Self)))
+			   then
+			 (forall (the object of Self)
+				 (:triple It
+					  object-of
+					  (mustnt-be-a Be-Inaccessible with
+						       (base ((the agent of Self)))))))
+		       
+		       (forall (the object of Self)
+			       (:triple It
+					object-of
+					(mustnt-be-a Be-Inaccessible)))
+		       ))
+
+       (preparatory-event ((:default
+			    (if ((the agent of Self) /= (the object of Self))
+				then
+			      (a Move with 
+				 (object      ((the agent of Self)))
+				 (destination ((the object of Self)))
+				 ))
+			    (a Move with 
+			       (object	     ((the instrument of Self)))
+			       (destination ((the object of Self)))
+			       )
+			    ))
+			  )
+
+       (duration ((a Duration-Value)))
+
+       ;; precondition: none
+       ;; postcondition: the agent of the action gets back the form-document
+       (add-list
+        ((:triple
+          (the agent of Self)
+          possesses
+          (the object of Self))))
+)	
+

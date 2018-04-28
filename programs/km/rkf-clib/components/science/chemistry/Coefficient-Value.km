@@ -1,0 +1,14 @@
+;; 
+;;  $Id: Coefficient-Value.km,v 1.2 2005/02/14 22:39:43 kbarker Exp $
+;; 
+
+(Coefficient-Value has 
+		(superclasses (Property-Value)))
+
+(every Coefficient-Value has
+  (property-slot (coefficient))
+       (quantity-of ((must-be-a Chemical)))
+       (less-than ((must-be-a Coefficient-Value)))
+       (greater-than ((must-be-a Coefficient-Value)))
+       (same-as ((must-be-a Coefficient-Value)))
+)

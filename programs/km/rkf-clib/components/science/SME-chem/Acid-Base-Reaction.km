@@ -1,0 +1,92 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Acid-Base-Reaction14653
+
+
+|#
+
+(disable-classification)
+
+(Acid-Base-Reaction has (superclasses (Reaction)))
+
+(Acid-Base-Reaction now-has (user-description ("When a solution of an acid and that of a base are mixed, a neutralization reaction occurs. The products of the reaction have none of the characteristic properties of either the acidic or the basic solutions.")))
+
+(_Acid-Base-Reaction14660 has
+  (prototype-of (Acid-Base-Reaction Reaction))
+  (prototype-scope (Acid-Base-Reaction (the-class Reaction with (raw-material ((a Acid) (must-be-a Chemical) (a Base))))))
+  (prototype-participants (_Chemical-Entity14690 _State-Value14689 _Reaction-Material14688 _Chemical-Entity14687 _State-Value14686 _Reaction-Material14685 _Tangible-Entity14663 _Chemical14662 _Chemical14661 _Acid-Base-Reaction14660)))
+
+(_Acid-Base-Reaction14660 has
+  (instance-of (Acid-Base-Reaction))
+  (raw-material (_Chemical14662 _Tangible-Entity14663 (must-be-a Chemical)))
+  (result (_Chemical14661 (must-be-a Chemical) (must-be-a Entity))))
+
+(_Chemical14661 has (instance-of (Chemical)))
+
+(_Chemical14662 has
+  (instance-of (Acid))
+  (has-basic-structural-unit (_Chemical-Entity14690))
+  (physical-state (_State-Value14689))
+  (plays (_Reaction-Material14688)))
+
+(_Tangible-Entity14663 has
+  (instance-of (Base))
+  (has-basic-structural-unit (_Chemical-Entity14687))
+  (physical-state (_State-Value14686))
+  (plays (_Reaction-Material14685)))
+
+(_Reaction-Material14685 has (instance-of (Reaction-Material)))
+
+(_State-Value14686 has (instance-of (State-Value)) (value (*aqueous)))
+
+(_Chemical-Entity14687 has (instance-of (Chemical-Entity)))
+
+(_Reaction-Material14688 has (instance-of (Reaction-Material)))
+
+(_State-Value14689 has (instance-of (State-Value)) (value (*aqueous)))
+
+(_Chemical-Entity14690 has (instance-of (Ionic-Compound)))
+
+(enable-classification)
+
+(explanation (:triple _Acid-Base-Reaction14660 raw-material _Tangible-Entity14663) (((@ SME entered)) (every Acid-Base-Reaction has (raw-material ((a Acid) (the first of (the physical-state-of of (the first of (the value-of of (the first of (the value of (the physical-state of (the first of (the raw-material of Self))))))))))))))
+
+(explanation (:triple _State-Value14686 value *aqueous) (((@ SME entered)) (every Acid-Base-Reaction has (raw-material ((a Acid) (a Base with (physical-state ((a State-Value with (value (*aqueous)))))))))))
+
+(explanation (:triple _State-Value14689 value *aqueous) (((@ SME entered)) (every Acid-Base-Reaction has (raw-material ((a Acid with (physical-state ((a State-Value with (value (*aqueous)))))) (a Base))))))
+
+(explanation (:triple _Acid-Base-Reaction14660 instance-of Acid-Base-Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical14661 instance-of Chemical) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical14662 instance-of Acid) (((@ SME entered)) NIL))
+
+(explanation (:triple _Tangible-Entity14663 instance-of Base) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Material14685 instance-of Reaction-Material) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value14686 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity14687 instance-of Chemical-Entity) (((@ SME entered)) NIL))
+
+(explanation (:triple _Reaction-Material14688 instance-of Reaction-Material) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value14689 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity14690 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Acid-Base-Reaction has (raw-material ((the first of (the physical-state-of of (the second of (the value-of of (the first of (the value of (the physical-state of (the first of (the raw-material of Self))))))))) (a Base))))
+(every Acid-Base-Reaction has (raw-material ((a Acid) (the first of (the physical-state-of of (the first of (the value-of of (the first of (the value of (the physical-state of (the first of (the raw-material of Self))))))))))))
+(every Acid-Base-Reaction has (raw-material ((a Acid) (a Base with (physical-state ((a State-Value with (value (*aqueous)))))))))
+(every Acid-Base-Reaction has (raw-material ((a Acid with (physical-state ((a State-Value with (value (*aqueous)))))) (a Base))))
+
+|#
+
+|#
+

@@ -1,0 +1,135 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Mitotic-spindle ----------
+
+(Mitotic-spindle has (superclasses (Subcellular-Entity)))
+
+(_Mitotic-spindle195 has 
+  (instance-of (Mitotic-spindle))
+  (prototype-of (Mitotic-spindle))
+  (prototype-scope (Mitotic-spindle))
+  (prototype-participants (_Chromosome1596
+                           _Distribution1594
+                           _Role1593
+                           _Event1592
+                           _Entity1591
+                           _Centrosome198
+                           _Mitotic-spindle195
+                           _Microtubule168))
+  (prototype-participant-of (_Mitotic-spindle195))
+  (has-clones (_Placeholder-Class194196
+               _Mitotic-spindle166
+               _Mitotic-spindle1571
+               _Mitotic-spindle1576
+               _Mitotic-spindle1584))
+  (has-built-clones (_Placeholder-Class194196
+                     _Mitotic-spindle166
+                     _Mitotic-spindle1571
+                     _Mitotic-spindle1576
+                     _Mitotic-spindle1584))
+  (has-part (_Centrosome198
+             _Microtubule168))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (node-coordinate ((:pair 220 388)))
+  (edge-coordinate ((:seq purpose _Role1593 347 552)
+                    (:seq has-part _Microtubule168 427 388)
+                    (:seq has-part _Centrosome198 427 388)))
+  (edge-visibility ((:seq purpose _Role1593 t)
+                    (:seq has-part _Microtubule168 t)
+                    (:seq has-part _Centrosome198 t)))
+  (purpose (_Role1593)))
+
+(_Chromosome1596 has 
+  (instance-of (Chromosome))
+  (has-clones (_Chromosome1595))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (object-of (_Distribution1594))
+  (node-coordinate ((:pair 665 670)))
+  (prototype-participant-of (_Mitotic-spindle195)))
+
+(_Distribution1594 has 
+  (instance-of (Distribution))
+  (has-clones (_Distribution1588))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (in-event-of (_Role1593))
+  (node-coordinate ((:pair 669 588)))
+  (prototype-participant-of (_Mitotic-spindle195))
+  (object (_Chromosome1596))
+  (edge-coordinate ((:seq object _Chromosome1596 667 629)))
+  (edge-visibility ((:seq object _Chromosome1596 t))))
+
+(_Role1593 has 
+  (in-event (_Distribution1594))
+  (instance-of (Role))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (purpose-of (_Mitotic-spindle195))
+  (node-coordinate ((:pair 467 546)))
+  (edge-coordinate ((:seq in-event _Distribution1594 568 567)))
+  (edge-visibility ((:seq in-event _Distribution1594 t)))
+  (prototype-participant-of (_Mitotic-spindle195)))
+
+(_Event1592 has 
+  (instance-of (Event))
+  (has-clones (_Event1589))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 2650 50)))
+  (prototype-participant-of (_Mitotic-spindle195)))
+
+(_Entity1591 has 
+  (instance-of (Entity))
+  (has-clones (_Entity1590))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 2550 50)))
+  (prototype-participant-of (_Mitotic-spindle195)))
+
+(_Centrosome198 has 
+  (prototype-participant-of (_Mitotic-spindle195))
+  (is-part-of (_Mitotic-spindle195))
+  (instance-of (Centrosome))
+  (has-clones (_Centrosome197
+               _Centrosome165
+               _Centrosome1572
+               _Centrosome1577
+               _Centrosome1585))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 545 370))))
+
+(_Microtubule168 has 
+  (prototype-participant-of (_Mitotic-spindle195))
+  (is-part-of (_Mitotic-spindle195))
+  (instance-of (Microtubule))
+  (has-clones (_Microtubule167
+               _Microtubule1570
+               _Microtubule1575
+               _Microtubule1583))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 547 398))))
+
+(explanation (:triple _Mitotic-spindle195 has-part _Centrosome198) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Mitotic-spindle195 has-part _Microtubule168) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Mitotic-spindle195 instance-of Entity) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Mitotic-spindle195 purpose _Role1593) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Chromosome1596 instance-of Chromosome) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Distribution1594 instance-of Distribution) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Distribution1594 object _Chromosome1596) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Role1593 instance-of Role) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Role1593 in-event _Distribution1594) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Event1592 instance-of Event) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Entity1591 instance-of Entity) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Centrosome198 instance-of Centrosome) ((added-at Mitotic-spindle "User defined")))
+(explanation (:triple _Microtubule168 instance-of Microtubule) ((added-at Mitotic-spindle "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(Mitotic-spindle now-has (user-description ("An object that organizes chromosomes during cell division.")))
+(enable-classification)
+

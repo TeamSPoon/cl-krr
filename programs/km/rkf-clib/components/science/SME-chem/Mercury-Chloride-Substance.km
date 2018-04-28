@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Mercury-Chloride-Substance3415
+
+
+|#
+
+(disable-classification)
+
+(Mercury-Chloride-Substance has (superclasses (Chloride-Substance)))
+
+(every Mercury-Chloride-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Mercury-Chloride-Substance423 has
+  (prototype-of (Mercury-Chloride-Substance Chloride-Substance))
+  (prototype-scope (Mercury-Chloride-Substance (the-class Chloride-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Hg2-Plus-2) (a Cl-Minus)))))))))
+  (prototype-participants (_Hg2-Plus-5822 _Cl-Minus5821 _Chemical-Entity425 _Mercury-Chloride-Substance423)))
+
+(_Mercury-Chloride-Substance423 has (instance-of (Mercury-Chloride-Substance)) (has-basic-structural-unit (_Chemical-Entity425)))
+
+(_Chemical-Entity425 has (instance-of (Ionic-Compound)) (has-part (_Cl-Minus5821 _Hg2-Plus-5822)))
+
+(_Cl-Minus5821 has (instance-of (Cl-Minus)))
+
+(_Hg2-Plus-5822 has (instance-of (Hg2-Plus-2)))
+
+(enable-classification)
+
+(explanation (:triple _Mercury-Chloride-Substance423 has-basic-structural-unit _Chemical-Entity425) (((@ SME entered)) (every Mercury-Chloride-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Mercury-Chloride-Substance423 instance-of Mercury-Chloride-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity425 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cl-Minus5821 instance-of Cl-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Hg2-Plus-5822 instance-of Hg2-Plus-2) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Mercury-Chloride-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

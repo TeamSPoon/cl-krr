@@ -1,0 +1,32 @@
+<!--- $Id: Replace.doc.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Replace>
+<superconcept name=Action>
+
+<sme-documentation name=Replace>
+
+<subevent name=Detach>
+<subevent name=Attach>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Replace>
+  <definition>detach an old object from a base and attach a new one</definition>
+  <requiredslot name=object>
+    <restriction>two Tangible-Entity</restriction>
+    <restriction>one <slot>object</slot> is already attached to the <slot>base</slot></restriction>
+  </requiredslot>
+  <requiredslot name=base>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>the thing the old <slot>object</slot> gets detached from and the new <slot>object</slot> gets attached to</restriction>
+  <wnsynsets><verb>replace#1, replace#4
+  </verb></wnsynsets>
+  <wnsynsets><verb>substitute#1
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

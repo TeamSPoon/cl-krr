@@ -1,0 +1,14 @@
+;; 
+;;    $Id: Diprotic-Acid.km,v 1.1 2007/11/02 20:43:59 mrglass Exp $ 
+;;
+
+(Diprotic-Acid has
+		 (superclasses (Polyprotic-Acid))
+		 (test-case ()))
+
+(Diprotic-Acid has (user-description ("An acid that yields two H+ ion per molecule of acid.")))
+
+(every Diprotic-Acid has-definition
+       (instance-of (Ionic-Compound-Substance))
+       (has-basic-structural-unit ((a Diprotic-Acid-Compound))))
+				   

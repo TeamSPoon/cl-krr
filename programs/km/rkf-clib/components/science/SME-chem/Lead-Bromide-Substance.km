@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Lead-Bromide-Substance6561
+
+
+|#
+
+(disable-classification)
+
+(Lead-Bromide-Substance has (superclasses (Bromide-Substance)))
+
+(every Lead-Bromide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Lead-Bromide-Substance566 has
+  (prototype-of (Lead-Bromide-Substance Bromide-Substance))
+  (prototype-scope (Lead-Bromide-Substance (the-class Bromide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Pb-Plus-2) (a Br-Minus)))))))))
+  (prototype-participants (_Cation572 _Br-Minus573 _Chemical-Entity568 _Lead-Bromide-Substance566)))
+
+(_Chemical-Entity568 has (instance-of (Ionic-Compound)) (has-part (_Cation572 _Br-Minus573)))
+
+(_Cation572 has (instance-of (Pb-Plus-2)))
+
+(_Br-Minus573 has (instance-of (Br-Minus)))
+
+(_Lead-Bromide-Substance566 has (instance-of (Lead-Bromide-Substance)) (has-basic-structural-unit (_Chemical-Entity568)))
+
+(enable-classification)
+
+(explanation (:triple _Lead-Bromide-Substance566 has-basic-structural-unit _Chemical-Entity568) (((@ SME entered)) (every Lead-Bromide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity568 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation572 instance-of Pb-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Br-Minus573 instance-of Br-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Lead-Bromide-Substance566 instance-of Lead-Bromide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Lead-Bromide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

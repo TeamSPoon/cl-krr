@@ -1,0 +1,20 @@
+;; 
+;;    $Id: Nitrogen-Containing-Molecule.km,v 1.2 2004/01/30 22:02:42 kbarker Exp $
+;; 
+
+(Nitrogen-Containing-Molecule has
+         (superclasses (Molecule))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("A molecule containing at least one nitrogen.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+ (every Nitrogen-Containing-Molecule has
+        (has-part
+ 	(
+	 (at-least 1 Nitrogen-Atom)))
+	)
+(every Nitrogen-Containing-Molecule has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

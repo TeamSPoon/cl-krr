@@ -1,0 +1,66 @@
+;;    $Id: TM-Confirm-Order.km,v 1.4 2004/09/10 22:57:32 pzyeh Exp $ 
+(TM-Confirm-Order has (superclasses (TM-Task-Model)))
+
+(every TM-Confirm-Order has
+
+  ;;----------------------------------------------------------------
+  ;; SPARK parameters.
+  ;;----------------------------------------------------------------
+  ;; This is the laptop we are confirming whether or not to purchase.
+  ;; This laptop corresponds to $selection in the SPARK encoding.
+  (object ((a Laptop-Computer)))
+
+
+  ;;----------------------------------------------------------------
+  ;; Additional axioms.
+  ;;----------------------------------------------------------------
+
+  ;; The person being asked to confirm the order. This person
+  ;; corresponds to the $user in the SPARK encoding.
+  (base  ((a Person)))
+
+  ;; The Post-Condition is a Message (specifying "yes" or "no").
+  (result ((a Message)))
+
+  ;; If the response is a "yes", another expected effect is the 
+  ;; enabling of a place order.
+  (enables ((if ((the information-content of (the result of Self)) = "YES")
+		then
+		(a TM-Place-Order with
+		   (object ((the object of Self))))
+  )))
+
+  (soft-pcs-list ((if ((has-value (the agent of Self)) and (has-value (the instrument of Self)))
+			then
+			 (forall (the instrument of Self)
+				 (:set (:triple It
+						object-of
+						(a Be-Controlled with
+						   (agent ((the agent of Self)))))
+				       (:triple It 
+						object-of 
+						(mustnt-be-a Be-Inaccessible 
+							     with
+							     (base ((the agent of Self))))))))
+		       
+		       (if (has-value (the instrument of Self))
+			   then
+			 (forall (the instrument of Self)
+				 (:triple It object-of (mustnt-be-a Be-Inaccessible))))
+		       
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the object of Self)))
+			   then
+			 (forall (the object of Self)
+				 (:triple It
+					  object-of
+					  (mustnt-be-a Be-Inaccessible with
+						       (base ((the agent of Self)))))))
+		       
+		       (forall (the object of Self)
+			       (:triple It
+					object-of
+					(mustnt-be-a Be-Inaccessible)))
+		       ))
+  (duration ((a Duration-Value)))
+)

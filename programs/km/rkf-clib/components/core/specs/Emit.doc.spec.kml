@@ -1,0 +1,68 @@
+<!--- $Id: Emit.doc.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Emit>
+<superconcept name=Move> 
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Emit>
+  <definition>to send out a substance, usually gaseous or electromagnetic.</definition>
+  <requiredslot name=object>
+    <restriction>a Tangible-Entity-> fluid/particles/EM wave </restriction>
+    <restriction>Exits the Enclosure </restriction>
+  </requiredslot>
+  <requiredslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= location of agent or = location of instrument </restriction>
+    <restriction>= original location of object </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restrction>causes substance to Exit </restriction>
+  </primaryslot> 
+  <primaryslot name=destination>
+    <inheritedfrom name=Move>
+    <restriction>Place</restriction>
+    <restriction>= final location of object</restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <inheritedfrom name=Move>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>emit#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>give_out#1, give_off#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+</musing>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=emit2>
+  <sense-definition>to issue with authority 
+</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+<sense tag=emit3>
+  <sense-definition>to give utterance or voice to</sense-definition>
+  <transitivity>transitive/intransitive</transitivity>
+</sense>
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNemit#1><equiv tag=emit1></sense>
+<sense tag=WNemit#2><equiv tag=emit1></sense>
+<sense tag=WNemit#3><equiv tag=emit3></sense>
+
+</senselist>
+</reference><musing>
+</musing>
+
+</kml>
+
+

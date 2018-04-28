@@ -1,0 +1,52 @@
+;;
+;;    $Id: ChatSession.km,v 1.13 2005/02/22 21:18:23 jchaw Exp $
+;; 
+
+(ChatSession has
+	    (superclasses (Session Discussion))      
+	    (required-slot          ()) 
+	    (primary-slot     	    ())  
+	    (secondary-slot         ())
+)
+
+(every ChatSession has
+       (hasChatElement ((a ChatElement)))
+       (hasUs ((a ChatEntity)))
+       (hasThem ((a ChatEntity))))
+
+(hasChatElement has  (instance-of (Interface-Slot))  (domain (ChatSession))  (range (ChatElement)) (inverse (isChatElementOf)) (cardinality (N-to-N)))
+
+(hasUs has  (instance-of (Interface-Slot))  (domain (ChatSession))  (range (ChatEntity)) (inverse (isUsOf)) (cardinality (N-to-1)))
+
+(hasThem has  (instance-of (Interface-Slot))  (domain (ChatSession))  (range (ChatEntity)) (inverse (isThemOf)) (cardinality (N-to-1)))
+
+(hasTopic has  (instance-of (Interface-Slot))  (domain (ChatSession))  (range (String)) (cardinality (N-to-N)))
+
+;;  The slots has-Startdate and has-EndDate maps to the time-during slot
+;;  in Event.km.
+;;  The user may want to consult the Time ontology webpage.
+;;  http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/ontologies/Time-onto.html
+
+(ChatSession has 
+	     (wn20-synset 
+	      ((:set 
+		(:triple "chat" 1 "n")
+		(:triple "confab" 1 "n")
+		(:triple "confabulation" 1 "n")
+		(:triple "schmooze" 1 "n")
+		(:triple "schmoose" 1 "n")
+		(:triple "chew_the_fat" 1 "v")
+		(:triple "shoot_the_breeze" 1 "v")
+		(:triple "confabulate" 2 "v")
+		(:triple "chat" 1 "v")
+		(:triple "confab" 1 "v")
+		(:triple "chitchat" 1 "v")
+		(:triple "chatter" 3 "v")
+		(:triple "chaffer" 2 "v")
+		(:triple "natter" 1 "v")
+		(:triple "gossip" 2 "v")
+		(:triple "jaw" 1 "v")
+		(:triple "claver" 1 "v")
+		(:triple "visit" 6 "v")))))
+
+		

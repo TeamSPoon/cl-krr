@@ -1,0 +1,28 @@
+<!--- $Id: Vertex.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Vertex>
+<superconcept name=Point>
+
+<definition>
+	A <conceptref name=Point> that has an <conceptref name=Angle-Value> and 
+	is part of two <conceptref name=Line>s.
+</definition>
+
+<requiredslotlist>
+   <slotdescription name=angle>
+	The angle of the vertex specifed by an <conceptref name=Angle-Value>.
+   </slotdescription>
+   <slotdescription name=is-part-of>
+	The two <conceptref name=Line>s that share this vertex.
+   </slotdescription>
+</requiredslotlist>
+
+<neighborlist>
+  <neighbor name=Point>
+	A <conceptref name=Geometric-Object> with no geometric properties such as area, volume,
+        height, etc. It is simply an indefinitely small space.
+  </neighbor>
+</neighborlist>
+
+</kml>

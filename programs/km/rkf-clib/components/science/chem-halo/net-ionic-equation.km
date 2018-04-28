@@ -1,0 +1,15 @@
+;; 
+;;  $Id: net-ionic-equation.km,v 1.5 2006/09/29 18:57:37 jchaw Exp $
+;; 
+
+(net-ionic-equation has
+	  (instance-of (CLIB-Slot-Group))
+	  (domain      (Reaction)) ;; this may be too loose, should it be just Metathesis?
+	  (range       (Chemical-Equation-Expression))
+	  (fluent-status (*Inertial-Fluent))
+	  ; (inherit-with-overrides (t))
+	  (inverse     (net-ionic-equation-of))
+	  (cardinality (N-to-1))
+	  )
+
+(net-ionic-equation-of has (instance-of (CLIB-Slot-Group)))

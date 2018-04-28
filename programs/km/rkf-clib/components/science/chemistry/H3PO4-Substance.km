@@ -1,0 +1,11 @@
+;; $Id: H3PO4-Substance.km,v 1.5 2003/02/22 16:27:00 jchaw Exp $ 
+(H3PO4-Substance has (superclasses (Acid)))
+(every H3PO4-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 7.5e-3 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("Phosphoric"))
+	(has-basic-structural-unit ((a H3PO4)))
+)

@@ -1,0 +1,56 @@
+;;
+;; $Id: Displacement-Vector-Value.km,v 1.8 2008/07/04 15:18:13 kbarker Exp $
+;;
+
+
+(Displacement-Vector-Value has 
+  (description ("A vector measure of the change of position of a moving object"))
+  (superclasses (Property-Vector-Value)))
+
+(every Displacement-Vector-Value has
+	(primary-slot (displacement))
+	(secondary-slot (distance))
+  (x-component-slot (x-distance))
+  (y-component-slot (y-distance))
+	(distance ((a Length-Value)))
+	(direction ((a Angle-Value)))
+	(x-distance ((a Length-Value)))
+	(y-distance ((a Length-Value)))
+
+  (component-of (( a System with
+                  ( equation (( a Equation-Set with 
+                                ( equation-uses (( the y-distance of Self )
+                                                 ( the distance of Self )
+                                                 ( the direction of Self )))
+                                ( equation-symbol (( :pair (QUOTE s_y) ( the y-distance of Self ))
+                                                   ( :pair (QUOTE s) ( the distance of Self ))
+                                                   ( :pair (QUOTE theta) ( the direction of Self ))))
+                                ( equation-expression (( QUOTE ( = s_y ( * s (sin theta)))))))
+
+                              ( a Equation-Set with 
+                                ( equation-uses (( the x-distance of Self )
+                                                 ( the distance of Self )
+                                                 ( the direction of Self )))
+                                ( equation-symbol (( :pair (QUOTE s_x) ( the x-distance of Self ))
+                                                   ( :pair (QUOTE s) ( the distance of Self ))
+                                                   ( :pair (QUOTE theta) ( the direction of Self ))))
+                                ( equation-expression (( QUOTE ( = s_x ( * s (cos theta)))))))
+                  
+                              ( a Equation-Set with 
+                                ( equation-uses (( the distance of Self )
+                                                 ( the x-distance of Self )
+                                                 ( the y-distance of Self )))
+                                ( equation-symbol (( :pair (QUOTE s) ( the distance of Self ))
+                                                   ( :pair (QUOTE s_x) ( the x-distance of Self ))
+                                                   ( :pair (QUOTE s_y) ( the y-distance of Self ))))
+                                ( equation-expression (( QUOTE ( = s (sqrt (+ (expt s_y 2) (expt s_x 2))))))))
+
+                              ( a Equation-Set with 
+                                ( equation-uses (( the direction of Self )
+                                                 ( the x-distance of Self )
+                                                 ( the y-distance of Self )))
+                                ( equation-symbol (( :pair (QUOTE theta) ( the direction of Self ))
+                                                   ( :pair (QUOTE s_x) ( the x-distance of Self ))
+                                                   ( :pair (QUOTE s_y) ( the y-distance of Self ))))
+                                ( equation-expression (( QUOTE ( = theta ( atan s_y s_x ))))))))))))
+

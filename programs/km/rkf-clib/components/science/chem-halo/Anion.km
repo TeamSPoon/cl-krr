@@ -1,0 +1,13 @@
+;    $Id: Anion.km,v 1.7 2008/09/15 19:56:13 tecuci Exp $
+
+(Anion has (superclasses (Ion)))
+
+(Anion has
+  (user-description ("An anion is a negatively charged ion.")))
+
+(every Anion now-has
+       (charge ((must-be-a Charge-Value)
+		(constraint (((not (has-value (the value of TheValue)))
+			      or
+			      (not (TheValue property-gte (a Charge-Value with (value ((:pair 0 *unity))))))))))))
+

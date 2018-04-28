@@ -1,0 +1,218 @@
+
+;;
+;; $Id: Multislot-Value-Viewpoint.km,v 1.25 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(Multislot-Value-Viewpoint has (superclasses (Viewpoint)))
+
+(every Multislot-Value-Viewpoint now-has
+  (viewpoint-question ((
+    (?vaq == (the viewpoint-answerable-query of Self))
+    and
+    (?fr == (the1 of (the2 of (the1 of ?vaq))))
+    and
+    (?slotfamily == (the viewpoint-multislot-type of Self))
+    and
+    (make-phrase 
+      (if (?slotfamily = *meronymic-multislot-query*)
+       then (:seq "What are the parts of" (the text-def-head of ?fr) "nospace" "?")
+       else (if (?slotfamily = *participant-multislot-query*)
+             then (:seq "What is the purpose of" (the text-def-head of ?fr) "nospace" "?")
+             else (if (?slotfamily = *spatial-multislot-query*)
+                   then (:seq "What is the location of" (the text-def-head of ?fr) "nospace" "?")
+                   else (if (?slotfamily = *agentive-multislot-query*)
+                         then (if (?fr isa Entity)
+                               then (:seq "What does" (the text-def-head of ?fr) "do" "?")
+                               else (if (?fr isa Event)
+                                     then (:seq "What"
+                                                (the text-active-phrase of ?fr)
+                                                (the text-dobj-phrase of ?fr)
+                                                (the text-arguments of ?fr)
+                                                "nospace" "?"
+                                          )
+                                     else (if (?fr isa Role)
+                                           then (:seq "What has" (the text-def-head of ?fr) "as its purpose" "nospace" "?")
+      )))))))
+    )
+  )))
+
+  (viewpoint-detail-title ("Related Questions"))
+
+  (viewpoint-answer ((
+    (?vaq == (allof ?q in (the elements of (the viewpoint-answerable-query of Self))
+              where (;((the original-slot of (the2 of (the2 of ?q))) = t)    ;; forward slots only
+                     ;and
+                     (has-value (the (the2 of (the2 of ?q)) of (the1 of (the2 of ?q))))
+                     and
+                     (not (((the2 of (the2 of ?q)) = purpose)
+                           and
+                           ((make-phrase (the text-indef-phrase of 
+                                              (the (the2 of (the2 of ?q)) of (the1 of (the2 of ?q)))))
+                            = "a role")
+                          )
+                     )
+                    )
+             )
+    )
+    and
+    (?fr == (the1 of (the2 of (the1 of (the viewpoint-answerable-query of Self)))))
+    and
+    (make-sentence
+      (:seq (if (oneof ?vaq
+                 where ((the2 of (the2 of It)) isa Relation))
+             then (:seq
+		     (the text-def-head of ?fr)
+		     (forall ?p in ?vaq
+                      where ((the2 of (the2 of ?p)) isa Relation)
+                      ((?sl == (the2 of (the2 of ?p)))
+                       and
+                       (?filtfill == (if (has-value (the viewpoint-filter of Self))
+                                      then (allof (the ?sl of ?fr) where (It isa (the viewpoint-filter of Self)))
+                                      else (the ?sl of ?fr)
+                                     )
+                       )
+                       and
+                       ((the text-head of ?filtfill)    ;; ignore generic location-of statements
+                        /= (:seq (:seq "location of" (the text-gen of ?fr)) NIL)
+                       )
+                       and (:seq (if ((the number of ?vaq) > 1)
+                                  then "<li>")
+                                 (if (has-value (the text-gloss of ?sl))
+                                  then (the text-gloss of ?sl)
+                                  else (if (has-value (the text-slot of ?sl))
+                                        then (:seq "is" (the (the text-slot of ?sl) of ?fr))
+                                        else (:seq "--" (the name of ?sl) "--")
+                                 ))
+                                 (andify (the text-indef-phrase of ?filtfill))
+                                 (if ((the number of ?vaq) > 1)
+                                  then "</li>
+")
+                           )
+                      )
+                     )
+                  )
+            )
+            (if (oneof ?vaq
+                 where ((the2 of (the2 of It)) isa Property))
+             then (forall ?vaq
+                   where ((the2 of (the2 of It)) isa Property)
+                   (:seq (if ((the number of ?vaq) > 1)
+                          then "<li>")
+                         (the text-description of (the (the2 of (the2 of It)) of ?fr)) 
+                         (if ((the number of ?vaq) > 1)
+                          then "</li>
+")
+                  ))
+            )
+      )
+    )
+  )))
+
+  (viewpoint-detail ((
+    (?vaq == (the viewpoint-answerable-query of Self))
+    and
+    (?fr == (the1 of (the2 of (the1 of ?vaq))))
+    and
+    (?inst-index == (#'(LAMBDA () (INDEX-KB-INSTANCE (CAR (KM0 '|?fr|))))))
+    and
+    (if (has-value ?fr) then
+     (make-phrase
+      (:seq 
+            "<b>"
+            (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE '|?fr|
+                                                        (CAR (KM0 '(|make-phrase| (|the| |first| |of| (|the| |classes| |of| |?fr|))))))))
+            "nospace" ":</b>"
+
+            (make-sentence (
+              (the user-description of (the instance-of of ?fr))
+              or
+              (the description of (the instance-of of ?fr))
+            ))
+
+            (forall ?as in (the user-assumption of 
+                                (the instance-of of ?fr))
+                    (:seq "
+<li>" ?as "</li>
+"
+                    )
+            )
+            "<br /><br />
+"
+            "<ul>
+"
+ 
+            (if ((the number of 
+                      (allof ?p in (the elements of ?vaq)
+                       where (has-value (the (the2 of (the2 of ?p)) of (the1 of (the2 of ?p)))))
+                 ) > 1)
+             then (forall ?p in (the elements of ?vaq)
+                   where ((the1 of ?p) = *slot-value)
+                   (
+                    (?vaq-fr == (the1 of (the2 of ?p)))
+                    and
+                    (?vaq-sl == (the2 of (the2 of ?p)))
+                    and
+                    (?fs-index == (#'(LAMBDA () (INDEX-KB-FRAME-SLOT '|?vaq-fr| '|?vaq-sl|))))
+                    and
+                    (:seq 
+                      (if (has-value ?fs-index)
+                       then (:seq "<li>What is"
+                                  "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                  "nospace"
+                                  ?fs-index
+                                  "nospace"
+                                  "')\">"
+                                  (if (has-value (the text-slot of ?vaq-sl))
+                                   then (:seq (the text-indef-head of ?vaq-fr)
+                                              (the (the text-slot of ?vaq-sl) of ?vaq-fr)
+                                        )
+                                   else (:seq "the" (the name of ?vaq-sl) "of"
+                                              (the text-indef-head of ?vaq-fr)
+                                        )
+                                  )
+                                  "nospace" "</A>?
+"
+                                  "</li>
+"
+                            )
+                      )
+                    )
+                  ))
+            )
+
+            "<li>What is"
+            "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+            "nospace"
+            ?inst-index
+            "nospace"
+            "')\">"
+            (the text-indef-head of ?fr)
+            "nospace" "</A>" "nospace" "?" "</li>
+"
+            "</ul>
+"
+
+   )))
+  )))
+)
+
+#|
+(a Artifact with (purpose ((a Role))) (has-part ((a Cabinet))))
+(a Multislot-Value-Viewpoint with
+   (viewpoint-answerable-query ((:seq (:pair *slot-value (:triple _Artifact10 purpose *)) 
+                                      (:pair *slot-value (:triple _Artifact10 has-part *))
+))))
+(the viewpoint-answer of _Multislot-Value-Viewpoint11)
+
+(_Multislot-Value-Viewpoint17 has 
+  (instance-of (Multislot-Value-Viewpoint))
+  (viewpoint-answerable-query (
+    (:seq (:pair *slot-value (:triple _Cell8 has-part *)) 
+          (:pair *slot-value (:triple _Cell8 has-functional-part *)) 
+          (:pair *slot-value (:triple _Cell8 has-structural-part *)) 
+          (:pair *slot-Value (:triple _Cell8 is-part-of *)))))
+  (viewpoint-multislot-type (*meronymic-multislot-query*))
+)
+
+|#
+

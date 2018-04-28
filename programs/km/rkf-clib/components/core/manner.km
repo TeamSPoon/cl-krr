@@ -1,0 +1,29 @@
+;; 
+;;    $Id: manner.km,v 1.12 2008/07/04 18:11:41 jchaw Exp $ 
+;; 
+
+(manner has
+   (instance-of (EventProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Event))    
+   (range       (Manner-Value))
+   (categorical-constant-class (Manner-Constant))
+   (inverse 	(manner-of))
+   (fluent-status (*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(manner has (wn20-synset ((:set
+                               (:triple "manner" 1 "n")
+                               (:triple "manner" 2 "n")
+                               (:triple "mode" 1 "n")
+                               (:triple "style" 2 "n")
+                               (:triple "way" 1 "n")
+                               (:triple "fashion" 1 "n")
+                               (:triple "personal manner" 1 "n")
+))))
+
+(manner-of has
+	(instance-of (EventProperty)))

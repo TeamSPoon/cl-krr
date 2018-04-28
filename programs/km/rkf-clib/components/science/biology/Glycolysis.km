@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Glycolysis.km,v 1.14 2002/06/21 19:17:00 tecuci Exp $ 
+;; 
+
+(Glycolysis has
+        (superclasses   (Catabolize))
+        (required-slot  (object))
+        (primary-slot   (agent instrument by-means-of))
+	(description	("The catabolic pathway by which a molecule of glucose
+                          is broken down into 2 molecules of Pyruvic-Acid.
+                          Lehninger:PBC:G-6."))
+	)
+
+(every Glycolysis has
+       (agent        ((a Cell)))
+       (object       ((a Glucose)))
+       (instrument  ((a Aggregate called "glycolytic enzymes" with
+
+			(element-type (Catabolic-Enzyme)))))
+       (result       ((a Pyruvic-Acid)
+		      (a Pyruvic-Acid) 
+		      ))
+       )
+
+
+
+

@@ -1,0 +1,65 @@
+<!--- $Id: temporally-finishes.spec.kml,v 1.3 2002/08/28 20:25:42 tecuci Exp $ --->
+
+<kml>
+
+<relation-doc name=temporally-finishes/temporally-finished-by>
+
+
+<from name=Time-Interval>
+<to name=Time-Interval>
+
+<description> 
+  asserts that two Time-Intervals end together
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text><ex-from>(The time of) John's wedding</ex-from> was the last day of <ex-to>spring</ex-to>.</text>
+  </examplesentence>
+  <comment>
+     Here's how this example might be represented.
+     First, John's wedding is related to its Time-Interval using the
+     <slot>time</slot> relation.  Then, that Time-Interval is related to 
+     spring (another Time-Interval) by the temporally-finishes relation.
+  </comment>
+
+  <examplesentence>
+    <text><ex-to>(The time of) John's wedding</ex-to> was the last day of <ex-from>spring</ex-from>.</text>   
+  </examplesentence>
+  <comment>
+     Here's how this example might be represented.
+     First, John's wedding is related to its Time-Interval using the
+     <slot>time</slot> relation.  Then, that Time-Interval is related to 
+     spring (another Time-Interval) by the temporally-finishes relation.
+  </comment>
+
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=before>
+   Asserts that one Time-Interval comes before another
+ </neighbor>
+
+ <neighbor name=during>
+   Asserts that one Time-Interval is during (completely contained
+   within) another
+ </neighbor>
+
+ <neighbor name=temporally-overlaps>
+   Asserts that one Time-Interval overlaps another, but may not be
+   completely contained within it
+ </neighbor>
+
+ <neighbor name=temporally-meets>
+   Asserts that one Time-Interval meets (abuts) another
+ </neighbor>
+
+ <neighbor name=temporally-starts>
+   Asserts that two Time-Intervals begin together
+ </neighbor>
+
+</neighborlist>
+
+</kml>

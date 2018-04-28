@@ -1,0 +1,15 @@
+
+;;
+;; $Id: Compute-Dissociation-Percentage.km,v 1.1 2003/02/05 21:38:09 kbarker Exp $
+;;
+
+;; This class allows us to call Compute-Dissociation-Percentage 
+;; when a test question refers to dissociation instead of calling
+;; Compute-Ionization-Percentage when the question refers to 
+;; dissociation. The code in Compute-Ionization-Percentage handles
+;; both ionization and dissociation
+
+(Compute-Dissociation-Percentage has
+  (superclasses (Compute-Ionization-Percentage))
+)
+

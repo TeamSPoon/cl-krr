@@ -1,0 +1,17 @@
+;;     $Id: Director.km,v 1.3 2005/04/10 22:03:50 jchaw Exp $
+
+;; 
+;; (Director has (superclasses (Controller))) 
+;; 
+;; Executive is an indirect subclass of Controller, so the above
+;; declaration seems superfluous. Hence, it's commented out.
+;;
+(Director has (superclasses (Executive)))
+(Director has (superclasses (OccupationalRank)))
+
+(Director has (wn20-synset ((:set
+	 		     (:triple "director" 1 "n")
+	 		     (:triple "manager" 1 "n")
+	 		     (:triple "managing_director" 1 "n")
+	 		     (:triple "director" 2 "n")
+))))

@@ -1,0 +1,28 @@
+;;
+;;   $Id: Dim.km,v 1.13 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(Dim has 
+  (superclasses  (Decrease))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Dim has-definition
+  (instance-of (Decrease))
+  (from-value ((a Brightness-Value)))
+)
+
+(every Dim has
+  (from-value ((a Brightness-Value with (brightness-of ((the base of Self))))))
+  (base ((a Tangible-Entity with (brightness ((the from-value of Self))))))
+)
+
+(Dim has (wn20-synset ((:set
+			(:triple "dim" 1 "v")
+			(:triple "dip" 5 "v")
+			(:triple "darken" 2 "v")
+			(:triple "dim" 2 "v")
+			(:triple "dim" 3 "v")
+			(:triple "dim" 4 "v")
+))))
+(every Dim has (text-nominalization ("dimming")))

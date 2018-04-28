@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Ionic-Bond.km,v 1.11 2001/11/17 06:50:21 jarred Exp $ 
+;; 
+
+(Ionic-Bond has
+         (superclasses (Noncovalent-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Attractive force that holds together two ions, one 
+                        positive and the other negative.  Alberts:ECB:G-10"))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Ionic-Bond has
+       (purpose ((a Connector with
+                     (in-event ((a Be-Attached-To with
+                                      (object ((a Cation)
+                                               (a Anion)
+                                               (exactly 2 Ion)))
+                                      )))
+                        )))
+       (intensity ((a Intensity-Value with (value ((:pair 3 *kilocalorie/mole))))))
+       (length ((a Length-Value with (value ((:pair .25 *nanometer))))))
+       )
+
+

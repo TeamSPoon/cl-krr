@@ -1,0 +1,58 @@
+;;
+;;  $Id: Secure.km,v 1.14 2004/01/30 22:40:14 kbarker Exp $
+;;
+
+(Secure has
+	(superclasses (Non-Engagement-Military-Task))
+	(description ("a tactical mission task to prevent a unit, facility, or location from being damaged"))
+)
+
+(every Secure has
+       (agent ((a Military-Unit)))
+       (object ((must-be-a Spatial-Entity with
+                   (allegiance ((the allegiance of (the agent of Self))))
+       )))
+  (base ((a Military-Unit)))
+       (base ((set-constraint
+                  (((the number of 
+                         (the value of (the allegiance of TheValues))) <= 1)
+                   and
+                   (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+
+  (first-subevent ((if (((the location of (the agent of Self))
+                   /= (the object of Self))
+                  and
+                   ((the location of (the agent of Self))
+                    /= (the location of (the object of Self)))
+                  and
+                   ((the is-at of (the location of (the agent of Self)))
+                     /= (the is-at of (the object of Self))))
+              then
+                 (a Move-Military-Unit with
+                    (object ((the agent of Self)))
+                    (destination ((the object of Self))))
+   )))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.9 NIL))))))
+
+;; the object is a friendly spatial entity so required-force-ratio
+;; is inappropriate to this encoding
+;;       (required-force-ratio 
+;;          ((a Required-Force-Ratio-Value with
+;;              (value ((:pair 1 NIL))))))
+
+       (text-active-verbseq-sg ("secures"))
+       (text-active-verbseq-pl ("secure"))
+
+       (text-base ("against"))
+       (text-argslots ((:seq base site path)))
+)

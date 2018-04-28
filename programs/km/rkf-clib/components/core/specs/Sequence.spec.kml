@@ -1,0 +1,61 @@
+<!--- $Id: Sequence.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+
+<kml>
+<concept name=Sequence>
+
+<system-documentation name=Sequence>
+<gpd-documentation name=Aggregate>
+
+
+<superconcept name=Aggregate>
+
+  <definition>
+	A Sequence is a linearly ordered  collection of individuals.
+  </definition>
+
+<primaryslotlist>
+
+  <slotdescription name=first-element>
+     the first element in the Sequence
+  </slotdescription>
+
+  <slotdescription name=element>
+    the elements that make up the <conceptref name=Sequence>
+  </slotdescription>
+
+  <slotdescription name=number-of-elements>
+    the number of elements in the Sequence
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>John was the first of five patients that the doctor saw</text>
+     <slotdescription name=first-element>John</slotdesctiption>
+     <slotdescription name=number-of-elements>five</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+     <text>he played the trumps in sequence</text>
+  <comment>
+     It is not necessary to specify a <slot>number-of-elements</slot> or to list the 
+     <slot>element</slot> of an ensemble. If you do, the system will try 
+     to maintain consistency by requiring that the number of <slot>element
+     </slot> is at least as large as the specified <slot>number-of-elements</slot>
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Ensemble>
+     An Ensemble is a special kind of Aggregate in which the individuals
+     function together to perform some task.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

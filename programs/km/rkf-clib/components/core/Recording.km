@@ -1,0 +1,14 @@
+;; $Id: Recording.km,v 1.2 2005/01/13 23:04:16 porter Exp $
+(Recording has
+	(description ("A kind of Message created by a Sensor as the result of a Record event."))
+	(superclasses (Message)))
+
+(every Recording has
+	(result-of ((a Record)))) 
+	
+(Recording has (wn20-synset ((:set
+                           (:triple "recording" 1 "n")
+
+))))
+
+

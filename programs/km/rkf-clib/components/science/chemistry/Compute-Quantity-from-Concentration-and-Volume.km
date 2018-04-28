@@ -1,0 +1,70 @@
+
+;;
+;; $Id: Compute-Quantity-from-Concentration-and-Volume.km,v 1.12 2005/09/02 18:25:48 jfan Exp $
+;;
+
+(Compute-Quantity-from-Concentration-and-Volume has (superclasses (Method)))
+
+(every Compute-Quantity-from-Concentration-and-Volume has 
+  (output (
+     (if ((has-value 
+               (the1 of (the value of (the Concentration-Value input of Self))))
+          and
+          (has-value 
+               (the1 of (the value of (the Volume-Value input of Self))))
+         )
+      then
+         (a Quantity-Value with
+            (value (
+               (:pair (
+                 (the1 of 
+                       (the value of
+                            (the output of
+                                 (a Unit-Conversion with
+                                    (input (
+                                       (the Concentration-Value input of Self)))
+                                    (target-unit (*molar))))))
+                  *
+                 (the1 of 
+                       (the value of
+                            (the output of
+                                 (a Unit-Conversion with
+                                    (input ((the Volume-Value input of Self)))
+                                    (target-unit (*liter))))))
+                 )
+                 *mole
+                 [Compute-Quantity-from-Concentration-and-Volume-output-1])
+            ))
+         )
+       else
+         (a Quantity-Value)
+  )))
+)
+
+(comment [Compute-Quantity-from-Concentration-and-Volume-output-1]
+  (:seq (the1 of (the value of (the Concentration-Value input of Self)))
+        (the2 of (the value of (the Concentration-Value input of Self)))
+        "*"
+        (the1 of (the value of (the Volume-Value input of Self)))
+        (the2 of (the value of (the Volume-Value input of Self)))
+        "="
+        (the1 of (the value of (the output of Self)))
+        (the2 of (the value of (the output of Self)))
+  )
+  (:seq "To find the quantity of"
+        (the text-gen of 
+             (the concentration-of of (the Concentration-Value input of Self))
+        )
+        "multiply its concentration and volume:"
+  )
+  (:set (:triple (the Concentration-Value input of Self)
+                 value
+                 (the value of (the Concentration-Value input of Self))
+        )
+        (:triple (the Volume-Value input of Self)
+                 value
+                 (the value of (the Volume-Value input of Self))
+        )
+  )
+)
+

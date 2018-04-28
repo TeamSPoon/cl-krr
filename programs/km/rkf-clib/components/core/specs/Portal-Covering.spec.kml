@@ -1,0 +1,47 @@
+<!--- $Id: Portal-Covering.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Portal-Covering>
+<system-documentation name=Portal-Covering>
+<gpd-documentation name=Roles>
+
+<superconcept name=Barrier>
+
+<definition>
+   Portal-Covering is the <conceptref name=Role> played by an Entity 
+   which is the <slot>instrument</slot> of a 
+   <conceptref name=Be-Closed> state.  (A <conceptref name=Portal>
+   is put into the Be-Closed state by <conceptref name=Close> and
+   taken out of this state by <conceptref name=Open>.)
+</definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the entity that's playing the role of portal-covering
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Be-Closed> state for which the portal-covering 
+     is the instrument
+   </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The lid closes the jar.</text>
+     <comment>
+     In this example, the Portal-Covering role is described with 
+     these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Be-Closed> with
+         <slot>object</slot>=jar</slotdescription>
+     <slotdescription name=played-by>the lid</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+</kml>
+

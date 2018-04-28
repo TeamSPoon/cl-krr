@@ -1,0 +1,19 @@
+;;
+;; $Id: BaCl2.km,v 1.5 2006/01/24 20:27:28 jfan Exp $
+;;
+
+(BaCl2 has (superclasses (Ionic-Compound)))
+
+(every BaCl2 has	
+       (has-chemical-name ("barium chloride"))
+       (has-part ((a Ba-Plus-2) (a Cl-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+            (term ((:seq 
+		    (:pair 1 Ba-Plus-2) 
+		    (:pair 2 Cl-Minus))))))))
+
+(every BaCl2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Ba-Plus-2) (a Cl-Minus))))
+

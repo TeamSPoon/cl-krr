@@ -1,0 +1,36 @@
+;; 
+;;    $Id: Metathesis-Reaction.km,v 1.2 2007/11/19 22:58:01 mrglass Exp $ 
+;; 
+
+
+(Metathesis-Reaction has
+   (superclasses (Reaction)))
+
+(Metathesis-Reaction now-has (user-description ("Reactions in which positive ions and negative ions appear to exchange partners are called Metathesis Reactions.")))
+
+(every Metathesis-Reaction has-definition
+   (instance-of (Reaction))
+   ;a constraint on each chemical that says its ions must appear in the other chemical list
+   ;TODO: could also include a constraint that says no chemical appears as both a raw-material and result
+   (result (
+         (must-be-a Ionic-Compound-Substance)
+         (set-constraint
+            ((Self isa Metathesis-Reaction)   
+            or
+            (((forall (the raw-material of Self)
+                        (the term of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))
+               and 
+               (forall (the result of Self)
+                  (the term of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))
+               and
+            ((the term of (the atomic-chemical-formula of (the has-part of 
+                        (the has-basic-structural-unit of (the raw-material of Self)))))
+            =
+            (the term of (the atomic-chemical-formula of (the has-part of 
+                     (the has-basic-structural-unit of (the result of Self))))))))
+            )))
+   
+   (raw-material (
+         (must-be-a Ionic-Compound-Substance)
+         )))
+

@@ -1,0 +1,84 @@
+;; 
+;;    $Id: DNA-Repair.km,v 1.29 2004/02/01 22:00:05 jfan Exp $ 
+;; 
+
+(DNA-Repair has
+;	    (superclasses         (Replace Enzyme-Catalysis))
+; There is some discrepancy between DNA-Repair and Enzyme-Catalysis    *KB
+; These two particular parents are causing problems with text-gen too  *KB
+
+	    (superclasses         (Replace))
+	    (required-slot (object base))
+	    (primary-slot ((instrument agent)))
+	    (description ("Collective term for the enzymatic processes
+                           that correct deleterious changes affecting 
+                           the continuity or sequence of a DNA 
+                           molecule. Alberts:ECB:G-6.")))
+				   
+(every DNA-Repair has
+       (agent ((a Cell)))
+       (object ((a DNA-Sequence called "the defective DNA sequence" with
+		   (object-of
+		    ((a Be-Attached-To with
+			(object 
+			 ((a DNA-Sequence called "template" with
+			     (is-part-of 
+			      ((a DNA-Strand called "normal strand" with
+				  (complement ((the DNA-Strand base of Self)))
+				  )))
+			     )))
+			(instrument ((a Hydrogen-Bond)
+				     (at-least 2 Hydrogen-Bond)))
+			))))
+		(a DNA-Sequence called "the new complementary sequence" with
+		   (complement (((the DNA-Sequence object of
+				      (the Be-Attached-To object-of of
+					    ((the DNA-Sequence object of Self)
+					      called 
+					      "the defective DNA sequence")))
+				 called "template")))   
+		   )))
+       (instrument ((a Aggregate called "repair enzymes" with
+		       (instance-of (Enzyme))
+
+		       (element-type (Enzyme)))))
+       (base ((a DNA-Strand called "repaired strand")))
+
+       (first-subevent (((the Detach subevent of Self) called "excision")))
+
+       (subevent
+        (
+;	 (a Recognize with   ;; probably best viewed as preparatory step.
+;      	    (object ((a DNA-Sequence called "the defective DNA")))
+;            (agent ((a Deoxyribonuclease)))
+;            )
+         (a Detach called "excision" with
+	    (object 	(((the DNA-Sequence object of Self)
+			  called "the defective DNA sequence")))
+			;; (a DNA-Sequence called "the defective DNA")))
+            (base ((the DNA-Strand base of Self)))
+            (instrument ((a Deoxyribonuclease)))
+	    (next-event (((the DNA-Synthesis subevent of Self) 
+			  called "DNA resynthesis")))
+            )
+         (a DNA-Synthesis called "DNA resynthesis" with
+	    (object (((the DNA-Sequence object of 
+			   (the Be-Attached-To object-of of
+				((the DNA-Sequence object of Self)
+				  called "the defective DNA sequence")))
+		      called "template")))
+            (result (((the DNA-Sequence object of Self)
+                      called "the new complementary sequence")) )
+            (instrument ((a DNA-Polymerase-Repair-Enzyme)))
+	    (next-event ((the DNA-Ligation subevent of Self)))
+            )
+         (a DNA-Ligation with
+            (object (((the DNA-Sequence object of Self)
+                      called "the new complementary sequence")) )
+            (base ((the DNA-Strand base of Self)))
+            (instrument ((a DNA-Ligase)))
+            )                         
+	 ))
+       )
+
+(every DNA-Repair has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

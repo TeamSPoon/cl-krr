@@ -1,0 +1,89 @@
+)clear all
+
+
+X ==> EXPR INT
+P ==> PROP INT
+
+
+mother:=operator 'mother
+father:=operator 'father
+
+parent:(X,X)->P
+grandparent:(X,X)->P
+
+parent(x,y)==pred('parent,[x,y])
+grandparent(x,y)==pred('grandparent,[x,y])
+
+-- Axioms
+f_is_p:=all(x,parent(father(x),x))  
+m_is_p:=all(x,parent(mother(x),x))
+p_of_p_if_gp:=all([x,y,z],(parent(x,y)/\parent(y,z))>>grandparent(x,z))
+ 
+
+-- Conjecture 
+carol_has_gp:=ex(z,grandparent(z,Carol))
+
+-- Let us collect the facts into a list
+H:=[f_is_p,m_is_p,p_of_p_if_gp]
+
+
+-- Prove the conjecture
+
+prove(carol_has_gp,H)
+
+
+-- Define an answer predicate
+
+setOption("default-variable-symbol-prefixes", "(#\%)")
+--setOption("default-allow-skolem-symbols-in-answers", "nil")
+--setOption("default-rewrite-answers", "nil")
+--setOption("default-use-paramodulation", "nil")
+
+)lisp (snark::default-run-time-limit 60)
+)lisp (snark::default-use-resolution)
+)lisp (snark::default-use-paramodulation nil)
+)lisp (snark::default-print-rows-when-derived)
+)lisp (snark::default-print-final-rows)
+)lisp (snark::default-print-unorientable-rows)
+)lisp (snark::default-print-summary-when-finished)
+)lisp (snark::default-print-clocks-when-finished)
+)lisp (snark::default-print-term-memory-when-finished)
+)lisp (snark::default-print-agenda-when-finished)
+)lisp (snark::default-print-options-when-starting)
+)lisp (snark::default-print-assertion-analysis-notes)
+
+
+ans:=pred('ANS,[%Z::X])
+ans2:=all(z,pred('ANS,[z::X]))
+prove?(carol_has_gp,H,ans)
+
+)lisp (snark::print-rows)
+
+
+--)lisp (snark::initialize)
+--assume f_is_p
+--assume m_is_p
+--assume p_of_p_if_gp
+--prove carol_has_gp
+
+-- Axioms
+fp:=parent(father(%X),%X)  
+mp:=parent(mother(%X),%X)
+ppgp:=(parent(%X,%Y)/\parent(%Y,%Z))>>grandparent(%X,%Z)
+ 
+
+-- Conjecture 
+carol_gp:=grandparent(%Z,Carol)
+
+-- Let us collect the facts into a list
+H2:=[fp,mp,ppgp]
+ans:=pred('ANS,[%Z::X])
+prove?(carol_gp,H2,ans)
+
+-- reset to default (since we have overwritten default options !!)
+snarkInit()$Lisp
+
+
+
+
+

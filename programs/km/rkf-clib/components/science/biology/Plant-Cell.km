@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Plant-Cell.km,v 1.2 2001/05/29 02:30:00 souther Exp $
+;; 
+
+(Plant-Cell has
+      (superclasses (Suborganismal-Entity))
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (description ("The basic unit from which plants are made. Most have a
+                     plasma membrane surrounded by a cell wall to provide
+                     rigidity.  Souther. "))
+       (cmap-correspondence ()))
+
+(every Plant-Cell has
+       (is-basic-structural-unit-of ((a Plant)))
+       (is-basic-functional-unit-of ((a Plant)))  
+       (has-part ((a Plasma-Membrane with
+		     (encloses ((the Cytoplasm has-part of Self))))
+		  (a Cell-Wall with
+		     (encloses ((the Plasma-Membrane has-part of Self)))) 
+		  (a Cytoplasm)))
+       )
+
+
+
+
+

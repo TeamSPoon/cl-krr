@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Ribonucleoside-Monophosphate.km,v 1.1 2001/06/12 19:18:11 souther Exp $
+;; 
+
+(Ribonucleoside-Monophosphate has
+         (superclasses (Nucleoside-Monophosphate))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("A ribonucleotide in which the 5' terminal group 
+                        is a monophosphate, e.g. GMP. Souther."))
+         (test-case ()))
+
+(every Ribonucleoside-Monophosphate has
+  (has-part ((a Monophosphate with
+		(object-of
+		  ((a Be-Attached-To with
+		      (object ((the Ribonucleoside has-part of Self)))
+		      (site   (((the Carbon-Atom has-part of
+				     (the Ribose has-part of
+					  (the Ribonucleoside has-part of Self)))
+				called "Carbon-5")
+			       ((the Oxygen-Atom has-part of
+				     (the Monophosphate has-part of Self))
+				called "Oxygen-1")))
+		      (instrument ((a Covalent-CO-Bond)))))))
+	     (a Ribonucleoside))))
+
+

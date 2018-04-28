@@ -1,0 +1,11 @@
+;;    $Id: Electrolyte-Solution-Composition.km,v 1.4 2005/07/20 14:49:15 kbarker Exp $
+
+;; When an aqueous solution contains one or more strong electrolytes, each one of them dissociates into their component ions. The quantity of each ion is given by: quantity_ion = quantity_electrolyte * coefficient_ion
+
+(Electrolyte-Solution-Composition has
+				  (superclasses (Method)))
+
+(every Electrolyte-Solution-Composition has
+       (context ((a Strong-Electrolyte-Solution)))
+       (input ((the quantity of (the Strong-Electrolyte base of (the context of Self)))))
+       (output ((the Ion has-part of (the base of (the context of Self))))))

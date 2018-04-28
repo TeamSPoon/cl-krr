@@ -1,0 +1,109 @@
+;;
+;; $Id: Time-Instant.km,v 1.3 2005/06/30 20:54:49 billj Exp $
+;; 
+
+(every Time-Instant has
+
+; iCalendar date-time string
+  (time-iCalendar-date-time-string (
+    (make-phrase (:seq (if (has-value (the time-year of Self))
+                        then (the time-year of Self)
+                        else "0000"
+                       )
+                       "nospace"
+                       (if (has-value (the time-month of Self))
+                        then (if ((the time-month of Self) < 10)
+                              then (:seq "0" "nospace" (the time-month of Self))
+                              else (the time-month of Self))
+                        else "00"
+                       )
+                       "nospace"
+                       (if (has-value (the time-day of Self))
+                        then (if ((the time-day of Self) < 10)
+                              then (:seq "0" "nospace" (the time-day of Self))
+                              else (the time-day of Self))
+                        else "00"
+                       )
+                       "nospace"
+                       "T"
+                       "nospace"
+                       (if (has-value (the time-hour of Self))
+                        then (if ((the time-hour of Self) < 10)
+                              then (:seq "0" "nospace" (the time-hour of Self))
+                              else (the time-hour of Self))
+                        else "00"
+                       )
+                       "nospace"
+                       (if (has-value (the time-minute of Self))
+                        then (if ((the time-minute of Self) < 10)
+                              then (:seq "0" "nospace" (the time-minute of Self))
+                              else (the time-minute of Self))
+                        else "00"
+                       )
+                       "nospace"
+                       (if (has-value (the time-second of Self))
+                        then (if ((the time-second of Self) < 10)
+                              then (:seq "0" "nospace" (the time-second of Self))
+                              else (the time-second of Self))
+                        else "00"
+                       )
+                       "nospace"
+                       "Z"
+  ))))
+
+
+; XML Schema date-time string
+  (time-xmls-date-time-string (
+    (make-phrase (:seq (if (has-value (the time-year of Self))
+                        then (the time-year of Self)
+                        else "0001"
+                       )
+                       "nospace"
+                       "-"
+                       "nospace"
+                       (if (has-value (the time-month of Self))
+                        then (if ((the time-month of Self) < 10)
+                              then (:seq "0" "nospace" (the time-month of Self))
+                              else (the time-month of Self))
+                        else "01"
+                       )
+                       "nospace"
+                       "-"
+                       "nospace"
+                       (if (has-value (the time-day of Self))
+                        then (if ((the time-day of Self) < 10)
+                              then (:seq "0" "nospace" (the time-day of Self))
+                              else (the time-day of Self))
+                        else "01"
+                       )
+                       "nospace"
+                       "T"
+                       "nospace"
+                       (if (has-value (the time-hour of Self))
+                        then (if ((the time-hour of Self) < 10)
+                              then (:seq "0" "nospace" (the time-hour of Self))
+                              else (the time-hour of Self))
+                        else "00"
+                       )
+                       "nospace"
+                       ":"
+                       "nospace"
+                       (if (has-value (the time-minute of Self))
+                        then (if ((the time-minute of Self) < 10)
+                              then (:seq "0" "nospace" (the time-minute of Self))
+                              else (the time-minute of Self))
+                        else "00"
+                       )
+                       "nospace"
+                       ":"
+                       "nospace"
+                       (if (has-value (the time-second of Self))
+                        then (if ((the time-second of Self) < 10)
+                              then (:seq "0" "nospace" (the time-second of Self))
+                              else (the time-second of Self))
+                        else "00"
+                       )
+  )))))
+
+(time-iCalendar-date-time-string has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (String)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)) (dont-cache-values (t)) (inherit-with-overrides (t)))
+(time-xmls-date-time-string has (instance-of (Interface-Slot)) (domain (Time-Instant)) (range (String)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)) (dont-cache-values (t)) (inherit-with-overrides (t)))

@@ -1,0 +1,65 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _KNO3-Substance2851
+
+
+|#
+
+(KNO3-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(_KNO3-Substance2876 has
+  (prototype-of (KNO3-Substance))
+  (prototype-scope (KNO3-Substance))
+  (prototype-participants (_Cation2883 _Anion2882 _Anion-Substance2881 _Cation-Substance2880 _State-Value2879 _Chemical-Entity2878 _Solubility-Value2877 _KNO3-Substance2876)))
+
+(_KNO3-Substance2876 has
+  (instance-of (KNO3-Substance))
+  (has-part (_Cation-Substance2880 _Anion-Substance2881))
+  (physical-state (_State-Value2879))
+  (has-basic-structural-unit (_Chemical-Entity2878 (exactly 1 Ionic-Compound)))
+  (solubility (_Solubility-Value2877)))
+
+(_Solubility-Value2877 has (instance-of (Solubility-Value)) (value ((:pair *soluble Chemical))))
+
+(_Chemical-Entity2878 has (instance-of (KNO3)) (has-part (_Anion2882 _Cation2883)))
+
+(_State-Value2879 has (instance-of (State-Value)))
+
+(_Cation-Substance2880 has (instance-of (Cation-Substance)))
+
+(_Anion-Substance2881 has (instance-of (Anion-Substance)))
+
+(_Anion2882 has (instance-of (NO3-Minus)))
+
+(_Cation2883 has (instance-of (K-Plus)))
+
+(explanation (:triple _Solubility-Value2877 value (:pair *soluble Chemical)) (((@ SME entered)) (every KNO3-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))))
+
+(explanation (:triple _KNO3-Substance2876 instance-of KNO3-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Solubility-Value2877 instance-of Solubility-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity2878 instance-of KNO3) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value2879 instance-of State-Value) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation-Substance2880 instance-of Cation-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion-Substance2881 instance-of Anion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Anion2882 instance-of NO3-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation2883 instance-of K-Plus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every KNO3-Substance has (solubility ((a Solubility-Value with (value ((:pair *soluble Chemical)))))))
+
+|#
+
+|#
+

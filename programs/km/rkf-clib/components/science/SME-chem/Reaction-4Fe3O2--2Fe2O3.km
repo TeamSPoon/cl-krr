@@ -1,0 +1,218 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Reaction-4Fe3O2--2Fe2O3 ----------
+
+(Reaction-4Fe3O2--2Fe2O3 has (superclasses (Reaction)))
+
+(_Reaction-4Fe3O2--2Fe2O33202 has 
+  (instance-of (Reaction-4Fe3O2--2Fe2O3))
+  (prototype-of (Reaction-4Fe3O2--2Fe2O3))
+  (prototype-scope (Reaction-4Fe3O2--2Fe2O3))
+  (prototype-participants (_Property-Node3246
+                           _Property-Node3245
+                           _Property-Node3244
+                           _Chemical-Entity3243
+                           _Chemical3241
+                           _Coefficient-Value3240
+                           _Chemical-Entity3238
+                           _Chemical3237
+                           _Coefficient-Value3236
+                           _Chemical-Entity3234
+                           _Chemical3233
+                           _Coefficient-Value3232
+                           _Reaction-4Fe3O2--2Fe2O33202))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202))
+  (big-nodes (_Property-Node3244
+              _Property-Node3245
+              _Property-Node3246))
+  (raw-material (_Chemical3237
+                 _Chemical3241))
+  (result (_Chemical3233))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (edge-visibility ((:seq result _Chemical3233 t)
+                    (:seq raw-material _Chemical3237 t)
+                    (:seq raw-material _Chemical3241 t))))
+
+(_Property-Node3246 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3232))
+  (contains-edge ((:triple _Coefficient-Value3232 value (:pair 2 *unity))))
+  (big-node-of (_Reaction-4Fe3O2--2Fe2O33202))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Property-Node3245 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3240))
+  (contains-edge ((:triple _Coefficient-Value3240 value (:pair 3 *unity))))
+  (big-node-of (_Reaction-4Fe3O2--2Fe2O33202))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Property-Node3244 has 
+  (instance-of (Property-Node))
+  (node-visibility (t))
+  (contains-node (_Coefficient-Value3236))
+  (contains-edge ((:triple _Coefficient-Value3236 value (:pair 4 *unity))))
+  (big-node-of (_Reaction-4Fe3O2--2Fe2O33202))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Chemical-Entity3243 has 
+  (instance-of (Chemical-Entity
+                O2))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3241))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Chemical3241 has 
+  (has-basic-structural-unit (_Chemical-Entity3243))
+  (instance-of (Chemical))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (coefficient (_Coefficient-Value3240))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3240 t)))
+  (raw-material-of (_Reaction-4Fe3O2--2Fe2O33202))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Coefficient-Value3240 has 
+  (contains-node-of (_Property-Node3245))
+  (coefficient-of (_Chemical3241))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 3 *unity)))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Chemical-Entity3238 has 
+  (instance-of (Chemical-Entity
+                Fe))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3237))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Chemical3237 has 
+  (has-basic-structural-unit (_Chemical-Entity3238))
+  (instance-of (Chemical))
+  (raw-material-of (_Reaction-4Fe3O2--2Fe2O33202))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3236))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3236 t)))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Coefficient-Value3236 has 
+  (contains-node-of (_Property-Node3244))
+  (coefficient-of (_Chemical3237))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 4 *unity)))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Chemical-Entity3234 has 
+  (instance-of (Chemical-Entity
+                Fe2O3))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (is-basic-structural-unit-of (_Chemical3233))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Chemical3233 has 
+  (has-basic-structural-unit (_Chemical-Entity3234))
+  (instance-of (Chemical
+                Entity))
+  (result-of (_Reaction-4Fe3O2--2Fe2O33202))
+  (internally-expanded (f
+                        t))
+  (node-visibility (t))
+  (coefficient (_Coefficient-Value3232))
+  (edge-visibility ((:seq coefficient _Coefficient-Value3232 t)))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(_Coefficient-Value3232 has 
+  (contains-node-of (_Property-Node3246))
+  (coefficient-of (_Chemical3233))
+  (instance-of (Coefficient-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 2 *unity)))
+  (prototype-participant-of (_Reaction-4Fe3O2--2Fe2O33202)))
+
+(explanation (:triple _Reaction-4Fe3O2--2Fe2O33202 raw-material _Chemical3241)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Reaction-4Fe3O2--2Fe2O33202 raw-material _Chemical3237)
+  ((a Chemical (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction raw-material))))
+(explanation (:triple _Reaction-4Fe3O2--2Fe2O33202 result _Chemical3233)
+  ((a Chemical (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction result))))
+(explanation (:triple _Reaction-4Fe3O2--2Fe2O33202 chemical-equation _Chemical-Equation-Expression3204)
+  ((a Chemical-Equation-Expression with (term ((:seq (:set (forall (the raw-material of _Reaction-4Fe3O2--2Fe2O33202) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Material plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It))))))) (:set (forall (the result of _Reaction-4Fe3O2--2Fe2O33202) where (has-value (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))) (:pair ((the1 of (the value of (the coefficient of (the Reaction-Result plays of It)))) or (the1 of (the value of (the coefficient of It)))) ((the string-name of (the nested-atomic-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the has-chemical-formula of (the has-basic-structural-unit of It))) or (the string-name of (the atomic-chemical-formula of (the has-basic-structural-unit of It)))))))))) (comm [Reaction-balanced-chemical-equation] _Reaction-4Fe3O2--2Fe2O33202) (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction chemical-equation))))
+(explanation (:triple _Reaction-4Fe3O2--2Fe2O33202 instance-of Reaction-4Fe3O2--2Fe2O3)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3243 atomic-chemical-formula _Chemical-Formula3224)
+  ((if ((the term of (the nested-atomic-chemical-formula of _Chemical-Entity3243)) or (the term of (the has-chemical-formula of _Chemical-Entity3243)) (@ _Chemical-Entity3243 Chemical-Entity atomic-chemical-formula)) then (a Chemical-Formula with (term ((:default (if (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3243)) then (FUNCTION (LAMBDA NIL (DENEST-ATOMIC-FORMULA (KM-UNIQUE0 (QUOTE (the term of (the nested-atomic-chemical-formula of _Chemical-Entity3243))))))) else (if (the term of (the has-chemical-formula of _Chemical-Entity3243)) then (FUNCTION (LAMBDA NIL (LIST (COMPUTE-ATOMIC-CHEMICAL-FORMULA (KM0 (QUOTE (the term of (the has-chemical-formula of _Chemical-Entity3243)))))))))) (@ _Chemical-Entity3243 Chemical-Entity atomic-chemical-formula Chemical-Formula term)))) (@ _Chemical-Entity3243 Chemical-Entity atomic-chemical-formula)) (@ _Chemical-Entity3243 Chemical-Entity atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3243 nested-atomic-chemical-formula _Chemical-Formula3222)
+  ((a Chemical-Formula with (term ((:seq (:pair 2 O)))) (@ _Chemical-Entity3243 O2 nested-atomic-chemical-formula))))
+(explanation (:triple _Chemical-Entity3243 instance-of O2)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3243 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3241 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3241 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3241 coefficient _Coefficient-Value3240)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical3241 has-basic-structural-unit _Chemical-Entity3243)
+  ((a Chemical-Entity (@ _Chemical3241 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3241 instance-of Chemical)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3240 value (:pair 3 *unity))
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3240 instance-of Coefficient-Value)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3238 instance-of Fe)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3238 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3237 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3237 has-basic-structural-unit _Chemical-Entity3238)
+  ((a Chemical-Entity (@ _Chemical3237 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3237 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Material (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction (raw-material must-be-a) Chemical plays)))) (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction (raw-material must-be-a)))))
+(explanation (:triple _Chemical3237 instance-of Chemical)
+  ((a Chemical (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction raw-material))))
+(explanation (:triple _Chemical3237 coefficient _Coefficient-Value3236)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical3237 instance-of Chemical)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3236 value (:pair 4 *unity))
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3236 instance-of Coefficient-Value)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3234 instance-of Fe2O3)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical-Entity3234 instance-of Chemical-Entity)
+  ((a Chemical-Entity (@ _Chemical3233 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3233 has-basic-structural-unit _Chemical-Entity3234)
+  ((a Chemical-Entity (@ _Chemical3233 Chemical has-basic-structural-unit))))
+(explanation (:triple _Chemical3233 instance-of Entity)
+  ((a Entity (@ _Reaction-4Fe3O2--2Fe2O33202 Event (result must-be-a)))))
+(explanation (:triple _Chemical3233 instance-of Chemical)
+  ((a Chemical with (plays ((a Reaction-Result (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction (result must-be-a) Chemical plays)))) (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction (result must-be-a)))))
+(explanation (:triple _Chemical3233 instance-of Chemical)
+  ((a Chemical (@ _Reaction-4Fe3O2--2Fe2O33202 Reaction result))))
+(explanation (:triple _Chemical3233 coefficient _Coefficient-Value3232)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Chemical3233 instance-of Chemical)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3232 value (:pair 2 *unity))
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+(explanation (:triple _Coefficient-Value3232 instance-of Coefficient-Value)
+  ((added-at Reaction-4Fe3O2--2Fe2O3 "User defined")))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

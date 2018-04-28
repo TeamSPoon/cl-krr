@@ -1,0 +1,48 @@
+;; 
+;;    $Id: DNA-Molecule.km,v 1.40 2002/06/21 19:16:59 tecuci Exp $ 
+;; 
+
+(DNA-Molecule has
+     (superclasses (DNA-Double-Strand)) 
+     (required-slot  ())
+     (primary-slot   ())
+     (secondary-slot ())
+     (description    ("Double-stranded polynucleotide formed from two separate
+                       chains of deoxyribonucleotide units; serves as the 
+                       carrier of genetic information. Alberts:ECB:G-6"))
+     (cmap-correspondence ()))
+
+(every DNA-Molecule has
+
+       (element-type (Base-Pair) )
+       (purpose  ((a Container with
+		     (in-event ((a Genetic-Information-Storage with
+				   (object ((a Genome))) ))))))
+       (has-region   ((a Replication-Origin)
+		      (at-least 1 Replication-Origin)))
+       (has-part (
+		  (a DNA-Strand called "DNA-Strand-1" with
+		     (complement (((the DNA-Strand has-part of Self)
+				   called "DNA-Strand-2")))
+		     (object-of
+		      ((a Be-Attached-To with
+			  (object 	
+			   (((the has-part of Self) called "DNA-Strand-2")))
+			  (instrument 	
+			   ((a Chemical-Sequence with
+
+			       (element-type (Hydrogen-Bond)))))))))
+		  (a DNA-Strand called "DNA-Strand-2"))))
+
+;; antiparallel orientation of strands
+;; number of Hydrogen-Bond can be calculated by a formula.
+
+
+
+
+
+
+
+
+
+

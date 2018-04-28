@@ -1,0 +1,83 @@
+<!--- $Id: Fall.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+<kml>
+
+<concept name=Fall><system-documentation name=Fall>
+<superconcept name=Move>
+
+<definition>
+
+  An <slot>object</slot> falls toward earth.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that falls
+  </slotdescription>
+
+</requiredslotlist>
+
+<comment>
+  Note that fall is purely intransitive, i.e. it can never have an
+  <slot>agent</slot>.  However, <conceptref name=Let-Fall>, which
+  causes a fall to occur, always has an agent.
+
+<primaryslotlist>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the fall
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the fall
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot> moves
+     along during the fall.  Typically, this is an object or surface
+     along which the <slot>object</slot> falls.
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> falls.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may.
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from during
+    the fall.  Unlike the
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The anvil dropped from the 12th floor down the elevator
+          shaft.</text>
+    <slotdescription name=object>the anvil</slotdescription>
+    <slotdescription name=origin>the 12th floor</slotdescription>
+    <slotdescription name=path>the elevator shaft</slotdescription>
+  </examplesentence>
+  <comment>
+    Here "dropped" is translated to "fall".
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+    Fall is a special type of Move in which the direction is downward, 
+    toward the earth.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

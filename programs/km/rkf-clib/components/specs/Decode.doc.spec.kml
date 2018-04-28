@@ -1,0 +1,32 @@
+<!--- $Id: Decode.doc.spec.kml,v 1.2 2003/09/10 20:39:55 jchaw Exp $ --->
+<kml>
+
+<concept name=Decode::doc>
+<superconcept name=Create::doc>
+
+<sme-documentation name=Decode>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Decode>
+  <definition>decode a message into the abstract information it represents</definition>
+  <requiredslot name=agent>
+    <inheritedfrom name=Create::doc>
+    <restriction>a <conceptref name=Tangible-Entity> which does the Decode
+    </restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a <conceptref name=Message> that will be decoded
+    </restriction>
+  </requiredslot>
+  <requiredslot name=result>
+    <restriction>a <conceptref name=Information> which is decoded from the message
+    </restriction>
+  </requiredslot>
+  <wnsynsets><verb>decode#1, decode#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>decipher#1
+  </verb></wnsynsets>
+</component>
+
+</kml>

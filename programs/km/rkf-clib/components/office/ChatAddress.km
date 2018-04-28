@@ -1,0 +1,17 @@
+;;    $Id: ChatAddress.km,v 1.9 2005/01/28 22:34:15 billj Exp $
+(ChatAddress has
+	     (superclasses (NetworkAddress))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+(every ChatAddress has
+       (hasCompatibleChatNetwork ((a Instant-Messaging-Service))))
+
+(hasCompatibleChatNetwork has 
+ (instance-of (Interface-Slot)) 
+ (domain (ChatAddress)) 
+ (range (Instant-Messaging-Service)) 
+ (cardinality (N-to-N))(inverse (isCompatibleChatNetworkOf)))

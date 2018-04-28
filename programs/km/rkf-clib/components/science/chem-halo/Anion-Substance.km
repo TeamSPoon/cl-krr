@@ -1,0 +1,18 @@
+;    $Id: Anion-Substance.km,v 1.2 2006/03/20 23:35:43 jfan Exp $
+
+;;(Anion-Substance has (superclasses (Chemical)))
+
+(Anion-Substance has (superclasses (Ionic-Substance)))
+
+#|
+(every Anion-Substance has-definition 
+       (instance-of (Chemical))
+       (has-basic-structural-unit ((a Anion))))
+|#
+ 
+(every Anion-Substance has
+       ;; by definition all ions are soluble
+       (solubility ((a Solubility-Value with
+		       (value ((:pair *soluble Chemical))))))
+       (has-basic-structural-unit ((a Anion))))
+

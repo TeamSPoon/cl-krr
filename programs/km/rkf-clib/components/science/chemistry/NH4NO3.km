@@ -1,0 +1,15 @@
+;;
+;; $Id: NH4NO3.km,v 1.1 2003/04/09 04:48:47 jchaw Exp $
+;;
+
+(NH4NO3 has (superclasses (Salt)))
+
+(every NH4NO3 has
+       (has-part ((a NH4-Plus)
+		  (a NO3-Minus)))
+       
+       (has-chemical-formula ((a Chemical-Formula with
+				 (term ((:seq (:pair 1 NH4-Plus)
+					      (:pair 1 NO3-Minus))))))
+			     )
+       )

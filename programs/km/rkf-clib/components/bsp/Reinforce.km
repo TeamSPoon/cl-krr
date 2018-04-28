@@ -1,0 +1,35 @@
+;;
+;;  $Id: Reinforce.km,v 1.7 2004/01/30 22:40:14 kbarker Exp $
+;;
+
+(Reinforce has
+	   (superclasses (Non-Engagement-Military-Task))
+	   (description ("to strengthen a unit with additional resources")))
+
+(every Reinforce has
+       (agent ((a Military-Unit)))
+       (object ((a Military-Unit with
+                   (allegiance ((the allegiance of (the agent of Self))))
+       )))
+
+  (first-subevent ((if (((the location of (the agent of Self))
+                   /= (the object of Self))
+                  and
+                   ((the location of (the agent of Self))
+                    /= (the location of (the object of Self)))
+                  and
+                   ((the is-at of (the location of (the agent of Self)))
+                     /= (the is-at of (the object of Self))))
+              then
+                 (a Move-Military-Unit with
+                    (object ((the agent of Self)))
+                    (destination ((the object of Self))))
+   )))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.95 NIL))))))
+
+
+       (text-active-verbseq-sg ("reinforces"))
+       (text-active-verbseq-pl ("reinforce"))
+)

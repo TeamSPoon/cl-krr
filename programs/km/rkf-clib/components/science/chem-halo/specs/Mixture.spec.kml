@@ -1,0 +1,50 @@
+<!--- $Id: Mixture.spec.kml,v 1.1 2005/09/09 14:08:38 jfan Exp $ --->
+
+<kml>
+<concept name=Mixture>
+
+
+<superconcept name=Chemical>
+
+  <definition>
+    A Mixture is the <conceptref name=Chemical> that is the result of a <conceptref name=Mix> action.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=base>
+     The chemicals that are involved in the mix action.
+   </slotdescription>
+   <slotdescription name=has-part>
+     The parts of the resulting mixture.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>NaCl and MgCl are mixed.</text>
+     <slotdescription name=base> NaCl and MgCl</slotdescription>
+     <slotdescription name=has-part> NaCl and MgCl</slotdescription>
+  </examplesentence>
+
+  <examplesentence>
+     <text>NaCl is mixed into water.</text>
+     <slotdescription name=base> NaCl and Water</slotdescription>
+     <slotdescription name=has-part> Na+ and Cl-</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Chemical>
+     A Chemical is a substance described by chemical properties such as 
+    molecular composition and reactivity. It may or may not be the result of
+    a mix action.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

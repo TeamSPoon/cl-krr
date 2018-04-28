@@ -1,0 +1,116 @@
+;; 
+;;    $Id: Produce.km,v 1.29 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+;; this version of Produce still has the following problem:
+;; how to specify the type of the outcome, other than the generic "Tangible-Entity"?
+
+(Produce has
+	 (superclasses (Create))
+	 (required-slot (raw-material))
+	 (primary-slot (agent instrument))
+	 (cmap-correspondence ((:seq raw-material "the raw material/parts")))
+       #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Produce has
+       (raw-material ((a Tangible-Entity)))
+
+       ;; agent has control over 
+       ;; - raw material
+       ;; - instrument (should be in Action)
+
+       (soft-pcs-list ((forall (the raw-material of Self)
+			       (:triple It
+					object-of
+					(a Be-Controlled with
+					   (agent (the agent of Self)))))))
+
+       (add-list ((if (has-value (the result of Self))
+		      then
+		    (if ((the raw-material of Self) isa Substance)
+			then
+		      (forall (the result of Self)
+			      (:triple
+			       It
+			       material
+			       (the raw-material of Self) [Produce-add-1]))
+		      else
+		      (forall (the result of Self)
+			      (:triple
+			       It
+			       has-part
+			       (the raw-material of Self) [Produce-add-2])))
+		    else
+		    (if ((the raw-material of Self) isa Substance)
+			then
+		      (:triple
+		       Self
+		       result
+		       (a Tangible-Entity with
+			  (material ((the raw-material of Self)))) [Produce-add-3])
+		      else
+		      (:triple
+		       Self
+		       result
+		       (a Tangible-Entity with
+			  (has-part ((the raw-material of Self)))) [Produce-add-4]))
+		    ))))
+
+(comment [Produce-add-1] (:seq (the result of Self) " was created from " (the raw-material of Self))
+	 "A produce consumes raw material substances to create a Tangible-Entity.")
+
+(comment [Produce-add-2] (:seq (the raw-material of Self) " is part of " (the result of Self))
+	 "A produce uses raw material parts to create a Tangible-Entity.")
+
+(comment [Produce-add-3] (:seq (the result of Self) " was created from " (the raw-material of Self))
+	 "A produce consumes raw material substances to create a Tangible-Entity.")
+
+(comment [Produce-add-4] (:seq (the raw-material of Self) " is part of " (the result of Self))
+	 "A produce uses raw material parts to create a Tangible-Entity.")
+
+
+(every Produce has
+;; causes problems for subclasses with other superclasses
+  (text-argslots ((:seq raw-material instrument)))
+
+  (text-active-verbseq-sg ("produces"))
+  (text-active-verbseq-pl ("produce"))
+  (text-passive-verbseq-sg ("gets produced"))
+  (text-passive-verbseq-pl ("get produced"))
+)
+
+
+(Produce has
+	 (test-case ('(
+		       (new-situation)
+		       (*metal has (instance-of (Substance)))
+		       (a Produce with
+			  (raw-material (*metal)))
+		       (do-and-next (thelast Produce))
+		      
+		       ((the material of (the result of (thelast Produce))) = *metal)
+		           (the text-gen of (thelast Produce))
+		       (new-situation)
+		       (*brick has (instance-of (Physical-Object)))
+		       (a Produce with
+			  (raw-material (*brick)))
+		       (do-and-next (thelast Produce))
+		       ((the has-part of (the result of (thelast Produce))) = *brick)
+			(the text-gen of (thelast Produce))
+
+))))
+
+
+
+;; automatically added WN synsets
+(Produce has (wn16-synset ((:set  
+                                      (:triple "produce" 1 "v")
+                                      (:triple "bring_forth" 3 "v")
+))))
+
+(Produce has (wn20-synset ((:set
+                                      (:triple "produce" 1 "v")
+                                      (:triple "bring_forth" 3 "v")
+))))
+(every Produce has (text-nominalization ("production")))

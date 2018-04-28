@@ -1,0 +1,16 @@
+;; 
+;; $Id: output.km,v 1.6 2007/04/11 21:31:10 jchaw Exp $
+;; 
+
+(output has
+   (instance-of (CLIB-Slot-Group))
+   (domain (Thing))
+   #|(range (Thing))|#
+   (inverse (output-of))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   (cardinality (N-to-N))
+)
+
+(output-of has
+   (instance-of (CLIB-Slot-Group)))

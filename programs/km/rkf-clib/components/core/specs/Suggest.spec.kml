@@ -1,0 +1,43 @@
+<!--- $Id: Suggest.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+<kml>
+
+<concept name=Suggest>
+<superconcept name=Communicate>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Suggest>
+  <definition>Make a proposal, declare a plan for something.</definition>
+  <requiredslot name=agent>
+    <restriction>suggests <slot>object</slot> </restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <restriction>a Suggestion</restriction>
+    <restriction>suggested by <slot>agent</slot></restriction>
+  </requiredslot>
+  <requiredslot name=recipient>
+    <restriction>a Entity</restriction>
+  </requiredslot>
+
+  <primaryslot name=base>
+    <inheritedfrom name=Action>
+    <restriction>The Message which encodes the Request being made</restriction>
+  </primaryslot>
+
+  <wnsynsets><verb>propose#1, suggest#1, advise#3
+  </verb></wnsynsets>  
+</component>
+
+<musing>
+
+</musing>
+
+<h3>Other Senses:</h3>
+<senselist>
+
+</senselist>
+
+
+</kml>
+
+

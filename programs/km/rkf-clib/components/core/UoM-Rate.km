@@ -1,0 +1,22 @@
+;; 
+;; $Id: UoM-Rate.km,v 1.7 2010/01/27 16:04:48 kbarker Exp $
+;; 
+
+(UoM-Rate has
+   (superclasses (Unit-of-Measurement))
+  (base-unit ())
+)
+
+;; For now, there are no rate units because they're open-ended
+;; (e.g., miles-per-gallon, logs-per-cabin, etc.)
+;; not sure what to do with these... whether they're more complex
+;; than a single property or need a compositional solution to units
+
+;; ok, add one to see if mobius picks it up
+
+(*beat-per-minute has (instance-of (UoM-Rate))
+                      (name ("bpm"))
+                      (wn20-synset ((:set (:triple "beat per minute" 0 "n")
+                                          (:triple "beats per minute" 0 "n")
+                                          (:triple "bpm" 0 "n")))))
+

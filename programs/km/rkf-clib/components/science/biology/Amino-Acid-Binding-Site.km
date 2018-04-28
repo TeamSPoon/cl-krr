@@ -1,0 +1,29 @@
+;; 
+;;    $Id: Amino-Acid-Binding-Site.km,v 1.12 2002/09/24 19:24:00 kbarker Exp $ 
+;; 
+
+(Amino-Acid-Binding-Site has
+         (superclasses (Binding-Site))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A short, single-stranded has-region at the 3' end of
+                        TRNA where the amino acid that matches the codon of
+                        the mRNA being translated is bound.  
+                        see Alberts:ECB:226."))
+         (test-case ()))
+
+(every Amino-Acid-Binding-Site has
+       (is-part-of ((a TRNA)))
+       (is-at-of ((a 3-Prime-End with
+		     (is-region-of ((the TRNA is-part-of of Self))))))
+       (is-at-of ((a TRNA-Charging)))
+       )
+                                    
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _HCN-Substance62620
+
+
+|#
+
+(disable-classification)
+
+(HCN-Substance has (superclasses (Acid)))
+
+(every HCN-Substance has (plays ((a Acid-Role with (default-ka ((a Equilibrium-Constant-Value with (value ((:pair 4.9e-10 nil)))))) (intensity ((a Intensity-Value with (value ((:pair *weak Acid))))))))) (has-chemical-name ("Hydrocyanic")) (has-basic-structural-unit ((a HCN))))
+
+(_HCN-Substance62724 has
+  (prototype-of (HCN-Substance))
+  (prototype-scope (HCN-Substance))
+  (prototype-participants (_Electrolyte-Status-Value62731 _HCN-Substance62724)))
+
+(_HCN-Substance62724 has (instance-of (HCN-Substance)) (electrolyte-status (_Electrolyte-Status-Value62731)))
+
+(_Electrolyte-Status-Value62731 has (instance-of (Electrolyte-Status-Value)) (value ((:pair *weak Acid))))
+
+(enable-classification)
+
+(explanation (:triple _HCN-Substance62724 electrolyte-status _Electrolyte-Status-Value62731) (((@ SME entered)) (every HCN-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))))
+
+(explanation (:triple _Electrolyte-Status-Value62731 value (:pair *weak Acid)) (((@ SME entered)) (every HCN-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak Acid)))))))))
+
+(explanation (:triple _HCN-Substance62724 instance-of HCN-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Electrolyte-Status-Value62731 instance-of Electrolyte-Status-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every HCN-Substance has (electrolyte-status ((a Electrolyte-Status-Value))))
+(every HCN-Substance has (electrolyte-status ((a Electrolyte-Status-Value with (value ((:pair *weak Acid)))))))
+
+|#
+
+|#
+

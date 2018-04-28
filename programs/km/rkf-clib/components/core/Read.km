@@ -1,0 +1,17 @@
+;;
+;;   $Id: Read.km,v 1.4 2005/10/25 03:02:10 sdbaji Exp $ 
+;;
+
+(Read has (description ("The act of reading a physical written document."))
+	  (superclasses (Sense))
+        #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every Read has 
+	(object ((a Physical-Document)(must-be-a Physical-Document))))
+
+(Read has (wn20-synset ((:set
+			   (:triple "read" 1 "v")
+))))
+	  
+(every Read has (text-nominalization ("reading")))

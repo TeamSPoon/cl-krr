@@ -1,0 +1,144 @@
+(My-Parabolic-Move has
+	(superclasses (Parabolic-Move)))
+
+(every My-Parabolic-Move has
+       (initial-velocity (( a Velocity-Vector-Value )))
+       (final-velocity (( a Velocity-Vector-Value )))
+       (acceleration (( a Acceleration-Vector-Value with
+                          ( acceleration-magnitude (( a Acceleration-Magnitude-Value with
+                                                          ( value (( :pair 9.8 *meter-per-second-squared ))))))
+                          ( direction (( a Angle-Value with
+                                             ( value (( :pair -90 *degree ))))))
+                          ( x-acceleration-magnitude (( a Acceleration-Magnitude-Value with
+                                                          ( value (( :pair 0 *meter-per-second-squared ))))))
+                          ( y-acceleration-magnitude (( a Acceleration-Magnitude-Value with
+                                                          ( value (( :pair -9.8 *meter-per-second-squared )))))))))
+       (displacement (( a Displacement-Vector-Value )))
+       (duration (( a Duration-Value )))
+       (direction (( the direction of ( the initial-velocity of Self ))))
+       (initial-x-position ((a Length-Value)))
+       (initial-y-position ((a Length-Value)))
+       (final-x-position ((a Length-Value)))
+       (final-y-position ((a Length-Value)))
+
+       (apex-velocity (( a Velocity-Vector-Value with
+                           ( x-speed (( a Speed-Value )))
+                           ( y-speed (( a Speed-Value with
+                                          ( value (( :pair 0 *meter-per-second ))))))))) 
+       (apex-displacement (( a Displacement-Vector-Value )))
+       (apex-acceleration (( the acceleration of Self )))
+       (apex-duration (( a Duration-Value )))
+
+       (component-of (( a System with 
+                          ( equation (
+				      ( a Equation-Set with 
+                                          ( equation-uses ((the duration of Self ))
+                                                           (the apex-duration of Self))
+                                          ( equation-symbol (( :pair (QUOTE apt) (the apex-duration of Self))
+                                                             ( :pair (QUOTE t)   (the duration of Self))))
+                                          ( equation-expression (( QUOTE ( = t ( * 2 apt))))))
+
+
+				( a Equation-Set with 
+                                          ( equation-uses (( the x-speed of ( the initial-velocity of Self ))
+                                                           ( the x-speed of ( the final-velocity of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE iu_x) ( the x-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE fv_x) ( the x-speed of ( the final-velocity of Self )))))
+                                          ( equation-expression (( QUOTE ( = fv_x iu_x )))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the x-speed of ( the initial-velocity of Self ))
+                                                           ( the x-speed of ( the apex-velocity of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE apu_x) ( the x-speed of ( the apex-velocity of Self )))
+                                                             ( :pair (QUOTE iu_x) ( the x-speed of ( the initial-velocity of Self )))))
+                                          ( equation-expression (( QUOTE ( = apu_x iu_x )))))
+                                        
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the apex-duration of Self )
+                                                           ( the y-speed of ( the initial-velocity of Self ))
+                                                           ( the y-acceleration-magnitude of ( the acceleration of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE apt) ( the apex-duration of Self ))
+                                                             ( :pair (QUOTE iu_y) ( the y-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of ( the acceleration of Self )))))
+                                          ( equation-expression (( QUOTE ( = apt ( * -1 ( / iu_y a_y )))))))
+
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the x-distance of ( the displacement of Self ))
+                                                           ( the initial-x-position of Self )
+                                                           ( the final-x-position of Self )))
+                                          ( equation-symbol (( :pair (QUOTE d_x) ( the x-distance of ( the displacement of Self )))
+                                                             ( :pair (QUOTE x_0) ( the initial-x-position of Self ))
+                                                             ( :pair (QUOTE x) ( the final-x-position of Self ))))
+                                          ( equation-expression (( QUOTE ( = d_x ( - x x_0 ))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the x-distance of ( the apex-displacement of Self ))
+                                                           ( the x-speed of ( the initial-velocity of Self ))
+                                                           ( the y-speed of ( the initial-velocity of Self ))
+                                                           ( the y-acceleration-magnitude of ( the acceleration of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE apd_x) ( the x-distance of ( the apex-displacement of Self )))
+                                                             ( :pair (QUOTE iu_x) ( the x-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE iu_y) ( the y-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of ( the acceleration of Self )))))
+                                          ( equation-expression (( QUOTE ( = apd_x ( * -1 ( * iu_x ( / iu_y a_y ))))))))
+
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the y-distance of ( the apex-displacement of Self ))
+                                                           ( the y-speed of ( the initial-velocity of Self ))
+                                                           ( the y-acceleration-magnitude of ( the acceleration of Self ))
+                                                           ( the apex-duration of Self )))
+                                          ( equation-symbol (( :pair (QUOTE apd_y) ( the y-distance of ( the apex-displacement of Self )))
+                                                             ( :pair (QUOTE iu_y) ( the y-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of ( the acceleration of Self )))
+                                                             ( :pair (QUOTE apt) ( the apex-duration of Self ))))
+                                          ( equation-expression (( QUOTE ( = apd_y ( + ( * iu_y apt ) ( * 0.5 ( * a_y ( * apt apt )))))))))
+
+                                      
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the final-x-position of Self )
+                                                           ( the initial-x-position of Self )
+                                                           ( the x-speed of ( the final-velocity of Self ))
+                                                           ( the duration of Self )))
+                                          ( equation-symbol (( :pair (QUOTE x) ( the final-x-position of Self ))
+                                                             ( :pair (QUOTE x_0) ( the initial-x-position of Self ))
+                                                             ( :pair (QUOTE fv_x) ( the x-speed of ( the final-velocity of Self )))
+                                                             ( :pair (QUOTE t) ( the duration of Self ))))
+                                          ( equation-expression (( QUOTE ( = x ( + x_0 ( * fv_x t )))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the y-speed of ( the final-velocity of Self ))
+                                                           ( the y-speed of ( the initial-velocity of Self ))
+                                                           ( the y-acceleration-magnitude of ( the acceleration of Self ))
+                                                           ( the duration of Self )))
+                                          ( equation-symbol (( :pair (QUOTE fv_y) ( the y-speed of ( the final-velocity of Self )))
+                                                             ( :pair (QUOTE iu_y) ( the y-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of ( the acceleration of Self )))
+                                                             ( :pair (QUOTE t) ( the duration of Self ))))
+                                          ( equation-expression (( QUOTE ( = fv_y ( + iu_y ( * a_y t )))))))
+
+                                      ( a Equation-Set with
+                                          ( equation-uses (( the y-distance of ( the displacement of Self ))
+                                                           ( the initial-y-position of Self )
+                                                           ( the final-y-position of Self )))
+                                          ( equation-symbol (( :pair (QUOTE d_y) ( the y-distance of ( the displacement of Self )))
+                                                             ( :pair (QUOTE y_0) ( the initial-y-position of Self ))
+                                                             ( :pair (QUOTE y) ( the final-y-position of Self ))))
+                                          ( equation-expression (( QUOTE ( = d_y ( - y y_0 ))))))
+
+                                      ( a Equation-Set with 
+                                          ( equation-uses (( the final-y-position of Self )
+                                                           ( the initial-y-position of Self )
+                                                           ( the y-speed of ( the initial-velocity of Self ))
+                                                           ( the duration of Self )
+                                                           ( the y-acceleration-magnitude of ( the acceleration of Self ))))
+                                          ( equation-symbol (( :pair (QUOTE y) ( the final-y-position of Self ))
+                                                             ( :pair (QUOTE y_0) ( the initial-y-position of Self ))
+                                                             ( :pair (QUOTE iu_y) ( the y-speed of ( the initial-velocity of Self )))
+                                                             ( :pair (QUOTE t) ( the duration of Self ))
+                                                             ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of ( the acceleration of Self )))))
+                                          ( equation-expression (( QUOTE ( = y ( + y_0 ( + ( * iu_y t ) ( * 0.5 ( * a_y ( * t t ))))))))))))))))
+
+

@@ -1,0 +1,19 @@
+;; $Id: Fe-Plus-2.km,v 1.7 2008/05/15 17:19:10 kunal Exp $ 
+(Fe-Plus-2 has (superclasses (Metal-Cation)))
+(every Fe-Plus-2 has
+	(charge ((a Charge-Value with
+		(value ((:pair +2 *unity))))))
+	(has-chemical-name ("iron(II)"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Fe)))))))
+        (is-ion-of ((a Fe)))
+)
+
+(every Fe-Plus-2 has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("iron(II)"))
+)
+
+
+(Fe-Plus-2 has (wn20-synset ((:triple "Fe+2" 0 "n"))))

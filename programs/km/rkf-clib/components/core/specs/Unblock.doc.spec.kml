@@ -1,0 +1,65 @@
+<!--- $Id: Unblock.doc.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Unblock::doc>
+<superconcept name=Make-Accessible::doc>
+
+<sme-documentation name=Unblock>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Unblock>
+  <definition>allow movement through a Place</definition>
+  <requiredslot name=object>
+    <restriction>a Place</restriction>
+  </requiredslot>
+  <requiredslot name=pre-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> <i>and</i>
+      <slot>location</slot> of a <conceptref name=Be-Blocked>
+    </restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is not the <slot>object</slot> nor
+      <slot>location</slot> of a <conceptref name=Be-Blocked>
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Unobstruct::doc>
+    <restriction>causes <slot>object</slot> to be unblocked</restriction>
+  </primaryslot>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>clear#2
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Unblock takes an <slot>object</slot> (Place) out of a 
+<conceptref name=Be-Blocked> state.<p>
+
+(An <slot>object</slot> is put into a <conceptref name=Be-Blocked> state
+by the <conceptref name=Block::doc> action).
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=unblock2>
+  <sense-definition>make available</sense-definition>
+</sense>
+
+</senselist>
+
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNunblock#1><equiv tag=none>
+<comment>domain-specific (card games)</comment></sense>
+<sense tag=WNunblock#2><equiv tag=unblock2></sense>
+
+</senselist>
+</reference>
+</kml>
+
+

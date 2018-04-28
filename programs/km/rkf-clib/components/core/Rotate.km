@@ -1,0 +1,21 @@
+;; 
+;; $Id: Rotate.km,v 1.2 2008/01/25 20:02:23 jchaw Exp $ 
+;; 
+
+(Rotate has (superclasses (Move)))
+
+(every Rotate has
+  (text-active-verbseq-sg ("rotates"))
+  (text-active-verbseq-pl ("rotate"))
+  (text-passive-verbseq-sg ("gets rotated"))
+  (text-passive-verbseq-pl ("get rotated"))
+)
+
+(Rotate has (wn20-synset ((:set
+                                   (:triple "rotate" 3 "v")
+                                   (:triple "circuvolve" 1 "v")
+                                   (:triple "turn" 8 "v")
+))))
+
+(every Rotate has (text-nominalization ("rotation")))
+

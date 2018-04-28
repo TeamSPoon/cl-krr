@@ -1,0 +1,42 @@
+
+;;
+;;  $Id: Question.km,v 1.8 2004/07/20 22:29:24 gking Exp $
+;;
+
+(Question has
+        (superclasses (Role))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+        (description ())
+        (cmap-correspondence ())) 
+
+#| remove this for the Halo project, where we're using Question's, but
+   not as Role's
+
+(every Question has
+       	(in-event ((a Inquire)))
+	(played-by ((a Information with
+                      (object-of ((the in-event of Self))))))
+)
+|#
+
+
+
+
+;; automatically added WN synsets
+(Question has (wn16-synset ((:set  
+                                       (:triple "inquiry" 2 "n")
+                                       (:triple "enquiry" 1 "n")
+                                       (:triple "query" 1 "n")
+                                       (:triple "interrogation" 1 "n")
+                                       (:triple "interrogative_sentence" 1 "n")
+))))
+
+(Question has (wn20-synset ((:set
+                                       (:triple "inquiry" 2 "n")
+                                       (:triple "enquiry" 1 "n")
+                                       (:triple "query" 1 "n")
+                                       (:triple "interrogation" 1 "n")
+                                       (:triple "interrogative_sentence" 1 "n")
+))))

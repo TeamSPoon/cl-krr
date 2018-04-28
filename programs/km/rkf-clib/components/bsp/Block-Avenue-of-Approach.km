@@ -1,0 +1,66 @@
+
+;;
+;;  $Id: Block-Avenue-of-Approach.km,v 1.15 2004/01/30 22:40:14 kbarker Exp $
+;;
+
+(Block-Avenue-of-Approach has
+   (superclasses (Block-Military))
+   (description  ("a tactical mission task that prevents an enemy's advance along an avenue of approach"))
+)
+
+(every Block-Avenue-of-Approach has-definition
+   (instance-of (Block-Military))
+   (base ((a Military-Unit)))
+)
+
+(every Block-Avenue-of-Approach has
+   (agent  ((a Military-Unit)))
+   (object ((a Spatial-Entity)))
+  (base ((a Military-Unit)))
+   (base ((set-constraint
+              (((the number of 
+                     (the value of (the allegiance of TheValues))) <= 1)
+               and
+               (if ((has-value (the allegiance of (the agent of Self)))
+                    and
+                    (has-value (the allegiance of TheValues)))
+                then
+                  ((the value of (the allegiance of TheValues))
+                   /=
+                   (the value of (the allegiance of (the agent of Self))))
+                else (t)))
+   )))
+   (enemy ((the base of Self)))
+
+  (first-subevent ((if (((the location of (the agent of Self))
+                   /= (the object of Self))
+                  and
+                   ((the location of (the agent of Self))
+                   /= (the location of (the object of Self)))
+                  and
+                   ((the is-at of (the location of (the agent of Self)))
+                     /= (the is-at of (the object of Self))))
+              then
+                 (a Move-Military-Unit with
+                    (object ((the agent of Self)))
+                    (destination ((the object of Self))))
+   )))
+
+   (resulting-state ((a Be-Blocked)))
+
+   (add-list (
+       (:triple
+           (the object of Self)
+           object-of
+           (the resulting-state of Self) [Block-Avenue-of-Approach-add-1])))
+
+   (text-base ("against"))
+   (text-argslots ((:seq base path)))
+
+)
+
+(comment [Block-Avenue-of-Approach-add-1]
+   (:seq (the object of Self) " is now blocked.")
+   "Block-Avenue-of-Approach prevents a unit from moving along an AoA.")
+
+

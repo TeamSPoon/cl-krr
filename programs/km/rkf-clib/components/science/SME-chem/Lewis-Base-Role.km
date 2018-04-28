@@ -1,0 +1,15 @@
+; 
+;;    $Id: Lewis-Base-Role.km,v 1.1 2008/05/08 16:53:33 mrglass Exp $ 
+;; 
+
+(Lewis-Base-Role has
+                 (superclasses (Role))
+                 (test-case ()))
+
+(Lewis-Base-Role has (user-description ("A Substance that acts as an electron pair donor.")))
+
+(every Lewis-Base-Role has
+       (played-by ((must-be-a Anion))))
+
+
+

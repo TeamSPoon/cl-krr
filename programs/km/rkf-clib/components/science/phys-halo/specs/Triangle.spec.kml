@@ -1,0 +1,33 @@
+<!--- $Id: Triangle.spec.kml,v 1.1 2005/10/20 18:14:42 pzyeh Exp $ --->
+
+<kml>
+<concept name=Triangle>
+<superconcept name=Polygon>
+
+<definition>
+	A <conceptref name=Polygon> bounded by exactly 3 <conceptref name=Line-Segment>s.
+</definition>
+
+<requiredslotlist>
+   <slotdescription name=has-part>
+	The 3 <conceptref name=Line-Segment>s and 3 <conceptref name=Vertex>es that make up the triangle.
+   </slotdescription>
+</requiredslotlist>
+
+<neighborlist>
+  <neighbor name=Line-Segment>
+        A <conceptref name=Line> with two <conceptref name=Point>s, one on each end.
+  </neighbor>
+  <neighbor name=Vertex>
+        A <conceptref name=Point> that has an <conceptref name=Angle-Value> and is part of
+        two <conceptref name=Line>s.
+  </neighbor>
+  <neighbor name=Polygon>
+	A <conceptref name=Geometric-Object> bounded by <conceptref name=Line-Segment>s.
+  </neighbor>
+  <neighbor name=Right-Triangle>
+	A triangle where one of its <conceptref name=Vertex>es has a 90 degree angle.
+  </neighbor>
+</neighborlist>
+
+</kml>

@@ -1,0 +1,13 @@
+;; 
+;; $Id: Dossier.km,v 1.2 2005/04/10 21:19:07 jchaw Exp $
+;;
+
+(Dossier has (superclasses (Aggregate)))
+
+(every WrittenDocumentCollection has
+  (element-type (Document InformationObject))
+)
+
+(Dossier has (wn20-synset ((:set
+	 		     (:triple "dossier" 1 "n")
+))))

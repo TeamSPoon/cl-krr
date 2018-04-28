@@ -1,0 +1,9 @@
+;; $Id: Al-Plus-3.km,v 1.4 2003/03/26 19:45:22 wilder Exp $ 
+(Al-Plus-3 has (superclasses (Metal-Cation)))
+(every Al-Plus-3 has
+	(charge ((a Charge-Value with
+		(value ((:pair +3 *electronic-charge))))))
+	(has-chemical-name ("aluminum"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 Al)))))))
+)

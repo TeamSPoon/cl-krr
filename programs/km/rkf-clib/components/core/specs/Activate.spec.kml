@@ -1,0 +1,69 @@
+<!--- $Id: Activate.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+<kml>
+
+<concept name=Activate><system-documentation name=Activate>
+
+<definition>
+
+  Some objects need to be activated before they can participate in
+  an action.  This action puts an object into a <conceptref name=Be-Activated>
+  state.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The <conceptref name=Entity> that's activated
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that activates the object
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the instrument or tool used to activate the object
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that is instrumental in activating the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Roger activated the ignition system by turning the switch.</text>
+    <slotdescription name=object>the ignition system</slotdescription>
+    <slotdescription name=agent>Roger</slotdescription>
+    <slotdescription name=by-means-of>turning the switch</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Accessible>
+     Activate is a type of Make-Accessible in which an object
+     is put into a Be-Activated state.
+  </neighbor>
+
+  <neighbor name=Be-Activated>
+     Activate causes an object to enter a Be-Activated state.
+  </neighbor>
+
+  <neighbor name=Deactivate>
+     Deactivate is the opposite of Activate.  It takes an object
+     out of a Be-Activated state.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

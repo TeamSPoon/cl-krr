@@ -1,0 +1,26 @@
+;; 
+;;    $Id: TTTT-Like-Sequence.km,v 1.14 2002/06/21 19:17:03 tecuci Exp $ 
+;; 
+
+(TTTT-Like-Sequence has
+     (superclasses (DNA-Regulatory-Sequence))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A DNA consensus sequence that forms part of the
+                    terminator for DNA transcription. Alberts:ECB:217."))
+     (cmap-correspondence ()))
+
+(every TTTT-Like-Sequence has
+
+       (element-type (Deoxyribonucleotide))
+       (first-element (((the D-TMP element of Self) called "first")))
+       (element ((a D-TMP called "first" with
+		    (next-element (((the D-TMP element of Self) called "second"))))
+		 (a D-TMP called "second" with
+		    (next-element (((the D-TMP element of Self) called "third"))))
+		 (a D-TMP called "third" with
+		    (next-element (((the D-TMP element of Self) called "fourth"))))
+		 (a D-TMP called "fourth"))))
+
+

@@ -1,0 +1,18 @@
+;;
+;;    $Id: RecurringTask.km,v 1.2 2004/11/04 23:03:44 pzyeh Exp $
+;;
+
+;;
+;; At some point, someone should look at ICAL for other properties 
+;; that can be used to describe recurring tasks.
+;;
+(RecurringTask has 
+  (superclasses        (Task))
+  (required-slot       ())
+  (primary-slot        ()))
+
+
+(eachStart has (instance-of (Interface-Slot)) (domain (RecurringTask)) (range (Time-Instant)) (cardinality (1-to-N)) (fluent-status (*Inertial-Fluent)))
+(eachEnd   has (instance-of (Interface-Slot)) (domain (RecurringTask)) (range (Time-Instant)) (cardinality (1-to-N)) (fluent-status (*Inertial-Fluent)))
+
+

@@ -1,0 +1,40 @@
+;;
+;; $Id: Duration-Value.km,v 1.1 2005/06/27 22:25:43 billj Exp $
+;;
+
+(every Duration-Value has
+  (time-iCalendar-duration-string ((
+    (?dyr == (the1 of (oneof (the value of Self) where ((the2 of It) = *year))))
+    and
+    (?dmo == (the1 of (oneof (the value of Self) where ((the2 of It) = *month))))
+    and
+    (?dwk == (the1 of (oneof (the value of Self) where ((the2 of It) = *week))))
+    and
+    (?dda == (the1 of (oneof (the value of Self) where ((the2 of It) = *day))))
+    and
+    (?dhr == (the1 of (oneof (the value of Self) where ((the2 of It) = *hour))))
+    and
+    (?dmi == (the1 of (oneof (the value of Self) where ((the2 of It) = *minute))))
+    and
+    (?dse == (the1 of (oneof (the value of Self) where ((the2 of It) = *second))))
+    and
+    (if ((not ?dyr) and (not ?dmo))
+     then (make-phrase (:seq "P"
+                             "nospace"
+                             (if ?dwk then (:seq ?dwk "nospace" "W" "nospace"))
+                             (if ?dda then (:seq ?dda "nospace" "D" "nospace"))
+                             (if (?dhr or ?dmi or ?dse) then (:seq "T" "nospace"))
+                             (if ?dhr then (:seq ?dhr "nospace" "H" "nospace"))
+                             (if ?dmi then (:seq ?dmi "nospace" "M" "nospace"))
+                             (if ?dse then (:seq (if (?dhr and (not ?dmi))           ;; can't have hours and
+                                                  then (:seq "0M" "nospace")         ;; seconds without minutes
+                                                 )
+                                                 ?dse "nospace" "S" "nospace")
+                             )
+                       )
+          )
+    )
+  )))
+)
+
+(time-iCalendar-duration-string has (instance-of (Interface-Slot)) (domain (Duration-Value)) (range (String)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)) (dont-cache-values (t)) (inherit-with-overrides (t)))

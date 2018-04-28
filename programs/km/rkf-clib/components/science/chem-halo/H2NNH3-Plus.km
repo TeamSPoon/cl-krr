@@ -1,0 +1,22 @@
+;; $Id: H2NNH3-Plus.km,v 1.6 2008/05/14 20:16:55 kunal Exp $ 
+(H2NNH3-Plus has (superclasses (Cation)))
+(every H2NNH3-Plus has
+	(charge ((a Charge-Value with
+		(value ((:pair +1 *unity))))))
+	(has-chemical-name ("hydrazinium"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 2 H) 
+						       (:pair 1 N)
+						       (:pair 1 N)
+						       (:pair 3 H)
+						       ))))))
+)
+
+
+(every H2NNH3-Plus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hydrazinium"))
+)
+
+(H2NNH3-Plus has (wn20-synset ((:triple "H2NNH3+" 0 "n") (:triple "H_2NNH_3+" 0 "n"))))

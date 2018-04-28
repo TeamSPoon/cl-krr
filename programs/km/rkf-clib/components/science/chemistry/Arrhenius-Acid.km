@@ -1,0 +1,37 @@
+;; 
+;;    $Id: Arrhenius-Acid.km,v 1.4 2003/02/17 20:35:24 jfan Exp $ 
+;; 
+
+(Arrhenius-Acid has
+      (superclasses (Acid))
+      (test-case ()))
+
+;;
+;; Couple of Onotological issues that need to be resolved once the
+;; new ontology is in place. Other issues:
+;;
+;;	- Does Substabces have parts?
+;;	- Where in the taxonomy should this go?
+;;
+(every Arrhenius-Acid has-definition 
+  (instance-of (Chemical))
+  (base-of (
+    (a Aqueous-Solution with
+       #|(has-part ((a Chemical with
+		     (has-basic-structural-unit ((a H-Plus)))
+         	  )))|#
+       (raw-material-of (
+	 (a Reaction with
+	    (result (
+	      (a Chemical with
+		 (has-part (
+		   (a Chemical with
+		      (concentration (
+			(a Concentration-Value with
+			   (value ((constraint 
+				     (forall (the has-part of 
+						  (the base-of of Self))
+					     where
+					     ((the has-basic-structural-unit of It) isa H-Plus)
+					     ((the1 of TheValue) > 
+					      (the1 of (the concentration of It)))))))))))))))))))))))

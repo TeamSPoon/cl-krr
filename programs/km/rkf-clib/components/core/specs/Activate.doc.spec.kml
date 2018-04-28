@@ -1,0 +1,43 @@
+<!--- $Id: Activate.doc.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Activate>
+<superconcept name=Make-Accessible>
+
+<sme-documentation name=Activate>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Activate>
+  <definition>To put a Entity into a state where it can participate in an action.</definition>
+  <requiredslot name=object>
+    <inheritedfrom name=Make-Accessible>    
+    <restriction>a Entity</restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is put into a <conceptref name=Be-Activated> 
+      <conceptref name=State>. 
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <inheritedfrom name=Make-Accessible>
+    <restriction>causes <slot>object</slot> to be Activated</restriction>
+  </primaryslot>
+  <primaryslot name=instrument>
+    <restriction>a Entity</restriction>
+    <restriction>used in Activating the <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>activate#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>enable#1, flip#2, gear_up#1, prepare#1, reactivate#1, ready#2, set#7, set#8, set_up#15, switch#5, throw#6
+  </verb></wnsynsets>
+</component>
+
+<musing>
+To Activate is to cause the <slot>object</slot> to be able to participate in an Action.
+</musing>
+
+</kml>
+
+

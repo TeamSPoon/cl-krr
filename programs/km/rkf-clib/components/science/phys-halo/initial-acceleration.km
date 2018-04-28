@@ -1,0 +1,26 @@
+;;
+;;    $Id: initial-acceleration.km,v 1.2 2008/06/03 21:54:20 jchaw Exp $
+;;
+
+(initial-acceleration has
+	      (instance-of (EventProperty))
+	      (superslots ())
+	      (subslots ())
+	      (domain (Move))
+	      (range (Acceleration-Vector-Value))
+	      (scale-class ())
+	      (scalar-constant-class ())
+	      (cardinal-unit-class ())
+	      (inverse (initial-acceleration-of))
+	      ; (inherit-with-overrides (t))
+	      (cardinality (N-to-1))
+	      (fluent-status (*Inertial-Fluent)))
+
+(initial-acceleration has (wn20-synset ((:set 
+				   (:triple "initial acceleration" 0 "n"))))) 
+
+(initial-acceleration-of has
+	(instance-of (EventProperty)))
+
+
+(initial-acceleration has (name ("initial acceleration")))

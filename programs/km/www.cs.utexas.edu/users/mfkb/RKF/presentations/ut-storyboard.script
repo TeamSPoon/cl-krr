@@ -1,0 +1,131 @@
+The storyboard picks up just after the user has chosen to enter 
+knowledge about a process (as opposed to an object).
+
+1. name the process
+- type "RNA-Transcription" into the Name field
+- type "Copy" into the Superclass field (the "Browse..." button would 
+  allow the user to browse or search the KB)
+- click the "Next" button
+   * the system brings up the first cmap "canvas" and a "concept
+     inventory" box; names in yellow in the inventory represent
+     concepts that have appeared on a canvas but were not entered by
+     the user (defaults); once these concepts have been unified with
+     other concepts or specialized in any way, they turn black
+
+2. add participant concepts 
+   * the user would type these in or browse/search for them; they've 
+     already been typed in for this canned storyboard)
+- click the "Add to List" for DNA-Strand
+- click the "Add to List" for RNA-Polymerase
+- click the "Add to List" for RNA-Transcript
+- click the "Next" button
+
+3. add subevent concepts
+   * the next step in the directed interaction is to add subevents
+   * instead, we break from the directed interaction and start
+     unifying concepts on the participant canvas
+   * concepts in the cmap would be unified by dragging as in the
+     current Shaken interface
+   * we've also thought about a "Unify" mode that allows the user to
+     unify any two visible concepts (on any canvas or in the concept
+     inventory)
+- click the "Unify" toggle button to enter Unify mode
+- on the participants canvas click the DNA-Strand[23] node then the 
+  Tangible-Entity[20] node to unify them
+- on the participants canvas click the RNA-Polymerase[24] node then 
+  the Tangible-Entity[21] node
+- in the Concept Inventory box, click RNA-Transcript[25] then 
+  Tangible-Entity[22]
+- click the "Unify" toggle to exit Unify mode
+   * we now go back to the directed interaction to enter subevent
+     concepts (again, concepts have already been typed in)
+- click the "minimize" button on the participants canvas
+- click the "Add to List" button for Make-Contact
+- click the "Add to List" button for Move-Through
+- click the "Add to List" button for Recognize
+- click the "Add to List" button for Transcribe
+- click the "Add to List" button for Detach
+- click the "Add to List" button for Break-Contact
+- click the "Next" button
+   * the system brings up a subevents canvas and adds the new concepts
+     to the concept inventory
+   * the next step in the directed interface is to enter the process
+     structure, so the system brings up another canvas for that
+   * we break from the directed interaction to add some info for 
+     subevent participants
+- click the title bar of the obscured subevents canvas
+- in the subevents canvas click the Make-Contact[26] node to expand it
+- click the "Unify" toggle
+- click the Tangible-Entity[32] node
+- click the tiny DNA-Strand[23] node (leftmost subnode) in the 
+  minimized participants canvas
+   * concept nodes are tagged (with a green box) to show unified
+     concepts between canvases
+- click the Tangible-Entity[33] node in the subevents canvas
+- click the tiny RNA-Polymerase[24] node (middle subnode) in the 
+  minimized participants canvas
+- click the "Unify" toggle to turn it off
+- click the DNA-Strand[23] node in the subevents canvas to expand it
+- click the Move-Through[27] node in the subevents canvas to expand it
+- click the "Unify" toggle to turn it on
+- click Tangible-Entity[38] in the subevents canvas then 
+  RNA-Polymerase[24] to unify them
+- click Place[39] then Place[34] in the subevents canvas to unify them
+- click the "Unify" toggle to turn it off
+- click the Move-Through[27] node to collapse it
+- click the Recognize[28] node to expand it
+- click the "Unify" toggle to turn it on
+- click the Tangible-Entity[40] node then the RNA-Polymerase[24] node
+  to unify them
+- click the Tangible-Entity[41] node then the Promoter[35] node to
+  unify them
+- click the "Unify" toggle to turn it off
+- click the Recognize[28] node to collapse it
+   * we could continue, but we now return to the directed interaction
+
+4. enter the process structure
+- click the title bar of the obscured process structure canvas
+- click the "Next Step in Sequence" toggle
+- click the Make-Contact[26] node then the Move-Through[27] node
+  in the process structure canvas
+- click the Move-Through[27] node then the Recognize[28] node
+  in the process structure canvas
+- click the Recognize[28] node then the Transcribe[29] node
+- click the Transcribe[29] node then the Detach[30] node
+- click the Detach[30] node then the Break-Contact[31] node
+- click the "Loop" toggle
+- click the Transcribe[29] node in the process structure canvas to
+  indicate the start of the loop
+- click the Transcribe[29] node again to indicate the end of the loop
+   * the loop arc is red because we haven't specified a termination
+     condition
+- click the red loop arc
+   * a condition is a concept-relation-concept triple
+   * the user would choose a relation from the list; for this canned
+     storyboard the relation ("location") has already been selected
+- specify the first concept by clicking on the upper "finger" toggle
+  (the next click will identify the concept)
+- click on RNA-Polymerase[24] in the concept inventory
+- click on the lower finger toggle
+- click Terminator[37] in the concept inventory
+- click the "Ok" button
+   * the directed interaction is now done
+- click the "Finish" button
+
+5. continue to edit in an undirected interaction
+- click the title bar of the obscured subevents canvas
+- click the "Add Concepts..." button
+- click in the "Name" edit field and type in "Move"
+- click "Add to List"
+- click "Ok"
+- add a relation by clicking the Transcribe[29] node in the subevents
+  canvas (the relation source) then Move[42] in the subevents canvas
+  (the relation target)
+   * the user would choose a relation from the list; for this canned
+     storyboard the relation ("subevent") has already been selected
+- click "Ok"
+- click the Move[42] node in the subevents canvas (relation source)
+  then RNA-Polymerase[24] (relation target)
+- click "Ok" (to accept canned "object" relation)
+- click the "Save CMAP" button to save the multi-canvas CMAP
+

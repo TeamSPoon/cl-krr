@@ -1,0 +1,11 @@
+;; $Id: HBrO-Substance.km,v 1.2 2003/02/22 16:26:56 jchaw Exp $ 
+(HBrO-Substance has (superclasses (Acid)))
+(every HBrO-Substance has
+	(plays ((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 2e-9 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid)))))))))
+	(has-chemical-name ("Hypobromous"))
+	(has-basic-structural-unit ((a HBrO)))
+)

@@ -1,0 +1,16 @@
+;;
+;; $Id: C.km,v 1.3 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(C has (superclasses (Non-Metal-Atom IVA-Element)))
+(every C has
+       (has-molecular-name ("carbide"))
+       (atomic-symbol (C))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 6 NIL))))))
+       (chemical-period (2)))
+
+(every C has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("carbon"))
+)

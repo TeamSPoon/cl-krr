@@ -1,0 +1,119 @@
+;; 
+;;    $Id: Move-Together.km,v 1.26 2006/05/18 20:10:42 kbarker Exp $ 
+;; 
+
+(Move-Together has
+  (superclasses        (Action))
+  (required-slot       (object destination))
+  (primary-slot        (agent subevent))
+  (cmap-correspondence (
+			(:seq object "the things Moved-Together")
+			(:seq agent "the Mover")
+			(:seq destination "the place to which the objects are Moved-Together")
+			(:seq subevent "the Move of each object")
+		       ))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Move-Together has
+  (object         ((at-least 2 Tangible-Entity)
+                   (a Tangible-Entity)
+                   (a Tangible-Entity)))
+  (destination    ((a Spatial-Entity)))
+  
+  ;; The subevents of this scenario     
+  (first-subevent ((the subevent of Self)))
+  (subevent       ((forall (the object of Self)
+		     (a Move with
+			(object      (It))
+			(destination ((the destination of Self)))
+			(path ((if (has-value (the path of Self)) 
+				   then
+				   (the path of Self))))
+			(away-from ((if (has-value (the away-from of Self)) 
+					then
+					(the away-from of Self))))
+			(toward ((if (has-value (the toward of Self)) 
+				     then
+				     (the toward of Self))))
+			(origin ((if (has-value (the origin of Self)) 
+				     then
+				     (the origin of Self))))
+			)))))
+
+(every Move-Together has
+  (text-active-verbseq-sg ("causes to move together"))
+  (text-active-verbseq-pl ("cause to move together"))
+  (text-passive-verbseq-sg ("moves together"))
+  (text-passive-verbseq-pl ("move together"))
+)
+
+
+(Move-Together has 
+  (test-case ( '(
+		 (*soccer-ball has (instance-of (Physical-Object)))
+		 (*soccer-player has (instance-of (Physical-Object)))
+		 (*midfield has (instance-of (Place)))
+
+		 ; the ball and the player converge at midfield
+		 (a Move-Together with 
+		    (object (*soccer-ball *soccer-player))
+		    (destination (*midfield)))
+		 (do-script (thelast Move-Together))
+
+		 ; Test1: both the player and the play should be at the
+		 ;	  same location afterwards.
+		 ((the location of *soccer-ball) = *midfield)
+		 ((the location of *soccer-player) = *midfield)
+
+		 ; Test2: Each subevent was a move to
+                 ;        involving the object.
+                 (forall (the subevent of (thelast Move-Together))
+                    ((It isa Move) and
+                     ((:set *soccer-player *soccer-ball) 
+                      includes (the object of It))))
+
+                 (new-situation)
+
+                 (*comet has (instance-of (Physical-Object)))
+                 (*asteroid has (instance-of (Physical-Object))
+                                (is-near (*pluto)))
+                 (*earth has (instance-of (Physical-Object)))
+                 (*mercury has (instance-of (Physical-Object)))
+                 (*pluto has (instance-of (Physical-Object)))
+                 (*sun has (instance-of (Physical-Object))
+                           (is-near (*mercury))
+                           (location ((a Place))))
+
+                 (a Move-Together with
+                    (object (*comet *asteroid *earth))
+                    (destination (*sun)))
+                 (do-script (thelast Move-Together))
+
+                 ((the location-of of (the location of *sun))
+                  is-superset-of (:set *comet *asteroid *earth))
+                 ((the is-near of *comet) includes *mercury)
+                 ((the is-near of *asteroid) includes *mercury)
+                 (not ((the is-near of *asteroid) includes *pluto))
+                 ((the is-near of *earth) includes *mercury)
+
+		)))
+)
+
+
+
+
+;; automatically added WN synsets
+(Move-Together has (wn16-synset ((:set  
+                                            (:triple "assemble" 3 "v")
+                                            (:triple "gather" 7 "v")
+                                            (:triple "get_together" 1 "v")
+))))
+
+
+(Move-Together has (wn20-synset ((:set
+                                            (:triple "assemble" 3 "v")
+                                            (:triple "gather" 6 "v")
+                                            (:triple "get_together" 1 "v")
+))))
+(every Move-Together has (text-nominalization ("moving together")))

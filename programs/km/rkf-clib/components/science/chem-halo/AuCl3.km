@@ -1,0 +1,15 @@
+;; 
+;;    $Id: AuCl3.km,v 1.2 2008/07/07 16:07:30 tecuci Exp $
+;; 
+
+
+(AuCl3 has (superclasses (Ionic-Compound)))
+
+(every AuCl3 has
+       (has-chemical-name ( "gold(III) chloride""auric chloride"))
+       (has-part  ((a Au-Plus-3) (a Cl-Minus)))
+       (has-chemical-formula 
+        ((a Chemical-Formula with
+            (term ((:seq
+                    (:pair 1 Au-Plus-3)
+                    (:pair 3 Cl-Minus))))))))

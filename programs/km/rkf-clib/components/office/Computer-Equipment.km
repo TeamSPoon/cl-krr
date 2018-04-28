@@ -1,0 +1,45 @@
+;;
+;; $Id: Computer-Equipment.km,v 1.22 2005/10/11 22:16:09 kbarker Exp $
+;;
+
+(Computer-Equipment has 
+  (superclasses (Office-Equipment))
+  (feature-slot ((the feature-slot of Office-Equipment)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) 
+                  where ((the domain of It) = Computer-Equipment))
+  ))
+)
+
+(every Computer-Equipment has 
+  (height ((if (has-value (the2 of (the hasDimension of Self)))
+            then (a Length-Value with (value ((:pair (the2 of (the hasDimension of Self))
+                                                     (the1 of (the hasDimension of Self))))))
+  )))
+  (width ((if (has-value (the3 of (the hasDimension of Self)))
+            then (a Length-Value with (value ((:pair (the3 of (the hasDimension of Self))
+                                                   (the1 of (the hasDimension of Self))))))
+  )))
+  (depth ((if (has-value (theN 4 of (the hasDimension of Self)))
+            then (a Length-Value with (value ((:pair (theN 4 of (the hasDimension of Self))
+                                                   (the1 of (the hasDimension of Self))))))
+  )))
+
+  (has-part ((the hasMemory of Self)
+  ))
+)
+
+
+(hasDimension has (instance-of (Interface-Slot)) (domain (Computer-Equipment)) (fluent-status (*Inertial-Fluent))(inverse (isDimensionOf)))
+
+(hasMemory has (instance-of (Interface-Slot)) (domain (Computer-Equipment)) (range (Computer-Memory)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isMemoryOf)))
+
+;; some of these may deserve more specific domains (that we don't have)
+(hasColorBitDepth has (instance-of (Interface-Slot)) (domain (Computer-Equipment)) (range (Bit-Length-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isColorBitDepthOf)))
+(hasGrayscaleBitDepth has (instance-of (Interface-Slot)) (domain (Computer-Equipment)) (range (Bit-Length-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent))(inverse (isGrayscaleBitDepthOf)))
+(hasImageSensor has (instance-of (Interface-Slot)) (domain (Computer-Equipment)) (range (Image-Sensor)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isImageSensorOf)))
+(isCompatibleWith has (instance-of (Interface-Slot)) (domain (Computer-Equipment)) (range (Device Computer-Program)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(isCompatibleWithHardware has (instance-of (Interface-Slot)) (superslots (isCompatibleWith)) (domain (Computer-Equipment)) (range (Device)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(isCompatibleWithSoftware has (instance-of (Interface-Slot)) (superslots (isCompatibleWith)) (domain (Computer-Equipment)) (range (Computer-Program)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+(isCompatibleWithOS has (instance-of (Interface-Slot)) (superslots (isCompatibleWithSoftware)) (domain (Computer-Equipment)) (range (Operating-System)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+
+

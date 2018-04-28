@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Molecular-Complex.km,v 1.8 2001/05/17 20:22:48 jfan Exp $ 
+;; 
+
+(Molecular-Complex has
+         (superclasses (Organic-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("An assembly of molecules, usually macromolecules, held
+                        together by noncovalent bonds and performing a specific
+                        function, such as DNA replication or the synthesis of
+                        phospholipids.  Alberts:ECB:G-12."))
+         (test-case ()))
+
+(every Molecular-Complex has
+     (has-part ((a Molecule)
+                (at-least 2 Molecule))))  ;typically several proteins (a mob)
+
+
+
+

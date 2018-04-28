@@ -1,0 +1,22 @@
+;; 
+;;    $Id: equation-expression.km,v 1.9 2008/07/15 20:39:31 kbarker Exp $
+;; 
+
+(equation-expression has
+   (instance-of (KM-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Equation-Set))
+;;   (range (Thing))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   (cardinality (N-to-N))
+;   (dont-cache-values  (t))
+   ;(combine-values-by-appending (t))
+)
+
+(equation-expression now-has (shaken-ui-hidden-slot (f)))
+
+(equation-expression-of has
+   (instance-of (KM-Slot-Group))
+   (combine-values-by-appending (t)))

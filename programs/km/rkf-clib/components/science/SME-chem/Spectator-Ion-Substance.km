@@ -1,0 +1,59 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Spectator-Ion-Substance288
+
+
+|#
+
+(disable-classification)
+
+(Spectator-Ion-Substance has (superclasses (Ionic-Substance)))
+
+(_Spectator-Ion-Substance359 has
+  (prototype-of (Spectator-Ion-Substance Ionic-Substance))
+  (prototype-scope (Spectator-Ion-Substance (the-class Ionic-Substance with (has-basic-structural-unit ((a Spectator-Ion)))) 
+     ;(the-class Ionic-Substance with (raw-material-of ((?kmvar7624 = (a Reaction)))) (result-of (?kmvar7624)))
+     ))
+  (prototype-participants (_Spectator-Ion360 _State-Value361 _Reaction358 _Spectator-Ion-Substance359)))
+
+(_Reaction358 has
+  (instance-of (Reaction))
+  (result (_Spectator-Ion-Substance359 (must-be-a Entity) (must-be-a Chemical)))
+  (raw-material (_Spectator-Ion-Substance359 (must-be-a Chemical))))
+
+(_Spectator-Ion-Substance359 has
+  (instance-of (Spectator-Ion-Substance))
+  (has-basic-structural-unit (_Spectator-Ion360))
+  (physical-state (_State-Value361)))
+
+(_Spectator-Ion360 has (instance-of (Spectator-Ion)))
+
+(_State-Value361 has (instance-of (State-Value)))
+
+(enable-classification)
+
+(explanation (:triple _Reaction358 result _Spectator-Ion-Substance359) (((@ SME entered)) (every Spectator-Ion-Substance has (raw-material-of ((a Reaction with (result (Self))))))))
+
+(explanation (:triple _Spectator-Ion-Substance359 has-basic-structural-unit _Spectator-Ion360) (((@ SME entered)) (every Spectator-Ion-Substance has (has-basic-structural-unit ((a Spectator-Ion))))))
+
+(explanation (:triple _Reaction358 instance-of Reaction) (((@ SME entered)) NIL))
+
+(explanation (:triple _Spectator-Ion-Substance359 instance-of Spectator-Ion-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Spectator-Ion360 instance-of Spectator-Ion) (((@ SME entered)) NIL))
+
+(explanation (:triple _State-Value361 instance-of State-Value) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Spectator-Ion-Substance has (raw-material-of ((a Reaction with (result (Self))))))
+(every Spectator-Ion-Substance has (has-basic-structural-unit ((a Spectator-Ion))))
+
+|#
+
+|#
+

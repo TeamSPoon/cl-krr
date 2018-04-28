@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Mercury-Iodide-Substance9909
+
+
+|#
+
+(disable-classification)
+
+(Mercury-Iodide-Substance has (superclasses (Iodide-Substance)))
+
+(every Mercury-Iodide-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Mercury-Iodide-Substance649 has
+  (prototype-of (Mercury-Iodide-Substance Iodide-Substance))
+  (prototype-scope (Mercury-Iodide-Substance (the-class Iodide-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Hg2-Plus-2) (a I-Minus)))))))))
+  (prototype-participants (_Cation655 _I-Minus656 _Chemical-Entity651 _Mercury-Iodide-Substance649)))
+
+(_Chemical-Entity651 has (instance-of (Ionic-Compound)) (has-part (_Cation655 _I-Minus656)))
+
+(_Cation655 has (instance-of (Hg2-Plus-2)))
+
+(_I-Minus656 has (instance-of (I-Minus)))
+
+(_Mercury-Iodide-Substance649 has (instance-of (Mercury-Iodide-Substance)) (has-basic-structural-unit (_Chemical-Entity651)))
+
+(enable-classification)
+
+(explanation (:triple _Mercury-Iodide-Substance649 has-basic-structural-unit _Chemical-Entity651) (((@ SME entered)) (every Mercury-Iodide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))))
+
+(explanation (:triple _Chemical-Entity651 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cation655 instance-of Hg2-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _I-Minus656 instance-of I-Minus) (((@ SME entered)) NIL))
+
+(explanation (:triple _Mercury-Iodide-Substance649 instance-of Mercury-Iodide-Substance) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Mercury-Iodide-Substance has (has-basic-structural-unit ((a Ionic-Compound))))
+
+|#
+
+|#
+

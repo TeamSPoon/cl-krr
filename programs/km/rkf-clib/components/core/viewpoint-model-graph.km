@@ -1,0 +1,14 @@
+;; 
+;;    $Id: viewpoint-model-graph.km,v 1.2 2006/09/27 16:18:17 jchaw Exp $
+;; 
+
+(viewpoint-model-graph has
+   (instance-of (KM-Slot-Group))
+   (domain (Viewpoint))
+;;   (range (Thing))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N))                ;; may be N-to-1
+)
+
+(viewpoint-model-graph-of has
+   (instance-of (KM-Slot-Group)))

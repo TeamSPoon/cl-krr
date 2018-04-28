@@ -1,0 +1,20 @@
+;;
+;; $Id: Ba_OH_2.km,v 1.5 2006/01/24 20:27:28 jfan Exp $
+;;
+
+(Ba_OH_2 has (superclasses (Ionic-Compound)))
+
+(every Ba_OH_2 has	
+       (has-chemical-name ("barium hydroxide"))
+       (has-part ((a Ba-Plus-2) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with 
+	    (term ((:seq
+		    (:pair 1 Ba-Plus-2)
+		    (:pair 2 OH-Minus))))))))
+
+
+(every Ba_OH_2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Ba-Plus-2) (a OH-Minus))))
+

@@ -1,0 +1,12 @@
+;; 
+;;    $Id: HNO3-Substance.km,v 1.5 2008/11/03 03:11:27 tecuci Exp $ 
+;; 
+
+(HNO3-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every HNO3-Substance has
+       (has-basic-structural-unit((a HNO3)))
+)
+(every HNO3-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a HNO3))))

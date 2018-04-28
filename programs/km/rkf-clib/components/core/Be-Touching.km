@@ -1,0 +1,44 @@
+;; 
+;;    $Id: Be-Touching.km,v 1.18 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Touching has
+             (superclasses   	  (State))
+;;             (required-slot  	  (object))
+	     (required-slot ())
+             (primary-slot   	  ())
+             (caused-by-class      (Make-Contact))
+             (defeated-by-class    (Break-Contact))
+             (cmap-correspondence (
+                                   (:seq object "the things touching")
+                                  )))
+
+; when objects are in the state of Be-Touching, each object in the set
+; of objects abuts some other object in the set.
+
+(every Be-Touching has
+  (object ((exactly 2 Tangible-Entity)))
+)
+
+(every Be-Touching has
+   (text-particle ("touching"))
+)
+
+
+; test cases in Make-Contact.km
+
+
+
+;; automatically added WN synsets
+(Be-Touching has (wn16-synset ((:set  
+                                          (:triple "touch" 5 "v")
+                                          (:triple "adjoin" 2 "v")
+                                          (:triple "meet" 14 "v")
+))))
+
+(Be-Touching has (wn20-synset ((:set
+                                          (:triple "touch" 5 "v")
+                                          (:triple "adjoin" 2 "v")
+                                          (:triple "contact" 2 "v")
+                                          (:triple "meet" 13 "v")
+))))

@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Coenzyme.km,v 1.9 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Coenzyme has
+	  (superclasses (Molecule))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (cmap-correspondence ())
+	  (description ("Small molecule tightly associated with an enzyme
+                         that participates in the reaction that the enzyme
+                         catalyzes, often by forming a transient covalent
+                         bond to the substrate.  Examples include biotin,
+                         NAD+, and coenzymeA.  Alberts:MBC:G-6"))
+	  (test-case ()))
+
+(every Coenzyme has
+       (purpose ((a Instrument-Role with
+                    (in-event ((a Enzyme-Activation))))
+                 ))
+       )
+               
+
+
+
+
+(every Coenzyme has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,46 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for TRNA ----------
+
+(TRNA has (superclasses (Nucleic-acid)))
+
+(_TRNA161 has 
+  (has-basic-structural-unit (_Atom283))
+  (instance-of (TRNA))
+  (cloned-from (_Nucleic-acid1037))
+  (clone-built-from (_Nucleic-acid1037))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 50 600)))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom283 182 606)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom283 f)))
+  (prototype-participants (_Atom283
+                           _TRNA161))
+  (prototype-participant-of (_TRNA161))
+  (prototype-of (TRNA))
+  (prototype-scope (TRNA)))
+
+(_Atom283 has 
+  (instance-of (Atom))
+  (has-clones (_Atom165))
+  (cloned-from (_Atom1040))
+  (is-basic-structural-unit-of (_TRNA161))
+  (internally-expanded (f))
+  (node-visibility (f))
+  (node-coordinate ((:pair 332 600)))
+  (prototype-participant-of (_TRNA161)))
+
+(explanation (:triple _TRNA161 has-basic-structural-unit _Atom283) ((a Atom (@ _TRNA161 Molecule has-basic-structural-unit))))
+(explanation (:triple _TRNA161 instance-of TRNA) ((a TRNA)))
+(explanation (:triple _TRNA161 instance-of Nucleic-acid) ((added-at TRNA "User defined")))
+(explanation (:triple _TRNA161 has-basic-structural-unit _Atom283) ((cloned-from _Nucleic-acid1037 _TRNA161)))
+(explanation (:triple _Atom283 instance-of Atom) ((a Atom (@ _TRNA161 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom283 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom283 instance-of Atom) ((cloned-from _Nucleic-acid1037 _TRNA161)))
+(explanation (:triple _Atom283 is-basic-structural-unit-of _TRNA161) ((cloned-from _Nucleic-acid1037 _TRNA161)))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

@@ -1,0 +1,19 @@
+;;
+;; $Id: MgO.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+
+(MgO has (superclasses (Ionic-Compound)))
+
+(every MgO has	
+       (has-chemical-name ("magnesium oxide"))
+       (has-part 
+	((a Mg-Plus-2) (a O-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Mg-Plus-2)
+			 (:pair 1 O-Minus-2)))))))
+)
+(every MgO has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Mg-Plus-2) (a O-Minus-2))))
+

@@ -1,0 +1,16 @@
+
+;;
+;; $Id: Buffer-Status-Value.km,v 1.1 2007/11/28 23:46:00 tecuci Exp $
+;;
+
+
+(Buffer-Status-Value has 
+       (superclasses (Property-Value)))
+
+
+(every Buffer-Status-Value has
+  (property-slot (buffer-status))
+)
+
+
+(Buffer-Status-Value has (description ("Status of buffer, e.g. acidic, basic, etc.")))

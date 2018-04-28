@@ -1,0 +1,73 @@
+<!--- $Id: Obstruct.doc.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Obstruct>
+<superconcept name=Make-Inaccessible>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Obstruct>
+  <definition>inhibit Movement</definition>
+  <requiredslot name=object>
+    <restriction>an Entity</restriction>
+  </requiredslot>
+  <requiredslot name=post-conditions>
+    <restriction><slot>object</slot> is the <slot>object</slot> of a 
+      <conceptref name=Be-Obstructed> state
+    </restriction>
+  </requiredslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot> to be Obstructed</restriction>
+  </primaryslot>
+  <wnsynsets><verb>obstruct#2
+  </verb></wnsynsets>
+  <wnsynsets><verb>block#10, close_up#1, jam#7, impede#2, occlude#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Obstruct is the top-level concept for actions that prevent various kinds
+of movement. Since Obstruct does not prevent any specific kind of movement,
+this concept is somewhat vacuous. Nonetheless, it results in the 
+<slot>object</slot> being in a <conceptref name=Be-Obstructed> 
+state, which can be undone by <conceptref name=Unobstruct>ing the 
+<slot>object</slot>. It might prove useful for testing if an 
+Entity is completely free to move. (It wouldn't be if it's in a 
+<conceptref name=Be-Obstructed> state).
+</musing>
+
+<hr>
+<h3>Other Senses:</h3>
+<senselist>
+<sense tag=obstruct2>
+  <sense-definition>prevent progress/accomplishment</sense-definition>
+  <transitivity>transitive</transitivity>
+</sense>
+</senselist>
+
+<reference source=COBUILD>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=LDOCE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=NODE>
+<senselist>
+</senselist>
+</reference>
+
+<reference source=WordNet1.6>
+<senselist>
+<sense tag=WNobstruct#1><equiv tag=obstruct2></sense>
+<sense tag=WNobstruct#2><equiv tag=obstruct1></sense>
+</senselist>
+</reference>
+
+</kml>
+
+

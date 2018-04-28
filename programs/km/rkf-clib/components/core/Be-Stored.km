@@ -1,0 +1,33 @@
+;;
+;;    $Id: Be-Stored.km,v 1.14 2004/09/09 19:14:58 kbarker Exp $
+;;
+        
+(Be-Stored has 
+  (superclasses 	(State))
+  (required-slot  	(object base))
+  (primary-slot   	())
+  (caused-by-class      (Store))
+  (defeated-by-class    (Withdraw))
+  (cmap-correspondence  (
+			 (:seq object "the thing stored")
+			 (:seq base "the storage")
+			)))
+
+(every Be-Stored has
+  (object ((a Entity)))
+  (base   ((a Tangible-Entity with
+	      (plays ((a Container with
+			 (content ((the object of Self))) )))))))
+
+(every Be-Stored has
+  (text-particle ("stored"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("in"))))
+
+)
+
+(Be-Stored has (wn20-synset ((:set (:triple "stored" 1 "a")
+))))
+
+

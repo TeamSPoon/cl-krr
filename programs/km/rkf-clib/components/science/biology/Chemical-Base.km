@@ -1,0 +1,26 @@
+;; 
+;;    $Id: Chemical-Base.km,v 1.3 2004/01/30 22:02:41 kbarker Exp $
+;; 
+
+(Chemical-Base has
+      (superclasses (Chemical-Entity))
+      (required-slot ())
+      (primary-slot ())
+      (secondary-slot ())
+      (cmap-correspondence ())
+      (description ("Molecule that accepts proton(s) in 
+                        solution.  Also used refer to the purines and 
+                        pyrimidines in DNA and RNA. see  Alberts:ECB:G-3."))
+      (test-case ()))
+
+(every Chemical-Base has
+       (base-of
+        ((a Add called "protonation" with
+            (object ((a Hydrogen-Ion)))
+            (base ((a Tangible-Entity with
+                      (instance-of
+                       ((possible-values Chemical-Entity
+                                         Chemical))))))
+            ))))
+       
+(every Chemical-Base has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

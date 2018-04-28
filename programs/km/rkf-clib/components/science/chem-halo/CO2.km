@@ -1,0 +1,16 @@
+;;
+;; $Id: CO2.km,v 1.6 2006/03/16 23:08:28 jfan Exp $
+;;
+
+(CO2 has (superclasses (Inorganic-Molecule)))
+
+(every CO2 has	
+       (has-chemical-name ("carbon dioxide"))
+       (nested-atomic-chemical-formula
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 1 C)
+		    (:pair 2 O))))))))
+(every CO2 has-definition
+       (instance-of (Chemical-Entity))
+       (has-chemical-name ("carbon dioxide")))

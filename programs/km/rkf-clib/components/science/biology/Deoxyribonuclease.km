@@ -1,0 +1,21 @@
+;; 
+;;    $Id: Deoxyribonuclease.km,v 1.7 2001/05/15 21:19:24 jfan Exp $ 
+;; 
+
+(Deoxyribonuclease has
+         (superclasses (Nuclease))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Enzyme that cleaves DNA.  Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Deoxyribonuclease has    
+       (purpose ((a Catalyst with
+		    (in-event ((a DNA-Repair))))
+		 )))
+
+
+
+

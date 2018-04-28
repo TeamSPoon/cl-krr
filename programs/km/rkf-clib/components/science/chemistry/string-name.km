@@ -1,0 +1,13 @@
+;; 
+;;  $Id: string-name.km,v 1.5 2005/08/25 16:22:58 jfan Exp $
+;; 
+
+(string-name has
+  (instance-of (Property)) ;; like symbol or has-acid-name
+  (domain      (Chemical-Formula))
+  (range       (String))
+  (fluent-status (*Inertial-Fluent))
+  (inverse     (string-name-of))
+  (cardinality (1-to-1))
+)
+

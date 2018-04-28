@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Deoxyribonucleotide.km,v 1.10 2001/05/01 22:30:48 pnav Exp $ 
+;; 
+
+(Deoxyribonucleotide has
+     (superclasses (Nucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("Nucleotide containing 2-deoxy-D-ribose as the pentose
+                    component.  Lehninger:PBC:G-3."))
+     (cmap-correspondence ()))
+
+(every Deoxyribonucleotide has
+       (has-part (
+		  (a Monophosphate)
+                  (a Nucleoside with
+                     (has-part ((a Deoxyribose)
+				(a Nitrogenous-Base with
+				   (instance-of 
+				    ((possible-values
+				      Adenine
+				      Guanine
+				      Thymine
+				      Cytosine))))))))))
+
+
+
+
+
+
+

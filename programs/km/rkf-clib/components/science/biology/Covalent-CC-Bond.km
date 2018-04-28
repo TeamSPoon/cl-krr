@@ -1,0 +1,27 @@
+;; 
+;;    $Id: Covalent-CC-Bond.km,v 1.9 2001/11/17 06:50:14 jarred Exp $ 
+;; 
+
+(Covalent-CC-Bond has
+         (superclasses (Covalent-Single-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Chemical bond between two carbons. Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Covalent-CC-Bond has      
+       (purpose ((a Connector with
+		    (in-event ((a Be-Attached-To with
+				  (object ((a Carbon-Atom)
+					   (a Carbon-Atom)
+					   (exactly 2 Carbon-Atom)))
+				  )))
+		    )))
+       (intensity ((a Intensity-Value with 
+		(value ((:pair 83 *kilocalorie/mole))))))
+;;       (length ((a Length-Value with (value ((:pair ?? *nanometer))))))   
+       )
+
+

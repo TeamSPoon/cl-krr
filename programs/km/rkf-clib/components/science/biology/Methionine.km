@@ -1,0 +1,54 @@
+;; 
+;;    $Id: Methionine.km,v 1.11 2001/06/01 23:26:42 pnav Exp $ 
+;; 
+
+(Methionine has                
+         (superclasses (Nonpolar-Amino-Acid Essential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A nonpolar amino acid with a methyl-thio-ethyl side
+                        chain.  Souther")) 
+         (test-case ()))
+
+(every Methionine has
+  (has-part 
+    ((a Alpha-Carbon with
+	(object-of
+	  ((a Be-Attached-To with
+	      (object 	  ((the Amino-Acid-Side-Chain has-part of Self)))
+	      (instrument ((a Covalent-CC-Bond)))
+	      (site 	  (((the Carbon-Atom has-part of 
+		       		 (the Ethyl-Group has-part of
+			    	      (the Amino-Acid-Side-Chain has-part of Self)))
+		   	    called "Carbon-1"))) ))))
+     (a Amino-Acid-Side-Chain with
+	(has-part ((a Ethyl-Group with
+		      (object-of
+			((a Be-Attached-To with
+			    (object ((the Sulfur-Atom has-part of 
+					  (the Amino-Acid-Side-Chain has-part of Self))))
+			    (instrument ((a Covalent-CS-Bond)))
+			    (site
+			      (((the Carbon-Atom has-part of
+				     (the Ethyl-Group has-part of
+					  (the Amino-Acid-Side-Chain has-part of Self)))
+				 called "Carbon-2")))
+			))))
+		   (a Sulfur-Atom with
+		      (object-of
+			((a Be-Attached-To with
+                            (object ((the Methyl-Group has-part of
+                                          (the Amino-Acid-Side-Chain has-part of Self))))
+			    (instrument ((a Covalent-CS-Bond)))
+                            (site
+                              ((the Carbon-Atom has-part of
+                                    (the Methyl-Group has-part of
+                                         (the Amino-Acid-Side-Chain has-part of Self)))))))))
+		   (a Methyl-Group) ))))))
+
+ 
+
+
+

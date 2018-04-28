@@ -1,0 +1,19 @@
+;; $Id: C6H5O7-Minus-3.km,v 1.8 2008/05/15 17:19:10 kunal Exp $ 
+(C6H5O7-Minus-3 has (superclasses (Anion)))
+(every C6H5O7-Minus-3 has
+	(charge ((a Charge-Value with
+		(value ((:pair -3 *unity))))))
+	(has-chemical-name ("2-hydroxypropane-1,2,3-tricarboxylate"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 6 C)(:pair 5 H)(:pair 7 O)))))))
+)
+
+
+(every C6H5O7-Minus-3 has-definition
+  (instance-of (Chemical-Entity))
+  (charge ((a Charge-Value with (value ((:pair -3 *unity))))))
+  (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 6 C) (:pair 5 H) (:pair 7 O)))))))
+)
+
+
+(C6H5O7-Minus-3 has (wn20-synset ((:triple "C6H5O7-3" 0 "n") (:triple "C_6H_5O_7-3" 0 "n"))))

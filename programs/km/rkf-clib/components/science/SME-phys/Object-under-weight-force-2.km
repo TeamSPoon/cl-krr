@@ -1,0 +1,557 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Object-under-weight-force-2 ----------
+
+(Object-under-weight-force-2 has (superclasses (Exert-Force)))
+
+(_Object-under-weight-force-2573 has 
+  (instance-of (Object-under-weight-force-2))
+  (prototype-of (Object-under-weight-force-2))
+  (prototype-scope (Object-under-weight-force-2))
+  (prototype-participants (_Equation-Big-Node638
+                           _Property-Node637
+                           _Equation-Big-Node636
+                           _Equation-Big-Node635
+                           _Equation-Big-Node634
+                           _Equation-Big-Node633
+                           _Property-Node632
+                           _Property-Node631
+                           _Property-Node630
+                           _Property-Node629
+                           _Property-Node628
+                           _Property-Node627
+                           _System626
+                           _Equation-Set625
+                           _Acceleration-Magnitude-Value624
+                           _Mass-Value623
+                           _Tangible-Entity622
+                           _Equation-Set621
+                           _System620
+                           _Force-Vector-Value619
+                           _Equation-Set618
+                           _Force-Magnitude-Value617
+                           _Equation-Set616
+                           _Angle-Value615
+                           _Force-Magnitude-Value614
+                           _Force-Magnitude-Value613
+                           _Equation-Set612
+                           _Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573))
+  (has-clones (_Placeholder-Class572574))
+  (has-built-clones (_Placeholder-Class572574))
+  (component-of (_System626))
+  (acceleration-magnitude (_Acceleration-Magnitude-Value624))
+  (object (_Tangible-Entity622))
+  (weight-force (_Force-Vector-Value619))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (big-nodes (_Property-Node627
+              _Property-Node628
+              _Property-Node629
+              _Property-Node630
+              _Property-Node631
+              _Property-Node632
+              _Equation-Big-Node633
+              _Equation-Big-Node634
+              _Equation-Big-Node635
+              _Equation-Big-Node636
+              _Property-Node637
+              _Equation-Big-Node638))
+  (edge-coordinate ((:seq acceleration-magnitude _Acceleration-Magnitude-Value624 151 682)
+                    (:seq weight-force _Force-Vector-Value619 180 425)
+                    (:seq object _Tangible-Entity622 374 598)))
+  (edge-visibility ((:seq acceleration-magnitude _Acceleration-Magnitude-Value624 t)
+                    (:seq weight-force _Force-Vector-Value619 t)
+                    (:seq object _Tangible-Entity622 t)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Equation-Big-Node638 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node610))
+  (node-visibility (t))
+  (contains-node (_System626
+                  _Equation-Set625))
+  (contains-edge ((:triple _System626 component _Object-under-weight-force-2573)
+                  (:triple _System626 equation _Equation-Set625)
+                  (:triple _Equation-Set625 equation-uses _Force-Magnitude-Value613)
+                  (:triple _Equation-Set625 equation-symbol (:pair 'f_y _Force-Magnitude-Value613))
+                  (:triple _Equation-Set625 user-equation-expression '(= f_y (* m g)))
+                  (:triple _Equation-Set625 equation-uses _Mass-Value623)
+                  (:triple _Equation-Set625 equation-symbol (:pair 'm _Mass-Value623))
+                  (:triple _Equation-Set625 equation-uses _Acceleration-Magnitude-Value624)
+                  (:triple _Equation-Set625 equation-expression '(= f_y (* m g)))
+                  (:triple _Equation-Set625 equation-symbol (:pair 'g _Acceleration-Magnitude-Value624))))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Property-Node637 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node607))
+  (node-visibility (t))
+  (contains-node (_Acceleration-Magnitude-Value624))
+  (contains-edge ((:triple _Acceleration-Magnitude-Value624 value (:pair -9.8 *meter-per-second-squared))))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Big-Node636 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node605))
+  (node-visibility (t))
+  (contains-node (_System620
+                  _Equation-Set612))
+  (contains-edge ((:triple _System620 component _Force-Vector-Value619)
+                  (:triple _System620 equation _Equation-Set612)
+                  (:triple _Equation-Set612 equation-uses _Angle-Value615)
+                  (:triple _Equation-Set612 equation-uses _Force-Magnitude-Value614)
+                  (:triple _Equation-Set612 equation-uses _Force-Magnitude-Value613)
+                  (:triple _Equation-Set612 equation-symbol (:pair 'theta _Angle-Value615))
+                  (:triple _Equation-Set612 equation-symbol (:pair 'f_x _Force-Magnitude-Value614))
+                  (:triple _Equation-Set612 equation-symbol (:pair 'f_y _Force-Magnitude-Value613))
+                  (:triple _Equation-Set612 equation-expression '(= theta (atan f_y f_x)))))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Big-Node635 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node604))
+  (node-visibility (t))
+  (contains-node (_System620
+                  _Equation-Set616))
+  (contains-edge ((:triple _System620 component _Force-Vector-Value619)
+                  (:triple _System620 equation _Equation-Set616)
+                  (:triple _Equation-Set616 equation-uses _Force-Magnitude-Value617)
+                  (:triple _Equation-Set616 equation-uses _Force-Magnitude-Value614)
+                  (:triple _Equation-Set616 equation-uses _Force-Magnitude-Value613)
+                  (:triple _Equation-Set616 equation-symbol (:pair 'f _Force-Magnitude-Value617))
+                  (:triple _Equation-Set616 equation-symbol (:pair 'f_x _Force-Magnitude-Value614))
+                  (:triple _Equation-Set616 equation-symbol (:pair 'f_y _Force-Magnitude-Value613))
+                  (:triple _Equation-Set616 equation-expression '(= f (sqrt (+ (expt f_y 2) (expt f_x 2)))))))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Big-Node634 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node603))
+  (node-visibility (t))
+  (contains-node (_System620
+                  _Equation-Set618))
+  (contains-edge ((:triple _System620 component _Force-Vector-Value619)
+                  (:triple _System620 equation _Equation-Set618)
+                  (:triple _Equation-Set618 equation-uses _Force-Magnitude-Value614)
+                  (:triple _Equation-Set618 equation-uses _Force-Magnitude-Value617)
+                  (:triple _Equation-Set618 equation-uses _Angle-Value615)
+                  (:triple _Equation-Set618 equation-symbol (:pair 'f_x _Force-Magnitude-Value614))
+                  (:triple _Equation-Set618 equation-symbol (:pair 'f _Force-Magnitude-Value617))
+                  (:triple _Equation-Set618 equation-symbol (:pair 'theta _Angle-Value615))
+                  (:triple _Equation-Set618 equation-expression '(= f_x (* f (cos theta))))))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Big-Node633 has 
+  (instance-of (Equation-Big-Node))
+  (has-clones (_Equation-Big-Node602))
+  (node-visibility (t))
+  (contains-node (_System620
+                  _Equation-Set621))
+  (contains-edge ((:triple _System620 component _Force-Vector-Value619)
+                  (:triple _System620 equation _Equation-Set621)
+                  (:triple _Equation-Set621 equation-uses _Force-Magnitude-Value613)
+                  (:triple _Equation-Set621 equation-uses _Force-Magnitude-Value617)
+                  (:triple _Equation-Set621 equation-uses _Angle-Value615)
+                  (:triple _Equation-Set621 equation-symbol (:pair 'f_y _Force-Magnitude-Value613))
+                  (:triple _Equation-Set621 equation-symbol (:pair 'f _Force-Magnitude-Value617))
+                  (:triple _Equation-Set621 equation-symbol (:pair 'theta _Angle-Value615))
+                  (:triple _Equation-Set621 equation-expression '(= f_y (* f (sin theta))))))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Property-Node632 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node601))
+  (node-visibility (t))
+  (contains-node (_Angle-Value615))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Property-Node631 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node600))
+  (node-visibility (t))
+  (contains-node (_Force-Magnitude-Value617))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Property-Node630 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node599))
+  (node-visibility (t))
+  (contains-node (_Force-Magnitude-Value614))
+  (contains-edge ((:triple _Force-Magnitude-Value614 value (:pair 0.0 *newton))))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Property-Node629 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node598))
+  (node-visibility (t))
+  (contains-node (_Force-Magnitude-Value613))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Property-Node628 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node581))
+  (node-visibility (t))
+  (contains-node (_Force-Vector-Value619))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Property-Node627 has 
+  (instance-of (Property-Node))
+  (has-clones (_Property-Node579))
+  (node-visibility (t))
+  (contains-node (_Mass-Value623))
+  (big-node-of (_Object-under-weight-force-2573))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_System626 has 
+  (contains-node-of (_Equation-Big-Node638))
+  (instance-of (System))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (component (_Object-under-weight-force-2573))
+  (edge-visibility ((:seq equation _Equation-Set625 t)
+                    (:seq component _Object-under-weight-force-2573 t)))
+  (equation (_Equation-Set625))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Set625 has 
+  (contains-node-of (_Equation-Big-Node638))
+  (equation-of (_System626))
+  (instance-of (Equation-Set))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (equation-uses (_Force-Magnitude-Value613
+                  _Mass-Value623
+                  _Acceleration-Magnitude-Value624))
+  (equation-symbol ((:pair 'f_y _Force-Magnitude-Value613)
+                    (:pair 'm _Mass-Value623)
+                    (:pair 'g _Acceleration-Magnitude-Value624)))
+  (user-equation-expression ('(= f_y (* m g))))
+  (equation-expression ('(= f_y (* m g))))
+  (node-coordinate ((:pair 746 596)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Acceleration-Magnitude-Value624 has 
+  (contains-node-of (_Property-Node637))
+  (used-in-equation (_Equation-Set625))
+  (instance-of (Acceleration-Magnitude-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (acceleration-magnitude-of (_Object-under-weight-force-2573))
+  (value ((:pair -9.8 *meter-per-second-squared)))
+  (node-coordinate ((:pair 330 680)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Mass-Value623 has 
+  (contains-node-of (_Property-Node627))
+  (used-in-equation (_Equation-Set625))
+  (instance-of (Mass-Value))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (mass-of (_Tangible-Entity622))
+  (node-coordinate ((:pair 586 523)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Tangible-Entity622 has 
+  (mass (_Mass-Value623))
+  (instance-of (Tangible-Entity))
+  (node-visibility (t))
+  (internally-expanded (t))
+  (object-of (_Object-under-weight-force-2573))
+  (edge-coordinate ((:seq mass _Mass-Value623 390 527)))
+  (edge-visibility ((:seq mass _Mass-Value623 t)))
+  (node-coordinate ((:pair 495 598)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Set621 has 
+  (contains-node-of (_Equation-Big-Node633))
+  (instance-of (Equation-Set))
+  (equation-uses (_Force-Magnitude-Value613
+                  _Force-Magnitude-Value617
+                  _Angle-Value615))
+  (equation-symbol ((:pair 'f_y _Force-Magnitude-Value613)
+                    (:pair 'f _Force-Magnitude-Value617)
+                    (:pair 'theta _Angle-Value615)))
+  (equation-expression ('(= f_y (* f (sin theta)))))
+  (equation-of (_System620))
+  (node-visibility (t))
+  (edge-visibility ((:seq equation-expression '(= f_y (* f (sin theta))) f)
+                    (:seq equation-symbol (:pair 'theta _Angle-Value615) f)
+                    (:seq equation-symbol (:pair 'f _Force-Magnitude-Value617) f)
+                    (:seq equation-symbol (:pair 'f_y _Force-Magnitude-Value613) f)
+                    (:seq equation-uses _Angle-Value615 t)
+                    (:seq equation-uses _Force-Magnitude-Value617 t)
+                    (:seq equation-uses _Force-Magnitude-Value613 t)))
+  (node-coordinate ((:pair 20 20)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_System620 has 
+  (contains-node-of (_Equation-Big-Node636
+                     _Equation-Big-Node635
+                     _Equation-Big-Node634
+                     _Equation-Big-Node633))
+  (equation (_Equation-Set621
+             _Equation-Set618
+             _Equation-Set616
+             _Equation-Set612))
+  (instance-of (System))
+  (component (_Force-Vector-Value619))
+  (node-visibility (t))
+  (edge-visibility ((:seq component _Force-Vector-Value619 t)
+                    (:seq equation _Equation-Set612 t)
+                    (:seq equation _Equation-Set616 t)
+                    (:seq equation _Equation-Set618 t)
+                    (:seq equation _Equation-Set621 t)))
+  (internally-expanded (f))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Force-Vector-Value619 has 
+  (contains-node-of (_Property-Node628))
+  (component-of (_System620))
+  (instance-of (Force-Vector-Value))
+  (node-visibility (t))
+  (weight-force-of (_Object-under-weight-force-2573))
+  (y-force-magnitude (_Force-Magnitude-Value613))
+  (x-force-magnitude (_Force-Magnitude-Value614))
+  (force-magnitude (_Force-Magnitude-Value617))
+  (direction (_Angle-Value615))
+  (internally-expanded (t))
+  (edge-visibility ((:seq force-magnitude _Force-Magnitude-Value617 t)
+                    (:seq direction _Angle-Value615 t)
+                    (:seq x-force-magnitude _Force-Magnitude-Value614 t)
+                    (:seq y-force-magnitude _Force-Magnitude-Value613 t)))
+  (edge-coordinate ((:seq force-magnitude _Force-Magnitude-Value617 523 396)
+                    (:seq direction _Angle-Value615 523 338)
+                    (:seq x-force-magnitude _Force-Magnitude-Value614 523 455)
+                    (:seq y-force-magnitude _Force-Magnitude-Value613 523 494)))
+  (node-coordinate ((:pair 306 422)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Set618 has 
+  (contains-node-of (_Equation-Big-Node634))
+  (equation-of (_System620))
+  (instance-of (Equation-Set))
+  (equation-uses (_Force-Magnitude-Value614
+                  _Force-Magnitude-Value617
+                  _Angle-Value615))
+  (equation-symbol ((:pair 'f_x _Force-Magnitude-Value614)
+                    (:pair 'f _Force-Magnitude-Value617)
+                    (:pair 'theta _Angle-Value615)))
+  (equation-expression ('(= f_x (* f (cos theta)))))
+  (node-visibility (t))
+  (edge-visibility ((:seq equation-expression '(= f_x (* f (cos theta))) f)
+                    (:seq equation-symbol (:pair 'theta _Angle-Value615) f)
+                    (:seq equation-symbol (:pair 'f _Force-Magnitude-Value617) f)
+                    (:seq equation-symbol (:pair 'f_x _Force-Magnitude-Value614) f)
+                    (:seq equation-uses _Angle-Value615 t)
+                    (:seq equation-uses _Force-Magnitude-Value617 t)
+                    (:seq equation-uses _Force-Magnitude-Value614 t)))
+  (node-coordinate ((:pair 20 20)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Force-Magnitude-Value617 has 
+  (contains-node-of (_Property-Node631))
+  (used-in-equation (_Equation-Set616
+                     _Equation-Set618
+                     _Equation-Set621))
+  (force-magnitude-of (_Force-Vector-Value619))
+  (instance-of (Force-Magnitude-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 673 383)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Set616 has 
+  (contains-node-of (_Equation-Big-Node635))
+  (equation-of (_System620))
+  (equation-uses (_Force-Magnitude-Value617
+                  _Force-Magnitude-Value614
+                  _Force-Magnitude-Value613))
+  (instance-of (Equation-Set))
+  (equation-symbol ((:pair 'f _Force-Magnitude-Value617)
+                    (:pair 'f_x _Force-Magnitude-Value614)
+                    (:pair 'f_y _Force-Magnitude-Value613)))
+  (equation-expression ('(= f (sqrt (+ (expt f_y 2) (expt f_x 2))))))
+  (node-visibility (t))
+  (edge-visibility ((:seq equation-expression '(= f (sqrt (+ (expt f_y 2) (expt f_x 2)))) f)
+                    (:seq equation-symbol (:pair 'f_y _Force-Magnitude-Value613) f)
+                    (:seq equation-symbol (:pair 'f_x _Force-Magnitude-Value614) f)
+                    (:seq equation-symbol (:pair 'f _Force-Magnitude-Value617) f)
+                    (:seq equation-uses _Force-Magnitude-Value613 t)
+                    (:seq equation-uses _Force-Magnitude-Value614 t)
+                    (:seq equation-uses _Force-Magnitude-Value617 t)))
+  (node-coordinate ((:pair 20 20)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Angle-Value615 has 
+  (contains-node-of (_Property-Node632))
+  (used-in-equation (_Equation-Set612
+                     _Equation-Set618
+                     _Equation-Set621))
+  (direction-of (_Force-Vector-Value619))
+  (instance-of (Angle-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 673 325)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Force-Magnitude-Value614 has 
+  (contains-node-of (_Property-Node630))
+  (x-force-magnitude-of (_Force-Vector-Value619))
+  (used-in-equation (_Equation-Set612
+                     _Equation-Set616
+                     _Equation-Set618))
+  (instance-of (Force-Magnitude-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (value ((:pair 0.0 *newton)))
+  (node-coordinate ((:pair 673 441)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Force-Magnitude-Value613 has 
+  (contains-node-of (_Property-Node629))
+  (used-in-equation (_Equation-Set612
+                     _Equation-Set616
+                     _Equation-Set621
+                     _Equation-Set625))
+  (y-force-magnitude-of (_Force-Vector-Value619))
+  (instance-of (Force-Magnitude-Value))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 679 480)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(_Equation-Set612 has 
+  (contains-node-of (_Equation-Big-Node636))
+  (equation-of (_System620))
+  (equation-uses (_Angle-Value615
+                  _Force-Magnitude-Value614
+                  _Force-Magnitude-Value613))
+  (instance-of (Equation-Set))
+  (equation-symbol ((:pair 'theta _Angle-Value615)
+                    (:pair 'f_x _Force-Magnitude-Value614)
+                    (:pair 'f_y _Force-Magnitude-Value613)))
+  (equation-expression ('(= theta (atan f_y f_x))))
+  (node-visibility (t))
+  (edge-visibility ((:seq equation-expression '(= theta (atan f_y f_x)) f)
+                    (:seq equation-symbol (:pair 'f_y _Force-Magnitude-Value613) f)
+                    (:seq equation-symbol (:pair 'f_x _Force-Magnitude-Value614) f)
+                    (:seq equation-symbol (:pair 'theta _Angle-Value615) f)
+                    (:seq equation-uses _Force-Magnitude-Value613 t)
+                    (:seq equation-uses _Force-Magnitude-Value614 t)
+                    (:seq equation-uses _Angle-Value615 t)))
+  (node-coordinate ((:pair 20 20)))
+  (prototype-participant-of (_Object-under-weight-force-2573)))
+
+(explanation (:triple _Object-under-weight-force-2573 instance-of Object-under-weight-force-2) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Object-under-weight-force-2573 instance-of Event) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Object-under-weight-force-2573 object _Tangible-Entity622) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Object-under-weight-force-2573 weight-force _Force-Vector-Value619) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Object-under-weight-force-2573 acceleration-magnitude _Acceleration-Magnitude-Value624) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _System626 instance-of System) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _System626 component _Object-under-weight-force-2573) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _System626 equation _Equation-Set625) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 instance-of Equation-Set) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 equation-uses _Force-Magnitude-Value613) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 equation-symbol (:pair (QUOTE f_y) _Force-Magnitude-Value613)) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 user-equation-expression (QUOTE (= f_y (* m g)))) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 equation-uses _Mass-Value623) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 equation-symbol (:pair (QUOTE m) _Mass-Value623)) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 equation-uses _Acceleration-Magnitude-Value624) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 equation-expression (QUOTE (= f_y (* m g)))) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Equation-Set625 equation-symbol (:pair (QUOTE g) _Acceleration-Magnitude-Value624)) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value624 instance-of Acceleration-Magnitude-Value) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Acceleration-Magnitude-Value624 value (:pair -9.8 *meter-per-second-squared)) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Mass-Value623 instance-of Mass-Value) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Tangible-Entity622 instance-of Tangible-Entity) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Tangible-Entity622 mass _Mass-Value623) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Tangible-Entity622 instance-of Entity) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Tangible-Entity622 instance-of Thing) ((a Thing (@ _Object-under-weight-force-2573 Action (object must-be-a)))))
+(explanation (:triple _Equation-Set621 instance-of Equation-Set) ((a Equation-Set with (equation-uses ((the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE theta) (the direction of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f_y (* f (sin theta)))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation))))
+(explanation (:triple _Equation-Set621 equation-uses _Force-Magnitude-Value613) ((the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set621 equation-uses _Force-Magnitude-Value617) ((the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set621 equation-uses _Angle-Value615) ((the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set621 equation-symbol (:pair (QUOTE f_y) _Force-Magnitude-Value613)) ((:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619))))
+(explanation (:triple _Equation-Set621 equation-symbol (:pair (QUOTE f) _Force-Magnitude-Value617)) ((:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619))))
+(explanation (:triple _Equation-Set621 equation-symbol (:pair (QUOTE theta) _Angle-Value615)) ((:pair (QUOTE theta) (the direction of _Force-Vector-Value619))))
+(explanation (:triple _System620 instance-of System) ((a System with (equation ((a Equation-Set with (equation-uses ((the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE theta) (the direction of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f_y (* f (sin theta)))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation)) (a Equation-Set with (equation-uses ((the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE theta) (the direction of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f_x (* f (cos theta)))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation)) (a Equation-Set with (equation-uses ((the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f (sqrt (+ (expt f_y 2) (expt f_x 2))))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation)) (a Equation-Set with (equation-uses ((the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE theta) (the direction of _Force-Vector-Value619)) (:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= theta (atan f_y f_x))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation)))) (@ _Force-Vector-Value619 Force-Vector-Value component-of))))
+(explanation (:triple _System620 equation _Equation-Set621) ((a Equation-Set with (equation-uses ((the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE theta) (the direction of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f_y (* f (sin theta)))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation))))
+(explanation (:triple _System620 equation _Equation-Set618) ((a Equation-Set with (equation-uses ((the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE theta) (the direction of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f_x (* f (cos theta)))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation))))
+(explanation (:triple _System620 equation _Equation-Set616) ((a Equation-Set with (equation-uses ((the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f (sqrt (+ (expt f_y 2) (expt f_x 2))))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation))))
+(explanation (:triple _System620 equation _Equation-Set612) ((a Equation-Set with (equation-uses ((the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE theta) (the direction of _Force-Vector-Value619)) (:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= theta (atan f_y f_x))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation))))
+(explanation (:triple _Force-Vector-Value619 instance-of Force-Vector-Value) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Force-Vector-Value619 y-force-magnitude _Force-Magnitude-Value613) ((a Force-Magnitude-Value (@ _Force-Vector-Value619 Force-Vector-Value y-force-magnitude))))
+(explanation (:triple _Force-Vector-Value619 x-force-magnitude _Force-Magnitude-Value614) ((a Force-Magnitude-Value (@ _Force-Vector-Value619 Force-Vector-Value x-force-magnitude))))
+(explanation (:triple _Force-Vector-Value619 force-magnitude _Force-Magnitude-Value617) ((a Force-Magnitude-Value (@ _Force-Vector-Value619 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Force-Vector-Value619 direction _Angle-Value615) ((a Angle-Value (@ _Force-Vector-Value619 Force-Vector-Value direction))))
+(explanation (:triple _Force-Vector-Value619 component-of _System620) ((a System with (equation ((a Equation-Set with (equation-uses ((the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE theta) (the direction of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f_y (* f (sin theta)))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation)) (a Equation-Set with (equation-uses ((the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE theta) (the direction of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f_x (* f (cos theta)))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation)) (a Equation-Set with (equation-uses ((the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f (sqrt (+ (expt f_y 2) (expt f_x 2))))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation)) (a Equation-Set with (equation-uses ((the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE theta) (the direction of _Force-Vector-Value619)) (:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= theta (atan f_y f_x))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation)))) (@ _Force-Vector-Value619 Force-Vector-Value component-of))))
+(explanation (:triple _Equation-Set618 instance-of Equation-Set) ((a Equation-Set with (equation-uses ((the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE theta) (the direction of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f_x (* f (cos theta)))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation))))
+(explanation (:triple _Equation-Set618 equation-uses _Force-Magnitude-Value614) ((the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set618 equation-uses _Force-Magnitude-Value617) ((the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set618 equation-uses _Angle-Value615) ((the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set618 equation-symbol (:pair (QUOTE f_x) _Force-Magnitude-Value614)) ((:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619))))
+(explanation (:triple _Equation-Set618 equation-symbol (:pair (QUOTE f) _Force-Magnitude-Value617)) ((:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619))))
+(explanation (:triple _Equation-Set618 equation-symbol (:pair (QUOTE theta) _Angle-Value615)) ((:pair (QUOTE theta) (the direction of _Force-Vector-Value619))))
+(explanation (:triple _Force-Magnitude-Value617 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value619 Force-Vector-Value force-magnitude))))
+(explanation (:triple _Equation-Set616 instance-of Equation-Set) ((a Equation-Set with (equation-uses ((the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= f (sqrt (+ (expt f_y 2) (expt f_x 2))))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation))))
+(explanation (:triple _Equation-Set616 equation-uses _Force-Magnitude-Value617) ((the force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set616 equation-uses _Force-Magnitude-Value614) ((the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set616 equation-uses _Force-Magnitude-Value613) ((the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set616 equation-symbol (:pair (QUOTE f) _Force-Magnitude-Value617)) ((:pair (QUOTE f) (the force-magnitude of _Force-Vector-Value619))))
+(explanation (:triple _Equation-Set616 equation-symbol (:pair (QUOTE f_x) _Force-Magnitude-Value614)) ((:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619))))
+(explanation (:triple _Equation-Set616 equation-symbol (:pair (QUOTE f_y) _Force-Magnitude-Value613)) ((:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619))))
+(explanation (:triple _Angle-Value615 instance-of Angle-Value) ((a Angle-Value (@ _Force-Vector-Value619 Force-Vector-Value direction))))
+(explanation (:triple _Force-Magnitude-Value614 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value619 Force-Vector-Value x-force-magnitude))))
+(explanation (:triple _Force-Magnitude-Value614 value (:pair 0.0 *newton)) ((added-at Object-under-weight-force-2 "User defined")))
+(explanation (:triple _Force-Magnitude-Value614 cardinal-value _Cardinal611) ((forall (the value of _Force-Magnitude-Value614 (@ _Force-Magnitude-Value614 Property-Value cardinal-value)) where ((the1 of It) isa Number (@ _Force-Magnitude-Value614 Property-Value cardinal-value)) (a Cardinal with (numeric-value ((the1 of It (@ _Force-Magnitude-Value614 Property-Value cardinal-value Cardinal numeric-value)))) (unit ((the2 of It (@ _Force-Magnitude-Value614 Property-Value cardinal-value Cardinal unit)))) (@ _Force-Magnitude-Value614 Property-Value cardinal-value)) (@ _Force-Magnitude-Value614 Property-Value cardinal-value))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot applied-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot applied-x-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot applied-y-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot average-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot average-x-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot average-y-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot friction-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot net-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot net-x-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot net-y-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot normal-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot normal-x-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot normal-y-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot tangential-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot tangential-x-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot tangential-y-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot total-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot total-x-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot total-y-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot weight-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot x-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot x-friction-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 property-slot y-force-magnitude) ((the range-of of (the instance-of of _Force-Magnitude-Value614) (@ _Force-Magnitude-Value614 Property-Value property-slot))))
+(explanation (:triple _Force-Magnitude-Value614 value (:pair 0.0 *newton)) ((forall (the cardinal-value of _Force-Magnitude-Value614 (@ _Force-Magnitude-Value614 Property-Value value)) (:pair (the numeric-value of It) (the unit of It)) (@ _Force-Magnitude-Value614 Property-Value value))))
+(explanation (:triple _Force-Magnitude-Value614 value (:pair 0.0 *newton)) (((FUNCTION (LAMBDA NIL (COND ((FBOUNDP (QUOTE EQUATION-SOLVE)) (EQUATION-SOLVE (QUOTE _Force-Magnitude-Value614)))))) (@ _Force-Magnitude-Value614 Property-Value value))))
+(explanation (:triple _Force-Magnitude-Value613 instance-of Force-Magnitude-Value) ((a Force-Magnitude-Value (@ _Force-Vector-Value619 Force-Vector-Value y-force-magnitude))))
+(explanation (:triple _Equation-Set612 instance-of Equation-Set) ((a Equation-Set with (equation-uses ((the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)) (the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses)))) (equation-symbol ((:pair (QUOTE theta) (the direction of _Force-Vector-Value619)) (:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619)) (:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619)))) (equation-expression ((QUOTE (= theta (atan f_y f_x))))) (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation))))
+(explanation (:triple _Equation-Set612 equation-uses _Angle-Value615) ((the direction of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set612 equation-uses _Force-Magnitude-Value614) ((the x-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set612 equation-uses _Force-Magnitude-Value613) ((the y-force-magnitude of _Force-Vector-Value619 (@ _Force-Vector-Value619 Force-Vector-Value component-of System equation Equation-Set equation-uses))))
+(explanation (:triple _Equation-Set612 equation-symbol (:pair (QUOTE theta) _Angle-Value615)) ((:pair (QUOTE theta) (the direction of _Force-Vector-Value619))))
+(explanation (:triple _Equation-Set612 equation-symbol (:pair (QUOTE f_x) _Force-Magnitude-Value614)) ((:pair (QUOTE f_x) (the x-force-magnitude of _Force-Vector-Value619))))
+(explanation (:triple _Equation-Set612 equation-symbol (:pair (QUOTE f_y) _Force-Magnitude-Value613)) ((:pair (QUOTE f_y) (the y-force-magnitude of _Force-Vector-Value619))))
+
+;;; ---------- end of prototype definition ----------
+
+(enable-classification)
+

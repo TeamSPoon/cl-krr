@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Chemical-Mixture.km,v 1.10 2004/01/30 22:02:41 kbarker Exp $ 
+;; 
+
+(Chemical-Mixture has
+	     (superclasses (Chemical))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     ;; TODO change doc string to "a mixture/combination..." ?
+	     (description ("An aggregate of two or more substances that are not
+                            chemically united and that exist in no fixed 
+                            proportion to each other. RHCD:856."))
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+(every Chemical-Mixture has
+       (material ((a Substance)
+		  (a Substance)
+		  (at-least 2 Substance)))
+       )
+
+
+(every Chemical-Mixture has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

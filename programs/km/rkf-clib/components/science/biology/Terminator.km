@@ -1,0 +1,50 @@
+;; 
+;;    $Id: Terminator.km,v 1.18 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(Terminator has
+     (superclasses (DNA-Regulatory-Sequence))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("A DNA sequence that appears at the end of a
+                    transcriptional unit and signals the end of transcription.
+                    Lehninger:PBC:G-13."))
+     (cmap-correspondence ()))
+
+(every Terminator has
+       (location ((a Terminator-Region)))
+
+       (element-type (Sequence))
+       (element (
+          (a Sequence 
+	;; use of length is incorret with
+        ;;     (length ((:pair 6 Deoxyribonucleotide)))
+          )
+          (a Terminator-Sequence-1 
+	;; with
+        ;;     (length ((:pair 8 Deoxyribonucleotide)))
+	  )
+          (a Sequence 
+	;;with
+        ;;     (length ((:pair 5 Deoxyribonucleotide)))
+	  )
+	  (a Terminator-Sequence-2 
+	;;with
+        ;;     (length ((:pair 8 Deoxyribonucleotide)))
+	)
+          (a Sequence 
+	;;with
+        ;;     (length ((:pair 1 Deoxyribonucleotide)))
+	)
+          (a TTTT-Like-Sequence 
+	;;with
+	;;     (length ((:pair 4 Deoxyribonucleotide)))
+	)
+	  )))
+
+
+
+
+
+

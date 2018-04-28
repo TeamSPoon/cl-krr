@@ -1,0 +1,18 @@
+;;
+;; $Id: C10H22.km,v 1.1 2007/05/18 02:35:13 tecuci Exp $
+;;
+
+(C10H22 has (superclasses (Hydrocarbon-Molecule)))
+
+(every C10H22 has	
+       (has-chemical-name ("decane"))
+       (nested-atomic-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq
+		    (:pair 10 C)
+		    (:pair 22 H))))))))
+       
+(every C10H22 has-definition
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("decane"))
+)

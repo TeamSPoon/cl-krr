@@ -1,0 +1,33 @@
+;; 
+;;  $Id: Follow-and-Support.km,v 1.9 2005/11/07 20:38:02 kbarker Exp $
+;;
+
+(Follow-and-Support has
+		    (superclasses (Non-Engagement-Military-Task Follow))
+		    (description ("a tactical mission task to follow and support a lead force conducting an offensive operation")))
+
+(every Follow-and-Support has
+       (agent ((a Military-Unit)))
+
+       (supports ((a Military-Task with
+                     (agent ((the base of Self))))))
+
+       (base 	 ((a Military-Unit with
+                     (supported-by-military-unit ((the agent of Self)))
+                     (allegiance ((the allegiance of (the agent of Self))))
+                     (agent-of 	 ((the supports of Self))))))
+       (path ((a Spatial-Entity)))
+
+       (agent-attrition-rate ((a Agent-Attrition-Rate-Value with
+                                 (value ((:pair 0.9 NIL))))))
+
+
+       (text-nominalization ("following and supporting"))
+       (text-active-verbseq-sg ("follows and supports"))
+       (text-active-verbseq-pl ("follow and support"))
+
+       (text-base (""))
+       (text-argslots ((:seq base path)))
+)
+
+

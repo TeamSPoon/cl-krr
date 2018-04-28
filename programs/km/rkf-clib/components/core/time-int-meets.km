@@ -1,0 +1,19 @@
+;; 
+;;    $Id: time-int-meets.km,v 1.7 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(time-int-meets has
+		 (instance-of (Temporal-Relation))
+		 (subslots ())
+		 (domain (Time-Interval))
+		 (range (Time-Interval))
+		 (inverse (time-int-met-by))
+		 (fluent-status (*Inertial-Fluent))
+		 (cardinality (N-to-N))
+                 (original-slot      (t))	
+)
+
+;; [...][...]
+
+(time-int-met-by has
+	(instance-of (Temporal-Relation)))

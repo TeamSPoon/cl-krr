@@ -1,0 +1,17 @@
+;;
+;; $Id: KOH.km,v 1.5 2006/01/24 20:27:30 jfan Exp $
+;;
+(KOH has 
+  (superclasses (Ionic-Compound)))
+
+(every KOH has
+       (has-chemical-name ("potassium hydroxide"))
+       (has-part ((a K-Plus) (a OH-Minus)))
+       (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 K-Plus) (:pair 1 OH-Minus)))))))
+       )
+(every KOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a K-Plus) (a OH-Minus))))
+

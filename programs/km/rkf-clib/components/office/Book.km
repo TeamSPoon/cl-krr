@@ -1,0 +1,32 @@
+;;
+;; $Id: Book.km,v 1.5 2005/04/10 22:42:21 gking Exp $
+;;
+(Book has (superclasses (Artifact)))
+
+(every Book has
+       (purpose ((a Container with
+		    (in-event  ((must-be-a Be-Contained)))
+		    (content   ((a Document)))
+		    (played-by (Self)))))
+       )
+
+(Book has (wn20-synset ((:set
+			     (:triple "book" 1 "n")	
+			     (:triple "book" 2 "n")	
+			     (:triple "volume" 3 "n")
+			     (:triple "ledger" 1 "n")
+			     (:triple "leger" 1 "n")
+			     (:triple "account_book" 1 "n")
+			     (:triple "book_of_account" 1 "n")
+			     (:triple "book" 3 "n")
+			     (:triple "book" 4 "n")	
+			     (:triple "record" 7 "n")	
+			     (:triple "record_book" 1 "n")	
+			     (:triple "book" 5 "n")	
+			     (:triple "book" 6 "n")	
+			     (:triple "script" 1 "n")	
+			     (:triple "book" 7 "n")	
+			     (:triple "playscript" 1 "n")	
+			     (:triple "book" 8 "n")	
+			     (:triple "rule_book" 1 "n")	
+))))

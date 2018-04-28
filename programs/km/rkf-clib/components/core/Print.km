@@ -1,0 +1,41 @@
+;; 
+;;   $Id: Print.km,v 1.7 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(Print has
+  (superclasses (Mark))
+  (required-slot (object result))
+  (description ("To render a written message in physical form"))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+;; To Print is to take a Document (a kind of message) and embody
+;; it as a Physical-Document. This could be by using a printer,
+;; writing out by hand, running the presses, etc. It does not
+;; include spray-painting on a subway car, etc. (since that would
+;; not result in the creation of a Physical-Document in the sense
+;; we intend here).
+
+(every Print has
+  (object ((a Document)))
+  (result ((a Physical-Document)))
+)
+
+(every Print has
+  (text-active-verbseq-sg ("prints"))
+  (text-active-verbseq-pl ("print"))
+  (text-passive-verbseq-sg ("gets printed"))
+  (text-passive-verbseq-pl ("get printed"))
+)
+
+(Print has (wn20-synset ((:set
+			  (:triple "print" 1 "v")
+			  (:triple "publish" 1 "v")
+))))
+
+
+
+
+
+
+(every Print has (text-nominalization ("printing")))

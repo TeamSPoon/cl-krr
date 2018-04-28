@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Eucaryotic-RNA-Transcript.km,v 1.7 2001/05/30 23:31:02 souther Exp $ 
+;; 
+
+(Eucaryotic-RNA-Transcript has
+         (superclasses (RNA-Transcript))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("The DNA transcription product in eucaryotes. 
+                        Souther."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Eucaryotic-RNA-Transcript has
+       (result-of ((a Eucaryotic-DNA-Transcription))))
+

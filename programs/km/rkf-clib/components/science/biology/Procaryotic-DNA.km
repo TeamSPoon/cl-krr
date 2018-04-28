@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Procaryotic-DNA.km,v 1.14 2001/06/03 06:16:46 souther Exp $ 
+;; 
+
+(Procaryotic-DNA has
+		 (superclasses (DNA-Molecule))
+		 (required-slot ())
+		 (primary-slot ())
+		 (secondary-slot ())
+		 (description ("Double-stranded polynucleotide formed from two 
+                                separate chains of deoxyribonucleotide units; 
+                                serves as the carrier of genetic information in
+                                procaryotes. Alberts:ECB:G-6.")) 
+		 (cmap-correspondence ()))
+
+(every Procaryotic-DNA has
+       (has-part (
+		  (at-least 483 Gene)  ;smallest free-living organism.
+		  (at-most 5570 Gene)  ;largest procaryotic genome so far
+		  (exactly 2 DNA-Strand)
+		  (a DNA-Strand called "DNA-Strand-1" with
+		     (has-part 
+		      ((a Operon with	; several
+			  (has-part ((at-least 2 Gene)
+				     (a Gene)
+				     (a Gene))
+				    )))))
+		  (a DNA-Strand called "DNA-Strand-2" with
+                     (has-part
+                      ((a Operon with   ; several
+                          (has-part ((at-least 2 Gene)
+                                     (a Gene)
+                                     (a Gene))
+                                    )))))   
+		  ))
+       )
+
+

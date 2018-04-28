@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Living-Group.km,v 1.12 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Living-Group has
+	  (superclasses (Living-Entity Ensemble))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("Any functionally related group of living entities,
+                         like the cells of an organ, a population of
+                         individuals, an ecological community, etc.
+                         Souther. "))
+	  (cmap-correspondence ())
+	  (test-case ()))
+
+(every Living-Group has 
+       ;; TODO replace has-part with members ?
+       (has-part ((a Living-Entity)
+		  (at-least 2 Living-Entity) )))
+
+(every Living-Group has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

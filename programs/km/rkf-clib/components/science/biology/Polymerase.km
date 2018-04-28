@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Polymerase.km,v 1.13 2001/05/15 21:19:55 jfan Exp $ 
+;; 
+
+(Polymerase has
+         (superclasses (Synthase))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("General term for an enzyme that catalyzes addition of
+                        subunits to a polymer.  DNA polymerase, for example,
+                        makes DNA, while RNA polymerase makes RNA.
+                        Alberts:ECB:G-14."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Polymerase has
+        (purpose ((a Catalyst with
+                        (in-event ((a Polymerize))))
+		  ))
+	)
+
+
+
+
+
+
+

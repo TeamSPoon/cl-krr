@@ -1,0 +1,33 @@
+;;    $Id: TM-Choose-Item.km,v 1.4 2004/09/10 22:57:32 pzyeh Exp $ 
+(TM-Choose-Item has (superclasses (TM-Task-Model)))
+
+(every TM-Choose-Item has
+
+  ;;----------------------------------------------------------------
+  ;; SPARK parameters.
+  ;;----------------------------------------------------------------
+  (base 		((a Entity)))           		;; $quotes
+  (object 		((oneof (the base of Self) where t)))	;; $selection
+
+
+  ;;----------------------------------------------------------------
+  ;; Additional axioms.
+  ;;----------------------------------------------------------------
+  (instrument	((must-be-a Entity)))
+  (duration 	((a Duration-Value)))
+
+  ;; This is information copied from Action.km
+  (preparatory-event (
+    (:default
+      (if ((the agent of Self) /= (the object of Self))
+	  then
+	  (a Move with    
+	     (object      ((the agent of Self)))
+	     (destination ((the base of Self)))
+      ))
+      (a Move with
+	 (object	((the instrument of Self)))
+	 (destination 	((the base of Self)))
+      )
+  )))
+)

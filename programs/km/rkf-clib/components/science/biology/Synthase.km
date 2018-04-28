@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Synthase.km,v 1.9 2001/05/29 02:30:09 souther Exp $ 
+;; 
+
+(Synthase has
+         (superclasses (Enzyme))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("An enzyme involved in the synthesis of large molecules
+                        from smaller which requires the input of energy.
+                        Souther (see Alberts:ECB:G-2 on anabolic).")) 
+         (test-case ()))
+
+(every Synthase has
+       (purpose ((a Catalyst with
+                    (in-event ((a Produce with
+				  (agent ((a Living-Entity)))))))
+                 ))
+       )
+
+

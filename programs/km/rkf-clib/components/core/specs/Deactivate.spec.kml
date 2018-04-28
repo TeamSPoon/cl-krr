@@ -1,0 +1,69 @@
+<!--- $Id: Deactivate.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<kml>
+
+<concept name=Deactivate><system-documentation name=Deactivate>
+
+<definition>
+
+  Some objects can be prevented from participating in an action by
+  deactivating them. This action takes an object out of a 
+  <conceptref name=Be-Activated> state.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object that's Deactivated.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that deactivates the object
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the instrument or tool used to deactivate the object
+  </slotdescription>
+
+  <slotdescription name=by-means-of>
+    the event that is instrumental in deactivating the object
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Simon deactivated the bomb with a plier.</text>
+    <slotdescription name=object>the bomb</slotdescription>
+    <slotdescription name=agent>Simon</slotdescription>
+    <slotdescription name=instrument>plier</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Inaccessible>
+     Deactivate is a type of Make-Inaccessible in which an object
+     is taken out of a Be-Activated state.
+  </neighbor>
+
+  <neighbor name=Be-Activated>
+     Deactivate causes an object to be removed from a Be-Activated state.
+  </neighbor>
+
+  <neighbor name=Activate>
+     Activate is the opposite of Deactivate.  It puts an object
+     into a Be-Activated state.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

@@ -1,0 +1,89 @@
+<!--- $Id: Unblock.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Unblock><system-documentation name=Unblock>
+<superconcept name=Make-Accessible>
+
+<definition>
+
+  Allow things to move through some place, or along some object, which
+  was previously blocked.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The object or place that becomes unblocked.  It's assumed to be 
+     in a <conceptref name=Be-Blocked> state before this
+     action is taken, and afterwards it's no longer in that state.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that causes this action
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    the thing (e.g. tool) used to unblock the object.
+  </slotdescription>
+
+</primaryslotlist>
+
+<musing>
+  The slots used to describe <conceptref name=Make-Accessible> actions
+  in general, can be used here, too.  For example, 
+  <slot>destination</slot> and <slot>by-means-of</slot>.
+</musing>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The policeman removed the barricade on the sidewalk.</text>
+    <slotdescription name=object>the sidewalk</slotdescription>
+    <slotdescription name=agent>the policeman</slotdescription>
+    <slotdescription name=by-means-of>move the barricade</slotdescription>
+  </examplesentence>
+  <comment>
+      The sidewalk is the object that becomes unblocked by this action;
+      it becomes accessible to things moving along it, such as pedestrians.
+      Also note that "remove" here means "move".
+  </comment>
+
+  <examplesentence>
+    <text>When the rubble was removed, the passageway became free.</text>
+    <slotdescription name=object>the passageway</slotdescription>
+    <slotdescription name=by-means-of>removal of the rubble</slotdescription>
+  </examplesentence>
+  <comment>
+      The passageway (a place) became unblocked, so things were able to
+      move through it.
+  </comment>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Make-Accessible> 
+     Make-Accessible is more general than Unblock.  Unblock applies only to 
+     the movement of things through places or along objects.
+  </neighbor>
+
+  <neighbor name=Open>
+     Open applies only to portal coverings, and the movement of 
+     things through portals.
+  </neighbor>
+
+  <neighbor name=Unobstruct>
+     Unobstruct takes an obstructed object and allows it to move.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

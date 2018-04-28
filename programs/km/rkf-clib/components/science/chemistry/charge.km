@@ -1,0 +1,16 @@
+;; 
+;;  $Id: charge.km,v 1.6 2005/08/25 16:22:58 jfan Exp $
+;; 
+
+(charge has
+    (instance-of (Property))
+    (domain      (Chemical-Entity))
+    (range       (Charge-Value))
+    (scalar-constant-class (Charge-Constant))  
+    (cardinal-unit-class   (UoM-Charge))
+    (fluent-status (*Inertial-Fluent))
+    (inherit-with-overrides (t))
+    (inverse     (charge-of))
+    (cardinality (N-to-1))
+)
+

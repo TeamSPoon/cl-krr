@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Mitosis.km,v 1.4 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+(Mitosis has
+        (superclasses (Divide))
+        (required-slot (object))
+        (primary-slot ())
+        (secondary-slot ())
+	(description ("Division of the nucleus of a eucaryotic cell, involving
+                       condensation of the DNA into visible chromosomes.
+                       Alberts:ECB:G-12."))
+        (test-case ()))
+
+(every Mitosis has   
+       (object ((a Nucleus)))
+;       (instrument ((a Centrosome)))
+       (result ((a Nucleus)
+		(exactly 2 Nucleus)))
+       )
+		
+(every Mitosis has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

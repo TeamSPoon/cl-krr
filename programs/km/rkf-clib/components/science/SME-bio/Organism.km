@@ -1,0 +1,22 @@
+;; 
+;;    $Id: Organism.km,v 1.1 2007/11/29 21:15:41 tecuci Exp $ 
+;; 
+
+(Organism has
+	  (superclasses (Living-Entity))
+	  (required-slot ())
+	  (primary-slot ())
+	  (secondary-slot ())
+	  (description ("Single or multicellular entities which are free living
+                         and capable of reproduction."))
+	  (cmap-correspondence ())
+	  (test-case ()))
+
+(every Organism has
+          (has-part ((at-least 1 Cell))))
+
+
+
+
+
+(every Organism has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

@@ -1,0 +1,18 @@
+
+;; 
+;;    $Id: term.km,v 1.7 2005/08/25 16:22:58 jfan Exp $ 
+;; 
+
+(term has
+      (instance-of    (Participant-Relation))
+      (superslots     ())
+      (subslots       ())
+      (domain         (Chemical-Formula Equilibrium-Constant-Expression))
+      (range          (Thing))
+      (fluent-status  (*Inertial-Fluent))
+      (cardinality    (1-to-1))
+      (inherit-with-overrides (t))
+      (shaken-ui-hidden-slot (t))
+      (inverse        (term-of)))
+
+

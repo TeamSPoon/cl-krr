@@ -1,0 +1,24 @@
+;; $Id: Compute-Mole-from-Weight-and-Chemical.km,v 1.2 2005/11/01 22:13:11 jfan Exp $
+;;;The function input is a (:pair <Mass-Value> <Chemical>)
+;;;The function output is a <Quantity-Value>
+
+(Compute-Mole-from-Weight-and-Chemical has
+				       (superclasses (Method)))
+
+(every Compute-Mole-from-Weight-and-Chemical has
+       (mole-weight ((if (has-value (the input of Self))
+			 then
+		       (the output of 
+			    (a Compute-Atomic-Weight-from-Chemical with
+			       (input ((the2 of (the input of Self)))))))))
+       (output ((if ((has-value (the input of Self))
+		     and
+		     (has-value (the mole-weight of Self)))
+		    then
+		  (a Quantity-Value with 
+		     (value 
+		      ((:pair 
+			((the1 of (the value of (the1 of (the input of Self)))) / 
+			 (the1 of (the value of (the mole-weight of Self))))
+			*mole)))))))
+)

@@ -1,0 +1,19 @@
+
+;;
+;; $Id: Performer.km,v 1.3 2006/06/27 21:42:35 kbarker Exp $
+;;
+
+(Performer has (superclasses (Agent-Role)))
+
+(every Performer has
+  (in-event ((a Communicate with
+                (agent ((the played-by of Self)))
+  )))
+  (played-by ((a Animal)))
+)
+
+(Performer has (wn20-synset ((:set
+                                   (:triple "performer" 1 "n")
+                                   (:triple "performing_artist" 1 "n")
+))))
+

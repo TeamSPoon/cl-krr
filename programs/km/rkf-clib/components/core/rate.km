@@ -1,0 +1,26 @@
+;; 
+;;    $Id: rate.km,v 1.12 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(rate has
+  (instance-of (EventProperty))
+  (superslots  ())
+  (subslots    ())
+  (domain      (Event))    
+  (range       (Rate-Value))
+  (scale-class (Rate-Scale))
+  (scalar-constant-class (Rate-Constant))
+  (cardinal-unit-class (UoM-Rate))
+  (inverse     (rate-of))
+  (fluent-status (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (cardinality (N-to-1))
+  (original-slot      (t))	
+)
+
+(rate has (wn20-synset ((:set
+                               (:triple "rate" 2 "n")
+))))
+
+(rate-of has
+	(instance-of (EventProperty)))

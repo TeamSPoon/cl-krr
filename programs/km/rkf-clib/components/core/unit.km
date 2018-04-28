@@ -1,0 +1,16 @@
+;;
+;; $Id: unit.km,v 1.7 2007/04/11 21:42:44 jchaw Exp $
+;;
+
+(unit has
+  (instance-of (CLIB-Slot-Group))
+  (domain (Cardinal))
+  (range (Unit-of-Measurement))
+  (inverse (unit-of))
+  (cardinality (N-to-1))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+)
+
+(unit-of has
+   (instance-of (CLIB-Slot-Group)))

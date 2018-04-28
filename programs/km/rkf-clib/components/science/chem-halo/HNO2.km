@@ -1,0 +1,14 @@
+;; $Id: HNO2.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $ 
+(HNO2 has (superclasses (Bronsted-Lowry-Acid-Compound)))
+(every HNO2 has
+	(has-chemical-name ("nitrous acid"))
+	(has-part ((a H-Plus)(a NO2-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 H-Plus)
+			(:pair 1 NO2-Minus)))))))
+)
+(every HNO2 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a NO2-Minus))))
+

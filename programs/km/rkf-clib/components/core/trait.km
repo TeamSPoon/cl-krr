@@ -1,0 +1,24 @@
+;; 
+;;    $Id: trait.km,v 1.12 2007/04/11 21:42:44 jchaw Exp $ 
+;; 
+
+(trait has
+   (instance-of   (EntityProperty))
+   (superslots    ())
+   (subslots      ())
+   (domain        (Entity))    
+   (range         (Trait-Value))
+   (categorical-constant-class (Trait-Constant))
+   (inverse       (trait-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality   (N-to-1)))
+
+(trait-of has
+	(instance-of (EntityProperty)))
+
+(trait has (wn20-synset ((:set
+                               (:triple "trait" 1 "n")
+))))
+

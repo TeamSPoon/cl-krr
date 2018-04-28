@@ -1,0 +1,42 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Na797
+
+
+|#
+
+(disable-classification)
+
+(Na has (superclasses (Metal-Atom IA-Alkali-Metal-Element)))
+
+(every Na has (atomic-symbol (Na)) (atomic-number ((a Atomic-Number-Value with (value ((:pair 11 NIL)))))) (chemical-period (3)))
+
+(_Na808 has
+  (prototype-of (Na))
+  (prototype-scope (Na))
+  (prototype-participants (_Na-Plus813 _Na808)))
+
+(_Na808 has (instance-of (Na)) (has-ion (_Na-Plus813)))
+
+(_Na-Plus813 has (instance-of (Na-Plus)))
+
+(enable-classification)
+
+(explanation (:triple _Na808 has-ion _Na-Plus813) (((@ SME entered)) (every Na has (has-ion ((a Na-Plus))))))
+
+(explanation (:triple _Na808 instance-of Na) (((@ SME entered)) NIL))
+
+(explanation (:triple _Na-Plus813 instance-of Na-Plus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Na has (has-ion ((a Na-Plus))))
+
+|#
+
+|#
+

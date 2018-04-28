@@ -1,0 +1,16 @@
+;; 
+;;    $Id: text-existential-there.km,v 1.2 2006/09/27 16:18:16 jchaw Exp $
+;; 
+
+
+(text-existential-there has
+   (instance-of (NL-Slot-Group))
+   (domain (Thing))                      ; Entity or Event
+   (range (String))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (dont-cache-values (t))
+   (inherit-with-overrides (t))
+)
+
+(text-existential-there-of has (instance-of (NL-Slot-Group)))

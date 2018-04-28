@@ -1,0 +1,18 @@
+;; 
+;; $Id: Door.km,v 1.1 2009/10/15 21:33:11 kbarker Exp $
+;; 
+
+(Door has
+  (superclasses (Architectural-Structure))
+  (description ("an architectural structure that is part of another architectural structure and playing a portal-covering"))
+)
+
+(every Door has
+  (plays ((a Portal-Covering)))
+  (is-part-of ((a Architectural-Structure)))
+)
+
+(Door has (wn20-synset ((:set 
+  (:triple "door" 1 "n")
+))))
+

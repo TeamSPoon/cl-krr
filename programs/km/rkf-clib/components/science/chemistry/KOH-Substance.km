@@ -1,0 +1,16 @@
+
+;;
+;; $Id: KOH-Substance.km,v 1.4 2003/04/04 19:37:43 jchaw Exp $
+;;
+
+(KOH-Substance has 
+  (superclasses (Base)))
+
+(every KOH-Substance has
+       (plays ((a Base-Role with
+		  (intensity ((a Intensity-Value with
+				 (value ((:pair *strong Base)))))))))
+	(has-basic-structural-unit 
+	 ((a KOH)))
+)
+

@@ -1,0 +1,18 @@
+;;
+;; $Id: CsOH.km,v 1.5 2006/01/24 20:27:29 jfan Exp $
+;;
+
+(CsOH has (superclasses (Ionic-Compound)))
+
+(every CsOH has	
+       (has-chemical-name ("caesium hydroxide"))
+       (has-part 
+	((a Cs-Plus) (a OH-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Cs-Plus)
+			 (:pair 1 OH-Minus)))))))
+       )(every CsOH has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Cs-Plus) (a OH-Minus))))
+

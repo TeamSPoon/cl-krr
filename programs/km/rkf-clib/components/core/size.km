@@ -1,0 +1,24 @@
+;; 
+;;    $Id: size.km,v 1.13 2007/04/11 21:42:43 jchaw Exp $ 
+;; 
+
+(size has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Spatial-Entity))    
+   (range       (Size-Value))
+   (scale-class (Size-Scale))
+   (scalar-constant-class (Size-Constant))
+   (inverse 	(size-of))
+   (fluent-status (*Inertial-Fluent))
+   ; (inherit-with-overrides (t))
+   (original-slot      (t))	
+   (cardinality (N-to-1)))
+
+(size has (wn20-synset ((:set
+                               (:triple "size" 1 "n")
+))))
+
+(size-of has
+	(instance-of (EntityProperty)))

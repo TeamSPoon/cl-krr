@@ -1,0 +1,24 @@
+;; 
+;;    $Id: Proton.km,v 1.1 2005/09/01 15:53:33 jfan Exp $ 
+;; 
+
+(Proton has
+         (superclasses (Subatomic-Particle))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Positively charged subatomic particle found in atomic
+                        nuclei. Also exists as an independent chemical species
+                        as a positive hydrogen ion (H+).  Alberts:ECB:G-15."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+#|
+(every Proton has
+       (mass  ((a Mass-Value with
+		(value ((:pair 1 *dalton))))))
+       (is-at ((a Atomic-Nucleus)))
+       )
+|#
+
+

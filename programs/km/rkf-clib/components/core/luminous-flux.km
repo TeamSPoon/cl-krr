@@ -1,0 +1,23 @@
+;; 
+;; $Id: luminous-flux.km,v 1.6 2007/04/11 21:23:40 jchaw Exp $
+;; 
+
+(luminous-flux has
+  (instance-of            (EntityProperty))
+  (domain                 (Spatial-Entity))    
+  (range                  (Luminous-Flux-Value))
+  (scalar-constant-class  (Luminous-Flux-Constant))
+  (cardinal-unit-class    (UoM-Luminous-Flux))
+  (inverse                (luminous-flux-of))
+  (fluent-status          (*Inertial-Fluent))
+  ; (inherit-with-overrides (t))
+  (original-slot      (t))	
+  (cardinality            (N-to-1))
+)
+
+(luminous-flux has (wn20-synset ((:set
+                               (:triple "luminous flux" 1 "n")
+))))
+
+(luminous-flux-of has
+	(instance-of (EntityProperty)))

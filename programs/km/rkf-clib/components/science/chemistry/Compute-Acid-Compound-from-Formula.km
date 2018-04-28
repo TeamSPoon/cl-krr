@@ -1,0 +1,51 @@
+
+;;
+;; $Id: Compute-Acid-Compound-from-Formula.km,v 1.6 2010/05/18 15:21:03 kbarker Exp $
+;;
+
+(Compute-Acid-Compound-from-Formula has
+				    (superclasses (Method))
+				    (description ("derive an acid based on a formula")))
+
+(every Compute-Acid-Compound-from-Formula has
+       ;;(input ((a Thing)))
+       (has-part ((a H-Plus)
+		  (an instance of 
+		      (#'(LAMBDA ()
+				 (IF (IS-ANONYMOUS-ACID 
+				      (KM-UNIQUE0 `(|the| |input| |of| |Self|)))
+				     '(|Anion|)
+				     (GET-FORMULA-ANION-COMPONENT
+				      (KM-UNIQUE0 '(|the| |input| |of| |Self|))
+				      (KM-UNIQUE0 '(|a| |H-Plus|)))))))))
+#|				 (IF (KM-UNIQUE0 
+				      `((|the| |all-superclasses| |of|
+					       (|the2| |of| (|the2| |of| (|the| |input| |of| |Self|))))
+					  = (Thing)))
+				     '(|Anion|)
+				     (GET-FORMULA-ANION-COMPONENT
+				      (KM-UNIQUE0 '(|the| |input| |of| |Self|))
+				      (KM-UNIQUE0 '(|a| |H-Plus|)))))))))
+|#
+       (has-chemical-formula
+	((the output of 
+	      (a Compute-Chemical-Formula-of-Ionic-Compound with
+		 (input ((the Cation has-part of Self)
+			 (the Anion has-part of Self)))))))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with
+					   (term ((the input of Self))))))
+       (output ((a Acid-Compound with
+		   (has-part ((the has-part of Self)))
+		   (has-chemical-formula ((the has-chemical-formula of Self)))
+		   (nested-atomic-chemical-formula ((the nested-atomic-chemical-formula of Self)))
+		   (atomic-chemical-formula
+		    ((the output of
+			  (a Compute-Atomic-Formula-from-Nested-Formula with
+			     (input ((the nested-atomic-chemical-formula of Self)))))))
+		   (has-chemical-name
+		    ((the output of
+			  (a Compute-Chemical-Name-from-Ion-of-Acid-Compound with
+			     (input ((the term of (the has-chemical-formula of Self))))))))))))
+
+
+

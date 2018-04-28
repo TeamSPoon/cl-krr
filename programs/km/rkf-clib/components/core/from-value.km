@@ -1,0 +1,18 @@
+;; 
+;;    $Id: from-value.km,v 1.10 2008/02/13 20:19:21 kbarker Exp $
+;; 
+
+(from-value has
+  (instance-of (Property-Relation))
+  (domain (Increase Decrease))
+  (range (Property-Value))
+  (inverse (from-value-of))
+  (cardinality (N-to-1))
+  (fluent-status (*Inertial-Fluent))
+  (original-slot      (t))	
+  (inherit-with-overrides (t))
+)
+
+(from-value-of has
+	(instance-of (Property-Relation))
+)

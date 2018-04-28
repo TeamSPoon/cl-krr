@@ -1,0 +1,28 @@
+;; 
+;;    $Id: Procaryote.km,v 1.14 2001/06/03 06:16:45 souther Exp $ 
+;; 
+
+(Procaryote has
+	    (superclasses (Unicellular-Organism))
+	    (required-slot ())
+	    (primary-slot ())
+	    (secondary-slot ())
+            (description ("Single-celled organism distinguished by the absence
+                           of a distinct nucleus. modified Alberts:ECB:G-14."))
+	    (cmap-correspondence ()))
+
+
+(every Procaryote has
+       (has-part ((a Procaryotic-Cytoplasm)
+                  (a Plasma-Membrane with
+		     (encloses ((the Cytoplasm has-part of Self)))
+		     )
+                  (a Cell-Wall with
+		     (encloses ((the Plasma-Membrane
+				     has-part of Self)))
+                                    ))))
+
+
+
+
+

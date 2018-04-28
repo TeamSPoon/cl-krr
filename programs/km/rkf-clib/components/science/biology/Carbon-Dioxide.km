@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Carbon-Dioxide.km,v 1.11 2001/06/01 23:26:15 pnav Exp $ 
+;; 
+
+(Carbon-Dioxide has
+	      (superclasses (Inorganic-Molecule))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Chemical group consisting of a carbon atom linked
+                             to two oxygen atoms by covalent bonds.
+                             Souther. "))   
+	      (cmap-correspondence ()))
+
+(every Carbon-Dioxide has
+       (has-part 
+	((a Carbon-Atom with
+	    (object-of    
+	     ((a Be-Attached-To with
+		 (object (((the Oxygen-Atom has-part of Self)
+			   called "one oxygen")))
+		 (instrument ((a Double-Covalent-CO-Bond)))
+		 )
+	      (a Be-Attached-To with
+		 (object (((the Oxygen-Atom has-part of Self)
+			   called "the other oxygen")))
+		 (instrument ((a Double-Covalent-CO-Bond))))
+		 )))
+	 (a Oxygen-Atom called "one oxygen")
+	 (a Oxygen-Atom called "the other oxygen")
+	 )))
+

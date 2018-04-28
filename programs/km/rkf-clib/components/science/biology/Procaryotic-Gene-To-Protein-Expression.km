@@ -1,0 +1,30 @@
+;;
+;;    $Id: Procaryotic-Gene-To-Protein-Expression.km,v 1.1 2001/05/30 23:31:11 souther Exp $
+;;
+
+(Procaryotic-Gene-To-Protein-Expression has
+		   (superclasses   (Gene-To-Protein-Expression))
+		   (required-slot  (object donor recipient))
+		   (primary-slot   (agent instrument))
+		   (secondary-slot ())
+		   (description	
+                         ("Gene expression of proteins in Procaryotes, which
+                           often involves operons containing several linked
+                           genes which are transcribed as a single transcript.
+                           Souther. "))
+		   )
+
+(every Procaryotic-Gene-To-Protein-Expression has
+       (donor        ((a Procaryotic-Gene)))
+       (recipient    ((a Protein)))
+       (object       ((a Genetic-Information)))
+       (instrument   ((a Procaryotic-MRNA)))
+       (first-subevent ((the Procaryotic-DNA-Transcription subevent of Self)))
+       (subevent     ((a Procaryotic-DNA-Transcription)
+					;		 (a RNA-Translation)
+			)))
+		       
+;; needs to be fleshed out
+
+
+

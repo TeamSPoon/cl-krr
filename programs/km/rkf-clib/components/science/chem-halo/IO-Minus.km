@@ -1,0 +1,19 @@
+;; $Id: IO-Minus.km,v 1.6 2008/05/15 17:55:38 kunal Exp $ 
+(IO-Minus has (superclasses (Anion)))
+(every IO-Minus has
+	(charge ((a Charge-Value with
+		(value ((:pair -1 *unity))))))
+	(has-chemical-name ("hypoiodite"))
+	(has-acid-name ("hypoiodous"))
+	(nested-atomic-chemical-formula
+		((a Chemical-Formula with (term ((:seq (:pair 1 I)(:pair 1 O)))))))
+)
+
+
+(every IO-Minus has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("hypoiodite"))
+)
+
+(IO-Minus has (wn20-synset ((:triple "IO-" 0 "n"))))

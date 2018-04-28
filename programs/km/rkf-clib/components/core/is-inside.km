@@ -1,0 +1,39 @@
+;; 
+;;    $Id: is-inside.km,v 1.17 2009/11/30 22:15:10 kbarker Exp $ 
+;; 
+
+(is-inside has
+	(instance-of (Meronymic-Relation Spatial-Relation))
+	(superslots ())
+	(subslots ())
+	(domain (Spatial-Entity))
+	(range (Spatial-Entity))
+	(inverse (encloses))
+	(text-slot (text-is-inside))
+	(fluent-status (*Inertial-Fluent))
+        (original-slot      (t))	
+	(cardinality (N-to-N)))
+
+(text-is-inside has
+   (instance-of (NL-Slot-Group))
+   (superslots ())
+   (subslots ())
+   (domain (Spatial-Entity))
+   #|(range (Thing))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+   (inverse (text-encloses))
+)
+
+(text-encloses has (instance-of (NL-Slot-Group)))
+
+(encloses has (wn20-synset ((:set
+			     (:triple "enclose" 0 "n")))))
+
+
+
+
+(encloses has 
+	(instance-of (Meronymic-Relation Spatial-Relation))
+	(text-gloss ("encloses")))

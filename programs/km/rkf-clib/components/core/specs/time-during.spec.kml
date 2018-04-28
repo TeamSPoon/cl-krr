@@ -1,0 +1,31 @@
+<!--- $Id: time-during.spec.kml,v 1.1 2008/02/01 04:18:13 vaibhav Exp $ --->
+<kml>
+<relation-doc name=time-during>
+
+
+<from name=Event>
+<to name=Time-Interval>
+
+<description> 
+ An event occurs during the time interval  
+</description>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The cheerleaders <ex-from>came</ex-from> on to the field during the halftime break<ex-to>(4pm to 4:30pm)</ex-to>.</text>
+  </examplesentence>
+
+  <examplesentence>
+    <text>He was shot dead by a sniper, at <ex-to>2:00pm on wednesday</ex-to> while <ex-from>delivering</ex-from> his speech.</text>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+ <neighbor name=time-inside>
+    time-inside is applicable for a time instant occuring during a time interval whereas time-during is applies to a time instant occuring during an event.
+ </neighbor>
+</neighborlist>
+
+</kml>

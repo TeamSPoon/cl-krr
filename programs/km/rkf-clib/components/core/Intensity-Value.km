@@ -1,0 +1,33 @@
+
+;;
+;; $Id: Intensity-Value.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(Intensity-Value has 
+       (superclasses (Property-Value)))
+
+(Intensity-Value has
+   (test-case ('(
+                 (Star has (superclasses (Thing)))
+		 (Lightbulb has (superclasses (Thing)))
+                 (*whitegiant has (instance-of (Drink))
+                                (intensity ((a Intensity-Value))))
+                 (*browndwarf has (instance-of (Drink))
+                              (intensity
+                                 ((a Intensity-Value with
+                                     (value ((:pair *strong Lightbulb)
+                                             (:pair *weak Star)
+                                     ))
+                                     (less-than
+                                        ((the intensity of *whitegiant)))
+                              ))))
+
+                 (the value of (the intensity of *browndwarf))
+
+                 ((the less-than of (the intensity of *browndwarf))
+                       includes (the intensity of *whitegiant))
+                 ((the greater-than of (the intensity of *whitegiant))
+                       includes (the intensity of *browndwarf))
+))))
+(Intensity-Value has (description ("the intensity of a Thing")))

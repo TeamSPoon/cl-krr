@@ -1,0 +1,163 @@
+;; 
+;;    $Id: Chemical-Entity.km,v 1.10 2008/11/11 21:59:02 tecuci Exp $ 
+;; 
+
+(Chemical-Entity has
+	     (superclasses (Physical-Object))
+	     (required-slot ())
+	     (primary-slot ())
+	     (secondary-slot ())
+	     (cmap-correspondence ())
+	     (test-case ()))
+
+;; This partition was requested by PEC.
+(a Partition with (members (Substance Chemical-Entity)))
+
+(Chemical-Entity has
+		 (user-description ("A physical object that is the basic building blocks of Chemicals.")))
+
+;; now try to compute the atomic formula whenever needed:
+(every Chemical-Entity has
+       (atomic-chemical-formula 
+	(((?nested-acf == (the term of (the nested-atomic-chemical-formula of Self)))
+	  and
+	  (?has-chf == (the term of (the has-chemical-formula of Self)))
+	  and
+	  (if ?nested-acf
+	      then (a Chemical-Formula with
+		      (term (#'(LAMBDA ()
+				       (DENEST-ATOMIC-FORMULA
+					(KM-UNIQUE0 '|?nested-acf|))))))
+	      else (if ?has-chf
+		       then (a Chemical-Formula with
+			       (term (#'(LAMBDA ()
+						(COMPUTE-ATOMIC-CHEMICAL-FORMULA-FROM-HAS-CHEMICAL-FORMULA (KM0 '|?has-chf|))))))))))))
+       
+
+(every Chemical-Entity has
+       ;; the above computation could be erroneous as illustrated by the computation of Ag2SO4
+       ;; make sure the input of a Compute-Oxidation-State is not an Ionic-Compound
+)
+
+(every Chemical-Entity has
+       (has-atom ((if (Self isa Ion)
+		      then (the is-ion-of of Self)
+		      else (if ((Self isa Atom)
+				and
+				(has-value (the has-ion of Slef)))
+			       then (the has-atom of (the has-ion of Self))
+			       else (if (has-value (the Ion has-part of Self))
+					then (forall (the Ion has-part of Self)
+						     (the has-atom of It))
+					else (the elements of (forall-seq (the term of (the atomic-chemical-formula of Self))
+									  (an instance of (the2 of It))))))))))
+       
+(every Chemical-Entity has
+  (text-has-part        ("made of"))
+  (text-result-of       ("product of"))
+  (text-raw-material-of ("reactant in"))
+  (text-premodslots     ((:seq)))
+;;  (text-postmodslots    ((:seq has-part result-of raw-material-of)))
+  (text-postmodslots    (NIL))
+
+  (text-gen ((make-phrase (the text-phrase of Self))))
+;;  (text-description ((the text-gen of Self)))  ;; use inherited rule
+
+;; these equivalences are unique to Chemical-Entities
+;; <-- Trimming for demo.
+;;  (text-base-phrase ((the text-head of Self)))
+;;  (text-phrase      ((the text-base-phrase of Self)))
+;;
+;;  (text-def-head ((the text-head of Self)))
+
+  (text-definition-sentence ((the text-definition-sentence of
+                                  (a Chemical with (has-basic-structural-unit (
+                                                     (an instance of (the instance-of of Self)))))
+  )))
+
+  (text-def-determiner ((if ((has-value (the string-name of (the has-chemical-formula of Self)))
+                             or
+                             (has-value (the string-name of (the atomic-chemical-formula of Self)))
+                             or
+                             (has-value (the has-chemical-name of Self))
+                            )
+                         then (:seq "")
+                         else (:seq "the")
+  )))
+
+  (text-head   
+   ((if ((the elements of (the term of (the has-chemical-formula of Self)))
+         = (:set (:pair 1 H-Plus) (:pair 1 OH-Minus))) 
+    then (:seq "H2O" NIL)
+    else
+    (if (has-value (the string-name of (the has-chemical-formula of Self)))
+     then
+        (:seq (the string-name of (the has-chemical-formula of Self))
+              (if (has-value (the value of (the charge of Self)))
+               then
+                  (if ((the1 of (the value of (the charge of Self))) > 0)
+                   then
+                      (:seq
+                         (if ((the1 of (the value of (the charge of Self))) > 1)
+                          then (the1 of (the value of (the charge of Self)))
+                         )
+                         "nospace"
+                         "+"
+                      )
+                   else
+                      (if ((the1 of (the value of (the charge of Self))) < 0)
+                       then
+                          (:seq
+                             (if ((the1 of (the value of
+                                                (the charge of Self))) < -1)
+                              then (0 - (the1 of (the value of
+                                                      (the charge of Self))))
+                             )
+                             "nospace"
+                             "-"
+                          )
+                      )
+                  )
+              )
+        )
+     else (if (has-value (the string-name of 
+                              (the atomic-chemical-formula of Self)))
+           then
+              (:seq (the string-name of (the atomic-chemical-formula of Self))
+                    (if (has-value (the value of (the charge of Self)))
+                     then
+                        (if ((the1 of (the value of (the charge of Self))) > 0)
+                         then
+                            (:seq
+                               (if ((the1 of (the value of (the charge of Self))) > 1)
+                                then (the1 of (the value of (the charge of Self)))
+                               )
+                               "nospace"
+                               "+"
+                            )
+                         else
+                            (if ((the1 of (the value of (the charge of Self))) < 0)
+                             then
+                                (:seq
+                                   (if ((the1 of (the value of
+                                                      (the charge of Self))) < -1)
+                                    then (the1 of (the value of
+                                                       (the charge of Self)))
+                                   )
+                                   "nospace"
+                                   "-"
+                                )
+                            )
+                        )
+                    )
+              )
+           else (if (has-value (the has-chemical-name of Self))
+                 then (the first of (the has-chemical-name of Self))
+                 else (the name of Self)
+                )
+    ))
+  )))
+)
+
+
+

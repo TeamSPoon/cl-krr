@@ -1,0 +1,50 @@
+#|
+
+
+;;; THIS SAVE FROM CMAP OF: _Lead-Chloride-Substance2738
+
+
+|#
+
+(disable-classification)
+
+(Lead-Chloride-Substance has (superclasses (Chloride-Substance)))
+
+(every Lead-Chloride-Substance has (solubility ((a Solubility-Value with (value ((:pair *insoluble Chemical)))))))
+
+(_Lead-Chloride-Substance453 has
+  (prototype-of (Lead-Chloride-Substance Chloride-Substance))
+  (prototype-scope (Lead-Chloride-Substance (the-class Ionic-Compound-Substance with (has-basic-structural-unit ((a Ionic-Compound with (has-part ((a Pb-Plus-2) (a Cl-Minus)))))))))
+  (prototype-participants (_Pb-Plus-5430 _Cl-Minus5431 _Chemical-Entity455 _Lead-Chloride-Substance453)))
+
+(_Lead-Chloride-Substance453 has (instance-of (Lead-Chloride-Substance)) (has-basic-structural-unit (_Chemical-Entity455)))
+
+(_Chemical-Entity455 has (instance-of (Ionic-Compound)) (has-part (_Cl-Minus5431 _Pb-Plus-5430)))
+
+(_Pb-Plus-5430 has (instance-of (Pb-Plus-2)))
+
+(_Cl-Minus5431 has (instance-of (Cl-Minus)))
+
+(enable-classification)
+
+(explanation (:triple _Lead-Chloride-Substance453 has-basic-structural-unit _Chemical-Entity455) (((@ SME entered)) (every Lead-Chloride-Substance has (has-basic-structural-unit ((the first of (the is-part-of of (the first of (the has-basic-structural-unit of (the second of (the has-part of Self)))))))))))
+
+(explanation (:triple _Lead-Chloride-Substance453 instance-of Lead-Chloride-Substance) (((@ SME entered)) NIL))
+
+(explanation (:triple _Chemical-Entity455 instance-of Ionic-Compound) (((@ SME entered)) NIL))
+
+(explanation (:triple _Pb-Plus-5430 instance-of Pb-Plus-2) (((@ SME entered)) NIL))
+
+(explanation (:triple _Cl-Minus5431 instance-of Cl-Minus) (((@ SME entered)) NIL))
+
+#|
+
+#|
+;;; TRADITIONAL FORMAT FOR SME'S LAST ACTIONS WOULD HAVE LOOKED:
+
+(every Lead-Chloride-Substance has (has-basic-structural-unit ((the first of (the is-part-of of (the first of (the has-basic-structural-unit of (the second of (the has-part of Self)))))))))
+
+|#
+
+|#
+

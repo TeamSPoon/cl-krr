@@ -1,0 +1,32 @@
+;;
+;;    $Id: Laptop-Computer.km,v 1.13 2005/05/18 18:35:57 kbarker Exp $
+;;
+
+(Laptop-Computer has 
+  (superclasses (Computer))
+  (feature-slot ((the feature-slot of Computer)))
+  (feature-slot ((allof (the all-instances of Interface-Slot) 
+                  where ((the domain of It) = Laptop-Computer))
+  ))
+)
+
+(every Laptop-Computer has 
+       (has-part ((the hasLaptopBattery of Self)
+                  (the hasLaptopCase of Self)
+       ))
+
+;;       (form-factor ((a Form-Factor with
+;;			(value ((:pair *Laptop nil)))))))
+
+)
+
+(hasLaptopBattery has (instance-of (Interface-Slot)) (domain (Laptop-Computer)) (range (Laptop-Battery)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isLaptopBatteryOf)))
+(hasLaptopCase has (instance-of (Interface-Slot)) (domain (Laptop-Computer)) (range (Laptop-Case)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent))(inverse (isLaptopCaseOf)))
+
+(Laptop-Computer has (wn20-synset ((:set
+				    (:triple "laptop" 1 "n")
+				    (:triple "laptop_computer" 1 "n")
+				    (:triple "notebook" 2 "n")
+				    (:triple "notebook_computer" 1 "n")
+))))
+

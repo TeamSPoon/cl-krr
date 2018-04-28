@@ -1,0 +1,30 @@
+;; 
+;;    $Id: Transcription-Unit.km,v 1.17 2003/09/10 16:42:38 jchaw Exp $
+;; 
+
+(Transcription-Unit has
+         (superclasses (DNA-Coding-Sequence))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("A stretch of DNA that is naturally transcribed in a 
+                       single operation to produce a single primary transcript.
+                       Can be (the coding part of) an operon or a gene. 
+                       Strachan:HMG:556.  Includes untranslated regions as 
+                       well as the cistron.  Souther"))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Transcription-Unit has
+       (has-basic-functional-unit ((a DNA-Codon)))
+       
+       (purpose ((a Template with
+		    (in-event ((a DNA-Transcription))))))
+       (has-part
+	((a DNA-5prime-UTR)
+	 (a DNA-3prime-UTR) 
+	 (a Cistron))))
+
+
+
+              

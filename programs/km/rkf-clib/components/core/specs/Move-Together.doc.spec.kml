@@ -1,0 +1,56 @@
+<!--- $Id: Move-Together.doc.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Move-Together>
+<superconcept name=Action>
+<subevent name=Move>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Move-Together>
+  <definition>change location of several objects to the same Place</definition>
+  <requiredslot name=object>
+    <restriction>at least 2 Tangible-Entity</restriction>
+  </requiredslot>
+  <requiredslot name=subevent>
+    <restriction>forall <slot>object</slot>s <i>o</i> there is a 
+      <conceptref name=Move> whose <slot>object</slot> is <i>o</i>,
+      whose <slot>agent</slot> is the <slot>agent</slot> of Move-Together 
+      and whose <slot>destination</slot> is the <slot>destination</slot> of
+      Move-Together
+  </requiredslot>
+  <requiredslot name=destination>
+    <restriction>(exactly one) Place</restriction>
+    <restriction>= final <slot>location</slot> of all <slot>object</slot>s</restriction>
+  </requiredslot>
+  <blockedslot name=origin>
+    <comment>there is no single <slot>origin</slot></comment>
+  </blockedslot>
+  <blockedslot name=path>
+    <comment>there is no single <slot>path</slot></comment>
+  </blockedslot>
+  <primaryslot name=agent>
+    <restriction>causes <slot>object</slot>s' <slot>location</slot>s to change</restriction>
+  </primaryslot>
+  <wnsynsets><verb>--
+  </verb></wnsynsets>
+  <wnsynsets><verb>assemble#3, gather#7, get_together#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Move-Together is a type of <conceptref name=Action>
+component with multiple <slot>object</slot>s moving to a (single) 
+<slot>destination</slot>:Place slot. The <slot>destination</slot> slot
+is required but need not be specified, in which case there should be
+a new Place created that represents the <slot>destination</slot> of the
+<slot>object</slot>s.<p>
+
+Furthermore, there is no single Place where the movement originates
+or passes through.
+</musing>
+
+</kml>
+
+

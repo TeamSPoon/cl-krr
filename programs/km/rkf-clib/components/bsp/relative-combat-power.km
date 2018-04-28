@@ -1,0 +1,18 @@
+;; 
+;;    $Id: relative-combat-power.km,v 1.5 2002/09/03 20:51:17 kbarker Exp $
+;; 
+
+(relative-combat-power has
+   (instance-of (Property))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Military-Unit))    
+   (range       (Relative-Combat-Power-Value))
+   (cardinal-unit-class   (UoM-Unitless))
+   (scalar-constant-class (Relative-Combat-Power-Constant))
+   (inverse 	(relative-combat-power-of))
+   (fluent-status (*Fluent))
+   (inherit-with-overrides (t))
+   (cardinality (N-to-1))
+)
+

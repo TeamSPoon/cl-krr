@@ -1,0 +1,1 @@
+(defmethod view-activate-event-handler ((window listener))  (call-next-method window)  (set-menubar (list *apple-menu*                     *file-menu*                     *edit-menu*                     *eval-menu*                     *tools-menu*                     *windows-menu*)))

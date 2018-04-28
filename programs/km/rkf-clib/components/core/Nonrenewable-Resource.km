@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Nonrenewable-Resource.km,v 1.2 2003/09/02 14:23:25 kbarker Exp $
+;; 
+
+(Nonrenewable-Resource has
+		       (superclasses (Resource))
+		       (required-slot ())
+		       (primary-slot ())
+		       (secondary-slot ())
+		       (cmap-correspondence ())
+		       (test-case ()))
+
+(every Nonrenewable-Resource has
+       (base-of ((mustnt-be-a Replenish))))
+
+
+

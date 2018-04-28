@@ -1,0 +1,49 @@
+<!--- $Id: Place-Order.spec.kml,v 1.1 2005/11/11 23:31:13 pzyeh Exp $ --->
+<kml>
+
+<concept name=Place-Order>
+<system-documentation name=Place-Order>
+<superconcept name=Action>
+
+<definition>
+  To order an <conceptref name=Entity> from another entity who is the seller.
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     The entity that is ordered.
+  </slotdescription>
+
+  <slotdescription name=base>
+     The seller who possesses the object.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    The entity that causes the order to occur.
+  </slotdescription>
+
+  <slotdescription name=instrument>
+    The entity used to perform the order.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The man ordered a computer from the store.</text>
+    <slotdescription name=agent>the man</slotdescription>
+    <slotdescription name=object>a computer</slotdescription>
+    <slotdescription name=base>the store</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+
+</kml>
+

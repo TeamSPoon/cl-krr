@@ -1,0 +1,106 @@
+;; 
+;;    $Id: Unblock.km,v 1.24 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(Unblock has
+  (superclasses		(Make-Accessible))
+  (required-slot   	(object))
+  (primary-slot 	(agent))
+  (secondary-slot      	())
+  (cmap-correspondence 	(
+			 (:seq object "the place blocked")
+			 (:seq agent "blocker")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Unblock has
+       (object 	((a Spatial-Entity)))
+
+       (defeats ((allof (the object-of of (the object of Self))
+		  where (((the classes of It) = Be-Blocked)))))
+	 
+       (pcs-list ((forall (the object of Self)
+			  ((:triple
+			    (It)
+			    object-of
+			    (a Be-Blocked) [Unblock-pcs-1])))))
+		 
+       ;; object is neither the object nor the location of a Be-Blocked 
+       (del-list ((forall (the defeats of Self) 
+			  (:set
+                             (:triple It object (the object of Self) [Unblock-del-1])
+                             (if (has-value (the instrument of It))
+                              then 
+                                (:triple It instrument (the instrument of It) [Unblock-del-2])))
+       )))
+)
+
+(comment [Unblock-pcs-1] (:seq (the object of Self) " must be blocked to be unblocked.")
+	 "Only a blocked object can be unblocked.")
+
+(comment [Unblock-del-1] (:seq (the object of Self) " is no longer blocked.")
+	 "An unblock stops something from being blocked.")
+
+(comment [Unblock-del-2] (:seq (the instrument of Self) " is no longer being used to block " (the object of Self))
+	 "An unblock stops something from being used to block something else.")
+
+
+(every Unblock has
+  (text-active-verbseq-sg ("unblocks"))
+  (text-active-verbseq-pl ("unblock"))
+  (text-passive-verbseq-sg ("gets unblocked"))
+  (text-passive-verbseq-pl ("get unblocked"))
+
+  (text-argslots ((:seq base instrument path result)))
+)
+
+
+(every Unblock has
+       (preparatory-event ((:default
+			  (a Block with
+			     (object ((the object of Self))))))
+))
+
+
+(Unblock has 
+	 (test-case      ('(
+			    (*p1 has (instance-of (Place)))
+                            
+			    (a Block with 
+			     (object (*p1)))
+
+			    (try-do-and-next (thelast Block))
+                            (the text-gen of (thelast Block))
+			    (has-value (the Be-Blocked object-of of *p1))
+
+			    (a Move with 
+			       (object (*c1))
+			       (path (*p1)))
+
+			    (not (try-do (thelast Move)))
+			   (the text-gen of (thelast Move))
+			    (a Unblock with 
+			     (object (*p1)))
+
+			    (try-do-and-next (thelast Unblock))
+			    (the text-gen of (thelast Unblock))
+			    (not
+			     (has-value (the Be-Blocked object-of of *p1)))
+
+			    (try-do (thelast Move))
+				(the text-gen of (thelast Move))
+))))			    
+
+
+
+;; automatically added WN synsets
+(Unblock has (wn16-synset ((:set  
+                                      (:triple "clear" 2 "v")
+))))
+
+(Unblock has (wn20-synset ((:set
+                                      (:triple "clear" 2 "v")
+))))
+
+(every Unblock has (text-nominalization ("unblocking")))

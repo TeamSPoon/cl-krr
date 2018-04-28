@@ -1,0 +1,67 @@
+;;    $Id: UoM-Acceleration-Magnitude.km,v 1.3 2010/01/27 16:06:06 kbarker Exp $
+
+(UoM-Acceleration-Magnitude has
+                  (superclasses (Unit-of-Measurement))
+  (base-unit (*meter-per-second-squared))
+                  (instances (*centimeter-per-second-squared 
+                              *foot-per-second-squared
+                              *meter-per-second-squared
+                              *kilometer-per-second-squared
+                              *mile-per-second-squared
+                              *kilometer-per-hour-minute
+                              *G)))
+
+(*centimeter-per-second-squared has 
+                                (instance-of (UoM-Acceleration-Magnitude))
+                                (name ("cm/s^2"))
+                                (wn20-synset ((:set (:triple "centimeter per second squared" 0 "n")
+                                                    (:triple "centimeters per second squared" 0 "n")
+                                                    (:triple "cm/s^2" 0 "n")))))
+
+(*foot-per-second-squared has 
+                          (instance-of (UoM-Acceleration-Magnitude))
+                          (name ("ft/s^2"))
+                          (wn20-synset ((:set (:triple "foot per second squared" 0 "n")
+                                              (:triple "feet per second squared" 0 "n")
+                                              (:triple "ft/s^2" 0 "n")))))
+
+(*meter-per-second-squared has 
+                           (instance-of (UoM-Acceleration-Magnitude))
+                           (name ("m/s^2"))
+                           (wn20-synset ((:set (:triple "meter per second squared" 0 "n")
+                                               (:triple "meters per second squared" 0 "n")
+                                               (:triple "m/s^2" 0 "n")))))
+
+(*kilometer-per-second-squared has 
+                               (instance-of (UoM-Acceleration-Magnitude))
+                               (name ("km/s^2"))
+                               (wn20-synset ((:set (:triple "kilometer per second squared" 0 "n")
+                                                   (:triple "kilometers per second squared" 0 "n")
+                                                   (:triple "km/s^2" 0 "n")))))
+
+(*mile-per-second-squared has 
+                          (instance-of (UoM-Acceleration-Magnitude))
+                          (name ("mi/s^2"))
+                          (wn20-synset ((:set (:triple "mile per second squared" 0 "n")
+                                              (:triple "miles per second squared" 0 "n")
+                                              (:triple "mi/s^2" 0 "n")))))
+
+(*kilometer-per-hour-minute has 
+                            (instance-of (UoM-Acceleration-Magnitude))
+                            (name ("km/h*min"))
+                            (wn20-synset ((:set (:triple "kilometer per hour minute" 0 "n")
+                                                (:triple "kilometers per hour minute" 0 "n")
+                                                ;;(:triple "km/h*min" 0 "n")
+                                                ))))
+
+(*G has (instance-of (UoM-Acceleration-Magnitude))
+        (name ("G"))
+    (wn20-synset ((:set (:triple "G" 0 "n")
+                        ))))
+(*centimeter-per-second-squared has (conversion-multiplier (0.01)))
+(*foot-per-second-squared has (conversion-multiplier (0.3048)))
+(*meter-per-second-squared has (conversion-multiplier (1.0)))
+(*kilometer-per-second-squared has (conversion-multiplier (1000.0)))
+(*mile-per-second-squared has (conversion-multiplier (1609.344)))
+(*kilometer-per-hour-minute has (conversion-multiplier (16.6666667)))
+(*G has (conversion-multiplier (9.8)))

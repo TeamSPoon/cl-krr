@@ -1,0 +1,14 @@
+;;
+;; $Id: PbSO4.km,v 1.1 2003/04/22 05:30:51 jchaw Exp $
+;;
+
+(PbSO4 has (superclasses (Ionic-Compound)))
+
+(every PbSO4 has	
+       (has-part 
+	((a Pb-Plus-2) (a SO4-Minus-2)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 Pb-Plus-2)
+			 (:pair 1 SO4-Minus-2)))))))
+)

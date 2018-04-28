@@ -1,0 +1,16 @@
+;;
+;;    $Id: Keyboard.km,v 1.4 2005/04/25 02:46:45 gking Exp $
+;;
+
+(Keyboard has 
+  (superclasses (Input-Device))
+  (feature-slot ((the feature-slot of Input-Device)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = Keyboard))
+  ))
+)
+
+(Keyboard has (wn20-synset ((:set
+			     (:triple "computer_keyboard" 1 "n")
+			     (:triple "keypad" 1 "n")
+))))

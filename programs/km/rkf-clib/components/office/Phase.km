@@ -1,0 +1,20 @@
+;;
+;;    $Id: Phase.km,v 1.3 2004/12/15 21:33:31 billj Exp $
+;;
+
+(Phase has 
+  (superclasses   (Task))
+  (required-slot  ())
+  (primary-slot   ())
+  (secondary-slot ()))
+
+(every Phase has
+  (hasTask ((at-least 1 Task)
+	    (a Task)))
+)
+
+
+
+
+
+

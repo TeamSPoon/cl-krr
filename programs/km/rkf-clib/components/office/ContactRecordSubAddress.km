@@ -1,0 +1,37 @@
+;;    $Id: ContactRecordSubAddress.km,v 1.11 2005/02/22 21:18:23 jchaw Exp $
+
+(ContactRecordSubAddress has
+                      (superclasses (ContactDataStructure))
+                      (required-slot ())
+                      (primary-slot ())
+                      (secondary-slot ())
+                      (cmap-correspondence ())
+                      (test-case ()))
+
+
+(every ContactRecordSubAddress has
+       (hasContactRecordAddressComponent ((a ContactRecordSubAddressComponent)))
+       (hasGroupOrOrganization ((a Organization)))
+       ;(isContactRecordSubAddressOf ((a ContactRecord)))
+       (isTypeOfContactRecordAddress ((a String))))
+
+(hasAddress has  (instance-of (Interface-Slot)) (domain (ContactRecordSubAddress)) (range (ContactRecordSubAddressComponent)) (inverse (isAddressOf)) (cardinality (N-to-N)))
+
+(hasContactRecordAddressComponent  has  (instance-of (Interface-Slot)) (domain (ContactRecordSubAddress)) (range (ContactRecordSubAddressComponent)) (cardinality (N-to-N))(inverse (isContactRecordAddressComponentOf)))
+
+(hasGroupOrOrganization has (instance-of (Interface-Slot)) (domain (ContactRecordSubAddress)) (range (Organization)) (cardinality (N-to-N))(inverse (isGroupOrOrganizationOf)))
+			
+(isTypeOfContactRecordAddress has (instance-of (Interface-Slot)) (domain (ContactRecordSubAddress)) (range (String)) (cardinality (N-to-N)))
+
+;;isTypeOfContactRecordAddress has range of String instead of TypeOfAddress 
+;;because TypeOfAddress consists of 18 different instances for different 
+;;address types. The same requirements can be captured by 18 different
+;;string values.
+
+#|
+(isContactRecordSubAddressOf has
+ (instance-of (Interface-Slot))
+ (domain (ContactRecordSubAddress))
+ (range (ContactRecord))
+ (cardinality (N-to-N)))
+|#

@@ -1,0 +1,12 @@
+;; 
+;;    $Id: Compute-Acid-Ion-from-Name.km,v 1.3 2003/09/23 15:39:10 jfan Exp $
+;; 
+
+(Compute-Acid-Ion-from-Name has
+			    (superclasses (Method))
+			    (description ("derive an ion from a name")))
+
+(every Compute-Acid-Ion-from-Name has
+       ;;(input ((a Thing)))
+       (output ((oneof (the all-subclasses of Anion)
+		       where ((the has-acid-name of (an instance of It)) = (the input of Self))))))

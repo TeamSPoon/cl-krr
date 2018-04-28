@@ -1,0 +1,16 @@
+;;
+;;    $Id: Photosynthesis.km,v 1.1 2005/08/02 16:16:07 pzyeh Exp $
+;;
+
+(Photosynthesis has
+  (superclasses  (Produce))
+  (required-slot (result))
+  (primary-slot  (raw-material agent instrument))
+  (description   ("The conversion of light energy to chemical energy; occurs in plants, algae, and certain prokaryotes.")))
+
+(every Photosynthesis has
+  (agent        ((a Plant)))
+  (raw-material ((a Light)))
+  (result       ((a Chemical-Energy)))
+)
+

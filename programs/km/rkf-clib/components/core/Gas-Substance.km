@@ -1,0 +1,25 @@
+;; 
+;; $Id: Gas-Substance.km,v 1.4 2005/08/19 18:27:50 porter Exp $
+;; 
+
+(Gas-Substance has 
+       (superclasses (Fluid-Substance))
+       (required-slot ())
+       (primary-slot ())
+       (secondary-slot ())
+       (description ("A substance in the gaseous state at room temperature"))
+       (cmap-correspondence ())
+)
+
+;; for now, assume the substance is gaseous if its temp is unknown
+;; the else will have to come when we have melting-point, boiling-point
+
+(every Gas-Substance has
+       (physical-state ((if (not (has-value (the temperature of Self)))
+                         then ((a State-Value with (value (*gas))))
+       )))
+)
+
+(Gas-Substance has (wn20-synset ((:set
+				  (:triple "gas" 2 "n")
+))))

@@ -1,0 +1,26 @@
+;; 
+;;    $Id: volume.km,v 1.16 2008/05/07 16:19:02 kbarker Exp $ 
+;; 
+
+(volume has
+   (instance-of (EntityProperty))
+   (superslots 	())
+   (subslots 	())
+   (domain      (Tangible-Entity))    
+   (range       (Volume-Value))
+   (scale-class (Volume-Scale))
+   (scalar-constant-class (Volume-Constant))
+   (cardinal-unit-class   (UoM-Volume))
+   (inverse 	(volume-of))
+   (fluent-status (*Inertial-Fluent))
+   (original-slot      (t))	
+   ; (inherit-with-overrides (t))
+   (cardinality (N-to-1)))
+
+(volume-of has
+	(instance-of (EntityProperty)))
+
+(volume has (wn20-synset ((:set
+                               (:triple "volume" 1 "n")
+))))
+

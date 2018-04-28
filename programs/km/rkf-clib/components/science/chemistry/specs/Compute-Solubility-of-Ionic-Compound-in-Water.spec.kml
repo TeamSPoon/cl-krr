@@ -1,0 +1,54 @@
+<!--- $Id: Compute-Solubility-of-Ionic-Compound-in-Water.spec.kml,v 1.1 2005/08/01 20:59:10 jchaw Exp $ --->
+
+<kml>
+<concept name=Compute-Solubility-of-Ionic-Compound-in-Water>
+
+
+<superconcept name=Method>
+
+  <definition>
+    This <conceptref name=Method> computes whether an <conceptref name=Ionic-Compound> is soluble in water
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=input>
+     1. The <conceptref name=Cation> part of the Ionic Compound; 
+     2. The <conceptref name=Anion> part of the Ionic Compound
+   </slotdescription>
+   <slotdescription name=output>
+     A <conceptref name=Solubility-Value> to denote whether the Ionic Compound is soluble in water
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>AgCl is not soluble in water.</text>
+     <slotdescription name=input> AgCl</slotdescription>
+     <slotdescription name=output> not soluble</slotdescription>
+  </examplesentence>
+  <examplesentence>
+     <text>NaCl is soluble in water.</text>
+     <slotdescription name=input> NaCl</slotdescription>
+     <slotdescription name=output> soluble</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Compute-Quantity-of-Chemical>
+  Compute-Quantity-of-Chemical computes the quantity of a type of Chemical
+  in a compound.
+  </neighbor>
+
+  <neighbor name=Compute-Quantity-from-Concentration-and-Volume>
+  Compute-Quantity-from-Concentration-and-Volume computes the quantity of 
+  the solute, given the concentration and the volume of a solution.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

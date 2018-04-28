@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Proteolysis.km,v 1.11 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(Proteolysis has
+        (superclasses   (Catabolize))
+        (required-slot  (object))
+        (primary-slot   (agent instrument by-means-of))
+	(description	("The catabolic pathway by which lipids are hydrolyzed.
+                          Souther.")))
+
+(every Proteolysis has
+  (agent        ((a Suborganismal-Entity)))
+  (object       ((a Protein)))
+  (instrument   ((a Protease)))
+  (result       ((a Aggregate with
+
+		    (element-type (Amino-Acid-Sequence)))))
+  )
+
+
+
+

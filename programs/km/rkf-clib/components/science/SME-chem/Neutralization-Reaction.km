@@ -1,0 +1,17 @@
+(Neutralization-Reaction has (superclasses (Acid-Base-Reaction Metathesis-Reaction)))
+
+(Neutralization-Reaction has (user-description ("Neutralization Reaction is a chemical reaction in which an acid and a base react to form a salt and water ")))
+
+(every Neutralization-Reaction has-definition
+   (instance-of (Reaction))
+   (raw-material ((a Acid) (a Base))) ;TODO require that the base have an OH-Minus part and the Acid have a H-Plus part
+   (result ((a Salt-Substance)(a H2O-Substance))))
+
+(every Neutralization-Reaction has
+   (raw-material ((a Acid) (a Base))) ;TODO require that the base have an OH-Minus part and the Acid have a H-Plus part
+   (result ((a Salt-Substance with (has-basic-structural-unit (
+               (a Salt with (has-part (
+                        (the Cation has-part of
+                           (the has-basic-structural-unit of (the Base raw-material of Self)))
+                        (the Anion has-part of
+                           (the has-basic-structural-unit of (the Acid raw-material of Self)))))))))(a H2O-Substance with (has-basic-structural-unit (a H2O)))))) 

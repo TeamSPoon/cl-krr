@@ -1,0 +1,36 @@
+
+;;
+;; $Id: Wetness-Value.km,v 1.15 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(Wetness-Value has 
+       (superclasses (Property-Value)))
+
+(Wetness-Value has
+   (test-case ('(
+                 (Towel has (superclasses (Physical-Object)))
+                 (Bone has (superclasses (Physical-Object)))
+                 (*wettowel has (instance-of (Towel))
+                                (wetness ((a Wetness-Value))))
+                 (*freshtowel has (instance-of (Towel))
+                              (wetness
+                                 ((a Wetness-Value with
+                                     (value ((:pair *dry Towel)
+					     (:pair *wet Bone)
+                                     ))
+                                     (less-than
+                                        ((the wetness of *wettowel)))
+                              ))))
+
+                 (the value of (the wetness of *freshtowel))
+
+                 ((the less-than of (the wetness of *freshtowel))
+                       includes (the wetness of *wettowel))
+                 ((the greater-than of (the wetness of *wettowel))
+                       includes (the wetness of *freshtowel))
+))))
+
+
+
+(Wetness-Value has (description ("the condition of containing or being covered by a liquid")))

@@ -1,0 +1,57 @@
+<!--- $Id: Bridge.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<kml>
+
+<concept name=Bridge>
+<system-documentation name=Bridge>
+<superconcept name=Structure>
+
+<definition>
+	 A Structure that plays the Role of a Conduit over something playing the Role of a Barrier
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-over>
+	the Barrier over which the Bridge is a Conduit
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Bridge over River Kwai</text>
+	<slotdescription name=is-over>River Kwai</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor=Building>
+	A Building is a Structure that contains Persons, Tangible-Entities, Walls, a Roof, Floors, Rooms, Portals, Hallways and plaus the Role of a Container. 
+  </neighbor>
+
+  <neighbor name=Room>
+    A Structure within a Building; has Walls, Floor, Ceiling, Portal(s) and plays the Role of a Container
+  </neighbor>
+
+  <neighbor name=Wall>
+   A vertical Structure, playing the Role of a Barrier
+  </neighbor>
+
+  <neighbor name=Ceiling>
+     A surface, part of a Room, plays the Role of Cover for a Room, <slot>is-above</slot> everything in room.
+  </neighbor>
+
+  <neighbor name=Platform>
+    Horizontal Structure, supports everything on it, is-below everything on it.
+  </neighbor>
+
+  <neighbor name=Roof>
+   A Structure that plays Cover for another Structure; if the second Structure plays a Container, 
+   then the first is <slot>is-above</slot> the content of the second.
+  </neighbor>
+ 
+</neighborlist>
+
+</kml>

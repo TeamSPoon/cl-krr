@@ -1,0 +1,213 @@
+;; $Id: shaken-ui-hidden-slot.km,v 1.14 2008/07/08 15:32:48 kbarker Exp $
+
+(shaken-ui-hidden-slot
+ has 
+ (description ("The purpose of this slot is to tell the Shaken User Interface if it should be displaying the slot FRAME.  I.e. FRAME shaken-ui-hidden-slot (t)means that the slot FRAME should be filtered from view by the Shaken user interface.  See also shaken-ui-hidden-non-standard-inverse-slot."))
+ (instance-of (Shaken-Slot-Group))
+ (domain (Slot))
+ (range (Thing))
+ (fluent-status (*Non-Fluent))
+ (cardinality (N-to-1))
+ (inherit-with-overrides (t)))
+
+(shaken-ui-hidden-slot-of has (instance-of (Shaken-Slot-Group)))
+
+(every Shaken-Slot-Group has (shaken-ui-hidden-slot (t)))
+(every NL-Slot-Group has (shaken-ui-hidden-slot (t)))
+(every CLIB-Slot-Group has (shaken-ui-hidden-slot (t)))
+(every KM-Slot-Group has (shaken-ui-hidden-slot (t)))
+
+;; these ones are only here because the AURA folks want them hidden for now
+(space-int-contains has (shaken-ui-hidden-slot (t)))
+(space-int-covers has (shaken-ui-hidden-slot (t)))
+(space-int-disjoint has (shaken-ui-hidden-slot (t)))
+(space-int-equal has (shaken-ui-hidden-slot (t)))
+(space-int-meet has (shaken-ui-hidden-slot (t)))
+(space-int-overlap has (shaken-ui-hidden-slot (t)))
+
+; WLJ As of 2005-03-15 these slots are in *built-in-slots*
+; therefore shaken-ui-hidden-slot should not be asserted
+; about them.  Why?  Because this duplicates of each such slot
+; in the owl translation.  Also, for each such slot, KM 
+; no longer tells you that it is a built in slot when you
+; for show-me on it.  Thus I have commented them out.
+;
+; (add-list has (shaken-ui-hidden-slot (t)))
+; (del-list has (shaken-ui-hidden-slot (t)))
+
+; we need to keep element-type... its reference in core concepts
+; is causing it to be treated as a kb slot (as well as built-in)
+(element-type has (shaken-ui-hidden-slot (t)))
+(element-type-of has (shaken-ui-hidden-slot (t)))
+
+; (instance-of has (shaken-ui-hidden-slot (t)))
+; (instances has (shaken-ui-hidden-slot (t)))
+; (name has (shaken-ui-hidden-slot (t)))
+; (ncs-list has (shaken-ui-hidden-slot (t)))
+; (pcs-list has (shaken-ui-hidden-slot (t)))
+; (superclasses has (shaken-ui-hidden-slot (t)))
+; (subclasses has (shaken-ui-hidden-slot (t)))
+
+; Slots below here are commented out because they are a member of at
+; least one of KM-Slot-Group, Shaken-Slot-Group, NL-Slot-Group,
+; CLIB-Slot-Group, or because they're not slots in the CLib but
+; slots defined in Shaken/Aura or CPL
+
+; (actions has (shaken-ui-hidden-slot (t)))
+; (all-subevents has (shaken-ui-hidden-slot (t)))
+
+;(applicable-qn-types has (shaken-ui-hidden-slot (t)))
+;(big-nodes has (shaken-ui-hidden-slot (t)))
+;(big-node-is-open has (shaken-ui-hidden-slot (t)))
+
+;(capability has (shaken-ui-hidden-slot (t)))
+;(caused-by-class has (shaken-ui-hidden-slot (t)))
+;(cmap-correspondence has (shaken-ui-hidden-slot (t)))
+
+;(contains-edge has (shaken-ui-hidden-slot (t)))
+;(contains-node has (shaken-ui-hidden-slot (t)))
+
+;(dcs-list has (shaken-ui-hidden-slot (t)))
+;(defeated-by-class has (shaken-ui-hidden-slot (t)))
+;(description has (shaken-ui-hidden-slot (t)))
+;(disjunctive-next-events has (shaken-ui-hidden-slot (t)))
+
+(during-condition has (shaken-ui-hidden-slot (t)))
+
+;(edge-comment has (shaken-ui-hidden-slot (t)))
+;(edge-coordinate has (shaken-ui-hidden-slot (t)))
+;(edge-visibility has (shaken-ui-hidden-slot (t)))
+
+;(edit-state has (shaken-ui-hidden-slot (t)))
+
+;(internally-expanded has (shaken-ui-hidden-slot (t)))
+
+;(interrupts has (shaken-ui-hidden-slot (t)))
+
+;(is-possible has (shaken-ui-hidden-slot (t)))
+
+;(kreq-list has (shaken-ui-hidden-slot (t)))
+
+;(lmap-expanded has (shaken-ui-hidden-slot (t)))
+;(lmap-expansion-state has (shaken-ui-hidden-slot (t)))
+
+;(mcs-list has (shaken-ui-hidden-slot (t)))
+
+;(new-objects has (shaken-ui-hidden-slot (t)))
+;(node-comment has (shaken-ui-hidden-slot (t)))
+;(node-coordinate has (shaken-ui-hidden-slot (t)))
+;(node-visibility has (shaken-ui-hidden-slot (t)))
+(nuSketch-X-coordinate has (shaken-ui-hidden-slot (t)))
+(nuSketch-Y-coordinate has (shaken-ui-hidden-slot (t)))
+;(parent-events has (shaken-ui-hidden-slot (t)))
+;(post-condition has (shaken-ui-hidden-slot (t)))
+;(pre-condition has (shaken-ui-hidden-slot (t)))
+
+;(preparatory-event has (shaken-ui-hidden-slot (t)))
+
+;(prev-events has (shaken-ui-hidden-slot (t)))
+
+;(prev-event has (shaken-ui-hidden-slot (t)))
+
+;(prettyName has (shaken-ui-hidden-slot (t)))
+
+;(primary-slot has (shaken-ui-hidden-slot (t)))
+;(primitive-actions has (shaken-ui-hidden-slot (t)))
+
+;(questionable-slots has (shaken-ui-hidden-slot (t)))
+;(relevant-instances has (shaken-ui-hidden-slot (t)))
+
+;(required-slot has (shaken-ui-hidden-slot (t)))
+;(secondary-slot has (shaken-ui-hidden-slot (t)))
+;(soft-pcs-list has (shaken-ui-hidden-slot (t)))
+
+;(subevent-order has (shaken-ui-hidden-slot (t)))
+;(subevents has (shaken-ui-hidden-slot (t)))
+
+;(test-case has (shaken-ui-hidden-slot (t)))
+
+;(text has (shaken-ui-hidden-slot (t)))
+
+;(text-abuts has (shaken-ui-hidden-slot (t)))
+
+;(text-active-agent-sentence has (shaken-ui-hidden-slot (t)))
+
+;(text-active-sentence has (shaken-ui-hidden-slot (t)))
+
+;(text-active-instrument-sentence has (shaken-ui-hidden-slot (t)))
+
+;(text-active-phrase has (shaken-ui-hidden-slot (t)))
+;(text-active-verbseq has (shaken-ui-hidden-slot (t)))
+;(text-active-verbseq-pl has (shaken-ui-hidden-slot (t)))
+;(text-active-verbseq-sg has (shaken-ui-hidden-slot (t)))
+;(text-argslots has (shaken-ui-hidden-slot (t)))
+;(text-arguments has (shaken-ui-hidden-slot (t)))
+;(text-base has (shaken-ui-hidden-slot (t)))
+;(text-base-phrase has (shaken-ui-hidden-slot (t)))
+;(text-content has (shaken-ui-hidden-slot (t)))
+;(text-def-determiner has (shaken-ui-hidden-slot (t)))
+;(text-def-head has (shaken-ui-hidden-slot (t)))
+;(text-destination has (shaken-ui-hidden-slot (t)))
+;(text-dobj has (shaken-ui-hidden-slot (t)))
+;(text-dobj-phrase has (shaken-ui-hidden-slot (t)))
+;(text-donor has (shaken-ui-hidden-slot (t)))
+;(text-gen has (shaken-ui-hidden-slot (t)))
+;(text-head has (shaken-ui-hidden-slot (t)))
+;(text-indef-determiner has (shaken-ui-hidden-slot (t)))
+;(text-indef-head has (shaken-ui-hidden-slot (t)))
+;(text-instrument has (shaken-ui-hidden-slot (t)))
+;(text-is-above has (shaken-ui-hidden-slot (t)))
+
+;(text-is-abuts has (shaken-ui-hidden-slot (t)))
+
+;(text-is-along has (shaken-ui-hidden-slot (t)))
+;(text-is-at has (shaken-ui-hidden-slot (t)))
+;(text-is-behind has (shaken-ui-hidden-slot (t)))
+;(text-is-beside has (shaken-ui-hidden-slot (t)))
+;(text-is-between has (shaken-ui-hidden-slot (t)))
+;(text-is-east has (shaken-ui-hidden-slot (t)))
+;(text-is-inside has (shaken-ui-hidden-slot (t)))
+;(text-is-near has (shaken-ui-hidden-slot (t)))
+;(text-is-north has (shaken-ui-hidden-slot (t)))
+;(text-is-northeast has (shaken-ui-hidden-slot (t)))
+;(text-is-northwest has (shaken-ui-hidden-slot (t)))
+;(text-is-on has (shaken-ui-hidden-slot (t)))
+;(text-is-opposite has (shaken-ui-hidden-slot (t)))
+;(text-is-outside has (shaken-ui-hidden-slot (t)))
+;(text-is-over has (shaken-ui-hidden-slot (t)))
+;(text-is-part has (shaken-ui-hidden-slot (t)))
+;(text-is-possessed-by has (shaken-ui-hidden-slot (t)))
+;(text-is-south has (shaken-ui-hidden-slot (t)))
+;(text-is-southeast has (shaken-ui-hidden-slot (t)))
+;(text-is-southwest has (shaken-ui-hidden-slot (t)))
+;(text-is-west has (shaken-ui-hidden-slot (t)))
+;(text-material has (shaken-ui-hidden-slot (t)))
+;(text-number has (shaken-ui-hidden-slot (t)))
+;(text-origin has (shaken-ui-hidden-slot (t)))
+;(text-particle has (shaken-ui-hidden-slot (t)))
+;(text-passive-phrase has (shaken-ui-hidden-slot (t)))
+;(text-passive-sentence has (shaken-ui-hidden-slot (t)))
+;(text-passive-verbseq has (shaken-ui-hidden-slot (t)))
+;(text-passive-verbseq-pl has (shaken-ui-hidden-slot (t)))
+;(text-passive-verbseq-sg has (shaken-ui-hidden-slot (t)))
+;(text-path has (shaken-ui-hidden-slot (t)))
+;(text-phrase has (shaken-ui-hidden-slot (t)))
+;(text-postmods has (shaken-ui-hidden-slot (t)))
+;(text-postmodslots has (shaken-ui-hidden-slot (t)))
+;(text-premods has (shaken-ui-hidden-slot (t)))
+;(text-premodslots has (shaken-ui-hidden-slot (t)))
+;(text-raw-material has (shaken-ui-hidden-slot (t)))
+;(text-recipient has (shaken-ui-hidden-slot (t)))
+;(text-result has (shaken-ui-hidden-slot (t)))
+;(text-sentence has (shaken-ui-hidden-slot (t)))
+;(text-site has (shaken-ui-hidden-slot (t)))
+;(text-slot has (shaken-ui-hidden-slot (t)))
+;(text-subj has (shaken-ui-hidden-slot (t)))
+;(text-subj-phrase has (shaken-ui-hidden-slot (t)))
+;(text-toward has (shaken-ui-hidden-slot (t)))
+;(text-voice has (shaken-ui-hidden-slot (t)))
+;(topic-situation has (shaken-ui-hidden-slot (t)))
+;(user-defined-edge-label has (shaken-ui-hidden-slot (t)))
+;(user-defined-node-label has (shaken-ui-hidden-slot (t)))
+;(viewpoint has (shaken-ui-hidden-slot (t)))
+;(wn16-synset has (shaken-ui-hidden-slot (t)))

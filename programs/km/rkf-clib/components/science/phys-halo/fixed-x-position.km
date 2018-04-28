@@ -1,0 +1,24 @@
+;;    $Id: fixed-x-position.km,v 1.4 2007/06/29 15:13:11 kbarker Exp $
+
+(fixed-x-position has
+  (instance-of (EntityProperty))
+  (superslots ())
+  (subslots ())
+  (domain (Entity))
+  (range (Length-Value))
+  (scalar-constant-class (Position-Constant))
+  (cardinal-unit-class (UoM-Length))
+  (inverse (fixed-x-position-of))
+  (cardinality (N-to-1))
+  ; (inherit-with-overrides (t))
+  (fluent-status (*Inertial-Fluent))
+)
+
+(fixed-x-position has (wn20-synset ((:set 
+				       (:triple "fixed x position" 0 "n")
+				       (:triple "fixed horizontal position" 0 "n")
+))))
+
+(fixed-x-position-of has (instance-of (EntityProperty)))
+
+(fixed-x-position has (name ("fixed horizontal position")))

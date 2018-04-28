@@ -1,0 +1,28 @@
+<!--- $Id: Cubicle.spec.kml,v 1.1 2005/08/01 21:00:54 jchaw Exp $ --->
+<kml>
+
+<concept name=Cubicle>
+<system-documentation name=Cubicle>
+<superconcept name=Office-Room>
+
+<definition>
+	 A simplified Office-Room.
+</definition>
+
+<primaryslotlist>
+
+  <slotdescription name=is-part-of>
+	the Building that the Cubicle is part of
+  </slotdescription>
+
+</primaryslotlist>
+
+<neighborlist>
+
+  <neighbor name=Office-Room>
+	A room which has the purpose of being the <slot>site</slot> for <conceptref name=Office-Work>
+  </neighbor>
+
+</neighborlist>
+
+</kml>

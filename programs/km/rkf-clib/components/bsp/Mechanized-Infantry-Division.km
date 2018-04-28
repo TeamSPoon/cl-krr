@@ -1,0 +1,33 @@
+
+;; 
+;;  $Id: Mechanized-Infantry-Division.km,v 1.3 2002/09/04 21:51:20 kbarker Exp $
+;; 
+
+(Mechanized-Infantry-Division has
+   (superclasses (Mechanized-Infantry-Unit Division)))
+
+(every Mechanized-Infantry-Division has-definition
+   (instance-of (Mechanized-Infantry-Unit Division)))
+
+(every Mechanized-Infantry-Division has
+   (element ((if ((the value of (the allegiance of Self)) = *Blue)
+              then
+                (:set
+                 (a Mechanized-Infantry-Brigade)
+                 (a Mechanized-Infantry-Brigade)
+                 (a Mechanized-Infantry-Brigade)
+                 (a Armored-Brigade)
+                 (a General-Support-Artillery-Battalion)
+                )
+              else (if ((the value of (the allegiance of Self)) = *Red)
+                    then
+                      (:set
+                       (a Mechanized-Infantry-Brigade)
+                       (a Mechanized-Infantry-Brigade)
+                       (a Armored-Brigade)
+                       (a Armored-Brigade)
+                       (a Artillery-Brigade)
+                      ))
+   )))
+)
+

@@ -1,0 +1,50 @@
+<!--- $Id: Go-To.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Go-To>
+<superconcept name=Locomotion>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Go-To>
+  <definition>cause self to change location to a Place</definition>
+  <requiredslot name=agent>
+    <inheritedfrom name=Locomotion>
+    <restriction>causes <slot>object</slot>'s <slot>location</slot> to change</restriction>
+    <restriction>= <slot>object</slot></restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Locomotion>
+    <restriction>a Tangible-Entity</restriction>
+    <restriction>= <slot>agent</slot></restriction>
+    <restriction><slot>location</slot> changes</restriction>
+  </requiredslot>
+  <requiredslot name=destination>
+    <restriction>Place</restriction>
+    <restriction>= final <slot>location</slot> of <slot>object</slot></restriction>
+  </requiredslot>
+  <primaryslot name=origin>
+    <restriction>Place</restriction>
+    <restriction>= original <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <primaryslot name=path>
+    <restriction>Place</restriction>
+    <restriction>= transient <slot>location</slot> of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+  <wnsynsets><verb>go#1, locomote#1, move#1, travel#1
+  </verb></wnsynsets>
+</component>
+
+<musing>
+Go-To is a specialization of the <conceptref name=Locomotion> component.<p>
+
+WordNet does not distinguish Go-To from <conceptref name=Locomotion> so
+the synsets are the same.
+</musing>
+
+</kml>
+
+

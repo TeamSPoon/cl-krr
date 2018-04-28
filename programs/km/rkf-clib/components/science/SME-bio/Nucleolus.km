@@ -1,0 +1,226 @@
+
+;;; ---------- Definition of prototype for Nucleolus ----------
+
+(Nucleolus has (superclasses (Subcellular-Entity Spatial-Entity)))
+
+(_Nucleolus188 has 
+  (has-clones (_Nucleolus393
+               _Nucleolus284
+               _Nucleolus636
+               _Placeholder-Class187189
+               _Nucleolus213
+               _Nucleolus399
+               _Nucleolus396
+               _Nucleolus217
+               _Nucleolus227
+               _Nucleolus282
+               _Nucleolus317
+               _Nucleolus335
+               _Nucleolus374
+               _Nucleolus410
+               _Nucleolus448
+               _Nucleolus453
+               _Nucleolus501
+               _Nucleolus535
+               _Nucleolus545
+               _Nucleolus584))
+  (has-built-clones (_Nucleolus393
+                     _Nucleolus284
+                     _Nucleolus636
+                     _Placeholder-Class187189
+                     _Nucleolus213
+                     _Nucleolus399
+                     _Nucleolus396
+                     _Nucleolus217
+                     _Nucleolus227
+                     _Nucleolus282
+                     _Nucleolus317
+                     _Nucleolus335
+                     _Nucleolus374
+                     _Nucleolus410
+                     _Nucleolus448
+                     _Nucleolus453
+                     _Nucleolus501
+                     _Nucleolus535
+                     _Nucleolus545
+                     _Nucleolus584))
+  (instance-of (Nucleolus))
+  (prototype-of (Nucleolus))
+  (prototype-scope (Nucleolus))
+  (prototype-participants (_Atom225
+                           _Protein224
+                           _Atom223
+                           _RRNA222
+                           _Nucleolus188
+                           _Synthesis193
+                           _Ribosome196))
+  (prototype-participant-of (_Nucleolus188))
+  (site-of (_Synthesis193))
+  (is-near ((((if (has-value (the object of _Synthesis193)) then (the location of (the object of _Synthesis193)))) && ((if (has-value (the object of _Synthesis193)) then (the location of (the object of _Synthesis193)))))))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 50 600)))
+  (node-visibility (t)))
+
+(_Atom225 has 
+  (instance-of (Atom))
+  (has-clones (_Atom221))
+  (is-basic-structural-unit-of (_Protein224))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 700 453)))
+  (prototype-participant-of (_Nucleolus188)))
+
+(_Protein224 has 
+  (has-clones (_Thing246
+               _Thing284
+               _Thing327
+               _Thing338
+               _Thing376
+               _Thing412
+               _Protein414
+               _Protein416
+               _Protein418
+               _Protein420
+               _Protein422
+               _Protein424
+               _Protein427
+               _Protein451
+               _Protein492
+               _Protein532
+               _Protein543
+               _Protein582))
+  (has-basic-structural-unit (_Atom225))
+  (instance-of (Protein))
+  (raw-material-of (_Synthesis193))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 397 453)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom225 550 459)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom225 f)))
+  (prototype-participant-of (_Nucleolus188)))
+
+(_Atom223 has 
+  (instance-of (Atom))
+  (has-clones (_Atom220))
+  (is-basic-structural-unit-of (_RRNA222))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 693 415)))
+  (prototype-participant-of (_Nucleolus188)))
+
+(_RRNA222 has 
+  (has-clones (_Thing247
+               _Thing285
+               _Thing328
+               _Thing339
+               _Thing377
+               _Thing413
+               _RRNA415
+               _RRNA417
+               _RRNA419
+               _RRNA421
+               _RRNA423
+               _RRNA425
+               _RRNA426
+               _RRNA450
+               _RRNA491
+               _RRNA531
+               _RRNA542
+               _RRNA581))
+  (has-basic-structural-unit (_Atom223))
+  (instance-of (RRNA))
+  (raw-material-of (_Synthesis193))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 396 415)))
+  (node-visibility (t))
+  (edge-coordinate ((:seq has-basic-structural-unit _Atom223 543 421)))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom223 f)))
+  (prototype-participant-of (_Nucleolus188)))
+
+(_Synthesis193 has 
+  (has-clones (_Synthesis392
+               _Synthesis283
+               _Synthesis638
+               _Synthesis635
+               _Synthesis212
+               _Synthesis398
+               _Synthesis395
+               _Synthesis216
+               _Synthesis228
+               _Synthesis281
+               _Synthesis315
+               _Synthesis318
+               _Synthesis336
+               _Synthesis373
+               _Synthesis409
+               _Synthesis447
+               _Synthesis454
+               _Synthesis500
+               _Synthesis503
+               _Synthesis534
+               _Synthesis546
+               _Synthesis585))
+  (prototype-participant-of (_Nucleolus188))
+  (site (_Nucleolus188))
+  (result (_Ribosome196))
+  (instance-of (Synthesis))
+  (edge-coordinate ((:seq site _Nucleolus188 163 539)
+                    (:seq raw-material _Protein224 318 452)
+                    (:seq raw-material _RRNA222 318 452)
+                    (:seq result _Ribosome196 372 547)))
+  (edge-visibility ((:seq site _Nucleolus188 t)
+                    (:seq raw-material _Protein224 t)
+                    (:seq raw-material _RRNA222 t)
+                    (:seq result _Ribosome196 t)))
+  (internally-expanded (t))
+  (node-coordinate ((:pair 241 520)))
+  (node-visibility (t))
+  (raw-material (_RRNA222
+                 _Protein224)))
+
+(_Ribosome196 has 
+  (has-clones (_Ribosome394
+               _Ribosome286
+               _Ribosome639
+               _Ribosome637
+               _Ribosome192
+               _Ribosome214
+               _Ribosome400
+               _Ribosome397
+               _Ribosome215
+               _Ribosome226
+               _Ribosome283
+               _Ribosome314
+               _Ribosome316
+               _Ribosome334
+               _Ribosome375
+               _Ribosome411
+               _Ribosome449
+               _Ribosome452
+               _Ribosome502
+               _Ribosome504
+               _Ribosome537
+               _Ribosome544
+               _Ribosome583))
+  (prototype-participant-of (_Nucleolus188))
+  (instance-of (Ribosome
+                Entity))
+  (internally-expanded (f))
+  (result-of (_Synthesis193))
+  (node-coordinate ((:pair 522 541)))
+  (node-visibility (t)))
+
+(explanation (:triple _Atom225 instance-of Atom) ((a Atom (@ _Protein224 Molecule has-basic-structural-unit))))
+(explanation (:triple _Protein224 instance-of Protein) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Protein224 has-basic-structural-unit _Atom225) ((a Atom (@ _Protein224 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom223 instance-of Atom) ((a Atom (@ _RRNA222 Molecule has-basic-structural-unit))))
+(explanation (:triple _RRNA222 instance-of RRNA) ((added-at Nucleolus "User defined")))
+(explanation (:triple _RRNA222 has-basic-structural-unit _Atom223) ((a Atom (@ _RRNA222 Molecule has-basic-structural-unit))))
+(explanation (:triple _Synthesis193 instance-of Synthesis) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Synthesis193 result _Ribosome196) ((a Entity (@ _Synthesis193 Create result))))
+(explanation (:triple _Synthesis193 site _Nucleolus188) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Synthesis193 raw-material _RRNA222) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Synthesis193 raw-material _Protein224) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Ribosome196 instance-of Ribosome) ((added-at Nucleolus "User defined")))
+(explanation (:triple _Ribosome196 instance-of Entity) ((a Entity (@ _Synthesis193 Create result))))
+
+;;; ---------- end of prototype definition ----------
+

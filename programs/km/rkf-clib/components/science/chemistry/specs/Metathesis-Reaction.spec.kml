@@ -1,0 +1,46 @@
+<!--- $Id: Metathesis-Reaction.spec.kml,v 1.1 2005/08/01 20:59:19 jchaw Exp $ --->
+
+<kml>
+<concept name=Metathesis-Reaction>
+
+
+<superconcept name=Reaction>
+
+  <definition>
+    A Metathesis-Reaction (aka exchange reaction) is the kind of reaction in which positive ions and negative ions appear to exchange partners conform to the following general equation: AX + BY -> AY + BX.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=raw-material>
+     The chemicals to be exchanged.
+   </slotdescription>
+   <slotdescription name=result>
+     The resulting chemical.
+   </slotdescription>
+</requiredslotlist>
+
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>AgNO3 reacts with KCl to form AgCl and KNO3.</text>
+     <slotdescription name=raw-material> AgNO3 and KCl.</slotdescription>
+     <slotdescription name=result> AgCl and KNO3.</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Mix>
+     A Mix differs from a Reaction in the sense that it does not result in chemically different substances.
+  </neighbor>
+
+  <neighbor name=Reaction>
+     A Reaction is more general than Metathesis-Reaction, it could refer to the formation of any new chemically different substances.
+  </neighbor>
+</neighborlist>
+
+</kml>
+
+

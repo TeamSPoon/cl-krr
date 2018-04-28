@@ -1,0 +1,27 @@
+
+;; 
+;;    $Id: Covalent-NH-Bond.km,v 1.4 2001/11/17 06:50:17 jarred Exp $ 
+;; 
+
+(Covalent-NH-Bond has
+         (superclasses (Covalent-Single-Bond))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (description ("Chemical bond between hydrogen and nitrogen.
+                        Souther. "))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Covalent-NH-Bond has      
+       (purpose ((a Connector with
+		    (in-event ((a Be-Attached-To with
+				  (object ((a Nitrogen-Atom)
+					   (a Hydrogen-Atom)
+					   (exactly 2 Atom)))
+                                      )))
+                        )))
+       (intensity ((a Intensity-Value with 
+		(value ((:pair 93 *kilocalorie/mole))))))
+;       (length ((a Length-Value with (value ((:pair ?? *nanometer))))))   
+       )

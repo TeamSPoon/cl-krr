@@ -1,0 +1,15 @@
+;;
+;; $Id: Bh.km,v 1.3 2008/10/14 19:16:13 tecuci Exp $
+;;
+
+(Bh has (superclasses (Metal-Atom VIIB-Element)))
+(every Bh has
+       (atomic-symbol (Bh))
+       (atomic-number ((a Atomic-Number-Value with (value ((:pair 107 NIL))))))
+       (chemical-period (7)))
+
+(every Bh has-definition
+
+  (instance-of (Chemical-Entity))
+  (has-chemical-name ("bohrium"))
+)

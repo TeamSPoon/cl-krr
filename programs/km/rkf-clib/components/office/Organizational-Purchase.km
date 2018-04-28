@@ -1,0 +1,149 @@
+
+;;
+;; $Id: Organizational-Purchase.km,v 1.8 2004/10/21 21:59:06 jfan Exp $
+;;
+
+(Organizational-Purchase has 
+  (superclasses (Purchase))
+  (description ("a purchase paid for and (possibly) requiring approval from an organization"))
+)
+
+;; see Purchase.km for inherited axioms
+
+;; note to self: budget is required here to proceed
+
+(every Organizational-Purchase has-definition
+  (instance-of (Purchase))
+  (agent ((a Organization)))
+  (beneficiary ((a Person with
+                   (plays ((a Role with 
+                              (in-organization ((the agent of Self))))))
+  )))
+)
+
+(every Organizational-Purchase has
+
+  (kreq-list ((:triple Self purchase-budget (a Worth-Value))))
+
+  (agent ((a Organization)))
+  (beneficiary ((a Person with
+                   (plays ((a Role with 
+                              (in-organization ((the agent of Self))))))
+  )))
+  (base ((a Entity with
+            (worth ((constraint 
+                      (TheValue property-lte (the purchase-budget of Self))
+            )))
+  )))
+
+  (first-subevent ((the Specify subevent of Self)))
+  (subevent ((a Specify with
+                (object ((the base of Self)))     ;; inherited, too
+                (next-event ((the Match subevent of Self))))
+             (a Match with
+                (next-event ((the Select subevent of Self))))
+             (a Select with
+                (next-event ((the Authorize subevent of Self))))
+             (a Authorize with
+                (agent ((the Person played-by of
+                           (oneof (the Signing-Authority in-organization-of of
+                                       (the agent of Self))
+                            where t)))
+                )
+                (enables ((the Buy subevent of Self)))
+                (next-event ((the Place-Order subevent of Self)))
+             )
+             (a Place-Order with 
+                (next-event ((the Buy subevent of Self))))
+             (a Buy)
+  ))
+)
+
+
+(purchase-budget has (instance-of (Interface-Slot)) (domain (Organizational-Purchase)) (range (Worth-Value)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+
+#|
+(Organizational-Purchase has 
+     (test-case ('(
+                   (new-situation) 
+
+                   (_TargetLaptop == (a Laptop-Computer))
+
+                   ;; the signing authorities in COGS are the Group Leader
+                   ;; and the signing authorities of all higher organizations
+                   ;; of which COGS is a part (viz. RAIL and LRC)
+                   ;; (Ultimately, we'd like to be able to accept this kind
+                   ;; of rule from the user)
+                   (*COGS has 
+                      (in-organization-of (
+                        (a Signing-Authority with
+                           (played-by ((the played-by of *COGS-Group-Leader))))
+                        (the Signing-Authority in-organization-of of
+                           (the Organization (is-part-of *) of *COGS))
+                   )))
+                   
+                   (_OrgPurch1 == (a Purchase with
+                                     (agent (*COGS))
+                                     (beneficiary (*Helen))
+                                     (base (_TargetLaptop))
+                   ))
+
+                   (_OrgPurch1 isa Organizational-Purchase)
+
+                   ((the2 of (the kreq-list of _OrgPurch1)) = purchase-budget)
+
+                   (_OrgPurch1 has (purchase-budget (
+                                     (a Worth-Value with
+                                        (value ((:pair 1500 *usdollar)))))
+                                   )
+                   )
+
+                   (_Comp1 == (a Laptop-Computer with
+                                 (hasProcessor ((a Intel-Pentium-M)))
+                                 (hasModelName ("Inspiron 300m"))
+                                 (identifier ((a Text-Field called "picture" with
+                                                 (information-content ("http://img.dell.com/images/global/products/inspn/300m_front_131x145.jpg")))))
+                                 (hasDimension (
+                                   (:seq *inch 0.96 10.8 9.2)))
+                                 (hasTotalPrice (
+                                   (a Worth-Value with
+                                      (value ((:pair 1500 *usdollar)))))
+                                 )
+                   ))
+                   (_Comp2 == (a Laptop-Computer with
+                                 (hasWeight (
+                                   (a Weight-Value with
+                                      (value ((:pair 6 *pound)))))
+                                 )
+                                 (hasTotalPrice (
+                                   (a Worth-Value with
+                                      (value ((:pair 2100 *usdollar)))))
+                                 )
+                   ))
+                   (_Comp3 == (a Laptop-Computer with
+                                 (hasTotalPrice (
+                                   (a Worth-Value with
+                                      (value ((:pair 895 *usdollar)))))
+                                 )
+                   ))
+
+                   ((the result of (the Match subevent of _OrgPurch1)) 
+                    is-superset-of (:set _Comp1 _Comp3))
+
+                   #|((the agent of (the Authorize subevent of _OrgPurch1)) =
+                    *Jody)|# ;; temporally out maybe of KM bug
+
+                   ;; this last test doesn't work yet... seems to be lazy
+                   ;; evaluation preventing retrieval of values (TBD)
+                   ((the value of 
+                         (the worth of
+                              (the Money instrument of _OrgPurch1)))
+                    =
+                    (the value of
+                         (the worth of
+                              (the object of
+                                   (the Select subevent of _OrgPurch1))))
+                   )
+))))
+
+|#

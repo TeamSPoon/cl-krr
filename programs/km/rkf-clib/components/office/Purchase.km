@@ -1,0 +1,68 @@
+
+;;
+;; $Id: Purchase.km,v 1.8 2006/02/07 20:48:25 kbarker Exp $
+;;
+
+(Purchase has 
+  (superclasses (Activity))
+  (description ("the activity of selecting a product, ordering it and buying it"))
+)
+
+;; Note: Purchase instances cannot be simulated because there is no ordering
+;;       of subevents. Subclasses of Purchase (Organizational-Purchase and 
+;;       Personal-Purchase) include ordering info and can be simulated
+
+
+
+(every Purchase has
+  (agent ((a Entity)))               ;; agent/beneficiary same for Personal-Purchase,
+  (beneficiary ((a Entity)))         ;; but different for Organizational-Purchase.
+  (recipient ((the agent of Self)))  ;; as with Buy, agent (payer) is ultimate owner
+  (donor ((the is-possessed-by of       ;; purchased from
+               (the object of Self))))
+  (instrument ((the Money instrument of
+                    (the Buy subevent of Self))))
+  (base ((a Entity)))                ;; an example of the object to be purchased
+                                     ;; (may have constraints, etc.
+  (object ((the object of            ;; the thing eventually bought
+              (the Buy subevent of Self))
+  ))
+
+  (subevent ((a Specify with         ;; describe by way of feature values
+                (object ((the base of Self)))
+                (result ((a Specification)))
+             )
+             (a Match with           ;; find instances that match (to some degree) the spec
+                (object ((the Specification result of (the Specify subevent of Self))))
+                (result ((a Entity with
+                            (is-possessed-by ((a Entity)))
+                )))
+             )
+             (a Select with          ;; choose one from a list
+                (base ((the result of (the Match subevent of Self))))
+                (object ((the object of Self)))   ;; the resulting selection
+             )
+             (a Place-Order with           ;; place order
+                (object ((the object of (the Select subevent of Self))))
+                (base ((the donor of Self)))
+             )
+             (a Buy with             ;; give money, receive object
+                (agent ((the agent of Self)))     ;; payer = recipient (possessor)
+                (recipient ((the recipient of Self)))
+                (donor ((the donor of Self)))
+		(beneficiary ((the beneficiary of Self)))
+                (instrument (
+                   (a Money with 
+                      (worth (
+                         (a Worth-Value with
+                            (value (
+                               (the value of
+                                  (the worth of
+                                     (the object of 
+                                        (the Place-Order subevent of Self))))))))))))
+                (object ((the object of (the Place-Order subevent of Self))))
+             )
+  ))
+
+)
+

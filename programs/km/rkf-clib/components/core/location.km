@@ -1,0 +1,31 @@
+;; 
+;;    $Id: location.km,v 1.17 2007/04/11 21:23:40 jchaw Exp $ 
+;; 
+
+(location has
+	  (instance-of (Spatial-Relation))
+	  (superslots ())
+	  (subslots ())
+;;	  (domain (Tangible-Entity Event)) this causes a unification error
+	  (domain (Spatial-Entity))  ;; tighten it up (use site for Events)
+	  (range (Place))
+	  (inverse (location-of))
+	  (cardinality (N-to-1))
+          (original-slot      (t))	
+	  (fluent-status (*Inertial-Fluent)))
+
+(location-of has
+          (combine-values-by-appending (t)))
+
+(location has (wn20-synset ((:set
+                                  (:triple "located" 1 "a")
+                                  (:triple "placed" 1 "a")
+                                  (:triple "set" 3 "a")
+                                  (:triple "situated" 1 "a")
+				  (:triple "location" 0 "n")
+))))
+
+(location has (text-gloss ("is at")))
+(location-of has 
+	(instance-of (Spatial-Relation))
+	(text-gloss ("is the location of")))

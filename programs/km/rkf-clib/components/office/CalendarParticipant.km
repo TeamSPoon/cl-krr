@@ -1,0 +1,19 @@
+;; 
+;; $Id: CalendarParticipant.km,v 1.1 2004/12/22 22:07:58 kbarker Exp $
+;; 
+
+(CalendarParticipant has
+  (superclasses (Role))
+)
+
+;; played-by                      ;; Person, Organization, Room, Device, etc.
+;; hasContactInformation          ;; cal-address of the Entity
+;; the plays of the played-by     ;; ROLE parameter
+                                  ;; SENT-BY parameters
+(isSentBy has (instance-of (Interface-Slot)) (domain (CalendarParticipant)) (range (Entity Role)) (inverse (sends)) (cardinality (N-to-N)) (fluent-status (*Inertial-Fluent)))
+                                  ;; CN parameter
+(hasCommonName has (instance-of (Interface-Slot)) (domain (CalendarParticipant)) (range (String)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+                                  ;; DIR parameter
+(hasDir has (instance-of (Interface-Slot)) (domain (CalendarParticipant)) (range (String)) (cardinality (N-to-1)) (fluent-status (*Inertial-Fluent)))
+
+

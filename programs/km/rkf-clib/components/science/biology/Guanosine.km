@@ -1,0 +1,32 @@
+;; 
+;;    $Id: Guanosine.km,v 1.19 2001/06/01 23:26:37 pnav Exp $ 
+;; 
+
+(Guanosine has
+	   (superclasses (Ribonucleoside))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+           (description ("A nucleoside containing guanine and ribose that
+                         when joined with a monophosphate forms one of the four
+                         nucleotides in RNA.  Souther."))
+	   (cmap-correspondence ()))
+
+(every Guanosine has
+        (has-part
+         ((a Guanine with
+             (object-of
+              ((a Be-Attached-To with
+		  (object ((the Ribose has-part of Self)))
+		  (instrument ((a Covalent-CN-Bond)))
+		  (site         
+		   ((((the Carbon-Atom has-part of 
+			   (the Ribose has-part of Self))
+		      called "Carbon-1" ))
+		    (((the Nitrogen-Atom has-part of
+			   (the Guanine has-part of Self))
+		      called "Nitrogen-9" ))))
+		  ))))
+	  (a Ribose))))
+
+

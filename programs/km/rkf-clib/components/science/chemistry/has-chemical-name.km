@@ -1,0 +1,12 @@
+;;
+;; $Id: has-chemical-name.km,v 1.2 2003/02/12 22:16:43 porter Exp $
+;;
+
+(has-chemical-name has
+		   (instance-of (Property))
+		   (domain      (Atom))
+		   (range       (String))
+		   (inherit-with-overrides (t))
+		   (inverse (has-chemical-name-of))
+		   (cardinality (1-to-N))
+		   )

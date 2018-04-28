@@ -1,0 +1,82 @@
+<!--- $Id: Move-Through.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<kml>
+
+<concept name=Move-Through><system-documentation name=Move-Through>
+<superconcept name=Move>
+
+<definition>
+
+  An <slot>object</slot> changes location by moving through some place
+  or along some path.
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=object>
+     the thing that moves
+  </slotdescription>
+
+  <slotdescription name=path>
+     the Place which the <slot>object</slot> moves
+     along or through.  Typically, this is an object or surface along
+     which, or through which, the <slot>object</slot> is moving.
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=agent>
+    the entity that caused the move to occur.
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>object</slot> before the move.
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>object</slot> after the move.
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>object</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>object</slot> need not reach this
+    Place, but it may.
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>object</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>object</slot> need not start at this
+    Place, but it may.
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>The protein passed through the membrane.</text>
+    <slotdescription name=object>the protein</slotdescription>
+    <slotdescription name=path>the membrane</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move>
+     Move-Through is a special type of Move in which the
+     <slot>path</slot> is required information; the object moves
+     through or along the path.
+  </neighbor>
+
+  <neighbor name=Go-Through>
+     Go-Through is a special type of Move-Through in which the
+     <slot>agent</slot> moves itself. 
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

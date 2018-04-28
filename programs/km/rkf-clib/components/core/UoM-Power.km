@@ -1,0 +1,46 @@
+;; 
+;; $Id: UoM-Power.km,v 1.6 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(UoM-Power has
+  (superclasses (Unit-of-Measurement))
+  (base-unit (*watt))
+  (instances (*watt *milliwatt *kilowatt *megawatt *horsepower))
+)
+
+(*watt has (instance-of (UoM-Power))
+       (name ("W"))
+       (wn20-synset ((:set (:triple "watt" 0 "n") 
+			   (:triple "watts" 0 "n")
+			   (:triple "W" 0 "n")
+			   ))))
+
+(*milliwatt has (instance-of (UoM-Power))
+       (name ("mW"))
+       (wn20-synset ((:set (:triple "milliwatt" 0 "n")
+			   (:triple "milliwatts" 0 "n")
+			   (:triple "mW" 0 "n")))))
+
+(*kilowatt has (instance-of (UoM-Power))
+       (name ("kW"))
+       (wn20-synset ((:set (:triple "kilowatt" 0 "n") 
+			   (:triple "kilowatts" 0 "n")
+			   (:triple "kW" 0 "n")))))
+
+(*megawatt has (instance-of (UoM-Power))
+       (name ("MW"))
+       (wn20-synset ((:set (:triple "megawatt" 0 "n")  
+			   (:triple "megawatts" 0 "n")
+			   (:triple "MW" 0 "n")))))
+
+(*horsepower has (instance-of (UoM-Power))
+       (name ("hp"))
+	     (wn20-synset ((:set (:triple "horsepower" 0 "n")
+				 (:triple "horsepowers" 0 "n")
+				 (:triple "hp" 0 "n")))))
+
+(*watt has (conversion-multiplier (1.0)))
+(*milliwatt has (conversion-multiplier (0.001)))
+(*kilowatt has (conversion-multiplier (1000.0)))
+(*megawatt has (conversion-multiplier (1000000.0)))
+(*horsepower has (conversion-multiplier (745.6999)))

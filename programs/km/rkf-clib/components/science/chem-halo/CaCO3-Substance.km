@@ -1,0 +1,13 @@
+
+;;
+;; $Id: CaCO3-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $
+;;
+
+(CaCO3-Substance has (superclasses (Ionic-Compound-Substance)))
+
+(every CaCO3-Substance has
+       (has-basic-structural-unit ((a CaCO3))))
+
+(every CaCO3-Substance has-definition
+  (instance-of (Chemical))
+  (has-basic-structural-unit ((a CaCO3))))

@@ -1,0 +1,116 @@
+;; 
+;;    $Id: Create.km,v 1.26 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Create has
+  (superclasses 	(Action))
+  (required-slot        (result))
+  (primary-slot 	(agent instrument by-means-of))
+  (cmap-correspondence 	(
+	      		 (:seq result "the thing created")
+	      		 (:seq agent "the creator")
+	      		 (:seq instrument "the instrument")
+	      		 (:seq by-means-of "the event needed for the create")	
+	      		))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+;; Surprisingly, there's not much to say about a Create.  KM takes care
+;; of creating an instance-object for the result of the Create, and 
+;; (for now) we're assuming that all instance-objects have the same 
+;; mode of existence, namely physical, present-time existence.
+
+(every Create has
+       (result       	((a Entity)))
+       (agent 		((must-be-a Entity)))
+       (instrument	((must-be-a Tangible-Entity))) 
+       (by-means-of  	((must-be-a Event)))
+       (add-list 	((:triple Self result (the result of Self) [Create-add-1])))
+       (add-list		((if (((the result of Self) isa Aggregate) and
+				      (has-value (the object of Self))) then
+				   (:triple (the result of Self) 
+					    element 
+					    (the object of Self)))))
+       (add-list    	((if (((the result of Self) isa Aggregate) and
+			      (has-value (the object of Self))) then
+			   (:triple (the result of Self)
+				    element-type
+				    ;; TODO: delete objects with the same type from list 
+				    (the object of Self))))))
+
+(comment [Create-add-1] (:seq (the object of Self) " has been created.")
+	 "A create makes a new instance of something.")
+
+
+(every Create has
+       (text-active-verbseq-sg ("creates"))
+       (text-active-verbseq-pl ("create"))
+       (text-passive-verbseq-sg ("gets created"))
+       (text-passive-verbseq-pl ("get created"))
+      
+;*; this stuff causes KM to crash on actions with multiple superclasses,
+;*; one of which is a Create and one of which is a non-Create; I've put
+;*; a scotch-tape solution in Event.km to deal with actions that have
+;*; both object and result (not just because they're Copys)
+;*;
+;*;  (text-active-agent-sentence (
+;*;     (:seq (the text-phrase of (the agent of Self))
+;*;           (the text-active-phrase of Self)
+;*;           (if ((the agent of Self) /= (the result of Self))   ; refl. Create???
+;*;            then (andify (the text-phrase of (the result of Self))))
+;*;           (the text-arguments of Self)
+;*;  )))
+;*;
+;*;  (text-active-instrument-sentence (
+;*;     (:seq (the text-phrase of (the instrument of Self))
+;*;           (the text-active-phrase of Self)
+;*;           (andify (the text-phrase of (the result of Self)))
+;*;           (the text-arguments of Self)
+;*;  )))
+;*;
+;*;  (text-passive-sentence (
+;*;     (:seq (andify (the text-phrase of (the result of Self)))
+;*;           (the text-passive-phrase of Self)
+;*;           (the text-arguments of Self)
+;*;  )))
+
+)
+
+
+;; nothing extra to say about contextual info
+
+(Create has 
+  (test-case ('(
+		(new-situation)
+		; Create a cake.
+		(a Create with
+			(result (*Cake)))
+		(do-and-next (thelast Create))
+		(the text-gen of (thelast Create))
+		; Test1: *Cake is the result of the Create
+		((the result of (thelast Create)) = *Cake)
+
+
+		(a Create with
+		   (result ((a Aggregate)))
+		   (object ((a Entity) (a Entity))))
+	       ))))
+
+
+
+
+
+
+;; automatically added WN synsets
+(Create has (wn16-synset ((:set  
+                                     (:triple "create" 1 "v")
+                                     (:triple "create" 2 "v")
+                                     (:triple "make" 3 "v")
+))))
+
+(Create has (wn20-synset ((:set
+                                     (:triple "create" 1 "v")
+                                     (:triple "create" 2 "v")
+                                     (:triple "make" 3 "v")
+))))
+(every Create has (text-nominalization ("creation")))

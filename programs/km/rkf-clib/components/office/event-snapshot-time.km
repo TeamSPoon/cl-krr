@@ -1,0 +1,4 @@
+;; $Id: event-snapshot-time.km,v 1.1 2005/03/03 16:51:43 billj Exp $
+
+(event-snapshot-time has (instance-of (Interface-Slot))(fluent-status (*Inertial-Fluent))(cardinality (N-to-1))(domain (Event))(range (Time-Instant))(inverse (is-time-of-event-snapshot))(description ("FRAME event-snapshot-time FILLER means that at the Time-Instant FILLER, FRAME is how the event is conceieved.  This slot is a temporary solution for a CALO Y2 Test requirement.  The requirement is that we be able to store snapshots of a project as it evolves during a meeting involving a Gantt chart.  As changes are made to the project, e.g. via editing the Gantt chart representation of it, we wish to be able to reify snapshots of this representation and associate with them a time at which the snapshot occurred.")))
+

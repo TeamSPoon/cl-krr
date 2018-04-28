@@ -1,0 +1,19 @@
+;; 
+;;    $Id: Particulate-Matter.km,v 1.7 2004/01/30 22:02:42 kbarker Exp $ 
+;; 
+
+;; Not yet released:
+;; - no specs yet, but used in Phagocytose
+
+(Particulate-Matter has 
+	(superclasses (Substance))
+        (required-slot ())
+        (primary-slot ())
+        (secondary-slot ())
+	(description ("Matter made up of particles. Souther."))
+        (cmap-correspondence ())
+        (test-case ()))
+
+
+
+(every Particulate-Matter has (text-phrase ((the name of Self))) (text-gen ((the text-phrase of Self))))

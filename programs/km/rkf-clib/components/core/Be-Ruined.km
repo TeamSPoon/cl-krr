@@ -1,0 +1,38 @@
+;; 
+;;    $Id: Be-Ruined.km,v 1.16 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(Be-Ruined has
+	   (superclasses (Be-Broken))
+	   (required-slot ())
+	   (primary-slot ())
+	   (secondary-slot ())
+           (caused-by-class      (Ruin))
+	   (cmap-correspondence ()))
+
+(every Be-Ruined has
+       (object ((a Tangible-Entity)))
+       ;; cannot bring out of Be-Ruined state what-so-ever.
+       (defeated-by ((mustnt-be-a Action with
+				  (object ((the object of Self))))))
+       (resulting-state-of ((must-be-a Ruin with
+				  (object ((the object of Self))))))
+)
+
+(every Be-Ruined has
+  (text-particle ("ruined"))
+)
+
+
+
+;; automatically added WN synsets
+(Be-Ruined has (wn16-synset ((:set  
+                                        (:triple "broken" 11 "a")
+                                        (:triple "busted" 3 "a")
+))))
+
+(Be-Ruined has (wn20-synset ((:set (:triple "broken" 11 "a")
+                                   (:triple "busted" 3 "a")
+                                   (:triple "irreparable" 1 "a")
+))))
+

@@ -1,0 +1,18 @@
+;;
+;; $Id: HI.km,v 1.6 2008/06/04 22:41:49 tecuci Exp $
+;;
+
+(HI has (superclasses (Bronsted-Lowry-Acid-Compound)))
+
+(every HI has	
+       (has-chemical-name ("hydroiodic acid" "hydrogen iodide"))
+       (has-part 
+	((a H-Plus) (a I-Minus)))
+       (has-chemical-formula 
+	((a Chemical-Formula with
+	    (term ((:seq (:pair 1 H-Plus)
+			 (:pair 1 I-Minus)))))))
+)(every HI has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a H-Plus) (a I-Minus))))
+

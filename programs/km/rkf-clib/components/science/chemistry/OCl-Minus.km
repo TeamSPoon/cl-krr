@@ -1,0 +1,14 @@
+;;
+;; $Id: OCl-Minus.km,v 1.2 2003/04/22 16:16:46 jchaw Exp $
+;;
+
+(OCl-Minus has (superclasses (Anion)))
+
+(every OCl-Minus has
+       (has-chemical-name ("hypochlorite"))
+       (has-chemical-formula ((a Chemical-Formula with
+			     (term (
+				    (:seq (:pair 1 O)
+					  (:pair 1 Cl)))))))
+       (charge ((a Charge-Value with
+		   (value ((:pair -1 *electronic-charge)))))))

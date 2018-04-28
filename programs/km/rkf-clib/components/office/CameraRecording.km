@@ -1,0 +1,12 @@
+;; $Id: CameraRecording.km,v 1.1 2005/01/24 20:47:34 billj Exp $
+(CameraRecording has
+	(description ("A type of Recording produced by a Camera.  May be a recording of a moving or still image."))
+	(superclasses (Recording)))
+
+(every CameraRecording has
+	(result-of ((a Record with (agent ((a Camera)))))))
+
+;; eventually we may wish to state something like "VisualDocuments
+;; contain VideoRecordings."
+
+

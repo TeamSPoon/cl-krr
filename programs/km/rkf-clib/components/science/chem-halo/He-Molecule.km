@@ -1,0 +1,16 @@
+;;
+;; $Id: He-Molecule.km,v 1.2 2008/11/03 00:14:27 tecuci Exp $
+;;
+
+(He-Molecule has (superclasses (Monoatomic-Molecule Inorganic-Molecule)))
+
+(every He-Molecule has
+       (has-part ((a He)))
+       (has-chemical-name ("helium"))
+       (nested-atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 He)))))))
+       (atomic-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 He)))))))
+       (has-chemical-formula ((a Chemical-Formula with (term ((:seq (:pair 1 He))))))))
+
+(He-Molecule has (wn20-synset ((:set (:triple "helium" 0 "n")
+				     (:triple "molecular helium" 0 "n")
+				     ))))

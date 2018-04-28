@@ -1,0 +1,25 @@
+;; 
+;;    $Id: Proteasome.km,v 1.16 2002/06/21 19:17:02 tecuci Exp $ 
+;; 
+
+(Proteasome has
+         (superclasses (Protein-Complex))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+	 (description ("Large protein complex in the cytosol that is 
+                        responsible for degrading cytosolic proteins that have
+                        been marked for destruction by ubiquitination or by
+                        some other means.  Alberts:ECB:G-14."))
+         (cmap-correspondence ())
+         (test-case ()))
+
+(every Proteasome has
+       (purpose  ((a Instrument-Role with
+		     (in-event ((a Proteolysis))))))
+       (has-part ((a Aggregate called "proteases" with
+
+		     (element-type (Protease)))
+		  (a Protein-Complex))) )
+
+

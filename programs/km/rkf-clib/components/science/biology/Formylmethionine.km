@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Formylmethionine.km,v 1.5 2001/05/18 13:14:44 souther Exp $ 
+;; 
+
+(Formylmethionine has
+         (superclasses (Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("Methionine modified with a formyl group attached to
+                        the amino nitrogen.  It is the amino acid which
+                        initiates peptide chain formation in bacteria.
+                        Souther.  see Alberts:ECB:231"))
+         (test-case ()))
+
+(every Formylmethionine has
+       (has-part
+	(
+	 (a Methionine with
+	    (object-of
+	     ((a Be-Attached-To with
+		 (object
+		  ((the Formyl-Group has-part of Self)))
+		 (instrument ((a Covalent-CN-Bond)))  
+		 (site
+		  ((the Carbon-Atom has-part of
+			(the Formyl-Group has-part of Self))
+		   (the Nitrogen-Atom has-part of
+			(the Amino-Group has-part of
+			     (the Methionine has-part of Self)))))
+		 ))))
+	 (a Formyl-Group)
+	 )))

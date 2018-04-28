@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Atomic-Nucleus.km,v 1.8 2001/06/04 01:04:18 pzyeh Exp $ 
+;; 
+
+(Atomic-Nucleus has
+         (superclasses (Atomic-Region))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+	 (description ("The central part of an atom containing protons and
+                        neutrons.  Souther."))
+         (test-case ()))
+
+(every Atomic-Nucleus has
+       (is-at-of ((a Neutron)
+		  (a Proton)
+		  (at-least 1 Proton)))
+       (is-region-of ((must-be-a Atom)))
+       )
+
+
+

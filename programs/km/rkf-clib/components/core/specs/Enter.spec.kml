@@ -1,0 +1,92 @@
+<!--- $Id: Enter.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<kml>
+
+<concept name=Enter><system-documentation name=Enter>
+<superconcept name=Move-Into>
+
+<definition>
+
+  By its own volition, an <slot>object</slot> changes its 
+  location by moving into a container
+
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=agent>
+     the entity that moves
+  </slotdescription>
+  <comment>
+     The agent moves itself, i.e. it locomotes. Therefore, the
+     <slot>agent</slot> (the entity that causes the move) is the same
+     as the <slot>object</slot> (the thing being moved).
+  </comment>
+
+  <slotdescription name=base>
+     the Tangible-Entity, playing the role of <conceptref name=Container>,
+     which the <slot>agent</slot> moves into
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+
+  <slotdescription name=path>
+    the <conceptref name=Portal> through which the 
+    <slot>agent</slot> enters the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=origin>
+    the initial location of the <slot>agent</slot> before the move.  
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-outside</slot> the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=destination>
+    the final location of the <slot>agent</slot> after the move.
+    This must be a <conceptref name=Spatial-Entity> that 
+    <slot>is-inside</slot> the <slot>base</slot>
+  </slotdescription>
+
+  <slotdescription name=toward>
+    the location toward which the <slot>agent</slot> moves.  Unlike the 
+    <slot>destination</slot>, the <slot>agent</slot> need not reach this
+    Place, but it may
+  </slotdescription>
+
+  <slotdescription name=away-from>
+    the location that the <slot>agent</slot> moves away from.  Unlike the 
+    <slot>origin</slot>, the <slot>agent</slot> need not start at this
+    Place, but it may
+  </slotdescription>
+
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Elvis entered the building through the stage door.</text>
+    <slotdescription name=agent>Elvis</slotdescription>
+    <slotdescription name=base>the building</slotdescription>
+    <slotdescription name=path>stage door</slotdescription>
+  </examplesentence>
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Move-Into>
+     Enter is a special type of Move-Into in which the
+     <slot>agent</slot> (= <slot>object</slot>) moves of its own volition, 
+     i.e.  it locomotes
+  </neighbor>
+
+  <neighbor name=Locomotion>
+     Locomotion is self movement, and Enter is locomotion into an 
+     enclosure.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

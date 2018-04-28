@@ -1,0 +1,92 @@
+(disable-classification)
+
+
+;;; ---------- Definition of prototype for Digestive-enzyme ----------
+
+(Digestive-enzyme has (superclasses (Enzyme Protein)))
+
+(_Digestive-enzyme161 has 
+  (instance-of (Digestive-enzyme))
+  (prototype-of (Digestive-enzyme))
+  (prototype-scope (Digestive-enzyme))
+  (prototype-participants (_Amino-Acid7107
+                           _Digestive-enzyme161
+                           _Polymer185
+                           _Atom187))
+  (prototype-participant-of (_Digestive-enzyme161))
+  (has-clones (_Placeholder-Class160165
+               _Digestive-enzyme2564
+               _Digestive-enzyme2571
+               _Digestive-enzyme1167))
+  (has-built-clones (_Placeholder-Class160165
+                     _Digestive-enzyme2564
+                     _Digestive-enzyme2571
+                     _Digestive-enzyme1167))
+  (has-basic-structural-unit (_Atom187
+                              _Amino-Acid7107))
+  (has-part (_Polymer185))
+  (cloned-from (_Protein305))
+  (clone-built-from (_Protein305))
+  (internally-expanded (t))
+  (node-visibility (t))
+  (edge-visibility ((:seq has-basic-structural-unit _Atom187 t)
+                    (:seq has-part _Polymer185 t)
+                    (:seq has-basic-structural-unit _Amino-Acid7107 t)))
+  (edge-coordinate ((:seq has-part _Polymer185 255 583)
+                    (:seq has-basic-structural-unit _Atom187 255 627)))
+  (node-coordinate ((:pair 50 600))))
+
+(_Amino-Acid7107 has 
+  (instance-of (Amino-Acid))
+  (has-clones (_Thing2572))
+  (cloned-from (_Amino-Acid298))
+  (node-visibility (t))
+  (is-basic-structural-unit-of (_Digestive-enzyme161))
+  (prototype-participant-of (_Digestive-enzyme161)))
+
+(_Polymer185 has 
+  (prototype-participant-of (_Digestive-enzyme161))
+  (is-part-of (_Digestive-enzyme161))
+  (instance-of (Polymer))
+  (has-clones (_Polymer171
+               _Polymer2563
+               _Polymer2570
+               _Polymer6612))
+  (cloned-from (_Polymer308))
+  (node-visibility (t))
+  (internally-expanded (f))
+  (node-coordinate ((:pair 405 577))))
+
+(_Atom187 has 
+  (prototype-participant-of (_Digestive-enzyme161))
+  (is-basic-structural-unit-of (_Digestive-enzyme161))
+  (instance-of (Atom))
+  (has-clones (_Atom170
+               _Atom2562
+               _Atom2569
+               _Atom6613))
+  (cloned-from (_Atom309))
+  (internally-expanded (f))
+  (node-visibility (t))
+  (node-coordinate ((:pair 405 621))))
+
+(explanation (:triple _Digestive-enzyme161 has-basic-structural-unit _Amino-Acid7107) ((cloned-from _Protein305 _Digestive-enzyme161)))
+(explanation (:triple _Digestive-enzyme161 has-part _Polymer185) ((added-at Protein "User defined")))
+(explanation (:triple _Digestive-enzyme161 has-basic-structural-unit _Atom187) ((a Atom (@ _Digestive-enzyme161 Molecule has-basic-structural-unit))))
+(explanation (:triple _Digestive-enzyme161 instance-of Protein) ((a Protein)))
+(explanation (:triple _Digestive-enzyme161 has-part _Polymer185) ((cloned-from _Protein305 _Digestive-enzyme161)))
+(explanation (:triple _Digestive-enzyme161 has-basic-structural-unit _Atom187) ((cloned-from _Protein305 _Digestive-enzyme161)))
+(explanation (:triple _Amino-Acid7107 instance-of Amino-Acid) ((cloned-from _Protein305 _Digestive-enzyme161)))
+(explanation (:triple _Polymer185 instance-of Polymer) ((added-at Protein "User defined")))
+(explanation (:triple _Polymer185 instance-of Polymer) ((cloned-from _Protein305 _Digestive-enzyme161)))
+(explanation (:triple _Polymer185 is-part-of _Digestive-enzyme161) ((cloned-from _Protein305 _Digestive-enzyme161)))
+(explanation (:triple _Atom187 instance-of Atom) ((a Atom)))
+(explanation (:triple _Atom187 instance-of Atom) ((a Atom (@ _Digestive-enzyme161 Molecule has-basic-structural-unit))))
+(explanation (:triple _Atom187 instance-of Atom) ((cloned-from _Protein305 _Digestive-enzyme161)))
+(explanation (:triple _Atom187 is-basic-structural-unit-of _Digestive-enzyme161) ((cloned-from _Protein305 _Digestive-enzyme161)))
+
+;;; ---------- end of prototype definition ----------
+
+(Digestive-enzyme now-has (user-description ("A protein molecule with the function of breaking down large molecules into smaller subunits.")))
+(enable-classification)
+

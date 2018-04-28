@@ -1,0 +1,34 @@
+;; 
+;;    $Id: Aspartic-Acid.km,v 1.9 2001/05/18 13:13:57 souther Exp $ 
+;; 
+
+(Aspartic-Acid has                
+         (superclasses (Acidic-Amino-Acid Nonessential-Amino-Acid))
+         (required-slot ())
+         (primary-slot ())
+         (secondary-slot ())
+         (cmap-correspondence ())
+         (description ("A polar amino acid with a acetic side chain.
+                        Souther")) 
+         (test-case ()))
+
+(every Aspartic-Acid has
+      (has-part 
+       ((a Alpha-Carbon with
+           (object-of
+            ((a Be-Attached-To with
+                (object ((the Amino-Acid-Side-Chain has-part of Self)))
+                (instrument ((a Covalent-CC-Bond)))
+		(site 
+		 ((the Carbon-Atom has-part of 
+		       (the Acetyl-Group has-part of
+			    (the Amino-Acid-Side-Chain has-part of Self)))) 
+		 )))))
+	(a Amino-Acid-Side-Chain with
+	   (has-part ((a Acetyl-Group))))	
+	)))
+
+ 
+
+
+

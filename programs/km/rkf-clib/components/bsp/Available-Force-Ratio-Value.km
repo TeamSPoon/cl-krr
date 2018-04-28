@@ -1,0 +1,17 @@
+;;
+;; $Id: Available-Force-Ratio-Value.km,v 1.3 2005/02/14 22:31:41 kbarker Exp $
+;;
+
+(Available-Force-Ratio-Value has
+  (superclasses (Property-Value))
+)
+
+(every Available-Force-Ratio-Value has
+  (property-slot (available-force-ratio))
+  (less-than 	((constraint ((TheValue isa Required-Force-Ratio-Value) or
+                              (TheValue isa Available-Force-Ratio-Value)))))
+  (greater-than ((constraint ((TheValue isa Required-Force-Ratio-Value) or
+                              (TheValue isa Available-Force-Ratio-Value)))))
+  (same-as 	((constraint ((TheValue isa Required-Force-Ratio-Value) or
+                              (TheValue isa Available-Force-Ratio-Value)))))
+)

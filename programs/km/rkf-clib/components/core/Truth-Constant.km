@@ -1,0 +1,18 @@
+
+;;
+;; $Id: Truth-Constant.km,v 1.2 2008/05/29 14:54:57 kbarker Exp $
+;;
+
+(Truth-Constant has
+ (superclasses (Constant)))
+
+  (*true has
+        (instance-of (Truth-Constant)))
+
+  (*false has
+        (instance-of (Truth-Constant)))
+
+(a Constant-Exclusion-Set with
+  (exclusive-constants (*true *false))
+)
+

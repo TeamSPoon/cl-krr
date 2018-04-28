@@ -1,0 +1,12 @@
+;;
+;; $Id: CCD.km,v 1.1 2004/10/07 19:44:31 kbarker Exp $
+;;
+
+(CCD has 
+  (superclasses (Image-Sensor))
+  (feature-slot ((the feature-slot of Image-Sensor)))
+  (feature-slot ((allof (the all-instances of Interface-Slot)
+                  where ((the domain of It) = CCD))
+  ))
+)
+

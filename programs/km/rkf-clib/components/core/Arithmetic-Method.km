@@ -1,0 +1,23 @@
+;; 
+;;    $Id: Arithmetic-Method.km,v 1.1 2008/08/26 15:03:54 kbarker Exp $ 
+;; 
+
+(Arithmetic-Method has (superclasses (Method)))
+
+(every Arithmetic-Method has
+
+;; subclasses should supply an expression for text-premods
+
+  (text-head     ((the text-phrase of (the output of Self))))
+  (text-def-head ((the text-phrase of Self)))
+  (text-phrase   ((:seq (the text-premods of Self)
+                        "="
+                        (the text-head of Self)
+                  )
+  ))
+
+  (text-sentence ((make-phrase (the text-phrase of Self))))
+  (text-description ((the text-sentence of Self)))
+  (text-gen ((the text-sentence of Self)))
+)
+

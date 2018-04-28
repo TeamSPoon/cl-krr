@@ -1,0 +1,20 @@
+
+;; 
+;;  $Id: Armored-Brigade.km,v 1.5 2002/10/12 16:04:02 kbarker Exp $
+;; 
+
+(Armored-Brigade has
+   (superclasses (Armor-Unit Brigade)))
+
+(every Armored-Brigade has-definition
+   (instance-of (Armor-Unit Brigade)))
+
+(every Armored-Brigade has
+   (element (
+             (a Armored-Battalion)
+             (a Armored-Battalion)
+             (a Direct-Support-Artillery-Battalion)
+             (a Mechanized-Infantry-Battalion)
+   ))
+)
+

@@ -1,0 +1,36 @@
+;;
+;;    $Id: Be-Activated.km,v 1.13 2005/10/24 14:37:53 kbarker Exp $
+;;
+
+(Be-Activated has
+  (superclasses         (Be-Accessible))
+  (required-slot        (object))
+  (primary-slot         ())
+  (caused-by-class      (Activate))
+  (defeated-by-class    (Deactivate))
+  (cmap-correspondence  (
+                         (:seq object "the thing that's active")
+                        )))
+
+(every Be-Activated has 
+       (object ((a Entity)))
+)
+
+(every Be-Activated has
+   (text-particle ("activated"))
+)
+
+
+;; automatically added WN synsets
+(Be-Activated has (wn16-synset ((:set  
+                                           (:triple "activated" 3 "a")
+                                           (:triple "active" 13 "a")
+                                           (:triple "on" 1 "a")
+))))
+
+(Be-Activated has (wn20-synset ((:set
+                                           (:triple "activated" 3 "a")
+                                           (:triple "active" 12 "a")
+                                           (:triple "on" 1 "a")
+))))
+

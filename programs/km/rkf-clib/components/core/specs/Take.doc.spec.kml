@@ -1,0 +1,40 @@
+<!--- $Id: Take.doc.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+
+<concept name=Take>
+<superconcept name=Obtain>
+
+<hr>
+<h3>Component Semantics:</h3>
+<component tag=Take>
+  <definition>intentional change of possession of an object by the recipient from a donor</definition>
+  <requiredslot name=donor>
+    <restriction><slot>possess</slot>ed <slot>object</slot> before Take</restriction>
+  </requiredslot>
+  <requiredslot name=agent>
+    <inheritedfrom name=Obtain>
+    <restriction>causes <slot>object</slot>'s <slot>possessed-by</slot> to change</restriction>
+    <restriction>= <slot>recipient</slot></restriction>
+  </requiredslot>
+  <requiredslot name=recipient>
+    <inheritedfrom name=Obtain>
+    <restriction><slot>possess</slot>es <slot>object</slot> after Take</restriction>
+  </requiredslot>
+  <requiredslot name=object>
+    <inheritedfrom name=Obtain>
+    <restriction><slot>possessed-by</slot> changes</restriction>
+  </requiredslot>
+  <primaryslot name=instrument>
+    <inheritedfrom name=Obtain>
+    <restriction>medium of transfer of <slot>object</slot></restriction>
+  </primaryslot>
+  <wnsynsets><verb>take#8
+  </verb></wnsynsets>
+  <wnsynsets><verb>
+  </verb></wnsynsets>
+</component>
+
+</kml>
+
+

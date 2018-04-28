@@ -1,0 +1,49 @@
+<!--- $Id: Organization.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+<kml>
+
+<concept name=Organization>
+<system-documentation name=Organization>
+<superconcept name=Aggregate>
+
+<definition>
+  an aggregate of roles
+</definition>
+
+<requiredslotlist>
+
+  <slotdescription name=in-organization-of>
+    the elements of the Organization
+  </slotdescription>
+
+</requiredslotlist>
+
+<primaryslotlist>
+</primaryslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+    <text>Fred is a student at UT Austin.</text>
+<slotdescription name=in-organization-of>*Student01</slotdescription>.
+    <comment>
+
+Student is a sublcass of <conceptref name=Role>.  An instance of
+Student, call it *Student01, must be reified.  Fred, the Entity,
+<conceptref name=plays> the role *Student01.
+
+    </comment>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+  <neighbor name=Aggregate>
+    Top level component for collections.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+
+

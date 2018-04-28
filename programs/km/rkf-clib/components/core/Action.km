@@ -1,0 +1,106 @@
+;; 
+;;    $Id: Action.km,v 1.34 2009/10/29 21:33:04 kbarker Exp $ 
+;; 
+
+(Action has
+	(superclasses 	     (Event))
+	(primary-slot 	     (agent object instrument))
+	(secondary-slot      (subevent))   
+	(cmap-correspondence (
+   		   	      (:seq object "the thing Acted upon")
+   		              (:seq agent "the Actor")
+ 		              (:seq instrument "the thing used to Act")
+	   		     )))
+
+
+(every Action has
+;       (object  	  ((must-be-a Thing)))  ; this is ridiculous!
+       (instrument 	  ((must-be-a Entity)))
+
+       (soft-pcs-list (
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the instrument of Self)))
+			   then
+			 (forall (the instrument of Self)
+				 (:set (:triple It
+						object-of
+						(a Be-Controlled with
+						   (agent ((the agent of Self)))))
+				       (:triple It 
+						object-of 
+						(mustnt-be-a Be-Inaccessible 
+							     with
+							     (base ((the agent of Self))))))))
+		       
+		       (if (has-value (the instrument of Self))
+			   then
+			 (forall (the instrument of Self)
+				 (:triple It object-of (mustnt-be-a Be-Inaccessible))))
+		       
+		       (if ((has-value (the agent of Self)) and
+			    (has-value (the object of Self)))
+			   then
+			 (forall (the object of Self)
+				 (:triple It
+					  object-of
+					  (mustnt-be-a Be-Inaccessible with
+						       (base ((the agent of Self)))))))
+		       
+		       (forall (the object of Self)
+			       (:triple It
+					object-of
+					(mustnt-be-a Be-Inaccessible)))
+		       ))
+       ;;still trying to get this one right (jarred @cs.)
+;       (pcs-list	  ((if(
+;			       ((has-value (the instrument of Self)) and 
+;				(has-value (the purpose of (the instrument of Self)))) 
+;			       and
+;			       ((the in-event-of of Self) is-superset-of (the purpose of (the instrument of Self)))
+;			       )
+;			       then
+;			     (:triple
+;			      (the instrument of Self)
+;			      object-of
+;			      (mustnt-be-a Be-Broken)
+;			      ))))
+       
+       (preparatory-event ((:default
+			    (if ((the agent of Self) /= (the object of Self))
+				then
+			      (a Move with 
+				 (object      ((the agent of Self)))
+				 (destination ((the object of Self)))
+				 ))
+			    (a Move with 
+			       (object	     ((the instrument of Self)))
+			       (destination ((the object of Self)))
+			       )
+			    ))
+			  )
+       )
+
+
+
+;; automatically added WN synsets
+(Action has (wn16-synset ((:set  
+                                     (:triple "act" 1 "v")
+                                     (:triple "do" 1 "v")
+                                     (:triple "do" 2 "v")
+                                     (:triple "execute" 6 "v")
+                                     (:triple "make" 1 "v")
+                                     (:triple "move" 8 "v")
+                                     (:triple "perform" 1 "v")
+))))
+
+(Action has (wn20-synset ((:set
+                                     (:triple "act" 1 "v")
+                                     (:triple "do" 2 "v")
+                                     (:triple "execute" 6 "v")
+                                     (:triple "move" 8 "v")
+                                     (:triple "perform" 1 "v")
+                                     (:triple "work" 5 "v")
+                                     (:triple "work on" 2 "v")
+                                     (:triple "process" 5 "v")
+))))
+(every Action has (text-nominalization ("action")))

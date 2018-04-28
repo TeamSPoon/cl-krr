@@ -1,0 +1,98 @@
+;;
+;;    $Id: Withdraw.km,v 1.18 2005/10/25 03:02:11 sdbaji Exp $
+;;
+
+(Withdraw has
+  (superclasses         (Move-Out-Of))
+  (required-slot        (object base))
+  (primary-slot         (agent instrument))
+  (secondary-slot       ())
+  (cmap-correspondence  (
+                         (:seq object "the thing being withdrawn")      
+                         (:seq base "the thing withdrawed from")                     
+                         (:seq agent "the agent")
+			 (:seq instrument "the instrument used")
+                        ))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every Withdraw has
+  (object     ((a Entity)))
+  (base       ((exactly 1 Tangible-Entity)
+	       (a Tangible-Entity)))
+  (agent      ((must-be-a Entity)))
+  (instrument ((must-be-a Entity)))  
+
+  (defeats  ((allof (the object-of of (the base of Self))
+                    where
+                    (((the classes of It) = Be-Stored) and
+                     ((the object of It) includes (the object of Self))))))
+
+  ;; SOFT PCS: Addition of some triples for soft pcs. 
+  (soft-pcs-list (
+		  (:triple (the base of Self) object-of (a Be-Accessible))
+		  (if (has-value (the agent of Self))
+		      then
+		      (:triple (the base of Self)
+			       object
+			       (mustnt-be-a Be-Inaccessible with
+				 (base ((the agent of Self))))))
+		  (:triple (the base of Self) encloses (the object of Self))
+		))
+
+  (del-list (
+	     (forall (the defeats of Self)
+                     (:set
+		       (:triple It object (the object of Self) [Withdraw-del-2])
+		       (:triple It base (the base of Self) [Withdraw-del-3]))))))
+
+(comment [Withdraw-del-2] (:seq (the object of Self) " is no longer stored in " (the base of Self))
+	 "When something is withdrawn from a container, it is no longer stored in the container.")
+
+(comment [Withdraw-del-3] (:seq (the object of Self) " is no longer stored in " (the base of Self))
+	 "When something is withdrawn from a container, it is no longer stored in the container.")
+
+(every Withdraw has
+   (preparatory-event ((:default
+	(a Store with 
+	 (object ((the object of Self))))
+	(a Open with 
+	 (base ((the base of Self)))
+	 (agent ((the agent of Self))))
+))))
+
+
+
+(every Withdraw has
+  (text-active-verbseq-sg ("withdraws"))
+  (text-active-verbseq-pl ("withdraw"))
+  (text-passive-verbseq-sg ("gets withdrawn"))
+  (text-passive-verbseq-pl ("get withdrawn"))
+
+  (text-base ((if (has-value (the base of Self))
+                  then ("from"))))
+
+)
+
+
+
+
+;; automatically added WN synsets
+(Withdraw has (wn16-synset ((:set  
+                                       (:triple "withdraw" 9 "v")
+                                       (:triple "draw" 14 "v")
+                                       (:triple "take_out" 2 "v")
+                                       (:triple "take_out" 6 "v")
+                                       (:triple "take_out" 8 "v")
+                                       (:triple "unpack" 1 "v")
+))))
+
+(Withdraw has (wn20-synset ((:set
+                                       (:triple "withdraw" 10 "v")
+                                       (:triple "draw" 13 "v")
+                                       (:triple "take_out" 2 "v")
+                                       (:triple "take_out" 6 "v")
+                                       (:triple "take_out" 8 "v")
+                                       (:triple "unpack" 1 "v")
+))))
+(every Withdraw has (text-nominalization ("withdrawal")))

@@ -1,0 +1,116 @@
+(Vector-Motion-under-force has
+	(superclasses (Move)))
+
+(every Vector-Motion-under-force has
+	( caused-by (( a Exert-Force with
+									( object (( the second of ( the is-between of (( a Coefficient-of-kinetic-friction with 
+																																		(is-between (( *Ground ) ( a Spatial-Entity with ( mass (( a Mass-Value ))))))
+																																		(value 	;;((:default (:pair 0 *unity))					)
+					)))))))
+									( applied-force (( a Force-Vector-Value )))
+									( weight-force (( a Force-Vector-Value with
+																		( x-force-magnitude (( a Force-Magnitude-Value ;;with ( value ((:pair 0 *newton )))
+						)))))) 
+									( normal-force (( a Force-Vector-Value with
+																		( direction ((( the direction of Self ) property-plus ( a Angle-Value with ( value ((:pair 90 *degree ))))))))))
+;									( friction-force (( a Force-Vector-Value )))
+									( friction-force (( a Force-Vector-Value with
+																		( direction ((( the direction of ( the acceleration of Self )) property-plus ( a Angle-Value with ( value ((:pair 180 *degree ))))))))))
+									( net-force (( a Force-Vector-Value )))
+									( acceleration-magnitude (( a Acceleration-Value with
+																							( value ((:pair -9.8 *meter-per-second-squared ))))))
+							)))
+	( object (( the object of ( the caused-by of Self ))))
+	( direction (( a Angle-Value )))
+	( acceleration (( a Acceleration-Vector-Value )))
+
+	( component-of (( a System with
+										( equation (
+																;; Equation to calculate the Y-component of weight force		
+																( a Equation-Set with
+																	( equation-uses (( the acceleration-magnitude of ( the caused-by of Self ))
+																									 ( the mass of ( the object of Self ))
+																									 ( the weight-y-force-magnitude of ( the caused-by of Self ))))
+																	( equation-symbol (( :pair (QUOTE g) ( the acceleration-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE m) ( the mass of ( the object of Self )))
+																										 ( :pair (QUOTE W_y) ( the weight-y-force-magnitude of ( the caused-by of Self )))))
+																	( equation-expression (( QUOTE ( = W_y ( * m g )))))
+																)
+ 
+                                ;; Equation to calculate the magnitude of normal force
+																( a Equation-Set with
+																	( equation-uses (( the weight-y-force-magnitude of ( the caused-by of Self ))
+																									 ( the force-magnitude of ( the normal-force of ( the caused-by of Self )))
+																									 ( the direction of Self )))
+                                  ( equation-symbol (( :pair (QUOTE W_y) ( the weight-y-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE N) ( the force-magnitude of ( the normal-force of ( the caused-by of Self ))))
+																										 ( :pair (QUOTE theta) ( the direction of Self ))))
+																	( equation-expression (( QUOTE ( = N ( * -1 ( * W_y ( cos theta )))))))
+																)
+
+																;; Equation to calculate friction force magnitude
+																( a Equation-Set with
+																	( equation-uses (( the force-magnitude of ( the friction-force of ( the caused-by of Self )))
+																									 ( the force-magnitude of ( the normal-force of ( the caused-by of Self )))
+																									 ( the is-between-of of ( the object of Self ))))
+																	( equation-symbol (( :pair (QUOTE Fr) ( the force-magnitude of ( the friction-force of ( the caused-by of Self ))))
+																										 ( :pair (QUOTE N) ( the force-magnitude of ( the normal-force of ( the caused-by of Self ))))
+																										 ( :pair (QUOTE mu) ( the is-between-of of ( the object of Self )))))
+																	( equation-expression (( QUOTE ( = Fr ( * N mu ))))))
+
+                                ;; TODO
+																;; Equation to calculate the direction of friction force
+																;;
+                                ;; added as constraint on friction-force slot
+
+																;; Equation to calculate the net force (x-component)
+																( a Equation-Set with
+																	( equation-uses (( the net-x-force-magnitude of ( the caused-by of Self ))
+																									 ( the applied-x-force-magnitude of ( the caused-by of Self ))
+																									 ( the weight-x-force-magnitude of ( the caused-by of Self ))
+																									 ( the normal-x-force-magnitude of ( the caused-by of Self ))
+																									 ( the friction-x-force-magnitude of ( the caused-by of Self ))))
+																	( equation-symbol (( :pair (QUOTE NF_x) ( the net-x-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE AF_x) ( the applied-x-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE W_x) ( the weight-x-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE N_x) ( the normal-x-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE FF_x) ( the friction-x-force-magnitude of ( the caused-by of Self )))))
+																	( equation-expression (( QUOTE ( = NF_x ( + AF_x ( + W_x ( + N_x FF_x ))))))))
+
+																;; Equation to calculate the net force (y-component)
+																( a Equation-Set with
+																	( equation-uses (( the net-y-force-magnitude of ( the caused-by of Self ))
+																									 ( the applied-y-force-magnitude of ( the caused-by of Self ))
+																									 ( the weight-y-force-magnitude of ( the caused-by of Self ))
+																									 ( the normal-y-force-magnitude of ( the caused-by of Self ))
+																									 ( the friction-y-force-magnitude of ( the caused-by of Self ))))
+																	( equation-symbol (( :pair (QUOTE NF_y) ( the net-y-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE AF_y) ( the applied-y-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE W_y) ( the weight-y-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE N_y) ( the normal-y-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE FF_y) ( the friction-y-force-magnitude of ( the caused-by of Self )))))
+																	( equation-expression (( QUOTE ( = NF_y ( + AF_y ( + W_y ( + N_y FF_y ))))))))
+
+																;; Force = mass * accelertion (x-components) 
+																( a Equation-Set with
+																	( equation-uses (( the mass of ( the object of Self ))
+																									 ( the net-x-force-magnitude of ( the caused-by of Self ))
+																									 ( the x-acceleration-magnitude of Self )))
+																	( equation-symbol (( :pair (QUOTE m) ( the mass of ( the object of Self )))
+																										 ( :pair (QUOTE NF_x) ( the net-x-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE a_x) ( the x-acceleration-magnitude of Self ))))
+																	( equation-expression (( QUOTE ( = NF_x ( * m a_x ))))))
+
+																;; Force = mass * accelertion (y-components) 
+																( a Equation-Set with
+																	( equation-uses (( the mass of ( the object of Self ))
+																									 ( the net-y-force-magnitude of ( the caused-by of Self ))
+																									 ( the y-acceleration-magnitude of Self )))
+																	( equation-symbol (( :pair (QUOTE m) ( the mass of ( the object of Self )))
+																										 ( :pair (QUOTE NF_y) ( the net-y-force-magnitude of ( the caused-by of Self )))
+																										 ( :pair (QUOTE a_y) ( the y-acceleration-magnitude of Self ))))
+																	( equation-expression (( QUOTE ( = NF_y ( * m a_y ))))))
+
+))))))
+
+

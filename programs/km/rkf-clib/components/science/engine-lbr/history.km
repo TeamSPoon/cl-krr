@@ -1,0 +1,19 @@
+;; 
+;;    $Id: history.km,v 1.1 2007/06/05 19:47:44 porter Exp $ 
+;; 
+
+(history has
+   (instance-of (Participant-Relation))
+   (superslots ())
+   (subslots ())
+   (domain (Device))
+   (range (Entity))
+   (inverse (history-of))
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-N)))
+
+(history-of has
+   (instance-of (Participant-Relation))
+   (combine-values-by-appending (t)))
+
+

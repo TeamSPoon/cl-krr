@@ -1,0 +1,70 @@
+<!--- $Id: Role.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<kml>
+<concept name=Role>
+<system-documentation name=Role>
+<gpd-documentation name=Roles>
+
+
+<superconcept name=Thing>
+
+  <definition>
+    A Role is the name given to an <conceptref name=Entity> when it's
+    participating in an <conceptref name=Event>.
+    Examples include <conceptref name=Barrier>,
+    <conceptref name=Container>, and <conceptref name=Product>, in
+    which the Entity "playing the role" is participating in the Events
+    of <conceptref name=Block>, <conceptref name=Be-Contained>, and 
+    <conceptref name=Produce>, respectively.
+  </definition>
+
+<requiredslotlist>
+
+  <slotdescription name=played-by>
+      the <conceptref name=Entity> that plays the Role
+  </slotdescription>
+
+  <slotdescription name=in-event>
+      the <conceptref name=Event> that that Entity participates in
+  </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>The philanthropist gave his stock certificates to charity.</text>
+     <comment>
+          In this example, the Role is <conceptref name=Donor-Role>, with 
+          these properties:
+      </comment>
+     <slotdescription name=in-event>Donate</slotdescription>
+     <slotdescription name=played-by>the philanthropist</slotdescription>
+  </examplesentence>
+  <examplesentence>
+     <text>He used a rock to hit the nail. </text>
+     <comment>
+          In this example, the Role is <conceptref name=Instrument-Role>,
+          with these properties:
+     </comment>
+     <slotdescription name=in-event>hit the nail</slotdescription>
+     <slotdescription name=played-by>rock</slotdescription>
+  </examplesentence>
+
+</examplesentencelist>
+
+<neighborlist>
+
+   <neighbor name=Entity>
+     An Entity is some thing that exists.
+  </neighbor>
+
+  <neighbor name=Event>
+     An Event is some thing that happens.  In contrast, a Role 
+     represents an Entity's participation in some Event.
+  </neighbor>
+
+</neighborlist>
+
+</kml>
+

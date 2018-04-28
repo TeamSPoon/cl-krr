@@ -1,0 +1,14 @@
+;; $Id: NaHCO3.km,v 1.5 2006/01/23 23:33:41 jfan Exp $ 
+(NaHCO3 has (superclasses (Ionic-Compound)))
+(every NaHCO3 has
+	(has-chemical-name ("sodium hydrogen carbonate" "sodium bicarbonate"))
+	(has-part ((a Na-Plus)(a HCO3-Minus)))
+	(has-chemical-formula ((a Chemical-Formula with
+		(term ((:seq
+			(:pair 1 Na-Plus)
+			(:pair 1 HCO3-Minus)))))))
+)
+(every NaHCO3 has-definition
+  (instance-of (Chemical-Entity))
+  (has-part ((a Na-Plus) (a HCO3-Minus))))
+

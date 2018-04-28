@@ -1,0 +1,23 @@
+;; 
+;; $Id: Pumping-Device.km,v 1.1 2006/06/27 18:42:21 kbarker Exp $
+;; 
+
+(Pumping-Device has (superclasses (Physical-Object)))
+
+(every Pumping-Device has
+  (has-part ((a Chamber with
+                (encloses ((a Place)))
+                (has-region ((a Region uniquely-called "inlet portal" with
+                                (plays ((a Portal))))
+                             (a Region uniquely-called "outlet portal" with
+                                (plays ((a Portal))))
+             )))
+             (a Valve uniquely-called "inlet valve")
+             (a Valve uniquely-called "outlet valve")
+  ))
+)
+
+(Pumping-Device has (wn20-synset ((:set
+                              (:triple "pump" 1 "n")
+))))
+

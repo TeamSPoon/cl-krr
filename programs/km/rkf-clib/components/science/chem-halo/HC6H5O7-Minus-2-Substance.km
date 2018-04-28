@@ -1,0 +1,21 @@
+;; $Id: HC6H5O7-Minus-2-Substance.km,v 1.4 2008/11/03 03:11:26 tecuci Exp $ 
+
+(HC6H5O7-Minus-2-Substance has (superclasses (Anion-Substance)))
+(every HC6H5O7-Minus-2-Substance has
+	(plays (((a Acid-Role with
+		(default-ka ((a Equilibrium-Constant-Value with
+			(value ((:pair 4.0e-7 nil))))))
+		(intensity ((a Intensity-Value with
+			(value ((:pair *weak Acid))))))))
+	       ((a Base-Role with		
+		   (default-kb ((a Equilibrium-Constant-Value with
+				   (value ((:pair 5.88e-10 nil))))))
+		   (intensity ((a Intensity-Value with
+				  (value ((:pair *weak Base))))))))
+	))
+	(has-chemical-name (""))
+	(has-basic-structural-unit ((a HC6H5O7-Minus-2)))
+)
+(every HC6H5O7-Minus-2-Substance has-definition
+  (instance-of (Anion-Substance))
+  (has-basic-structural-unit ((a HC6H5O7-Minus-2))))

@@ -1,0 +1,35 @@
+;; 
+;;    $Id: related-to.km,v 1.7 2007/04/11 21:31:10 jchaw Exp $ 
+;; 
+
+(related-to has
+  (instance-of 		(CLIB-Slot-Group)) 
+  (superslots 		())     
+  (subslots 		())
+  (domain 		(Thing))
+  (range 		(Thing))
+  (inverse 		(related-to))
+  (text-slot            (text-related-to))
+  (fluent-status 	(*Inertial-Fluent))
+  (original-slot      (t))	
+  (cardinality 		(N-to-N)))
+
+(related-to has (text-gloss ("is related to")))
+
+(related-to-of has
+   (instance-of (CLIB-Slot-Group)))
+
+(text-related-to has
+  (instance-of (NL-Slot-Group))
+  (superslots ())
+  (subslots ())
+  (domain (Thing))
+  #|(range (Thing))|#
+  (fluent-status (*Inertial-Fluent))
+  (cardinality (N-to-1))
+  (inherit-with-overrides (t))
+  (inverse (text-related-to))
+)
+
+(text-related-to-of has (instance-of (NL-Slot-Group)))
+

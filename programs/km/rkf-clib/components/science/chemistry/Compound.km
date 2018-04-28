@@ -1,0 +1,17 @@
+;; 
+;;    $Id: Compound.km,v 1.8 2005/07/06 20:38:42 pzyeh Exp $ 
+;; 
+
+(Compound has
+	  (superclasses (Chemical-Entity))
+	  (test-case ()))
+
+(every Compound has
+       (charge ((:default
+		 (a Charge-Value with
+		    (value ((:pair 0 *electronic-charge)))))))
+       (salt-status
+	((the output of (a Compute-Salt-Status with
+			   (input (Self)))))
+	))
+

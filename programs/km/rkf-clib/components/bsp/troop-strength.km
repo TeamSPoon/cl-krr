@@ -1,0 +1,19 @@
+;; 
+;;    $Id: troop-strength.km,v 1.2 2002/08/21 22:08:55 kbarker Exp $
+;; 
+
+(troop-strength has
+   (instance-of   	(Property))
+   (superslots    	())
+   (subslots 	  	())
+   (domain        	(Military-Unit))
+   (range         	(Troop-Strength-Value))
+   (scale-class         (Troop-Strength-Scale))
+   (scalar-constant-class (Troop-Strength-Constant))
+   (inverse 	  	(troop-strength-of))
+   (fluent-status      	(*Inertial-Fluent))
+   (inherit-with-overrides (t))
+   (cardinality        	(N-to-1))
+)
+
+

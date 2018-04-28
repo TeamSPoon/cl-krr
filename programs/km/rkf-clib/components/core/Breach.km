@@ -1,0 +1,95 @@
+;; 
+;;    $Id: Breach.km,v 1.25 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(Breach has
+	(superclasses 	     (Break))
+	(required-slot       (object))
+	(primary-slot 	     (agent result))
+	(secondary-slot      ())
+	(cmap-correspondence (
+			      (:seq agent "the breacher")
+			      (:seq object "the barrier breached")
+			      (:seq result "the resulting portal")
+			     ))
+      #|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every Breach has
+       ;; implementing partial Role solution
+       (object ((must-be-a Tangible-Entity with
+			   (plays ((a Barrier))))))
+       ;;(object (((a Barrier) & (a Tangible-Entity))))
+       ;; required, but often not specified
+       (result ((a Spatial-Entity with
+		   (plays ((a Portal))))))
+       
+       ;; the agent of Breach is the agent in the Creation of the Portal
+       (agent ((must-be-a Tangible-Entity with
+			  (agent-of ((a Create with
+					(result ((the result of Self)))))))))
+
+       ;; SOFT PCS: Want to say things that are negated, but there no way
+       ;;	    to do this currently.
+       ;; (soft-pcs-list ())
+       
+       ;; the post-condition of a Breach is that a portal
+       ;; in the barrier being breached is created,
+       #|implementing partial Role 
+       (add-list ((forall (the result of Self)
+			  (:triple 
+			   It
+			   is-region-of
+			   (the Barrier plays of (the object of Self)))))))|#
+       (add-list ((forall (the result of Self)
+			  (:triple
+			   It
+			   is-region-of
+			   (the object of Self) [Breach-add-1])))))
+
+(comment [Breach-add-1] (:seq (the result of Self) " has been created in " (the object of Self))
+	 "A breach creates a portal in a barrier.")
+
+(every Breach has
+  (text-active-verbseq-sg ("breaches"))
+  (text-active-verbseq-pl ("breach"))
+  (text-passive-verbseq-sg ("gets breached"))
+  (text-passive-verbseq-pl ("get breached"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(Breach has
+	(test-case ('(
+		      (*wall has (instance-of (Tangible-Entity)))
+		      (*Breacher has (instance-of (Tangible-Entity)))
+                      (*Portal has (instance-of (Spatial-Entity)))
+
+		      ; Breach *Barrier
+		      (a Breach with
+		       (agent  (*Breacher))
+		       (object (*wall))
+		       (result (*Portal)))
+
+		      (do-and-next (thelast Breach))
+		      ; Test1: *Portal is now part of *wall
+		      #| implementing partial role|#
+                      ((the is-region-of of *Portal) = *wall)
+		      ))))
+
+
+
+
+
+;; automatically added WN synsets
+(Breach has (wn16-synset ((:set  
+                                     (:triple "breach" 2 "v")
+                                     (:triple "gap" 1 "v")
+))))
+
+(Breach has (wn20-synset ((:set
+                                     (:triple "breach" 2 "v")
+                                     (:triple "gap" 1 "v")
+))))
+(every Breach has (text-nominalization ("breach")))

@@ -1,0 +1,66 @@
+;; 
+;;    $Id: Propionic-Group.km,v 1.7 2001/06/01 14:59:26 pnav Exp $ 
+;; 
+
+(Propionic-Group has
+	      (superclasses (Chemical-Group))
+	      (required-slot ())
+	      (primary-slot ())
+	      (secondary-slot ())
+              (description ("Acidic chemical group derived from propane.
+                             CH3-CH2-COO-  Souther."))
+	      (cmap-correspondence ()))
+
+(every Propionic-Group has
+       (has-part
+	((a Carbon-Atom uniquely-called "Carbon-1" with 
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C1-Hydrogen-1")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C1-Hydrogen-2")))
+                 (instrument ((a Covalent-CH-Bond))) )   
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "Carbon-2")))
+                 (instrument ((a Covalent-CC-Bond))) ) 
+	      )))
+	 (a Carbon-Atom uniquely-called "Carbon-2" with
+            (object-of
+             (
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C2-Hydrogen-1")))
+                 (instrument ((a Covalent-CH-Bond))) )
+              (a Be-Attached-To with
+                 (object (((the has-part of Self) uniquely-called "C2-Hydrogen-2")))
+                 (instrument ((a Covalent-CH-Bond))) )   
+              (a Be-Attached-To with
+                 (object ((the Carboxyl-Group has-part of Self)))
+                 (instrument ((a Covalent-CC-Bond)))
+		 (site 
+		  ((the Carbon-Atom has-part of
+                       (the Carboxyl-Group has-part of Self))))
+		 ))))
+
+
+         (a Carboxyl-Group)
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C1-Hydrogen-2")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen-1")
+	 (a Hydrogen-Atom uniquely-called "C2-Hydrogen-2")
+	 )))
+
+
+
+
+
+
+
+
+
+
+
+
+
+

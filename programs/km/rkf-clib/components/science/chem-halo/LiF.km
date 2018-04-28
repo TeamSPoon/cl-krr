@@ -1,0 +1,17 @@
+;;
+;; $Id: LiF.km,v 1.1 2007/11/06 17:40:30 mrglass Exp $
+;;
+
+(LiF has (superclasses (Salt)))
+
+(every LiF has
+  (has-part ((a Li-Plus) (a F-Minus)))
+  (nested-atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 1 Li) (:pair 1 F)))))))
+  (atomic-chemical-formula (
+         (a Chemical-Formula with (term ((:seq (:pair 1 Li) (:pair 1 F)))))))
+  (has-chemical-formula (
+         (a Chemical-Formula with
+            (term ((:seq (:pair 1 Li-Plus) (:pair 1 F-Minus)))))))
+  )
+

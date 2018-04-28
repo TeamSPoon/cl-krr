@@ -1,0 +1,42 @@
+<!--- $Id: Template.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<kml>
+<concept name=Template>
+
+<superconcept name=Role>
+
+  <definition>
+    Template is the <conceptref name=Role> played by an Entity which is
+    the <slot>object</slot> of a <conceptref name=Copy>.
+  </definition>
+
+<requiredslotlist>
+   <slotdescription name=played-by>
+     the entity that's playing the role of a Template
+   </slotdescription>
+   <slotdescription name=in-event>
+     the <conceptref name=Copy> event in which the entity is a Template
+   </slotdescription>
+
+</requiredslotlist>
+
+<examplesentencelist>
+
+  <examplesentence>
+     <text>John copied Mary's notes.</text>
+     <comment>
+     In this example, the Template role is described with these properties:
+     </comment>
+     <slotdescription name=in-event><conceptref name=Copy> with 
+         <slot>agent</slot>=John
+     </slotdescription>
+     <slotdescription name=played-by>Mary's notes</slotdescription>
+     
+  </examplesentence>
+
+</examplesentencelist>
+
+</kml>
+
+
+

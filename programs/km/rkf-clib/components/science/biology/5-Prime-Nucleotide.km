@@ -1,0 +1,19 @@
+;; 
+;;    $Id: 5-Prime-Nucleotide.km,v 1.13 2001/06/12 19:17:58 souther Exp $ 
+;; 
+
+(5-Prime-Nucleotide has
+     (superclasses (Nucleotide))
+     (required-slot ())
+     (primary-slot ())
+     (secondary-slot ())
+     (description ("Nucleotide at the end of a sequence whose 5' end either
+                    bears a free triphosphate (free sequences like DNA strands
+                    or DNA strand fragments) or whose 5' end
+                    is attached to a neighboring sequence (internal sequences
+                    like introns or regulatory sequences).  Souther. "))
+     (cmap-correspondence ()))
+
+(every 5-Prime-Nucleotide has
+       (is-part-of ((a Nucleotide-Sequence)))
+       )

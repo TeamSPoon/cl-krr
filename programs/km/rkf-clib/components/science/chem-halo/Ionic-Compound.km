@@ -1,0 +1,93 @@
+;; 
+;;    $Id: Ionic-Compound.km,v 1.20 2010/05/18 15:05:12 kbarker Exp $ 
+;; 
+
+(Ionic-Compound has
+	  (superclasses (Strong-Electrolyte-Entity))
+	  (test-case ()))
+
+(Ionic-Compound has
+  (user-description ("An ionic compound is a compound composed of cations and anions.")))
+
+(every Ionic-Compound has-definition
+       (instance-of (Chemical-Entity [Ionic-Compound-instance-of-1]))
+       (has-part ((a Anion) (a Cation))))
+
+(comment [Ionic-Compound-instance-of-1]
+  (:seq (the text-gen of Self)
+        "is made up of"
+        (the text-gen of (the Anion has-part of Self))
+        "and"
+        (the text-gen of (the Cation has-part of Self))
+  )
+  "A chemical is an ionic compound if it is made up of a cation and an anion"
+)
+
+(every Ionic-Compound has
+       (has-chemical-name ((if (not (has-value (the has-chemical-name of Self)))
+			       then (#'(LAMBDA ()
+					       (COMPUTE-CHEMICAL-NAME-FROM-FORMULA-OF-IONIC-COMPOUND 
+						(KM '(|the| |term| |of| (|the| |has-chemical-formula| |of| |Self|)))))))))
+       (has-part ((if ((not (has-value (the has-part of Self)))
+		       and 
+		       (allof (the has-part of Self)
+			      where (not (has-value 
+					  (the term of 
+					       (the has-chemical-formula of It))))))
+		      then
+		    ((?nacf-term == (the term of (the nested-atomic-chemical-formula of Self)))
+		     and
+		     (if (has-value ?nacf-term)
+			 then
+		       (the output of 
+			    (a Compute-Ionic-Compound-Parts-from-Nested-Formula with
+			       (input (?nacf-term)))))))))
+       
+       ;; has-chemical-formula <- has-part
+       (has-chemical-formula ((if ((not (has-value (the has-chemical-formula of Self)))
+				   and
+				   (the has-part of Self)
+				   and
+				   (has-value (the value of (the charge of (the Cation has-part of Self))))
+				   and
+				   (has-value (the value of (the charge of (the Anion has-part of Self)))))
+				  then
+				(the output of 
+				     (a Compute-Chemical-Formula-of-Ionic-Compound with
+					(input ((the Cation has-part of Self)
+						(the Anion has-part of Self)))))
+				[Ionic-Compound-has-chemical-formula-1])))
+       
+       (nested-atomic-chemical-formula ((if (not (has-value (the nested-atomic-chemical-formula of Self)))
+					    then ((?has-chf-term == (the term of (the has-chemical-formula of Self)))
+						  and
+						  (if (has-value ?has-chf-term)
+						      then (a Chemical-Formula with
+							      (term (#'(LAMBDA ()
+									       (COMPUTE-NESTED-ATOMIC-CHEMICAL-FORMULA-FROM-HAS-CHEMICAL-FORMULA 
+										(KM '|?has-chf-term|))))))))))))
+       
+
+(comment [Ionic-Compound-has-chemical-formula-1]
+  (:seq "the chemical formula of the ionic compound consisting of" 
+        (the text-gen of (the Cation has-part of Self))
+        "and"
+        (the text-gen of (the Anion has-part of Self))
+        "is"
+        (the text-gen of Self)
+  )
+  "When an anion is combined with a cation to form an ionic compound, the subscript of each ion is equal to the charge magnitude of the other ion."
+)
+
+
+(Ionic-Compound has 
+		(test-case ( '((*Ionic-Na2CO3 has
+				       (instance-of (Ionic-Compound))
+				       (has-part ((a Na-Plus)
+						  (a CO3-Minus-2))))
+			       
+			       ((the term of (the has-chemical-formula of *Ionic-Na2CO3)) 
+				= 
+				((:seq (:pair 2 Na-Plus) (:pair 1 CO3-Minus-2))))))))
+			       
+			       
